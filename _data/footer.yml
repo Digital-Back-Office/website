@@ -1,0 +1,16 @@
+- title: Pages
+  links:
+    - name: About
+      link: /about/
+    - name: Contact
+      link: /contact/
+- title: Social
+  links:
+    - name: Twitter
+      link: 
+      social_icon: Twitter
+      new_window: true
+    - name: LinkedIn
+      link: 
+      social_icon: LinkedIn
+      new_window: true
