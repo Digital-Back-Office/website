@@ -75,7 +75,7 @@ section {
 
 	&.hero {
 		color: #30BABA;
-		background: $brand-color;
+		background: #111 url(/images/shoonye.png);
 		text-align: left;
 		margin-top: -100px;
 		padding-top: 250px;
@@ -90,7 +90,7 @@ section {
 
 		p {
 			font-size: 1.8rem;
-			color: #545454;
+			color: #848484;
 		}
 
 		a:not(.button) {
