@@ -100,7 +100,7 @@ section {
 	}
 
 	&.alternate {
-		background: #eee;
+		background: #eee url($pattern2);
 	}
 }
 
@@ -238,7 +238,8 @@ section {
 }
 
 .patterned {
-	background: #222 url($pattern);
+	background: #EFCA08 url($pattern);
+
 
 	&,
 	p {
