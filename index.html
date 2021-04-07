@@ -14,13 +14,13 @@ title: Digital Back Office
 	<div class="container halves">
 		<div>
 			<h3 class="editable">Our work</h3>
-			<p class="editable">We take pride in our previous work and our happy customers. We cater to any sector to boost business and increase exposure.</p>
-			<p class="editable"><a href="{{ site.baseurl }}/portfolio/">View Full Portfolio &rarr;</a></p>
+			<p class="editable">We deliver complete range of solutions in data processing from conceptulization to delivery.</p>
+			<p class="editable"><a href="{{ site.baseurl }}/services/">View Full range of services &rarr;</a></p>
 		</div>
 		<div>
 			<ul class="image-grid">
 				{% for client in site.clients limit: 4 %}
-					<li><a href="{{ site.baseurl }}{{ client.url }}"><img src="{% include relative-src.html src=client.image_path %}"></a></li>
+					<li><!--a href="{{ site.baseurl }}{{ client.url }}"--><img src="{% include relative-src.html src=client.image_path %}"></a></li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -31,13 +31,15 @@ title: Digital Back Office
 	<div class="container halves">
 		<div>
 			<ul class="image-list">
-				<li><img src="{{ site.baseurl }}/images/cloudcannon-logo-blue.svg" width="250" style="margin-bottom: 40px;"></li>
-				<li><img src="{{ site.baseurl }}/images/jekyll-logo-black-red-transparent.png" width="300"></li>
+				<li><img src="{{ site.baseurl }}/images/tech/hadoop.png" width="250" style="margin-bottom: 40px;"></li>
+				<li><img src="{{ site.baseurl }}/images/tech/airflow.png" width="300"></li>
 			</ul>
 		</div>
 		<div>
-			<h3 class="editable">Latest software, greatest perfomance</h3>
-			<p class="editable">As a new agency we get reap the benefits of the latest and greatest. We build our websites with the most up to date technology. This ensures your website is fast, efficient and reliable for many years.</p>
+			<ul class="image-list">
+				<li><img src="{{ site.baseurl }}/images/tech/cloud.png" width="250" style="margin-bottom: 40px;"></li>
+				<li><img src="{{ site.baseurl }}/images/tech/docker.png" width="300"></li>
+			</ul>
 		</div>
 	</div>
 </section>
