@@ -1,7 +1,7 @@
 ---
 name: Data Science 
-subtitle: We build full data processing, data modelling and machine learning pipelines built in Python. 
-external_url: https://github.com/CloudCannon/frisco-jekyll-template
+subtitle: We build end-to-end data processing, modelling and machine learning pipelines in Python. 
+external_url: 
 image_path: /images/clients/dsml.png
 ---
 
