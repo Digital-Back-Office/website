@@ -6,7 +6,7 @@ google_maps_javascript_api_key:
 disqus_shortname:
 
 # Default description in social shares for the jekyll-seo-tag gem
-description: Digital Back Office Website.
+description: "Digital Back Office : We deliver Business Efficency; We love data."
 
 
 timezone: Etc/UTC
@@ -14,7 +14,7 @@ timezone: Etc/UTC
 collections:
   staff_members:
     output: false
-  clients:
+  services:
     output: true
 
 paginate: 10
@@ -49,9 +49,9 @@ defaults:
           height: 2000
   - scope:
       path: ""
-      type: "clients"
+      type: "services"
     values:
-      layout: "client"
+      layout: "service"
       _options:
         image_path:
           width: 2000

@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{% assign portfolio = site.pages | where: "path", "portfolio.html" | first %}
+
+<section class="hero diagonal">
+	<div class="hero-video-div">
+	    <video id="hero_video" class="hero-video" preload autoplay loop muted>
+	      <source id="mp4" src="{{ site.baseurl }}{{page.video_path}}" type="video/mp4" >
+	    </video>
+	</div>
+	<div class="container">
+		{% if portfolio.heading %}
+		<h2><a href="{{ site.baseurl }}/portfolio/">{{ portfolio.heading }}</a> / {{ page.title | capitalize }}</h2>
+		{% endif %}
+		{% if page.name %}
+			<h2> {{ page.name}}</h2>
+		{% endif %}
+		{% if page.subtitle %}
+			<p class="subtext">{{ page.subtitle }}</p>
+		{% endif %}
+	</div>
+</section>
+<section class="diagonal-image patterned">
+	<img src="{{ page.image_path }}" >
+</section>
+
+<section class="diagonal-service">
+	<div class="container">
+		<div>
+			{{ content }}
+		</div>
+		<p><a href="{{ page.external_url }}">View {{ page.title }} &rarr;</a></p>
+	</div>
+</section>

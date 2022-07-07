@@ -51,9 +51,10 @@ p, address, ul, ol, pre {
 	margin: 0 0 20px 0;
 }
 
+
 p, address, ul, ol {
 	font-size: 1.38rem;
-	color: #666;
+	color: #fff;
 	font-weight: 300;
 	line-height: 1.6;
 }
@@ -63,3 +64,11 @@ pre {
 	background: #eee;
 	border-radius: 2px;
 }
+
+.service-caption{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

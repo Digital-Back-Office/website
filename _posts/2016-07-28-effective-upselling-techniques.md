@@ -1,5 +1,5 @@
 ---
-title: Effective upselling techniques
+title: Effective upselling techniques 
 categories:
   - sales
   - tips

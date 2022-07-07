@@ -3,6 +3,11 @@ title: Digital Back Office
 ---
 
 <section class="hero diagonal">
+	<div class="hero-video-div">
+	    <video id="hero_video" class="hero-video" preload autoplay loop muted>
+	      <source id="mp4" src="{{ site.baseurl }}/videos/dbo_bg_video10.mp4" type="video/mp4" >
+	    </video>
+	</div>
 	<div class="container">
 		<h2 class="editable">We deliver business efficency. </h2>
 		<p class="subtext editable"> We design and build <strong> Custom Solutions</strong>  for Big Data Processing using open-source and cloud auto-scaling in cost effective manner. </p>
@@ -13,14 +18,21 @@ title: Digital Back Office
 <section class="diagonal patterned">
 	<div class="container halves">
 		<div>
-			<h3 class="editable">Our work</h3>
-			<p class="editable">We deliver complete range of solutions in data processing from conceptulization to delivery.</p>
-			<p class="editable"><a href="{{ site.baseurl }}/services/">View Full range of services &rarr;</a></p>
+			<h3 class="editable">Our Offering</h3>
+			<p class="editable">We deliver complete range of solutions in data processing from conceptulization to delivery: 
+				<ul>
+					<li>Data Architecture and Data Modelling</li>
+					<li>Data Science and Machine Leaning</li>
+					<li>Big Data DevOps</li>				
+					<li>Data Visualizations </li>
+				</ul> </p>
+			<p class="editable"><a href="{{ site.baseurl }}/services/" style="color: #1e3148; font-weight: 500">View Full range of services &rarr;</a></p>
 		</div>
 		<div>
 			<ul class="image-grid">
-				{% for client in site.clients limit: 4 %}
-					<li><!--a href="{{ site.baseurl }}{{ client.url }}"--><img src="{% include relative-src.html src=client.image_path %}"></a></li>
+				{% for service in site.services limit: 4 %}
+					<li><a href="{{ site.baseurl }}{{ service.url }}"><img src="{% include relative-src.html src=service.image_path %}"></a></li>
+
 				{% endfor %}
 			</ul>
 		</div>
@@ -43,3 +55,4 @@ title: Digital Back Office
 		</div>
 	</div>
 </section>
+

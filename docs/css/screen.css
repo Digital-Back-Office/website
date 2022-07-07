@@ -20,9 +20,11 @@ h4 { font-size: 1.5rem; margin: 0 0 10px 0; }
 
 p, address, ul, ol, pre { margin: 0 0 20px 0; }
 
-p, address, ul, ol { font-size: 1.38rem; color: #666; font-weight: 300; line-height: 1.6; }
+p, address, ul, ol { font-size: 1.38rem; color: #fff; font-weight: 300; line-height: 1.6; }
 
 pre { padding: 10px; background: #eee; border-radius: 2px; }
+
+.service-caption { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
 .container, .text-container { margin: 0 auto; position: relative; padding: 0 20px; }
 
@@ -48,19 +50,27 @@ section.diagonal, footer.diagonal { -webkit-transform: skewY(-5deg); -moz-transf
 
 section.diagonal > div, footer.diagonal > div { -webkit-transform: skewY(5deg); -moz-transform: skewY(5deg); -ms-transform: skewY(5deg); transform: skewY(5deg); }
 
+section.diagonal-service, footer.diagonal-service { -webkit-transform: skewY(-5deg); -moz-transform: skewY(-5deg); -ms-transform: skewY(-5deg); transform: skewY(-5deg); background: #EFCA08 url("/images/hex_yellow.png"); }
+
+section.diagonal-service > div, footer.diagonal-service > div { -webkit-transform: skewY(5deg); -moz-transform: skewY(5deg); -ms-transform: skewY(5deg); transform: skewY(5deg); }
+
+section.diagonal-image, footer.diagonal-image { -webkit-transform: skewY(-5deg); -moz-transform: skewY(-5deg); -ms-transform: skewY(-5deg); transform: skewY(-5deg); background: #EFCA08 url("/images/hex_yellow.png"); padding: 25px 0; }
+
+section.diagonal-image > div, footer.diagonal-image > div { -webkit-transform: skewY(5deg); -moz-transform: skewY(5deg); -ms-transform: skewY(5deg); transform: skewY(5deg); }
+
 section.hero, footer.hero { color: #30BABA; background: #111 url(/images/shoonye.png); text-align: left; margin-top: -100px; padding-top: 250px; }
 
 section.hero h2, footer.hero h2, section.hero p, footer.hero p { max-width: 90%; }
 
 section.hero h2, footer.hero h2 { font-size: 3.5rem; }
 
-section.hero p, footer.hero p { font-size: 1.8rem; color: #848484; }
+section.hero p, footer.hero p { font-size: 1.8rem; color: #fff; }
 
 section.hero a:not(.button), footer.hero a:not(.button) { color: #ffffff; font-style: italic; }
 
 section.alternate, footer.alternate { background: #eee url("/images/connect_dots.png"); }
 
-.button { padding: 13px 38px; border-radius: 3px; display: inline-block; color: #f9f9f9; text-decoration: none; cursor: pointer; margin: 20px 0 0 0; border: 0px solid #30BABA; background: #30BABA; text-decoration: none !important; }
+.button { padding: 13px 38px; border-radius: 3px; display: inline-block; color: #f9f9f9; text-decoration: none; cursor: pointer; margin: 20px 0 0 0; border: 0px solid #30BABA; background: #30BABA; text-decoration: none !important; font-weight: 500; }
 
 .button:hover { background: rgba(48, 186, 186, 0.5); color: #fff; }
 
@@ -100,6 +110,10 @@ section.alternate, footer.alternate { background: #eee url("/images/connect_dots
 .image-grid .filler { border: 0; }
 
 .image-list, .image-list li { list-style: none; margin: 0; padding: 0; text-align: center; }
+
+.hero-video { height: 100%; }
+
+.hero-video-div { position: fixed; overflow: hidden; top: 0; width: 100%; z-index: -1; }
 
 .patterned { background: #EFCA08 url("/images/hex_yellow.png"); }
 
