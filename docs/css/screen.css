@@ -20,7 +20,7 @@ h4 { font-size: 1.5rem; margin: 0 0 10px 0; }
 
 p, address, ul, ol, pre { margin: 0 0 20px 0; }
 
-p, address, ul, ol { font-size: 1.38rem; color: #fff; font-weight: 300; line-height: 1.6; }
+p, address, ul, ol { font-size: 1.38rem; color: #111; font-weight: 300; line-height: 1.6; }
 
 pre { padding: 10px; background: #eee; border-radius: 2px; }
 
@@ -50,7 +50,7 @@ section.diagonal, footer.diagonal { -webkit-transform: skewY(-5deg); -moz-transf
 
 section.diagonal > div, footer.diagonal > div { -webkit-transform: skewY(5deg); -moz-transform: skewY(5deg); -ms-transform: skewY(5deg); transform: skewY(5deg); }
 
-section.diagonal-service, footer.diagonal-service { -webkit-transform: skewY(-5deg); -moz-transform: skewY(-5deg); -ms-transform: skewY(-5deg); transform: skewY(-5deg); background: #EFCA08 url("/images/hex_yellow.png"); }
+section.diagonal-service, footer.diagonal-service { -webkit-transform: skewY(-5deg); -moz-transform: skewY(-5deg); -ms-transform: skewY(-5deg); transform: skewY(-5deg); padding: 70px 0; text-align: justify; }
 
 section.diagonal-service > div, footer.diagonal-service > div { -webkit-transform: skewY(5deg); -moz-transform: skewY(5deg); -ms-transform: skewY(5deg); transform: skewY(5deg); }
 
@@ -115,7 +115,7 @@ section.alternate, footer.alternate { background: #eee url("/images/connect_dots
 
 .hero-video-div { position: fixed; overflow: hidden; top: 0; width: 100%; z-index: -1; }
 
-.patterned { background: #EFCA08 url("/images/hex_yellow.png"); }
+.patterned { background: #EFCA08 url("/images/hex_yellow.png"); /* background: linear-gradient(to top right, #74FFFF, #30baba), url($pattern); */ }
 
 .patterned, .patterned p { color: #fefefe; }
 

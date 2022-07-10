@@ -77,7 +77,9 @@ section {
 		-moz-transform: skewY(-$section-rotation);
 		-ms-transform: skewY(-$section-rotation);
 		transform: skewY(-$section-rotation);
-		background: #EFCA08 url($pattern);
+		padding: 70px 0;
+		text-align: justify;
+
 
 		> div {
 			-webkit-transform: skewY($section-rotation);
@@ -92,7 +94,7 @@ section {
 		-moz-transform: skewY(-$section-rotation);
 		-ms-transform: skewY(-$section-rotation);
 		transform: skewY(-$section-rotation);
-		background: #EFCA08 url($pattern);
+		background: #EFCA08 url($pattern); 
 		padding:25px 0;
 
 		> div {
@@ -284,10 +286,10 @@ section {
 
 
 .patterned {
-	background: #EFCA08 url($pattern);
-
-	&,
-	p {
-		color: #fefefe;
-	}
+	background: #EFCA08 url($pattern); 
+	/* background: linear-gradient(to top right, #74FFFF, #30baba), url($pattern); */
+	 &,
+      p {
+               color: #fefefe;
+       }
 }

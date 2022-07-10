@@ -2,9 +2,16 @@
 layout: default
 ---
 <section class="hero diagonal">
+	{% if page.video_path %}
+	<div class="hero-video-div">
+	    <video id="hero_video" class="hero-video" preload autoplay loop muted>
+	      <source id="mp4" src="{{ page.video_path }}" type="video/mp4" >
+	    </video>
+	</div>
+	{% endif %}
 	<div class="container" {% if page.full_width %}style="max-width: 100%"{% endif %}>
 		{% if page.heading %}
-			<h2>{{ page.heading }}</h2>
+			<h2>{{ page.heading }} </h2>
 		{% elsif page.title %}
 			<h2>{{ page.title }}</h2>
 		{% endif %}

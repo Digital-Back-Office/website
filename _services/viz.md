@@ -3,79 +3,31 @@ name: Data Visualization
 subtitle: We deliver smart data visualization that facilitate not only Decision making but also Idea generation, research and Visual Discovery. 
 external_url: 
 image_path: /images/services/viz.png
+header_image: /images/services/head_viz.png
+video_path: /videos/dbo_bg_video2.mp4
 ---
 
-Marketing site template for Jekyll. Browse through a [live demo](https://proud-alligator.cloudvent.net/).
-Increase the web presence of your brand with this configurable theme.
+Our eyes are drawn to colours and patterns. We can quickly identify red from blue, square from circle. Our culture is visual, that is why Data Visualization is so important for human Decision Making. 
 
-Hydra was made by [CloudCannon](https://cloudcannon.com/), the Cloud CMS for Jekyll.
+>*Data Visualisation is story telling with a purpose.*
 
-Find more templates, themes and step-by-step Jekyll tutorials at [CloudCannon Academy](https://learn.cloudcannon.com/).
 
-## Features
+## Our Offering
+Data Visualisation is an art and we treat is such. We don't treat data visaualiation as just a data problems, we understand that visuals are for humans. Our designers produce data visualization that are simple, impactful and engaging. We work with various tools including Tableau, Power BI, HighChart, D3.js, Google Charts and many others. We strive to produce visual tools for your decision makers. 
 
-* Contact form
-* Pre-built pages
-* Pre-styled components
-* Blog with pagination
-* Post category pages
-* Disqus comments for posts
-* Staff and author system
-* Configurable footer
-* Optimised for editing in [CloudCannon](https://cloudcannon.com/)
-* RSS/Atom feed
-* SEO tags
-* Google Analytics
 
-## Setup
+## Our Expertise
+* Static Data Visaulization
+* Interactive Data Visualization
+* Time Series Visualization
+* GIS & Geo Visualization
+* Indicators 
+* Pivot Tables
+* Matrices 
 
-1. Add your site and author details in `_config.yml`.
-2. Add your Google Analytics and Disqus keys to `_config.yml`.
-3. Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or Jekyll locally).
+Here is an interesting chart that we like:
 
-## Develop
+<img src="{{site.baseurl}}/images/daily_routine.png" />
 
-Hydra was built with [Jekyll](https://jekyllrb.com/) version 3.3.1, but should support newer versions as well.
+Credit:  [Daily Rituals](https://www.masoncurrey.com/daily-rituals){:target="\_blank"}
 
-Install the dependencies with [Bundler](https://bundler.io/):
-
-~~~bash
-$ bundle install
-~~~
-
-Run `jekyll` commands through Bundler to ensure you're using the right versions:
-
-~~~bash
-$ bundle exec jekyll serve
-~~~
-
-## Editing
-
-Hydra is already optimised for adding, updating and removing pages, staff, advice, company details and footer elements in CloudCannon.
-
-### Posts
-
-* Add, update or remove a post in the *Posts* collection.
-* The **Staff Author** field links to members in the **Staff** collection.
-* Documentation pages are organised in the navigation by category, with URLs based on the path inside the `_docs` folder.
-* Change the defaults when new posts are created in `_posts/_defaults.md`.
-
-### Contact Form
-
-* Preconfigured to work with CloudCannon, but easily changed to another provider (e.g. [FormSpree](https://formspree.io/)).
-* Sends email to the address listed in company details.
-
-### Staff
-
-* Reused around the site to save multiple editing locations.
-* Add `excluded_in_search: true` to any documentation page's front matter to exclude that page in the search results.
-
-### Navigation
-
-* Exposed as a data file to give clients better access.
-* Set in the *Data* / *Navigation* section.
-
-### Footer
-
-* Exposed as a data file to give clients better access.
-* Set in the *Data* / *Footer* section.

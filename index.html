@@ -16,28 +16,26 @@ title: Digital Back Office
 </section>
 
 <section class="diagonal patterned">
-	<div class="container halves">
-		<div>
-			<h3 class="editable">Our Offering</h3>
-			<p class="editable">We deliver complete range of solutions in data processing from conceptulization to delivery: 
-				<ul>
-					<li>Data Architecture and Data Modelling</li>
-					<li>Data Science and Machine Leaning</li>
-					<li>Big Data DevOps</li>				
-					<li>Data Visualizations </li>
-				</ul> </p>
-			<p class="editable"><a href="{{ site.baseurl }}/services/" style="color: #1e3148; font-weight: 500">View Full range of services &rarr;</a></p>
-		</div>
-		<div>
-			<ul class="image-grid">
-				{% for service in site.services limit: 4 %}
-					<li><a href="{{ site.baseurl }}{{ service.url }}"><img src="{% include relative-src.html src=service.image_path %}"></a></li>
-
-				{% endfor %}
-			</ul>
-		</div>
+	<div class="container">
+		<h3 class="editable">Our Offerings</h3>
+			<p class="editable">We deliver complete range of solutions in <b> Big Data </b> processing from conceptulization to delivery.
+	    <p class="editor-link" style="text-align: center;"><a href="cloudcannon:collections/_services/" class="btn"><strong>&#9998;</strong> Our Services</a></p>
+		<ul class="image-grid">
+			{% for service in site.services %}
+				<li>
+					<a href="{{ service.baseurl }}{{ service.url }}"--> 
+						<img src="{% include relative-src.html src=service.image_path %}" alt="{{ person.name }}">
+						<div class="details">
+							<div class="name">{{ service.name }}</div>
+							<div class="position">{{ service.subtitle }}</div>
+						</div>
+					<!--/a-->
+				</li>
+			{% endfor %}
+		</ul>
 	</div>
 </section>
+
 
 <section class="diagonal alternate">
 	<div class="container halves">
