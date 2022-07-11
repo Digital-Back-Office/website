@@ -10,47 +10,91 @@ title: Digital Back Office
 	</div>
 	<div class="container">
 		<h2 class="editable">We deliver business efficency. </h2>
-		<p class="subtext editable"> We design and build <strong> Custom Solutions</strong>  for Big Data Processing using open-source and cloud auto-scaling in cost effective manner. </p>
+		<p class="subtext editable"> We design and build <strong> Custom Solutions</strong>  for Big Data Processing using open-source and cloud auto-scaling in cost effective manner.</p>
 		<p><a class="button alt" href="{{ site.baseurl }}/contact/">Contact Us</a></p>
 	</div>
 </section>
 
 <section class="diagonal patterned">
 	<div class="container">
-		<h3 class="editable">Our Offerings</h3>
-			<p class="editable">We deliver complete range of solutions in <b> Big Data </b> processing from conceptulization to delivery.
-	    <p class="editor-link" style="text-align: center;"><a href="cloudcannon:collections/_services/" class="btn"><strong>&#9998;</strong> Our Services</a></p>
+		<center><h3 class="editable">Our Offerings</h3>
+			<p class="editable">We deliver complete range of solutions in <b> Big Data </b> processing from conceptulization to delivery</p></center>
 		<ul class="image-grid">
 			{% for service in site.services %}
 				<li>
-					<a href="{{ service.baseurl }}{{ service.url }}"--> 
+					<a href="{{ service.baseurl }}{{ service.url }}"> 
 						<img src="{% include relative-src.html src=service.image_path %}" alt="{{ person.name }}">
 						<div class="details">
 							<div class="name">{{ service.name }}</div>
 							<div class="position">{{ service.subtitle }}</div>
 						</div>
-					<!--/a-->
+					</a>
 				</li>
 			{% endfor %}
 		</ul>
 	</div>
 </section>
-
-
-<section class="diagonal alternate">
+<!--section class="diagonal-small patterned-black">
+	<div class="container">
+	  <h1 style="color: white;"><center>Case Studies </center></h1> <br/>
+	  <div class='container data-slick'>
+		  <div><img src="{{ site.baseurl }}/images/cs/head_arch.png"/></div>
+		  <div><img src="{{ site.baseurl }}/images/cs/head_dsml.png"/></div>
+		  <div><img src="{{ site.baseurl }}/images/cs/head_devops.png"/></div>
+		  <div><img src="{{ site.baseurl }}/images/cs/head_viz.png"/></div>
+	  </div>
+	</div>
+</section-->
+<section class="diagonal-small alternate">
+	<div class="container">
+	<h1 class="editable"><center>Our Clients </center></h1>
 	<div class="container halves">
 		<div>
 			<ul class="image-list">
-				<li><img src="{{ site.baseurl }}/images/tech/hadoop.png" width="250" style="margin-bottom: 40px;"></li>
-				<li><img src="{{ site.baseurl }}/images/tech/airflow.png" width="300"></li>
+				<li><img src="{{ site.baseurl }}/images/clients/ubs.png" width="250" style="margin-bottom: 40px;"></li>
+				<li><img src="{{ site.baseurl }}/images/clients/vmware.jpeg" width="300"></li>
+				<li><img src="{{ site.baseurl }}/images/clients/wittyparrot.png" width="300"></li>
+
+
 			</ul>
 		</div>
 		<div>
 			<ul class="image-list">
-				<li><img src="{{ site.baseurl }}/images/tech/cloud.png" width="250" style="margin-bottom: 40px;"></li>
-				<li><img src="{{ site.baseurl }}/images/tech/docker.png" width="300"></li>
+				<li><img src="{{ site.baseurl }}/images/clients/pcbb.png" width="300"></li>
+				<li><img src="{{ site.baseurl }}/images/clients/KCOM.png" width="300"></li>
+				<li><img src="{{ site.baseurl }}/images/clients/network-rail.jpeg" width="250" style="margin-bottom: 40px;"></li>
+
 			</ul>
 		</div>
 	</div>
 </section>
+<section class="diagonal-small patterned-yellow">
+	<div class ="container image-gallery">
+	  {% for file in site.static_files %}
+	  {% if file.path  contains "/images/tech" %}
+	    {% assign filenameparts = file.path | split: "/" %}
+	      {% assign filename = filenameparts | last | replace: file.extname,"" %}
+	       <div class="box">
+             <img src="{{ site.baseurl }}/images/tech/{{file.name }} " alt="{{ filename }}"  class="img-gallery" />
+           </div>
+	    {% endif %}
+	  {% endfor %}
+ </div>
+</section>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.data-slick').slick({
+  	dots: true,
+	infinite: true,
+	speed: 500,
+	fade: true,
+	cssEase: 'linear',
+  });
+});
+</script>
+
+
 
