@@ -235,9 +235,9 @@ nav li { display: block; }
 @media (min-width: 620px) { nav { text-align: right; position: absolute; top: 0; right: 0; padding: 0 20px; }
   nav li { display: inline-block; } }
 
-nav a { margin: 0 3px; padding: 20px 10px; color: rgba(132, 132, 132, 0.8); transition: 0.2s ease-in-out; display: none; font-size: 1rem; }
+nav a { margin: 0 3px; padding: 20px 10px; color: rgba(255, 255, 255, 0.8); transition: 0.2s ease-in-out; display: none; font-size: 1rem; }
 
-@media (min-width: 620px) { nav a { border-bottom: 2px solid rgba(132, 132, 132, 0); display: block; padding: 10px; } }
+@media (min-width: 620px) { nav a { border-bottom: 2px solid rgba(255, 255, 255, 0); display: block; padding: 10px; } }
 
 nav a.nav-toggle { display: inline; position: absolute; right: 10px; top: -22px; font-size: 1.9em; border: 0; }
 
@@ -245,9 +245,9 @@ nav a.nav-toggle { display: inline; position: absolute; right: 10px; top: -22px;
 
 nav a.nav-toggle:hover { border: 0; }
 
-nav a:hover { color: #545454; }
+nav a:hover { color: #ffffff; }
 
-@media (min-width: 620px) { nav a:hover { border-bottom: 2px solid rgba(132, 132, 132, 0.6); display: block; padding: 10px; } }
+@media (min-width: 620px) { nav a:hover { border-bottom: 2px solid rgba(255, 255, 255, 0.6); display: block; padding: 10px; } }
 
 @media (min-width: 620px) { nav a.highlight { border: 1px #ccc solid; border-radius: 5px; }
   nav a.highlight:hover { background: #fff; color: #f9f9f9; } }

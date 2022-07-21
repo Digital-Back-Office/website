@@ -56,13 +56,13 @@ nav {
 	a {
 		margin: 0 3px;
 		padding: 20px 10px;
-		color: rgba(132, 132, 132, 0.8);
+		color: rgba(255, 255, 255, 0.8);
 		transition: 0.2s ease-in-out;
 		display: none;
 		font-size: 1rem;
 
 		@media #{$mid-point} {
-			border-bottom: 2px solid rgba(132, 132, 132, 0);
+			border-bottom: 2px solid rgba(255, 255, 255, 0);
 			display: block;
 			padding: 10px;
 		}
@@ -86,10 +86,10 @@ nav {
 	}
 
 	a:hover {
-		color: #545454;
+		color: #ffffff;
 
 		@media #{$mid-point} {
-			border-bottom: 2px solid rgba(132, 132, 132, 0.6);
+			border-bottom: 2px solid rgba(255, 255, 255, 0.6);
 			display: block;
 			padding: 10px;
 		}
