@@ -75,9 +75,6 @@ defaults:
     values:
       layout: "default"
 
-# -----------
-# CloudCannon
-
 social_icons:
   - Facebook
   - Instagram

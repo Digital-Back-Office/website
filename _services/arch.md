@@ -1,6 +1,6 @@
 ---
 name: Big Data Architecture
-subtitle: We design secure, fault tolerant and scalable Big Data solutions that work accross various departments and teams. 
+subtitle: We design secure, fault tolerant and scalable Big Data solutions that work across various departments and teams. 
 external_url: 
 image_path: /images/services/arch.png
 header_image: /images/services/head_arch.png
