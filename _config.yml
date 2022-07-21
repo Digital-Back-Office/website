@@ -1,12 +1,12 @@
 title: Digital Back Office
-url: "https://DigitalBackOffice.co.uk"
+url: "https:/www.DigitalBackOffice.co.uk"
 baseurl:
 google_analytics_key:
 google_maps_javascript_api_key:
 disqus_shortname:
 
 # Default description in social shares for the jekyll-seo-tag gem
-description: "Digital Back Office : We deliver Business Efficency; We love data."
+description: "We deliver Business Efficency; We love data!"
 
 
 timezone: Etc/UTC
