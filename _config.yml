@@ -1,8 +1,8 @@
 title: Digital Back Office
 url: "https:/www.DigitalBackOffice.co.uk"
 baseurl:
-google_analytics_key:
-google_maps_javascript_api_key:
+google_analytics_key: "UA-235247086-1"
+google_maps_javascript_api_key: "AIzaSyBDH8Uf-DJ2ra99pEzoaPwX0nwq8yqX1-8"
 disqus_shortname:
 
 # Default description in social shares for the jekyll-seo-tag gem
