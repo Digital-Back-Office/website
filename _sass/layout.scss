@@ -155,6 +155,8 @@ section {
 	}
 }
 
+
+
 .button {
 	padding: 13px 38px;
 	border-radius: 3px;
@@ -411,4 +413,20 @@ section {
         position: relative;
          bottom: 4px;
     }
+}
+
+.columnus {
+	@media #{$desktop} {
+		display: flex;
+		margin: 0 -30px;
+		align-items: center;
+		& > div {
+			flex: 1;
+			padding: 0 30px;
+		}
+	}
+
+	h2 {
+		text-align: left;
+	}
 }

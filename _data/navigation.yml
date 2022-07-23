@@ -1,4 +1,6 @@
 links:
+- name: About
+  link: /about-us/
 - name: Services
   link: /services/
 - name: Contact
