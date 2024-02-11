@@ -1,0 +1,30 @@
+---
+import Header from '/src/components/Header.astro'
+import Main from '/src/components/Main.astro'
+import '/src/assets/theme/theme.min.css'
+
+export interface Props {
+    title?: string,
+    description?: string,
+}
+
+const {
+    title = 'Digital Back Office',
+    description = 'We deliver Business Efficiency; We love data!',
+
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+</head>
+<body>
+    <Main />
+    <Header />
+    <script src="/src/assets/theme/theme.min.js"></script>
+</body>
+</html>

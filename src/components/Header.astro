@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets'
+import brandLogo from '/src/assets/images/dbo 1.png'
+---
+
+<style>
+    .nav-link {
+        color: #FFF;
+    }
+
+    .contact-btn {
+        border: 2px solid var(--ar-primary);
+        border-radius: 7px;
+        padding: 8px 20px;
+        color: var(--ar-primary);
+    }
+</style>
+
+<header class="navbar navbar-expand-lg bg-transparent">
+    <div class="container">
+        <Image src={brandLogo} alt="DBO Logo" class="brand-logo" />
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse2" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="#" class="btn btn-sm contact-btn fs-sm order-lg-3 d-none d-lg-inline-flex">
+            Contact us
+        </a>
+        <nav class="collapse navbar-collapse" id="navbarCollapse2">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Blog</a>
+                </li>
+            </ul>
+            <a href="#" class="btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0">
+                Contact us
+            </a>
+        </nav>
+    </div>
+</header>
