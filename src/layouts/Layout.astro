@@ -2,7 +2,6 @@
 import Header from '/src/components/Header.astro'
 import Main from '/src/components/Main.astro'
 import '/src/assets/theme/theme.min.css'
-import '/src/assets/theme/vendors/swiper/swiper-bundle.min.css'
 
 export interface Props {
     title?: string,
@@ -26,9 +25,9 @@ const {
 		font-family: "archivo";
 		src: url("/src/assets/fonts/Archivo/Archivo-Regular.ttf");
 	}
-    body {
+    /* body {
         padding: 0 10rem;
-    }
+    } */
 </style>
 
 <!DOCTYPE html>
@@ -36,13 +35,13 @@ const {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
     <title>{title}</title>
 </head>
 <body>
-    <Main />
-    <Header />
+    <!-- <Main /> -->
+    <!-- <Header /> -->
     <slot />
     <script src="/src/assets/theme/theme.min.js"></script>
-    <!-- <script src="/src/assets/theme/vendors/swiper/swiper-bundle.min.js"></script> -->
 </body>
 </html>

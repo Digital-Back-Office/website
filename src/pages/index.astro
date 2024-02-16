@@ -1,12 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import icon1 from "/src/assets/icons/icon1.png";
+import icon2 from "/src/assets/icons/icon2.png";
+import icon3 from "/src/assets/icons/icon3.png";
+import icon4 from "/src/assets/icons/icon4.png";
+import icon5 from "/src/assets/icons/icon5.png";
+import icon6 from "/src/assets/icons/icon6.png";
+import bgSec3 from "/src/assets/images/links.png";
+import { Image } from "astro:assets";
+import Header from "/src/components/Header.astro";
 export interface Props {}
+import 
 ---
 
 <style>
+	.top-sec {
+		background: linear-gradient(
+			198.24deg,
+			rgba(2, 2, 2, 0) 19.25%,
+			#121519 74.45%
+		);
+	}
 	.hero-section {
 		font-family: "arimo";
-		background: linear-gradient(198.24deg, rgba(2, 2, 2, 0) 19.25%, #121519 74.45%);
 	}
 
 	.contact-div {
@@ -44,326 +60,263 @@ export interface Props {}
 		background-color: var(--ar-primary);
 		border-radius: 0.5rem;
 	}
+
+	.section-3 {
+		position: relative;
+	}
+
+	.bg-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: fill;
+	}
+
+	.hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 </style>
 
 <Layout>
-	<section class="hero-section">
-		<div class="container position-relative">
-			<div class="row pt-xl-3 pt-xxl-4 gap-5 align-items-center">
-				<div class="col col-xxl-6">
-					<h1 class="text-center text-lg-start text-light fw-light">
-						We deliver <br />
-						<p class="fw-bold">Business Efficiency</p>
-					</h1>
-					<p
-						class="fs-lg text-center text-lg-start text-light pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5"
-					>
-						We design and build <strong>CUSTOM SOLUTIONS</strong> for
-						Big Data Processing using <strong>open-source</strong> and
-						cloud <strong>Auto-scaling</strong> in
-						<strong>cost-effective</strong> manner.
-					</p>
-				</div>
-				<div class="col contact-div offset-xxl-1 pt-sm-3">
-					<!-- Contact form -->
-					<div class="card contact-form border-0 bg-primary">
-						<form class="card-body" data-bs-theme="dark">
-							<h2
-								class="h3 card-title text-white text-center pb-2 pb-xxl-3"
-							>
-								30 mins FREE Consultation
-							</h2>
-							<div class="mb-3">
-								<label class="form-label fs-base" for="name">
-									Your Name
-								</label>
-								<input
-									class="form-control form-control-sm"
-									type="text"
-									placeholder="John Doe"
-									required
-									id="name"
-								/>
-							</div>
-							<div class="mb-3">
-								<label class="form-label fs-base" for="company">
-									Company Name
-								</label>
-								<input
-									class="form-control form-control-sm"
-									type="text"
-									placeholder="Your company name"
-									required
-									id="company"
-								/>
-							</div>
-							<div class="mb-3">
-								<label class="form-label fs-base" for="email">
-									Email address
-								</label>
-								<input
-									class="form-control form-control-sm"
-									type="email"
-									placeholder="Email address"
-									required
-									id="email"
-								/>
-							</div>
-							<div class="mb-3">
-								<label class="form-label" for="date-time-picker"
-									>Date and time</label
+	<section class="top-sec">
+		<video
+			class="hero-video"
+			src="/src/assets/videos/dbo_bg_video10.mp4"
+			preload
+			muted
+			autoplay
+			loop
+		>
+		</video>
+		<Header />
+		<section class="hero-section">
+			<div class="container position-relative">
+				<div class="row pt-xl-3 pt-xxl-4 gap-5 align-items-center">
+					<div class="col col-xxl-6">
+						<h1
+							class="text-center text-lg-start text-light fw-light"
+						>
+							We deliver <br />
+							<p class="fw-bold">Business Efficiency</p>
+						</h1>
+						<p
+							class="fs-lg text-center text-lg-start text-light pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5"
+						>
+							We design and build <strong>CUSTOM SOLUTIONS</strong
+							> for Big Data Processing using <strong
+								>open-source</strong
+							> and cloud <strong>Auto-scaling</strong> in
+							<strong>cost-effective</strong> manner.
+						</p>
+					</div>
+					<div class="col contact-div offset-xxl-1 pt-sm-3">
+						<!-- Contact form -->
+						<div class="card contact-form border-0 bg-primary">
+							<form class="card-body" data-bs-theme="dark">
+								<h2
+									class="h3 card-title text-white text-center pb-2 pb-xxl-3"
 								>
-								<div class="position-relative">
+									30 mins FREE Consultation
+								</h2>
+								<div class="mb-3">
+									<label
+										class="form-label fs-base"
+										for="name"
+									>
+										Your Name
+									</label>
 									<input
-										class="form-control form-control-sm date-picker pe-5"
+										class="form-control form-control-sm"
 										type="text"
-										placeholder="Choose date/time"
-										data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}'
-										id="date-time-picker"
+										placeholder="John Doe"
+										required
+										id="name"
 									/>
-									<i
-										class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
-									></i>
 								</div>
-							</div>
-							<div
-								class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
-							>
-								<button
-									class="btn book-btn w-100 w-sm-auto w-lg-100 w-xxl-auto me-sm-3 me-lg-0 me-xxl-3"
-									type="submit">Book now</button
+								<div class="mb-3">
+									<label
+										class="form-label fs-base"
+										for="company"
+									>
+										Company Name
+									</label>
+									<input
+										class="form-control form-control-sm"
+										type="text"
+										placeholder="Your company name"
+										required
+										id="company"
+									/>
+								</div>
+								<div class="mb-3">
+									<label
+										class="form-label fs-base"
+										for="email"
+									>
+										Email address
+									</label>
+									<input
+										class="form-control form-control-sm"
+										type="email"
+										placeholder="Email address"
+										required
+										id="email"
+									/>
+								</div>
+								<div class="mb-3">
+									<label
+										class="form-label"
+										for="date-time-picker"
+										>Date and time</label
+									>
+									<div class="position-relative">
+										<input
+											class="form-control form-control-sm date-picker pe-5"
+											type="text"
+											placeholder="Choose date/time"
+											data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}'
+											id="date-time-picker"
+										/>
+										<i
+											class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
+										></i>
+									</div>
+								</div>
+								<div
+									class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
 								>
-							</div>
-						</form>
+									<button
+										class="btn book-btn w-100 w-sm-auto w-lg-100 w-xxl-auto me-sm-3 me-lg-0 me-xxl-3"
+										type="submit">Book now</button
+									>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	</section>
 
-	<section class="container mt-n3 mt-sm-n2 pb-5 mb-md-2 mb-lg-3 mb-xl-4 mb-xxl-5">
-		<h2 class="h1 text-center pb-3 pb-lg-4">Testimonials</h2>
-
-		<!-- Swiper slider -->
-		<div
-			class="swiper pb-1 pb-md-2 pb-lg-3 pb-xl-4"
+	<!-- Features -->
+	<section
+		class="container section-3 py-5 mt-n3 mt-sm-n2 mt-md-0 my-lg-3 my-xl-4 my-xxl-5"
+	>
+		<!-- <Image src={bgSec3} alt="" class="bg-img" /> -->
+		<h2
+			class="display-5 text-center pt-md-3 pt-lg-4 pb-xxl-2 mt-xl-3 mb-4 mb-sm-5"
 		>
-			<div class="swiper-wrapper">
-				<!-- Item -->
-				<div class="swiper-slide">
-					<div class="card border-0 mb-4">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Jane Cooper"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">Jane Cooper</div>
-									<div class="fs-sm text-body-secondary">
-										Medical Assistant
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								Sit risus metus, vel neque eu lectus duis.
-								Vulputate facilisi at feugiat mi aenean nunc
-								enim faucibus arcu. Diam id accumsan sit.
-							</p>
-						</div>
-					</div>
-					<div class="card border-0">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Cameron Williamson"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">
-										Cameron Williamson
-									</div>
-									<div class="fs-sm text-body-secondary">
-										Marketing Coordinator
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								Nam convallis maecenas leo sapien interdum id.
-								Facilisi dictum lacinia in phasellus. Nullam id
-								sed tempor, volutpat blandit urna sagittis,
-								commodo vestibulum. Adipiscing dictumst nunc
-								enim massa lacus lobortis.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Item -->
-				<div class="swiper-slide">
-					<div class="card border-0 mb-4">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Wade Warren"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">Wade Warren</div>
-									<div class="fs-sm text-body-secondary">
-										President of Sales
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								Vitae tempor morbi tellus pulvinar. Ut iaculis
-								sit tristique in turpis volutpat quam nec.
-								Pretium eu nulla egestas ultrices. Donec in
-								pulvinar ut fermentum a, nunc, aliquam. Integer
-								dui dui ornare sed lacinia.
-							</p>
-						</div>
-					</div>
-					<div class="card border-0">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Leslie Alexander"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">Leslie Alexander</div>
-									<div class="fs-sm text-body-secondary">
-										CEO, Divi
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								Malesuada at ullamcorper adipiscing lobortis
-								vestibulum. Aliquet lobortis justo arcu ut
-								auctor porttitor amet, tortor. Justo.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Item -->
-				<div class="swiper-slide">
-					<div class="card border-0 mb-4">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Esther Howard"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">Esther Howard</div>
-									<div class="fs-sm text-body-secondary">
-										CEO, Slack
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								Ante turpis leo dictum adipiscing nisl magnis
-								elementum eu. Integer consequat sed ipsum massa
-								egestas integer proin id.
-							</p>
-						</div>
-					</div>
-					<div class="card border-0">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Brooklyn Simmons"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">Brooklyn Simmons</div>
-									<div class="fs-sm text-body-secondary">
-										Marketing Coordinator
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								In quisque dolor, aliquam faucibus. Gravida diam
-								ornare egestas proin quis odio suspendisse
-								pellentesque. Condimentum risus, rutrum
-								curabitur faucibus mi a turpis morbi. Nulla
-								euismod dolor quis amet sed.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Item -->
-				<div class="swiper-slide">
-					<div class="card border-0 mb-4">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Fannie Summers"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">Fannie Summers</div>
-									<div class="fs-sm text-body-secondary">
-										VP of Sales
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								In et dui amet amet elementum urna, dictum. Eget
-								leo ornare bibendum a fermentum. Rutrum
-								pellentesque ipsum cras purus ac a ullamcorper.
-								Elit ac amet quam tellus euismod ac aliquam
-								pharetra lectus.
-							</p>
-						</div>
-					</div>
-					<div class="card border-0">
-						<div class="card-body">
-							<div class="d-flex align-items-center mb-3">
-								<img
-									class="rounded-circle"
-									src=""
-									width="60"
-									alt="Robert Fox"
-								/>
-								<div class="ps-3">
-									<div class="h6 mb-1">Robert Fox</div>
-									<div class="fs-sm text-body-secondary">
-										Marketing Coordinator
-									</div>
-								</div>
-							</div>
-							<p class="card-text">
-								At felis non consequat neque in ultrices tortor
-								purus dui. At sed fermentum, egestas amet et
-								donec euismod risus. Nulla mauris.
-							</p>
-						</div>
-					</div>
+			Do these sound familiar to you?
+		</h2>
+		<div
+			class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-4 gy-sm-5 pb-md-4 pb-lg-5 mb-2 mb-lg-0 mb-xxl-2"
+		>
+			<!-- Item -->
+			<div class="col text-center text-sm-start pt-2 pt-sm-0">
+				<div class="pe-md-3 pe-lg-3 pe-xl-5">
+					<Image
+						src={icon1}
+						alt="icon"
+						class="d-inline-block mb-3 mb-lg-4"
+					/>
+					<h3 class="h5 mb-2">Volume, Velocity, Variety</h3>
+					<p class="mb-0">
+						Understanding 3V's of Big data is fundamental to
+						building big data solution. How do I measure, manage and
+						plan?
+					</p>
 				</div>
 			</div>
 
-			<!-- Pagination (bullets) -->
-			<div
-				class="swiper-pagination position-relative bottom-0 mt-2 mt-md-3 mt-lg-4 pt-4"
-			>
+			<!-- Item -->
+			<div class="col text-center text-sm-start pt-2 pt-sm-0">
+				<div class="ps-md-3 px-lg-2 px-xl-4">
+					<Image
+						src={icon2}
+						alt="icon"
+						class="d-inline-block mb-3 mb-lg-4"
+					/>
+					<h3 class="h5 mb-2">Cost Management</h3>
+					<p class="mb-0">
+						Big Data storage, processing and software licensing cost
+						increases exponentially. How do I keep cost under
+						control?
+					</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col text-center text-sm-start pt-2 pt-sm-0">
+				<div class="pe-md-3 ps-lg-3 ps-xl-5">
+					<Image
+						src={icon3}
+						alt="icon"
+						class="d-inline-block mb-3 mb-lg-4"
+					/>
+					<h3 class="h5 mb-2">Data Security</h3>
+					<p class="mb-0">
+						Data security is key to organizations survival. Is my
+						data safe from unauthorized access, malware attacks?
+					</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col text-center text-sm-start pt-2 pt-sm-0">
+				<div class="pe-md-3 pe-lg-3 pe-xl-5">
+					<Image
+						src={icon4}
+						alt="icon"
+						class="d-inline-block mb-3 mb-lg-4"
+					/>
+					<h3 class="h5 mb-2">Tool Selection</h3>
+					<p class="mb-0">
+						Big Data tools pose problem of “Paradox of choices”.
+						What are the right tools for my organisations's data
+						needs?
+					</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col text-center text-sm-start pt-2 pt-sm-0">
+				<div class="ps-md-3 px-lg-2 px-xl-4">
+					<Image
+						src={icon5}
+						alt="icon"
+						class="d-inline-block mb-3 mb-lg-4"
+					/>
+					<h3 class="h5 mb-2">Changing Landscape</h3>
+					<p class="mb-0">
+						It is predicted that Big Data Landscape will continue to
+						change and high velocity. Will my team be able keep up
+						with the pace?
+					</p>
+				</div>
+			</div>
+
+			<!-- Item -->
+			<div class="col text-center text-sm-start pt-2 pt-sm-0">
+				<div class="pe-md-3 ps-lg-3 ps-xl-5">
+					<Image
+						src={icon6}
+						alt="icon"
+						class="d-inline-block mb-3 mb-lg-4"
+					/>
+					<h3 class="h5 mb-2">Specialized Hiring</h3>
+					<p class="mb-0">
+						Hiring for Big Data and Data Science projects are
+						becoming increasingly difficulty. Will I be able to
+						deliver project on time?
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
