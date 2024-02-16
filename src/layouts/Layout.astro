@@ -1,7 +1,8 @@
 ---
-import Header from '/src/components/Header.astro'
-import Main from '/src/components/Main.astro'
-import '/src/assets/theme/theme.min.css'
+import Header from '../components/Header.astro'
+import Main from '../components/Main.astro'
+import '../assets/css/theme.min.css'
+import "../assets/vendor/flatpickr/dist/flatpickr.min.css"
 
 export interface Props {
     title?: string,
@@ -42,6 +43,8 @@ const {
     <!-- <Main /> -->
     <!-- <Header /> -->
     <slot />
-    <script src="/src/assets/theme/theme.min.js"></script>
+    <script src="../assets/js/theme.min.js"></script>
+    <script src="../assets/vendor/flatpickr/dist/flatpickr.min.js"></script>
+
 </body>
 </html>
