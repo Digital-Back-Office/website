@@ -2,6 +2,7 @@
 import Header from '/src/components/Header.astro'
 import Main from '/src/components/Main.astro'
 import '/src/assets/theme/theme.min.css'
+import '/src/assets/theme/vendors/swiper/swiper-bundle.min.css'
 
 export interface Props {
     title?: string,
@@ -42,5 +43,6 @@ const {
     <Header />
     <slot />
     <script src="/src/assets/theme/theme.min.js"></script>
+    <!-- <script src="/src/assets/theme/vendors/swiper/swiper-bundle.min.js"></script> -->
 </body>
 </html>
