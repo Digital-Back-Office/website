@@ -14,14 +14,31 @@ export interface Props {}
 
 <style>
 	.top-sec {
+		position: relative;
+		z-index: 2;
+	}
+
+	.top-sec::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 		background: linear-gradient(
 			198.24deg,
 			rgba(2, 2, 2, 0) 19.25%,
 			#121519 74.45%
 		);
+		z-index: 2;
 	}
+
 	.hero-section {
 		font-family: "arimo";
+	}
+
+	.hero-section * {
+		z-index: 3;
 	}
 
 	.contact-div {
@@ -74,13 +91,14 @@ export interface Props {}
 	}
 
 	.hero-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
+	}
 </style>
 
 <Layout>
@@ -97,7 +115,7 @@ export interface Props {}
 		<Header />
 		<section class="hero-section">
 			<div class="container position-relative">
-				<div class="row pt-xl-3 pt-xxl-4 gap-5 align-items-center">
+				<div class="row pt-xl-3 pt-xxl-4 pb-5 gap-5 align-items-center">
 					<div class="col col-xxl-6">
 						<h1
 							class="text-center text-lg-start text-light fw-light"
