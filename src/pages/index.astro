@@ -6,10 +6,10 @@ import icon3 from "../assets/icons/icon3.png";
 import icon4 from "../assets/icons/icon4.png";
 import icon5 from "../assets/icons/icon5.png";
 import icon6 from "../assets/icons/icon6.png";
-import bgSec3 from "../assets/images/links.png";
+import bg_Sec_3 from "../assets/images/links.png";
 import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
-export interface Props {}
+import About from "../components/home/About.astro";
 ---
 
 <style>
@@ -31,6 +31,16 @@ export interface Props {}
 			#121519 74.45%
 		);
 		z-index: 2;
+	}
+
+	.hero-video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
 	}
 
 	.hero-section {
@@ -67,14 +77,16 @@ export interface Props {}
 	}
 
 	.form-control {
-		border-radius: 0.5rem;
-		font-size: 0.8rem;
+		border-radius: 0.5rem !important;
+		/* font-size: 0.8rem; */
 		line-height: 1 !important;
+		/* width: 50%; */
 	}
 
 	.book-btn {
 		background-color: var(--ar-primary);
 		border-radius: 0.5rem;
+		width: 100% !important;
 	}
 
 	.section-3 {
@@ -89,16 +101,6 @@ export interface Props {}
 		height: 100%;
 		object-fit: fill;
 	}
-
-	.hero-video {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		z-index: 0;
-	}
 </style>
 
 <Layout>
@@ -106,7 +108,7 @@ export interface Props {}
 		<video
 			class="hero-video"
 			src="/src/assets/videos/dbo_bg_video10.mp4"
-			preload
+			preload="auto"
 			muted
 			autoplay
 			loop
@@ -135,7 +137,7 @@ export interface Props {}
 					</div>
 					<div class="col contact-div offset-xxl-1 pt-sm-3">
 						<!-- Contact form -->
-						<div class="card contact-form border-0 bg-primary">
+						<div class="card contact-form border-0 py-4 px-xxl-4">
 							<form class="card-body" data-bs-theme="dark">
 								<h2
 									class="h3 card-title text-white text-center pb-2 pb-xxl-3"
@@ -222,11 +224,13 @@ export interface Props {}
 		</section>
 	</section>
 
+	<About />
+
 	<!-- Features -->
 	<section
 		class="container section-3 py-5 mt-n3 mt-sm-n2 mt-md-0 my-lg-3 my-xl-4 my-xxl-5"
 	>
-		<!-- <Image src={bgSec3} alt="" class="bg-img" /> -->
+		<!-- <Image src={bg_Sec_3} alt="" class="bg-img" /> -->
 		<h2
 			class="display-5 text-center pt-md-3 pt-lg-4 pb-xxl-2 mt-xl-3 mb-4 mb-sm-5"
 		>
