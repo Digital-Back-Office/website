@@ -1,15 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import icon1 from "../assets/icons/icon1.png";
-import icon2 from "../assets/icons/icon2.png";
-import icon3 from "../assets/icons/icon3.png";
-import icon4 from "../assets/icons/icon4.png";
-import icon5 from "../assets/icons/icon5.png";
-import icon6 from "../assets/icons/icon6.png";
-import bg_Sec_3 from "../assets/images/links.png";
 import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
 import About from "../components/home/About.astro";
+import Features from "../components/home/Features.astro";
 ---
 
 <style>
@@ -225,120 +219,5 @@ import About from "../components/home/About.astro";
 	</section>
 
 	<About />
-
-	<!-- Features -->
-	<section
-		class="container section-3 py-5 mt-n3 mt-sm-n2 mt-md-0 my-lg-3 my-xl-4 my-xxl-5"
-	>
-		<!-- <Image src={bg_Sec_3} alt="" class="bg-img" /> -->
-		<h2
-			class="display-5 text-center pt-md-3 pt-lg-4 pb-xxl-2 mt-xl-3 mb-4 mb-sm-5"
-		>
-			Do these sound familiar to you?
-		</h2>
-		<div
-			class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-4 gy-sm-5 pb-md-4 pb-lg-5 mb-2 mb-lg-0 mb-xxl-2"
-		>
-			<!-- Item -->
-			<div class="col text-center text-sm-start pt-2 pt-sm-0">
-				<div class="pe-md-3 pe-lg-3 pe-xl-5">
-					<Image
-						src={icon1}
-						alt="icon"
-						class="d-inline-block mb-3 mb-lg-4"
-					/>
-					<h3 class="h5 mb-2">Volume, Velocity, Variety</h3>
-					<p class="mb-0">
-						Understanding 3V's of Big data is fundamental to
-						building big data solution. How do I measure, manage and
-						plan?
-					</p>
-				</div>
-			</div>
-
-			<!-- Item -->
-			<div class="col text-center text-sm-start pt-2 pt-sm-0">
-				<div class="ps-md-3 px-lg-2 px-xl-4">
-					<Image
-						src={icon2}
-						alt="icon"
-						class="d-inline-block mb-3 mb-lg-4"
-					/>
-					<h3 class="h5 mb-2">Cost Management</h3>
-					<p class="mb-0">
-						Big Data storage, processing and software licensing cost
-						increases exponentially. How do I keep cost under
-						control?
-					</p>
-				</div>
-			</div>
-
-			<!-- Item -->
-			<div class="col text-center text-sm-start pt-2 pt-sm-0">
-				<div class="pe-md-3 ps-lg-3 ps-xl-5">
-					<Image
-						src={icon3}
-						alt="icon"
-						class="d-inline-block mb-3 mb-lg-4"
-					/>
-					<h3 class="h5 mb-2">Data Security</h3>
-					<p class="mb-0">
-						Data security is key to organizations survival. Is my
-						data safe from unauthorized access, malware attacks?
-					</p>
-				</div>
-			</div>
-
-			<!-- Item -->
-			<div class="col text-center text-sm-start pt-2 pt-sm-0">
-				<div class="pe-md-3 pe-lg-3 pe-xl-5">
-					<Image
-						src={icon4}
-						alt="icon"
-						class="d-inline-block mb-3 mb-lg-4"
-					/>
-					<h3 class="h5 mb-2">Tool Selection</h3>
-					<p class="mb-0">
-						Big Data tools pose problem of “Paradox of choices”.
-						What are the right tools for my organisations's data
-						needs?
-					</p>
-				</div>
-			</div>
-
-			<!-- Item -->
-			<div class="col text-center text-sm-start pt-2 pt-sm-0">
-				<div class="ps-md-3 px-lg-2 px-xl-4">
-					<Image
-						src={icon5}
-						alt="icon"
-						class="d-inline-block mb-3 mb-lg-4"
-					/>
-					<h3 class="h5 mb-2">Changing Landscape</h3>
-					<p class="mb-0">
-						It is predicted that Big Data Landscape will continue to
-						change and high velocity. Will my team be able keep up
-						with the pace?
-					</p>
-				</div>
-			</div>
-
-			<!-- Item -->
-			<div class="col text-center text-sm-start pt-2 pt-sm-0">
-				<div class="pe-md-3 ps-lg-3 ps-xl-5">
-					<Image
-						src={icon6}
-						alt="icon"
-						class="d-inline-block mb-3 mb-lg-4"
-					/>
-					<h3 class="h5 mb-2">Specialized Hiring</h3>
-					<p class="mb-0">
-						Hiring for Big Data and Data Science projects are
-						becoming increasingly difficulty. Will I be able to
-						deliver project on time?
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+	<Features />
 </Layout>

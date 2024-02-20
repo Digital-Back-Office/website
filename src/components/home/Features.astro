@@ -1,0 +1,129 @@
+---
+import { Image } from "astro:assets";
+import icon1 from "../../assets/icons/vol_vel_var.png";
+import icon2 from "../../assets/icons/cost_management.png";
+import icon3 from "../../assets/icons/security.png";
+import icon4 from "../../assets/icons/selection.png";
+import icon5 from "../../assets/icons/changing_landscape.png";
+import icon6 from "../../assets/icons/specialized_hiring.png";
+import bg_img from "../../assets/images/star_links.png";
+---
+
+<style>
+    .features {
+        background-image: url(../../assets/images/star_links.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .item {
+        background-color: #121519;
+        border-radius: 2rem;
+        box-shadow: 0px 2px 10px 0px #7b7b7b7a;
+    }
+</style>
+
+<section class="features">
+    <div
+        class="container section-3 py-5 mt-n3 mt-sm-n2 mt-md-0 my-lg-3 my-xl-4 my-xxl-5"
+    >
+        <h2
+            class="display-5 text-center pt-md-3 pt-lg-4 pb-xxl-2 mt-xl-3 mb-4 mb-sm-5 text-white"
+        >
+            Do these sound familiar to you?
+        </h2>
+        <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-4 gy-4 gy-sm-5 pb-md-4 pb-lg-5 mb-2 mb-lg-0 mb-xxl-2"
+        >
+            <!-- Item -->
+            <div class="col item text-center text-sm-start p-4">
+                    <Image
+                        src={icon1}
+                        alt="icon"
+                        class="d-inline-block mb-3 mb-lg-4"
+                    />
+                    <h3 class="h5 mb-2 text-white">Volume, Velocity, Variety</h3>
+                    <p class="mb-0 text-white opacity-70">
+                        Understanding 3V's of Big data is fundamental to
+                        building big data solution. How do I measure, manage and
+                        plan?
+                    </p>
+            </div>
+
+            <!-- Item -->
+            <div class="col item text-center text-sm-start p-4">
+                    <Image
+                        src={icon2}
+                        alt="icon"
+                        class="d-inline-block mb-3 mb-lg-4"
+                    />
+                    <h3 class="h5 mb-2 text-white">Cost Management</h3>
+                    <p class="mb-0 text-white opacity-70">
+                        Big Data storage, processing and software licensing cost
+                        increases exponentially. How do I keep cost under
+                        control?
+                    </p>
+            </div>
+
+            <!-- Item -->
+            <div class="col item text-center text-sm-start p-4">
+                    <Image
+                        src={icon3}
+                        alt="icon"
+                        class="d-inline-block mb-3 mb-lg-4"
+                    />
+                    <h3 class="h5 mb-2 text-white">Data Security</h3>
+                    <p class="mb-0 text-white opacity-70">
+                        Data security is key to organizations survival. Is my
+                        data safe from unauthorized access, malware attacks?
+                    </p>
+            </div>
+
+            <!-- Item -->
+            <div class="col item text-center text-sm-start p-4">
+                    <Image
+                        src={icon4}
+                        alt="icon"
+                        class="d-inline-block mb-3 mb-lg-4"
+                    />
+                    <h3 class="h5 mb-2 text-white">Tool Selection</h3>
+                    <p class="mb-0 text-white opacity-70">
+                        Big Data tools pose problem of “Paradox of choices”.
+                        What are the right tools for my organisations's data
+                        needs?
+                    </p>
+            </div>
+
+            <!-- Item -->
+            <div class="col item text-center text-sm-start p-4">
+                    <Image
+                        src={icon5}
+                        alt="icon"
+                        class="d-inline-block mb-3 mb-lg-4"
+                    />
+                    <h3 class="h5 mb-2 text-white">Changing Landscape</h3>
+                    <p class="mb-0 text-white opacity-70">
+                        It is predicted that Big Data Landscape will continue to
+                        change and high velocity. Will my team be able keep up
+                        with the pace?
+                    </p>
+            </div>
+
+            <!-- Item -->
+            <div class="col item text-center text-sm-start p-4">
+                    <Image
+                        src={icon6}
+                        alt="icon"
+                        class="d-inline-block mb-3 mb-lg-4"
+                    />
+                    <h3 class="h5 mb-2 text-white">Specialized Hiring</h3>
+                    <p class="mb-0 text-white opacity-70">
+                        Hiring for Big Data and Data Science projects are
+                        becoming increasingly difficulty. Will I be able to
+                        deliver project on time?
+                    </p>
+            </div>
+        </div>
+    </div>
+</section>

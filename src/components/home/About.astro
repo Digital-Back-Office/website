@@ -7,9 +7,14 @@ import about3 from "../../assets/images/about3.png";
 
 <style>
     section {
-        background-image: url(../../assets/images/shoonye.png);
+        background-image: url(../../assets/images/background_pattern.png);
         background-repeat: repeat;
         /* width: 100%; */
+    }
+
+    .btn {
+        color: #52cec7;
+        border-color: #52cec7;
     }
 </style>
 
@@ -35,14 +40,8 @@ import about3 from "../../assets/images/about3.png";
                     >
                         <Image
                             src={about1}
-                            class="d-dark-mode-none position-relative rounded-4"
-                            style="top: 27.5%; max-width: 482px; box-shadow: 0 12px 48px -8px rgba(189, 196, 221, .35);"
-                            alt="Total users line chart"
-                        />
-                        <Image
-                            src={about1}
-                            class="d-none d-dark-mode-block position-relative rounded-4"
-                            style="top: 27.5%; max-width: 482px; box-shadow: 0 12px 48px -8px rgba(0, 0, 0, .25);"
+                            class="d-dark-mode-block position-relative rounded-4"
+                            style="top: 27.5%; max-widthdark: 482px;"
                             alt="Total users line chart"
                         />
                     </div>
@@ -54,13 +53,7 @@ import about3 from "../../assets/images/about3.png";
                         <Image
                             src={about2}
                             class="d-dark-mode-none position-relative rounded-4"
-                            style="max-width: 345px; box-shadow: 0 0 48px -4px rgba(189, 196, 221, .35);"
-                            alt="Traffic bar chart"
-                        />
-                        <Image
-                            src={about2}
-                            class="d-none d-dark-mode-block position-relative rounded-4"
-                            style="max-width: 345px; box-shadow: 0 12px 48px -8px rgba(0, 0, 0, .35);"
+                            style="max-width: 345px;"
                             alt="Traffic bar chart"
                         />
                     </div>
@@ -71,14 +64,8 @@ import about3 from "../../assets/images/about3.png";
                     >
                         <Image
                             src={about3}
-                            class="d-dark-mode-none position-relative rounded-4"
-                            style="top: 60.75%; max-width: 302px; box-shadow: 0 0 48px -4px rgba(189, 196, 221, .35);"
-                            alt="Traffic donut chart"
-                        />
-                        <Image
-                            src={about3}
-                            class="d-none d-dark-mode-block position-relative rounded-4"
-                            style="top: 60.75%; max-width: 302px; box-shadow: 0 -12px 48px -8px rgba(0, 0, 0, .35);"
+                            class="d-dark-mode-block position-relative rounded-4"
+                            style="top: 60.75%; max-width: 302px;"
                             alt="Traffic donut chart"
                         />
                     </div>
@@ -87,8 +74,8 @@ import about3 from "../../assets/images/about3.png";
             <div
                 class="col-md-5 col-xl-4 offset-xl-1 order-md-1 text-center text-md-start"
             >
-                <h3 class="h2 mb-lg-4">Data Driven Innovation</h3>
-                <p class="fs-lg pb-lg-2 mb-4">
+                <h3 class="h2 mb-lg-4 text-white">Data Driven Innovation</h3>
+                <p class="fs-lg pb-lg-2 mb-4 text-white opacity-70">
                     Unleash the power of data in your organization to discover
                     obnubilated insights and make real time strategic decisions.
                     Connect the dots with seamless data integration to drive
@@ -103,6 +90,99 @@ import about3 from "../../assets/images/about3.png";
                     Learn more
                     <i class="ai-arrow-right fs-lg ms-2 me-n1"></i>
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5 my-lg-3 my-xl-4 my-xxl-5">
+        <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gy-4 gy-sm-5 gx-4 pb-3 pb-md-4 pb-lg-5 mb-md-3 mb-lg-0 justify-content-center gap-5"
+        >
+            <!-- Item -->
+            <div class="col text-center">
+                <div
+                    class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
+                    style="width: 68px;"
+                >
+                    <i
+                        class="ai-search-settings text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
+                    ></i>
+                    <svg
+                        class="position-absolute top-0 start-0 text-primary"
+                        width="68"
+                        height="68"
+                        viewBox="0 0 68 68"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M56.0059 60.5579C44.1549 78.9787 18.0053 58.9081 6.41191 46.5701C-2.92817 35.5074 -2.81987 12.1818 11.7792 3.74605C30.0281 -6.79858 48.0623 7.40439 59.8703 15.7971C71.6784 24.1897 70.8197 37.5319 56.0059 60.5579Z"
+                            fill-opacity="0.1"></path>
+                    </svg>
+                </div>
+                <h3 class="h4 pb-2 mb-1 text-white">Open Source</h3>
+                <p class="fs-sm mb-0 text-white opacity-70">
+                    Cutting edge big data tools are open source, we bring best
+                    of them to work together for you.
+                </p>
+            </div>
+
+            <!-- Item -->
+            <div class="col text-center">
+                <div
+                    class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
+                    style="width: 68px;"
+                >
+                    <i
+                        class="ai-bulb-alt text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
+                    ></i>
+                    <svg
+                        class="position-absolute top-0 start-0 text-primary"
+                        width="68"
+                        height="68"
+                        viewBox="0 0 68 68"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M65.0556 29.2672C75.4219 46.3175 48.5577 59.7388 33.8299 64.3181C21.0447 67.5599 1.98006 58.174 0.888673 42.8524C-0.475555 23.7004 18.3473 14.5883 29.9289 8.26059C41.5104 1.93285 52.0978 7.9543 65.0556 29.2672Z"
+                            fill-opacity="0.1"></path>
+                    </svg>
+                </div>
+                <h3 class="h4 pb-2 mb-1 text-white">27x7 Support</h3>
+                <p class="fs-sm mb-0 text-white opacity-70">
+                    We provide 24x7 support on for our solutions, supporting
+                    your business across the time zones.
+                </p>
+            </div>
+
+            <!-- Item -->
+            <div class="col text-center">
+                <div
+                    class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
+                    style="width: 68px;"
+                >
+                    <i
+                        class="ai-circle-check-filled text-primary fs-2 d-flex align-items-center justify-content-center position-absolute start-0"
+                    ></i>
+                    <svg
+                        class="position-absolute top-0 start-0 text-primary"
+                        width="68"
+                        height="68"
+                        viewBox="0 0 68 68"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M6.61057 18.2783C10.8205 -1.22686 39.549 7.51899 53.3869 14.3301C64.8949 20.7749 72.2705 40.7038 62.5199 52.5725C50.3318 67.4085 30.4034 61.0689 17.6454 57.6914C4.88745 54.314 1.3482 42.6597 6.61057 18.2783Z"
+                            fill-opacity="0.1"></path>
+                    </svg>
+                </div>
+                <h3 class="h4 pb-2 mb-1 text-white">Cost Effective</h3>
+                <p class="fs-sm mb-0 text-white opacity-70">
+                    Save up to 90% recurring cost with open source and optimized
+                    cloud auto scaling.
+                </p>
             </div>
         </div>
     </div>
