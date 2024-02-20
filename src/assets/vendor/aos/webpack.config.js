@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('mini-css-extract-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {

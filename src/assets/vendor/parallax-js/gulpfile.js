@@ -86,3 +86,11 @@ gulp.task('watch', ['build'], () => {
 })
 
 gulp.task('default', ['watch'])
+
+// gulp.task('browser-sync', function() {
+//   browsersync.init({
+//       server: {
+//           baseDir: "./"
+//       }
+//   });
+// });
