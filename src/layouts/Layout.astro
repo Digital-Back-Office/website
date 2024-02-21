@@ -1,66 +1,137 @@
 ---
-import Header from '../components/Header.astro'
-import Main from '../components/Main.astro'
-import '../assets/css/theme.min.css'
-import "../assets/icons/around-icons.min.css"
-import "../assets/vendor/flatpickr/dist/flatpickr.min.css"
-import "../assets/vendor/swiper/swiper-bundle.min.css"
-import "../assets/vendor/aos/dist/aos.css"
+import Header from "../components/Header.astro";
+import Main from "../components/Main.astro";
+import "/assets/css/theme.min.css";
+import "/assets/icons/around-icons.min.css";
+import "flatpickr/dist/flatpickr.min.css";
+// import "swiper/swiper-bundle.min.css";
+import "aos/dist/aos.css";
+
 export interface Props {
-    title?: string,
-    description?: string,
+    title?: string;
+    description?: string;
 }
 
 const {
-    title = 'Digital Back Office',
-    description = 'We deliver Business Efficiency; We love data!',
-
+    title = "Digital Back Office",
+    description = "We deliver Business Efficiency; We love data!",
 } = Astro.props;
 ---
 
 <style is:global>
     @font-face {
-		font-family: "arimo";
-		src: url("/src/assets/fonts/Arimo/static/Arimo-Regular.ttf");
-	}
+        font-family: "arimo";
+        src: url("/assets/fonts/Arimo/static/Arimo-Regular.ttf");
+    }
 
-	@font-face {
-		font-family: "archivo";
-		src: url("/src/assets/fonts/Archivo/Archivo-Regular.ttf");
-	}
+    @font-face {
+        font-family: "archivo";
+        src: url("/assets/fonts/Archivo/Archivo-Regular.ttf");
+    }
     /* body {
         padding: 0 10rem;
     } */
 </style>
 
-<!DOCTYPE html>
+<script src="/assets/js/theme.min.js" is:inline></script>
+
+<script src="aos/dist/aos.js"></script>
+<script src="parallax-js/dist/parallax.min.js"></script>
+<script src="flatpickr/dist/flatpickr.min.js"></script>
+<script src="imagesloaded/imagesloaded.pkgd.min.js"></script>
+<!-- <script src="shufflejs/dist/shuffle.min.js"></script> -->
+<script src="jarallax/dist/jarallax.min.js"></script>
+<script src="parallax-js/dist/parallax.min.js"></script>
+<!-- <script src="swiper/swiper-bundle.min.js"></script> -->
+<script src="lightgallery/lightgallery.min.js"></script>
+<script src="lightgallery/plugins/video/lg-video.min.js"></script>
+<script src="imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script>
+    import flatpickr from "flatpickr";
+    import AOS from "aos";
+    import Shuffle from "shufflejs";
+    import Swiper from "swiper/bundle";
+    import "swiper/css/navigation";
+    import "swiper/css/pagination";
+    import "swiper/css/bundle";
+
+    AOS.init();
+    
+    flatpickr(".date-picker");
+
+    const carousels = Array.from(document.querySelectorAll(".swiper"));
+
+    carousels.forEach((value, index) => {
+        let options;
+        if (value.dataset.swiperOptions != undefined)
+            options = JSON.parse(value.dataset.swiperOptions);
+
+        // Thumbnails
+        if (options.thumbnails) {
+            let images = options.thumbnails.images;
+            options = Object.assign({}, options, {
+                pagination: {
+                    el: options.thumbnails.el,
+                    clickable: true,
+                    bulletActiveClass: "active",
+                    renderBullet: (index, className) => {
+                        return `<li class='swiper-thumbnail ${className}'>
+                <img src='${images[index]}' alt='Thumbnail'>
+                </li>`;
+                    },
+                },
+            });
+        }
+
+        const swiper = new Swiper(value, options); // eslint-disable-line no-undef
+
+        // Controlled slider
+        if (options.controlledSlider) {
+            const controlledSlider = document.querySelector(
+                options.controlledSlider,
+            );
+            let controlledSliderOptions;
+
+            if (controlledSlider.dataset.swiperOptions != undefined)
+                controlledSliderOptions = JSON.parse(
+                    controlledSlider.dataset.swiperOptions,
+                );
+            /* eslint-disable no-undef */
+            const swiperControlled = new Swiper(
+                controlledSlider,
+                controlledSliderOptions,
+            );
+            /* eslint-enable no-undef */
+            swiper.controller.control = swiperControlled;
+        }
+
+        // Binded content
+        if (options.bindedContent) {
+            swiper.on("activeIndexChange", (e) => {
+                const targetItem = document.querySelector(
+                    e.slides[e.activeIndex].dataset.swiperBinded,
+                );
+                const previousItem = document.querySelector(
+                    e.slides[e.previousIndex].dataset.swiperBinded,
+                );
+
+                previousItem.classList.remove("active");
+                targetItem.classList.add("active");
+            });
+        }
+    });
+</script>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/favicon.png">
-    <title>{title}</title>
-</head>
-<body>
-    <!-- <Main /> -->
-    <!-- <Header /> -->
-    <slot />
-    <script src="../assets/vendor/aos/dist/aos.js"></script>
-    <!-- <script>
-        const aos = require('../assets/vendor/aos/dist/aos.js');
-        aos.init();
-    </script> -->
-    <script src="../assets/vendor/flatpickr/dist/flatpickr.min.js"></script>
-    <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="../assets/vendor/shufflejs/dist/shuffle.min.js"></script>
-    <script src="../assets/vendor/jarallax/dist/jarallax.min.js"></script>
-    <script src="../assets/vendor/parallax-js/dist/parallax.min.js"></script>
-    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="../assets/vendor/lightgallery/lightgallery.min.js"></script>
-    <script src="../assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
-    <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="../assets/vendor/shufflejs/dist/shuffle.min.js"></script>
-    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="../assets/js/theme.min.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <title>{title}</title>
+    </head>
+    <body>
+        <!-- <Main /> -->
+        <!-- <Header /> -->
+        <slot />
+    </body>
 </html>
