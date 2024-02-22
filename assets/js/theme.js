@@ -4,7 +4,7 @@
  * Copyright 2023 Createx Studio
  * Theme scripts
  *
- * @author Createx Studio
+ * @author Createx Studioca
  * @version 3.2.0
  */
       

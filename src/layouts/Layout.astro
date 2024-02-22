@@ -1,11 +1,13 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro"
 import Main from "../components/Main.astro";
 import "/assets/css/theme.min.css";
 import "/assets/icons/around-icons.min.css";
 import "flatpickr/dist/flatpickr.min.css";
 // import "swiper/swiper-bundle.min.css";
 import "aos/dist/aos.css";
+import "../styles/global.css"
 
 export interface Props {
     title?: string;
@@ -17,21 +19,6 @@ const {
     description = "We deliver Business Efficiency; We love data!",
 } = Astro.props;
 ---
-
-<style is:global>
-    @font-face {
-        font-family: "arimo";
-        src: url("/assets/fonts/Arimo/static/Arimo-Regular.ttf");
-    }
-
-    @font-face {
-        font-family: "archivo";
-        src: url("/assets/fonts/Archivo/Archivo-Regular.ttf");
-    }
-    /* body {
-        padding: 0 10rem;
-    } */
-</style>
 
 <script src="/assets/js/theme.min.js" is:inline></script>
 
@@ -127,11 +114,11 @@ const {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
     <body>
-        <!-- <Main /> -->
-        <!-- <Header /> -->
         <slot />
+        <Footer />
     </body>
 </html>

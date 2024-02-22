@@ -1,0 +1,139 @@
+---
+const title="Recent case studies";
+const description="Below you'll find handpicked recent projects we are most proud of";
+const studies = [
+    {
+        heading:"Development of an application for a national bank",
+        info:"Morbi et massa fames ac scelerisque sit commodo dignissim faucibus vel quisque proin lectus. Morbi et massa fames ac scelerisque sit commodo dignissim."
+    },
+    {
+        heading:"Design and development of a dashboard for data management",
+        info:"Feugiat elit tempor, malesuada rutrum amet quis duis facilisi viverra. Quam ut in gravida dignissim eget mauris pretium facilisi dui varius amet et quam massa auctor."
+    },
+];
+---
+
+<style>
+    .case-studies {
+        background-image: url(/assets/images/background_pattern.png);
+        background-repeat: no-repeat;
+    }
+</style>
+
+<!-- Portfolio -->
+<section class="case-studies">
+    <div
+        class="container pt-5 pb-sm-3 mt-2 mt-sm-4 mb-2 mb-md-3 mb-lg-4 mb-xxl-5"
+    >
+        <h2 class="h1 text-center text-white">{title}</h2>
+        <p class="pb-4 mb-md-2 mb-lg-3 text-center text-white opacity-70">
+            {description}
+        </p>
+
+        <!-- Item -->
+        <div
+            class="row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4"
+        >
+            <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
+                <a class="d-block position-relative" href="#">
+                    <div
+                        class="bg-primary rounded-5 position-absolute top-0 start-0 w-100 h-100"
+                        data-aos="zoom-in"
+                        data-aos-duration="600"
+                        data-aos-offset="250"
+                    >
+                    </div>
+                    <img
+                        class="d-block position-relative z-2 mx-auto"
+                        src="/assets/img/portfolio/list/06.png"
+                        width="636"
+                        alt="Image"
+                        data-aos="fade-in"
+                        data-aos-duration="400"
+                        data-aos-offset="250"
+                    />
+                </a>
+            </div>
+            <div
+                class="col-md-5 col-xl-4 offset-lg-1"
+                data-aos="fade-up"
+                data-aos-duration="400"
+                data-aos-offset="170"
+            >
+                <div class="ps-md-3 ps-lg-0">
+                    <img
+                        class="d-block d-dark-mode-block mb-2 mb-lg-3"
+                        src="/assets/img/portfolio/brands/champion-blue-light.svg"
+                        alt="Champion"
+                    />
+                    <h2 class="h4 text-white">
+                        {studies[0].heading}
+                    </h2>
+                    <p class="fs-sm pb-3 pb-lg-4 mb-3 text-white opacity-70">
+                        {studies[0].info}
+                    </p>
+                    <a class="btn btn-sm btn-outline-light rounded-sm" href="#"
+                        >Read the full story</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- Item -->
+        <div
+            class="row align-items-center pt-xl-2 pb-5 mb-lg-2 mb-xl-3 mb-xxl-4"
+        >
+            <div class="col-md-7 col-lg-6 mb-4 mb-md-0">
+                <a class="d-block position-relative" href="#">
+                    <div
+                        class="bg-primary rounded-5 position-absolute top-0 start-0 w-100 h-100"
+                        data-aos="zoom-in"
+                        data-aos-duration="600"
+                        data-aos-offset="250"
+                    >
+                    </div>
+                    <img
+                        class="d-block position-relative z-2 mx-auto"
+                        src="/assets/img/portfolio/list/07.png"
+                        width="636"
+                        alt="Image"
+                        data-aos="fade-in"
+                        data-aos-duration="400"
+                        data-aos-offset="250"
+                    />
+                </a>
+            </div>
+            <div
+                class="col-md-5 col-xl-4 offset-lg-1"
+                data-aos="fade-up"
+                data-aos-duration="400"
+                data-aos-offset="170"
+            >
+                <div class="ps-md-3 ps-lg-0">
+                    <img
+                        class="d-block d-dark-mode-block mb-2 mb-lg-3"
+                        src="/assets/img/portfolio/brands/foster-green.svg"
+                        alt="Foster"
+                    />
+                    <h2 class="h4 text-white">
+                        {studies[1].heading}
+                    </h2>
+                    <p class="fs-sm pb-3 pb-lg-4 mb-3 text-white opacity-70">
+                        {studies[1].info}
+                    </p>
+                    <a class="btn btn-sm btn-outline-light rounded-sm" href="#"
+                        >Read the full story</a
+                    >
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="#" class="d-flex align-items-center">
+                All Case Studies
+                <i
+                    class="ai-arrow-right text-primary fs-4 d-flex"
+                ></i>
+            </a>
+        </div>
+    </div>
+</section>
