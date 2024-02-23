@@ -17,6 +17,7 @@ import Footer from "../components/Footer.astro"
 
 import HeroSection from "../components/Services/HeroSection.astro";
 import ContactForm from "../components/Services/ContactForm.astro"
+import Navbar from "../components/Navbar.astro";
 ---
 
 <style>
@@ -33,7 +34,8 @@ import ContactForm from "../components/Services/ContactForm.astro"
 
 <Layout>
   <main class="page-wrapper" style="background-color: black;">
-    <Header />
+    <!-- <Header /> -->
+    <Navbar/>
 
     {/*Hero Section- created from landing-creative-agency.html */}
     <HeroSection/>
@@ -332,7 +334,7 @@ import ContactForm from "../components/Services/ContactForm.astro"
     <!-- Contact form + Benefits - created from landing-web-studio.html-->
     <ContactForm/>
 
-    <Footer/>
+    
 
     
   </main>
