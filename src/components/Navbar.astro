@@ -1,18 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 const path = Astro.url.pathname;
-import brandLogo from "/assets/images/dbo 1.png";
+import brandLogo from "/assets/images/dbo 1.png"; 
 import { Image } from "astro:assets";
 ---
 
 <style>
-  /* .navbar * {
-    z-index: 4;
-  } */
-
-  .nav{
-    position: sticky;
-  }
+  
 
   .brand-logo {
     width: 110px;
@@ -30,12 +24,28 @@ import { Image } from "astro:assets";
     color: var(--ar-primary);
     font-family: "archivo";
   }
+
+  .navbar-scrolled{
+    background-color: black;
+    position: fixed;
+    top:0;left:0; right:0;
+  }
+
+  .staticnav{
+    background-color: transparent;
+    position: relative;
+  }
+
+  #navbar{
+    transition: background-color 0.4s ease-in-out;
+    z-index:10;
+  }
   
 </style>
 
 
 <!-- Menu + Theme mode switch + Button -->
-<header class="nav navbar navbar-expand-lg bg-black sticky-top" data-bs-theme="dark">
+<header id="navbar" class="staticnav nav navbar navbar-expand-lg" data-bs-theme="dark">
     <div class="container">
       <div class="navbar-brand">
         <span class="text-primary flex-shrink-0 me-2">
@@ -80,3 +90,5 @@ import { Image } from "astro:assets";
 
     </div>
   </header>
+
+ 
