@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Values from "../components/about-us/Values.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/Services/ContactForm.astro";
+import Benefit from "../components/about-us/Benefit.astro"
+---
+
+<style>
+  .top-sec {
+    position: relative;
+    z-index: 2;
+    margin-bottom: -8px;
+  }
+
+  .top-sec::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      198.24deg,
+      rgba(2, 2, 2, 0) 19.25%,
+      #121519 74.45%
+    );
+    z-index: 2;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-section {
+    font-family: "arimo";
+    margin-top: 300px;
+  }
+
+  .hero-section * {
+    z-index: 3;
+  }
+  .article-background {
+    background-image: url("../assets/images/background_pattern.png"); /* Specify the path to your background image */
+    /* Adjust the background size to contain within the element */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Cover the entire element */
+    /* Center the background image */
+  }
+</style>
+<main class="page-wrapper" style="background-color: black;">
+  <Layout>
+    <section class="top-sec">
+      <video
+        class="hero-video"
+        src="/assets/videos/About_Us.mp4"
+        preload="auto"
+        muted
+        autoplay
+        loop
+      >
+      </video>
+      <Header />
+      <section class="hero-section">
+        <div class="container position-relative z-3 py-5 mb-2 mb-sm-2">
+          <div class="container position-relative">
+            <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center">
+              <h1 class="text-center text-lg-start text-light fw-light">
+                We deliver complete range of solutions in
+                <br />
+                data processing from concept to delivery.
+              </h1>
+            </div>
+          </div>
+
+          <ul class="list-unstyled d-flex flex-wrap mb-0">
+            <li class="d-flex text-body py-1 me-4">
+              <i class="ai-check-alt text-primary lead me-2"></i>
+              Forecasting and recommendations
+            </li>
+            <li class="d-flex text-body py-1 me-4">
+              <i class="ai-check-alt text-primary lead me-2"></i>
+              Identification of patterns, analysis
+            </li>
+            <li class="d-flex text-body py-1">
+              <i class="ai-check-alt text-primary lead me-2"></i>
+              Segmentation by various methods
+            </li>
+          </ul>
+        </div>
+      </section>
+    </section>
+    <!-- Item -->
+    <section class="overflow-hidden  ">
+    <article class="row align-items-center pb-5 mb-md-2 mb-lg-3 mb-xl-4 mb-0 article-background">
+      <div class="col-md-7 order-md-2 mb-4 mb-md-0 mt-4">
+        <img
+          src="../assets/images/image.png"
+          alt="Image"
+          style="margin-left: 80px;"
+        />
+      </div>
+      <div class="col-md-5 col-xl-4 offset-xxl-1 order-md-1">
+        <div class="me-md-3 me-lg-5 me-xxl-0" style="max-width: 330px;">
+          <div class="mb-2 text-white">DIGITAL BACK OFFICE</div>
+          <h2 class="mb-lg-4 text-white">Our mission</h2>
+          <p class="mb-0 mb-md-1 mb-lg-3 text-white">
+            Our mission is to enable the businesses make best decision by
+            leveraging data. We strive to design and build best in class custom
+            solutions for Big Data Processing in cost effective manner
+          </p>
+        </div>
+      </div>
+    </article>
+</section>
+    <Values />
+
+    <!-- Approach -->
+
+    <Benefit />
+      <!-- Benefits -->
+       
+  <section class="overflow-hidden article-background">
+  <article
+    class="row align-items-center pb-5 mb-md-2 mb-lg-3 mb-xl-4 article-background"
+  >
+    <div class="col-md-7 order-md-2 mb-4 mb-md-0 mt-4">
+      <img
+        src="../assets/images/page4.png"
+        alt="Image"
+        style="margin-left: 80px;"
+      />
+    </div>
+    <div class="col-md-5 col-xl-4 offset-xxl-1 order-md-1">
+      <div class="me-md-4 me-lg-5 me-xxl-0" style="max-width: 330px;">
+        <div class="mb-2 text-white">DIGITAL BACK OFFICE</div>
+        <h2 class="mb-lg-4 text-white">Our Approach</h2>
+        <p class="mb-0 mb-md-1 mb-lg-3 text-white">
+          Our values and mission guides our approach. We only engage with
+          clients where we find synergy. We work with companies that seek
+          solution that are long lasting and of highest quality. Once we have
+          decided to work for a client, we focus our efforts to make their plans
+          successful. We generally do not engage in fixed cost project. We work
+          on agile development, with weekly sprints. We guarantee predictable
+          cost on our sprints and project.
+        </p>
+      </div>
+    </div>
+  </article>
+</section>
+  <ContactForm />
+
+  <Footer />
+</Layout>
+</main>

@@ -1,0 +1,429 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+---
+
+<style>
+  main {
+    background-color: black;
+  }
+  cards {
+    border: solid 20px red;
+  }
+  * {
+    font-family: Arimo;
+  }
+  a {
+    color: white;
+  }
+</style>
+<Layout>
+  <main
+    class="page-wrapper"
+    style="background-image: url(../assets/images/background_pattern.png);"
+  >
+    <Header />
+    <div class="container pt-5 pb-lg-5 pb-md-4 pb-2 my-5">
+      <div class="row mb-md-2 mb-xl-4">
+        <!-- Blog posts -->
+        <div class="col-lg-9 pe-lg-4 pe-xl-5">
+          <h1 class="pb-3 pb-lg-4 text-white">Blog list with sidebar</h1>
+
+          <!-- Post -->
+          <article class="row g-0 border-0 mb-4">
+            <a
+              class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
+              href="blog-single-v1.html"
+              style="background-image: url(assets/img/blog/list/01.jpg); min-height: 14rem"
+              aria-label="Post image"></a>
+            <div class="col-sm-7">
+              <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
+                <h3>
+                  <a href="blog-single-v1.html"
+                    >Business strategy for a brand of vintage bags</a
+                  >
+                </h3>
+                <p class="d-sm-none d-md-block text-white">
+                  Morbi et massa fames ac scelerisque sit commodo dignissim
+                  faucibus vel quisque proin lectus et massa fames ac
+                  scelerisque fames velit diam sit...
+                </p>
+                <div class="d-flex flex-wrap align-items-center mt-n2">
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal p-0 mt-2 me-3"
+                    href="#"
+                  >
+                    6
+                    <i class="ai-share fs-lg ms-1"></i>
+                  </a>
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal d-flex align-items-end p-0 mt-2"
+                    href="#"
+                  >
+                    12
+                    <i class="ai-message fs-lg ms-1"></i>
+                  </a>
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <span class="fs-sm text-body-secondary mt-2">8 hours ago</span
+                  >
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <a
+                    class="badge text-nav fs-xs border mt-2 text-white"
+                    href="#">Business</a
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post -->
+          <article class="row g-0 border-0 pt-3 pt-sm-0 mb-4">
+            <a
+              class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
+              href="blog-single-v2.html"
+              style="background-image: url(assets/img/blog/list/02.jpg); min-height: 14rem"
+              aria-label="Post image"></a>
+            <div class="col-sm-7">
+              <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
+                <h3>
+                  <a href="blog-single-v2.html">Top books for inspiration</a>
+                </h3>
+                <p class="d-sm-none d-md-block text-white">
+                  Sapien ultrices egestas at faucibus eu diam velit diam id amet
+                  nibh quam rutrum fermentum diam natoque scelerisque viverra
+                  viverra molestie fames...
+                </p>
+                <div class="d-flex flex-wrap align-items-center mt-n2">
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal p-0 mt-2 me-3"
+                    href="#"
+                  >
+                    10
+                    <i class="ai-share fs-lg ms-1"></i>
+                  </a>
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal d-flex align-items-end p-0 mt-2"
+                    href="#"
+                  >
+                    4
+                    <i class="ai-message fs-lg ms-1"></i>
+                  </a>
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <span class="fs-sm text-body-secondary mt-2"
+                    >12 hours ago</span
+                  >
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <a class="badge text-nav fs-xs border mt-2" href="#">Books</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post -->
+          <article class="row g-0 border-0 pt-3 pt-sm-0 mb-4">
+            <a
+              class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
+              href="blog-single-v3.html"
+              style="background-image: url(assets/img/blog/list/03.jpg); min-height: 14rem"
+              aria-label="Post image"></a>
+            <div class="col-sm-7">
+              <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
+                <h3>
+                  <a href="blog-single-v3.html"
+                    >Destinations to inspire and restore resources</a
+                  >
+                </h3>
+                <p class="d-sm-none d-md-block text-white">
+                  Sapien ultrices egestas at faucibus eu diam velit diam id amet
+                  nibh quam rutrum diam fermentum diam natoque scelerisque
+                  viverra molestie fames...
+                </p>
+                <div class="d-flex flex-wrap align-items-center mt-n2">
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal p-0 mt-2 me-3"
+                    href="#"
+                  >
+                    8
+                    <i class="ai-share fs-lg ms-1"></i>
+                  </a>
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal d-flex align-items-end p-0 mt-2"
+                    href="#"
+                  >
+                    5
+                    <i class="ai-message fs-lg ms-1"></i>
+                  </a>
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <span class="fs-sm text-body-secondary mt-2"
+                    >April 25, 2022</span
+                  >
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <a class="badge text-nav fs-xs border mt-2" href="#">Travel</a
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post -->
+          <article class="row g-0 border-0 pt-3 pt-sm-0 mb-4">
+            <a
+              class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
+              href="blog-single-v1.html"
+              style="background-image: url(assets/img/blog/list/04.jpg); min-height: 14rem"
+              aria-label="Post image"></a>
+            <div class="col-sm-7">
+              <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
+                <h3>
+                  <a href="blog-single-v1.html"
+                    >Promotion of an online store from scratch, first sales</a
+                  >
+                </h3>
+                <p class="d-sm-none d-md-block text-white">
+                  Pharetra in morbi quis is massa maecenas arcu vulputate
+                  pulvinar elit non nullage a, duis tortor mi massa ipsum in eu
+                  eu eget libero pulvinar elit...
+                </p>
+                <div class="d-flex flex-wrap align-items-center mt-n2">
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal p-0 mt-2 me-3"
+                    href="#"
+                  >
+                    11
+                    <i class="ai-share fs-lg ms-1"></i>
+                  </a>
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal d-flex align-items-end p-0 mt-2"
+                    href="#"
+                  >
+                    3
+                    <i class="ai-message fs-lg ms-1"></i>
+                  </a>
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <span class="fs-sm text-body-secondary mt-2"
+                    >May 12, 2022</span
+                  >
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <a class="badge text-nav fs-xs border mt-2" href="#"
+                    >Marketing</a
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post -->
+          <article class="row g-0 border-0 pt-3 pt-sm-0 mb-4">
+            <a
+              class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
+              href="blog-single-v2.html"
+              style="background-image: url(assets/img/blog/list/05.jpg); min-height: 14rem"
+              aria-label="Post image"></a>
+            <div class="col-sm-7">
+              <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
+                <h3>
+                  <a href="blog-single-v2.html">New series from Netflix</a>
+                </h3>
+                <p class="d-sm-none d-md-block text-white">
+                  Egestas in neque scelerisque semper sit at eu cursus faucibus
+                  velit cras at aliquam sed dictum at at orci curabitur dictumst
+                  viverra non pharetra etiam non, vitae tristique eu in morbi
+                  felis morbi nulla fermentum diam natoque...
+                </p>
+                <div class="d-flex flex-wrap align-items-center mt-n2">
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal p-0 mt-2 me-3"
+                    href="#"
+                  >
+                    19
+                    <i class="ai-share fs-lg ms-1"></i>
+                  </a>
+                  <a
+                    class="nav-link text-body-secondary fs-sm fw-normal d-flex align-items-end p-0 mt-2"
+                    href="#"
+                  >
+                    7
+                    <i class="ai-message fs-lg ms-1"></i>
+                  </a>
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <span class="fs-sm text-body-secondary mt-2"
+                    >December 15, 2022</span
+                  >
+                  <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+                  <a class="badge text-nav fs-xs border mt-2" href="#"
+                    >TV shows</a
+                  >
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pagination -->
+          <div class="row gy-3 align-items-center mt-lg-5 pt-2 pt-md-4 pt-lg-0">
+            <div class="col col-md-4 col-6 order-md-1 order-1">
+              <div class="d-flex align-items-center">
+                <span class="text-body-secondary fs-sm">Show</span>
+                <select class="form-select form-select-flush w-auto">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="25">25</option>
+                </select>
+              </div>
+            </div>
+            <div class="col col-md-4 col-12 order-md-2 order-3 text-center">
+              <button class="btn btn-primary w-md-auto w-100" type="button"
+                >Load more posts</button
+              >
+            </div>
+            <div class="col col-md-4 col-6 order-md-3 order-2">
+              <nav aria-label="Page navigation">
+                <ul class="pagination pagination-sm justify-content-end">
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link"
+                      >1<span class="visually-hidden">(current)</span></span
+                    >
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar (offcanvas on sreens < 992px) -->
+        <aside class="col-lg-3">
+          <div class="offcanvas-lg offcanvas-end" id="sidebarBlog">
+            <div class="offcanvas-header">
+              <h4 class="offcanvas-title">Sidebar</h4>
+              <button
+                class="btn-close ms-auto"
+                type="button"
+                data-bs-dismiss="offcanvas"
+                data-bs-target="#sidebarBlog"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <!-- Search box -->
+              <div class="position-relative mb-4 mb-lg-5">
+                <i
+                  class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"
+                ></i>
+                <input
+                  class="form-control ps-5"
+                  type="search"
+                  placeholder="Enter keyword"
+                />
+              </div>
+
+              <!-- Category links -->
+              <div
+                class="col contact-div offset-xxl-1 pt-sm-3"
+                style="margin-left: -50px;"
+              >
+                <!-- Contact form -->
+                <div
+                  class="card contact-form
+                border-0
+                py-4
+                px-xxl-4"
+                  style="background-color: #30BABA;border-radius: 15px;"
+                >
+                  <form class="card-body" data-bs-theme="dark">
+                    <h2
+                      class="h3 card-title text-white text-center pb-2 pb-xxl-3"
+                    >
+                      30 mins FREE Consultation
+                    </h2>
+                    <div class="mb-3">
+                      <label class="form-label fs-base" for="name">
+                        Your Name
+                      </label>
+                      <input
+                        class="form-control form-control-sm"
+                        type="text"
+                        placeholder="John Doe"
+                        required
+                        id="name"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label fs-base" for="company">
+                        Company Name
+                      </label>
+                      <input
+                        class="form-control form-control-sm"
+                        type="text"
+                        placeholder="Your company name"
+                        required
+                        id="company"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label fs-base" for="email">
+                        Email address
+                      </label>
+                      <input
+                        class="form-control form-control-sm"
+                        type="email"
+                        placeholder="Email address"
+                        required
+                        id="email"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="date-time-picker"
+                        >Date and time</label
+                      >
+                      <div class="position-relative">
+                        <input
+                          class="form-control form-control-sm date-picker pe-5"
+                          type="text"
+                          placeholder="Choose date/time"
+                          data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}'
+                          id="date-time-picker"
+                        />
+                        <i
+                          class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
+                        ></i>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
+                    >
+                      <button
+                        class="btn book-btn w-100 w-sm-auto w-lg-100 w-xxl-200 me-sm-3 me-lg-0 me-xxl-3"
+                        style=" background-color:white; color:#30BABA"
+                        type="submit">Book now</button
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Featured posts widget -->
+
+              <!-- Social buttons -->
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Sidebar toggle button -->
+    <button
+      class="d-lg-none btn btn-sm fs-sm btn-primary w-100 rounded-0 fixed-bottom"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#sidebarBlog"
+    >
+      <i class="ai-layout-column me-2"></i>
+      Sidebar
+    </button>
+  </main>
+  <Footer />
+</Layout>
