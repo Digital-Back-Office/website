@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+const path = Astro.url.pathname;
+import brandLogo from "/assets/images/dbo 1.png"; 
+import { Image } from "astro:assets";
+---
+
+<style>
+  
+
+  .brand-logo {
+    width: 110px;
+    height: 50px;
+  }
+  .nav-link {
+    color: #fff;
+    font-family: "arimo";
+  }
+
+  .contact-btn {
+    border: 1px solid var(--ar-primary);
+    border-radius: 7px;
+    padding: 4px 20px;
+    color: var(--ar-primary);
+    font-family: "archivo";
+  }
+
+  .navbar-scrolled{
+    background-color: black;
+    position: fixed;
+    top:0;left:0; right:0;
+  }
+
+  .staticnav{
+    background-color: transparent;
+    position: relative;
+  }
+
+  #navbar{
+    transition: background-color 0.4s ease-in-out;
+    z-index:10;
+  }
+  
+</style>
+
+
+<!-- Menu + Theme mode switch + Button -->
+<header id="navbar" class="staticnav nav navbar navbar-expand-lg" data-bs-theme="dark">
+    <div class="container">
+      <div class="navbar-brand">
+        <span class="text-primary flex-shrink-0 me-2">
+          <Image src={brandLogo} alt="DBO logo" class="brand-logo"/>
+        </span>
+        
+    </div>
+      
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse2" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="/contact-us" class={path==="/contact-us"?"btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none":
+        "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"}
+      >
+        Contact us
+      </a>
+
+
+      <nav class="collapse navbar-collapse bg-black" id="navbarCollapse2" >
+        <ul class="navbar-nav">
+          <li class={path==="/"?"nav-item active":"nav-item"}>
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          <li class={path==="/about-us"?"nav-item active":"nav-item"}>
+            <a href="/about-us" class="nav-link">About us</a>
+          </li>
+          <li class={path==="/services"?"nav-item active":"nav-item"}>
+            <a href="/services" class="nav-link">Services</a>
+          </li>
+          <li class={path==="/blog"?"nav-item active":"nav-item"}>
+            <a href="/blog" class="nav-link">Blog</a>
+          </li>
+        </ul>
+        
+        <a href="/contact-us" class={path==="/contact-us"?"d-none btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0":
+        "btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0"}
+        >
+          Contact us
+        </a>
+      </nav>
+
+
+    </div>
+  </header>
+
+ 

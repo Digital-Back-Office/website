@@ -1,5 +1,22 @@
 ---
-
+const services = [
+    {
+        heading:"Data Science",
+        info:"Data science helps mitigate business risks and drive business outcomes and innovations through smarter decisions. We build end-to-end data processing, modelling and machine learning pipelines in Python.",
+    },
+    {
+        heading:"Data Visualisation",
+        info:"Data Visualisation is story telling with a purpose. Data Visualisation is an art and we treat is such. We don't treat data visualisation as just a data problems, we understand that visuals are for humans.",
+    },
+    {
+        heading: "Big Data DevOps",
+        info: "The real challenge holding back production big data cloud deployments is the pervasive lack of DevOps skills for big data. We provide Fully-managed cloud services for big data and analytics.",
+    },
+    {
+        heading: "Big Data Architecture",
+        info: "We specialize in crafting robust, fault-tolerant, and scalable Big Data solutions tailored to seamlessly integrate across departments and teams, providing a unified perspective on your data insights.",
+    },
+];
 ---
 
 <style>
@@ -20,9 +37,8 @@
                 <h1
                     class="display-1 text-white text-uppercase fw-bold mt-auto mb-2"
                 >
-                    we design <span class="fw-normal"
-                        >solutions <br /> to bring</span
-                    > efficiency
+                    we design <span class="fw-normal">solutions <br /> to bring
+                    </span> efficiency
                 </h1>
                 <div class="d-flex align-items-center py-4 py-lg-5">
                     <a
@@ -70,7 +86,7 @@
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            Data Science
+                                            {services[0].heading}
                                         </h2>
                                     </div>
                                 </div>
@@ -78,14 +94,9 @@
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
-                                        <h3 class="h4">Data Science</h3>
+                                        <h3 class="h4">{services[0].heading}</h3>
                                         <p class="text-body mb-3">
-                                            Data science helps mitigate business
-                                            risks and drive business outcomes
-                                            and innovations through smarter
-                                            decisions. We build end-to-end data
-                                            processing, modelling and machine
-                                            learning pipelines in Python.
+                                            {services[0].info}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
@@ -127,7 +138,7 @@
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            Data Visualisation
+                                            {services[1].heading}
                                         </h2>
                                     </div>
                                 </div>
@@ -135,14 +146,9 @@
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
-                                        <h3 class="h4">Data Visualisation</h3>
+                                        <h3 class="h4">{services[1].heading}</h3>
                                         <p class="text-body mb-3">
-                                            Data Visualisation is story telling
-                                            with a purpose. Data Visualisation
-                                            is an art and we treat is such. We
-                                            don't treat data visualisation as
-                                            just a data problems, we understand
-                                            that visuals are for humans.
+                                            {services[1].info}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
@@ -185,7 +191,7 @@
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            Big Data Architecture
+                                            {services[2].heading}
                                         </h2>
                                     </div>
                                 </div>
@@ -194,16 +200,10 @@
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
                                         <h3 class="h4">
-                                            Big Data Architecture
+                                            {services[2].heading}
                                         </h3>
                                         <p class="text-body mb-3">
-                                            We specialize in crafting robust,
-                                            fault-tolerant, and scalable Big
-                                            Data solutions tailored to
-                                            seamlessly integrate across
-                                            departments and teams, providing a
-                                            unified perspective on your data
-                                            insights.
+                                            {services[2].info}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
@@ -245,7 +245,7 @@
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            Big Data DevOps
+                                            {services[3].heading}
                                         </h2>
                                     </div>
                                 </div>
@@ -253,14 +253,9 @@
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
-                                        <h3 class="h4">Big Data DevOps</h3>
+                                        <h3 class="h4">{services[3].heading}</h3>
                                         <p class="text-body mb-3">
-                                            The real challenge holding back
-                                            production big data cloud
-                                            deployments is the pervasive lack of
-                                            DevOps skills for big data. We
-                                            provide Fully-managed cloud services
-                                            for big data and analytics.
+                                            {services[3].info}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"

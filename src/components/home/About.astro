@@ -1,4 +1,25 @@
 ---
+const data = {
+    heading:"Data Driven Innovation",
+    info_part_1:"Unleash the power of data in your organization to discover obnubilated insights and make real time strategic decisions. Connect the dots with seamless data integration to drive innovation, save cost across the departments.",
+    info_part_2:"From complex analysis to stunning visualizations, our advanced data processing and AI can help you extract valuable insights and make data-driven decisions faster than ever before."
+};
+
+const features = [
+    {
+        heading:"Open Source",
+        info:"Cutting edge big data tools are open source, we bring best of them to work together for you."
+    },
+    {
+        heading:"24x7 Support",
+        info:"We provide 24x7 support  for our solutions, supporting your business across different time zones."
+    },
+    {
+        heading:"Cost Effective",
+        info:"Save up to 90% recurring costs with open source and optimized cloud auto scaling."
+    }
+];
+
 import { Image } from "astro:assets";
 import about1 from "/assets/images/about1.png";
 import about2 from "/assets/images/about2.png";
@@ -8,7 +29,7 @@ import about3 from "/assets/images/about3.png";
 <style>
     section {
         background-image: url(/assets/images/background_pattern.png);
-        background-repeat: no-  repeat;
+        background-repeat: no-repeat;
         /* width: 100%; */
     }
 
@@ -74,17 +95,12 @@ import about3 from "/assets/images/about3.png";
             <div
                 class="col-md-5 col-xl-4 offset-xl-1 order-md-1 text-center text-md-start"
             >
-                <h3 class="h2 mb-lg-4 text-white">Data Driven Innovation</h3>
+                <h3 class="h2 mb-lg-4 text-white">{data.heading}</h3>
                 <p class="fs-lg pb-lg-2 mb-4 text-white opacity-70">
-                    Unleash the power of data in your organization to discover
-                    obnubilated insights and make real time strategic decisions.
-                    Connect the dots with seamless data integration to drive
-                    innovation, save cost across the departments.
+                    {data.info_part_1}
                     <br />
                     <br />
-                    From complex analysis to stunning visualizations, our advanced
-                    data processing and AI can help you extract valuable insights
-                    and make data-driven decisions faster than ever before.
+                    {data.info_part_2}
                 </p>
                 <a href="#" class="btn btn-outline-primary rounded-pill">
                     Learn more
@@ -120,10 +136,9 @@ import about3 from "/assets/images/about3.png";
                             fill-opacity="0.1"></path>
                     </svg>
                 </div>
-                <h3 class="h4 pb-2 mb-1 text-white">Open Source</h3>
+                <h3 class="h4 pb-2 mb-1 text-white">{features[0].heading}</h3>
                 <p class="fs-sm mb-0 text-white opacity-70">
-                    Cutting edge big data tools are open source, we bring best
-                    of them to work together for you.
+                    {features[0].info}
                 </p>
             </div>
 
@@ -149,10 +164,9 @@ import about3 from "/assets/images/about3.png";
                             fill-opacity="0.1"></path>
                     </svg>
                 </div>
-                <h3 class="h4 pb-2 mb-1 text-white">27x7 Support</h3>
+                <h3 class="h4 pb-2 mb-1 text-white">{features[1].heading}</h3>
                 <p class="fs-sm mb-0 text-white opacity-70">
-                    We provide 24x7 support on for our solutions, supporting
-                    your business across the time zones.
+                    {features[1].info}
                 </p>
             </div>
 
@@ -163,7 +177,7 @@ import about3 from "/assets/images/about3.png";
                     style="width: 68px;"
                 >
                     <i
-                        class="ai-cost-effective text-primary fs-2 d-flex align-items-center justify-content-center position-absolute start-0"
+                        class="ai-cost-effective text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
                     ></i>
                     <svg
                         class="position-absolute top-0 start-0 text-primary"
@@ -178,10 +192,9 @@ import about3 from "/assets/images/about3.png";
                             fill-opacity="0.1"></path>
                     </svg>
                 </div>
-                <h3 class="h4 pb-2 mb-1 text-white">Cost Effective</h3>
+                <h3 class="h4 pb-2 mb-1 text-white">{features[2].heading}</h3>
                 <p class="fs-sm mb-0 text-white opacity-70">
-                    Save up to 90% recurring cost with open source and optimized
-                    cloud auto scaling.
+                    {features[2].info}
                 </p>
             </div>
         </div>
