@@ -3,266 +3,190 @@ import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 ---
 
-<Layout>
-  <section class="pt-5 pb-4" data-bs-theme="dark">
-    <div class="container py-lg-2 py-xl-4 py-xxl-5">
-      <div class="row mt-1 pt-sm-2 pt-md-3 pt-lg-4">
-        <div class="col-lg-5 mb-5 mb-lg-0">
-          <h2 class="h1" style="color:white">Let’s talk data!</h2>
-          <p
-            class="pb-1 pb-md-0 mb-4 mb-md-5"
-            style="color:rgba(255, 255, 255, 0.7)"
-          >
-            We love data and love solving data problem. We’re committed to
-            making data understandable !
-          </p>
-          <h3 class="mb-4" style="color:white">Send a message</h3>
+<section class="pt-5 pb-4" data-bs-theme="dark">
+  <div class="container py-lg-2 py-xl-4 py-xxl-5">
+    <div class="row mt-1 pt-sm-2 pt-md-3 pt-lg-4">
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <h2 class="h1" style="color:white">Let’s talk data!</h2>
+        <p
+          class="pb-1 pb-md-0 mb-4 mb-md-5"
+          style="color:rgba(255, 255, 255, 0.7)"
+        >
+          We love data and love solving data problem. We’re committed to making
+          data understandable !
+        </p>
+        <h3 class="mb-4" style="color:white">Send a message</h3>
 
-          <!-- Contact form -->
-          <form class="needs-validation row g-4" novalidate>
-            <div class="col-lg-10">
-              <label class="form-label fs-base" for="name">Name</label>
-              <input
-                class="form-control form-control-lg"
-                type="text"
-                placeholder="Your name"
-                required
-                id="name"
-                style="border-radius:8px;"
-              />
-              <div class="invalid-feedback">Please enter your name!</div>
+        <!-- Contact form -->
+        <form class="needs-validation row g-4" novalidate>
+          <div class="col-lg-10">
+            <label class="form-label fs-base" for="name">Name</label>
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              placeholder="Your name"
+              required
+              id="name"
+              style="border-radius:8px;"
+            />
+            <div class="invalid-feedback">Please enter your name!</div>
+          </div>
+          <div class="col-lg-10">
+            <label class="form-label fs-base" for="email">Email</label>
+            <input
+              class="form-control form-control-lg"
+              type="email"
+              placeholder="Email address"
+              required
+              id="email"
+              style="border-radius:8px;"
+            />
+            <div class="invalid-feedback">
+              Please provide a valid email address!
             </div>
-            <div class="col-lg-10">
-              <label class="form-label fs-base" for="email">Email</label>
-              <input
-                class="form-control form-control-lg"
-                type="email"
-                placeholder="Email address"
-                required
-                id="email"
-                style="border-radius:8px;"
-              />
-              <div class="invalid-feedback">
-                Please provide a valid email address!
-              </div>
-            </div>
-            <div class="col-lg-10">
-              <label class="form-label fs-base" for="message">Message</label>
-              <textarea
-                class="form-control form-control-lg"
-                placeholder="Your message"
-                rows="4"
-                required
-                id="message"
-                style="border-radius:8px;"></textarea>
-              <div class="invalid-feedback">Please write your message!</div>
-            </div>
-            <div class="col-lg-10">
-              <button
-                class="btn btn-lg btn-dark mt-2"
-                style="background-color:rgba(48, 186, 186, 1); color:white; border:none;
+          </div>
+          <div class="col-lg-10">
+            <label class="form-label fs-base" for="message">Message</label>
+            <textarea
+              class="form-control form-control-lg"
+              placeholder="Your message"
+              rows="4"
+              required
+              id="message"
+              style="border-radius:8px;"></textarea>
+            <div class="invalid-feedback">Please write your message!</div>
+          </div>
+          <div class="col-lg-10">
+            <button
+              class="btn btn-lg btn-dark mt-2"
+              style="background-color:rgba(48, 186, 186, 1); color:white; border:none;
                     border-radius:8px;"
-                type="submit">Send Message</button
-              >
+                    type="submit">Send Message</button
+                  >
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
-
-        <!-- Benefits -->
-        <div class="col-lg-7 col-xl-6 offset-xl-1">
-          <div class="row row-cols-1 row-cols-sm-2">
-            <div class="col">
-              <!-- Card 1-->
-              <div class="card border-0 mb-4">
-                <div class="card-body">
-                  <svg
-                    class="d-block mb-3"
-                    width="36"
-                    height="36"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M31.5421 14.6392C30.9852 23.6876 23.7313 30.9273 14.665 31.4831V36.0002H36.0681V14.6392H31.5421Z"
-                      fill="#52CEC7"></path>
-                    <path
-                      d="M13.5479 27.0377C21.0287 27.0377 27.0932 20.9852 27.0932 13.519H13.5479V27.0377Z"
-                      fill="#448C74"></path>
-                    <path
-                      d="M26.3285 9.03783C24.476 3.77444 19.4531 0.000488281 13.5463 0.000488281C6.0654 0.000488281 0.000976562 6.05299 0.000976562 13.5192C0.000976562 19.4144 3.78237 24.4274 9.05612 26.2763V9.03783H26.3285Z"
-                      fill="#52CEC7"></path>
-                  </svg>
-
-                  <h3 class="h4" style="max-width: 180px;">
-                    Time zones ain't no thing
-                  </h3>
-                  <p class="card-text fs-sm">
-                    We are based in UK, but we can support your business in any
-                    time zone, we work 24x7.
-                  </p>
+  
+            <!-- Benefits -->
+            <div class="col-lg-7 col-xl-6 offset-xl-1">
+              <div class="row row-cols-1 row-cols-sm-2">
+                <div class="col">
+                  <!-- Card 1-->
+                  <div class="card border-0 mb-4">
+                    <div class="card-body">
+                      
+                      <svg class="d-block mb-3" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M31.5421 14.6392C30.9852 23.6876 23.7313 30.9273 14.665 31.4831V36.0002H36.0681V14.6392H31.5421Z" fill="#52CEC7"/>
+                        <path d="M13.5479 27.0377C21.0287 27.0377 27.0932 20.9852 27.0932 13.519H13.5479V27.0377Z" fill="#448C74"/>
+                        <path d="M26.3285 9.03783C24.476 3.77444 19.4531 0.000488281 13.5463 0.000488281C6.0654 0.000488281 0.000976562 6.05299 0.000976562 13.5192C0.000976562 19.4144 3.78237 24.4274 9.05612 26.2763V9.03783H26.3285Z" fill="#52CEC7"/>
+                        </svg>
+                        
+                      <h3 class="h4" style="max-width: 180px;">
+                        Time zones ain't no thing
+                      </h3>
+                      <p class="card-text fs-sm">
+                        We are based in UK, but we can support your business in any time zone, we work 24x7.
+                      </p>
+                    </div>
+                  </div>
+  
+                  <!-- Card 2-->
+                  <div class="card border-0" data-bs-theme="dark" style="background-color:rgba(80, 80, 80, 1)">
+                    <div class="card-body">
+                      
+                        
+                        <svg class="d-block mb-3" width="216" height="36" viewBox="0 0 216 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_860_1657)">
+                          <g clip-path="url(#clip1_860_1657)">
+                          <path d="M22.7506 11.4761C25.3753 8.85138 25.3753 4.59588 22.7506 1.97117C20.1258 -0.653544 15.8703 -0.653545 13.2456 1.97117C10.6209 4.59588 10.6209 8.85138 13.2456 11.4761C15.8703 14.1008 20.1258 14.1008 22.7506 11.4761Z" fill="white"/>
+                          <path d="M13.2183 26.3752C14.0913 24.3113 15.2292 22.3956 16.6129 20.6522C12.481 16.1824 6.56795 13.3833 0.000976562 13.3833V36.0006H11.2743C11.2743 32.6634 11.9284 29.425 13.2183 26.3752Z" fill="#52CEC7"/>
+                          <path d="M36.0011 36.0006V13.3833C23.5099 13.3833 13.3838 23.5094 13.3838 36.0006H36.0011Z" fill="#52CEC7"/>
+                          </g>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_860_1657">
+                          <rect width="216" height="36" fill="white" transform="translate(0.000976562 0.000488281)"/>
+                          </clipPath>
+                          <clipPath id="clip1_860_1657">
+                          <rect width="36" height="36" fill="white" transform="translate(0.000976562 0.000488281)"/>
+                          </clipPath>
+                          </defs>
+                          </svg>
+                          
+                      <h3 class="h4" style="max-width: 180px;">
+                        Flexible work terms
+                      </h3>
+                      <p class="card-text fs-sm">
+                        We understand that  every business is different. We work on both fixed  cost and time and material basis. We can also provide consultants, who can work alongside your existing team.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <!-- Card 2-->
-              <div
-                class="card border-0"
-                data-bs-theme="dark"
-                style="background-color:rgba(80, 80, 80, 1)"
-              >
-                <div class="card-body">
-                  <svg
-                    class="d-block mb-3"
-                    width="216"
-                    height="36"
-                    viewBox="0 0 216 36"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+  
+                <div class="col d-flex flex-column pt-4 mt-sm-3">
+                  <!-- Card 3-->
+                  <div class="card border-0 order-sm-2 mb-4 mb-sm-0">
+                    <div class="card-body">
+                      <svg class="d-block mb-3" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_860_1649)">
+                        <path d="M31.4855 14.6396C30.9297 23.6881 23.69 30.9277 14.6416 31.4836V36.0007H36.0025V14.6396H31.4855Z" fill="#52CEC7"/>
+                        <path d="M13.5166 27.0377C20.9827 27.0377 27.0353 20.9852 27.0353 13.519H13.5166V27.0377Z" fill="#448C74"/>
+                        <path d="M26.2768 9.03783C24.4279 3.77444 19.4149 0.000488281 13.5197 0.000488281C6.05348 0.000488281 0.000976562 6.05299 0.000976562 13.5192C0.000976562 19.4144 3.77493 24.4274 9.03831 26.2763V9.03783H26.2768Z" fill="#52CEC7"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_860_1649">
+                        <rect width="36" height="36" fill="white" transform="translate(0.000976562 0.000488281)"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        
+                      <h3 class="h4" style="max-width: 180px;">
+                        Full spectrum of services
+                      </h3>
+                      <p class="card-text fs-sm">
+                        We provide full spectrum of enterprise data  services. 
+                      </p>
+                    </div>
+                  </div>
+  
+                  <!-- Card 4-->
+                  <div
+                    class="card border-0 order-sm-1 mb-sm-4" style="background-color:rgba(80, 80, 80, 1)"
+                    data-bs-theme="dark"
                   >
-                    <g clip-path="url(#clip0_860_1657)">
-                      <g clip-path="url(#clip1_860_1657)">
-                        <path
-                          d="M22.7506 11.4761C25.3753 8.85138 25.3753 4.59588 22.7506 1.97117C20.1258 -0.653544 15.8703 -0.653545 13.2456 1.97117C10.6209 4.59588 10.6209 8.85138 13.2456 11.4761C15.8703 14.1008 20.1258 14.1008 22.7506 11.4761Z"
-                          fill="white"></path>
-                        <path
-                          d="M13.2183 26.3752C14.0913 24.3113 15.2292 22.3956 16.6129 20.6522C12.481 16.1824 6.56795 13.3833 0.000976562 13.3833V36.0006H11.2743C11.2743 32.6634 11.9284 29.425 13.2183 26.3752Z"
-                          fill="#52CEC7"></path>
-                        <path
-                          d="M36.0011 36.0006V13.3833C23.5099 13.3833 13.3838 23.5094 13.3838 36.0006H36.0011Z"
-                          fill="#52CEC7"></path>
-                      </g>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_860_1657">
-                        <rect
-                          width="216"
-                          height="36"
-                          fill="white"
-                          transform="translate(0.000976562 0.000488281)"></rect>
-                      </clipPath>
-                      <clipPath id="clip1_860_1657">
-                        <rect
-                          width="36"
-                          height="36"
-                          fill="white"
-                          transform="translate(0.000976562 0.000488281)"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-
-                  <h3 class="h4" style="max-width: 180px;">
-                    Flexible work terms
-                  </h3>
-                  <p class="card-text fs-sm">
-                    We understand that every business is different. We work on
-                    both fixed cost and time and material basis. We can also
-                    provide consultants, who can work alongside your existing
-                    team.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col d-flex flex-column pt-4 mt-sm-3">
-              <!-- Card 3-->
-              <div class="card border-0 order-sm-2 mb-4 mb-sm-0">
-                <div class="card-body">
-                  <svg
-                    class="d-block mb-3"
-                    width="36"
-                    height="36"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_860_1649)">
-                      <path
-                        d="M31.4855 14.6396C30.9297 23.6881 23.69 30.9277 14.6416 31.4836V36.0007H36.0025V14.6396H31.4855Z"
-                        fill="#52CEC7"></path>
-                      <path
-                        d="M13.5166 27.0377C20.9827 27.0377 27.0353 20.9852 27.0353 13.519H13.5166V27.0377Z"
-                        fill="#448C74"></path>
-                      <path
-                        d="M26.2768 9.03783C24.4279 3.77444 19.4149 0.000488281 13.5197 0.000488281C6.05348 0.000488281 0.000976562 6.05299 0.000976562 13.5192C0.000976562 19.4144 3.77493 24.4274 9.03831 26.2763V9.03783H26.2768Z"
-                        fill="#52CEC7"></path>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_860_1649">
-                        <rect
-                          width="36"
-                          height="36"
-                          fill="white"
-                          transform="translate(0.000976562 0.000488281)"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-
-                  <h3 class="h4" style="max-width: 180px;">
-                    Full spectrum of services
-                  </h3>
-                  <p class="card-text fs-sm">
-                    We provide full spectrum of enterprise data services.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Card 4-->
-              <div
-                class="card border-0 order-sm-1 mb-sm-4"
-                style="background-color:rgba(80, 80, 80, 1)"
-                data-bs-theme="dark"
-              >
-                <div class="card-body">
-                  <svg
-                    class="d-block mb-3"
-                    width="36"
-                    height="36"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clip-path="url(#clip0_860_1666)">
-                      <g clip-path="url(#clip1_860_1666)">
-                        <path
-                          d="M22.4854 22.4819H36.0041V36.0006H22.4854V22.4819Z"
-                          fill="white"></path>
-                        <path
-                          d="M8.96364 18.0005C8.96364 13.0093 13.0098 8.96315 18.001 8.96315C22.9922 8.96315 27.0383 13.0093 27.0383 18.0005H36.001C36.001 8.05936 27.9421 0.000488281 18.001 0.000488281C8.05984 0.000488281 0.000976562 8.05936 0.000976562 18.0005C0.000976562 27.9416 8.05984 36.0005 18.001 36.0005V27.0378C13.0098 27.0378 8.96364 22.9917 8.96364 18.0005Z"
-                          fill="#52CEC7"></path>
-                      </g>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_860_1666">
-                        <rect
-                          width="36"
-                          height="36"
-                          fill="white"
-                          transform="translate(0.000976562 0.000488281)"></rect>
-                      </clipPath>
-                      <clipPath id="clip1_860_1666">
-                        <rect
-                          width="36"
-                          height="36"
-                          fill="white"
-                          transform="translate(0.000976562 0.000488281)"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-
-                  <h3 class="h4" style="max-width: 180px;">
-                    Impossible? We're on it
-                  </h3>
-                  <p class="card-text fs-sm">
-                    Difficult is done at once, the impossible takes a bit
-                    longer. If it is possible, consider it done. The impossible,
-                    it will be done!
-                  </p>
+                    <div class="card-body">
+                      
+                        
+                        <svg  class="d-block mb-3" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_860_1666)">
+                          <g clip-path="url(#clip1_860_1666)">
+                          <path d="M22.4854 22.4819H36.0041V36.0006H22.4854V22.4819Z" fill="white"/>
+                          <path d="M8.96364 18.0005C8.96364 13.0093 13.0098 8.96315 18.001 8.96315C22.9922 8.96315 27.0383 13.0093 27.0383 18.0005H36.001C36.001 8.05936 27.9421 0.000488281 18.001 0.000488281C8.05984 0.000488281 0.000976562 8.05936 0.000976562 18.0005C0.000976562 27.9416 8.05984 36.0005 18.001 36.0005V27.0378C13.0098 27.0378 8.96364 22.9917 8.96364 18.0005Z" fill="#52CEC7"/>
+                          </g>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_860_1666">
+                          <rect width="36" height="36" fill="white" transform="translate(0.000976562 0.000488281)"/>
+                          </clipPath>
+                          <clipPath id="clip1_860_1666">
+                          <rect width="36" height="36" fill="white" transform="translate(0.000976562 0.000488281)"/>
+                          </clipPath>
+                          </defs>
+                          </svg>
+                          
+                          
+                      <h3 class="h4" style="max-width: 180px;">
+                        Impossible? We're on it
+                      </h3>
+                      <p class="card-text fs-sm">
+                        Difficult is done at once, the impossible takes a bit longer. If it is possible, consider it done. The impossible, it will be done!
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 </Layout>

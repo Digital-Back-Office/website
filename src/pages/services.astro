@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 
-import Header from "../components/Header.astro";
 import image1 from "../../assets/images/Services/big-data.svg";
 import monitorLight from "../../assets/img/services/v3/icons/monitor-light.svg";
 import cloudLight from "../../assets/img/services/v3/icons/cloud-light.svg";
@@ -16,6 +15,7 @@ import thumbsUp from "../../assets/images/Services/thumbs-up.svg";
 
 import HeroSection from "../components/Services/HeroSection.astro";
 import ContactForm from "../components/Services/ContactForm.astro"
+import Navbar from "../components/Navbar.astro";
 ---
 
 <style>
@@ -32,8 +32,7 @@ import ContactForm from "../components/Services/ContactForm.astro"
 
 <Layout>
   <main class="page-wrapper" style="background-color: black;">
-    <Header />
-
+    
     {/*Hero Section- created from landing-creative-agency.html */}
     <HeroSection/>
 
@@ -330,6 +329,9 @@ import ContactForm from "../components/Services/ContactForm.astro"
 
     <!-- Contact form + Benefits - created from landing-web-studio.html-->
     <ContactForm/>
+
+    
+
     
   </main>
 </Layout>

@@ -4,6 +4,9 @@ import { Image } from "astro:assets";
 import Header from "../components/Header.astro";
 import svg1 from "../../assets/images/ContactUs/svg1.svg";
 import svg2 from "../../assets/images/ContactUs/svg2.svg";
+import Footer from "../components/Footer.astro"
+import Navbar from "../components/Navbar.astro";
+
 ---
 
 <style>
@@ -15,10 +18,9 @@ import svg2 from "../../assets/images/ContactUs/svg2.svg";
 
 <Layout>
     <main class="page-wrapper" style="background-color: black;">
-        <Header/>
         
-        <!-- Page title + Сontact form -->
-      <section class="container pt-5 pb-lg-2 pb-xl-4 py-xxl-5 my-5" data-bs-theme="dark">
+        <!-- Page title + Сontact form  from contacts-v2.html-->
+      <section class="container pt-2 pt-lg-5 pb-lg-2 pb-xl-4 py-xxl-5  " data-bs-theme="dark">
 
 
         <div class="row pb-1 pb-sm-3 pb-lg-4">
@@ -103,5 +105,7 @@ import svg2 from "../../assets/images/ContactUs/svg2.svg";
           </div>
         </div>
       </section>
+
+      <Footer/>
     </main>
 </Layout>

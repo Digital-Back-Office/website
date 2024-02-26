@@ -9,10 +9,12 @@ import Services from "../components/home/Services.astro";
 import Case_studies from "../components/home/Case_Studies.astro"
 import Tech from "../components/home/Tech.astro"
 import Contact from "../components/home/Contact.astro"
+
+import bg_video from '../../assets/videos/dbo_bg_video10.mp4'
 ---
 
 <Layout>
-	<Video_Layout>
+	<Video_Layout src={bg_video}>
 		<Hero />
 	</Video_Layout>
 	<About />
