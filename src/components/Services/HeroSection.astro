@@ -1,5 +1,4 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import dataScienceCard from "../../../assets/images/Services/datascience-card.svg";
 import dataVisualCard from "../../../assets/images/Services/datavisual-card.svg";
@@ -7,188 +6,251 @@ import bigDataDevOpsCard from "../../../assets/images/Services/bigdatadevops-car
 import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarchitecture-card.svg";
 ---
 
-
-    <section class="container py-4  mb-xl-3 mb-xxl-5" data-bs-theme="dark">
-        <div class="row pt-2"> 
-          <!-- Text + CTA button -->
-          <div class="col-lg-6 d-flex flex-column mb-4 mb-lg-0 pb-sm-3 pb-lg-0">
-            <h1 class="display-1 text-uppercase fw-bold mt-auto mb-2" >
-              WE DESIGN <br/><span class="fw-normal">SOLUTIONS<br/>TO BRING<br/></span> EFFICIENCY
-            </h1>
-            <div class="d-flex flex-column align-items-start py-4 py-lg-5 gap-2">
-              <a class="btn btn-lg btn-primary me-2 me-sm-3" href="#" style="background-color: rgba(82, 206, 199, 1); border-radius: 8px;"
-                >Let's work together</a
-              >
-              <div class="flex-shrink-sm-0 d-flex justify-content-between gap-3" >
-                <div class="d-flex flex-column">
-                  <span style="font-weight:400;font-size:14px;line-height:17.5px;color:rgba(235, 235, 235, 1)">Reviewed by</span>
-                  <span style="font-weight:700;font-size:27px;line-height:33.75px;color:rgba(235, 235, 235, 1)">Clients</span>
-                </div>
-  
-                <div>
-                  <svg width="106" height="18" viewBox="0 0 106 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.58243 6.17302L7.67591 3.4676C8.27738 1.98006 9.05608 0.762695 9.40602 0.762695C9.75596 0.762695 10.5347 1.98006 11.1361 3.4676L12.2296 6.17302L14.9468 6.4548C19.035 6.87823 19.1987 7.20084 16.5142 9.54331L14.1555 11.6005L14.7394 14.511C15.0602 16.1115 15.1707 17.5744 14.9849 17.7614C14.7987 17.9484 13.4521 17.4524 11.9926 16.66L9.33924 15.2188L6.76468 16.6721C5.34837 17.4715 4.03195 17.967 3.83916 17.7735C3.64637 17.5799 3.75182 16.1115 4.07264 14.511L4.65653 11.6005L2.29785 9.54331C-0.386665 7.20084 -0.223005 6.87823 3.86528 6.4548L6.58243 6.17302Z" fill="#52CEC7"/>
-                    <path d="M26.7417 6.30761C27.9597 6.30761 28.283 5.95525 29.2816 3.53515C29.9112 2.0103 30.7069 0.762695 31.0504 0.762695C31.3933 0.762695 32.2282 1.97804 32.9055 3.46307L34.137 6.16344L37.2096 6.51277C38.9001 6.70482 40.2828 7.05818 40.2828 7.29813C40.2828 7.53807 39.25 8.64655 37.9878 9.76208L35.6934 11.7905L36.4084 14.6098C36.8401 16.3116 36.9365 17.5451 36.6519 17.7216C36.3923 17.8829 35.0382 17.3904 33.6425 16.6277L31.1046 15.241L28.4442 16.6857C26.9812 17.4806 25.6371 17.9832 25.4579 17.8032C25.2782 17.6233 25.4218 16.1735 25.7767 14.5816L26.4214 11.6877L24.3152 9.86592C23.1565 8.86431 22.2086 7.79515 22.2086 7.49119C22.2086 6.89738 24.4678 6.30761 26.7417 6.30761Z" fill="#52CEC7"/>
-                    <path d="M49.8957 6.16898L51.0861 3.46609C51.7413 1.97905 52.5275 0.762695 52.8343 0.762695C53.141 0.762695 53.9273 1.97905 54.5825 3.46609L55.7728 6.16898L58.8224 6.51529C60.4992 6.70583 61.8714 7.0728 61.8714 7.33039C61.8714 7.58798 60.8758 8.72065 59.6583 9.84727C57.6275 11.7265 57.4788 12.0284 57.8524 13.512C58.8826 17.6036 58.8997 17.9015 58.1054 17.9015C57.6807 17.9015 56.4381 17.3344 55.3446 16.6413C52.893 15.0872 52.7755 15.0872 50.324 16.6413C48.0687 18.0704 46.5485 18.3033 46.9888 17.1514C47.1464 16.7391 47.4145 15.3211 47.5847 14.0009C47.882 11.6917 47.8162 11.5249 45.8456 9.60784C44.719 8.51196 43.7972 7.44582 43.7972 7.23865C43.7972 7.03147 45.1693 6.70583 46.8462 6.51529L49.8957 6.16898Z" fill="#52CEC7"/>
-                    <path d="M71.5315 6.16344L72.7631 3.46307C73.4404 1.97804 74.2753 0.762695 74.6182 0.762695C74.9616 0.762695 75.7458 1.98207 76.3608 3.47264L77.4794 6.18259L80.4697 6.52184C82.1145 6.70886 83.46 7.10305 83.46 7.39844C83.46 7.69333 82.5166 8.77509 81.3644 9.80241L79.2683 11.6695L79.8582 14.6174C80.182 16.239 80.3211 17.6928 80.166 17.8481C80.0113 18.0033 78.6874 17.4806 77.2244 16.6857L74.564 15.241L71.9698 16.6589C70.4114 17.5103 69.202 17.8904 68.9399 17.6107C68.6924 17.346 68.8083 15.9784 69.209 14.4405L69.9134 11.7356L67.6496 9.73486C66.4045 8.63445 65.3858 7.53807 65.3858 7.29813C65.3858 7.05818 66.7685 6.70482 68.4589 6.51277L71.5315 6.16344Z" fill="#52CEC7"/>
-                    <path d="M93.439 6.17302L94.5324 3.4676C95.1339 1.98006 95.9171 0.762695 96.2731 0.762695C96.6285 0.762695 97.4228 1.98157 98.0378 3.47164L99.1559 6.18007L101.838 6.45833C105.861 6.8752 106.011 7.19076 103.303 9.54886L100.911 11.6327L101.554 14.5181C101.908 16.105 102.041 17.5607 101.85 17.7523C101.659 17.9444 100.309 17.4524 98.8492 16.66L96.1958 15.2188L93.6212 16.6721C92.2049 17.4715 90.8845 17.963 90.6871 17.7644C90.4893 17.5658 90.6088 16.1433 90.9522 14.6023L91.5763 11.8011L89.2447 9.74041C87.8279 8.48827 87.0939 7.49825 87.3741 7.21697C87.6281 6.9619 89.0961 6.62316 90.6374 6.46337L93.439 6.17302Z" fill="#52CEC7"/>
-                    </svg>
-                    
-                </div>
-                
-              </div>
-            </div>
-            
+<section class="container py-4 mb-xl-3 mb-xxl-5" data-bs-theme="dark">
+  <div class="row pt-2">
+    <!-- Text + CTA button -->
+    <div class="col-lg-6 d-flex flex-column mb-4 mb-lg-0 pb-sm-3 pb-lg-0">
+      <h1 class="display-1 text-uppercase fw-bold mt-auto mb-2">
+        WE DESIGN <br /><span class="fw-normal"
+          >SOLUTIONS<br />TO BRING<br /></span
+        > EFFICIENCY
+      </h1>
+      <div class="d-flex flex-column align-items-start py-4 py-lg-5 gap-2">
+        <a
+          class="btn btn-lg btn-primary me-2 me-sm-3"
+          href="#"
+          style="background-color: rgba(82, 206, 199, 1); border-radius: 8px;"
+          >Let's work together</a
+        >
+        <div class="flex-shrink-sm-0 d-flex justify-content-between gap-3">
+          <div class="d-flex flex-column">
+            <span
+              style="font-weight:400;font-size:14px;line-height:17.5px;color:rgba(235, 235, 235, 1)"
+              >Reviewed by</span
+            >
+            <span
+              style="font-weight:700;font-size:27px;line-height:33.75px;color:rgba(235, 235, 235, 1)"
+              >Clients</span
+            >
           </div>
-    
-          <!-- Services (Grid of cards) -->
-          <div class="col-lg-6">
-            <div class="row row-cols-1 row-cols-sm-2 g-2">
-              <!-- Card 1 Data Science-->
-              <div class="col">
-                <a class="card-flip" href="#">
-                  <div class="card-flip-inner">
-                    <div
-                      class="card-flip-front cards"
-                      style="border: solid 2px rgba(47, 183, 184, 1); border-radius:20px 0 10px 0"
-                    >
-                      <div class="d-flex flex-column h-100 justify-content-end" data-bs-theme="dark">
-                        <Image src={dataScienceCard} alt="hello" style="height:100%; width:auto;"/>
-                        <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">Data Science</h2>
-                      </div>
-                    </div>
-                    <div class="card-flip-back bg-secondary">
-                      <div
-                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
-                      >
-                        <h3 class="h4">Data Science</h3>
-                        <p class="text-body mb-3">
-                          We build end-to-end data processing, modelling and machine learning pipelines in Python.
-                        </p>
-                        <div
-                          class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
-                        >
-                          <div
-                            class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
-                          >
-                            <i class="ai-arrow-right"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-    
-              <!-- Card 2 Data Visual Card-->
-              <div class="col">
-                <a class="card-flip" href="#">
-                  <div class="card-flip-inner">
-                    <div
-                      class="card-flip-front cards"
-                      style="background-color:rgba(47, 183, 184, 1); border-radius: 0 20px 0 10px"
-                    >
-                      <div class="d-flex flex-column h-100 justify-content-end" data-bs-theme="dark">
-                        <Image src={dataVisualCard} alt="hello" style="height:100%; width:auto;"/>
-                        <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">Data Visualisation</h2>
-                      </div>
-                    </div>
-                    <div class="card-flip-back bg-secondary">
-                      <div
-                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
-                      >
-                      <h3 class="h4">Data Visualisation</h3>
-                      <p class="text-body mb-3">
-                        We deliver smart data visualization that facilitate not only Decision making but also Idea generation, research and Visual Discovery..
-                      </p>
-                        <div
-                          class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
-                        >
-                          <div
-                            class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
-                          >
-                            <i class="ai-arrow-right"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-    
-              <!-- Card 3 bigdata devops-->
-              <div class="col order-sm-2">
-                <a class="card-flip" href="#">
-                  <div class="card-flip-inner">
-                    <div
-                      class="card-flip-front cards"
-                      style="border:solid 2px rgba(47, 183, 184, 1); border-radius: 10px 0 20px 0"
-                    >
-                      <div class="d-flex flex-column h-100 justify-content-end" data-bs-theme="dark">
-                        <Image src={bigDataDevOpsCard} alt="hello" style="height:100%; width:auto;"/>
-                        <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">Big Data DevOps</h2>
-                      </div>
-                    </div>
-                    <div class="card-flip-back bg-secondary">
-                      <div
-                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
-                      >
-                        <h3 class="h4">Big Data DevOps</h3>
-                        <p class="text-body mb-3">
-                          We deliver full range of Big Data DevOps for major cloud providers AWS, Azure and Google Cloud as well as on-prem.
-                        </p>
-                        <div
-                          class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
-                        >
-                          <div
-                            class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
-                          >
-                            <i class="ai-arrow-right"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-    
-              <!-- Card 4 Big data Architecture-->
-              <div class="col order-sm-1">
-                <a class="card-flip" href="#">
-                  <div class="card-flip-inner">
-                    <div
-                      class="card-flip-front cards"
-                      style="background-color: rgba(47, 183, 184, 1); border-radius:0 10px 0 20px "
-                    >
-                      <div class="d-flex flex-column h-100 justify-content-end" data-bs-theme="dark">
-                        <Image src={bigDataArchitectureCard} alt="hello" style="height:100%; width:auto;"/>
-                        <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">Big Data Architecture</h2>
-                      </div>
-                    </div>
-                    <div class="card-flip-back bg-secondary">
-                      <div
-                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
-                      >
-                        <h3 class="h4">Big Data Architecture</h3>
-                        <p class="text-body mb-3">
-                          We design secure, fault tolerant and scalable Big Data solutions that work across various departments and teams.
-                        </p>
-                        <div
-                          class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
-                        >
-                          <div
-                            class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
-                          >
-                            <i class="ai-arrow-right"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
+
+          <div>
+            <svg
+              width="106"
+              height="18"
+              viewBox="0 0 106 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.58243 6.17302L7.67591 3.4676C8.27738 1.98006 9.05608 0.762695 9.40602 0.762695C9.75596 0.762695 10.5347 1.98006 11.1361 3.4676L12.2296 6.17302L14.9468 6.4548C19.035 6.87823 19.1987 7.20084 16.5142 9.54331L14.1555 11.6005L14.7394 14.511C15.0602 16.1115 15.1707 17.5744 14.9849 17.7614C14.7987 17.9484 13.4521 17.4524 11.9926 16.66L9.33924 15.2188L6.76468 16.6721C5.34837 17.4715 4.03195 17.967 3.83916 17.7735C3.64637 17.5799 3.75182 16.1115 4.07264 14.511L4.65653 11.6005L2.29785 9.54331C-0.386665 7.20084 -0.223005 6.87823 3.86528 6.4548L6.58243 6.17302Z"
+                fill="#52CEC7"></path>
+              <path
+                d="M26.7417 6.30761C27.9597 6.30761 28.283 5.95525 29.2816 3.53515C29.9112 2.0103 30.7069 0.762695 31.0504 0.762695C31.3933 0.762695 32.2282 1.97804 32.9055 3.46307L34.137 6.16344L37.2096 6.51277C38.9001 6.70482 40.2828 7.05818 40.2828 7.29813C40.2828 7.53807 39.25 8.64655 37.9878 9.76208L35.6934 11.7905L36.4084 14.6098C36.8401 16.3116 36.9365 17.5451 36.6519 17.7216C36.3923 17.8829 35.0382 17.3904 33.6425 16.6277L31.1046 15.241L28.4442 16.6857C26.9812 17.4806 25.6371 17.9832 25.4579 17.8032C25.2782 17.6233 25.4218 16.1735 25.7767 14.5816L26.4214 11.6877L24.3152 9.86592C23.1565 8.86431 22.2086 7.79515 22.2086 7.49119C22.2086 6.89738 24.4678 6.30761 26.7417 6.30761Z"
+                fill="#52CEC7"></path>
+              <path
+                d="M49.8957 6.16898L51.0861 3.46609C51.7413 1.97905 52.5275 0.762695 52.8343 0.762695C53.141 0.762695 53.9273 1.97905 54.5825 3.46609L55.7728 6.16898L58.8224 6.51529C60.4992 6.70583 61.8714 7.0728 61.8714 7.33039C61.8714 7.58798 60.8758 8.72065 59.6583 9.84727C57.6275 11.7265 57.4788 12.0284 57.8524 13.512C58.8826 17.6036 58.8997 17.9015 58.1054 17.9015C57.6807 17.9015 56.4381 17.3344 55.3446 16.6413C52.893 15.0872 52.7755 15.0872 50.324 16.6413C48.0687 18.0704 46.5485 18.3033 46.9888 17.1514C47.1464 16.7391 47.4145 15.3211 47.5847 14.0009C47.882 11.6917 47.8162 11.5249 45.8456 9.60784C44.719 8.51196 43.7972 7.44582 43.7972 7.23865C43.7972 7.03147 45.1693 6.70583 46.8462 6.51529L49.8957 6.16898Z"
+                fill="#52CEC7"></path>
+              <path
+                d="M71.5315 6.16344L72.7631 3.46307C73.4404 1.97804 74.2753 0.762695 74.6182 0.762695C74.9616 0.762695 75.7458 1.98207 76.3608 3.47264L77.4794 6.18259L80.4697 6.52184C82.1145 6.70886 83.46 7.10305 83.46 7.39844C83.46 7.69333 82.5166 8.77509 81.3644 9.80241L79.2683 11.6695L79.8582 14.6174C80.182 16.239 80.3211 17.6928 80.166 17.8481C80.0113 18.0033 78.6874 17.4806 77.2244 16.6857L74.564 15.241L71.9698 16.6589C70.4114 17.5103 69.202 17.8904 68.9399 17.6107C68.6924 17.346 68.8083 15.9784 69.209 14.4405L69.9134 11.7356L67.6496 9.73486C66.4045 8.63445 65.3858 7.53807 65.3858 7.29813C65.3858 7.05818 66.7685 6.70482 68.4589 6.51277L71.5315 6.16344Z"
+                fill="#52CEC7"></path>
+              <path
+                d="M93.439 6.17302L94.5324 3.4676C95.1339 1.98006 95.9171 0.762695 96.2731 0.762695C96.6285 0.762695 97.4228 1.98157 98.0378 3.47164L99.1559 6.18007L101.838 6.45833C105.861 6.8752 106.011 7.19076 103.303 9.54886L100.911 11.6327L101.554 14.5181C101.908 16.105 102.041 17.5607 101.85 17.7523C101.659 17.9444 100.309 17.4524 98.8492 16.66L96.1958 15.2188L93.6212 16.6721C92.2049 17.4715 90.8845 17.963 90.6871 17.7644C90.4893 17.5658 90.6088 16.1433 90.9522 14.6023L91.5763 11.8011L89.2447 9.74041C87.8279 8.48827 87.0939 7.49825 87.3741 7.21697C87.6281 6.9619 89.0961 6.62316 90.6374 6.46337L93.439 6.17302Z"
+                fill="#52CEC7"></path>
+            </svg>
           </div>
         </div>
-      </section>
-</Layout>
+      </div>
+    </div>
+
+    <!-- Services (Grid of cards) -->
+    <div class="col-lg-6">
+      <div class="row row-cols-1 row-cols-sm-2 g-2">
+        <!-- Card 1 Data Science-->
+        <div class="col">
+          <a class="card-flip" href="#">
+            <div class="card-flip-inner">
+              <div
+                class="card-flip-front cards"
+                style="border: solid 2px rgba(47, 183, 184, 1); border-radius:20px 0 10px 0"
+              >
+                <div
+                  class="d-flex flex-column h-100 justify-content-end"
+                  data-bs-theme="dark"
+                >
+                  <Image
+                    src={dataScienceCard}
+                    alt="hello"
+                    style="height:100%; width:auto;"
+                  />
+                  <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
+                    Data Science
+                  </h2>
+                </div>
+              </div>
+              <div class="card-flip-back bg-secondary">
+                <div
+                  class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                >
+                  <h3 class="h4">Data Science</h3>
+                  <p class="text-body mb-3">
+                    We build end-to-end data processing, modelling and machine
+                    learning pipelines in Python.
+                  </p>
+                  <div
+                    class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                  >
+                    <div
+                      class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                    >
+                      <i class="ai-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 2 Data Visual Card-->
+        <div class="col">
+          <a class="card-flip" href="#">
+            <div class="card-flip-inner">
+              <div
+                class="card-flip-front cards"
+                style="background-color:rgba(47, 183, 184, 1); border-radius: 0 20px 0 10px"
+              >
+                <div
+                  class="d-flex flex-column h-100 justify-content-end"
+                  data-bs-theme="dark"
+                >
+                  <Image
+                    src={dataVisualCard}
+                    alt="hello"
+                    style="height:100%; width:auto;"
+                  />
+                  <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
+                    Data Visualisation
+                  </h2>
+                </div>
+              </div>
+              <div class="card-flip-back bg-secondary">
+                <div
+                  class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                >
+                  <h3 class="h4">Data Visualisation</h3>
+                  <p class="text-body mb-3">
+                    We deliver smart data visualization that facilitate not only
+                    Decision making but also Idea generation, research and
+                    Visual Discovery..
+                  </p>
+                  <div
+                    class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                  >
+                    <div
+                      class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                    >
+                      <i class="ai-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 3 bigdata devops-->
+        <div class="col order-sm-2">
+          <a class="card-flip" href="#">
+            <div class="card-flip-inner">
+              <div
+                class="card-flip-front cards"
+                style="border:solid 2px rgba(47, 183, 184, 1); border-radius: 10px 0 20px 0"
+              >
+                <div
+                  class="d-flex flex-column h-100 justify-content-end"
+                  data-bs-theme="dark"
+                >
+                  <Image
+                    src={bigDataDevOpsCard}
+                    alt="hello"
+                    style="height:100%; width:auto;"
+                  />
+                  <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
+                    Big Data DevOps
+                  </h2>
+                </div>
+              </div>
+              <div class="card-flip-back bg-secondary">
+                <div
+                  class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                >
+                  <h3 class="h4">Big Data DevOps</h3>
+                  <p class="text-body mb-3">
+                    We deliver full range of Big Data DevOps for major cloud
+                    providers AWS, Azure and Google Cloud as well as on-prem.
+                  </p>
+                  <div
+                    class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                  >
+                    <div
+                      class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                    >
+                      <i class="ai-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card 4 Big data Architecture-->
+        <div class="col order-sm-1">
+          <a class="card-flip" href="#">
+            <div class="card-flip-inner">
+              <div
+                class="card-flip-front cards"
+                style="background-color: rgba(47, 183, 184, 1); border-radius:0 10px 0 20px "
+              >
+                <div
+                  class="d-flex flex-column h-100 justify-content-end"
+                  data-bs-theme="dark"
+                >
+                  <Image
+                    src={bigDataArchitectureCard}
+                    alt="hello"
+                    style="height:100%; width:auto;"
+                  />
+                  <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
+                    Big Data Architecture
+                  </h2>
+                </div>
+              </div>
+              <div class="card-flip-back bg-secondary">
+                <div
+                  class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                >
+                  <h3 class="h4">Big Data Architecture</h3>
+                  <p class="text-body mb-3">
+                    We design secure, fault tolerant and scalable Big Data
+                    solutions that work across various departments and teams.
+                  </p>
+                  <div
+                    class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                  >
+                    <div
+                      class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                    >
+                      <i class="ai-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

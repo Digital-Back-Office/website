@@ -14,7 +14,7 @@ import handShake from "../../assets/images/Services/handshake.svg";
 import thumbsUp from "../../assets/images/Services/thumbs-up.svg";
 
 import HeroSection from "../components/Services/HeroSection.astro";
-import ContactForm from "../components/Services/ContactForm.astro"
+import ContactForm from "../components/Services/ContactForm.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 
@@ -22,31 +22,30 @@ import Navbar from "../components/Navbar.astro";
   main {
     background-color: black;
   }
-  cards{
+  cards {
     border: solid 20px red;
   }
-  *{
+  * {
     font-family: Arimo;
   }
 </style>
 
 <Layout>
+  <Navbar />
   <main class="page-wrapper" style="background-color: black;">
-    
     {/*Hero Section- created from landing-creative-agency.html */}
-    <HeroSection/>
+    <HeroSection />
 
     <!-- Services (created from services-v3.html)-->
     <section class="container py-4 py-sm-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
       <!-- Item 1-->
-      <div class="row align-items-center py-4 py-xl-5 my-2" >
+      <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
           <Image class="rounded-5" src={image1} alt="Image" />
         </div>
 
         <div class="col-md-6 col-xl-5 order-md-1">
-          
-          <div class="pe-md-4 pe-xl-0" >
+          <div class="pe-md-4 pe-xl-0">
             <h2 class="h1 pb-2 pb-lg-3" style="color:white">
               Big Data Architecture
             </h2>
@@ -61,7 +60,7 @@ import Navbar from "../components/Navbar.astro";
               capable of efficiently processing data while prioritizing
               stringent data security measures.
             </p>
-            
+
             <div class="row row-cols-2">
               <div class="col">
                 <div
@@ -102,20 +101,19 @@ import Navbar from "../components/Navbar.astro";
               </div>
             </div>
 
-            <a href="#"
-            style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
+            <a
+              href="#"
+              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
             padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem;">
-              <span style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)">
+            position:relative; top:2rem;"
+            >
+              <span
+                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+              >
                 Know more
               </span>
             </a>
-
-            
           </div>
-
-          
-          
         </div>
       </div>
 
@@ -124,9 +122,11 @@ import Navbar from "../components/Navbar.astro";
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
           <Image class="rounded-5" src={devOps} alt="Image" />
         </div>
-        <div class="col-md-6 col-xl-5 offset-xl-1" >
+        <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">
-            <h2 class="h1 pb-2 pb-lg-3" style="color:white;">Big Data DevOps</h2>
+            <h2 class="h1 pb-2 pb-lg-3" style="color:white;">
+              Big Data DevOps
+            </h2>
             <p
               class="pb-2 pb-lg-0 mb-3 mb-lg-3"
               style="color:rgba(255, 255, 255, 0.7)"
@@ -175,21 +175,20 @@ import Navbar from "../components/Navbar.astro";
               </div>
             </div>
 
-            <a href="#"
-            style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
+            <a
+              href="#"
+              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
             padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem">
-              <span style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)">
+            position:relative; top:2rem"
+            >
+              <span
+                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+              >
                 Know more
               </span>
             </a>
-
-            
           </div>
-          
         </div>
-
-        
       </div>
 
       <!-- Item 3-->
@@ -198,7 +197,7 @@ import Navbar from "../components/Navbar.astro";
           <Image class="rounded-5" src={dataScience} alt="Image" />
         </div>
         <div class="col-md-6 col-xl-5 order-md-1">
-          <div class="pe-md-4 pe-xl-0" >
+          <div class="pe-md-4 pe-xl-0">
             <h2 class="h1 pb-2 pb-lg-3" style="color:white">Data Science</h2>
             <p
               class="pb-2 pb-lg-0 mb-3 mb-lg-3"
@@ -247,11 +246,15 @@ import Navbar from "../components/Navbar.astro";
                 </p>
               </div>
             </div>
-            <a href="#"
-            style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
+            <a
+              href="#"
+              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
             padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem;">
-              <span style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)">
+            position:relative; top:2rem;"
+            >
+              <span
+                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+              >
                 Know more
               </span>
             </a>
@@ -314,11 +317,15 @@ import Navbar from "../components/Navbar.astro";
                 </p>
               </div>
             </div>
-            <a href="#"
-            style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
+            <a
+              href="#"
+              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
             padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem;">
-              <span style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)">
+            position:relative; top:2rem;"
+            >
+              <span
+                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+              >
                 Know more
               </span>
             </a>
@@ -328,10 +335,6 @@ import Navbar from "../components/Navbar.astro";
     </section>
 
     <!-- Contact form + Benefits - created from landing-web-studio.html-->
-    <ContactForm/>
-
-    
-
-    
+    <ContactForm />
   </main>
 </Layout>
