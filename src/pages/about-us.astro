@@ -1,51 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Video_Layout from "../layouts/Video_Layout.astro";
 import Values from "../components/about-us/Values.astro";
-import Footer from "../components/Footer.astro";
 import ContactForm from "../components/Services/ContactForm.astro";
 import Benefit from "../components/about-us/Benefit.astro";
+
+import bg_video from "../../assets/videos/About_Us.mp4";
 ---
 
 <style>
   .top-sec {
-    position: relative;
-    z-index: 2;
     margin-bottom: -8px;
   }
 
-  .top-sec::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      198.24deg,
-      rgba(2, 2, 2, 0) 19.25%,
-      #121519 74.45%
-    );
-    z-index: 2;
-  }
-
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
   .hero-section {
-    font-family: "arimo";
     margin-top: 300px;
   }
 
-  .hero-section * {
-    z-index: 3;
-  }
   .article-background {
     background-image: url("../assets/images/background_pattern.png"); /* Specify the path to your background image */
     /* Adjust the background size to contain within the element */
@@ -54,48 +25,39 @@ import Benefit from "../components/about-us/Benefit.astro";
     /* Center the background image */
   }
 </style>
-<main class="page-wrapper" style="background-color: black;">
-  <Layout>
-    <section class="top-sec">
-      <video
-        class="hero-video"
-        src="/assets/videos/About_Us.mp4"
-        preload="auto"
-        muted
-        autoplay
-        loop
-      >
-      </video>
-      <!-- <Header /> -->
-      <section class="hero-section">
-        <div class="container position-relative z-3 py-5 mb-2 mb-sm-2">
-          <div class="container position-relative">
-            <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center">
-              <h1 class="text-center text-lg-start text-light fw-light">
-                We deliver complete range of solutions in
-                <br />
-                data processing from concept to delivery.
-              </h1>
-            </div>
-          </div>
 
-          <ul class="list-unstyled d-flex flex-wrap mb-0">
-            <li class="d-flex text-body py-1 me-4">
-              <i class="ai-check-alt text-primary lead me-2"></i>
-              Forecasting and recommendations
-            </li>
-            <li class="d-flex text-body py-1 me-4">
-              <i class="ai-check-alt text-primary lead me-2"></i>
-              Identification of patterns, analysis
-            </li>
-            <li class="d-flex text-body py-1">
-              <i class="ai-check-alt text-primary lead me-2"></i>
-              Segmentation by various methods
-            </li>
-          </ul>
+<Layout>
+  <Video_Layout src={bg_video}>
+    <section class="hero-section">
+      <div class="container position-relative z-3 py-5 mb-2 mb-sm-2">
+        <div class="container position-relative">
+          <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center">
+            <h1 class="text-center text-lg-start text-light fw-light">
+              We deliver complete range of solutions in
+              <br />
+              data processing from concept to delivery.
+            </h1>
+          </div>
         </div>
-      </section>
+
+        <ul class="list-unstyled d-flex flex-wrap mb-0">
+          <li class="d-flex text-body py-1 me-4">
+            <i class="ai-check-alt text-primary lead me-2"></i>
+            Forecasting and recommendations
+          </li>
+          <li class="d-flex text-body py-1 me-4">
+            <i class="ai-check-alt text-primary lead me-2"></i>
+            Identification of patterns, analysis
+          </li>
+          <li class="d-flex text-body py-1">
+            <i class="ai-check-alt text-primary lead me-2"></i>
+            Segmentation by various methods
+          </li>
+        </ul>
+      </div>
     </section>
+  </Video_Layout>
+  <main class="page-wrapper" style="background-color: black;">
     <!-- Item -->
     <section class="overflow-hidden">
       <article
@@ -157,7 +119,5 @@ import Benefit from "../components/about-us/Benefit.astro";
       </article>
     </section>
     <ContactForm />
-
-    <Footer />
-  </Layout>
-</main>
+  </main>
+</Layout>

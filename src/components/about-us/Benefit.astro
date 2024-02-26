@@ -3,43 +3,50 @@ import { Image } from "astro:assets";
 import svg1 from "../../../assets/images/ContactUs/svg1.svg";
 import svg2 from "../../../assets/images/ContactUs/svg2.svg";
 ---
+
 <style>
- section {
-        background-image: url(../assets/images/background_pattern.png);
-        background-repeat: no-repeat;
-        /* Ensure the background image covers the entire section */
-       
-        overflow:hidden;
-        background-size: cover;
-        width:100%;
-        padding-top:50px;
-        /* width: 100%; */
-    }
+  section {
+    background-image: url(../assets/images/background_pattern.png);
+    background-repeat: no-repeat;
+    /* Ensure the background image covers the entire section */
+
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+    padding-top: 50px;
+    /* width: 100%; */
+  }
 </style>
 
-
-<section class=" pb-3 " >
-<div class="container">
-    <div class="  row pb-md-4 pb-xl-5 align-items-center">
+<section class="pb-3">
+  <div class="container">
+    <div class="row pb-md-4 pb-xl-5 align-items-center">
       <div class="col-md-6 mb-2 mb-md-0">
-        <div class=" card border-0 h-100 bg-size-cover bg-position-center mt-5 bg-transparent" style="margin-right: 30px;" >
-           
-                
-      
-                  <!-- Page title -->
-                  
-                  <div class="mb-4 " style="width:100%; background-color:rgba(33, 37, 40, 1); border-radius:32px;
-                  position:relative;  max-width:400px; aspect-ratio:1/1; overflow:hidden">
-      
-                      <Image src={svg1} alt="svg1" style="position:absolute; bottom:5%; "/>
-      
-                      <Image src={svg2} alt="svg2" style="position:absolute; bottom: 12%; left:15%;"/>
-                       
-                
-                </div>
-            </div>
-     
-    </div>
+        <div
+          class="card border-0 h-100 bg-size-cover bg-position-center mt-5 bg-transparent"
+          style="margin-right: 30px;"
+        >
+          <!-- Page title -->
+
+          <div
+            class="mb-4"
+            style="width:100%; background-color:rgba(33, 37, 40, 1); border-radius:32px;
+                  position:relative;  max-width:400px; aspect-ratio:1/1; overflow:hidden"
+          >
+            <Image
+              src={svg1}
+              alt="svg1"
+              style="position:absolute; bottom:5%; "
+            />
+
+            <Image
+              src={svg2}
+              alt="svg2"
+              style="position:absolute; bottom: 12%; left:15%;"
+            />
+          </div>
+        </div>
+      </div>
       <div class="col-md-6 col-xl-5 offset-xl-1">
         <div class="pt-4 pb-sm-4 ps-md-4 ps-xl-0">
           <h2 class="h1 pb-2 pb-sm-3 pb-xl-4 text-white">We Love Data</h2>
@@ -47,34 +54,47 @@ import svg2 from "../../../assets/images/ContactUs/svg2.svg";
             <div class="text-body-secondary pt-1">01</div>
             <div class="ps-3">
               <h3 class="h5 text-white">Individual approach</h3>
-              <p class="mb-0 text-white">Hac erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor non.</p>
+              <p class="mb-0 text-white">
+                Hac erat leo proin odio est sed sit felis facilisi integer sed
+                congue neque turpis dictumst sit sed volutpat aliquet tortor
+                non.
+              </p>
             </div>
           </div>
           <div class="d-flex pb-3 mb-2 mb-xl-3">
             <div class="text-body-secondary pt-1">02</div>
             <div class="ps-3">
               <h3 class="h5 text-white">Integrated analytics</h3>
-              <p class="mb-0 text-white">Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do leo proin odio est sed sit felis facilisi integer.</p>
+              <p class="mb-0 text-white">
+                Find aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor
+                do leo proin odio est sed sit felis facilisi integer.
+              </p>
             </div>
           </div>
           <div class="d-flex pb-3 mb-2 mb-xl-3">
             <div class="text-body-secondary pt-1">03</div>
             <div class="ps-3">
               <h3 class="h5 text-white">Step by step work</h3>
-              <p class="mb-0 text-white">More erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor.</p>
+              <p class="mb-0 text-white">
+                More erat leo proin odio est sed sit felis facilisi integer sed
+                congue neque turpis dictumst sit sed volutpat aliquet tortor.
+              </p>
             </div>
           </div>
           <div class="d-flex mb-2 mb-xl-3">
             <div class="text-body-secondary pt-1">04</div>
             <div class="ps-3">
               <h3 class="h5 text-white">Full spectrum of services</h3>
-              <p class="mb-0 text-white">Adipiscing posuere dui, amet, augue nisl dictum justo, enim sed neque congue non quam ultrices interdum vitae vestibulum. Hac erat leo proin odio est sed sit felis facilisi integer sed.</p>
+              <p class="mb-0 text-white">
+                Adipiscing posuere dui, amet, augue nisl dictum justo, enim sed
+                neque congue non quam ultrices interdum vitae vestibulum. Hac
+                erat leo proin odio est sed sit felis facilisi integer sed.
+              </p>
             </div>
           </div>
         </div>
-    
+      </div>
     </div>
-</div>
-</div>
-  </section>
-
+  </div>
+</section>
