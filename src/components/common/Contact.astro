@@ -7,10 +7,20 @@
         background-image: url(/assets/images/background_pattern.png);
         background-repeat: no-repeat;
     }
+
+    .form-control {
+        /* border-radius: 8px; */
+    }
+
+    .btn {
+        background-color: rgba(48, 186, 186, 1);
+        border: none;
+        /* border-radius: 8px; */
+    }
 </style>
 
 <section class="contact">
-    <div class="pt-5 pb-4">
+    <div class="pt-5 pb-4" data-bs-theme="dark">
         <div class="container py-lg-2 py-xl-4 py-xxl-5">
             <div class="row mt-1 pt-sm-2 pt-md-3 pt-lg-4">
                 <div class="col-lg-5 mb-5 mb-lg-0">
@@ -24,52 +34,55 @@
                     <!-- Contact form -->
                     <form class="needs-validation row g-4" novalidate>
                         <div class="col-lg-10">
-                            <label class="form-label fs-base text-white" for="name"
-                                >Name</label
+                            <label
+                                class="form-label fs-base text-white"
+                                for="name">Name</label
                             >
                             <input
-                                class="form-control form-control-lg"
+                                class="form-control form-control-lg rounded-1"
                                 type="text"
                                 placeholder="Your name"
                                 required
                                 id="name"
                             />
                             <div class="invalid-feedback">
-                                Your name
+                                Please enter your name!
                             </div>
                         </div>
                         <div class="col-lg-10">
-                            <label class="form-label fs-base text-white" for="email"
-                                >Email</label
+                            <label
+                                class="form-label fs-base text-white"
+                                for="email">Email</label
                             >
                             <input
-                                class="form-control form-control-lg"
+                                class="form-control form-control-lg rounded-1"
                                 type="email"
                                 placeholder="Email address"
                                 required
                                 id="email"
                             />
                             <div class="invalid-feedback">
-                                Email address
+                                Please provide a valid email address!
                             </div>
                         </div>
                         <div class="col-lg-10">
-                            <label class="form-label fs-base text-white" for="message"
-                                >Message</label
+                            <label
+                                class="form-label fs-base text-white"
+                                for="message">Message</label
                             >
                             <textarea
-                                class="form-control form-control-lg"
+                                class="form-control form-control-lg rounded-1"
                                 placeholder="Your message"
                                 rows="4"
                                 required
                                 id="message"></textarea>
                             <div class="invalid-feedback">
-                                Your message
+                                Please write your message!
                             </div>
                         </div>
                         <div class="col-lg-10">
                             <button
-                                class="btn btn-lg btn-primary rounded-sm mt-2"
+                                class="btn btn-lg btn-primary rounded-1 mt-2"
                                 type="submit">Send Now</button
                             >
                         </div>
@@ -104,22 +117,27 @@
                                             d="M26.3276 9.03734C24.475 3.77395 19.4522 0 13.5453 0C6.06443 0 0 6.0525 0 13.5187C0 19.4139 3.78139 24.4269 9.05514 26.2758V9.03734H26.3276Z"
                                             fill="currentColor"></path>
                                     </svg>
-                                    <h3 class="h4 text-white" style="max-width: 180px;">
+                                    <h3
+                                        class="h4 text-white"
+                                        style="max-width: 180px;"
+                                    >
                                         Time zones ain't no thing
                                     </h3>
-                                    <p class="card-text fs-sm text-white opacity-70">
-                                        Pharetra in morbi quis is massa maecenas
-                                        arcu vulputate pulvinar elit non nullage
-                                        a, duis tortor mi massa ipsum in eu eu
-                                        eget libero.
+                                    <p
+                                        class="card-text fs-sm text-white opacity-70"
+                                    >
+                                        We are based in UK, but we can support
+                                        your business in any time zone, we work
+                                        24x7.
                                     </p>
                                 </div>
                             </div>
 
                             <!-- Card -->
                             <div
-                                class="card border-0 bg-primary"
+                                class="card border-0"
                                 data-bs-theme="dark"
+                                style="background-color:rgba(80, 80, 80, 1)"
                             >
                                 <div class="card-body">
                                     <svg
@@ -145,11 +163,14 @@
                                     <h3 class="h4" style="max-width: 180px;">
                                         Flexible work terms
                                     </h3>
-                                    <p class="card-text fs-sm text-white opacity-70">
-                                        Pharetra in morbi quis is massa maecenas
-                                        arcu vulputate pulvinar elit non nullage
-                                        a, duis tortor mi massa ipsum in eu eu
-                                        eget libero.
+                                    <p
+                                        class="card-text fs-sm text-white opacity-70"
+                                    >
+                                        We understand that every business is
+                                        different. We work on both fixed cost
+                                        and time and material basis. We can also
+                                        provide consultants, who can work
+                                        alongside your existing team.
                                     </p>
                                 </div>
                             </div>
@@ -179,22 +200,26 @@
                                             d="M26.3276 9.03734C24.475 3.77395 19.4522 0 13.5453 0C6.06443 0 0 6.0525 0 13.5187C0 19.4139 3.78139 24.4269 9.05514 26.2758V9.03734H26.3276Z"
                                             fill="currentColor"></path>
                                     </svg>
-                                    <h3 class="h4 text-white" style="max-width: 180px;">
+                                    <h3
+                                        class="h4 text-white"
+                                        style="max-width: 180px;"
+                                    >
                                         Full spectrum of services
                                     </h3>
-                                    <p class="card-text fs-sm text-white opacity-70">
-                                        Pharetra in morbi quis is massa maecenas
-                                        arcu vulputate pulvinar elit non nullage
-                                        a, duis tortor mi massa ipsum in eu eu
-                                        eget libero.
+                                    <p
+                                        class="card-text fs-sm text-white opacity-70"
+                                    >
+                                        We provide full spectrum of enterprise
+                                        data services.
                                     </p>
                                 </div>
                             </div>
 
                             <!-- Card -->
                             <div
-                                class="card border-0 bg-primary order-sm-1 mb-sm-4"
+                                class="card border-0 order-sm-1 mb-sm-4"
                                 data-bs-theme="dark"
+                                style="background-color:rgba(80, 80, 80, 1)"
                             >
                                 <div class="card-body">
                                     <svg
@@ -216,11 +241,13 @@
                                     <h3 class="h4" style="max-width: 180px;">
                                         Impossible? We're on it
                                     </h3>
-                                    <p class="card-text fs-sm text-white opacity-70">
-                                        Pharetra in morbi quis is massa maecenas
-                                        arcu vulputate pulvinar elit non nullage
-                                        a, duis tortor mi massa ipsum in eu eu
-                                        eget libero.
+                                    <p
+                                        class="card-text fs-sm text-white opacity-70"
+                                    >
+                                        Difficult is done at once, the
+                                        impossible takes a bit longer. If it is
+                                        possible, consider it done. The
+                                        impossible, it will be done!
                                     </p>
                                 </div>
                             </div>

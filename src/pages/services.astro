@@ -13,9 +13,10 @@ import dataVisualisation from "../../assets/images/Services/data-visualisation.s
 import handShake from "../../assets/images/Services/handshake.svg";
 import thumbsUp from "../../assets/images/Services/thumbs-up.svg";
 
-import HeroSection from "../components/Services/HeroSection.astro";
-import ContactForm from "../components/Services/ContactForm.astro";
-import Navbar from "../components/Navbar.astro";
+// import HeroSection from "../components/Services/HeroSection.astro";
+import ServicesComponent from "../components/common/Services.astro";
+import Contact from "../components/common/Contact.astro";
+import Navbar from "../components/common/Navbar.astro";
 ---
 
 <style>
@@ -34,7 +35,7 @@ import Navbar from "../components/Navbar.astro";
   <Navbar />
   <main class="page-wrapper" style="background-color: black;">
     {/*Hero Section- created from landing-creative-agency.html */}
-    <HeroSection />
+    <ServicesComponent />
 
     <!-- Services (created from services-v3.html)-->
     <section class="container py-4 py-sm-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
@@ -334,7 +335,6 @@ import Navbar from "../components/Navbar.astro";
       </div>
     </section>
 
-    <!-- Contact form + Benefits - created from landing-web-studio.html-->
-    <ContactForm />
+    <Contact />
   </main>
 </Layout>

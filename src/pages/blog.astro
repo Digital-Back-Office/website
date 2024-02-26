@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Navbar from "../components/common/Navbar.astro";
 ---
 
 <style>
@@ -18,12 +17,13 @@ import Header from "../components/Header.astro";
     color: white;
   }
 </style>
+
 <Layout>
   <main
     class="page-wrapper"
-    style="background-image: url(../assets/images/background_pattern.png);"
+    style="background-image: url(/assets/images/background_pattern.png);"
   >
-    <Header />
+    <Navbar />
     <div class="container pt-5 pb-lg-5 pb-md-4 pb-2 my-5">
       <div class="row mb-md-2 mb-xl-4">
         <!-- Blog posts -->
@@ -35,7 +35,7 @@ import Header from "../components/Header.astro";
             <a
               class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
               href="blog-single-v1.html"
-              style="background-image: url(assets/img/blog/list/01.jpg); min-height: 14rem"
+              style="background-image: url(/assets/img/blog/list/01.jpg); min-height: 14rem"
               aria-label="Post image"></a>
             <div class="col-sm-7">
               <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
@@ -82,7 +82,7 @@ import Header from "../components/Header.astro";
             <a
               class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
               href="blog-single-v2.html"
-              style="background-image: url(assets/img/blog/list/02.jpg); min-height: 14rem"
+              style="background-image: url(/assets/img/blog/list/02.jpg); min-height: 14rem"
               aria-label="Post image"></a>
             <div class="col-sm-7">
               <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
@@ -125,7 +125,7 @@ import Header from "../components/Header.astro";
             <a
               class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
               href="blog-single-v3.html"
-              style="background-image: url(assets/img/blog/list/03.jpg); min-height: 14rem"
+              style="background-image: url(/assets/img/blog/list/03.jpg); min-height: 14rem"
               aria-label="Post image"></a>
             <div class="col-sm-7">
               <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
@@ -171,7 +171,7 @@ import Header from "../components/Header.astro";
             <a
               class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
               href="blog-single-v1.html"
-              style="background-image: url(assets/img/blog/list/04.jpg); min-height: 14rem"
+              style="background-image: url(/assets/img/blog/list/04.jpg); min-height: 14rem"
               aria-label="Post image"></a>
             <div class="col-sm-7">
               <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
@@ -218,7 +218,7 @@ import Header from "../components/Header.astro";
             <a
               class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
               href="blog-single-v2.html"
-              style="background-image: url(assets/img/blog/list/05.jpg); min-height: 14rem"
+              style="background-image: url(/assets/img/blog/list/05.jpg); min-height: 14rem"
               aria-label="Post image"></a>
             <div class="col-sm-7">
               <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4">
@@ -425,5 +425,4 @@ import Header from "../components/Header.astro";
       Sidebar
     </button>
   </main>
-  <Footer />
 </Layout>

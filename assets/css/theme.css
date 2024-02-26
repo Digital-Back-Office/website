@@ -163,7 +163,7 @@
   --ar-border-color: #e3e9ef;
   --ar-border-color-translucent: rgba(0, 0, 0, 0.1);
   --ar-border-radius: 1rem;
-  --ar-border-radius-sm: calc(var(--ar-border-radius) * 0.75);
+  --ar-border-radius-sm: calc(var(--ar-border-radius) * 0.5);
   --ar-border-radius-lg: calc(var(--ar-border-radius) * 1.125);
   --ar-border-radius-xl: calc(var(--ar-border-radius) * 1.5);
   --ar-border-radius-xxl: calc(var(--ar-border-radius) * 2.25);
@@ -453,7 +453,7 @@ kbd {
   font-size: 0.875em;
   color: #fff;
   background-color: #010101;
-  border-radius: calc(var(--ar-border-radius) * 0.75);
+  border-radius: calc(var(--ar-border-radius) * 0.5);
 }
 kbd kbd {
   padding: 0;
@@ -13328,7 +13328,7 @@ div.code-toolbar > .toolbar .toolbar-item > span {
   color: var(--ar-primary);
   background-color: rgba(47, 183, 184, 0.12);
   border: 1px solid rgba(var(--ar-primary-rgb), 0.35);
-  border-radius: calc(var(--ar-border-radius) * 0.75);
+  border-radius: calc(var(--ar-border-radius) * 0.5);
   box-shadow: none;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   font-size: calc(var(--ar-body-font-size) * 0.75);
@@ -16754,7 +16754,7 @@ span.flatpickr-weekday,
 }
 
 .fc-list-day-cushion {
-  border-radius: calc(var(--ar-border-radius) * 0.75);
+  border-radius: calc(var(--ar-border-radius) * 0.5);
   background-color: #fff;
 }
 
