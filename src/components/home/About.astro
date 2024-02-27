@@ -1,4 +1,11 @@
 ---
+import {getEntry } from 'astro:content';
+
+const Data = await getEntry('home', 'home');
+
+const about = Data.data.about;
+const keyPoints = Data.data.keyPoints;
+
 const data = {
     heading:"Data Driven Innovation",
     info_part_1:"Unleash the power of data in your organization to discover obnubilated insights and make real time strategic decisions. Connect the dots with seamless data integration to drive innovation, save cost across the departments.",
@@ -95,12 +102,12 @@ import about3 from "/assets/images/about3.png";
             <div
                 class="col-md-5 col-xl-4 offset-xl-1 order-md-1 text-center text-md-start"
             >
-                <h3 class="h2 mb-lg-4 text-white">{data.heading}</h3>
+                <h3 class="h2 mb-lg-4 text-white">{about.title}</h3>
                 <p class="fs-lg pb-lg-2 mb-4 text-white opacity-70">
-                    {data.info_part_1}
+                    {about.info_part_1}
                     <br />
                     <br />
-                    {data.info_part_2}
+                    {about.info_part_2}
                 </p>
                 <a href="#" class="btn btn-outline-primary rounded-pill">
                     Learn more
@@ -136,9 +143,9 @@ import about3 from "/assets/images/about3.png";
                             fill-opacity="0.1"></path>
                     </svg>
                 </div>
-                <h3 class="h4 pb-2 mb-1 text-white">{features[0].heading}</h3>
+                <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[0].title}</h3>
                 <p class="fs-sm mb-0 text-white opacity-70">
-                    {features[0].info}
+                    {keyPoints[0].info}
                 </p>
             </div>
 
@@ -164,9 +171,9 @@ import about3 from "/assets/images/about3.png";
                             fill-opacity="0.1"></path>
                     </svg>
                 </div>
-                <h3 class="h4 pb-2 mb-1 text-white">{features[1].heading}</h3>
+                <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[1].title}</h3>
                 <p class="fs-sm mb-0 text-white opacity-70">
-                    {features[1].info}
+                    {keyPoints[1].info}
                 </p>
             </div>
 
@@ -192,9 +199,9 @@ import about3 from "/assets/images/about3.png";
                             fill-opacity="0.1"></path>
                     </svg>
                 </div>
-                <h3 class="h4 pb-2 mb-1 text-white">{features[2].heading}</h3>
+                <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[2].title}</h3>
                 <p class="fs-sm mb-0 text-white opacity-70">
-                    {features[2].info}
+                    {keyPoints[2].info}
                 </p>
             </div>
         </div>
