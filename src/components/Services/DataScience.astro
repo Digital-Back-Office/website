@@ -1,0 +1,181 @@
+---
+import { Image } from "astro:assets";
+import predictiveAnalysis from "/assets/images/Services/Data Science/predictiveAnalysis.svg"
+import machineLearning from "/assets/images/Services/Data Science/machineLearning.svg"
+import statisticalAnalysis from "/assets/images/Services/Data Science/statisticalAnalysis.svg"
+
+const heading1 = "Predictive Analytics";
+const text1 = "We Combine sophisticated machine learning tools with complex statistical models and data mining techniques to build advanced bespoke predictive analytics models. Leverage our expertise in data science to increase the value of your existing data and generate most actionable insights in today’s highly competitive business environment.";
+const list1 = ["Churn Prediction", "Recommendation System","Customer Segmentation","Dynamic Pricing","Credit Scoring","Demand Forecasting","Market Campaign Optimization"]
+
+const heading2 = "Machine Learning & AI"
+const text2 = "Build, train, validate, optimise, deploy, and test machine learning models using the latest tools and technologies. Some of the areas that we have worked are:";
+const list2 = ["Customer Feedback Analysis" ,"Segment Analysis" ,"Data Categorization & Classification" ,"Context Aware Search" ,"Text Geneation" ,"Visual Search", "Video Analysis"]
+
+const heading3 = "Statistical Analysis & Data Mining"
+const text3 = ""
+const list3 = ["Designing surveys and experiments", "Summarizing and understanding data", "Estimating population behavior", "Data Discovery", "Data Cleansing", "Data Profiling"]
+---
+<style>
+    li{
+        color:white;
+    }
+</style>
+
+<section class="container py-4 py-sm-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+    <!-- Item 1-->
+    <div class="row align-items-center py-4 py-xl-5 my-2">
+        <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
+          <Image class="rounded-5" src={predictiveAnalysis} alt="Image" />
+        </div>
+
+        <div class="col-md-6 col-xl-5 order-md-1">
+          <div class="pe-md-4 pe-xl-0">
+            <h2 class="h1 pb-2 pb-lg-3" style="color:white">
+              {heading1}
+            </h2>
+            <p
+              class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+              style="color:rgba(255, 255, 255, 0.7)"
+            >
+              {text1}
+            </p>
+
+           
+            <ul class="list-unstyled mb-0">
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list1[0]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list1[1]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list1[2]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list1[3]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list1[4]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list1[5]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list1[6]}
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+    <!-- Item 2------------------------------------------------------------------------------------->
+    <div class="row align-items-center py-4 py-xl-5 my-2">
+        <div class="col-md-6 pb-2 mb-4 mb-md-0">
+          <Image class="rounded-5" src={machineLearning} alt="Image" />
+        </div>
+        <div class="col-md-6 col-xl-5 offset-xl-1">
+          <div class="ps-md-4 pe-xl-0">
+            <h2 class="h1 pb-2 pb-lg-3" style="color:white;">
+              {heading2}
+            </h2>
+
+            <p
+              class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+              style="color:rgba(255, 255, 255, 0.7)"
+            >
+              {text2}
+            </p>
+
+            <ul class="list-unstyled mb-0">
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list2[0]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list2[1]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list2[2]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list2[3]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list2[4]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list2[5]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list1[6]}
+                </li>
+              </ul>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3-->
+    <div class="row align-items-center py-4 py-xl-5 my-2">
+        <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
+          <Image class="rounded-5" src={statisticalAnalysis} alt="Image" />
+        </div>
+
+        <div class="col-md-6 col-xl-5 order-md-1">
+          <div class="pe-md-4 pe-xl-0">
+            <h2 class="h1 pb-2 pb-lg-3" style="color:white">
+              {heading3}
+            </h2>
+            <p
+              class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+              style="color:rgba(255, 255, 255, 0.7)"
+            >
+              {text3}
+            </p>
+
+           
+            <ul class="list-unstyled mb-0">
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list3[0]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list3[1]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                  <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                  {list3[2]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list3[3]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list3[4]}
+                </li>
+                <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    {list3[5]}
+                </li>
+                
+              </ul>
+          </div>
+        </div>
+      </div>
+</section>
