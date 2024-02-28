@@ -1,0 +1,423 @@
+---
+import Video_Layout from "../../layouts/Video_Layout.astro"
+import Hero from "../../components/home/Hero.astro"
+import Layout from "../../layouts/Layout.astro";
+import ContactForm from "../../components/common/Contact.astro";
+const about = {
+    heading_part_1:"We deliver",
+    heading_part_2:"Big Data Architecture",
+    info:"We design secure, fault tolerant and scalable Big Data solutions that work across various departments and teams."
+}
+import { Image } from "astro:assets";
+import img1 from "../../../assets/images/Services/Big Data Architecture/img1.svg";
+import img2 from "../../../assets/images/Services/Big Data Architecture/img2.svg";
+import img3 from "../../../assets/images/Services/Big Data Architecture/img3.svg";
+import setting from "../../../assets/images/Services/Big Data Architecture/setting.svg";
+import clock from "../../../assets/images/Services/Big Data Architecture/clock.svg";
+import lock from "../../../assets/images/Services/Big Data Architecture/lock.svg";
+import cloud from "../../../assets/images/Services/Big Data Architecture/cloud.svg";
+import euro from "../../../assets/images/Services/Big Data Architecture/euro.svg";
+import cycle from "../../../assets/images/Services/Big Data Architecture/cycle.svg";
+import VideoLayout from "../../layouts/Video_Layout.astro";
+import bg_video from "../../../assets/videos/dbo_bg_video10.mp4"
+import Navbar from "../../components/common/Navbar.astro";
+
+
+
+
+
+const benefits = [{src:img1, heading:"Code First", text:"We follow Data Pipelines are code, which means they are versioned and have tests. The pipeline as code model creates automated processes that drives  efficiently"},
+                  {src:img2, heading:"Data Governance", text:"We place Data Governance is at core of the system architecture. Data security and compliance are designed as integral part of the system and not as afterthought."},
+                {src:img3, heading:"Cost Optimised", text:"Highly scalable, large-scale distributed clusters are typically the foundation for modern big data architectures, we build them to run and scale to save every penny."} ];
+
+const data = [{heading:"Analyze the Business", text:"Understand data variety, velocity, and challenges with the current system. Common use cases include data archival, process offload, data lake implementation, unstructured data processing, and data warehouse modernization. We work with various teams to model the the problem and understand the budget.", }]
+
+const expertise = [{heading:"Data hub", src:setting}, {heading:"Real Time Processing", src:clock},
+{heading:"Data Security", src:lock}, {heading:"Model Automation", src:cycle},
+{heading:"Cost Optimisation", src:euro}, {heading:"Cloud Native", src:cloud}];
+
+const hero = {heading:"Big Data Architecture", text:"We design secure, fault tolerant and scalable Big Data solutions that work across various departments and teams.", 
+text1:"Big data architecture is the foundation for big data analytics. The big data architecture framework serves as a reference blueprint for big data infrastructures and solutions, logically defining how big data solutions will work, the components that will be used, how information will flow, and security details. A good big data system is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems.",
+text2:"The size of Big Data realm differs for organizations. For some, it can mean hundreds of gigabytes of data, while for others it means hundreds of terabytes. Size of data, need for advance analytics capabilities, users and the budget are some of the key factors that affect the big data architecture."}
+---
+
+
+<style>
+    .top-sec {
+		position: relative;
+		z-index: 2;
+	}
+
+	.top-sec::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			198.24deg,
+			rgba(2, 2, 2, 0) 19.25%,
+			#121519 74.45%
+		);
+		z-index: 2;
+	}
+
+
+	.hero-section {
+		font-family: "arimo";
+    width: 100%;
+    height: 100%;
+    max-height: 110vh;
+    position: relative;
+	}
+
+  .hero-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+	.hero-section * {
+		z-index: 3;
+        
+	}
+  .item{
+      background-color: rgba(255,255,255, 0.3);
+  }
+  .hero-text{
+    position: absolute;
+    top: 70vh; left:0; right: 0;
+    z-index:10;
+    color: white;
+    
+    
+  }
+  .diff{
+    position: relative;
+  }
+  .diff::before{
+    position: absolute;
+    top:0; right:0; bottom:0; left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+    z-index: 10;
+  }
+</style>
+
+
+<Layout>
+    <main class="page-wrapper" style="background-color: black;">
+      <Navbar/>
+      <section class="hero-section">
+        <video src="../../../assets/videos/dbo_bg_video10.mp4"
+        preload="auto"
+        muted
+        autoplay
+        loop
+        class="hero-video"
+        />
+
+        <div class="hero-text px-5">
+          <h1  class="text-lg-start text-light fw-light fw-bold" style="font-size:60px; font-weight: bold;">
+            {hero.heading}
+          </h1>
+          <p class="fs-lg text-lg-start pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5"
+          style="font-size: 28px; max-width: 890px;">
+            {hero.text}
+          </p>
+        </div>
+      </section>
+
+      <section style="display: flex; justify-content: center; margin-top:10rem; margin-bottom:4rem" class="px-5">
+        <div style="max-width:1296px;">
+          <p style="font-size: 1rem; color:white">
+            {hero.text1}
+          </p>
+          <p style="font-size: 1rem; color:white">
+            {hero.text2}
+          </p>
+        </div>
+      </section>
+
+        
+
+        <!-- key differentiators -->
+      <section id="diff" class="container pt-5 mt-md-3 mt-lg-2 mt-xl-4 mt-xxl-5 diff" data-bs-theme="dark">
+        <h2 class="h1 text-center pt-3 pt-sm-4 pt-lg-5 pb-3 mb-3 mb-lg-4 mt-xl-3">Key Differentiators</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+
+          <!-- Item -->
+          <div class="col">
+            <div class="card card-flip">
+              <div class="card-flip-inner">
+                <div class="card-flip-front bg-secondary rounded-5 py-2 py-lg-4 px-0">
+                  <div class="card-body text-center">
+                    <Image src={benefits[0].src} alt="logo"  class="d-block text-primary mb-4 mx-auto" width="40" height="40"/>
+                    <h3>{benefits[0].heading}</h3>
+                    <p class="card-text">{benefits[0].text}</p>
+                  </div>
+                </div>
+                <div class="card-flip-back bg-primary rounded-5 py-2 py-lg-4 px-0">
+                  <div class="card-body text-center">
+                    <svg class="d-block text-white mt-2 mt-lg-n4 mb-4 mx-auto" width="32" height="32" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M30.244 12.5253L27.7373 12.2067C27.5307 11.5707 27.276 10.9573 26.9787 10.3747L28.5267 8.38133C29.1533 7.57467 29.08 6.436 28.364 5.74267L26.264 3.64267C25.564 2.92 24.4253 2.848 23.6173 3.47333L21.6267 5.02133C21.044 4.724 20.4307 4.46933 19.7933 4.26267L19.4747 1.76C19.3547 0.756 18.5027 0 17.4933 0H14.5067C13.4973 0 12.6453 0.756 12.5253 1.756L12.2067 4.26267C11.5693 4.46933 10.956 4.72267 10.3733 5.02133L8.38133 3.47333C7.576 2.848 6.43733 2.92 5.74267 3.636L3.64267 5.73467C2.92 6.436 2.84667 7.57467 3.47333 8.38267L5.02133 10.3747C4.72267 10.9573 4.46933 11.5707 4.26267 12.2067L1.76 12.5253C0.756 12.6453 0 13.4973 0 14.5067V17.4933C0 18.5027 0.756 19.3547 1.756 19.4747L4.26267 19.7933C4.46933 20.4293 4.724 21.0427 5.02133 21.6253L3.47333 23.6187C2.84667 24.4253 2.92 25.564 3.636 26.2573L5.736 28.3573C6.43733 29.0787 7.57467 29.1507 8.38267 28.5253L10.3747 26.9773C10.9573 27.276 11.5707 27.5307 12.2067 27.736L12.5253 30.2373C12.6453 31.244 13.4973 32 14.5067 32H17.4933C18.5027 32 19.3547 31.244 19.4747 30.244L19.7933 27.7373C20.4293 27.5307 21.0427 27.276 21.6253 26.9787L23.6187 28.5267C24.4253 29.1533 25.564 29.08 26.2573 28.364L28.3573 26.264C29.08 25.5627 29.1533 24.4253 28.5267 23.6173L26.9787 21.6253C27.2773 21.0427 27.532 20.4293 27.7373 19.7933L30.2387 19.4747C31.2427 19.3547 31.9987 18.5027 31.9987 17.4933V14.5067C32 13.4973 31.244 12.6453 30.244 12.5253ZM16 22.6667C12.324 22.6667 9.33333 19.676 9.33333 16C9.33333 12.324 12.324 9.33333 16 9.33333C19.676 9.33333 22.6667 12.324 22.6667 16C22.6667 19.676 19.676 22.6667 16 22.6667Z"></path>
+                    </svg>
+                    <div class="h3 display-4 text-white pb-1 mb-2">24/7</div>
+                    <p class="card-text text-white opacity-70">Around users and partners can count on 24/7 technical assistance, as well as the help of the technical analytics department and teams of specialized experts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col">
+            <div class="card card-flip">
+              <div class="card-flip-inner">
+                <div class="card-flip-front bg-secondary rounded-5 py-2 py-lg-4 px-0">
+                  <div class="card-body text-center">
+                    <Image src={benefits[1].src} alt="logo"  class="d-block text-primary mb-4 mx-auto" width="40" height="40"/>
+                    <h3>{benefits[1].heading}</h3>
+                    <p class="card-text">{benefits[1].text}</p>
+                  </div>
+                </div>
+                <div class="card-flip-back bg-danger rounded-5 py-2 py-lg-4 px-0">
+                  <div class="card-body text-center">
+                    <svg class="d-block text-white mt-2 mt-lg-n4 mb-4 mx-auto" width="32" height="32" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M29.6664 10.667H2.33334C1.05335 10.667 0 11.7203 0 13.0003V29.6669C0 30.9468 1.05335 32.0002 2.33334 32.0002H29.6665C30.9465 32.0002 31.9998 30.9468 31.9998 29.6669V13.0003C31.9998 11.7203 30.9464 10.667 29.6664 10.667ZM27.9998 17.0003V25.6669C27.9998 26.9469 26.9598 28.0002 25.6665 28.0002H18.3332C17.0399 28.0002 15.9999 26.9469 15.9999 25.6669V17.0003C15.9999 15.7203 17.0399 14.667 18.3332 14.667H25.6665C26.9598 14.667 27.9998 15.7203 27.9998 17.0003ZM12.3333 22.0003H4.99997C4.45332 22.0003 3.99997 21.5469 3.99997 21.0003C3.99997 20.4536 4.45332 20.0003 4.99997 20.0003H12.3333C12.8799 20.0003 13.3333 20.4536 13.3333 21.0003C13.3333 21.5469 12.8799 22.0003 12.3333 22.0003ZM13.3333 25.0002C13.3333 25.5469 12.8799 26.0002 12.3333 26.0002H4.99997C4.45332 26.0002 3.99997 25.5469 3.99997 25.0002C3.99997 24.4536 4.45332 24.0003 4.99997 24.0003H12.3333C12.8799 24.0003 13.3333 24.4536 13.3333 25.0002ZM12.3333 18.0003H4.99997C4.45332 18.0003 3.99997 17.5469 3.99997 17.0003C3.99997 16.4537 4.45332 16.0003 4.99997 16.0003H12.3333C12.8799 16.0003 13.3333 16.4537 13.3333 17.0003C13.3333 17.5469 12.8799 18.0003 12.3333 18.0003Z"></path>
+                      <path d="M29.6639 0H12.9974C11.7107 0 10.6641 1.04667 10.6641 2.33334V5.66667C10.6641 6.95334 11.7107 8.00001 12.9974 8.00001H29.6639C30.9506 7.99994 31.9973 6.95327 31.9973 5.66661V2.33334C31.9973 1.04667 30.9506 0 29.6639 0Z"></path>
+                      <path d="M3.99997 7.99994C6.2091 7.99994 7.99994 6.2091 7.99994 3.99997C7.99994 1.79085 6.2091 0 3.99997 0C1.79085 0 0 1.79085 0 3.99997C0 6.2091 1.79085 7.99994 3.99997 7.99994Z"></path>
+                    </svg>
+                    <div class="h3 display-4 text-white pb-1 mb-2">136</div>
+                    <p class="card-text text-white opacity-70">You can easily identify interdependencies between different indicators, identify tendencies and prevent potential difficulties and problems.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col">
+            <div class="card card-flip">
+              <div class="card-flip-inner">
+                <div class="card-flip-front bg-secondary rounded-5 py-2 py-lg-4 px-0">
+                  <div class="card-body text-center">
+                    <Image src={benefits[2].src} alt="logo"  class="d-block text-primary mb-4 mx-auto" width="40" height="40"/>
+                    <h3>{benefits[2].heading}</h3>
+                    <p class="card-text">{benefits[2].text}</p>
+                  </div>
+                </div>
+                <div class="card-flip-back bg-info rounded-5 py-2 py-lg-4 px-0">
+                  <div class="card-body text-center">
+                    <svg class="d-block text-white mt-2 mt-lg-n4 mb-4 mx-auto" width="32" height="32" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.888997 20.4722H4.44434C4.93522 20.4722 5.33333 20.87 5.33333 21.3608V30.2498C5.33333 30.7407 4.93522 31.1388 4.44434 31.1388H0.888997C0.398112 31.1388 0 30.7407 0 30.2498V21.3608C0 20.87 0.398112 20.4722 0.888997 20.4722Z"></path>
+                      <path d="M9.7793 13.3608H13.335C13.8258 13.3608 14.224 13.759 14.224 14.2498V30.2498C14.224 30.7407 13.8258 31.1388 13.335 31.1388H9.7793C9.28841 31.1388 8.89062 30.7407 8.89062 30.2498V14.2498C8.89062 13.759 9.28841 13.3608 9.7793 13.3608Z"></path>
+                      <path d="M18.6702 16.9165H22.2259C22.7168 16.9165 23.1146 17.3146 23.1146 17.8055V30.2498C23.1146 30.7407 22.7168 31.1388 22.2259 31.1388H18.6702C18.1794 31.1388 17.7812 30.7407 17.7812 30.2498V17.8055C17.7812 17.3146 18.1794 16.9165 18.6702 16.9165V16.9165Z"></path>
+                      <path d="M27.5531 11.5835H31.1084C31.5993 11.5835 31.9974 11.9816 31.9974 12.4725V30.2502C31.9974 30.7411 31.5993 31.1392 31.1084 31.1392H27.5531C27.0622 31.1392 26.6641 30.7411 26.6641 30.2502V12.4725C26.6641 11.9816 27.0622 11.5835 27.5531 11.5835V11.5835Z"></path>
+                      <path d="M29.3333 0.916504C27.8613 0.918132 26.6683 2.11117 26.6667 3.58317C26.6702 3.87353 26.7217 4.1613 26.819 4.43473L22.3691 7.07991C21.7852 6.46045 20.9385 6.16032 20.0947 6.27327C19.2507 6.38623 18.513 6.8986 18.1123 7.6499L14.1875 5.70589C14.2067 5.59163 14.2181 5.4764 14.2223 5.36084C14.2243 4.28141 13.5755 3.30745 12.5788 2.89307C11.582 2.479 10.4339 2.70654 9.67057 3.46956C8.9069 4.23258 8.67871 5.38037 9.09245 6.37744L4.0013 10.1769C3.59766 9.93636 3.13672 9.8081 2.66667 9.8055C1.19401 9.8055 0 10.9992 0 12.4722C0 13.9448 1.19401 15.1388 2.66667 15.1388C4.13932 15.1388 5.33333 13.9448 5.33333 12.4722C5.33105 12.1512 5.27051 11.8338 5.15462 11.5347L10.2965 7.6971C11.3024 8.25797 12.557 8.09359 13.3841 7.29215L17.8473 9.50277C18.1449 10.828 19.3919 11.7173 20.7419 11.5669C22.0918 11.4165 23.1126 10.2749 23.111 8.9165C23.111 8.84879 23.096 8.78499 23.0911 8.71859L27.931 5.84131C28.3506 6.10661 28.8366 6.24821 29.3333 6.24984C30.806 6.24984 32 5.05583 32 3.58317C32 2.11051 30.806 0.916504 29.3333 0.916504V0.916504Z"></path>
+                    </svg>
+                    <div class="h3 display-4 text-white pb-1 mb-2">100%</div>
+                    <p class="card-text text-white opacity-70">Thanks to our platform, developed using advanced data management methods, data quality reaches 100%, which is 20% better than other platforms.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- How it works (Steps) from about-product.html-->
+      <section class="overflow-hidden py-5 my-md-2 my-xl-4 my-xxl-5" data-bs-theme="dark">
+        <div class="container py-2 py-sm-4 py-lg-5">
+          <h2 class="h1 text-center pb-3 mb-3 mb-lg-4 mt-xxl-2">Our Approach</h2>
+
+          <!-- Step -->
+          <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
+            <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <img class="d-dark-mode-none" src="assets/img/landing/saas-2/steps/01-light.png" width="525" alt="Image">
+              <img class="d-none d-dark-mode-block" src="assets/img/landing/saas-2/steps/01-dark.png" width="525" alt="Image">
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <div class="pe-md-4 pe-lg-0">
+                <span class="badge fs-sm bg-primary bg-opacity-10 text-primary mb-3 mb-lg-4">Step 01</span>
+                <h3 class="h2 mb-3 mb-lg-4">Connect your site to the platform using a code</h3>
+                <p class="pb-1 pb-lg-0 mb-4 mb-lg-5">Nec id eget malesuada urna at sed est adipiscing auctor at massa id duis fames ut condimentum velit est, donec mauris tortor massa et viverra.</p>
+                <a class="btn btn-outline-primary rounded-pill" href="#">Get connected</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="d-none d-lg-flex justify-content-center" data-aos="fade-in" data-aos-duration="500" data-aos-offset="250">
+            <svg class="d-block text-primary" width="339" height="365" viewBox="0 0 339 365" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: -150px; margin-top: -140px; margin-bottom: -108px;">
+              <path d="M324 291.371C120.111 291.37 240.756 58.7225 1.00032 73.2606" stroke="url(#arrow1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"></path>
+              <path d="M337.375 290.62C338.074 290.998 338.074 292.001 337.375 292.379L328.476 297.196C327.81 297.557 327 297.074 327 296.317L327 286.683C327 285.925 327.81 285.443 328.476 285.803L337.375 290.62Z" fill="currentColor"></path>
+              <defs>
+                <linearGradient id="arrow1" x1="324" y1="291.5" x2="-2.99974" y2="72.4997" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="currentColor"></stop>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Step -->
+          <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
+            <div class="col-md-6 col-xl-5 offset-xl-1 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <img class="d-dark-mode-none" src="assets/img/landing/saas-2/steps/02-light.png" width="473" alt="Image">
+              <img class="d-none d-dark-mode-block" src="assets/img/landing/saas-2/steps/02-dark.png" width="473" alt="Image">
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4 offset-lg-1" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <div class="ps-md-4 ps-lg-0">
+                <span class="badge fs-sm bg-primary bg-opacity-10 text-primary mb-3 mb-lg-4">Step 02</span>
+                <h3 class="h2 mb-3 mb-lg-4">Set up important dashboard metrics</h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    Forecasting and recommendations
+                  </li>
+                  <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    Identification of patterns, analysis
+                  </li>
+                  <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    Segmentation by various methods
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="d-none d-lg-flex justify-content-center" data-aos="fade-in" data-aos-duration="500" data-aos-offset="250">
+            <svg class="d-block text-primary" width="263" height="275" viewBox="0 0 263 275" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -60px; margin-left: -120px; margin-bottom: -80px;">
+              <path d="M8.13678 249.647C7.47108 250.081 6.59001 249.602 6.59106 248.808L6.60444 238.689C6.60544 237.931 7.4158 237.45 8.08162 237.811L16.5478 242.408C17.2136 242.77 17.2512 243.712 16.6163 244.125L8.13678 249.647Z" fill="currentColor"></path>
+              <path d="M261.961 37.8891C216.908 65.6243 128.226 135.486 133.916 193.05C141.029 265.005 265.134 173.468 173.666 148.634C89.2542 125.715 30.9125 210.547 13.9796 236.702" stroke="url(#arrow2)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"></path>
+              <defs>
+                <linearGradient id="arrow2" x1="13.9797" y1="234.5" x2="276.704" y2="60.1939" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="currentColor"></stop>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Step -->
+          <div class="row align-items-center position-relative">
+            <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 d-md-flex justify-content-end pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <img class="d-dark-mode-none" src="assets/img/landing/saas-2/steps/03-light.png" width="473" alt="Image">
+              <img class="d-none d-dark-mode-block" src="assets/img/landing/saas-2/steps/03-dark.png" width="473" alt="Image">
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <div class="pe-md-4 pe-lg-0">
+                <span class="badge fs-sm bg-primary bg-opacity-10 text-primary mb-3 mb-lg-4">Step 03</span>
+                <h3 class="h2 mb-3 mb-lg-4">Download the data in a convenient format</h3>
+                <p class="pb-1 pb-lg-0 mb-4 mb-lg-5">Bibendum velit mi, ac sed ac malesuada ultrices non lectus mi pellentesque vel at tempus cras sed a eleifend augue amet mauris, leo ac amet erat.</p>
+                <a class="btn btn-outline-primary rounded-pill" href="#">Get connected</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow -->
+          <div class="d-none d-lg-flex justify-content-center" data-aos="fade-in" data-aos-duration="500" data-aos-offset="250">
+            <svg class="d-block text-primary" width="339" height="365" viewBox="0 0 339 365" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: -150px; margin-top: -140px; margin-bottom: -108px;">
+              <path d="M324 291.371C120.111 291.37 240.756 58.7225 1.00032 73.2606" stroke="url(#arrow1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"></path>
+              <path d="M337.375 290.62C338.074 290.998 338.074 292.001 337.375 292.379L328.476 297.196C327.81 297.557 327 297.074 327 296.317L327 286.683C327 285.925 327.81 285.443 328.476 285.803L337.375 290.62Z" fill="currentColor"></path>
+              <defs>
+                <linearGradient id="arrow1" x1="324" y1="291.5" x2="-2.99974" y2="72.4997" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="currentColor"></stop>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Step -->
+          <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
+            <div class="col-md-6 col-xl-5 offset-xl-1 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <img class="d-dark-mode-none" src="assets/img/landing/saas-2/steps/02-light.png" width="473" alt="Image">
+              <img class="d-none d-dark-mode-block" src="assets/img/landing/saas-2/steps/02-dark.png" width="473" alt="Image">
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4 offset-lg-1" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+              <div class="ps-md-4 ps-lg-0">
+                <span class="badge fs-sm bg-primary bg-opacity-10 text-primary mb-3 mb-lg-4">Step 02</span>
+                <h3 class="h2 mb-3 mb-lg-4">Set up important dashboard metrics</h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    Forecasting and recommendations
+                  </li>
+                  <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    Identification of patterns, analysis
+                  </li>
+                  <li class="d-flex pt-1 mt-2">
+                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                    Segmentation by various methods
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features from landing-saas-v3.html-->
+      <section class="container py-5 my-sm-2 my-md-4 my-lg-5" data-bs-theme="dark">
+        <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto" style="max-width: 40rem;">Our Expertise</h2>
+        
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-5 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
+          <div class="col">
+            <div class="text-center px-xxl-4">
+              <Image src={expertise[0].src} alt="image" class="d-inline-block mb-3 mb-md-4"/>
+              <h3 class="h4 mb-2">{expertise[1].heading}</h3>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center px-xxl-4">
+              <Image src={expertise[1].src} alt="image" class="d-inline-block mb-3 mb-md-4"/>
+              <h3 class="h4 mb-2">{expertise[1].heading}</h3>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center px-xxl-4">
+              <Image src={expertise[2].src} alt="image" class="d-inline-block mb-3 mb-md-4"/>
+              <h3 class="h4 mb-2">{expertise[2].heading}</h3>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center px-xxl-4">
+              <Image src={expertise[3].src} alt="image" class="d-inline-block mb-3 mb-md-4"/>
+              <h3 class="h4 mb-2">{expertise[3].heading}</h3>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center px-xxl-4">
+              <Image src={expertise[4].src} alt="image" class="d-inline-block mb-3 mb-md-4"/>
+              <h3 class="h4 mb-2">{expertise[4].heading}</h3>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center px-xxl-4">
+              <Image src={expertise[5].src} alt="image" class="d-inline-block mb-3 mb-md-4"/>
+              <h3 class="h4 mb-2">{expertise[5].heading}</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ContactForm/>
+
+
+
+    </main>
+    
+
+
+
+    
+</Layout>
