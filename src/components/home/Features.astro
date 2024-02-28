@@ -1,31 +1,9 @@
 ---
-const title="Do these sound familiar to you?"
-const features = [
-    {
-        heading:"Volume, Velocity, Variety",
-        info:"Understanding 3V's of Big data is fundamental to building big data solution. How do I measure, manage and plan?",
-    },
-    {
-        heading:"Cost Management",
-        info:"Big Data storage, processing and software licensing cost increases exponentially. How do I keep cost under control?",
-    },
-    {
-        heading:"Data Security",
-        info:" Data security is key to organizations survival. Is my data safe from unauthorized access, malware attacks?",
-    },
-    {
-        heading:"Tool Selection",
-        info:"Big Data tools pose problem of “Paradox of choices”. What are the right tools for my  organisations's data needs?",
-    },
-    {
-        heading:"Changing Landscape",
-        info:"It is predicted that Big Data Landscape will continue to change and high velocity. Will my team be able keep up with the pace?",
-    },
-    {
-        heading:"Specialized Hiring",
-        info:"Hiring for Big Data and Data Science projects are becoming increasingly difficulty. Will I be able to deliver project on time?",
-    },
-];
+import {getEntry } from 'astro:content';
+
+const Data = await getEntry('home', 'home');
+const features = Data.data.features;
+const cards = features.cards
 
 import { Image } from "astro:assets";
 import icon1 from "/assets/icons/vol_vel_var.png";
@@ -34,7 +12,6 @@ import icon3 from "/assets/icons/security.png";
 import icon4 from "/assets/icons/selection.png";
 import icon5 from "/assets/icons/changing_landscape.png";
 import icon6 from "/assets/icons/specialized_hiring.png";
-import bg_img from "/assets/images/star_links.png";
 ---
 
 <style>
@@ -59,7 +36,7 @@ import bg_img from "/assets/images/star_links.png";
         <h2
             class="display-5 text-center pt-md-3 pt-lg-4 pb-xxl-2 mt-xl-3 mb-4 mb-sm-5 text-white"
         >
-            {title}
+            {features.title}
         </h2>
         <div
             class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-4 gy-4 gy-sm-5 pb-md-4 pb-lg-5 mb-2 mb-lg-0 mb-xxl-2"
@@ -71,9 +48,9 @@ import bg_img from "/assets/images/star_links.png";
                         alt="icon"
                         class="d-inline-block mb-3 mb-lg-4"
                     />
-                    <h3 class="h5 mb-2 text-white">{features[0].heading}</h3>
+                    <h3 class="h5 mb-2 text-white">{cards[0].title}</h3>
                     <p class="mb-0 text-white opacity-70">
-                        {features[0].info}
+                        {cards[0].info}
                     </p>
             </div>
 
@@ -84,9 +61,9 @@ import bg_img from "/assets/images/star_links.png";
                         alt="icon"
                         class="d-inline-block mb-3 mb-lg-4"
                     />
-                    <h3 class="h5 mb-2 text-white">{features[1].heading}</h3>
+                    <h3 class="h5 mb-2 text-white">{cards[1].title}</h3>
                     <p class="mb-0 text-white opacity-70">
-                        {features[1].info}
+                        {cards[1].info}
                     </p>
             </div>
 
@@ -97,9 +74,9 @@ import bg_img from "/assets/images/star_links.png";
                         alt="icon"
                         class="d-inline-block mb-3 mb-lg-4"
                     />
-                    <h3 class="h5 mb-2 text-white">{features[2].heading}</h3>
+                    <h3 class="h5 mb-2 text-white">{cards[2].title}</h3>
                     <p class="mb-0 text-white opacity-70">
-                        {features[2].info}
+                        {cards[2].info}
                     </p>
             </div>
 
@@ -110,9 +87,9 @@ import bg_img from "/assets/images/star_links.png";
                         alt="icon"
                         class="d-inline-block mb-3 mb-lg-4"
                     />
-                    <h3 class="h5 mb-2 text-white">{features[3].heading}</h3>
+                    <h3 class="h5 mb-2 text-white">{cards[3].title}</h3>
                     <p class="mb-0 text-white opacity-70">
-                        {features[3].info}
+                        {cards[3].info}
                     </p>
             </div>
 
@@ -123,9 +100,9 @@ import bg_img from "/assets/images/star_links.png";
                         alt="icon"
                         class="d-inline-block mb-3 mb-lg-4"
                     />
-                    <h3 class="h5 mb-2 text-white">{features[4].heading}</h3>
+                    <h3 class="h5 mb-2 text-white">{cards[4].title}</h3>
                     <p class="mb-0 text-white opacity-70">
-                        {features[4].info}
+                        {cards[4].info}
                     </p>
             </div>
 
@@ -136,9 +113,9 @@ import bg_img from "/assets/images/star_links.png";
                         alt="icon"
                         class="d-inline-block mb-3 mb-lg-4"
                     />
-                    <h3 class="h5 mb-2 text-white">{features[5].heading}</h3>
+                    <h3 class="h5 mb-2 text-white">{cards[5].title}</h3>
                     <p class="mb-0 text-white opacity-70">
-                        {features[5].info}
+                        {cards[5].info}
                     </p>
             </div>
         </div>

@@ -1,9 +1,8 @@
 ---
-const about = {
-    heading_part_1:"We deliver",
-    heading_part_2:"Business Efficiency",
-    info:"We design and build CUSTOM SOLUTIONS for Big Data Processing using open-source and cloud Auto-scaling in cost-effective manner."
-}
+import {getEntry } from 'astro:content';
+
+const Data = await getEntry('home', 'home');
+const hero = Data.data.hero;
 ---
 
 <style>
@@ -64,13 +63,14 @@ const about = {
         <div class="row pt-xl-3 pt-xxl-4 pb-5 gap-5 align-items-center">
             <div class="col col-xxl-6">
                 <h1 class="text-center text-lg-start text-light fw-light">
-                    {about.heading_part_1} <br />
-                    <p class="fw-bold">{about.heading_part_2}</p>
+                    {hero.title_part_1}
+                    <br />
+                    <p class="fw-bold">{hero.title_part_2}</p>
                 </h1>
                 <p
                     class="fs-lg text-center text-lg-start text-light pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5"
                 >
-                    {about.info}
+                    {hero.info}
                 </p>
             </div>
             <div class="col contact-div offset-xxl-1 pt-sm-3">
