@@ -4,30 +4,11 @@ import Video_Layout from "../layouts/Video_Layout.astro";
 import Values from "../components/about-us/Values.astro";
 import Contact from "../components/common/Contact.astro";
 import Benefit from "../components/about-us/Benefit.astro";
-
+import Hero from "../components/about-us/Hero.astro";
 import bg_video from "../../assets/videos/About_Us.mp4";
 ---
 
 <style>
-  .top-sec {
-    margin-bottom: -8px;
-  }
-
-  .hero-section {
-    font-family: "arimo";
-    padding: 8rem 0;
-    height: 100%;
-    width: 100%;
-
-    .container {
-      height: 100%;
-      vertical-align: bottom;
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-    }
-  }
-
   .article-background {
     background-image: url("../assets/images/background_pattern.png");
     background-repeat: no-repeat;
@@ -37,33 +18,9 @@ import bg_video from "../../assets/videos/About_Us.mp4";
 
 <Layout>
   <Video_Layout src={bg_video}>
-    <section class="hero-section">
-      <div class="container position-relative z-3 py-5 mb-2 mb-sm-2">
-        <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center">
-          <h1 class="text-center text-lg-start text-light fw-light">
-            We deliver complete range of solutions in
-            <br />
-            data processing from concept to delivery.
-          </h1>
-        </div>
-
-        <ul class="list-unstyled d-flex flex-wrap mb-0">
-          <li class="d-flex text-body py-1 me-4">
-            <i class="ai-check-alt text-primary lead me-2"></i>
-            Forecasting and recommendations
-          </li>
-          <li class="d-flex text-body py-1 me-4">
-            <i class="ai-check-alt text-primary lead me-2"></i>
-            Identification of patterns, analysis
-          </li>
-          <li class="d-flex text-body py-1">
-            <i class="ai-check-alt text-primary lead me-2"></i>
-            Segmentation by various methods
-          </li>
-        </ul>
-      </div>
-    </section>
+    <Hero />
   </Video_Layout>
+
   <main class="page-wrapper" style="background-color: black;">
     <!-- Item -->
     <section class="overflow-hidden">
