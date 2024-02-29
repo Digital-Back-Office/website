@@ -19,12 +19,11 @@ import Navbar from "../../components/common/Navbar.astro";
 ---
 
 <style>
-  main {
-    background-color: black;
+  .bg-image {
+    background-image: url(/assets/images/background_pattern.png);
+    background-repeat: no-repeat;
   }
-  cards {
-    border: solid 20px red;
-  }
+
   * {
     font-family: Arimo;
   }
@@ -33,7 +32,7 @@ import Navbar from "../../components/common/Navbar.astro";
 <Layout>
   
   
-  <main class="page-wrapper" style="background-color: black; margin-top:5rem;">
+  <main class="page-wrapper bg-image" style=" padding-top:5rem;">
     {/*Hero Section- created from landing-creative-agency.html */}
 
     <Navbar />
