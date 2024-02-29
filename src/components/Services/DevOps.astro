@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import ourOffering from "../../../assets/images/Services/Dev Ops/ourOffering.svg"
+
+
+const heading1 = "Our Offering";
+const text1 = "We provide Fully-managed cloud services for big data and analytics so you can offload a lot of the challenges associated with getting big data platforms into production. We can also provide leadership to your team to scale up and delvier, “fully-managed” and “managed services,”. Our big data DevOps teams deeply understand security, compliance and other enterprise requirements. Don’t let today’s big data skills shortage headlines scare you. At least part of the problem has been already solved by us, that help you start fast, and run lean.";
+
+---
+<style>
+    li{
+        color:white;
+    }
+</style>
+
+<section class="container py-4 py-sm-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+    <!-- Item 1-->
+    <div class="row align-items-center py-4 py-xl-5 my-2">
+        <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
+          <Image class="rounded-5" src={ourOffering} alt="Image" />
+        </div>
+
+        <div class="col-md-6 col-xl-5 order-md-1">
+          <div class="pe-md-4 pe-xl-0">
+            <h2 class="h1 pb-2 pb-lg-3" style="color:white">
+              {heading1}
+            </h2>
+            <p
+              class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+              style="color:rgba(255, 255, 255, 0.7)"
+            >
+              {text1}
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+</section>
