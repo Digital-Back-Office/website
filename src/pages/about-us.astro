@@ -14,15 +14,24 @@ import bg_video from "../../assets/videos/About_Us.mp4";
   }
 
   .hero-section {
-    margin-top: 300px;
+    font-family: "arimo";
+    padding: 8rem 0;
+    height: 100%;
+    width: 100%;
+
+    .container {
+      height: 100%;
+      vertical-align: bottom;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
   }
 
   .article-background {
-    background-image: url("../assets/images/background_pattern.png"); /* Specify the path to your background image */
-    /* Adjust the background size to contain within the element */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    background-position: center; /* Cover the entire element */
-    /* Center the background image */
+    background-image: url("../assets/images/background_pattern.png");
+    background-repeat: no-repeat;
+    background-position: center;
   }
 </style>
 
@@ -30,14 +39,12 @@ import bg_video from "../../assets/videos/About_Us.mp4";
   <Video_Layout src={bg_video}>
     <section class="hero-section">
       <div class="container position-relative z-3 py-5 mb-2 mb-sm-2">
-        <div class="container position-relative">
-          <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center">
-            <h1 class="text-center text-lg-start text-light fw-light">
-              We deliver complete range of solutions in
-              <br />
-              data processing from concept to delivery.
-            </h1>
-          </div>
+        <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center">
+          <h1 class="text-center text-lg-start text-light fw-light">
+            We deliver complete range of solutions in
+            <br />
+            data processing from concept to delivery.
+          </h1>
         </div>
 
         <ul class="list-unstyled d-flex flex-wrap mb-0">

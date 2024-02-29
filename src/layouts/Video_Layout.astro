@@ -12,6 +12,9 @@ const { src } = Astro.props;
 	.top-sec {
 		position: relative;
 		z-index: 2;
+		height: 64rem;
+		width: 100%;
+
 	}
 
 	.top-sec::before {
@@ -22,7 +25,7 @@ const { src } = Astro.props;
 		width: 100%;
 		height: 100%;
 		background: linear-gradient(
-			198.24deg,
+			198deg,
 			rgba(2, 2, 2, 0) 19.25%,
 			#121519 74.45%
 		);
@@ -38,26 +41,13 @@ const { src } = Astro.props;
 		object-fit: cover;
 		z-index: 0;
 	}
-
-	.hero-section {
-		font-family: "arimo";
-	}
-
-	.hero-section * {
-		z-index: 3;
-	}
 </style>
 
 <main>
-	<video
-		class="hero-video"
-		src={src}
-		preload="auto"
-		muted
-		autoplay
-		loop
-	>
-	</video>
-	<Navbar />
-	<slot />
+	<div class="top-sec">
+		<video class="hero-video" src={src} preload="auto" muted autoplay loop>
+		</video>
+		<Navbar />
+		<slot />
+	</div>
 </main>
