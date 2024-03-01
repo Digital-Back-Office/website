@@ -16,6 +16,36 @@ import thumbsUp from "../../../assets/images/Services/thumbs-up.svg";
 import HeroSection from "../../components/Services/HeroSection.astro";
 import Contact from "../../components/common/Contact.astro"
 import Navbar from "../../components/common/Navbar.astro";
+
+const data_architecture = {heading:"Big Data Architecture", 
+text:"We specialize in crafting robust, fault-tolerant, and scalable Big Data solutions tailored to seamlessly integrate across departments and teams, providing a unified perspective on your data insights. Our primary emphasis is on constructing highly scalable clusters capable of efficiently processing data while prioritizing stringent data security measures.", 
+icon1_heading:"Code First", 
+icon1_text:"Data pipeline as Code is our Guiding Principle.", 
+icon2_heading:"Cloud Native",
+icon2_text:"Highly scalable, flexible, and resilient built for cloud computing."};
+
+const data_devops = {heading:"Big Data DevOps",
+ text:"The real challenge holding back production big data cloud deployments is the pervasive lack of DevOps skills for big data. We provide Fully-managed cloud services for big data and analytics so you can offload a lot of the challenges associated with getting big data platforms into production.", 
+ icon1_heading:"Open Source", 
+ icon1_text:"Cutting edge open sourc devops tools,", 
+ icon2_heading:"Cloud Native",
+icon2_text:"Highly scalable, flexible, and resilient built for cloud computing."};
+
+const data_science ={heading:"Data Science", 
+text:"Data science helps mitigate business risks and drive business outcomes and innovations through smarter decisions. We build end-to-end data processing, modelling and machine learning pipelines in Python.", 
+icon1_heading:"Open Source", 
+icon1_text:"Best Open Source AI//ML tools for your need.", 
+icon2_heading:"Cloud Scaling",
+icon2_text:"Scale your model on cloud as per your needs and budget."};
+
+const data_visualization = {heading:"Data Visualisation", 
+text:"Data Visualisation is story telling with a purpose. Data Visualisation is an art and we treat is such. We don’t treat data visualisation as just a data problems, we understand that visuals are for humans.", 
+icon1_heading:"Ease of Use", 
+icon1_text:"Interactive and Intuitive data , designed for business users.", 
+icon2_heading:"Collaborative",
+icon2_text:"Build to enable collaboration between business and IT."};
+
+
 ---
 
 <style>
@@ -27,12 +57,29 @@ import Navbar from "../../components/common/Navbar.astro";
   * {
     font-family: Arimo;
   }
+  main{
+    padding-top: 5rem !important;
+  }
+  .hyperlink-button{
+    border:solid 1px rgba(47, 183, 184, 1); 
+    border-radius:8px; 
+    padding: 12px 28px; 
+    text-decoration:none; 
+    position:relative; 
+    top:2rem;
+  }
+  .hyperlink{
+    font-weight:600; 
+    font-size:14px; 
+    line-height:24px;
+    color:rgba(47, 183, 184, 1)
+  }
 </style>
 
 <Layout>
   
   
-  <main class="page-wrapper bg-image" style=" padding-top:5rem;">
+  <main class="page-wrapper bg-image" >
     {/*Hero Section- created from landing-creative-agency.html */}
 
     <Navbar />
@@ -41,7 +88,7 @@ import Navbar from "../../components/common/Navbar.astro";
 
     <!-- Services (created from services-v3.html)-->
     <section class="container py-4 py-sm-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
-      <!-- Item 1-->
+      <!-- Item 1 data architecture-->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
           <Image class="rounded-5" src={image1} alt="Image" />
@@ -50,18 +97,13 @@ import Navbar from "../../components/common/Navbar.astro";
         <div class="col-md-6 col-xl-5 order-md-1">
           <div class="pe-md-4 pe-xl-0">
             <h2 class="h1 pb-2 pb-lg-3" style="color:white">
-              Big Data Architecture
+              {data_architecture.heading}
             </h2>
             <p
               class="pb-2 pb-lg-0 mb-3 mb-lg-3"
               style="color:rgba(255, 255, 255, 0.7)"
             >
-              We specialize in crafting robust, fault-tolerant, and scalable Big
-              Data solutions tailored to seamlessly integrate across departments
-              and teams, providing a unified perspective on your data insights.
-              Our primary emphasis is on constructing highly scalable clusters
-              capable of efficiently processing data while prioritizing
-              stringent data security measures.
+              {data_architecture.text}
             </p>
 
             <div class="row row-cols-2">
@@ -78,9 +120,9 @@ import Navbar from "../../components/common/Navbar.astro";
                   />
                   <!-- <Image class="d-none d-dark-mode-block m-1" src={monitorLight} width="28" alt="Icon"> -->
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Code First</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_architecture.icon1_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Data pipeline as Code is our Guiding Principle.
+                  {data_architecture.icon1_text}
                 </p>
               </div>
               <div class="col">
@@ -96,22 +138,18 @@ import Navbar from "../../components/common/Navbar.astro";
                   />
                   <!-- <img class="d-none d-dark-mode-block m-1" src="../assets/img/services/v3/icons/cloud-light.svg" width="28" alt="Icon"> -->
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Cloud Native</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_architecture.icon2_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Highly scalable, flexible, and resilient built for cloud
-                  computing.
+                  {data_architecture.icon2_text}
                 </p>
               </div>
             </div>
 
             <a
-              href="#"
-              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
-            padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem;"
+              href="/services/big-data-architecture" class="hyperlink-button"
             >
               <span
-                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+                class="hyperlink"
               >
                 Know more
               </span>
@@ -120,7 +158,7 @@ import Navbar from "../../components/common/Navbar.astro";
         </div>
       </div>
 
-      <!-- Item 2------------------------------------------------------------------------------------->
+      <!-- Item 2 data devops------------------------------------------------------------------------------------->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
           <Image class="rounded-5" src={devOps} alt="Image" />
@@ -128,17 +166,13 @@ import Navbar from "../../components/common/Navbar.astro";
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">
             <h2 class="h1 pb-2 pb-lg-3" style="color:white;">
-              Big Data DevOps
+              {data_devops.heading}
             </h2>
             <p
               class="pb-2 pb-lg-0 mb-3 mb-lg-3"
               style="color:rgba(255, 255, 255, 0.7)"
             >
-              The real challenge holding back production big data cloud
-              deployments is the pervasive lack of DevOps skills for big data.
-              We provide Fully-managed cloud services for big data and analytics
-              so you can offload a lot of the challenges associated with getting
-              big data platforms into production.
+              {data_devops.text}
             </p>
             <div class="row row-cols-2">
               <div class="col">
@@ -153,9 +187,9 @@ import Navbar from "../../components/common/Navbar.astro";
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Open Source</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_devops.icon1_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Cutting edge open sourc devops tools,
+                  {data_devops.icon1_text}
                 </p>
               </div>
               <div class="col">
@@ -170,22 +204,19 @@ import Navbar from "../../components/common/Navbar.astro";
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Cloud Native</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_devops.icon2_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Highly scalable, flexible, and resilient built for cloud
-                  computing.
+                  {data_devops.icon2_text}
                 </p>
               </div>
             </div>
 
             <a
-              href="#"
-              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
-            padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem"
+              href="/services/big-data-devops"
+              class="hyperlink-button"
             >
               <span
-                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+                class="hyperlink"
               >
                 Know more
               </span>
@@ -194,22 +225,19 @@ import Navbar from "../../components/common/Navbar.astro";
         </div>
       </div>
 
-      <!-- Item 3-->
+      <!-- Item 3 data science-->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
           <Image class="rounded-5" src={dataScience} alt="Image" />
         </div>
         <div class="col-md-6 col-xl-5 order-md-1">
           <div class="pe-md-4 pe-xl-0">
-            <h2 class="h1 pb-2 pb-lg-3" style="color:white">Data Science</h2>
+            <h2 class="h1 pb-2 pb-lg-3" style="color:white">{data_science.heading}</h2>
             <p
               class="pb-2 pb-lg-0 mb-3 mb-lg-3"
               style="color:rgba(255, 255, 255, 0.7)"
             >
-              Data science helps mitigate business risks and drive business
-              outcomes and innovations through smarter decisions. We build
-              end-to-end data processing, modelling and machine learning
-              pipelines in Python.
+              {data_science.text}
             </p>
             <div class="row row-cols-2">
               <div class="col">
@@ -225,9 +253,9 @@ import Navbar from "../../components/common/Navbar.astro";
                   />
                   <!-- <Image class="d-none d-dark-mode-block m-1" src={monitorLight} width="28" alt="Icon"> -->
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Open Source</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_science.icon1_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Best Open Source AI//ML tools for your need.
+                  {data_science.icon1_text}
                 </p>
               </div>
               <div class="col">
@@ -243,20 +271,18 @@ import Navbar from "../../components/common/Navbar.astro";
                   />
                   <!-- <img class="d-none d-dark-mode-block m-1" src="../assets/img/services/v3/icons/cloud-light.svg" width="28" alt="Icon"> -->
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Cloud Scaling</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_science.icon2_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Scale your model on cloud as per your needs and budget.
+                  {data_science.icon2_text}
                 </p>
               </div>
             </div>
             <a
-              href="#"
-              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
-            padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem;"
+              href="/services/data-science"
+              class="hyperlink-button"
             >
               <span
-                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+                class="hyperlink"
               >
                 Know more
               </span>
@@ -273,16 +299,13 @@ import Navbar from "../../components/common/Navbar.astro";
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">
             <h2 class="h1 pb-2 pb-lg-3" style="color:white">
-              Data Visualisation
+              {data_visualization.heading}
             </h2>
             <p
               class="pb-2 pb-lg-0 mb-3 mb-lg-3"
               style="color:rgba(255, 255, 255, 0.7)"
             >
-              Data Visualisation is story telling with a purpose. Data
-              Visualisation is an art and we treat is such. We don’t treat data
-              visualisation as just a data problems, we understand that visuals
-              are for humans.
+              {data_visualization.text}
             </p>
             <div class="row row-cols-2">
               <div class="col">
@@ -297,9 +320,9 @@ import Navbar from "../../components/common/Navbar.astro";
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Ease of Use</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_visualization.icon1_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Interactive and Intuitive data , designed for business users.
+                  {data_visualization.icon1_text}
                 </p>
               </div>
               <div class="col">
@@ -314,20 +337,18 @@ import Navbar from "../../components/common/Navbar.astro";
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">Collaborative</h3>
+                <h3 class="h5 mb-2" style="color:white">{data_visualization.icon2_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
-                  Build to enable collaboration between business and IT.
+                  {data_visualization.icon2_text}
                 </p>
               </div>
             </div>
             <a
-              href="#"
-              style="border:solid 1px rgba(47, 183, 184, 1); border-radius:8px; 
-            padding: 12px 28px; text-decoration:none; 
-            position:relative; top:2rem;"
+              href="/services/data-visualization"
+              class="hyperlink-button"
             >
               <span
-                style="font-weight:600; font-size:14px; line-height:24px;color:rgba(47, 183, 184, 1)"
+                class="hyperlink"
               >
                 Know more
               </span>

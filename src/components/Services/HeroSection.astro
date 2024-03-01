@@ -4,6 +4,11 @@ import dataScienceCard from "../../../assets/images/Services/datascience-card.sv
 import dataVisualCard from "../../../assets/images/Services/datavisual-card.svg";
 import bigDataDevOpsCard from "../../../assets/images/Services/bigdatadevops-card.svg";
 import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarchitecture-card.svg";
+import * as data_architecture from "../../pages/services/big-data-architecture.mdx"
+import * as data_science from "../../pages/services/data-science.mdx"
+import * as data_devops from "../../pages/services/big-data-devops.mdx"
+import * as data_visualization from "../../pages/services/data-visualization.mdx"
+
 ---
 
 <style>
@@ -37,7 +42,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
       <div class="d-flex flex-column align-items-start py-4 py-lg-5 gap-2">
         <a
           class="btn btn-lg btn-primary me-2 me-sm-3"
-          href="#"
+          href="/contact-us"
           style="background-color: rgba(82, 206, 199, 1); border-radius: 8px;"
           >Let's work together</a
         >
@@ -87,7 +92,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
       <div class="row row-cols-1 row-cols-sm-2 g-2">
         <!-- Card 1 Data Science-->
         <div class="col">
-          <a class="card-flip" href="#">
+          <a class="card-flip" href="/services/data-science">
             <div class="card-flip-inner">
               <div
                 class="card-flip-front cards rounded card1"
@@ -103,7 +108,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                     style="height:100%; width:auto;"
                   />
                   <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
-                    Data Science
+                    {data_science.frontmatter.hero_title}
                   </h2>
                 </div>
               </div>
@@ -111,10 +116,9 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                 <div
                   class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                 >
-                  <h3 class="h4">Data Science</h3>
+                  <h3 class="h4">{data_science.frontmatter.hero_title}</h3>
                   <p class="text-body mb-3">
-                    We build end-to-end data processing, modelling and machine
-                    learning pipelines in Python.
+                    {data_science.frontmatter.hero_text}
                   </p>
                   <div
                     class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
@@ -133,7 +137,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
 
         <!-- Card 2 Data Visual Card-->
         <div class="col">
-          <a class="card-flip" href="#">
+          <a class="card-flip" href="/services/data-visualization">
             <div class="card-flip-inner">
               <div
                 class="card-flip-front cards card2 rounded"
@@ -149,7 +153,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                     style="height:100%; width:auto;"
                   />
                   <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
-                    Data Visualisation
+                    {data_visualization.frontmatter.hero_title}
                   </h2>
                 </div>
               </div>
@@ -157,11 +161,9 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                 <div
                   class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                 >
-                  <h3 class="h4">Data Visualisation</h3>
+                  <h3 class="h4">{data_visualization.frontmatter.hero_title}</h3>
                   <p class="text-body mb-3">
-                    We deliver smart data visualization that facilitate not only
-                    Decision making but also Idea generation, research and
-                    Visual Discovery..
+                    {data_visualization.frontmatter.hero_text}
                   </p>
                   <div
                     class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
@@ -180,7 +182,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
 
         <!-- Card 3 bigdata devops-->
         <div class="col order-sm-2">
-          <a class="card-flip" href="#">
+          <a class="card-flip" href="/services/big-data-devops">
             <div class="card-flip-inner">
               <div
                 class="card-flip-front cards rounded card3"
@@ -196,7 +198,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                     style="height:100%; width:auto;"
                   />
                   <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
-                    Big Data DevOps
+                    {data_devops.frontmatter.hero_title}
                   </h2>
                 </div>
               </div>
@@ -204,10 +206,9 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                 <div
                   class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                 >
-                  <h3 class="h4">Big Data DevOps</h3>
+                  <h3 class="h4">{data_devops.frontmatter.hero_title}</h3>
                   <p class="text-body mb-3">
-                    We deliver full range of Big Data DevOps for major cloud
-                    providers AWS, Azure and Google Cloud as well as on-prem.
+                    {data_devops.frontmatter.hero_text}
                   </p>
                   <div
                     class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
@@ -226,7 +227,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
 
         <!-- Card 4 Big data Architecture-->
         <div class="col order-sm-1">
-          <a class="card-flip" href="#">
+          <a class="card-flip" href="/services/big-data-architecture">
             <div class="card-flip-inner">
               <div
                 class="card-flip-front cards rounded card4"
@@ -242,7 +243,7 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                     style="height:100%; width:auto;"
                   />
                   <h2 class="fs-lg fw-normal mb-0 mt-auto text-center">
-                    Big Data Architecture
+                    {data_architecture.frontmatter.hero_title}
                   </h2>
                 </div>
               </div>
@@ -250,10 +251,9 @@ import bigDataArchitectureCard from "../../../assets/images/Services/bigdataarch
                 <div
                   class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                 >
-                  <h3 class="h4">Big Data Architecture</h3>
+                  <h3 class="h4">{data_architecture.frontmatter.hero_title}</h3>
                   <p class="text-body mb-3">
-                    We design secure, fault tolerant and scalable Big Data
-                    solutions that work across various departments and teams.
+                    {data_architecture.frontmatter.hero_text}
                   </p>
                   <div
                     class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"

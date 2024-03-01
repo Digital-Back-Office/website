@@ -13,3 +13,20 @@
     font-family: "archivo";
     src: url("/assets/fonts/Archivo/Archivo-Regular.ttf");
 }
+
+.cm__body{
+    background-color: black !important;
+    width: 100%;
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 0 !important;
+}
+.cm__texts{
+    padding: 0 !important;
+}
+
+.cm__title{
+    color: white !important;
+}
