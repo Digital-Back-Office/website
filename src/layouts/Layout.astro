@@ -1,20 +1,20 @@
 ---
-import Footer from "../components/common/Footer.astro"
+import Footer from "../components/common/Footer.astro";
 import "/assets/css/theme.min.css";
 import "/assets/icons/around-icons.min.css";
 import "flatpickr/dist/flatpickr.min.css";
 // import "swiper/swiper-bundle.min.css";
 import "aos/dist/aos.css";
-import "../styles/global.css"
+import "../styles/global.css";
 
 export interface Props {
-    title?: string;
-    description?: string;
+  title?: string;
+  description?: string;
 }
 
 const {
-    title = "Digital Back Office",
-    description = "We deliver Business Efficiency; We love data!",
+  title = "Digital Back Office",
+  description = "We deliver Business Efficiency; We love data!",
 } = Astro.props;
 ---
 
@@ -31,98 +31,107 @@ const {
 <script src="lightgallery/lightgallery.min.js"></script>
 <script src="lightgallery/plugins/video/lg-video.min.js"></script>
 <script src="imagesloaded/imagesloaded.pkgd.min.js"></script>
+
 <script>
-    import flatpickr from "flatpickr";
-    import Parallax from 'parallax-js'
-    import AOS from "aos";
-    import Shuffle from "shufflejs";
-    import Swiper from "swiper/bundle";
-    import "swiper/css/navigation";
-    import "swiper/css/pagination";
-    import "swiper/css/bundle";
+  import flatpickr from "flatpickr";
+  import Parallax from "parallax-js";
+  import AOS from "aos";
+  import Shuffle from "shufflejs";
+  import Swiper from "swiper/bundle";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import "swiper/css/bundle";
 
-    AOS.init();
-    
-    flatpickr(".date-picker");
+  AOS.init();
 
-    var scene = document.querySelector('.parallax');
-    var parallaxInstance = new Parallax(scene);
+  flatpickr(".date-picker");
 
-    const carousels = Array.from(document.querySelectorAll(".swiper"));
+  var scene = document.querySelector(".parallax");
+  var parallaxInstance = new Parallax(scene);
 
-    carousels.forEach((value, index) => {
-        let options;
-        if (value.dataset.swiperOptions != undefined)
-            options = JSON.parse(value.dataset.swiperOptions);
+  const carousels = Array.from(document.querySelectorAll(".swiper"));
 
-        // Thumbnails
-        if (options.thumbnails) {
-            let images = options.thumbnails.images;
-            options = Object.assign({}, options, {
-                pagination: {
-                    el: options.thumbnails.el,
-                    clickable: true,
-                    bulletActiveClass: "active",
-                    renderBullet: (index, className) => {
-                        return `<li class='swiper-thumbnail ${className}'>
+  carousels.forEach((value, index) => {
+    let options;
+    if (value.dataset.swiperOptions != undefined)
+      options = JSON.parse(value.dataset.swiperOptions);
+
+    // Thumbnails
+    if (options.thumbnails) {
+      let images = options.thumbnails.images;
+      options = Object.assign({}, options, {
+        pagination: {
+          el: options.thumbnails.el,
+          clickable: true,
+          bulletActiveClass: "active",
+          renderBullet: (index, className) => {
+            return `<li class='swiper-thumbnail ${className}'>
                 <img src='${images[index]}' alt='Thumbnail'>
                 </li>`;
-                    },
-                },
-            });
-        }
+          },
+        },
+      });
+    }
 
-        const swiper = new Swiper(value, options); // eslint-disable-line no-undef
+    const swiper = new Swiper(value, options); // eslint-disable-line no-undef
 
-        // Controlled slider
-        if (options.controlledSlider) {
-            const controlledSlider = document.querySelector(
-                options.controlledSlider,
-            );
-            let controlledSliderOptions;
+    // Controlled slider
+    if (options.controlledSlider) {
+      const controlledSlider = document.querySelector(options.controlledSlider);
+      let controlledSliderOptions;
 
-            if (controlledSlider.dataset.swiperOptions != undefined)
-                controlledSliderOptions = JSON.parse(
-                    controlledSlider.dataset.swiperOptions,
-                );
-            /* eslint-disable no-undef */
-            const swiperControlled = new Swiper(
-                controlledSlider,
-                controlledSliderOptions,
-            );
-            /* eslint-enable no-undef */
-            swiper.controller.control = swiperControlled;
-        }
+      if (controlledSlider.dataset.swiperOptions != undefined)
+        controlledSliderOptions = JSON.parse(
+          controlledSlider.dataset.swiperOptions
+        );
+      /* eslint-disable no-undef */
+      const swiperControlled = new Swiper(
+        controlledSlider,
+        controlledSliderOptions
+      );
+      /* eslint-enable no-undef */
+      swiper.controller.control = swiperControlled;
+    }
 
-        // Binded content
-        if (options.bindedContent) {
-            swiper.on("activeIndexChange", (e) => {
-                const targetItem = document.querySelector(
-                    e.slides[e.activeIndex].dataset.swiperBinded,
-                );
-                const previousItem = document.querySelector(
-                    e.slides[e.previousIndex].dataset.swiperBinded,
-                );
+    // Binded content
+    if (options.bindedContent) {
+      swiper.on("activeIndexChange", (e) => {
+        const targetItem = document.querySelector(
+          e.slides[e.activeIndex].dataset.swiperBinded
+        );
+        const previousItem = document.querySelector(
+          e.slides[e.previousIndex].dataset.swiperBinded
+        );
 
-                previousItem.classList.remove("active");
-                targetItem.classList.add("active");
-            });
-        }
-    });
+        previousItem.classList.remove("active");
+        targetItem.classList.add("active");
+      });
+    }
+  });
 </script>
 
 <script>
-    const nav = document.getElementById("navbar");
-    window.addEventListener('scroll', ()=>{
-        
-        if (window.scrollY>40){
-            nav?.classList.remove("staticnav")
-            nav?.classList.add("navbar-scrolled");
-        }else{
-            nav?.classList.add("staticnav")
-            nav?.classList.remove("navbar-scrolled");
-        }
-    })
+  const nav = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+      nav?.classList.remove("staticnav");
+      nav?.classList.add("navbar-scrolled");
+    } else {
+      nav?.classList.add("staticnav");
+      nav?.classList.remove("navbar-scrolled");
+    }
+  });
+</script>
+<script type="text/javascript">
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "4abd2d6b-9b40-4da0-9159-556eeb546157";
+  (function () {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
 </script>
 
 <script>

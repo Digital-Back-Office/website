@@ -1,0 +1,67 @@
+<style>
+  .list-unstyled li {
+    color: var(--White-70, rgba(255, 255, 255, 0.7));
+    font-feature-settings:
+      "clig" off,
+      "liga" off;
+    font-family: Arimo;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.5rem */
+  }
+
+  .hero-section {
+    font-family: "arimo";
+    padding: 8rem 0;
+    height: 100%;
+    width: 100%;
+  }
+  .container {
+    height: 100%;
+    vertical-align: bottom;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    z-index: 7;
+  }
+</style>
+
+<section class="hero-section">
+  <section class="container position-relative py-5 mb-1 mb-sm-2">
+    <div class="container">
+      <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center z-7">
+        <h1
+          class="text-center text-lg-start text-light fw-light"
+          style="
+                  color: var(--White-100, var(--White, #FFF));
+                  font-feature-settings: 'clig' off, 'liga' off;
+                  font-family: Arimo;
+                  font-size: 3.625rem;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: 130%; /* 4.7125rem */
+                "
+        >
+          We deliver complete range of solutions in
+          <br />
+          data processing from concept to delivery.
+        </h1>
+      </div>
+    </div>
+    <ul class="list-unstyled d-inline-flex align-items-start gap-1.5rem mb-0">
+      <li class="d-flex text-body py-1 me-4">
+        <i class="ai-check-alt text-primary lead me-2"></i>
+        Forecasting and recommendations
+      </li>
+      <li class="d-flex text-body py-1 me-4">
+        <i class="ai-check-alt text-primary lead me-2"></i>
+        Identification of patterns, analysis
+      </li>
+      <li class="d-flex text-body py-1">
+        <i class="ai-check-alt text-primary lead me-2"></i>
+        Segmentation by various methods
+      </li>
+    </ul>
+  </section>
+</section>
