@@ -6,27 +6,6 @@ const Data = await getEntry('home', 'home');
 const about = Data.data.about;
 const keyPoints = Data.data.keyPoints;
 
-const data = {
-    heading:"Data Driven Innovation",
-    info_part_1:"Unleash the power of data in your organization to discover obnubilated insights and make real time strategic decisions. Connect the dots with seamless data integration to drive innovation, save cost across the departments.",
-    info_part_2:"From complex analysis to stunning visualizations, our advanced data processing and AI can help you extract valuable insights and make data-driven decisions faster than ever before."
-};
-
-const features = [
-    {
-        heading:"Open Source",
-        info:"Cutting edge big data tools are open source, we bring best of them to work together for you."
-    },
-    {
-        heading:"24x7 Support",
-        info:"We provide 24x7 support  for our solutions, supporting your business across different time zones."
-    },
-    {
-        heading:"Cost Effective",
-        info:"Save up to 90% recurring costs with open source and optimized cloud auto scaling."
-    }
-];
-
 import { Image } from "astro:assets";
 import about1 from "/assets/images/about1.png";
 import about2 from "/assets/images/about2.png";
@@ -36,8 +15,6 @@ import about3 from "/assets/images/about3.png";
 <style>
     section {
         background-image: url(/assets/images/background_pattern.png);
-        background-repeat: no-repeat;
-        /* width: 100%; */
     }
 
     .btn {
@@ -48,13 +25,13 @@ import about3 from "/assets/images/about3.png";
 
 <section class="position-relative py-5">
     <div
-        class="container position-relative z-2 pt-3 pt-md-4 pt-lg-5 mt-lg-2 mt-xl-4"
+        class="container position-relative pt-3 pt-md-4 pt-lg-5 mt-lg-2 mt-xl-4"
     >
         <div
-            class="row align-items-center justify-content-center py-4 py-md-5 my-1 my-sm-3 my-md-0 my-xl-3"
+            class="row align-items-center py-4 py-md-5 my-1 my-sm-3 my-md-0 my-xl-3"
         >
             <div
-                class="col-11 col-sm-9 col-md-7 col-lg-6 offset-lg-1 order-md-2 pb-2 pb-sm-3 pb-md-0 mb-4 mb-md-0"
+                class="col-12 col-lg-6 offset-lg-1 offset-xl-2 order-lg-2 pb-2 pb-sm-3 mb-4"
             >
                 <div class="parallax" style="max-width: 636px;">
                     <div class="parallax-layer" data-depth="0">
@@ -80,7 +57,7 @@ import about3 from "/assets/images/about3.png";
                     >
                         <Image
                             src={about2}
-                            class="d-dark-mode-none position-relative rounded-4"
+                            class="d-dark-mode-block position-relative rounded-4"
                             style="max-width: 345px;"
                             alt="Traffic bar chart"
                         />
@@ -100,7 +77,7 @@ import about3 from "/assets/images/about3.png";
                 </div>
             </div>
             <div
-                class="col-md-5 col-xl-4 offset-xl-1 order-md-1 text-center text-md-start"
+                class="col-lg-5 col-xl-4 order-lg-1 text-center text-md-start"
             >
                 <h3 class="h2 mb-lg-4 text-white">{about.title}</h3>
                 <p class="fs-lg pb-lg-2 mb-4 text-white opacity-70">
@@ -119,7 +96,7 @@ import about3 from "/assets/images/about3.png";
 
     <div class="container py-5 my-lg-3 my-xl-4 my-xxl-5">
         <div
-            class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gy-4 gy-sm-5 gx-4 pb-3 pb-md-4 pb-lg-5 mb-md-3 mb-lg-0 justify-content-center gap-5"
+            class="row row-cols-1 row-cols-sm-1 row-cols-md-3 gy-4 gy-sm-5 gx-4 pb-3 pb-md-4 pb-lg-5 mb-md-3 mb-lg-0"
         >
             <!-- Item -->
             <div class="col text-center">
@@ -144,7 +121,7 @@ import about3 from "/assets/images/about3.png";
                     </svg>
                 </div>
                 <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[0].title}</h3>
-                <p class="fs-sm mb-0 text-white opacity-70">
+                <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
                     {keyPoints[0].info}
                 </p>
             </div>
@@ -172,7 +149,7 @@ import about3 from "/assets/images/about3.png";
                     </svg>
                 </div>
                 <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[1].title}</h3>
-                <p class="fs-sm mb-0 text-white opacity-70">
+                <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
                     {keyPoints[1].info}
                 </p>
             </div>
@@ -200,7 +177,7 @@ import about3 from "/assets/images/about3.png";
                     </svg>
                 </div>
                 <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[2].title}</h3>
-                <p class="fs-sm mb-0 text-white opacity-70">
+                <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
                     {keyPoints[2].info}
                 </p>
             </div>

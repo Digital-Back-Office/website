@@ -1,6 +1,8 @@
 ---
 import "flatpickr/dist/flatpickr.min.css";
+import "flatpickr/dist/themes/dark.css"
 ---
+
 <script>
     import flatpickr from "flatpickr";
     flatpickr(".date-picker", {
@@ -23,7 +25,6 @@ import "flatpickr/dist/flatpickr.min.css";
     BookBtn?.addEventListener("click", async (e) => {
         e.preventDefault();
         // do validation checks
-        console.log(import.meta.env.PUBLIC_API_KEY)
         const name = document.querySelector("#name").value;
         const email = document.querySelector("#email").value;
         const company = document.querySelector("#company").value;
@@ -36,6 +37,7 @@ import "flatpickr/dist/flatpickr.min.css";
             await calendar.gapiLoaded();
             calendar.gisLoaded();
             calendar.handleAuthClick();
+            // await calendar.createEvent();
         }
     });
 </script>
@@ -44,7 +46,7 @@ import "flatpickr/dist/flatpickr.min.css";
     <h2 class="h3 card-title text-white text-center pb-2 pb-xxl-3">
         30 mins FREE Consultation
     </h2>
-    <div class="mb-3">
+    <div class="mb-1">
         <label class="form-label fs-base" for="name"> Your Name</label>
         <input
             class="form-control form-control-sm"
@@ -55,7 +57,7 @@ import "flatpickr/dist/flatpickr.min.css";
             id="name"
         />
     </div>
-    <div class="mb-3">
+    <div class="mb-1">
         <label class="form-label fs-base" for="company"> Company Name</label>
         <input
             class="form-control form-control-sm"
@@ -66,7 +68,7 @@ import "flatpickr/dist/flatpickr.min.css";
             id="company"
         />
     </div>
-    <div class="mb-3">
+    <div class="mb-1">
         <label class="form-label fs-base" for="email"> Email address</label>
         <input
             class="form-control form-control-sm"
@@ -77,7 +79,7 @@ import "flatpickr/dist/flatpickr.min.css";
             id="email"
         />
     </div>
-    <div class="mb-3">
+    <div class="mb-1">
         <label class="form-label" for="date-time-picker">Date and time</label>
         <div class="position-relative">
             <input
@@ -86,7 +88,6 @@ import "flatpickr/dist/flatpickr.min.css";
                 placeholder="Choose available date & time"
                 name="Date-time"
                 required
-                data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}'
                 id="date-time-picker"
             />
             <i
@@ -97,9 +98,6 @@ import "flatpickr/dist/flatpickr.min.css";
     <div
         class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
     >
-        <button
-            class="btn book-btn w-100 w-sm-auto w-lg-100 w-xxl-auto me-sm-3 me-lg-0 me-xxl-3"
-            type="submit">Book now</button
-        >
+        <button class="btn book-btn w-100" type="submit">Book now</button>
     </div>
 </form>

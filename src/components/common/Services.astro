@@ -1,29 +1,29 @@
 ---
-const services = [
-    {
-        heading:"Data Science",
-        info:"We build end-to-end data processing, modelling and machine learning pipelines in Python.",
-    },
-    {
-        heading:"Data Visualisation",
-        info:"We deliver smart data visualization that facilitate not only Decision making but also Idea generation, research and Visual Discovery.",
-    },
-    {
-        heading: "Big Data DevOps",
-        info: "We deliver full range of Big Data DevOps for major cloud providers AWS, Azure and Google Cloud as well as on-prem.",
-    },
-    {
-        heading: "Big Data Architecture",
-        info: "We design secure, fault tolerant and scalable Big Data solutions that work across various departments and teams.",
-    },
-];
+import * as data_architecture from "../../pages/services/big-data-architecture.mdx"
+import * as data_science from "../../pages/services/data-science.mdx"
+import * as data_devops from "../../pages/services/big-data-devops.mdx"
+import * as data_visualization from "../../pages/services/data-visualization.mdx"
 ---
 
 <style>
     .services {
         background-image: url(/assets/images/background_pattern.png);
-        background-repeat: no-repeat;
     }
+
+    @media screen and (min-width:576px){
+    .card1{
+      border-radius:20px 0 10px 0 !important;
+    }
+    .card2{
+      border-radius: 0 20px 0 10px !important;
+    }
+    .card3{
+      border-radius: 10px 0 20px 0 !important;
+    }
+    .card4{
+      border-radius:0 10px 0 20px !important;
+    }
+  }
 </style>
 
 <!-- services -->
@@ -37,7 +37,8 @@ const services = [
                 <h1
                     class="display-1 text-white text-uppercase fw-bold mt-auto mb-2"
                 >
-                    we design <span class="fw-normal">solutions <br /> to bring
+                    we design <span class="fw-normal"
+                        >solutions <br /> to bring
                     </span> efficiency
                 </h1>
                 <div class="d-flex align-items-center py-4 py-lg-5">
@@ -59,16 +60,14 @@ const services = [
 
             <!-- Services (Grid of cards) -->
             <div class="col-lg-6">
-                <div class="row row-cols-1 row-cols-sm-2 g-1">
+                <div class="row row-cols-1 row-cols-sm-2 g-2">
                     <!-- Card -->
                     <div class="col">
-                        <a class="card-flip" href="#">
+                        <div class="card-flip">
                             <div class="card-flip-inner">
                                 <div
-                                    class="card-flip-front"
+                                    class="card-flip-front card1"
                                     style="background-color: #020609;
-                                        border-top-left-radius: 20px;
-                                        border-bottom-right-radius: 10px;
                                         border: 2px solid #2FB7B8"
                                 >
                                     <div
@@ -86,42 +85,45 @@ const services = [
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            {services[0].heading}
+                                            {data_science.frontmatter.hero_title}
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="card-flip-back bg-secondary">
+                                <div
+                                    class="card-flip-back bg-secondary card1"
+                                >
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
-                                        <h3 class="h4">{services[0].heading}</h3>
+                                        <h3 class="h4">
+                                            {data_science.frontmatter.hero_title}
+                                        </h3>
                                         <p class="text-body mb-3">
-                                            {services[0].info}
+                                            {data_science.frontmatter.hero_text}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
                                         >
-                                            <div
+                                            <a
                                                 class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/data-science"
                                             >
                                                 <i class="ai-arrow-right"></i>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <!-- Card -->
                     <div class="col">
-                        <a class="card-flip" href="#">
+                        <div class="card-flip">
                             <div class="card-flip-inner">
                                 <div
-                                    class="card-flip-front"
-                                    style="background-color: #2FB7B8;
-                                        border-top-right-radius: 20px;
-                                        border-bottom-left-radius: 10px;"
+                                    class="card-flip-front card2"
+                                    style="background-color: #2FB7B8;"
                                 >
                                     <div
                                         class="d-flex flex-column h-100 gap-1"
@@ -138,42 +140,45 @@ const services = [
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            {services[1].heading}
+                                            {data_visualization.frontmatter.hero_title}
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="card-flip-back bg-secondary">
+                                <div
+                                    class="card-flip-back bg-secondary card2"
+                                >
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
-                                        <h3 class="h4">{services[1].heading}</h3>
+                                        <h3 class="h4">
+                                            {data_visualization.frontmatter.hero_title}
+                                        </h3>
                                         <p class="text-body mb-3">
-                                            {services[1].info}
+                                            {data_visualization.frontmatter.hero_text}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
                                         >
-                                            <div
+                                            <a
                                                 class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/data-visualization"
                                             >
                                                 <i class="ai-arrow-right"></i>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <!-- Card -->
                     <div class="col order-sm-2">
-                        <a class="card-flip" href="#">
+                        <div class="card-flip">
                             <div class="card-flip-inner">
                                 <div
-                                    class="card-flip-front"
+                                    class="card-flip-front card3"
                                     style="background-color: #020609;
-                                        border-top-left-radius: 10px;
-                                        border-bottom-right-radius: 20px;
                                         border: 2px solid #2FB7B8"
                                 >
                                     <div
@@ -191,44 +196,45 @@ const services = [
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            {services[2].heading}
+                                            {data_devops.frontmatter.hero_title}
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="card-flip-back bg-secondary">
+                                <div
+                                    class="card-flip-back bg-secondary card3"
+                                >
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
                                         <h3 class="h4">
-                                            {services[2].heading}
+                                            {data_devops.frontmatter.hero_title}
                                         </h3>
                                         <p class="text-body mb-3">
-                                            {services[2].info}
+                                            {data_devops.frontmatter.hero_text}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
                                         >
-                                            <div
+                                            <a
                                                 class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/big-data-devops"
                                             >
                                                 <i class="ai-arrow-right"></i>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <!-- Card -->
                     <div class="col order-sm-1">
-                        <a class="card-flip" href="#">
+                        <div class="card-flip">
                             <div class="card-flip-inner">
                                 <div
-                                    class="card-flip-front"
-                                    style="background-color: #2FB7B8;
-                                        border-top-right-radius: 10px;
-                                        border-bottom-left-radius: 20px;"
+                                    class="card-flip-front card4"
+                                    style="background-color: #2FB7B8;"
                                 >
                                     <div
                                         class="d-flex flex-column h-100 gap-1"
@@ -245,31 +251,36 @@ const services = [
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            {services[3].heading}
+                                            {data_architecture.frontmatter.hero_title}
                                         </h2>
                                     </div>
                                 </div>
-                                <div class="card-flip-back bg-secondary">
+                                <div
+                                    class="card-flip-back bg-secondary card4"
+                                >
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
-                                        <h3 class="h4">{services[3].heading}</h3>
+                                        <h3 class="h4">
+                                            {data_architecture.frontmatter.hero_title}
+                                        </h3>
                                         <p class="text-body mb-3">
-                                            {services[3].info}
+                                            {data_architecture.frontmatter.hero_text}
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
                                         >
-                                            <div
+                                            <a
                                                 class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/big-data-architecture"
                                             >
                                                 <i class="ai-arrow-right"></i>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>

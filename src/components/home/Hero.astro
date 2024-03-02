@@ -16,9 +16,6 @@ import Consultation_form from "../common/Consultation_form.astro";
     .hero-section * {
         z-index: 3;
     }
-    .contact-div {
-        padding: 0 !important;
-    }
 
     .contact-form {
         font-family: "arimo";
@@ -58,9 +55,9 @@ import Consultation_form from "../common/Consultation_form.astro";
 </style>
 
 <section class="hero-section">
-    <div class="container position-relative">
-        <div class="row pt-xl-3 pt-xxl-4 pb-5 gap-5 align-items-center">
-            <div class="col col-xxl-6">
+    <div class="container position-relative my-auto">
+        <div class="row pt-xl-3 pt-xxl-4 pb-5 align-items-center">
+            <div class="col-lg-6 col-xxl-6">
                 <h1 class="text-center text-lg-start text-light fw-light">
                     {hero.title_part_1}
                     <br />
@@ -72,9 +69,9 @@ import Consultation_form from "../common/Consultation_form.astro";
                     {hero.info}
                 </p>
             </div>
-            <div class="col contact-div offset-xxl-1 pt-sm-3">
+            <div class="col-lg-5 contact-div offset-lg-1 pt-sm-3">
                 <!-- Contact form -->
-                <div class="card contact-form border-0 py-4 px-xxl-4">
+                <div class="card contact-form border-0">
                     <Consultation_form />
                 </div>
             </div>
