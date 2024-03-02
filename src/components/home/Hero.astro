@@ -30,7 +30,7 @@ import Consultation_form from "../common/Consultation_form.astro";
         }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--ar-primary) !important;
         }
 
@@ -41,9 +41,7 @@ import Consultation_form from "../common/Consultation_form.astro";
 
         .form-control {
             border-radius: 0.5rem !important;
-            /* font-size: 0.8rem; */
             line-height: 1 !important;
-            /* width: 50%; */
         }
 
         .book-btn {
@@ -51,13 +49,19 @@ import Consultation_form from "../common/Consultation_form.astro";
             border-radius: 0.5rem;
             width: 100% !important;
         }
+
+        @media(max-width: 425px) {
+            form {
+                padding: 2rem 1rem;
+            }
+        }
     }
 </style>
 
 <section class="hero-section">
     <div class="container position-relative my-auto">
-        <div class="row pt-xl-3 pt-xxl-4 pb-5 align-items-center">
-            <div class="col-lg-6 col-xxl-6">
+        <div class="row pt-xl-3 pt-xxl-4 pb-5 align-items-center justify-content-center">
+            <div class="col-lg-6 col-sm-7 col-10 col-xxl-6">
                 <h1 class="text-center text-lg-start text-light fw-light">
                     {hero.title_part_1}
                     <br />
@@ -69,7 +73,7 @@ import Consultation_form from "../common/Consultation_form.astro";
                     {hero.info}
                 </p>
             </div>
-            <div class="col-lg-5 contact-div offset-lg-1 pt-sm-3">
+            <div class="col-lg-4 col-sm-7 col-10 contact-div offset-lg-2">
                 <!-- Contact form -->
                 <div class="card contact-form border-0">
                     <Consultation_form />

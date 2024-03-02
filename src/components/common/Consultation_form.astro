@@ -1,6 +1,6 @@
 ---
 import "flatpickr/dist/flatpickr.min.css";
-import "flatpickr/dist/themes/dark.css"
+import "flatpickr/dist/themes/dark.css";
 ---
 
 <script>
@@ -10,6 +10,25 @@ import "flatpickr/dist/themes/dark.css"
         altInput: true,
         altFormat: "F j, Y H:i",
         dateFormat: "Y-m-d H:i",
+        onOpen: function (selectedDates, dateStr, instance) {
+            const calendarContainer = instance.calendarContainer;
+            const monthElement = calendarContainer.querySelector(".flatpickr-month");
+            const monthDropDown = calendarContainer.querySelector(".flatpickr-monthDropdown-months");
+            const DropDownMonth = calendarContainer.querySelectorAll(".flatpickr-monthDropdown-month");
+            const weekdays = calendarContainer.querySelectorAll(".flatpickr-weekday");
+
+
+            if (monthElement && monthDropDown && weekdays && DropDownMonth) {
+                monthElement.style.backgroundColor = "#121519";
+                monthDropDown.style.backgroundColor = "#121519";
+                weekdays.forEach((weekday) => {
+                    weekday.style.backgroundColor = "#121519";
+                })
+                DropDownMonth.forEach((month) => {
+                    month.style.backgroundColor = "#121519";
+                })
+            }
+        },
     });
 </script>
 

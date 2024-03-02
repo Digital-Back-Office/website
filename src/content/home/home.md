@@ -2,7 +2,7 @@
 hero:
     title_part_1: 'We deliver'
     title_part_2: 'Business Efficiency'
-    info: 'We design and build CUSTOM SOLUTIONS for Big Data Processing using open-source and cloud Auto-scaling in a cost-effective manner.'
+    info: 'We design and build custom solutions for Big Data Processing using open-source and cloud Auto-scaling in a cost-effective manner.'
 
 about:
     title: 'Data Driven Innovation'
