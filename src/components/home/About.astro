@@ -7,9 +7,9 @@ const about = Data.data.about;
 const keyPoints = Data.data.keyPoints;
 
 import { Image } from "astro:assets";
-import about1 from "/assets/images/about1.png";
-import about2 from "/assets/images/about2.png";
-import about3 from "/assets/images/about3.png";
+import stats from "/assets/images/home/stats.png";
+import bulb from "/assets/images/home/bulb.png";
+import cloud_key from "/assets/images/home/cloud_key.png";
 ---
 
 <style>
@@ -31,9 +31,9 @@ import about3 from "/assets/images/about3.png";
             class="row align-items-center py-4 py-md-5 my-1 my-sm-3 my-md-0 my-xl-3"
         >
             <div
-                class="col-12 col-lg-6 offset-lg-1 offset-xl-2 order-lg-2 pb-2 pb-sm-3 mb-4"
+                class="col-12 col-lg-6 offset-lg-1 offset-xl-2 order-lg-2 pb-5 mb-4"
             >
-                <div class="parallax" style="max-width: 636px;">
+                <div class="parallax" style="max-width: 100%;">
                     <div class="parallax-layer" data-depth="0">
                         <div class="ratio" style="--ar-aspect-ratio: 89.6%">
                         </div>
@@ -44,7 +44,7 @@ import about3 from "/assets/images/about3.png";
                         data-depth="0.1"
                     >
                         <Image
-                            src={about1}
+                            src={stats}
                             class="d-dark-mode-block position-relative rounded-4"
                             style="top: 27.5%; max-widthdark: 482px;"
                             alt="Total users line chart"
@@ -52,23 +52,23 @@ import about3 from "/assets/images/about3.png";
                     </div>
                     <div
                         class="parallax-layer"
-                        style="padding-left: 45.75%;"
+                        style="padding-left: 50%;"
                         data-depth="-0.12"
                     >
                         <Image
-                            src={about2}
+                            src={bulb}
                             class="d-dark-mode-block position-relative rounded-4"
-                            style="max-width: 345px;"
+                            style="top: 10%; max-width: 345px;"
                             alt="Traffic bar chart"
                         />
                     </div>
                     <div
                         class="parallax-layer"
-                        style="padding-right: 7.547%; padding-left: 44.97%;"
+                        style="padding-right: 7.547%; padding-left: 47.97%;"
                         data-depth="0.3"
                     >
                         <Image
-                            src={about3}
+                            src={cloud_key}
                             class="d-dark-mode-block position-relative rounded-4"
                             style="top: 60.75%; max-width: 302px;"
                             alt="Traffic donut chart"
