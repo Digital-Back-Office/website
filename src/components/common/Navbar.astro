@@ -2,6 +2,8 @@
 const path = Astro.url.pathname;
 import brandLogo from "/assets/images/dbo 1.png";
 import { Image } from "astro:assets";
+
+
 ---
 
 <style>
@@ -22,8 +24,14 @@ import { Image } from "astro:assets";
     font-family: "archivo";
   }
 
+  .primary-button{
+    background-color: var(--ar-primary) !important;
+    color:white !important;
+  }
+
   .navbar-scrolled {
-    background-color: black;
+    background-image: url(/assets/images/background_pattern.png);
+    background-repeat: repeat;
     position: fixed;
     top: 0;
     left: 0;
@@ -42,7 +50,7 @@ import { Image } from "astro:assets";
 
   #navbar {
     transition: background-color 0.4s ease-in-out;
-    z-index: 10;
+    z-index: 30;
   }
 </style>
 
@@ -68,10 +76,11 @@ import { Image } from "astro:assets";
       <span class="navbar-toggler-icon"></span>
     </button>
     <a
+      id = "contact-button"
       href="/contact-us"
       class={path === "/contact-us"
         ? "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none"
-        : "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"}
+        :path==="/about-us"?"primary-button btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex": "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"}
     >
       Contact us
     </a>

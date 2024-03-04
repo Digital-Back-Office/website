@@ -2,16 +2,16 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 
-import image1 from "../../../assets/images/Services/big-data.svg";
-import monitorLight from "../../../assets/img/services/v3/icons/monitor-light.svg";
-import cloudLight from "../../../assets/img/services/v3/icons/cloud-light.svg";
-import dataScience from "../../../assets/images/Services/data-science.svg";
-import openSource from "../../../assets/images/Services/open-source.svg";
-import devOps from "../../../assets/images/Services/devops.svg";
-import cloudScaling from "../../../assets/images/Services/cloud-scaling.svg";
-import dataVisualisation from "../../../assets/images/Services/data-visualisation.svg";
-import handShake from "../../../assets/images/Services/handshake.svg";
-import thumbsUp from "../../../assets/images/Services/thumbs-up.svg";
+import image1 from "/assets/images/Services/big-data.svg";
+import monitorLight from "/assets/img/services/v3/icons/monitor-light.svg";
+import cloudLight from "/assets/img/services/v3/icons/cloud-light.svg";
+import dataScience from "/assets/images/Services/data-science.svg";
+import openSource from "/assets/images/Services/open-source.svg";
+import devOps from "/assets/images/Services/devops.svg";
+import cloudScaling from "/assets/images/Services/cloud-scaling.svg";
+import dataVisualisation from "/assets/images/Services/data-visualisation.svg";
+import handShake from "/assets/images/Services/handshake.svg";
+import thumbsUp from "/assets/images/Services/thumbs-up.svg";
 
 import HeroSection from "../../components/Services/HeroSection.astro";
 import Contact from "../../components/common/Contact.astro"
@@ -51,7 +51,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
 <style>
   .bg-image {
     background-image: url(/assets/images/background_pattern.png);
-    background-repeat: no-repeat;
+    background-repeat: repeat !important;
   }
 
   * {
@@ -74,6 +74,9 @@ icon2_text:"Build to enable collaboration between business and IT."};
     line-height:24px;
     color:rgba(47, 183, 184, 1)
   }
+  .images{
+    width: 100%;
+  }
 </style>
 
 <Layout>
@@ -91,7 +94,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 1 data architecture-->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5" src={image1} alt="Image" />
+          <Image class="rounded-5 images" src={image1} alt="Image" />
         </div>
 
         <div class="col-md-6 col-xl-5 order-md-1">
@@ -118,7 +121,6 @@ icon2_text:"Build to enable collaboration between business and IT."};
                     width="28"
                     alt="Icon"
                   />
-                  <!-- <Image class="d-none d-dark-mode-block m-1" src={monitorLight} width="28" alt="Icon"> -->
                 </div>
                 <h3 class="h5 mb-2" style="color:white">{data_architecture.icon1_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
@@ -136,7 +138,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
                     width="28"
                     alt="Icon"
                   />
-                  <!-- <img class="d-none d-dark-mode-block m-1" src="../assets/img/services/v3/icons/cloud-light.svg" width="28" alt="Icon"> -->
+                  
                 </div>
                 <h3 class="h5 mb-2" style="color:white">{data_architecture.icon2_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
@@ -161,7 +163,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 2 data devops------------------------------------------------------------------------------------->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5" src={devOps} alt="Image" />
+          <Image class="rounded-5 images" src={devOps} alt="Image" />
         </div>
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">
@@ -228,7 +230,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 3 data science-->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5" src={dataScience} alt="Image" />
+          <Image class="rounded-5 images" src={dataScience} alt="Image"/>
         </div>
         <div class="col-md-6 col-xl-5 order-md-1">
           <div class="pe-md-4 pe-xl-0">
@@ -251,7 +253,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
                     width="28"
                     alt="Icon"
                   />
-                  <!-- <Image class="d-none d-dark-mode-block m-1" src={monitorLight} width="28" alt="Icon"> -->
+                
                 </div>
                 <h3 class="h5 mb-2" style="color:white">{data_science.icon1_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
@@ -269,7 +271,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
                     width="28"
                     alt="Icon"
                   />
-                  <!-- <img class="d-none d-dark-mode-block m-1" src="../assets/img/services/v3/icons/cloud-light.svg" width="28" alt="Icon"> -->
+                  
                 </div>
                 <h3 class="h5 mb-2" style="color:white">{data_science.icon2_heading}</h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
@@ -294,7 +296,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 4------------------------------------------------------------------------------------->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5" src={dataVisualisation} alt="Image" />
+          <Image class="rounded-5 images" src={dataVisualisation} alt="Image" />
         </div>
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">

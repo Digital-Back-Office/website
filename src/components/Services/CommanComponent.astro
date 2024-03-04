@@ -4,6 +4,8 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../common/Navbar.astro"
 import ContactForm from "../common/Contact.astro"
 import Video_Layout2 from "../../layouts/Video_Layout2.astro"
+import Video_Layout from "../../layouts/Video_Layout.astro"
+
 
 
 ---
@@ -71,16 +73,19 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
     
     
   }
-  .diff{
+  .diff1{
     position: relative;
+    padding-bottom: 5rem;
   }
-  .diff::before{
-    position: absolute;
+  
+  .diff1::before{
+    content: "";
+    position: absolute !important;
     top:0; right:0; bottom:0; left:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255,255,255,0.2);
-    z-index: 10;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(255,255,255,3%) !important;
+    z-index: 10 !important;
   }
   .cards{
     display: flex;
@@ -88,47 +93,63 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
   }
   .background-style{
     background-image: url(/assets/images/background_pattern.png);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
   }
   .icons{
     border-radius: 36px;
     background-color: rgba(255,255,255, 3%);
+    padding-top:4rem;padding-bottom:4rem; height:100%;
   }
+  .white-70{
+    color: rgba(255,255,255,0.7);
+  }
+  .hero-heading{
+    font-size: 3.75rem !important;
+    font-weight: 700 !important;
+    font-family: "Arimo";
+    
+  }
+  .hero-text1{
+    font-size: 1.75rem !important;
+    max-width: 890px !important;
+    margin-top: 1rem;
+
+  }
+  .outer-card{
+    padding-left: 0.78rem !important;
+    padding-right: 0.78rem !important;
+  }
+  .expertise-heading{
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
 </style>
 
 <Layout>
     <main class="page-wrapper background-style" >
         <Video_Layout2 src={frontmatter.hero_video}>
           <div class="hero-text px-5">
-            <h1  class="text-lg-start text-light fw-light fw-bold" style="font-size:60px; font-weight: bold;">
-              {frontmatter.hero_title}
-            </h1>
-            <p class="fs-lg text-lg-start pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5"
-            style="font-size: 28px; max-width: 890px;">
-              {frontmatter.hero_text}
-            </p>
+            <div style="width:full; max-width:1296px; margin:0 auto 0 auto;">
+              <h1  class="text-lg-start text-light fw-light fw-bold hero-heading">
+                {frontmatter.hero_title}
+              </h1>
+              <p class="fs-lg text-lg-start pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5 hero-text1"
+              >
+                {frontmatter.hero_text}
+              </p>
+            </div>
           </div>
         </Video_Layout2>
-        <!-- <Navbar/>
-        <section class="hero-section">
-          <video src={frontmatter.hero_video}
-          preload="auto"
-          muted
-          autoplay
-          loop
-          class="hero-video"
-          />
+        
   
-          
-        </section> -->
-  
-        <section style="display: flex; justify-content: center; margin-top:6rem; margin-bottom:6rem; "
+        <section style="display: flex; justify-content: center; margin-top:5rem; margin-bottom:5rem; "
          class="px-5">
           <div style="max-width:1296px;">
-            <p style="font-size: 1rem; color:white">
+            <p style="font-size: 1.125rem; color:white">
               {frontmatter.p1_text}
             </p>
-            <p style="font-size: 1rem; color:white">
+            <p style="font-size: 1.125rem; color:white; font-style:italic">
               {frontmatter.p2_text}
             </p>
           </div>
@@ -137,7 +158,9 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
           
   
           <!-- key differentiators from landing-saas-v2.html-->
-        <section id="diff" class="container mt-md-3 mt-lg-2 mt-xl-4 mt-xxl-5 diff" data-bs-theme="dark">
+        <div class="diff1">
+          <section id="diff" class="container mt-md-3 mt-lg-2 mt-xl-4 mt-xxl-5 " data-bs-theme="dark"
+        >
           <h2 class="h1 text-center pt-3 pt-sm-4 pt-lg-5 pb-3 mb-3 mb-lg-4 mt-xl-3">Key Differentiators</h2>
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4
           " style="">
@@ -148,7 +171,6 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
                 
                   <div class="h-100 rounded-5 py-2 py-lg-4 px-0">
                     <div class="card-body text-center">
-                      <!-- <Image src={images[2].img1} alt="logo"  class="d-block text-primary mb-4 mx-auto" width="40" height="40"/> -->
                       <img src={frontmatter.card1_img} alt="img" class="d-block text-primary mb-4 mx-auto"  height="40"/>
                       <h3>{frontmatter.card1_heading}</h3>
                       <p class="card-text">{frontmatter.card1_text}</p>
@@ -193,6 +215,7 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
             </div>
           </div>
         </section>
+        </div>
   
   
         <!--DONE== How it works (Steps) from about-product.html-->
@@ -210,7 +233,7 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
                 <div class="pe-md-4 pe-lg-0">
                   
                   <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach1_heading}</h3>
-                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5">{frontmatter.approach1_text}.</p>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach1_text}.</p>
                   
                 </div>
               </div>
@@ -240,7 +263,7 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
                 <div class="ps-md-4 ps-lg-0">
                   
                   <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach2_heading}</h3>
-                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5">{frontmatter.approach2_text}.</p>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach2_text}.</p>
                 </div>
               </div>
             </div>
@@ -269,7 +292,7 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
                 <div class="pe-md-4 pe-lg-0">
                   
                   <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach3_heading}</h3>
-                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5">{frontmatter.approach3_text}</p>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach3_text}</p>
                   
                 </div>
               </div>
@@ -299,7 +322,7 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
                 <div class="ps-md-4 ps-lg-0">
                   
                   <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach4_heading}</h3>
-                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5">{frontmatter.approach4_text}.</p>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach4_text}.</p>
                 </div>
               </div>
             </div>
@@ -310,41 +333,43 @@ import Video_Layout2 from "../../layouts/Video_Layout2.astro"
   
         <!-- Features from landing-saas-v3.html-->
         <section class="container py-5 my-sm-2 my-md-4 my-lg-5 px-5" data-bs-theme="dark">
-          <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto" style="max-width: 40rem;">Our Expertise</h2>
+          <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto expertise-heading" style="max-width: 40rem; margin-bottom:2.5rem;">
+            Our Expertise
+          </h2>
           
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-5 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
-            <div class="col-12 col-sm-6 col-lg-4" style="">
-              <div class="text-center px-xxl-4 icons"  style=" padding-top:2rem;padding-bottom:2rem; height:100%">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-4 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons" >
                 <img src={frontmatter.expertise1_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
                 <h3 class="h4 mb-2">{frontmatter.expertise1_heading}</h3>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4" style="">
-              <div class="text-center px-xxl-4 icons"  style=" padding-top:2rem;padding-bottom:2rem;height:100%">
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons" >
                 <img src={frontmatter.expertise2_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
                 <h3 class="h4 mb-2">{frontmatter.expertise2_heading}</h3>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4" style="">
-              <div class="text-center px-xxl-4 icons"  style=" padding-top:2rem;padding-bottom:2rem;height:100%">
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons">
                 <img src={frontmatter.expertise3_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50" />
                 <h3 class="h4 mb-2">{frontmatter.expertise3_heading}</h3>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4" style="">
-              <div class="text-center px-xxl-4 icons"  style=" padding-top:2rem;padding-bottom:2rem;height:100%">
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons" >
                 <img src={frontmatter.expertise4_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
                 <h3 class="h4 mb-2">{frontmatter.expertise4_heading}</h3>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4" style="">
-              <div class="text-center px-xxl-4 icons"  style=" padding-top:2rem;padding-bottom:2rem;height:100%">
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons">
                 <img src={frontmatter.expertise5_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
                 <h3 class="h4 mb-2">{frontmatter.expertise5_heading}</h3>
               </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4" style="">
-              <div class="text-center px-xxl-4 icons" style=" padding-top:2rem;padding-bottom:2rem;height:100%">
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons">
                 <img src={frontmatter.expertise6_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
                 <h3 class="h4 mb-2">{frontmatter.expertise6_heading}</h3>
               </div>
