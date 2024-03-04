@@ -27,6 +27,12 @@ const homeCollection = defineCollection({
                 info: z.string()
             }))
         }),
+        tech: z.object({
+            title: z.string(),
+            desc: z.string(),
+            slider_1: z.array(z.string()),
+            slider_2: z.array(z.string())
+        }),
     }),
 });
 

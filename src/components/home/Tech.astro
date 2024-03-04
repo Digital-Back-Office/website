@@ -1,5 +1,8 @@
 ---
+import { getEntry } from "astro:content";
 
+const Data = await getEntry("home", "home");
+const tech = Data.data.tech;
 ---
 
 <style>
@@ -48,10 +51,11 @@
 <section class="tech">
     <div class="pb-5 pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
         <div class="container pb-4 mb-2 mb-lg-3">
-            <h2 class="h1 text-center text-white">Open Source on Cloud</h2>
+            <h2 class="h1 text-center text-white">
+                {tech.title}
+            </h2>
             <p class="text-center mb-0 text-white opacity-70">
-                More than 2,000 clients using Digital Back Office to analyze
-                data
+                {tech.desc}
             </p>
         </div>
         <div
@@ -83,96 +87,20 @@
                 class="swiper-wrapper"
                 style="transition-timing-function: linear !important;"
             >
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/airflow.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-dark mx-auto"
-                            src="/assets/images/tech/arrow.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/aws.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/azure.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/cloudera.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/databricks.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/docker.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/gcp.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/hadoop.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
+                {
+                    tech.slider_1.map((card) => (
+                        <div class="swiper-slide">
+                            <div class="bg-white rounded-4">
+                                <img
+                                    class="d-block d-dark-mode-block mx-auto"
+                                    src={card}
+                                    width="196"
+                                    alt="Logo"
+                                />
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
         <div
@@ -205,96 +133,20 @@
                 class="swiper-wrapper"
                 style="transition-timing-function: linear !important;"
             >
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/jupyterhub.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/tensor.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/kubernetes.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/python.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/scala.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/scikit.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/sedona.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/spark.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="bg-white rounded-4">
-                        <img
-                            class="d-block d-dark-mode-block mx-auto"
-                            src="/assets/images/tech/tableau.png"
-                            width="196"
-                            alt="Logo"
-                        />
-                    </div>
-                </div>
+                {
+                    tech.slider_2.map((card) => (
+                        <div class="swiper-slide">
+                            <div class="bg-white rounded-4">
+                                <img
+                                    class="d-block d-dark-mode-block mx-auto"
+                                    src={card}
+                                    width="196"
+                                    alt="Logo"
+                                />
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </div>

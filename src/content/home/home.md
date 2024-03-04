@@ -52,4 +52,28 @@ features:
         - img: /assets/icons/home/features/specialized_hiring.png
           title: 'Specialized Hiring'
           info: 'Hiring for Big Data and Data Science projects is becoming increasingly difficult. Will I be able to deliver the project on time?'
+
+tech:
+    title: Open Source on Cloud
+    desc: More than 2,000 clients using Digital Back Office to analyze data
+    slider_1:
+        - /assets/images/tech/airflow.png
+        - /assets/images/tech/arrow.png
+        - /assets/images/tech/aws.png
+        - /assets/images/tech/azure.png
+        - /assets/images/tech/cloudera.png
+        - /assets/images/tech/databricks.png
+        - /assets/images/tech/docker.png
+        - /assets/images/tech/gcp.png
+        - /assets/images/tech/hadoop.png
+    slider_2:
+        - /assets/images/tech/jupyterhub.png
+        - /assets/images/tech/tensor.png
+        - /assets/images/tech/kubernetes.png
+        - /assets/images/tech/python.png
+        - /assets/images/tech/scala.png
+        - /assets/images/tech/scikit.png
+        - /assets/images/tech/sedona.png
+        - /assets/images/tech/spark.png
+        - /assets/images/tech/tableau.png
 ---
