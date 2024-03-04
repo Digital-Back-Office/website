@@ -7,6 +7,12 @@ const about = Data.data.about;
 const keyPoints = Data.data.keyPoints;
 ---
 
+<script>
+    import Parallax from "parallax-js";
+    var scene = document.querySelector(".parallax");
+    var parallaxInstance = new Parallax(scene);
+</script>
+
 <style>
     section {
         background-image: url(/assets/images/background_pattern.png);
@@ -100,7 +106,7 @@ const keyPoints = Data.data.keyPoints;
                     <i
                         class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
                     >
-                        <img src={keyPoints[0].svg} alt="">
+                        <img src={keyPoints[0].svg} alt="" />
                     </i>
                     <svg
                         class="position-absolute top-0 start-0 text-primary"
@@ -130,7 +136,7 @@ const keyPoints = Data.data.keyPoints;
                     <i
                         class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
                     >
-                        <img src={keyPoints[1].svg} alt="">
+                        <img src={keyPoints[1].svg} alt="" />
                     </i>
                     <svg
                         class="position-absolute top-0 start-0 text-primary"
@@ -160,7 +166,7 @@ const keyPoints = Data.data.keyPoints;
                     <i
                         class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
                     >
-                        <img src={keyPoints[2].svg} alt="">
+                        <img src={keyPoints[2].svg} alt="" />
                     </i>
                     <svg
                         class="position-absolute top-0 start-0 text-primary"

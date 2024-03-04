@@ -43,6 +43,43 @@ const homeCollection = defineCollection({
     }),
 });
 
+const aboutCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        hero: z.object({
+            title: z.string(),
+            features: z.array(z.string())
+        }),
+        mission: z.object({
+            title: z.string(),
+            desc: z.string(),
+            img: z.string()
+        }),
+        values: z.object({
+            title: z.string(),
+            cards: z.array(z.object({
+                svg: z.string(),
+                title: z.string(),
+                desc: z.string()
+            }))
+        }),
+        benefits: z.object({
+            title: z.string(),
+            points: z.array(z.object({
+                number: z.number(),
+                title: z.string(),
+                desc: z.string()
+            }))
+        }),
+        approach: z.object({
+            title: z.string(),
+            desc: z.string(),
+            img: z.string()
+        }),
+    })
+});
+
 export const collections = {
     'home': homeCollection,
+    'about': aboutCollection,
 };

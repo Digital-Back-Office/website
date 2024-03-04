@@ -24,7 +24,6 @@ const {
 <script src="parallax-js/dist/parallax.min.js"></script>
 
 <script>
-  import Parallax from "parallax-js";
   import AOS from "aos";
   import Swiper from "swiper/bundle";
   import "swiper/css/navigation";
@@ -32,9 +31,6 @@ const {
   import "swiper/css/bundle";
 
   AOS.init();
-
-  var scene = document.querySelector(".parallax");
-  var parallaxInstance = new Parallax(scene);
 
   const carousels = Array.from(document.querySelectorAll(".swiper"));
 

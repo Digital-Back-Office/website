@@ -1,0 +1,27 @@
+---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("about", "about");
+const approach = Data.data.approach;
+---
+
+<section class="container">
+    <article
+        class="row align-items-center pb-5 mb-md-2 mb-lg-3 mb-xl-4"
+    >
+        <div class="col-md-7 order-md-2 mb-4 mb-md-0 mt-4">
+            <img src={approach.img} alt="image" />
+        </div>
+        <div class="col-md-5 col-xl-4 offset-xxl-1 order-md-1">
+            <div class="me-md-4 me-lg-5 me-xxl-0" style="max-width: 330px;">
+                <div class="mb-2 text-white">DIGITAL BACK OFFICE</div>
+                <h2 class="mb-lg-4 text-white">
+                    {approach.title}
+                </h2>
+                <p class="mb-0 mb-md-1 mb-lg-3 text-white opacity-70">
+                    {approach.desc}
+                </p>
+            </div>
+        </div>
+    </article>
+</section>

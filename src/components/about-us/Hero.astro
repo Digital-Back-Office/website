@@ -1,3 +1,10 @@
+---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("about", "about");
+const hero = Data.data.hero;
+---
+
 <style>
   .list-unstyled li {
     color: var(--White-70, rgba(255, 255, 255, 0.7));
@@ -43,25 +50,19 @@
                   line-height: 130%; /* 4.7125rem */
                 "
         >
-          We deliver complete range of solutions in
-          <br />
-          data processing from concept to delivery.
+          {hero.title}
         </h1>
       </div>
     </div>
     <ul class="list-unstyled d-inline-flex align-items-start gap-1.5rem mb-0">
-      <li class="d-flex text-body py-1 me-4">
-        <i class="ai-check-alt text-primary lead me-2"></i>
-        Forecasting and recommendations
-      </li>
-      <li class="d-flex text-body py-1 me-4">
-        <i class="ai-check-alt text-primary lead me-2"></i>
-        Identification of patterns, analysis
-      </li>
-      <li class="d-flex text-body py-1">
-        <i class="ai-check-alt text-primary lead me-2"></i>
-        Segmentation by various methods
-      </li>
+      {
+        hero.features.map((feature) => (
+          <li class="d-flex text-body py-1 me-4">
+            <i class="ai-check-alt text-primary lead me-2" />
+            {feature}
+          </li>
+        ))
+      }
     </ul>
   </section>
 </section>
