@@ -2,7 +2,6 @@
 import Footer from "../components/common/Footer.astro";
 import "/assets/css/theme.min.css";
 import "/assets/icons/around-icons.min.css";
-// import "swiper/swiper-bundle.min.css";
 import "aos/dist/aos.css";
 import "../styles/global.css";
 
@@ -21,19 +20,12 @@ const {
 
 <script src="aos/dist/aos.js"></script>
 <script src="parallax-js/dist/parallax.min.js"></script>
-<script src="imagesloaded/imagesloaded.pkgd.min.js"></script>
-<!-- <script src="shufflejs/dist/shuffle.min.js"></script> -->
 <script src="jarallax/dist/jarallax.min.js"></script>
 <script src="parallax-js/dist/parallax.min.js"></script>
-<!-- <script src="swiper/swiper-bundle.min.js"></script> -->
-<script src="lightgallery/lightgallery.min.js"></script>
-<script src="lightgallery/plugins/video/lg-video.min.js"></script>
-<script src="imagesloaded/imagesloaded.pkgd.min.js"></script>
 
 <script>
   import Parallax from "parallax-js";
   import AOS from "aos";
-  import Shuffle from "shufflejs";
   import Swiper from "swiper/bundle";
   import "swiper/css/navigation";
   import "swiper/css/pagination";
@@ -204,24 +196,13 @@ const {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description}>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/dist/cookieconsent.css">
         <title>{title}</title>
         
     </head>
     <body style="background-color: black;">
         <slot />
-        <!-- <button type="button" data-cc="show-preferencesModal">Manage cookie preferences</button> -->
-        <!-- <div style="position: fixed; display:flex; bottom:0; left:0; right:0; width:100%; justify-content:space-between;
-        border:solid 2px red; background-color:black; color:white; align-items: center;">
-            <p>
-                This website uses cookies to ensure you get the best experience on our website.
-            </p>
-            <button data-cc="show-preferencesModal" type="button">
-                Got it
-            </button>
-        </div> -->
-
-        
         <Footer />
     </body>
 </html>
