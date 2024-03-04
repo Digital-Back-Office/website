@@ -37,6 +37,7 @@
     "swiper": "^11.0.6",
     "timezz": "^7.0.0",
     "typescript": "^5.3.3",
+    "vanilla-cookieconsent": "3.0.0",
     "webpack": "^5.90.3"
   },
   "devDependencies": {
