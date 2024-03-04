@@ -4,14 +4,6 @@ import { getEntry } from "astro:content";
 const Data = await getEntry("home", "home");
 const features = Data.data.features;
 const cards = features.cards;
-
-import { Image } from "astro:assets";
-import icon1 from "/assets/icons/features/vol_vel_var.png";
-import icon2 from "/assets/icons/features/cost_management.png";
-import icon3 from "/assets/icons/features/security.png";
-import icon4 from "/assets/icons/features/selection.png";
-import icon5 from "/assets/icons/features/changing_landscape.png";
-import icon6 from "/assets/icons/features/specialized_hiring.png";
 ---
 
 <style>
@@ -61,95 +53,23 @@ import icon6 from "/assets/icons/features/specialized_hiring.png";
         <div
             class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-4 gy-4 pb-md-4 pb-lg-5 mb-2 mb-lg-0 mb-xxl-2"
         >
-            <!-- Item -->
-            <div class="col item text-center text-sm-start">
-                <div class="p-4">
-                    <Image
-                        src={icon1}
-                        alt="icon"
-                        class="d-inline-block mb-3 mb-lg-4"
-                    />
-                    <h3 class="h5 mb-2 text-white">{cards[0].title}</h3>
-                    <p class="mb-0 text-white opacity-70">
-                        {cards[0].info}
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col item text-center text-sm-start">
-                <div class="p-4">
-                    <Image
-                        src={icon2}
-                        alt="icon"
-                        class="d-inline-block mb-3 mb-lg-4"
-                    />
-                    <h3 class="h5 mb-2 text-white">{cards[1].title}</h3>
-                    <p class="mb-0 text-white opacity-70">
-                        {cards[1].info}
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col item text-center text-sm-start">
-                <div class="p-4">
-                    <Image
-                        src={icon3}
-                        alt="icon"
-                        class="d-inline-block mb-3 mb-lg-4"
-                    />
-                    <h3 class="h5 mb-2 text-white">{cards[2].title}</h3>
-                    <p class="mb-0 text-white opacity-70">
-                        {cards[2].info}
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col item text-center text-sm-start">
-                <div class="p-4">
-                    <Image
-                        src={icon4}
-                        alt="icon"
-                        class="d-inline-block mb-3 mb-lg-4"
-                    />
-                    <h3 class="h5 mb-2 text-white">{cards[3].title}</h3>
-                    <p class="mb-0 text-white opacity-70">
-                        {cards[3].info}
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col item text-center text-sm-start">
-                <div class="p-4">
-                    <Image
-                        src={icon5}
-                        alt="icon"
-                        class="d-inline-block mb-3 mb-lg-4"
-                    />
-                    <h3 class="h5 mb-2 text-white">{cards[4].title}</h3>
-                    <p class="mb-0 text-white opacity-70">
-                        {cards[4].info}
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col item text-center text-sm-start">
-                <div class="p-4">
-                    <Image
-                        src={icon6}
-                        alt="icon"
-                        class="d-inline-block mb-3 mb-lg-4"
-                    />
-                    <h3 class="h5 mb-2 text-white">{cards[5].title}</h3>
-                    <p class="mb-0 text-white opacity-70">
-                        {cards[5].info}
-                    </p>
-                </div>
-            </div>
+            {
+                cards.map((card) => (
+                    <div class="col item text-center text-sm-start">
+                        <div class="p-4">
+                            <img
+                                src={card.img}
+                                alt="icon"
+                                class="d-inline-block mb-3 mb-lg-4"
+                            />
+                            <h3 class="h5 mb-2 text-white">{card.title}</h3>
+                            <p class="mb-0 text-white opacity-70">
+                                {card.info}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>
