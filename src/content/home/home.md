@@ -76,4 +76,23 @@ tech:
         - /assets/images/tech/sedona.png
         - /assets/images/tech/spark.png
         - /assets/images/tech/tableau.png
+
+testimonials:
+    - number: '1'
+      name: Lilia Bocouse
+      designation:  Head of Marketing
+      title: Awesome experience with a professional team. Thank you :)
+      desc: Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.
+
+    - number: '2'
+      name: Robert Fox
+      designation:  Marketing Coordinator
+      title: Thanks to your talented team for the banding we dreamed about
+      desc: Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.
+
+    - number: '3'
+      name: Lilia Bocouse
+      designation:  Head of Marketing
+      title: Awesome experience with a professional team. Thank you :)
+      desc: Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.
 ---

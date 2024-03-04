@@ -33,6 +33,13 @@ const homeCollection = defineCollection({
             slider_1: z.array(z.string()),
             slider_2: z.array(z.string())
         }),
+        testimonials: z.array(z.object({
+            number: z.preprocess((val) => `#testimonial-${val}`, z.string()),
+            name: z.string(),
+            designation: z.string(),
+            title: z.string(),
+            desc: z.string()
+        }))
     }),
 });
 
