@@ -6,58 +6,31 @@ const hero = Data.data.hero;
 ---
 
 <style>
-  .list-unstyled li {
-    color: var(--White-70, rgba(255, 255, 255, 0.7));
-    font-feature-settings:
-      "clig" off,
-      "liga" off;
-    font-family: Arimo;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; /* 1.5rem */
-  }
-
   .hero-section {
     font-family: "arimo";
     padding: 8rem 0;
-    height: 100%;
-    width: 100%;
-  }
-  .container {
-    height: 100%;
-    vertical-align: bottom;
+    height: 40rem;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    z-index: 7;
+    align-items: end;
+    flex-grow: 1;
+  }
+
+  .hero-section * {
+    z-index: 3;
   }
 </style>
 
 <section class="hero-section">
-  <section class="container position-relative py-5 mb-1 mb-sm-2">
-    <div class="container">
-      <div class="row pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center z-7">
-        <h1
-          class="text-center text-lg-start text-light fw-light"
-          style="
-                  color: var(--White-100, var(--White, #FFF));
-                  font-feature-settings: 'clig' off, 'liga' off;
-                  font-family: Arimo;
-                  font-size: 3.625rem;
-                  font-style: normal;
-                  font-weight: 700;
-                  line-height: 130%; /* 4.7125rem */
-                "
-        >
-          {hero.title}
-        </h1>
-      </div>
+  <section class="container position-relative">
+    <div class="d-flex pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center z-3">
+      <h1 class="text-start text-lg-start text-light fw-bold">
+        {hero.title}
+      </h1>
     </div>
-    <ul class="list-unstyled d-inline-flex align-items-start gap-1.5rem mb-0">
+    <ul class="list-unstyled d-flex flex-wrap mb-0">
       {
         hero.features.map((feature) => (
-          <li class="d-flex text-body py-1 me-4">
+          <li class="d-flex text-body text-white opacity-70 py-1 me-4">
             <i class="ai-check-alt text-primary lead me-2" />
             {feature}
           </li>

@@ -29,19 +29,19 @@ values:
 benefits:
     title: We Love Data
     points:
-        - number: 01
+        - number: 1
           title: Individual approach
           desc: Hac erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor non.
         
-        - number: 02
+        - number: 2
           title: Integrated analytics
           desc: Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do leo proin odio est sed sit felis facilisi integer
         
-        - number: 03
+        - number: 3
           title: Step by step work
           desc: More erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor non
 
-        - number: 04
+        - number: 4
           title: Full spectrum of services
           desc: Adipiscing posuere dui, amet, augue nisl dictum justo, enim sed neque congue non quam ultrices interdum vitae vestibulum. Hac erat leo proin odio est sed sit felis facilisi integer sed.
 

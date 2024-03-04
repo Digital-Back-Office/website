@@ -66,7 +66,7 @@ const aboutCollection = defineCollection({
         benefits: z.object({
             title: z.string(),
             points: z.array(z.object({
-                number: z.number(),
+                number: z.preprocess((val) => `0${val}`, z.string()),
                 title: z.string(),
                 desc: z.string()
             }))
