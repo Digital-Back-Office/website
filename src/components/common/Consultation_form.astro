@@ -16,17 +16,20 @@ import "flatpickr/dist/themes/dark.css";
             const monthDropDown = calendarContainer.querySelector(".flatpickr-monthDropdown-months");
             const DropDownMonth = calendarContainer.querySelectorAll(".flatpickr-monthDropdown-month");
             const weekdays = calendarContainer.querySelectorAll(".flatpickr-weekday");
+            const currMonth = calendarContainer.querySelector('.flatpickr-current-month');
 
 
             if (monthElement && monthDropDown && weekdays && DropDownMonth) {
                 monthElement.style.backgroundColor = "#121519";
                 monthDropDown.style.backgroundColor = "#121519";
+                currMonth.style.display = 'flex';
+                currMonth.style.justifyContent = 'space-between';
                 weekdays.forEach((weekday) => {
                     weekday.style.backgroundColor = "#121519";
-                })
+                });
                 DropDownMonth.forEach((month) => {
                     month.style.backgroundColor = "#121519";
-                })
+                });
             }
         },
     });
