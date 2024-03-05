@@ -1,37 +1,63 @@
 ---
 import { Image } from "astro:assets";
-import patterns from "/assets/images/services/big-data-architecture/patterns.png"
- 
+// import patterns from "/assets/images/services/big-data-architecture/patterns.png"
 
 const heading = "Architectural Patterns";
-const text1 = "Unstructured data is the fastest growing type of data, some example could be imagery, sensors, telemetry, video, documents, log files, and email data files. There are several techniques to address this problem space of unstructured analytics. The techniques share a common characteristics of scale-out, elasticity and high availability. MapReduce, in conjunction with the Hadoop Distributed File System (HDFS) and HBase database, as part of the Apache Hadoop project is a modern approach to analyze unstructured data. Hadoop clusters are an effective means of processing massive volumes of data, and can be improved with the right architectural approach."
-const text2 = "We support all three key architectural patterns, based on needs of the Business.."
+const text1 =
+  "Unstructured data is the fastest growing type of data, some example could be imagery, sensors, telemetry, video, documents, log files, and email data files. There are several techniques to address this problem space of unstructured analytics. The techniques share a common characteristics of scale-out, elasticity and high availability. MapReduce, in conjunction with the Hadoop Distributed File System (HDFS) and HBase database, as part of the Apache Hadoop project is a modern approach to analyze unstructured data. Hadoop clusters are an effective means of processing massive volumes of data, and can be improved with the right architectural approach.";
+const text2 =
+  "We support all three key architectural patterns, based on needs of the Business..";
 ---
+
 <style>
-    li{
-        color:white;
-    }
-    .light-text{
-      color:rgba(255,255,255,70%);
-    }
+  li {
+    color: white;
+  }
+  .light-text {
+    color: rgba(255, 255, 255, 70%);
+  }
 </style>
 
-<section class="container pb-4 mb-2 my-lg-3 my-xl-4 my-xxl-5" data-bs-theme="dark">
-    
-
-    <!-- Item -->
-    <div class="row align-items-center py-4 py-lg-5 my-sm-2 my-md-4 my-lg-0 my-xl-2 my-xxl-4" data-aos="fade-up" data-aos-duration="600" data-aos-offset="300" data-disable-parallax-down="md">
-      <div class="col-md-6 offset-xl-1 order-md-2 pb-3 pb-md-0 mb-3 mb-sm-4 mb-md-0">
-        <img class="d-dark-mode-none" src="/assets/img/landing/saas-1/features/04-light.png" width="636" alt="Image">
-        <Image class="d-none d-dark-mode-block" src={patterns} width="636" alt="Image">
-      </div>
-      <div class="col-md-6 col-xl-5 order-md-1" data-aos="fade-up" data-aos-duration="850" data-aos-offset="200" data-disable-parallax-down="md">
+<section
+  class="container pb-4 mb-2 my-lg-3 my-xl-4 my-xxl-5"
+  data-bs-theme="dark"
+>
+  <!-- Item -->
+  <div
+    class="row align-items-center py-4 py-lg-5 my-sm-2 my-md-4 my-lg-0 my-xl-2 my-xxl-4"
+    data-aos="fade-up"
+    data-aos-duration="600"
+    data-aos-offset="300"
+    data-disable-parallax-down="md"
+  >
+    <div
+      class="col-md-6 offset-xl-1 order-md-2 pb-3 pb-md-0 mb-3 mb-sm-4 mb-md-0"
+    >
+      <img
+        class="d-dark-mode-none"
+        src="/assets/img/landing/saas-1/features/04-light.png"
+        width="636"
+        alt="Image"
+      />
+      <img
+        class="d-none d-dark-mode-block"
+        src="/assets/images/services/big-data-architecture/patterns.png"
+        width="636"
+        alt="Image"
+      />
+      <div
+        class="col-md-6 col-xl-5 order-md-1"
+        data-aos="fade-up"
+        data-aos-duration="850"
+        data-aos-offset="200"
+        data-disable-parallax-down="md"
+      >
         <div class="pe-md-3 pe-xl-0">
           <h3 class="h2 mb-lg-4">{heading}</h3>
           <p class="mb-1 light-text">{text1}</p>
           <p class="mb-0 light-text">{text2}</p>
-
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

@@ -2,50 +2,58 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 
-import image1 from "/assets/images/services/big-data.svg";
-import monitorLight from "/assets/img/services/v3/icons/monitor-light.svg";
-import cloudLight from "/assets/img/services/v3/icons/cloud-light.svg";
-import dataScience from "/assets/images/services/data-science.svg";
-import openSource from "/assets/images/services/open-source.svg";
-import devOps from "/assets/images/services/devops.svg";
-import cloudScaling from "/assets/images/services/cloud-scaling.svg";
-import dataVisualisation from "/assets/images/services/data-visualisation.svg";
-import handShake from "/assets/images/services/handshake.svg";
-import thumbsUp from "/assets/images/services/thumbs-up.svg";
+// import image1 from "/assets/images/services/big-data.svg";
+// import monitorLight from "/assets/img/services/v3/icons/monitor-light.svg";
+// import cloudLight from "/assets/img/services/v3/icons/cloud-light.svg";
+// import dataScience from "/assets/images/services/data-science.svg";
+// import openSource from "/assets/images/services/open-source.svg";
+// import devOps from "/assets/images/services/devops.svg";
+// import cloudScaling from "/assets/images/services/cloud-scaling.svg";
+// import dataVisualisation from "/assets/images/services/data-visualisation.svg";
+// import handShake from "/assets/images/services/handshake.svg";
+// import thumbsUp from "/assets/images/services/thumbs-up.svg";
 
 import Services from "../../components/common/Services.astro";
-import Contact from "../../components/common/Contact.astro"
+import Contact from "../../components/common/Contact.astro";
 import Navbar from "../../components/common/Navbar.astro";
 
-const data_architecture = {heading:"Big Data Architecture", 
-text:"We specialize in crafting robust, fault-tolerant, and scalable Big Data solutions tailored to seamlessly integrate across departments and teams, providing a unified perspective on your data insights. Our primary emphasis is on constructing highly scalable clusters capable of efficiently processing data while prioritizing stringent data security measures.", 
-icon1_heading:"Code First", 
-icon1_text:"Data pipeline as Code is our Guiding Principle.", 
-icon2_heading:"Cloud Native",
-icon2_text:"Highly scalable, flexible, and resilient built for cloud computing."};
+const data_architecture = {
+  heading: "Big Data Architecture",
+  text: "We specialize in crafting robust, fault-tolerant, and scalable Big Data solutions tailored to seamlessly integrate across departments and teams, providing a unified perspective on your data insights. Our primary emphasis is on constructing highly scalable clusters capable of efficiently processing data while prioritizing stringent data security measures.",
+  icon1_heading: "Code First",
+  icon1_text: "Data pipeline as Code is our Guiding Principle.",
+  icon2_heading: "Cloud Native",
+  icon2_text:
+    "Highly scalable, flexible, and resilient built for cloud computing.",
+};
 
-const data_devops = {heading:"Big Data DevOps",
- text:"The real challenge holding back production big data cloud deployments is the pervasive lack of DevOps skills for big data. We provide Fully-managed cloud services for big data and analytics so you can offload a lot of the challenges associated with getting big data platforms into production.", 
- icon1_heading:"Open Source", 
- icon1_text:"Cutting edge open sourc devops tools,", 
- icon2_heading:"Cloud Native",
-icon2_text:"Highly scalable, flexible, and resilient built for cloud computing."};
+const data_devops = {
+  heading: "Big Data DevOps",
+  text: "The real challenge holding back production big data cloud deployments is the pervasive lack of DevOps skills for big data. We provide Fully-managed cloud services for big data and analytics so you can offload a lot of the challenges associated with getting big data platforms into production.",
+  icon1_heading: "Open Source",
+  icon1_text: "Cutting edge open sourc devops tools,",
+  icon2_heading: "Cloud Native",
+  icon2_text:
+    "Highly scalable, flexible, and resilient built for cloud computing.",
+};
 
-const data_science ={heading:"Data Science", 
-text:"Data science helps mitigate business risks and drive business outcomes and innovations through smarter decisions. We build end-to-end data processing, modelling and machine learning pipelines in Python.", 
-icon1_heading:"Open Source", 
-icon1_text:"Best Open Source AI//ML tools for your need.", 
-icon2_heading:"Cloud Scaling",
-icon2_text:"Scale your model on cloud as per your needs and budget."};
+const data_science = {
+  heading: "Data Science",
+  text: "Data science helps mitigate business risks and drive business outcomes and innovations through smarter decisions. We build end-to-end data processing, modelling and machine learning pipelines in Python.",
+  icon1_heading: "Open Source",
+  icon1_text: "Best Open Source AI//ML tools for your need.",
+  icon2_heading: "Cloud Scaling",
+  icon2_text: "Scale your model on cloud as per your needs and budget.",
+};
 
-const data_visualization = {heading:"Data Visualisation", 
-text:"Data Visualisation is story telling with a purpose. Data Visualisation is an art and we treat is such. We don’t treat data visualisation as just a data problems, we understand that visuals are for humans.", 
-icon1_heading:"Ease of Use", 
-icon1_text:"Interactive and Intuitive data , designed for business users.", 
-icon2_heading:"Collaborative",
-icon2_text:"Build to enable collaboration between business and IT."};
-
-
+const data_visualization = {
+  heading: "Data Visualisation",
+  text: "Data Visualisation is story telling with a purpose. Data Visualisation is an art and we treat is such. We don’t treat data visualisation as just a data problems, we understand that visuals are for humans.",
+  icon1_heading: "Ease of Use",
+  icon1_text: "Interactive and Intuitive data , designed for business users.",
+  icon2_heading: "Collaborative",
+  icon2_text: "Build to enable collaboration between business and IT.",
+};
 ---
 
 <style>
@@ -57,32 +65,30 @@ icon2_text:"Build to enable collaboration between business and IT."};
   * {
     font-family: Arimo;
   }
-  main{
+  main {
     padding-top: 5rem !important;
   }
-  .hyperlink-button{
-    border:solid 1px rgba(47, 183, 184, 1); 
-    border-radius:8px; 
-    padding: 12px 28px; 
-    text-decoration:none; 
-    position:relative; 
-    top:2rem;
+  .hyperlink-button {
+    border: solid 1px rgba(47, 183, 184, 1);
+    border-radius: 8px;
+    padding: 12px 28px;
+    text-decoration: none;
+    position: relative;
+    top: 2rem;
   }
-  .hyperlink{
-    font-weight:600; 
-    font-size:14px; 
-    line-height:24px;
-    color:rgba(47, 183, 184, 1)
+  .hyperlink {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(47, 183, 184, 1);
   }
-  .images{
+  .images {
     width: 100%;
   }
 </style>
 
 <Layout>
-  
-  
-  <main class="page-wrapper bg-image" >
+  <main class="page-wrapper bg-image">
     {/*Hero Section- created from landing-creative-agency.html */}
 
     <Navbar />
@@ -94,7 +100,11 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 1 data architecture-->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5 images" src={image1} alt="Image" />
+          <img
+            class="rounded-5 images"
+            src="/assets/images/services/big-data.svg"
+            alt="Image"
+          />
         </div>
 
         <div class="col-md-6 col-xl-5 order-md-1">
@@ -115,14 +125,16 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={monitorLight}
+                    src="/assets/img/services/v3/icons/monitor-light.svg"
                     width="28"
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_architecture.icon1_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_architecture.icon1_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_architecture.icon1_text}
                 </p>
@@ -132,29 +144,24 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={cloudLight}
+                    src="/assets/img/services/v3/icons/cloud-light.svg"
                     width="28"
                     alt="Icon"
                   />
-                  
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_architecture.icon2_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_architecture.icon2_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_architecture.icon2_text}
                 </p>
               </div>
             </div>
 
-            <a
-              href="/services/big-data-architecture" class="hyperlink-button"
-            >
-              <span
-                class="hyperlink"
-              >
-                Know more
-              </span>
+            <a href="/services/big-data-architecture" class="hyperlink-button">
+              <span class="hyperlink"> Know more</span>
             </a>
           </div>
         </div>
@@ -163,7 +170,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 2 data devops------------------------------------------------------------------------------------->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5 images" src={devOps} alt="Image" />
+          <img class="rounded-5 images" src="/assets/images/services/devops.svg" alt="Image" />
         </div>
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">
@@ -182,14 +189,16 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={openSource}
+                    src="/assets/images/services/open-source.svg"
                     width="28"
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_devops.icon1_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_devops.icon1_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_devops.icon1_text}
                 </p>
@@ -199,29 +208,24 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={cloudLight}
+                    src="/assets/img/services/v3/icons/cloud-light.svg"
                     width="28"
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_devops.icon2_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_devops.icon2_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_devops.icon2_text}
                 </p>
               </div>
             </div>
 
-            <a
-              href="/services/big-data-devops"
-              class="hyperlink-button"
-            >
-              <span
-                class="hyperlink"
-              >
-                Know more
-              </span>
+            <a href="/services/big-data-devops" class="hyperlink-button">
+              <span class="hyperlink"> Know more</span>
             </a>
           </div>
         </div>
@@ -230,11 +234,13 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 3 data science-->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5 images" src={dataScience} alt="Image"/>
+          <img class="rounded-5 images" src="/assets/images/services/data-science.svg" alt="Image" />
         </div>
         <div class="col-md-6 col-xl-5 order-md-1">
           <div class="pe-md-4 pe-xl-0">
-            <h2 class="h1 pb-2 pb-lg-3" style="color:white">{data_science.heading}</h2>
+            <h2 class="h1 pb-2 pb-lg-3" style="color:white">
+              {data_science.heading}
+            </h2>
             <p
               class="pb-2 pb-lg-0 mb-3 mb-lg-3"
               style="color:rgba(255, 255, 255, 0.7)"
@@ -247,15 +253,16 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={monitorLight}
+                    src="/assets/img/services/v3/icons/monitor-light.svg"
                     width="28"
                     alt="Icon"
                   />
-                
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_science.icon1_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_science.icon1_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_science.icon1_text}
                 </p>
@@ -265,29 +272,23 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={cloudScaling}
+                    src="/assets/images/services/cloud-scaling.svg"
                     width="28"
                     alt="Icon"
                   />
-                  
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_science.icon2_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_science.icon2_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_science.icon2_text}
                 </p>
               </div>
             </div>
-            <a
-              href="/services/data-science"
-              class="hyperlink-button"
-            >
-              <span
-                class="hyperlink"
-              >
-                Know more
-              </span>
+            <a href="/services/data-science" class="hyperlink-button">
+              <span class="hyperlink"> Know more</span>
             </a>
           </div>
         </div>
@@ -296,7 +297,7 @@ icon2_text:"Build to enable collaboration between business and IT."};
       <!-- Item 4------------------------------------------------------------------------------------->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
-          <Image class="rounded-5 images" src={dataVisualisation} alt="Image" />
+          <img class="rounded-5 images" src="/assets/images/services/data-visualisation.svg" alt="Image" />
         </div>
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">
@@ -315,14 +316,16 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={thumbsUp}
+                    src="/assets/images/services/thumbs-up.svg"
                     width="28"
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_visualization.icon1_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_visualization.icon1_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_visualization.icon1_text}
                 </p>
@@ -332,28 +335,23 @@ icon2_text:"Build to enable collaboration between business and IT."};
                   class="d-table rounded-1 p-2 mb-3"
                   style="background-color: rgba(255, 255, 255, 0.03);"
                 >
-                  <Image
+                  <img
                     class="d-block d-dark-mode-none m-1"
-                    src={handShake}
+                    src="/assets/images/services/handshake.svg"
                     width="28"
                     alt="Icon"
                   />
                 </div>
-                <h3 class="h5 mb-2" style="color:white">{data_visualization.icon2_heading}</h3>
+                <h3 class="h5 mb-2" style="color:white">
+                  {data_visualization.icon2_heading}
+                </h3>
                 <p class="fs-sm mb-0" style="color:rgba(255, 255, 255, 0.7)">
                   {data_visualization.icon2_text}
                 </p>
               </div>
             </div>
-            <a
-              href="/services/data-visualization"
-              class="hyperlink-button"
-            >
-              <span
-                class="hyperlink"
-              >
-                Know more
-              </span>
+            <a href="/services/data-visualization" class="hyperlink-button">
+              <span class="hyperlink"> Know more</span>
             </a>
           </div>
         </div>

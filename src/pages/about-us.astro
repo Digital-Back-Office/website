@@ -8,7 +8,7 @@ import Hero from "../components/about-us/Hero.astro";
 import Approach from '../components/about-us/Approach.astro'
 import Mission from '../components/about-us/Mission.astro'
 
-import bg_video from "../../assets/videos/about_us_2.mp4";
+// import bg_video from "/assets/videos/about_us_2.mp4";
 ---
 
 <style>
@@ -19,7 +19,7 @@ import bg_video from "../../assets/videos/about_us_2.mp4";
 
 <Layout>
   <main class="page-wrapper">
-    <VideoLayout src={bg_video}>
+    <VideoLayout src="/assets/videos/about_us_2.mp4">
       <Hero />
     </VideoLayout>
 

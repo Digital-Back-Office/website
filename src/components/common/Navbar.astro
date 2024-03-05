@@ -1,6 +1,6 @@
 ---
 const path = Astro.url.pathname;
-import brandLogo from "/assets/images/dbo 1.png";
+// import brandLogo from "/assets/images/dbo 1.png";
 import { Image } from "astro:assets";
 ---
 
@@ -22,9 +22,9 @@ import { Image } from "astro:assets";
     font-family: "archivo";
   }
 
-  .primary-button{
+  .primary-button {
     background-color: var(--ar-primary) !important;
-    color:white !important;
+    color: white !important;
   }
 
   .navbar-scrolled {
@@ -60,7 +60,11 @@ import { Image } from "astro:assets";
   <div class="container">
     <div class="navbar-brand">
       <span class="text-primary flex-shrink-0 me-2">
-        <Image src={brandLogo} alt="DBO logo" class="brand-logo" />
+        <img
+          src="/assets/images/dbo 1.png"
+          alt="DBO logo"
+          class="brand-logo"
+        />
       </span>
     </div>
 
@@ -74,11 +78,13 @@ import { Image } from "astro:assets";
       <span class="navbar-toggler-icon"></span>
     </button>
     <a
-      id = "contact-button"
+      id="contact-button"
       href="/contact-us"
       class={path === "/contact-us"
         ? "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none"
-        :path==="/about-us"?"primary-button btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex": "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"}
+        : path === "/about-us"
+          ? "primary-button btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"
+          : "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"}
     >
       Contact us
     </a>

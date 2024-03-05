@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import svg1 from "/assets/images/contact-us/svg1.svg";
-import svg2 from "/assets/images/contact-us/svg2.svg";
+// import svg1 from "/assets/images/contact-us/svg1.svg";
+// import svg2 from "/assets/images/contact-us/svg2.svg";
 import Navbar from "../components/common/Navbar.astro";
 ---
 
@@ -35,14 +35,14 @@ import Navbar from "../components/common/Navbar.astro";
             style="width:100%; background-color:rgba(33, 37, 40, 1); border-radius:32px;
             position:relative;  max-width:400px; aspect-ratio:1/1; overflow:hidden"
           >
-            <Image
-              src={svg1}
+            <img
+              src="/assets/images/contact-us/svg1.svg"
               alt="svg1"
-              style="position:absolute; bottom:5%; "
+              style="position:absolute; bottom:5%;"
             />
 
-            <Image
-              src={svg2}
+            <img
+              src="/assets/images/contact-us/svg2.svg"
               alt="svg2"
               style="position:absolute; bottom: 12%; left:15%;"
             />
