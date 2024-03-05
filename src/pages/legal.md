@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/Policy_Layout.astro
+layout: ../layouts/PolicyLayout.astro
 title: Legal
 img_url: /assets/images/policies/legal.png
 ---

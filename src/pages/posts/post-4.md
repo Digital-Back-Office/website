@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Blog_Layout.astro
+layout: ../../layouts/BlogLayout.astro
 title: "Promotion of an online store from scratch, first sales"
 author: "Darlene Robertson"
 

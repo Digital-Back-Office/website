@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Blog_Layout.astro
+layout: ../../layouts/BlogLayout.astro
 title: "Business strategy for a brand of vintage bags"
 author: "Darlene Robertson"
 image:

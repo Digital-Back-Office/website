@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Blog_Layout.astro
+layout: ../../layouts/BlogLayout.astro
 title: "Top books for inspiration"
 author: "Darlene Robertson"
 

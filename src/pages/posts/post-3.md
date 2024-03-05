@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Blog_Layout.astro
+layout: ../../layouts/BlogLayout.astro
 title: "Destinations to inspire and restore resources"
 author: "Darlene Robertson"
 

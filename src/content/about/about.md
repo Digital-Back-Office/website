@@ -9,7 +9,7 @@ hero:
 mission:
     title: Our Mission
     desc: Our mission is to enable the businesses make best decision by leveraging data. We strive to design and build best in class custom solutions for Big Data Processing in cost effective manner.
-    img: /assets/images/about_us/misson.png
+    img: /assets/images/about-us/misson.png
 
 values:
     title: Our Values
@@ -48,5 +48,5 @@ benefits:
 approach:
     title: Our Approach
     desc: Our values and mission guides our approach. We only engage with clients where we find synergy. We work with companies that seek solution that are long lasting and of highest quality. Once we have decided to work for a client, we focus our efforts to make their plans successful. We generally do not engage in fixed cost project. We work on agile development, with weekly sprints. We guarantee predictable cost on our sprints and project.
-    img: /assets/images/about_us/approach.png
+    img: /assets/images/about-us/approach.png
 ---

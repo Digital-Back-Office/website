@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Video_Layout from "../layouts/Video_Layout.astro"
+import VideoLayout from "../layouts/VideoLayout.astro"
 import Hero from "../components/home/Hero.astro"
 import About from "../components/home/About.astro";
 import Features from "../components/home/Features.astro";
@@ -9,13 +9,13 @@ import CaseStudies from "../components/home/CaseStudies.astro"
 import Tech from "../components/home/Tech.astro"
 import Contact from "../components/common/Contact.astro"
 
-import bg_video from '/assets/videos/dbo_bg_video10.mp4'
+import BgVideo from '/assets/videos/dbo-bg-video-home.mp4'
 ---
 
 <Layout>
-	<Video_Layout src={bg_video}>
+	<VideoLayout src={BgVideo}>
 		<Hero />
-	</Video_Layout>
+	</VideoLayout>
 	<About />
 	<Features />
 	<Services />

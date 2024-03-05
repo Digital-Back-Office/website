@@ -8,7 +8,7 @@ about:
     parallax_images:
       - /assets/images/home/stats.png
       - /assets/images/home/bulb.png
-      - /assets/images/home/cloud_key.png
+      - /assets/images/home/cloud-key.png
     title: 'Data Driven Innovation'
     info_part_1: 'Unleash the power of data in your organization to discover obnubilated insights and make real-time strategic decisions. Connect the dots with seamless data integration to drive innovation, save cost across the departments.'
     info_part_2: 'From complex analysis to stunning visualizations, our advanced data processing and AI can help you extract valuable insights and make data-driven decisions faster than ever before.'

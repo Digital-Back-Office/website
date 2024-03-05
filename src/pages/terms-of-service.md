@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/Policy_Layout.astro
+layout: ../layouts/PolicyLayout.astro
 title: Terms of Service
 img_url: /assets/images/policies/tos.png
 ---

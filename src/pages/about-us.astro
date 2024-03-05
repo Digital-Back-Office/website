@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Video_Layout from "../layouts/Video_Layout.astro";
+import VideoLayout from "../layouts/VideoLayout.astro";
 import Values from "../components/about-us/Values.astro";
 import Contact from "../components/common/Contact.astro";
 import Benefit from "../components/about-us/Benefit.astro";
@@ -13,15 +13,15 @@ import bg_video from "../../assets/videos/about_us_2.mp4";
 
 <style>
   .page-wrapper {
-    background-image: url("/assets/images/background_pattern.png");
+    background-image: url("/assets/images/background-pattern.png");
   }
 </style>
 
 <Layout>
   <main class="page-wrapper">
-    <Video_Layout src={bg_video}>
+    <VideoLayout src={bg_video}>
       <Hero />
-    </Video_Layout>
+    </VideoLayout>
 
     <Mission />
     <Values />
