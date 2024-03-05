@@ -12,11 +12,11 @@ import "flatpickr/dist/themes/dark.css";
         dateFormat: "Y-m-d H:i",
         onOpen: function (selectedDates, dateStr, instance) {
             const calendarContainer = instance.calendarContainer;
-            const monthElement = calendarContainer.querySelector(".flatpickr-month");
-            const monthDropDown = calendarContainer.querySelector(".flatpickr-monthDropdown-months");
-            const DropDownMonth = calendarContainer.querySelectorAll(".flatpickr-monthDropdown-month");
-            const weekdays = calendarContainer.querySelectorAll(".flatpickr-weekday");
-            const currMonth = calendarContainer.querySelector('.flatpickr-current-month');
+            const monthElement = calendarContainer.querySelector(".flatpickr-month") as HTMLElement;
+            const monthDropDown = calendarContainer.querySelector(".flatpickr-monthDropdown-months") as HTMLElement;
+            const DropDownMonth = calendarContainer.querySelectorAll(".flatpickr-monthDropdown-month") as NodeListOf<HTMLElement>;
+            const weekdays = calendarContainer.querySelectorAll(".flatpickr-weekday") as NodeListOf<HTMLElement>;
+            const currMonth = calendarContainer.querySelector('.flatpickr-current-month') as HTMLElement;
 
 
             if (monthElement && monthDropDown && weekdays && DropDownMonth) {
@@ -47,10 +47,15 @@ import "flatpickr/dist/themes/dark.css";
     BookBtn?.addEventListener("click", async (e) => {
         e.preventDefault();
         // do validation checks
-        const name = document.querySelector("#name").value;
-        const email = document.querySelector("#email").value;
-        const company = document.querySelector("#company").value;
-        const dateTime = document.querySelector("#date-time-picker").value;
+        const nameInput = document.querySelector("#name") as HTMLInputElement;
+        const emailInput = document.querySelector("#email") as HTMLInputElement;
+        const companyInput = document.querySelector("#company") as HTMLInputElement;
+        const dateTimeInput = document.querySelector("#date-time-picker") as HTMLInputElement;
+
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const company = companyInput.value;
+        const dateTime = dateTimeInput.value;
 
         if (name && email && company && dateTime) {
             const start = dateTimeForCalander(dateTime);
