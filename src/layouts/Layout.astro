@@ -25,72 +25,7 @@ const {
 
 <script>
   import AOS from "aos";
-  import Swiper from "swiper/bundle";
-  import "swiper/css/navigation";
-  import "swiper/css/pagination";
-  import "swiper/css/bundle";
-
   AOS.init();
-
-  const carousels = Array.from(document.querySelectorAll(".swiper"));
-
-  carousels.forEach((value, index) => {
-    let options;
-    if (value.dataset.swiperOptions != undefined)
-      options = JSON.parse(value.dataset.swiperOptions);
-
-    // Thumbnails
-    if (options.thumbnails) {
-      let images = options.thumbnails.images;
-      options = Object.assign({}, options, {
-        pagination: {
-          el: options.thumbnails.el,
-          clickable: true,
-          bulletActiveClass: "active",
-          renderBullet: (index, className) => {
-            return `<li class='swiper-thumbnail ${className}'>
-                <img src='${images[index]}' alt='Thumbnail'>
-                </li>`;
-          },
-        },
-      });
-    }
-
-    const swiper = new Swiper(value, options); // eslint-disable-line no-undef
-
-    // Controlled slider
-    if (options.controlledSlider) {
-      const controlledSlider = document.querySelector(options.controlledSlider);
-      let controlledSliderOptions;
-
-      if (controlledSlider.dataset.swiperOptions != undefined)
-        controlledSliderOptions = JSON.parse(
-          controlledSlider.dataset.swiperOptions
-        );
-      /* eslint-disable no-undef */
-      const swiperControlled = new Swiper(
-        controlledSlider,
-        controlledSliderOptions
-      );
-      /* eslint-enable no-undef */
-      swiper.controller.control = swiperControlled;
-    }
-
-    // Binded content
-    if (options.bindedContent) {
-      swiper.on("activeIndexChange", (e) => {
-        const targetItem = document.querySelector(
-          e.slides[e.activeIndex].dataset.swiperBinded
-        );
-        const previousItem = document.querySelector(
-          e.slides[e.previousIndex].dataset.swiperBinded
-        );
-
-        previousItem.classList.remove("active");
-        targetItem.classList.add("active");
-      });
-    }
-  });
 </script>
 
 <script>
@@ -118,90 +53,95 @@ const {
   })();
 </script>
 
-<script>
-    import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js';
+<script lang="ts" type="module">
+  import "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js";
+    //@ts-ignore
 
-    CookieConsent.run({
-        guiOptions:{
-            consentModal:{
-                layout:"bar wide",
-                position:"bottom"
-            }
+  CookieConsent.run({
+    guiOptions: {
+      consentModal: {
+        layout: "bar wide",
+        position: "bottom",
+      },
+    },
+
+    categories: {
+      necessary: {
+        enabled: true, // this category is enabled by default
+        readOnly: true, // this category cannot be disabled
+      },
+      analytics: {},
+    },
+
+    language: {
+      default: "en",
+      translations: {
+        en: {
+          consentModal: {
+            title:
+              "This website uses cookies to ensure you get the best experience on our website.",
+            // description: 'Cookie modal description',
+
+            acceptAllBtn: "Accept all",
+            acceptNecessaryBtn: "Reject all",
+            showPreferencesBtn: "Manage Individual preferences",
+          },
+          preferencesModal: {
+            title: "Manage cookie preferences",
+            acceptAllBtn: "Accept all",
+            acceptNecessaryBtn: "Reject all",
+            savePreferencesBtn: "Accept current selection",
+            closeIconLabel: "Close modal",
+            sections: [
+              {
+                title: "Somebody said ... cookies?",
+                description: "I want one!",
+              },
+              {
+                title: "Strictly Necessary cookies",
+                description:
+                  "These cookies are essential for the proper functioning of the website and cannot be disabled.",
+
+                //this field will generate a toggle linked to the 'necessary' category
+                linkedCategory: "necessary",
+              },
+              {
+                title: "Performance and Analytics",
+                description:
+                  "These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.",
+                linkedCategory: "analytics",
+              },
+              {
+                title: "More information",
+                description:
+                  'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>',
+              },
+            ],
+          },
         },
-
-        categories: {
-            necessary: {
-                enabled: true,  // this category is enabled by default
-                readOnly: true  // this category cannot be disabled
-            },
-            analytics: {}
-        },
-
-        language: {
-            default: 'en',
-            translations: {
-                en: {
-                    consentModal: {
-                        title: 'This website uses cookies to ensure you get the best experience on our website.',
-                        // description: 'Cookie modal description',
-                        
-                        acceptAllBtn: 'Accept all',
-                        acceptNecessaryBtn: 'Reject all',
-                        showPreferencesBtn: 'Manage Individual preferences'
-                    },
-                    preferencesModal: {
-                        title: 'Manage cookie preferences',
-                        acceptAllBtn: 'Accept all',
-                        acceptNecessaryBtn: 'Reject all',
-                        savePreferencesBtn: 'Accept current selection',
-                        closeIconLabel: 'Close modal',
-                        sections: [
-                            {
-                                title: 'Somebody said ... cookies?',
-                                description: 'I want one!'
-                            },
-                            {
-                                title: 'Strictly Necessary cookies',
-                                description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
-
-                                //this field will generate a toggle linked to the 'necessary' category
-                                linkedCategory: 'necessary'
-                            },
-                            {
-                                title: 'Performance and Analytics',
-                                description: 'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
-                                linkedCategory: 'analytics'
-                            },
-                            {
-                                title: 'More information',
-                                description: 'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-        });
-        
-
+      },
+    },
+  });
 </script>
 
 <html lang="en" data-bs-theme="dark">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="/favicon.png" />
-        <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description}>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/dist/cookieconsent.css">
-        <title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/dist/cookieconsent.css"
+    />
+    <title>{title}</title>
 
-        <link rel="stylesheet" href="/assets/css/theme.min.css">
-        <link rel="stylesheet" href="/assets/icons/around-icons.min.css">
-        
-    </head>
-    <body style="background-color: black;">
-        <slot />
-        <Footer />
-    </body>
+    <link rel="stylesheet" href="/assets/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/icons/around-icons.min.css" />
+  </head>
+  <body style="background-color: black;">
+    <slot />
+    <Footer />
+  </body>
 </html>

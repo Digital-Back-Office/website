@@ -49,6 +49,39 @@ const testimonials = Data.data.testimonials;
     }
 </style>
 
+<script>
+    import Swiper from "swiper/bundle";
+    import "swiper/css/navigation";
+    import "swiper/css/pagination";
+    import "swiper/css/bundle";
+
+    const carousels = Array.from(document.querySelectorAll(".swiper"));
+
+    carousels.forEach((value, index) => {
+        let options;
+        const htmlValueElement = value as HTMLElement;
+        if (htmlValueElement.dataset.swiperOptions != undefined)
+            options = JSON.parse(htmlValueElement.dataset.swiperOptions);
+
+        const swiper = new Swiper(htmlValueElement, options); // eslint-disable-line no-undef
+
+        // Binded content
+        if (options.bindedContent) {
+            swiper.on("activeIndexChange", (e: any) => {
+                const targetItem = document.querySelector(
+                    e.slides[e.activeIndex].dataset.swiperBinded,
+                );
+                const previousItem = document.querySelector(
+                    e.slides[e.previousIndex].dataset.swiperBinded,
+                );
+
+                previousItem.classList.remove("active");
+                targetItem.classList.add("active");
+            });
+        }
+    });
+</script>
+
 <section class="tech">
     <div class="pb-5 pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
         <div class="container pb-4 mb-2 mb-lg-3">
@@ -61,7 +94,7 @@ const testimonials = Data.data.testimonials;
         </div>
         <div
             class="swiper pb-4"
-            data-swiper-options='{
+            data-swiper-options={`{
             "spaceBetween": 24,
             "loop": true,
             "grabCursor": false,
@@ -82,7 +115,7 @@ const testimonials = Data.data.testimonials;
               "1400": { "slidesPerView": 6 },
               "1600": { "slidesPerView": 6 }
             }
-          }'
+          }`}
         >
             <div
                 class="swiper-wrapper"
@@ -107,7 +140,7 @@ const testimonials = Data.data.testimonials;
         <div
             class="swiper"
             dir="rtl"
-            data-swiper-options='{
+            data-swiper-options={`{
             "spaceBetween": 24,
             "loop": true,
             "grabCursor": false,
@@ -128,7 +161,7 @@ const testimonials = Data.data.testimonials;
                 "1400": { "slidesPerView": 6 },
                 "1600": { "slidesPerView": 6 }
             }
-          }'
+          }`}
         >
             <div
                 class="swiper-wrapper"
@@ -161,7 +194,7 @@ const testimonials = Data.data.testimonials;
                 <!-- Swiper slider -->
                 <div
                     class="swiper"
-                    data-swiper-options='{
+                    data-swiper-options={`{
                         "spaceBetween": 40,
                         "loop": true,
                         "bindedContent": true,
@@ -174,7 +207,7 @@ const testimonials = Data.data.testimonials;
                             "prevEl": "#prev-testimonial",
                             "nextEl": "#next-testimonial"
                         }
-                    }'
+                    }`}
                 >
                     <div class="swiper-wrapper">
                         {

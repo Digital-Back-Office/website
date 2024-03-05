@@ -5,6 +5,24 @@ const Data = await getEntry("about", "about");
 const values = Data.data.values;
 ---
 
+<script>
+  import Swiper from "swiper/bundle";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import "swiper/css/bundle";
+
+  const carousels = Array.from(document.querySelectorAll(".swiper"));
+
+  carousels.forEach((value) => {
+    let options;
+    const htmlValueElement = value as HTMLElement;
+    if (htmlValueElement.dataset.swiperOptions != undefined)
+      options = JSON.parse(htmlValueElement.dataset.swiperOptions);
+
+    const swiper = new Swiper(htmlValueElement, options); // eslint-disable-line no-undef
+  });
+</script>
+
 <section class="py-5 mb-5 mt-md-2 mt-xl-4 mt-xxl-5">
   <div class="container pt-2 pt-sm-4 pt-lg-5 mt-xxl-2">
     <div class="fs-sm text-uppercase mb-3">DIGITAL BACK OFFICE</div>

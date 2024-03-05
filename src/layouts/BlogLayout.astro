@@ -10,6 +10,24 @@ const { frontmatter } = Astro.props;
   }
 </style>
 
+<script>
+  import Swiper from "swiper";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  import "swiper/css/bundle";
+
+  const carousels = Array.from(document.querySelectorAll(".swiper"));
+
+  carousels.forEach((value) => {
+    let options;
+    const htmlValueElement = value as HTMLElement;
+    if (htmlValueElement.dataset.swiperOptions != undefined)
+      options = JSON.parse(htmlValueElement.dataset.swiperOptions);
+
+    const swiper = new Swiper(htmlValueElement, options); // eslint-disable-line no-undef
+  });
+</script>
+
 <Layout>
   <Navbar />
   <main
@@ -591,7 +609,7 @@ const { frontmatter } = Astro.props;
           </div>
           <div
             class="swiper pb-2 pb-sm-3 pb-md-4"
-            data-swiper-options='
+            data-swiper-options={`
                     {
                       "spaceBetween": 24,
                       "loop": true,
@@ -605,7 +623,7 @@ const { frontmatter } = Astro.props;
                         "1000": { "slidesPerView": 3 }
                       }
                     }
-                  '
+                  `}
           >
             <div class="swiper-wrapper">
               <!-- Post -->
