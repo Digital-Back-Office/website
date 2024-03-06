@@ -18,15 +18,30 @@ import Card from "../components/blog/Card.astro";
   a {
     color: white;
   }
+  .wrapper{
+    padding-top: 5rem !important;
+  }
+  .wide{
+    width: fit-content !important;
+  }
+
+  @media  (max-width: 992px) {
+    .forum{
+      max-width: 99% !important;
+      position: relative !important;
+      left: 3rem; top: 0rem !important;
+    }
+  }
+  
 </style>
 
 <Layout>
   <main
-    class="page-wrapper"
-    style="background-image: url(/assets/images/background-pattern.png);"
+    class="page-wrapper wrapper"
+    style="background-image: url(/assets/images/background_pattern.png);"
   >
     <Navbar />
-    <div class="container pt-5 pb-lg-5 pb-md-4 pb-2 my-5">
+    <div class="container pt-3 pb-lg-5 pb-md-4 pb-2 my-5">
       <div class="row mb-md-2 mb-xl-4">
         <!-- Blog posts -->
         <div class="col-lg-9 pe-lg-4 pe-xl-5">
@@ -57,7 +72,7 @@ import Card from "../components/blog/Card.astro";
               </div>
             </div>
             <div class="col col-md-4 col-12 order-md-2 order-3 text-center">
-              <button class="btn btn-primary w-md-auto w-100" type="button"
+              <button class="btn btn-primary w-md-auto w-100" type="button" style="border-radius: 7px;"
                 >Load more posts</button
               >
             </div>
@@ -81,7 +96,7 @@ import Card from "../components/blog/Card.astro";
 
         <!-- Sidebar (offcanvas on sreens < 992px) -->
         <aside class="col-lg-3">
-          <div class="offcanvas-lg offcanvas-end" id="sidebarBlog">
+          <div class="offcanvas-lg offcanvas-end" id="sidebarBlog" style="height: 100%;">
             <div class="offcanvas-header">
               <h4 class="offcanvas-title">Sidebar</h4>
               <button
@@ -91,7 +106,7 @@ import Card from "../components/blog/Card.astro";
                 data-bs-target="#sidebarBlog"
                 aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body" style=" height:100%; ">
               <!-- Search box -->
               <div class="position-relative mb-4 mb-lg-5">
                 <i
@@ -106,8 +121,8 @@ import Card from "../components/blog/Card.astro";
 
               <!-- Category links -->
               <div
-                class="col contact-div offset-xxl-1 pt-sm-3"
-                style="margin-left: -50px;"
+                class="col contact-div offset-xxl-1 pt-sm-3 sticky-top forum"
+                style="margin-left: -50px; top:5rem;  z-index:5;"
               >
                 <!-- Contact form -->
                 <div

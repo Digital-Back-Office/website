@@ -10,11 +10,15 @@ import Navbar from "../components/common/Navbar.astro";
   input[type="checkbox"]:checked {
     background-color: rgba(47, 183, 184, 1);
   }
+  .bg-image {
+    background-image: url(/assets/images/background_pattern.png);
+    background-repeat: repeat !important;
+  }
 </style>
 
 <Layout>
   <Navbar />
-  <main class="page-wrapper" style="background-color: black;">
+  <main class="page-wrapper bg-image">
     <!-- Page title + Сontact form  from contacts-v2.html-->
     <section
       class="container pt-2 pt-lg-5 pb-lg-2 pb-xl-4 py-xxl-5"
@@ -111,13 +115,13 @@ import Navbar from "../components/common/Navbar.astro";
                 style="border-radius:18px;"
               >
                 <option value="" selected disabled hidden style="">
-                  Service you are looking for
+                  <span>Service you are looking for</span>
                 </option>
-                <option value="Asia and Pacific">Asia and Pacific</option>
-                <option value="Central Europe">Central Europe</option>
-                <option value="Eastern Europe">Eastern Europe</option>
-                <option value="North America">North America</option>
-                <option value="South America">South America</option>
+                <option value="Big Data Architecture">Big Data Architecture</option>
+                <option value="Big Data DevOps">Big Data DevOps</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Data Visualization">Data Visualization</option>
+                <option value="South America">Other</option>
               </select>
             </div>
             {/*Message*/}

@@ -16,47 +16,46 @@ const text2 =
   .light-text {
     color: rgba(255, 255, 255, 70%);
   }
+  .image-container-right{
+    display: flex;
+    justify-content: end;
+  }
+  .images{
+    height: 100%;
+  }
 </style>
 
-<section
-  class="container pb-4 mb-2 my-lg-3 my-xl-4 my-xxl-5"
-  data-bs-theme="dark"
->
-  <!-- Item -->
-  <div
-    class="row align-items-center py-4 py-lg-5 my-sm-2 my-md-4 my-lg-0 my-xl-2 my-xxl-4"
-    data-aos="fade-up"
-    data-aos-duration="600"
-    data-aos-offset="300"
-    data-disable-parallax-down="md"
-  >
-    <div
-      class="col-md-6 offset-xl-1 order-md-2 pb-3 pb-md-0 mb-3 mb-sm-4 mb-md-0"
-    >
-      <img
-        class="d-dark-mode-none"
-        src="/assets/img/landing/saas-1/features/04-light.png"
-        width="636"
-        alt="Image"
-      />
-      <img
-        class="d-none d-dark-mode-block"
-        src="/assets/images/services/big-data-architecture/patterns.png"
-        width="636"
-        alt="Image"
-      />
-      <div
-        class="col-md-6 col-xl-5 order-md-1"
-        data-aos="fade-up"
-        data-aos-duration="850"
-        data-aos-offset="200"
-        data-disable-parallax-down="md"
-      >
-        <div class="pe-md-3 pe-xl-0">
-          <h3 class="h2 mb-lg-4">{heading}</h3>
-          <p class="mb-1 light-text">{text1}</p>
-          <p class="mb-0 light-text">{text2}</p>
-        </div>
+<section class="container py-4 py-sm-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+  <!-- Item 1-->
+  <div class="row align-items-center py-4 py-xl-5 my-2">
+    <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
+      <div class="image-container-right">
+        <img
+          class="rounded-5 images"
+          src="/assets/images/services/big-data-architecture/patterns.svg"
+          alt="Image"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-5 order-md-1">
+      <div class="pe-md-4 pe-xl-0">
+        <h2 class="h1 pb-2 pb-lg-3" style="color:white">
+          {heading}
+        </h2>
+        <p
+          class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+          style="color:rgba(255, 255, 255, 0.7)"
+        >
+          {text1}
+        </p>
+        <p
+          class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+          style="color:rgba(255, 255, 255, 0.7)"
+        >
+          {text2}
+        </p>
+
       </div>
     </div>
   </div>

@@ -66,7 +66,7 @@ const data_visualization = {
     font-family: Arimo;
   }
   main {
-    padding-top: 5rem !important;
+    padding-top: 2rem !important;
   }
   .hyperlink-button {
     border: solid 1px rgba(47, 183, 184, 1);
@@ -83,7 +83,15 @@ const data_visualization = {
     color: rgba(47, 183, 184, 1);
   }
   .images {
-    width: 100%;
+    height: 100%;
+  }
+  .image-container-right{
+    display: flex;
+    justify-content: end;
+  }
+  .image-container-left{
+    display: flex;
+    justify-content: start;
   }
 </style>
 
@@ -98,13 +106,17 @@ const data_visualization = {
     <!-- Services (created from services-v3.html)-->
     <section class="container py-4 py-sm-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
       <!-- Item 1 data architecture-->
-      <div class="row align-items-center py-4 py-xl-5 my-2">
+      <div class="row align-items-start py-4 py-xl-5 my-2">
+
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-          <img
-            class="rounded-5 images"
-            src="/assets/images/services/big-data.svg"
-            alt="Image"
-          />
+          <div class="image-container-right">
+            <img
+              class="rounded-5 images"
+              src="/assets/images/services/big-data.svg"
+              alt="Image"
+              style="position:relative; bottom:5rem;"
+            />
+          </div>
         </div>
 
         <div class="col-md-6 col-xl-5 order-md-1">
@@ -170,7 +182,11 @@ const data_visualization = {
       <!-- Item 2 data devops------------------------------------------------------------------------------------->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
-          <img class="rounded-5 images" src="/assets/images/services/devops.svg" alt="Image" />
+          <div class="image-container-left">
+            <img class="rounded-5 images" src="/assets/images/services/devops.svg" alt="Image" 
+            />
+          </div>
+          
         </div>
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">
@@ -234,7 +250,11 @@ const data_visualization = {
       <!-- Item 3 data science-->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-          <img class="rounded-5 images" src="/assets/images/services/data-science.svg" alt="Image" />
+          <div class="image-container-right">
+            <img class="rounded-5 images" src="/assets/images/services/data-science.svg" alt="Image" 
+            />
+          </div>
+          
         </div>
         <div class="col-md-6 col-xl-5 order-md-1">
           <div class="pe-md-4 pe-xl-0">
@@ -297,7 +317,11 @@ const data_visualization = {
       <!-- Item 4------------------------------------------------------------------------------------->
       <div class="row align-items-center py-4 py-xl-5 my-2">
         <div class="col-md-6 pb-2 mb-4 mb-md-0">
-          <img class="rounded-5 images" src="/assets/images/services/data-visualisation.svg" alt="Image" />
+          <div class="image-container-left">
+            <img class="rounded-5 images" src="/assets/images/services/data-visualisation.svg" alt="Image" 
+          />
+          </div>
+          
         </div>
         <div class="col-md-6 col-xl-5 offset-xl-1">
           <div class="ps-md-4 pe-xl-0">

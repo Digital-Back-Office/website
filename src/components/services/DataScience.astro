@@ -47,7 +47,19 @@ const list3 = [
     color: white;
   }
   .images {
-    width: 100% !important;
+    height: 100% !important;
+  }
+  .image-container-left{
+    display: flex;
+    justify-content: start;
+  }
+  .image-container-right{
+    display: flex;
+    justify-content: end;
+  }
+  .para{
+    font-size:1.125rem;
+    color: white;
   }
 </style>
 
@@ -55,11 +67,13 @@ const list3 = [
   <!-- Item 1-->
   <div class="row align-items-center py-4 py-xl-5 my-2">
     <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-      <img
-        class="rounded-5 images"
-        src="/assets/images/services/data-science/predictiveAnalysis.svg"
-        alt="Image"
-      />
+      <div class="image-container-right">
+        <img
+          class="rounded-5 images"
+          src="/assets/images/services/data-science/predictiveAnalysis.svg"
+          alt="Image"
+        />
+      </div>
     </div>
 
     <div class="col-md-6 col-xl-5 order-md-1">
@@ -68,40 +82,40 @@ const list3 = [
           {heading1}
         </h2>
         <p
-          class="pb-2 pb-lg-0 mb-3 mb-lg-3"
-          style="color:rgba(255, 255, 255, 0.7)"
+          class="pb-2 pb-lg-0 mb-3 mb-lg-3 para"
+          
         >
           {text1}
         </p>
 
         <ul class="list-unstyled mb-0">
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[0]}
+            <span class="para">{list1[0]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[1]}
+            <span class="para">{list1[1]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[2]}
+            <span class="para">{list1[2]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[3]}
+            <span class="para">{list1[3]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[4]}
+            <span class="para">{list1[4]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[5]}
+            <span class="para">{list1[5]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[6]}
+            <span class="para">{list1[6]}</span>
           </li>
         </ul>
       </div>
@@ -111,11 +125,13 @@ const list3 = [
   <!-- Item 2------------------------------------------------------------------------------------->
   <div class="row align-items-center py-4 py-xl-5 my-2">
     <div class="col-md-6 pb-2 mb-4 mb-md-0">
-      <img
-        class="rounded-5 images"
-        src="/assets/images/services/data-science/machineLearning.svg"
-        alt="Image"
-      />
+      <div class="image-container-left">
+        <img
+          class="rounded-5 images"
+          src="/assets/images/services/data-science/machineLearning.svg"
+          alt="Image"
+        />
+      </div>
     </div>
     <div class="col-md-6 col-xl-5 offset-xl-1">
       <div class="ps-md-4 pe-xl-0">
@@ -124,40 +140,40 @@ const list3 = [
         </h2>
 
         <p
-          class="pb-2 pb-lg-0 mb-3 mb-lg-3"
-          style="color:rgba(255, 255, 255, 0.7)"
+          class="pb-2 pb-lg-0 mb-3 mb-lg-3 para"
+          
         >
           {text2}
         </p>
 
         <ul class="list-unstyled mb-0">
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list2[0]}
+            <span class="para">{list2[0]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list2[1]}
+            <span class="para">{list2[1]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list2[2]}
+            <span class="para">{list2[2]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list2[3]}
+            <span class="para">{list2[3]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list2[4]}
+            <span class="para">{list2[4]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list2[5]}
+            <span class="para">{list2[5]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list1[6]}
+            <span class="para">{list1[6]}</span>
           </li>
         </ul>
       </div>
@@ -167,11 +183,13 @@ const list3 = [
   <!-- Item 3-->
   <div class="row align-items-center py-4 py-xl-5 my-2">
     <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
-      <img
-        class="rounded-5 images"
-        src="/assets/images/services/data-science/statisticalAnalysis.svg"
-        alt="Image"
-      />
+      <div class="image-container-right">
+        <img
+          class="rounded-5 images"
+          src="/assets/images/services/data-science/statisticalAnalysis.svg"
+          alt="Image"
+        />
+      </div>
     </div>
 
     <div class="col-md-6 col-xl-5 order-md-1">
@@ -179,37 +197,32 @@ const list3 = [
         <h2 class="h1 pb-2 pb-lg-3" style="color:white">
           {heading3}
         </h2>
-        <p
-          class="pb-2 pb-lg-0 mb-3 mb-lg-3"
-          style="color:rgba(255, 255, 255, 0.7)"
-        >
-          {text3}
-        </p>
+        
 
         <ul class="list-unstyled mb-0">
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list3[0]}
+            <span class="para">{list3[0]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list3[1]}
+            <span class="para">{list3[1]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list3[2]}
+            <span class="para">{list3[2]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list3[3]}
+            <span class="para">{list3[3]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list3[4]}
+            <span class="para">{list3[4]}</span>
           </li>
-          <li class="d-flex pt-1 mt-2">
+          <li class="d-flex pt-1 mt-2 align-items-center">
             <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            {list3[5]}
+            <span class="para">{list3[5]}</span>
           </li>
         </ul>
       </div>
