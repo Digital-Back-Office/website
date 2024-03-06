@@ -1,7 +1,5 @@
 ---
 import Footer from "../components/common/Footer.astro";
-// import "/assets/css/theme.min.css";
-// import "/assets/icons/around-icons.min.css";
 import "aos/dist/aos.css";
 import "../styles/global.css";
 
@@ -17,112 +15,10 @@ const {
 ---
 
 <script src="/assets/js/theme.min.js" is:inline></script>
-
-<script src="aos/dist/aos.js"></script>
-<script src="parallax-js/dist/parallax.min.js"></script>
-<script src="jarallax/dist/jarallax.min.js"></script>
-<script src="parallax-js/dist/parallax.min.js"></script>
-
-<script>
-  import AOS from "aos";
-  AOS.init();
-</script>
-
-<script>
-  const nav = document.getElementById("navbar");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-      nav?.classList.remove("staticnav");
-      nav?.classList.add("navbar-scrolled");
-    } else {
-      nav?.classList.add("staticnav");
-      nav?.classList.remove("navbar-scrolled");
-    }
-  });
-</script>
-
-<script type="text/javascript">
-  window.$crisp = [];
-  window.CRISP_WEBSITE_ID = "4abd2d6b-9b40-4da0-9159-556eeb546157";
-  (function () {
-    d = document;
-    s = d.createElement("script");
-    s.src = "https://client.crisp.chat/l.js";
-    s.async = 1;
-    d.getElementsByTagName("head")[0].appendChild(s);
-  })();
-</script>
-
-<script lang="ts" type="module">
-  import "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js";
-    //@ts-ignore
-
-  CookieConsent.run({
-    guiOptions: {
-      consentModal: {
-        layout: "bar wide",
-        position: "bottom",
-      },
-    },
-
-    categories: {
-      necessary: {
-        enabled: true, // this category is enabled by default
-        readOnly: true, // this category cannot be disabled
-      },
-      analytics: {},
-    },
-
-    language: {
-      default: "en",
-      translations: {
-        en: {
-          consentModal: {
-            title:
-              "This website uses cookies to ensure you get the best experience on our website.",
-            // description: 'Cookie modal description',
-
-            acceptAllBtn: "Accept all",
-            acceptNecessaryBtn: "Reject all",
-            showPreferencesBtn: "Manage Individual preferences",
-          },
-          preferencesModal: {
-            title: "Manage cookie preferences",
-            acceptAllBtn: "Accept all",
-            acceptNecessaryBtn: "Reject all",
-            savePreferencesBtn: "Accept current selection",
-            closeIconLabel: "Close modal",
-            sections: [
-              {
-                title: "Somebody said ... cookies?",
-                description: "I want one!",
-              },
-              {
-                title: "Strictly Necessary cookies",
-                description:
-                  "These cookies are essential for the proper functioning of the website and cannot be disabled.",
-
-                //this field will generate a toggle linked to the 'necessary' category
-                linkedCategory: "necessary",
-              },
-              {
-                title: "Performance and Analytics",
-                description:
-                  "These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.",
-                linkedCategory: "analytics",
-              },
-              {
-                title: "More information",
-                description:
-                  'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>',
-              },
-            ],
-          },
-        },
-      },
-    },
-  });
-</script>
+<script src="/src/scripts/aos-init.js"></script>
+<script src="/src/scripts/navbar.js" ></script>
+<script src="/src/scripts/chat-bot.js"></script>
+<script src="/src/scripts/cookie-consent.js"></script>
 
 <html lang="en" data-bs-theme="dark">
   <head>
