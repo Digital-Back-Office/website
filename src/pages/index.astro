@@ -1,25 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import VideoLayout from "../layouts/VideoLayout.astro"
-import Hero from "../components/home/Hero.astro"
+import VideoLayout from "../layouts/VideoLayout.astro";
+import Hero from "../components/home/Hero.astro";
 import About from "../components/home/About.astro";
 import Features from "../components/home/Features.astro";
 import Services from "../components/common/Services.astro";
-import CaseStudies from "../components/home/CaseStudies.astro"
-import Tech from "../components/home/Tech.astro"
-import Contact from "../components/common/Contact.astro"
+import CaseStudies from "../components/home/CaseStudies.astro";
+import Tech from "../components/home/Tech.astro";
+import Contact from "../components/common/Contact.astro";
 
 // import BgVideo from '/assets/videos/dbo-bg-video-home.mp4'
 ---
 
+<style>
+	.page-wrapper {
+		background-image: url("/assets/images/background-pattern.png");
+	}
+</style>
+
 <Layout>
-	<VideoLayout src="/assets/videos/dbo-bg-video-home.mp4">
-		<Hero />
-	</VideoLayout>
-	<About />
-	<Features />
-	<Services />
-	<CaseStudies />
-	<Tech />
-	<Contact />
+	<main class="page-wrapper">
+		<VideoLayout src="/assets/videos/dbo-bg-video-home.mp4">
+			<Hero />
+		</VideoLayout>
+		<About />
+		<Features />
+		<Services />
+		<CaseStudies />
+		<Tech />
+		<Contact />
+	</main>
 </Layout>

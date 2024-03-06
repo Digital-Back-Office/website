@@ -11,16 +11,12 @@ const path = Astro.url.pathname;
   }
   .nav-link {
     color: #fff;
-    font-family: "arimo";
   }
 
   #contact-button {
-    
     border-radius: 7px;
     padding: 0.5rem 1.5rem !important;
     font-size: 3.375rem !important;
-    
-    font-family: "Archivo";
   }
 
   .primary-button {
@@ -52,10 +48,9 @@ const path = Astro.url.pathname;
     z-index: 50;
   }
 
-  .nav-links{
+  .nav-links {
     font-size: 1.5rem;
     font-weight: 400;
-    font-family: "Arimo";
   }
 </style>
 
@@ -67,11 +62,7 @@ const path = Astro.url.pathname;
   <div class="container">
     <a class="navbar-brand" href="/">
       <span class="text-primary flex-shrink-0 me-2">
-        <img
-          src="/assets/images/dbo 1.png"
-          alt="DBO logo"
-          class="brand-logo"
-        />
+        <img src="/assets/images/dbo 1.png" alt="DBO logo" class="brand-logo" />
       </span>
     </a>
 
@@ -106,12 +97,32 @@ const path = Astro.url.pathname;
         </li>
 
         <li class="nav-item dropdown">
-          <a href="/services" class="nav-link dropdown-toggle nav-links"  data-bs-auto-close="outside" aria-expanded="false">Services</a>
+          <a
+            href="/services"
+            class="nav-link dropdown-toggle nav-links"
+            data-bs-auto-close="outside"
+            aria-expanded="false">Services</a
+          >
           <ul class="dropdown-menu">
-            <li><a href="/services/big-data-architecture" class="dropdown-item nav-links">Big Data Architecture</a></li>
-            <li><a href="/services/big-data-devops" class="dropdown-item nav-links">Big Data DevOps</a></li>
-            <li><a href="/services/data-science" class="dropdown-item nav-links">Data Science</a></li>
-            <li><a href="/services/data-visualization" class="dropdown-item nav-links">Data Visualization</a></li>
+            <li>
+              <a
+                href="/services/big-data-architecture"
+                class="dropdown-item nav-links">Big Data Architecture</a>
+            </li>
+            <li>
+              <a
+                href="/services/big-data-devops"
+                class="dropdown-item nav-links">Big Data DevOps</a>
+            </li>
+            <li>
+              <a href="/services/data-science" class="dropdown-item nav-links"
+                >Data Science</a>
+            </li>
+            <li>
+              <a
+                href="/services/data-visualization"
+                class="dropdown-item nav-links">Data Visualization</a>
+            </li>
           </ul>
         </li>
         <li class={path === "/blog" ? "nav-item active" : "nav-item"}>

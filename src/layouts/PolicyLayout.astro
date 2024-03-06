@@ -7,24 +7,27 @@ import Contact from "../components/common/Contact.astro";
 ---
 
 <style>
+    .page-wrapper {
+        background-image: url("/assets/images/background-pattern.png");
+    }
+
     .hero {
         background: linear-gradient(100.88deg, #52cec7 9.71%, #002877 93.28%);
         position: relative;
-        z-index: -1;
+        z-index: 1;
 
         .container * {
-            z-index: 1;
+            z-index: 3;
         }
     }
 
     svg {
         position: absolute;
         bottom: 0;
-        z-index: 0;
+        z-index: 2;
     }
 
     .content {
-        background-image: url("/assets/images/background-pattern.png");
         padding: 7rem 0;
 
         h3 {
@@ -39,8 +42,8 @@ import Contact from "../components/common/Contact.astro";
 </style>
 
 <Layout>
-    <Navbar />
     <main class="page-wrapper">
+        <Navbar />
         <section class="hero">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
