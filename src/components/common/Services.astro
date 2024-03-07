@@ -1,8 +1,8 @@
 ---
-import * as data_architecture from "../../pages/services/big-data-architecture.mdx"
-import * as data_science from "../../pages/services/data-science.mdx"
-import * as data_devops from "../../pages/services/big-data-devops.mdx"
-import * as data_visualization from "../../pages/services/data-visualization.mdx"
+import * as data_architecture from "../../pages/services/big-data-architecture.mdx";
+import * as data_science from "../../pages/services/data-science.mdx";
+import * as data_devops from "../../pages/services/big-data-devops.mdx";
+import * as data_visualization from "../../pages/services/data-visualization.mdx";
 ---
 
 <style>
@@ -10,20 +10,26 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
         background-image: url(/assets/images/background-pattern.png);
     }
 
-    @media screen and (min-width:576px){
-    .card1{
-      border-radius:20px 0 10px 0 !important;
+    .main-btn:hover {
+        color: var(--ar-primary);
+        background-color: transparent !important;
+        border: 2px solid var(--ar-primary);
     }
-    .card2{
-      border-radius: 0 20px 0 10px !important;
+
+    @media screen and (min-width: 576px) {
+        .card1 {
+            border-radius: 20px 0 10px 0 !important;
+        }
+        .card2 {
+            border-radius: 0 20px 0 10px !important;
+        }
+        .card3 {
+            border-radius: 10px 0 20px 0 !important;
+        }
+        .card4 {
+            border-radius: 0 10px 0 20px !important;
+        }
     }
-    .card3{
-      border-radius: 10px 0 20px 0 !important;
-    }
-    .card4{
-      border-radius:0 10px 0 20px !important;
-    }
-  }
 </style>
 
 <!-- services -->
@@ -43,7 +49,7 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                 </h1>
                 <div class="d-flex align-items-center py-4 py-lg-5">
                     <a
-                        class="btn btn-lg rounded-1 me-2 me-sm-3"
+                        class="btn btn-lg main-btn border-1 rounded-1 me-2 me-sm-3"
                         style="background-color: #30baba;"
                         href="/contact-us">Let's work together</a
                     >
@@ -85,18 +91,22 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            {data_science.frontmatter.hero_title}
+                                            {
+                                                data_science.frontmatter
+                                                    .hero_title
+                                            }
                                         </h2>
                                     </div>
                                 </div>
-                                <div
-                                    class="card-flip-back bg-secondary card1"
-                                >
+                                <div class="card-flip-back bg-secondary card1">
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
                                         <h3 class="h4">
-                                            {data_science.frontmatter.hero_title}
+                                            {
+                                                data_science.frontmatter
+                                                    .hero_title
+                                            }
                                         </h3>
                                         <p class="text-body mb-3">
                                             {data_science.frontmatter.hero_text}
@@ -140,21 +150,28 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            {data_visualization.frontmatter.hero_title}
+                                            {
+                                                data_visualization.frontmatter
+                                                    .hero_title
+                                            }
                                         </h2>
                                     </div>
                                 </div>
-                                <div
-                                    class="card-flip-back bg-secondary card2"
-                                >
+                                <div class="card-flip-back bg-secondary card2">
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
                                         <h3 class="h4">
-                                            {data_visualization.frontmatter.hero_title}
+                                            {
+                                                data_visualization.frontmatter
+                                                    .hero_title
+                                            }
                                         </h3>
                                         <p class="text-body mb-3">
-                                            {data_visualization.frontmatter.hero_text}
+                                            {
+                                                data_visualization.frontmatter
+                                                    .hero_text
+                                            }
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
@@ -200,9 +217,7 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                                         </h2>
                                     </div>
                                 </div>
-                                <div
-                                    class="card-flip-back bg-secondary card3"
-                                >
+                                <div class="card-flip-back bg-secondary card3">
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
@@ -251,21 +266,28 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                                         <h2
                                             class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
                                         >
-                                            {data_architecture.frontmatter.hero_title}
+                                            {
+                                                data_architecture.frontmatter
+                                                    .hero_title
+                                            }
                                         </h2>
                                     </div>
                                 </div>
-                                <div
-                                    class="card-flip-back bg-secondary card4"
-                                >
+                                <div class="card-flip-back bg-secondary card4">
                                     <div
                                         class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
                                     >
                                         <h3 class="h4">
-                                            {data_architecture.frontmatter.hero_title}
+                                            {
+                                                data_architecture.frontmatter
+                                                    .hero_title
+                                            }
                                         </h3>
                                         <p class="text-body mb-3">
-                                            {data_architecture.frontmatter.hero_text}
+                                            {
+                                                data_architecture.frontmatter
+                                                    .hero_text
+                                            }
                                         </p>
                                         <div
                                             class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"

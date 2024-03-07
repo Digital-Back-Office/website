@@ -3,7 +3,7 @@ export default class Calendar {
         this.CLIENT_ID = import.meta.env.PUBLIC_CLIENT_ID;
         this.API_KEY = import.meta.env.PUBLIC_API_KEY;
         this.DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
-        this.SCOPES = 'https://www.googleapis.com/auth/calendar';
+        this.SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
         this.tokenClient = ''
         this.gapiInited = false;
         this.gisInited = false;

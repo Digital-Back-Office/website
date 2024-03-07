@@ -31,6 +31,7 @@
     "nouislider": "^15.7.1",
     "parallax-js": "^3.1.0",
     "prismjs": "^1.29.0",
+    "sass": "^1.71.1",
     "shufflejs": "^6.1.0",
     "simplebar": "^6.2.5",
     "smooth-scroll": "^16.1.3",
