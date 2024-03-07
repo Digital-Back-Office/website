@@ -19,7 +19,7 @@ const { frontmatter } = Astro.props;
   }
 </style>
 
-<script>
+<!-- <script>
   import Swiper from "swiper";
   import "swiper/css/navigation";
   import "swiper/css/pagination";
@@ -35,7 +35,7 @@ const { frontmatter } = Astro.props;
 
     const swiper = new Swiper(htmlValueElement, options); // eslint-disable-line no-undef
   });
-</script>
+</script> -->
 
 <Layout>
   <Navbar />
@@ -129,19 +129,19 @@ const { frontmatter } = Astro.props;
           <!-- Tags -->
           <div class="d-flex flex-wrap pb-5 pt-3 pt-md-4 pt-xl-5 mt-xl-n2">
             <h3 class="h6 py-1 mb-0 me-4 text-white">Relevant tags:</h3>
-            <a class="nav-link fs-sm py-1 px-0 me-3 text-white" href="#">
-              <span class="text-primary">#</span>Inspiration
-            </a>
-            <a class="nav-link fs-sm py-1 px-0 me-3 text-white" href="#">
-              <span class="text-primary">#</span>Travel
-            </a>
-            <a class="nav-link fs-sm py-1 px-0 me-3 text-white" href="#">
-              <span class="text-primary">#</span>Books
-            </a>
+            {
+              frontmatter.tags.map((tag:any)=>{
+                return (
+                <a class="nav-link fs-sm py-1 px-0 me-3 text-white" href="#">
+                  <span class="">#</span>{tag}
+                </a>
+                )
+              })
+            }
           </div>
 
           <!-- Author widget -->
-          <!-- <div class="border-top border-bottom py-4" id="author">
+          <div class="border-top border-bottom py-4" id="author">
             <div class="d-flex align-items-start py-2">
               <img
                 class="d-block rounded-circle mb-3"
@@ -151,13 +151,9 @@ const { frontmatter } = Astro.props;
               />
               <div class="d-md-flex w-100 ps-4">
                 <div style="max-width: 26rem;">
-                  <h3 class="h5 mb-2 text-white">Darlene Robertson</h3>
+                  <h3 class="h5 mb-2 text-white">{frontmatter.author}</h3>
                   <p class="fs-sm mb-0 text-white">
-                    Porta nisl a ultrices ut libero id. Gravida mi neque,
-                    tristique justo, et pharetra laoreet nulla est nulla cras ac
-                    arcu sed mattis tristique convallis suspen enim blandit
-                    massa cursus augue dui mattis morbi velit semper nunc at
-                    etiam lacinia.
+                    {frontmatter.author_desc}
                   </p>
                 </div>
                 <div class="pt-4 pt-md-0 ps-md-4 ms-md-auto text-white">
@@ -207,7 +203,7 @@ const { frontmatter } = Astro.props;
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
           <!-- Comments -->
           <div class="pt-4 pt-xl-5 mt-4" id="comments">
@@ -404,11 +400,15 @@ const { frontmatter } = Astro.props;
               </div>
             </div>
           </div>
+
+          <div class="giscus">
+
+          </div>
         </div>
 
         <!-- Sidebar (offcanvas on sreens < 992px) -->
         <aside class="col-lg-3 offset-xl-1">
-          <div class="offcanvas-lg offcanvas-end" id="sidebar">
+          <div class="offcanvas-lg offcanvas-end" id="sidebar" style="height: 100%;">
             <div class="offcanvas-header">
               <h4 class="offcanvas-title">Sidebar</h4>
               <button
@@ -418,15 +418,15 @@ const { frontmatter } = Astro.props;
                 data-bs-target="#sidebar"
                 aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body" style=" height:100%;">
               <!-- Popular posts -->
-              <div class="offcanvas-body">
+              <div class="offcanvas-body" style="height: 100%;">
                 <!-- Search box -->
 
                 <!-- Category links -->
                 <div
-                  class="col contact-div offset-xxl-1 pt-sm-3"
-                  style="margin-left: -50px;"
+                  class="col contact-div offset-xxl-1 pt-sm-3 sticky-top"
+                  style="margin-left: -50px; z-index:1"
                 >
                   <!-- Contact form -->
                   <div
@@ -511,105 +511,7 @@ const { frontmatter } = Astro.props;
             </div>
           </div>
         </aside>
-        <!-- Related articles (carousel) -->
-        <section class="container py-5 mt-sm-2 my-md-4 my-xl-5">
-          <div
-            class="d-flex align-items-center pb-3 mb-3 mb-lg-4 mt-2 mt-xxl-3"
-          >
-            <h2 class="h1 mb-0 me-4 text-white">Related articles</h2>
-            <div class="d-flex ms-auto">
-              <button
-                class="btn btn-prev btn-icon btn-sm btn-outline-primary rounded-circle me-3"
-                type="button"
-                id="prev-post"
-                aria-label="Prev"
-              >
-                <i class="ai-arrow-left"></i>
-              </button>
-              <button
-                class="btn btn-next btn-icon btn-sm btn-outline-primary rounded-circle"
-                type="button"
-                id="next-post"
-                aria-label="Next"
-              >
-                <i class="ai-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-          <div
-            class="swiper pb-2 pb-sm-3 pb-md-4"
-            
-          >
-            <div class="swiper-wrapper">
-              <!-- Post -->
-              <article class="swiper-slide">
-                <div class="position-relative">
-                  <img
-                    class="rounded-5"
-                    src="/assets/img/blog/list/01.jpg"
-                    alt="Post image"
-                  />
-                  <h3 class="h4 mt-4 mb-0">
-                    <a class="stretched-link" href="blog-single-v1.html"
-                      >The fashion for eco bags with vintage prints will still
-                      be relevant for more than one year</a
-                    >
-                  </h3>
-                </div>
-              </article>
-
-              <!-- Post -->
-              <article class="swiper-slide">
-                <div class="position-relative">
-                  <img
-                    class="rounded-5"
-                    src="assets/img/blog/list/04.jpg"
-                    alt="Post image"
-                  />
-                  <h3 class="h4 mt-4 mb-0">
-                    <a class="stretched-link" href="blog-single-v3.html"
-                      >How to look for inspiration for new goals in life and
-                      remember to give yourself a break?</a
-                    >
-                  </h3>
-                </div>
-              </article>
-
-              <!-- Post -->
-              <article class="swiper-slide">
-                <div class="position-relative">
-                  <img
-                    class="rounded-5"
-                    src="/assets/img/blog/list/06.jpg"
-                    alt="Post image"
-                  />
-                  <h3 class="h4 mt-4 mb-0">
-                    <a class="stretched-link" href="blog-single-v1.html"
-                      >A session with a psychologist as a personal choice or a
-                      fashion trend in society</a
-                    >
-                  </h3>
-                </div>
-              </article>
-
-              <!-- Post -->
-              <article class="swiper-slide">
-                <div class="position-relative">
-                  <img
-                    class="rounded-5"
-                    src="/assets/img/blog/list/05.jpg"
-                    alt="Post image"
-                  />
-                  <h3 class="h4 mt-4 mb-0">
-                    <a class="stretched-link" href="blog-single-v3.html"
-                      >Top 10 best TV shows on Netflix for your next weekend</a
-                    >
-                  </h3>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
+        
 
         <!-- Subscription -->
         <section
@@ -737,9 +639,36 @@ const { frontmatter } = Astro.props;
           </div>
         </section>
         <!-- Sidebar toggle button -->
+        <!-- Sidebar toggle button -->
+          <button
+          class="d-lg-none btn btn-sm fs-sm btn-primary w-100 rounded-0 fixed-bottom"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarBlog"
+        >
+          <i class="ai-layout-column me-2"></i>
+          Sidebar
+        </button>
 
         <!-- Subscription -->
       </div>
     </section>
   </main>
 </Layout>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Digital-Back-Office/website"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzNTI2NzY3MTA="
+        data-category="website-blog"
+        data-category-id="DIC_kwDOFQVrZs4CdzGl"
+        data-mapping="url"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -1,5 +1,7 @@
 ---
 const { title, url, description, image } = Astro.props;
+
+const desc = (description.length>140)?description.substr(0, 140).trim()+"..":description;
 ---
 
 <style>
@@ -20,7 +22,7 @@ const { title, url, description, image } = Astro.props;
         <a href={url}>{title}</a>
       </h3>
       <p class="d-sm-none d-md-block text-white">
-        {description}
+        {desc}
       </p>
       <div class="d-flex flex-wrap align-items-center mt-n2">
         <a

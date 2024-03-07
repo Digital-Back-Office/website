@@ -99,7 +99,7 @@ const path = Astro.url.pathname;
         <li class="nav-item dropdown">
           <a
             href="/services"
-            class="nav-link dropdown-toggle nav-links"
+            class={path.includes("services")?"nav-link  nav-links active":"nav-link nav-links"}
             data-bs-auto-close="outside"
             aria-expanded="false">Services</a
           >

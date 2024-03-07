@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
-const allPosts = await Astro.glob("../pages/posts/*.md");
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
 import Card from "../components/blog/Card.astro";
 ---
 
@@ -9,10 +9,6 @@ import Card from "../components/blog/Card.astro";
   main {
     background-color: black;
   }
-  cards {
-    border: solid 20px red;
-  }
-  
   a {
     color: white;
   }
@@ -36,7 +32,7 @@ import Card from "../components/blog/Card.astro";
 <Layout>
   <main
     class="page-wrapper wrapper"
-    style="background-image: url(/assets/images/background_pattern.png);"
+    style="background-image: url(/assets/images/background-pattern.png);"
   >
     <Navbar />
     <div class="container pt-3 pb-lg-5 pb-md-4 pb-2 my-5">
