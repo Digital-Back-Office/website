@@ -23,8 +23,16 @@ const values = Data.data.values;
   });
 </script>
 
-<section class="py-5 mb-5 mt-md-2 mt-xl-4 mt-xxl-5">
-  <div class="container pt-2 pt-sm-4 pt-lg-5 mt-xxl-2">
+<style>
+  @media (min-width: 1024px) {
+    .values {
+      min-height: 100vh;
+    }
+  }
+</style>
+
+<section class="values d-flex align-items-center">
+  <div class="container py-5 my-5">
     <div class="fs-sm text-uppercase mb-3">DIGITAL BACK OFFICE</div>
     <h2 class="display-6 pb-3 mb-lg-4">
       {values.title}
@@ -53,9 +61,7 @@ const values = Data.data.values;
                 <div class="card-body">
                   <img src={card.svg} alt="icon" class="mb-3" />
                   <h3 class="h4">{card.title}</h3>
-                  <p class="mb-0 text-white opacity-70">
-                    {card.desc}
-                  </p>
+                  <p class="mb-0 text-white opacity-70">{card.desc}</p>
                 </div>
               </div>
             </div>

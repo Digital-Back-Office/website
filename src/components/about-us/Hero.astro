@@ -6,22 +6,20 @@ const hero = Data.data.hero;
 ---
 
 <style>
-  .hero-section {
-    padding: 8rem 0;
-    height: 40rem;
-    display: flex;
-    align-items: end;
-    flex-grow: 1;
-  }
-
   .hero-section * {
     z-index: 3;
   }
+
+  @media (min-width: 1024px) {
+    .hero-section {
+      height: 90vh;
+    }
+  }
 </style>
 
-<section class="hero-section">
-  <section class="container position-relative">
-    <div class="d-flex pt-xl-4 pt-xxl-4 pb-3 gap-5 align-items-center z-3">
+<section class="hero-section d-flex align-items-end">
+  <div class="container position-relative py-5">
+    <div class="d-flex pb-3 align-items-center z-3">
       <h1 class="text-start text-lg-start text-light fw-bold">
         {hero.title}
       </h1>
@@ -36,5 +34,5 @@ const hero = Data.data.hero;
         ))
       }
     </ul>
-  </section>
+  </div>
 </section>

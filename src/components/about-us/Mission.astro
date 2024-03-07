@@ -5,28 +5,29 @@ const Data = await getEntry("about", "about");
 const mission = Data.data.mission;
 ---
 
-<section class="container">
-    <article
-        class="row align-items-center justify-content-center mt-5 pb-5 mb-md-2 mb-lg-3 mb-xl-4 mb-0"
-    >
-        <div
-            class="col-md-5 col-8 order-md-2 d-flex offset-xl-2 mb-5 mt-4"
-        >
-            <img
-                src={mission.img}
-                alt="image"
-            />
-        </div>
-        <div class="col-md-6 col-xl-5 order-md-1">
-            <div class="me-md-3 me-lg-5 me-xxl-0">
+<style>
+    @media (min-width: 1024px) {
+        .mission {
+            min-height: 100vh;
+        }
+    }
+</style>
+
+<section class="mission d-flex align-items-center">
+    <div class="container py-5 my-5">
+        <article class="row align-items-center justify-content-center">
+            <div class="col-md-5 col-8 order-md-2 d-flex offset-xl-2 offset-md-1 mb-5 mb-md-0">
+                <img src={mission.img} alt="image" />
+            </div>
+            <div class="col-md-6 col-xl-5 order-md-1">
                 <div class="fs-sm mb-2 text-white">DIGITAL BACK OFFICE</div>
-                <h2 class="mb-lg-4 text-white">
+                <h2 class="mb-4 text-white">
                     {mission.title}
                 </h2>
-                <p class="mb-0 mb-md-1 mb-lg-3 text-white opacity-70">
+                <p class="text-white opacity-70">
                     {mission.desc}
                 </p>
             </div>
-        </div>
-    </article>
+        </article>
+    </div>
 </section>
