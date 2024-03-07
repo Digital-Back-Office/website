@@ -9,7 +9,7 @@ import Consultation_form from "../common/ConsultationForm.astro";
 
 <style>
     .hero-section {
-        padding: 8rem 0;
+        /* padding: 8rem 0; */
     }
 
     .hero-section * {
@@ -46,6 +46,11 @@ import Consultation_form from "../common/ConsultationForm.astro";
             background-color: var(--ar-primary);
             border-radius: 0.5rem;
             width: 100% !important;
+
+            &:hover {
+                color: var(--ar-primary);
+                background-color: transparent !important;
+            }
         }
 
         @media(max-width: 425px) {
@@ -54,12 +59,24 @@ import Consultation_form from "../common/ConsultationForm.astro";
             }
         }
     }
+
+    @media (min-width: 1024px) {
+        .hero-section {
+            height: 100vh;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .hero-section {
+            padding-top: 4rem;
+        }
+    }
 </style>
 
-<section class="hero-section">
+<section class="hero-section d-flex align-items-center">
     <div class="container position-relative my-auto">
-        <div class="row pt-xl-3 pt-xxl-4 pb-5 align-items-center justify-content-center">
-            <div class="col-lg-6 col-sm-7 col-10 col-xxl-6">
+        <div class="row pt-lg-5 pb-lg-5 align-items-center justify-content-center">
+            <div class="col-lg-6 col-sm-10 col-10 col-xxl-6">
                 <h1 class="text-center text-lg-start text-light fw-light">
                     {hero.title_part_1}
                     <br />
@@ -71,7 +88,7 @@ import Consultation_form from "../common/ConsultationForm.astro";
                     {hero.info}
                 </p>
             </div>
-            <div class="col-lg-4 col-sm-7 col-10 contact-div offset-lg-2">
+            <div class="col-xl-4 col-lg-5 col-sm-8 col-10 contact-div offset-lg-1 offset-xl-2">
                 <!-- Contact form -->
                 <div class="card contact-form border-0">
                     <Consultation_form />

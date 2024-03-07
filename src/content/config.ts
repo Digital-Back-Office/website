@@ -16,6 +16,7 @@ const homeCollection = defineCollection({
         }),
         keyPoints: z.array(z.object({
             svg: z.string(),
+            bg: z.string(),
             title: z.string(),
             info: z.string()
         })),

@@ -41,12 +41,18 @@ const cards = features.cards;
         width: 100%;
         height: 100%;
     }
+
+    @media (min-width: 1024px) {
+        .features {
+            min-height: 80vh;
+        }
+    }
 </style>
 
-<section class="features">
-    <div class="container py-5 mt-n3 mt-sm-n2 mt-md-0 my-lg-3 my-xl-4 my-xxl-5">
+<section class="features d-flex flex-column justify-content-center py-5">
+    <div class="container py-5 py-lg-0">
         <h2
-            class="text-center pt-md-3 pt-lg-4 pb-xxl-2 mt-xl-3 mb-4 mb-sm-5 text-white"
+            class="text-center pt-4 mb-5 text-white"
         >
             {features.title}
         </h2>

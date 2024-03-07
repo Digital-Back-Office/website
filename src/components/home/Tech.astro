@@ -43,6 +43,12 @@ const testimonials = Data.data.testimonials;
             height: 10rem;
         }
     }
+
+    @media (min-width: 1024px) {
+        .tech {
+            min-height: 100vh;
+        }
+    }
 </style>
 
 <script>
@@ -78,8 +84,8 @@ const testimonials = Data.data.testimonials;
     });
 </script>
 
-<section class="tech">
-    <div class="pb-5 pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
+<section class="tech d-flex flex-column justify-content-center">
+    <div class="pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
         <div class="container pb-4 mb-2 mb-lg-3">
             <h2 class="h1 text-center text-white">
                 {tech.title}
@@ -183,7 +189,7 @@ const testimonials = Data.data.testimonials;
 
     <!-- testimonials -->
     <div
-        class="container position-relative z-1 py-5 mt-n3 mt-sm-0 mb-md-3 my-lg-3 my-xl-4 my-xxl-5"
+        class="container position-relative z-1 py-5 mb-md-3 my-lg-3 my-xl-4 my-xxl-5"
     >
         <div class="row py-md-4 py-lg-5">
             <div class="col-md-9 col-lg-7 order-md-2">

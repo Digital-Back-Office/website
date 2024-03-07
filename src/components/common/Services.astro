@@ -7,7 +7,7 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
 
 <style>
     .services {
-        background-image: url(/assets/images/background-pattern.png);
+        /* background-image: url(/assets/images/background-pattern.png); */
     }
 
     .main-btn:hover {
@@ -30,24 +30,30 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
             border-radius: 0 10px 0 20px !important;
         }
     }
+
+    @media (min-width: 1024px) {
+        .services {
+            min-height: 100vh;
+        }
+    }
 </style>
 
 <!-- services -->
-<section class="services">
-    <div class="container py-5 mt-5 mb-5" data-bs-theme="dark">
-        <div class="row pt-2">
+<section class="services d-flex flex-column justify-content-center py-5">
+    <div class="container py-5 my-5" data-bs-theme="dark">
+        <div class="row">
             <!-- Text + CTA button -->
             <div
-                class="col-lg-6 d-flex flex-column mb-4 mb-lg-0 pb-sm-3 pb-lg-0"
+                class="col-lg-6 d-flex flex-column justify-content-center mb-4 mb-lg-0 pb-sm-3 pb-lg-0"
             >
                 <h1
-                    class="display-1 text-white text-uppercase fw-bold mt-auto mb-2"
+                    class="display-1 text-white text-uppercase fw-bold"
                 >
                     we design <span class="fw-normal"
                         >solutions <br /> to bring
                     </span> efficiency
                 </h1>
-                <div class="d-flex align-items-center py-4 py-lg-5">
+                <div class="d-flex align-items-center py-4">
                     <a
                         class="btn btn-lg main-btn border-1 rounded-1 me-2 me-sm-3"
                         style="background-color: #30baba;"

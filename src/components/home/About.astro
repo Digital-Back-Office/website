@@ -22,17 +22,21 @@ const keyPoints = Data.data.keyPoints;
             color: white;
         }
     }
+
+    @media (min-width: 1024px) {
+        section {
+            min-height: 100vh;
+        }
+    }
 </style>
 
-<section class="position-relative py-5">
-    <div
-        class="container position-relative pt-3 pt-md-4 pt-lg-5 mt-lg-2 mt-xl-4"
-    >
-        <div
-            class="row align-items-center py-4 py-md-5 my-1 my-sm-3 my-md-0 my-xl-3"
-        >
+<section
+    class="position-relative d-flex flex-column justify-content-center my-5"
+>
+    <div class="container position-relative py-3 my-2 py-lg-0 my-lg-0">
+        <div class="row align-items-center py-4 py-md-5 my-3">
             <div
-                class="col-12 col-lg-6 offset-lg-1 offset-xl-2 order-lg-2 pb-5 mb-4"
+                class="col-12 col-lg-6 offset-lg-1 offset-xl-2 order-lg-2 align-items-center mb-5 mb-lg-0"
             >
                 <div class="parallax" style="max-width: 100%;">
                     <div class="parallax-layer" data-depth="0">
@@ -78,14 +82,17 @@ const keyPoints = Data.data.keyPoints;
                 </div>
             </div>
             <div class="col-lg-5 col-xl-4 order-lg-1 text-center text-md-start">
-                <h3 class="h2 mb-lg-4 text-white">{about.title}</h3>
-                <p class="fs-lg pb-lg-2 mb-4 text-white opacity-70">
+                <h3 class="h2 text-white">{about.title}</h3>
+                <p class="fs-lg text-white opacity-70">
                     {about.info_part_1}
                     <br />
                     <br />
                     {about.info_part_2}
                 </p>
-                <a href="/services" class="btn btn-outline-primary rounded-pill">
+                <a
+                    href="/services"
+                    class="btn btn-outline-primary rounded-pill"
+                >
                     Learn more
                     <i class="ai-arrow-right fs-lg ms-2 me-n1"></i>
                 </a>
@@ -95,97 +102,31 @@ const keyPoints = Data.data.keyPoints;
 
     <div class="container py-5 my-lg-3 my-xl-4 my-xxl-5">
         <div
-            class="row row-cols-1 row-cols-sm-1 row-cols-md-3 gy-4 gy-sm-5 gx-4 pb-3 pb-md-4 pb-lg-5 mb-md-3 mb-lg-0"
+            class="row row-cols-1 row-cols-sm-1 row-cols-md-3 gy-4 gy-sm-5 gx-4"
         >
-            <!-- Item -->
-            <div class="col text-center">
-                <div
-                    class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
-                    style="width: 68px;"
-                >
-                    <i
-                        class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
-                    >
-                        <img src={keyPoints[0].svg} alt="" />
-                    </i>
-                    <svg
-                        class="position-absolute top-0 start-0 text-primary"
-                        width="68"
-                        height="68"
-                        viewBox="0 0 68 68"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M56.0059 60.5579C44.1549 78.9787 18.0053 58.9081 6.41191 46.5701C-2.92817 35.5074 -2.81987 12.1818 11.7792 3.74605C30.0281 -6.79858 48.0623 7.40439 59.8703 15.7971C71.6784 24.1897 70.8197 37.5319 56.0059 60.5579Z"
-                            fill-opacity="0.1"></path>
-                    </svg>
-                </div>
-                <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[0].title}</h3>
-                <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
-                    {keyPoints[0].info}
-                </p>
-            </div>
-
-            <!-- Item -->
-            <div class="col text-center">
-                <div
-                    class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
-                    style="width: 68px;"
-                >
-                    <i
-                        class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
-                    >
-                        <img src={keyPoints[1].svg} alt="" />
-                    </i>
-                    <svg
-                        class="position-absolute top-0 start-0 text-primary"
-                        width="68"
-                        height="68"
-                        viewBox="0 0 68 68"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M65.0556 29.2672C75.4219 46.3175 48.5577 59.7388 33.8299 64.3181C21.0447 67.5599 1.98006 58.174 0.888673 42.8524C-0.475555 23.7004 18.3473 14.5883 29.9289 8.26059C41.5104 1.93285 52.0978 7.9543 65.0556 29.2672Z"
-                            fill-opacity="0.1"></path>
-                    </svg>
-                </div>
-                <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[1].title}</h3>
-                <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
-                    {keyPoints[1].info}
-                </p>
-            </div>
-
-            <!-- Item -->
-            <div class="col text-center">
-                <div
-                    class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
-                    style="width: 68px;"
-                >
-                    <i
-                        class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0"
-                    >
-                        <img src={keyPoints[2].svg} alt="" />
-                    </i>
-                    <svg
-                        class="position-absolute top-0 start-0 text-primary"
-                        width="68"
-                        height="68"
-                        viewBox="0 0 68 68"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M6.61057 18.2783C10.8205 -1.22686 39.549 7.51899 53.3869 14.3301C64.8949 20.7749 72.2705 40.7038 62.5199 52.5725C50.3318 67.4085 30.4034 61.0689 17.6454 57.6914C4.88745 54.314 1.3482 42.6597 6.61057 18.2783Z"
-                            fill-opacity="0.1"></path>
-                    </svg>
-                </div>
-                <h3 class="h4 pb-2 mb-1 text-white">{keyPoints[2].title}</h3>
-                <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
-                    {keyPoints[2].info}
-                </p>
-            </div>
+            {
+                keyPoints.map((card) => (
+                    <div class="col text-center">
+                        <div
+                            class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
+                            style="width: 68px;"
+                        >
+                            <i class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0">
+                                <img src={card.svg} alt="" />
+                            </i>
+                            <img
+                                class="position-absolute top-0 start-0 text-primary"
+                                src={card.bg}
+                                alt="svg"
+                            />
+                        </div>
+                        <h3 class="h4 pb-2 mb-1 text-white">{card.title}</h3>
+                        <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
+                            {card.info}
+                        </p>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>

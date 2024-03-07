@@ -15,14 +15,17 @@ about:
 
 keyPoints:
     - svg: /assets/icons/home/about/open-source.svg
+      bg: /assets/icons/home/about/bg-1.svg
       title: 'Open Source'
       info: 'Cutting-edge big data tools are open source; we bring the best of them to work together for you.'
 
     - svg: /assets/icons/home/about/24x7.svg
+      bg: /assets/icons/home/about/bg-3.svg
       title: '24x7 Support'
       info: 'We provide 24x7 support for our solutions, supporting your business across different time zones.'
 
     - svg: /assets/icons/home/about/cost-effective.svg
+      bg: /assets/icons/home/about/bg-2.svg
       title: 'Cost Effective'
       info: 'Save up to 90% recurring costs with open source and optimized cloud auto scaling.'
     
