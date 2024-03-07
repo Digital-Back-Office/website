@@ -11,10 +11,12 @@ import Contact from "../components/common/Contact.astro";
         background-image: url("/assets/images/background-pattern.png");
     }
 
-    .hero {
+    .top-sec {
         background: linear-gradient(100.88deg, #52cec7 9.71%, #002877 93.28%);
         position: relative;
         z-index: 1;
+        width: 100%;
+        padding-top: 8rem;
 
         .container * {
             z-index: 3;
@@ -28,7 +30,7 @@ import Contact from "../components/common/Contact.astro";
     }
 
     .content {
-        padding: 7rem 0;
+        padding-top: 8rem;
 
         h3 {
             color: #fff;
@@ -39,12 +41,18 @@ import Contact from "../components/common/Contact.astro";
             opacity: 0.7;
         }
     }
+
+    @media (min-width: 1024px) {
+        .hero-section {
+            height: 90vh;
+        }
+    }
 </style>
 
 <Layout>
     <main class="page-wrapper">
         <Navbar />
-        <section class="hero">
+        <section class="top-sec">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1920"
@@ -56,22 +64,24 @@ import Contact from "../components/common/Contact.astro";
                     d="M0 420.972H1920V0.0774231C1920 0.0774231 1590.67 140.376 925.333 219.878C260 299.38 0 420.972 0 420.972Z"
                     fill="#17191D"></path>
             </svg>
-            <div class="container">
-                <div class="row">
-                    <div
-                        class="col-lg-6 order-lg-2 d-flex justify-content-center justify-content-lg-end"
-                    >
-                        <img src={frontmatter.img_url} alt="" />
-                    </div>
-                    <div class="col-lg-6 order-lg-1 mt-lg-5 pt-lg-5">
-                        <h4
-                            class="text-center text-lg-start fw-normal text-white mb-0"
+            <div class="hero-section d-flex align-items-center">
+                <div class="container py-5 my-5">
+                    <div class="row">
+                        <div
+                            class="col-lg-6 order-lg-2 d-flex justify-content-center justify-content-lg-end mb-5 mb-lg-0"
                         >
-                            Digital Back Office
-                        </h4>
-                        <h1 class="text-center text-lg-start text-white">
-                            {frontmatter.title}
-                        </h1>
+                            <img src={frontmatter.img_url} alt="" />
+                        </div>
+                        <div class="col-lg-6 order-lg-1 mt-lg-5 pt-lg-5">
+                            <h4
+                                class="text-center text-lg-start fw-normal text-white mb-0"
+                            >
+                                Digital Back Office
+                            </h4>
+                            <h1 class="text-center text-lg-start text-white">
+                                {frontmatter.title}
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </div>
