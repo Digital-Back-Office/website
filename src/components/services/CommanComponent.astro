@@ -3,7 +3,7 @@ const {frontmatter} = Astro.props;
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../common/Navbar.astro"
 import ContactForm from "../common/Contact.astro"
-import VideoLayout2 from "../../layouts/VideoLayout2.astro"
+import ServiceVideo from "../../layouts/ServiceVideo.astro"
 import VideoLayout from "../../layouts/VideoLayout.astro"
 ---
 
@@ -122,7 +122,7 @@ import VideoLayout from "../../layouts/VideoLayout.astro"
 
 <Layout>
     <main class="page-wrapper background-style" >
-        <VideoLayout2 src={frontmatter.hero_video}>
+        <ServiceVideo src={frontmatter.hero_video}>
           <div class="hero-text container">
             <div style="width:full; max-width:1296px; margin:0 auto 0 auto;">
               <h1  class="text-lg-start text-light fw-light fw-bold hero-heading">
@@ -134,11 +134,11 @@ import VideoLayout from "../../layouts/VideoLayout.astro"
               </p>
             </div>
           </div>
-        </VideoLayout2>
+        </ServiceVideo>
         
   
-        <section style="display: flex; justify-content: center; margin-top:5rem; margin-bottom:5rem; 
-        padding-left:7rem; padding-right:7rem;">
+        <section style="display: flex; justify-content: center; margin-top:5rem; margin-bottom:5rem;"
+        class="container">
           <div style="max-width:1296px;">
             <p style="font-size: 1.35rem; color:white">
               {frontmatter.p1_text}
@@ -156,7 +156,7 @@ import VideoLayout from "../../layouts/VideoLayout.astro"
           <section id="diff" class="container mt-md-3 mt-lg-2 mt-xl-4 mt-xxl-5 " data-bs-theme="dark"
         >
           <h2 class="h1 text-center pt-3 pt-sm-4 pt-lg-5 pb-3 mb-3 mb-lg-4 mt-xl-3">Key Differentiators</h2>
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4
+          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center
           " style="">
   
             <!-- Item -->
