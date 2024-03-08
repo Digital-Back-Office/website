@@ -4,38 +4,90 @@ title: Privacy Policy
 img_url: /assets/images/policies/privacy-policy.png
 ---
 
-Your use of our website is governed by the following terms and conditions (“Terms of Use”), as well as the CARDONE CAPITAL Privacy Policy and other operating rules, minimum qualifications, and cautions posted throughout the website or presented to you individually during the course of your use of the website (collectively, the “Terms”). The Terms govern your use of the website and CARDONE CAPITAL reserves the right to update or replace the Terms at any time without notice. You are advised to review the Terms for any changes when you visit the website, even if you have not received a notification of changes, as you are bound by them even if you have not reviewed them. Your viewing and use of the website after such change constitutes your acceptance of the Terms and any changes to such terms. If at any time you do not want to be bound by the Terms, you should logout, exit, and cease using the website immediately.
+DIGITAL BACK OFFICE LTD, together with its subsidiaries ("DBO") has created this Privacy Policy in line with DBO's commitment to your privacy on DBO websites and marketing initiatives. The following discloses DBO's information gathering, dissemination and protection practices.
 
-### Intended Use of Website
 
-CARDONE CAPITAL is not a broker-dealer or placement agent. At no time does CARDONE CAPITAL offer, broker, advise, purchase, sell, or otherwise transact in securities regulated by the SEC or federal or state law. CARDONE CAPITAL does not accept, hold, or transfer cash or securities. CARDONE CAPITAL does not guarantee that a Company seeking investment will achieve any level of success or that any proposed offering will qualify under applicable federal and state securities laws.
+### Compliance
 
-CARDONE CAPITAL is not a personal financial advisor. CARDONE CAPITAL, whether through the website or otherwise, does not provide personal financial advice, loans or credit, banking, consumer credit ratings, credit decisions, financial products, brokerage accounts, insurance, tax advice, legal advice, or financial or legal services of any kind.
+If you do not agree to the terms of this Privacy Policy, please do not access or use DBO websites. If you wish to stop receiving DBO marketing materials then please click on the Unsubscribe button within the marketing email you have received from us.
 
-CARDONE CAPITAL does not guarantee any results to anyone. All users of the website are responsible for making their own decisions to use the website and for any activity taken on the website, including without limitation registering and making an investment or otherwise.
+### Collection of information
+DBO collects information to provide better services to its users and to better understand the visitors to its websites and what content is of interest to them. DBO collects information in the following ways:
 
-### User Registration
+- information you affirmatively choose to submit to us (such as your name, email address, company name, title, country) for the purpose of accessing various downloads, viewing specific content, subscribing to DBO newsletters, registering for events and your preferences in receiving marketing from DBO and its third party partners and your communication preferences, etc. Information we have obtained about you from publicly available sources such as social media, marketing platforms or on events, you attended. You will receive marketing communications from DBO if you have requested information from DBO or you or your employer has purchased services from DBO;
+- information DBO receives from your use of DBO websites, such as the IP address, browser type, ISP, referring/exit pages, platform type, date/time stamp, number of clicks, domain name and country/state of all visitors to DBO's websites;
+location information when you use DBO's websites as DBO may collect and process information about your location. DBO use various technologies and tools to determine location;
+- information that is considered aggregated data such as statistical or demographic data which DBO may use for any purpose. Aggregated data may be derived from your personal information but is not considered personal information in law as it does not directly or indirectly reveal your identity, unless DBO combines or connects aggregated data with your personal information so that it can directly or indirectly identify you; and
+- DBO collects technical data from various third parties and public sources as, such as:
+    - analytics providers
+    - dvertising networks
+    - search information providers
 
-If you are accepting the Terms on behalf of an organization or entity, rather than in an individual capacity, you represent and warrant that you are authorized to accept the Terms on that organization or entity’s behalf and bind them to these Terms (in which case, the references to “you” and “your” in these Terms, except for in this sentence, refer to that organization or entity).
+Other than as required by law, DBO websites do not collect any special categories of personal information about you (this includes details about your race or ethnicity, religious or philosophical beliefs, sex life, sexual orientation, political opinions, trade union membership, information about your health and genetic and biometric data). DBO will not collect any information about criminal convictions and offences.
 
-Only real persons at or above the age of 18 may register for an account and use the website. Registering for an account on the website creates no commitment or obligation on the registered user to make any investment or seek any investment. All information you provide to the website must be truthful, accurate and complete in all material respects. Our registration process may use third-party validation technology, including those provided by third-party social media sites, to attempt to confirm your qualification to use the website.
+DBO will only use your personal information for the purposes for which it was collected, unless it reasonably considers that it needs to use it for another reason that is compatible with the original purpose. If DBO needs to use your personal information for an unrelated purpose, DBO will notify you and explain the legal basis which allows DBO to do so.
 
-CARDONE CAPITAL may reject any application to register an individual or an organization or entity for failure to achieve validation through available methods or otherwise meet CARDONE CAPITAL’s registration requirements.
+### Sharing of Information
 
-Your registration and the use of any third-party site are subject to the terms and conditions and policies of such sites, and CARDONE CAPITAL is not responsible or liable for any harm resulting from the use or misuse of those sites, including when such harm could or does affect your account on this website or use of the website.
+DBO may disclose your personal information to the following categories of recipients:
 
-### Registered Account Obligations
+- to its group companies, professional advisers, third party services providers and partners who provide data processing services to DBO (for example, to support the delivery of, provide functionality on, or help to enhance the security of DBO websites), or who otherwise process personal information for purposes that are described in Privacy Notices or notified to you when DBO collects your personal information. A list of DBO's current group companies is available upon request.
+- to any competent law enforcement body, regulatory, government agency, court or other third party where DBO believes disclosure is necessary (a) as a matter of applicable law or regulation, (b) to exercise, establish or defend its legal rights, or (c) to protect your vital interests or those of any other person.
+- to any other person with your consent to the disclosure.
 
-The named registered user of an account is the only person that may use the account and it may not be transferred to anyone else.
+### Legal Basis of Processing
 
-You are responsible for maintaining the confidentiality of your username and password and to periodically change your password to maintain security. If you have concerns that your username or password may have been compromised and suspect that unauthorized access to your account or the website has occurred, you must immediately contact CARDONE CAPITAL’s investor support through a secure method (which may not be through your website account).
+If your personal information is protected by EU data protection law, DBO's legal basis for collecting and using the personal information described above will depend on the personal information concerned and the specific context in which DBO collects it.
 
-### Content Use Limitations
+However, DBO will normally collect personal information from you only (a) where it needs the personal information to perform a contract with you, (b) where the processing is in its legitimate interests and is not overridden by your rights, or (c) where it has your consent to do so. In some cases, DBO may also have a legal obligation to collect personal information from you or may otherwise need the personal information to protect your vital interests or those of another person.
 
-Your use of the website and its videos, webinars, images, infographics, alerts, text, articles, assessments, checklists, forms, ratings, design, data, source code, analytics, photos, software, trademarks, copyrights, and other information (“Content”) may only be used for the lawful and intended purposes expressly authorized by CARDONE CAPITAL. If you access this website from outside the United States, you are solely responsible for ensuring compliance with the laws of your specific jurisdiction, as well as any restrictions that you may be subject to by a department of the United States government. Any misuse or unauthorized use of the website and its Content, or other violations of the Terms may violate Applicable Law (see below), including without limitation SEC regulations and applicable state securities laws, copyright laws (including the Digital Millennium Copyright Act), trademark laws, the laws of privacy, laws of publicity, identity theft and communications statutes and regulations, in which case CARDONE CAPITAL is authorized to terminate your account and access to the website at any time and without notice and report you to the appropriate authorities and other interested parties.
+If you have questions about or need further information concerning the legal basis on which DBO collects and uses your personal information, please contact DBO using the contact details provided under the "Contact Details" heading below and in the right-hand side column.
 
-### Prospective Investor Accounts
+### Use of Information
 
-Any person or entity that is considering making an investment with a Company that posts its fundraising plans on the website, or, after the fundraising plan becomes a qualified offering, makes an investment, does so at his or her own risk. All investment carries risk that you may lose some or all of your investment. No Content on the website is a replacement for performing your own due diligence, exercising good judgement, and seeking financial, investment, tax, or legal advice from qualified and licensed professionals with knowledge of your personal circumstances. Any registered financial, legal, or tax representatives or firm working for or with CARDONE CAPITAL or communicating with you or users in general through the website are not your personal advisors and do not have knowledge about your personal circumstances, and anything they post is for informational purposes only and may not be accurate to your situation, and you agree that you shall not rely on Content on the website in making personal decisions about an investment or the potential legal, tax, or financial consequences of such investment. You are encouraged to seek personal professional advice from qualified and licensed professionals.
+Any information collected by DBO will be done in accordance with this Privacy Policy for the purposes of making better business decisions, supporting the activities you choose to engage in, and providing higher quality solutions and services to DBO's customers. DBO uses your location information to tailor your experience with DBO websites. It may also use any non-personal information collected to enhance DBO websites, and your IP address for website diagnostics and administration. DBO will only retain your personal information for as long as necessary to fulfil the purposes it was collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements.
 
-You are solely responsible for your investment decisions. While you may be asked about your identity, individual financial circumstance, and investment experience and sophistication during your engagement with the website, CARDONE CAPITAL and its advisors and vendors are not responsible to verify the veracity of the information that you provide, even if you certify to its truth or undergo a suitability review. Whether you are an “Accredited Investor,” as such is defined under securities law, or a non-accredited investor, or an institutional investor, CARDONE CAPITAL and the Companies seeking investment are relying on your representations with respect to your investment experience, your financial status, and your eligibility to invest. You may, further, be held personally liable for your fraud, negligence, and other bad acts that may result from any false representations you make.
+To determine the appropriate retention period for personal information, DBO considers the amount, nature, and sensitivity of the personal information, the potential risk of harm from unauthorised use or disclosure of your personal information, the purposes for which DBO processes your personal information and whether it can achieve those purposes through other means, and the applicable legal requirements.
+
+
+### International Transfers
+
+DBO processes information on servers in many countries around the world and you consent to your personal information being processed on a server located outside the country in which you reside. These countries may have data protection laws that are different to the laws of your country (and, in some cases, may not be as protective). However, DBO has taken appropriate safeguards to require that your personal information will remain protected in accordance with this Privacy Policy, including, utilizing the European Commission's Standard Contractual Clauses for transfers of personal information between its group companies, which requires all group companies to protect personal information being processed from the European Economic Area to an equivalent standard to that required under European Union data protection law.
+
+### Information Security
+
+DBO protects your personal information in the same way that it protects its other confidential information, such as storing it on secure servers that only select DBO personnel have access to, and by encrypting it to help prevent access by any unauthorized parties. DBO has put in place procedures to deal with any personal information breach and will notify you and any applicable regulator of a breach when legally required to do so.
+
+
+### Your Data Protection Rights
+
+If your personal information is protected by EU data protection law, you have the following data protection rights which you may be able to exercise by contacting DBO using the contact details provided under the "Contact Details" heading below and in the right-hand side column:
+
+- If you wish to delete, access, correct, update your personal information, you can do so at any time by contacting DBO.
+- In addition, you can object to processing of your personal information, ask DBO to restrict processing of your personal information or request portability of your personal information by contacting DBO.
+- You have the right to opt-out of marketing communications that DBO sends you at any time. You can exercise this right by clicking on the "unsubscribe" or "opt-out" link in the marketing emails DBO sends you or by using the relevant opt-out mechanism for non-email based marketing.
+- Similarly, if DBO has collected and processes your personal information based on your consent, then you can withdraw your consent at any time. Withdrawing your consent will not affect the lawfulness of any processing DBO conducted prior to your withdrawal, nor will it affect processing of your personal information conducted in reliance on lawful processing grounds other than consent.
+- You have the right to complain to a data protection authority about DBO's collection and use of your personal information. For more information, please contact your local data protection authority.
+- You will not have to pay a fee to access your personal information (or to exercise any of the other rights). However, DBO may charge a reasonable fee or refuse to comply with your request if your request is clearly unfounded, repetitive or excessive. DBO tries to respond to all legitimate requests within one month. Occasionally, it may take longer if your request is particularly complex or you have made a number of requests. In this case, DBO will notify you and keep you updated.
+
+
+### Cookies
+
+You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies some parts of DBO websites may become inaccessible or not function properly. For more information about the cookies that DBO uses, please see DBO's Cookie Policy.
+
+
+### Information Security
+
+DBO protects your personal information in the same way that it protects its other confidential information, such as storing it on secure servers that only select DBO personnel have access to, and by encrypting it to help prevent access by any unauthorized parties. DBO has put in place procedures to deal with any personal information breach and will notify you and any applicable regulator of a breach when legally required to do so.
+
+
+### Changes to the Policy
+
+DBO reserves the right to modify or amend this Privacy Policy at its own discretion from time to time. The changes can be viewed here or elsewhere on DBO websites. Your continued use of DBO websites constitutes your acceptance of those changes.
+
+This version was last updated on 06 July 2018 and historic versions can be obtained by contacting DBO.
+
+### Contact Details
+
+It is important that the personal information DBO holds about you is accurate and current. Please keep DBO informed if your personal information changes during your relationship with DBO. Additionally, if you have any questions about this Privacy Policy, the practices of DBO websites or your interaction with DBO via DBO websites, please contact: privacy@digitalbackoffice.co.uk
+
