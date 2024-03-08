@@ -1,0 +1,132 @@
+---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("home", "home");
+
+const about = Data.data.about;
+const keyPoints = Data.data.keyPoints;
+---
+
+<script>
+    import Parallax from "parallax-js";
+    var scene = document.querySelector(".parallax") as HTMLElement;
+    var parallaxInstance = new Parallax(scene);
+</script>
+
+<style>
+    .btn {
+        color: #52cec7;
+        border-color: #52cec7;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        section {
+            min-height: 100vh;
+        }
+    }
+</style>
+
+<section
+    class="position-relative d-flex flex-column justify-content-center my-5"
+>
+    <div class="container position-relative py-3 my-2 py-lg-0 my-lg-0">
+        <div class="row align-items-center py-4 py-md-5 my-3">
+            <div
+                class="col-12 col-lg-6 offset-lg-1 offset-xl-2 order-lg-2 align-items-center mb-5 mb-lg-0"
+            >
+                <div class="parallax" style="max-width: 100%;">
+                    <div class="parallax-layer" data-depth="0">
+                        <div class="ratio" style="--ar-aspect-ratio: 89.6%">
+                        </div>
+                    </div>
+                    <div
+                        class="parallax-layer"
+                        style="padding-right: 24.2%;"
+                        data-depth="0.1"
+                    >
+                        <img
+                            src={about.parallax_images[0]}
+                            class="d-dark-mode-block position-relative rounded-4"
+                            style="top: 27.5%; max-widthdark: 482px;"
+                            alt="image"
+                        />
+                    </div>
+                    <div
+                        class="parallax-layer"
+                        style="padding-left: 50%;"
+                        data-depth="-0.12"
+                    >
+                        <img
+                            src={about.parallax_images[1]}
+                            class="d-dark-mode-block position-relative rounded-4"
+                            style="top: 10%; max-width: 345px;"
+                            alt="image"
+                        />
+                    </div>
+                    <div
+                        class="parallax-layer"
+                        style="padding-right: 7.547%; padding-left: 47.97%;"
+                        data-depth="0.3"
+                    >
+                        <img
+                            src={about.parallax_images[2]}
+                            class="d-dark-mode-block position-relative rounded-4"
+                            style="top: 60.75%; max-width: 302px;"
+                            alt="image"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-4 order-lg-1 text-center text-md-start">
+                <h3 class="h2 text-white">{about.title}</h3>
+                <p class="fs-lg text-white opacity-70">
+                    {about.info_part_1}
+                    <br />
+                    <br />
+                    {about.info_part_2}
+                </p>
+                <a
+                    href="/services"
+                    class="btn btn-outline-primary rounded-pill"
+                >
+                    Learn more
+                    <i class="ai-arrow-right fs-lg ms-2 me-n1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5 my-lg-3 my-xl-4 my-xxl-5">
+        <div
+            class="row row-cols-1 row-cols-sm-1 row-cols-md-3 gy-4 gy-sm-5 gx-4"
+        >
+            {
+                keyPoints.map((card) => (
+                    <div class="col text-center">
+                        <div
+                            class="ratio ratio-1x1 position-relative mx-auto mb-3 mb-sm-4"
+                            style="width: 68px;"
+                        >
+                            <i class="text-primary fs-1 d-flex align-items-center justify-content-center position-absolute start-0">
+                                <img src={card.svg} alt="" />
+                            </i>
+                            <img
+                                class="position-absolute top-0 start-0 text-primary"
+                                src={card.bg}
+                                alt="svg"
+                            />
+                        </div>
+                        <h3 class="h4 pb-2 mb-1 text-white">{card.title}</h3>
+                        <p class="fs-sm mb-0 w-75 mx-auto text-white opacity-70">
+                            {card.info}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

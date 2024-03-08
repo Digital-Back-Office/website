@@ -1,0 +1,35 @@
+---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("about", "about");
+const approach = Data.data.approach;
+---
+
+<style>
+    @media (min-width: 1024px) {
+        .approach {
+            min-height: 100vh;
+        }
+    }
+</style>
+
+<section class="approach d-flex align-items-center">
+    <div class="container py-5 my-5">
+        <article class="row align-items-center justify-content-center">
+            <div
+                class="col-md-5 col-8 order-2 d-flex offset-xl-2 offset-md-1"
+            >
+                <img src={approach.img} alt="image" />
+            </div>
+            <div class="col-md-6 col-xl-5 order-1 mb-5 mb-md-0">
+                <div class="fs-sm mb-2 text-white">DIGITAL BACK OFFICE</div>
+                <h2 class="mb-4 text-white">
+                    {approach.title}
+                </h2>
+                <p class="text-white opacity-70">
+                    {approach.desc}
+                </p>
+            </div>
+        </article>
+    </div>
+</section>

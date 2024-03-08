@@ -1,0 +1,384 @@
+---
+const {frontmatter} = Astro.props;
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../common/Navbar.astro"
+import ContactForm from "../common/Contact.astro"
+import ServiceVideo from "../../layouts/ServiceVideo.astro"
+import VideoLayout from "../../layouts/VideoLayout.astro"
+---
+
+<style>
+    .top-sec {
+		position: relative;
+		z-index: 2;
+	}
+
+	.top-sec::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			198.24deg,
+			rgba(2, 2, 2, 0) 19.25%,
+			#121519 74.45%
+		);
+		z-index: 2;
+	}
+
+
+	.hero-section {
+    width: 100%;
+    height: 100%;
+    max-height: 110vh;
+    position: relative;
+	}
+
+  .hero-section::before{
+    content: "";
+    position: absolute;
+    top:0; right: 0; bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    /* background-color: rgba(0,0,0,0.5); */
+    
+    background-image: linear-gradient(to right top, 
+    rgba(0,0,0,0.8) 30%, rgba(10, 10, 10, 0.7) 50%,
+     rgba(119, 119, 119, 0.2));
+  }
+
+  .hero-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+	.hero-section * {
+		z-index: 3;
+        
+	}
+  .item{
+      background-color: rgba(255,255,255, 0.3);
+  }
+  .hero-text{
+    position: absolute;
+    bottom: 15vh; left:0; right: 0;
+    z-index:10;
+    color: white;
+   
+    
+  }
+  .diff1{
+    position: relative;
+    padding-bottom: 5rem;
+  }
+  
+  .diff1::before{
+    content: "";
+    position: absolute !important;
+    top:0; right:0; bottom:0; left:0;
+    width: 100% !important;
+    height: 100% !important;
+    /* background-color: rgba(255,255,255,3%) !important; */
+    z-index: 10 !important;
+  }
+  .cards{
+    display: flex;
+    align-items: stretch !important;
+  }
+  .background-style{
+    background-image: url(/assets/images/background-pattern.png);
+    background-repeat: repeat;
+  }
+  .icons{
+    border-radius: 36px;
+    background-color: rgba(255,255,255, 3%);
+    padding-top:4rem;padding-bottom:4rem; height:100%;
+  }
+  .white-70{
+    color: rgba(255,255,255,0.7);
+  }
+  .hero-heading{
+    font-size: 3.75rem !important;
+    font-weight: 700 !important;    
+  }
+  .hero-text1{
+    font-size: 1.75rem !important;
+    max-width: 890px !important;
+    margin-top: 1rem;
+
+  }
+  .outer-card{
+    padding-left: 0.78rem !important;
+    padding-right: 0.78rem !important;
+  }
+  .expertise-heading{
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
+</style>
+
+<Layout>
+    <main class="page-wrapper background-style" >
+        <ServiceVideo src={frontmatter.hero_video}>
+          <div class="hero-text container">
+            <div style="width:full; max-width:1296px; margin:0 auto 0 auto;">
+              <h1  class="text-lg-start text-light fw-light fw-bold hero-heading">
+                {frontmatter.hero_title}
+              </h1>
+              <p class="fs-lg text-lg-start pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5 hero-text1"
+              >
+                {frontmatter.hero_text}
+              </p>
+            </div>
+          </div>
+        </ServiceVideo>
+        
+  
+        <section style="display: flex; justify-content: center; margin-top:5rem; margin-bottom:5rem;"
+        class="container">
+          <div style="max-width:1296px;">
+            <p style="font-size: 1.35rem; color:white">
+              {frontmatter.p1_text}
+            </p>
+            <p style="font-size: 1.35rem; color:white; font-style:italic">
+              {frontmatter.p2_text}
+            </p>
+          </div>
+        </section>
+  
+          
+  
+          <!-- key differentiators from landing-saas-v2.html-->
+        <div class="">
+          <section id="diff" class="container mt-md-3 mt-lg-2 mt-xl-4 mt-xxl-5 " data-bs-theme="dark"
+        >
+          <h2 class="h1 text-center pt-3 pt-sm-4 pt-lg-5 pb-3 mb-3 mb-lg-5 mt-xl-3">
+            Key Differentiators
+          </h2>
+          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center
+          ">
+  
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100" style="background-color: rgba(255, 255, 255, 3%);border:none">
+                
+                  <div class="h-100 rounded-5 py-2 py-lg-4 px-0">
+                    <div class="card-body text-center">
+                      <img src={frontmatter.card1_img} alt="img" class="d-block text-primary mb-4 mx-auto"  height="40"/>
+                      <h3>{frontmatter.card1_heading}</h3>
+                      <p class="card-text">{frontmatter.card1_text}</p>
+                    </div>
+                  </div>
+                  
+                
+              </div>
+            </div>
+  
+            <!-- Item -->
+            <div class="col" style="">
+                <div class="card h-100" style="background-color: rgba(255, 255, 255, 3%);border:none">
+                 
+                    <div class=" rounded-5 py-2 py-lg-4 px-0 h-100">
+                      <div class="card-body text-center">
+                        
+                        <img src={frontmatter.card2_img} alt="logo"  class="d-block text-primary mb-4 mx-auto"  height="40"/>
+                        <h3>{frontmatter.card2_heading}</h3>
+                        <p class="card-text">{frontmatter.card2_text}</p>
+                      </div>
+                    </div>
+                    
+                  
+                </div>
+            </div>
+  
+            <!-- Item -->
+            <div class="col">
+                <div class="card h-100" style="background-color: rgba(255, 255, 255, 3%);border:none">
+                
+                    <div class="h-100 rounded-5 py-2 py-lg-4 px-0">
+                      <div class="card-body text-center">
+                        <img src={frontmatter.card3_img} alt="logo"  class="d-block text-primary mb-4 mx-auto" height="40"/>
+                        <h3>{frontmatter.card3_heading}</h3>
+                        <p class="card-text">{frontmatter.card3_text}</p>
+                      </div>
+                    </div>
+                    
+                  
+                </div>
+            </div>
+          </div>
+        </section>
+        </div>
+  
+  
+        <!--DONE== How it works (Steps) from about-product.html-->
+        <section class="overflow-hidden py-5 my-md-2 my-xl-4 my-xxl-5" data-bs-theme="dark">
+          <div class="container py-2 py-sm-4 py-lg-5">
+            <h2 class="h1 text-center pb-3 mb-4 mb-lg-5 mt-xxl-2">Our Approach</h2>
+  
+            <!-- Step 1-->
+            <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
+              <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                
+                <img class="d-none d-dark-mode-block" src={frontmatter.approach1_img} width="525" alt="Image">
+              </div>
+              <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                <div class="pe-md-4 pe-lg-0">
+                  
+                  <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach1_heading}</h3>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach1_text}.</p>
+                  
+                </div>
+              </div>
+            </div>
+  
+            <!-- Arrow -->
+            <div class="d-none d-lg-flex justify-content-center" data-aos="fade-in" data-aos-duration="500" data-aos-offset="250">
+              <svg class="d-block text-primary" width="339" height="365" viewBox="0 0 339 365" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: -150px; margin-top: -140px; margin-bottom: -108px;">
+                <path d="M324 291.371C120.111 291.37 240.756 58.7225 1.00032 73.2606" stroke="url(#arrow1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"></path>
+                <path d="M337.375 290.62C338.074 290.998 338.074 292.001 337.375 292.379L328.476 297.196C327.81 297.557 327 297.074 327 296.317L327 286.683C327 285.925 327.81 285.443 328.476 285.803L337.375 290.62Z" fill="currentColor"></path>
+                <defs>
+                  <linearGradient id="arrow1" x1="324" y1="291.5" x2="-2.99974" y2="72.4997" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="currentColor"></stop>
+                    <stop offset="1" stop-color="currentColor" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+  
+            <!-- Step 2-->
+            <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
+              <div class="col-md-6 col-xl-5 offset-xl-1 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                
+                <img class="d-none d-dark-mode-block" src={frontmatter.approach2_img} width="473" alt="Image">
+              </div>
+              <div class="col-md-6 col-lg-5 col-xl-4 offset-lg-1" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                <div class="ps-md-4 ps-lg-0">
+                  
+                  <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach2_heading}</h3>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach2_text}.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Arrow -->
+            <div class="d-none d-lg-flex justify-content-center" data-aos="fade-in" data-aos-duration="500" data-aos-offset="250">
+              <svg class="d-block text-primary" width="263" height="275" viewBox="0 0 263 275" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -60px; margin-left: -120px; margin-bottom: -80px;">
+                <path d="M8.13678 249.647C7.47108 250.081 6.59001 249.602 6.59106 248.808L6.60444 238.689C6.60544 237.931 7.4158 237.45 8.08162 237.811L16.5478 242.408C17.2136 242.77 17.2512 243.712 16.6163 244.125L8.13678 249.647Z" fill="currentColor"></path>
+                <path d="M261.961 37.8891C216.908 65.6243 128.226 135.486 133.916 193.05C141.029 265.005 265.134 173.468 173.666 148.634C89.2542 125.715 30.9125 210.547 13.9796 236.702" stroke="url(#arrow2)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"></path>
+                <defs>
+                  <linearGradient id="arrow2" x1="13.9797" y1="234.5" x2="276.704" y2="60.1939" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="currentColor"></stop>
+                    <stop offset="1" stop-color="currentColor" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+  
+            <!-- Step 3-->
+            <div class="row align-items-center position-relative">
+              <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 d-md-flex justify-content-end pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                
+                <img class="d-none d-dark-mode-block" src={frontmatter.approach3_img} width="473" alt="Image">
+              </div>
+              <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                <div class="pe-md-4 pe-lg-0">
+                  
+                  <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach3_heading}</h3>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach3_text}</p>
+                  
+                </div>
+              </div>
+            </div>
+  
+            <!-- Arrow -->
+            <div class="d-none d-lg-flex justify-content-center" data-aos="fade-in" data-aos-duration="500" data-aos-offset="250">
+              <svg class="d-block text-primary" width="339" height="365" viewBox="0 0 339 365" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: -150px; margin-top: -140px; margin-bottom: -108px;">
+                <path d="M324 291.371C120.111 291.37 240.756 58.7225 1.00032 73.2606" stroke="url(#arrow1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 6"></path>
+                <path d="M337.375 290.62C338.074 290.998 338.074 292.001 337.375 292.379L328.476 297.196C327.81 297.557 327 297.074 327 296.317L327 286.683C327 285.925 327.81 285.443 328.476 285.803L337.375 290.62Z" fill="currentColor"></path>
+                <defs>
+                  <linearGradient id="arrow1" x1="324" y1="291.5" x2="-2.99974" y2="72.4997" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="currentColor"></stop>
+                    <stop offset="1" stop-color="currentColor" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+  
+            <!-- Step 4-->
+            <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
+              <div class="col-md-6 col-xl-5 offset-xl-1 pb-2 pb-md-0 mb-4 mb-md-0" data-aos="fade-right" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                
+                <img class="d-none d-dark-mode-block" src={frontmatter.approach4_img} width="473" alt="Image">
+              </div>
+              <div class="col-md-6 col-lg-5 col-xl-4 offset-lg-1" data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
+                <div class="ps-md-4 ps-lg-0">
+                  
+                  <h3 class="h2 mb-3 mb-lg-4">{frontmatter.approach4_heading}</h3>
+                  <p class="pb-1 pb-lg-0 mb-4 mb-lg-5 white-70">{frontmatter.approach4_text}.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <slot/>
+  
+        <!-- Features from landing-saas-v3.html-->
+        <section class="container py-5 my-sm-2 my-md-4 my-lg-5 px-5" data-bs-theme="dark">
+          <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto expertise-heading" style="max-width: 40rem; margin-bottom:2.5rem;">
+            Our Expertise
+          </h2>
+          
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-4 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons" >
+                <img src={frontmatter.expertise1_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
+                <h3 class="h4 mb-2">{frontmatter.expertise1_heading}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons" >
+                <img src={frontmatter.expertise2_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
+                <h3 class="h4 mb-2">{frontmatter.expertise2_heading}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons">
+                <img src={frontmatter.expertise3_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50" />
+                <h3 class="h4 mb-2">{frontmatter.expertise3_heading}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons" >
+                <img src={frontmatter.expertise4_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
+                <h3 class="h4 mb-2">{frontmatter.expertise4_heading}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons">
+                <img src={frontmatter.expertise5_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
+                <h3 class="h4 mb-2">{frontmatter.expertise5_heading}</h3>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 outer-card">
+              <div class="text-center px-xxl-4 icons">
+                <img src={frontmatter.expertise6_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
+                <h3 class="h4 mb-2">{frontmatter.expertise6_heading}</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <ContactForm/>
+  
+  
+  
+      </main>
+      
+</Layout>
+
+

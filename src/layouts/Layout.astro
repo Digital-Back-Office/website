@@ -1,0 +1,51 @@
+---
+import Footer from "../components/common/Footer.astro";
+import "aos/dist/aos.css";
+import "../styles/global.css";
+import '../styles/container.css'
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Digital Back Office",
+  description = "We deliver Business Efficiency; We love data!",
+} = Astro.props;
+---
+
+<script src="/assets/js/theme.min.js" is:inline></script>
+<script src="/src/scripts/aos-init.js"></script>
+<script src="/src/scripts/navbar.js"></script>
+<script src="/src/scripts/chat-bot.js"></script>
+<script src="/src/scripts/cookie-consent.js"></script>
+
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/dist/cookieconsent.css"
+    />
+    <link rel="stylesheet" href="/assets/css/theme.min.css" />
+    <link rel="stylesheet" href="/assets/icons/around-icons.min.css" />
+    <link rel="stylesheet" href="/src/styles/container.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="background-color: black;">
+    <slot />
+    <Footer />
+  </body>
+</html>

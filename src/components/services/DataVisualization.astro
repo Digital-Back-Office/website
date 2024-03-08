@@ -1,0 +1,93 @@
+---
+import { Image } from "astro:assets";
+// import ourVisualisation from "/assets/images/services/data-visualization/ourVisualisation.svg"
+
+const heading1 = "Our Offering";
+const text1 =
+  "Data Visualisation is an art and we treat is such. We don’t treat data visaualiation as just a data problems, we understand that visuals are for humans. Our designers produce data visualization that are simple, impactful and engaging. We work with various tools including Tableau, Power BI, HighChart, D3.js, Google Charts and many others. We strive to produce visual tools for your decision makers.";
+const list1 = [
+  "Static Data Visualization",
+  "Interactive Data Visualization",
+  "Time Series Visualization",
+  "GIS & Geo Visualization",
+  "Indicators",
+  "Pivot Tables",
+  "Matrices",
+];
+---
+
+<style>
+  li {
+    color: white;
+  }
+  .images {
+    height: 100%;
+  }
+  .image-container-right{
+    display: flex;
+    justify-content: end;
+  }
+  .para{
+    font-size: 1.125rem;
+    color: white;
+  }
+</style>
+
+<section class="container my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+  <!-- Item 1-->
+  <div class="row align-items-center py-4 py-xl-5 my-2">
+    <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
+      <div class="image-container-right">
+        <img
+          class="rounded-5 images"
+          src="/assets/images/services/data-visualization/ourVisualisation.svg"
+          alt="Image"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-5 order-md-1">
+      <div class="pe-md-4 pe-xl-0">
+        <h2 class="h1 pb-2 pb-lg-3" style="color:white">
+          {heading1}
+        </h2>
+        <p
+          class="pb-2 pb-lg-0 mb-3 mb-lg-3 para"
+        >
+          {text1}
+        </p>
+
+        <ul class="list-unstyled mb-0">
+          <li class="d-flex pt-1 mt-2 align-items-center">
+            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+            <span class="para">{list1[0]}</span>
+          </li>
+          <li class="d-flex pt-1 mt-2 align-items-center">
+            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+            <span class="para">{list1[1]}</span>
+          </li>
+          <li class="d-flex pt-1 mt-2 align-items-center">
+            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+            <span class="para">{list1[2]}</span>
+          </li>
+          <li class="d-flex pt-1 mt-2 align-items-center">
+            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+            <span class="para">{list1[3]}</span>
+          </li>
+          <li class="d-flex pt-1 mt-2 align-items-center">
+            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+            <span class="para">{list1[4]}</span>
+          </li>
+          <li class="d-flex pt-1 mt-2 align-items-center">
+            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+            <span class="para">{list1[5]}</span>
+          </li>
+          <li class="d-flex pt-1 mt-2 align-items-center">
+            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+            <span class="para">{list1[6]}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

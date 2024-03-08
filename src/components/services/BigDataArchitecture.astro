@@ -1,0 +1,62 @@
+---
+// import { Image } from "astro:assets";
+// import patterns from "/assets/images/services/big-data-architecture/patterns.png"
+
+const heading = "Architectural Patterns";
+const text1 =
+  "Unstructured data is the fastest growing type of data, some example could be imagery, sensors, telemetry, video, documents, log files, and email data files. There are several techniques to address this problem space of unstructured analytics. The techniques share a common characteristics of scale-out, elasticity and high availability. MapReduce, in conjunction with the Hadoop Distributed File System (HDFS) and HBase database, as part of the Apache Hadoop project is a modern approach to analyze unstructured data. Hadoop clusters are an effective means of processing massive volumes of data, and can be improved with the right architectural approach.";
+const text2 =
+  "We support all three key architectural patterns, based on needs of the Business..";
+---
+
+<style>
+  li {
+    color: white;
+  }
+  .light-text {
+    color: rgba(255, 255, 255, 70%);
+  }
+  .image-container-right{
+    display: flex;
+    justify-content: end;
+  }
+  .images{
+    height: 100%;
+  }
+</style>
+
+<section class="container  my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+  <!-- Item 1-->
+  <div class="row align-items-center py-4 py-xl-5 my-2">
+    <div class="col-md-6 offset-xl-1 order-md-2 pb-2 mb-4 mb-md-0">
+      <div class="image-container-right">
+        <img
+          class="rounded-5 images"
+          src="/assets/images/services/big-data-architecture/patterns.svg"
+          alt="Image"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-5 order-md-1">
+      <div class="pe-md-4 pe-xl-0">
+        <h2 class="h1 pb-2 pb-lg-3" style="color:white">
+          {heading}
+        </h2>
+        <p
+          class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+          style="color:rgba(255, 255, 255, 0.7)"
+        >
+          {text1}
+        </p>
+        <p
+          class="pb-2 pb-lg-0 mb-3 mb-lg-3"
+          style="color:rgba(255, 255, 255, 0.7)"
+        >
+          {text2}
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>

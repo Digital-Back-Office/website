@@ -1,0 +1,99 @@
+---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("home", "home");
+const hero = Data.data.hero;
+
+import Consultation_form from "../common/ConsultationForm.astro";
+---
+
+<style>
+    .hero-section {
+        /* padding: 8rem 0; */
+    }
+
+    .hero-section * {
+        z-index: 3;
+    }
+
+    .contact-form {
+        background-color: #121519 !important;
+        border-radius: 1rem;
+        box-shadow: 0px 2px 15px 0px #7b7b7b7a;
+    }
+
+    .card {
+        form {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: var(--ar-primary) !important;
+        }
+
+        .form-label {
+            font-size: 0.8rem !important;
+            color: var(--ar-primary) !important;
+        }
+
+        .form-control {
+            border-radius: 0.5rem !important;
+            line-height: 1 !important;
+        }
+
+        .book-btn {
+            background-color: var(--ar-primary);
+            border-radius: 0.5rem;
+            width: 100% !important;
+
+            &:hover {
+                color: var(--ar-primary) !important;
+                background-color: transparent !important;
+            }
+        }
+
+        @media(max-width: 425px) {
+            form {
+                padding: 2rem 1rem;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero-section {
+            height: 90vh;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .hero-section {
+            padding-top: 4rem;
+        }
+    }
+</style>
+
+<section class="hero-section d-flex align-items-center">
+    <div class="container position-relative my-auto">
+        <div class="row pt-lg-5 pb-lg-5 align-items-center justify-content-center">
+            <div class="col-lg-6 col-sm-10 col-10 col-xxl-6">
+                <h1 class="text-center text-lg-start text-light fw-light">
+                    {hero.title_part_1}
+                    <br />
+                    <p class="fw-bold">{hero.title_part_2}</p>
+                </h1>
+                <p
+                    class="fs-lg text-center text-lg-start text-light pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5"
+                >
+                    {hero.info}
+                </p>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-sm-8 col-10 contact-div offset-lg-1 offset-xl-2">
+                <!-- Contact form -->
+                <div class="card contact-form border-0">
+                    <Consultation_form />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

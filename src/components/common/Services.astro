@@ -1,0 +1,317 @@
+---
+import * as data_architecture from "../../pages/services/big-data-architecture.mdx";
+import * as data_science from "../../pages/services/data-science.mdx";
+import * as data_devops from "../../pages/services/big-data-devops.mdx";
+import * as data_visualization from "../../pages/services/data-visualization.mdx";
+---
+
+<style>
+    .services {
+        /* background-image: url(/assets/images/background-pattern.png); */
+    }
+
+    .main-btn:hover {
+        color: var(--ar-primary);
+        background-color: transparent !important;
+        border: 2px solid var(--ar-primary);
+    }
+
+    @media screen and (min-width: 576px) {
+        .card1 {
+            border-radius: 20px 0 10px 0 !important;
+        }
+        .card2 {
+            border-radius: 0 20px 0 10px !important;
+        }
+        .card3 {
+            border-radius: 10px 0 20px 0 !important;
+        }
+        .card4 {
+            border-radius: 0 10px 0 20px !important;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .services {
+            min-height: 100vh;
+        }
+    }
+</style>
+
+<!-- services -->
+<section class="services d-flex flex-column justify-content-center py-5">
+    <div class="container py-5 my-5" data-bs-theme="dark">
+        <div class="row">
+            <!-- Text + CTA button -->
+            <div
+                class="col-lg-6 d-flex flex-column justify-content-center mb-4 mb-lg-0 pb-sm-3 pb-lg-0"
+            >
+                <h1
+                    class="display-1 text-white text-uppercase fw-bold"
+                >
+                    we design <span class="fw-normal"
+                        >solutions <br /> to bring
+                    </span> efficiency
+                </h1>
+                <div class="d-flex align-items-center py-4">
+                    <a
+                        class="btn btn-lg main-btn border-1 rounded-1 me-2 me-sm-3"
+                        style="background-color: #30baba;"
+                        href="/contact-us">Let's work together</a
+                    >
+                </div>
+                <div class="flex-shrink-sm-0">
+                    <img
+                        class="d-dark-mode-block"
+                        src="/assets/icons/rating.png"
+                        width="200"
+                        alt="Clutch"
+                    />
+                </div>
+            </div>
+
+            <!-- Services (Grid of cards) -->
+            <div class="col-lg-6">
+                <div class="row row-cols-1 row-cols-sm-2 g-2">
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card-flip">
+                            <div class="card-flip-inner">
+                                <div
+                                    class="card-flip-front card1"
+                                    style="background-color: #020609;
+                                        border: 2px solid #2FB7B8"
+                                >
+                                    <div
+                                        class="d-flex flex-column h-100 gap-1"
+                                        data-bs-theme="dark"
+                                    >
+                                        <div
+                                            class="flex-grow-1"
+                                            style="background-image: url(/assets/images/data-sci.png); 
+                                                background-size: contain;
+                                                background-position: center;
+                                                background-repeat: no-repeat;"
+                                        >
+                                        </div>
+                                        <h2
+                                            class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
+                                        >
+                                            {
+                                                data_science.frontmatter
+                                                    .hero_title
+                                            }
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="card-flip-back bg-secondary card1">
+                                    <div
+                                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                                    >
+                                        <h3 class="h4">
+                                            {
+                                                data_science.frontmatter
+                                                    .hero_title
+                                            }
+                                        </h3>
+                                        <p class="text-body mb-3">
+                                            {data_science.frontmatter.hero_text}
+                                        </p>
+                                        <div
+                                            class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                                        >
+                                            <a
+                                                class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/data-science"
+                                            >
+                                                <i class="ai-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="col">
+                        <div class="card-flip">
+                            <div class="card-flip-inner">
+                                <div
+                                    class="card-flip-front card2"
+                                    style="background-color: #2FB7B8;"
+                                >
+                                    <div
+                                        class="d-flex flex-column h-100 gap-1"
+                                        data-bs-theme="dark"
+                                    >
+                                        <div
+                                            class="flex-grow-1"
+                                            style="background-image: url(/assets/images/data-vis.png);
+                                            background-size: contain;
+                                            background-position: center;
+                                            background-repeat: no-repeat;"
+                                        >
+                                        </div>
+                                        <h2
+                                            class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
+                                        >
+                                            {
+                                                data_visualization.frontmatter
+                                                    .hero_title
+                                            }
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="card-flip-back bg-secondary card2">
+                                    <div
+                                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                                    >
+                                        <h3 class="h4">
+                                            {
+                                                data_visualization.frontmatter
+                                                    .hero_title
+                                            }
+                                        </h3>
+                                        <p class="text-body mb-3">
+                                            {
+                                                data_visualization.frontmatter
+                                                    .hero_text
+                                            }
+                                        </p>
+                                        <div
+                                            class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                                        >
+                                            <a
+                                                class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/data-visualization"
+                                            >
+                                                <i class="ai-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="col order-sm-2">
+                        <div class="card-flip">
+                            <div class="card-flip-inner">
+                                <div
+                                    class="card-flip-front card3"
+                                    style="background-color: #020609;
+                                        border: 2px solid #2FB7B8"
+                                >
+                                    <div
+                                        class="d-flex flex-column h-100 gap-1"
+                                        data-bs-theme="dark"
+                                    >
+                                        <div
+                                            class="flex-grow-1"
+                                            style="background-image: url(/assets/images/data-devops.png);
+                                                background-size: contain;
+                                                background-position: center;
+                                                background-repeat: no-repeat;"
+                                        >
+                                        </div>
+                                        <h2
+                                            class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
+                                        >
+                                            {data_devops.frontmatter.hero_title}
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="card-flip-back bg-secondary card3">
+                                    <div
+                                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                                    >
+                                        <h3 class="h4">
+                                            {data_devops.frontmatter.hero_title}
+                                        </h3>
+                                        <p class="text-body mb-3">
+                                            {data_devops.frontmatter.hero_text}
+                                        </p>
+                                        <div
+                                            class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                                        >
+                                            <a
+                                                class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/big-data-devops"
+                                            >
+                                                <i class="ai-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card -->
+                    <div class="col order-sm-1">
+                        <div class="card-flip">
+                            <div class="card-flip-inner">
+                                <div
+                                    class="card-flip-front card4"
+                                    style="background-color: #2FB7B8;"
+                                >
+                                    <div
+                                        class="d-flex flex-column h-100 gap-1"
+                                        data-bs-theme="dark"
+                                    >
+                                        <div
+                                            class="flex-grow-1"
+                                            style="background-image: url(/assets/images/data-arch.png);
+                                                background-size: contain;
+                                                background-position: center;
+                                                background-repeat: no-repeat;"
+                                        >
+                                        </div>
+                                        <h2
+                                            class="fs-lg fw-bold text-white text-center mb-0 mt-auto"
+                                        >
+                                            {
+                                                data_architecture.frontmatter
+                                                    .hero_title
+                                            }
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="card-flip-back bg-secondary card4">
+                                    <div
+                                        class="d-flex flex-column h-100 px-sm-2 pt-sm-2 px-lg-0 pt-lg-0 px-xl-3 pt-xl-3"
+                                    >
+                                        <h3 class="h4">
+                                            {
+                                                data_architecture.frontmatter
+                                                    .hero_title
+                                            }
+                                        </h3>
+                                        <p class="text-body mb-3">
+                                            {
+                                                data_architecture.frontmatter
+                                                    .hero_text
+                                            }
+                                        </p>
+                                        <div
+                                            class="text-end pt-3 pt-sm-2 pt-xl-4 mt-auto me-sm-n2 me-lg-0 me-xl-n3"
+                                        >
+                                            <a
+                                                class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
+                                                href="/services/big-data-architecture"
+                                            >
+                                                <i class="ai-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

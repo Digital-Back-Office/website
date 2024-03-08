@@ -1,16 +1,35 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import VideoLayout from "../layouts/VideoLayout.astro";
+import Hero from "../components/home/Hero.astro";
+import About from "../components/home/About.astro";
+import Features from "../components/home/Features.astro";
+import Services from "../components/common/Services.astro";
+import CaseStudies from "../components/home/CaseStudies.astro";
+import Tech from "../components/home/Tech.astro";
+import Contact from "../components/common/Contact.astro";
 
+import '../styles/container.css'
+
+// import BgVideo from '/assets/videos/dbo-bg-video-home.mp4'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+	.page-wrapper {
+		background-image: url("/assets/images/background-pattern.png");
+	}
+</style>
+
+<Layout>
+	<main class="page-wrapper">
+		<VideoLayout src="/assets/videos/dbo-bg-video-home.mp4">
+			<Hero />
+		</VideoLayout>
+		<About />
+		<Features />
+		<Services />
+		<!-- <CaseStudies /> -->
+		<Tech />
+		<Contact />
+	</main>
+</Layout>

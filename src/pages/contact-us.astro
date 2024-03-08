@@ -1,0 +1,175 @@
+---
+import Layout from "../layouts/Layout.astro";
+// import { Image } from "astro:assets";
+// import svg1 from "/assets/images/contact-us/svg1.svg";
+// import svg2 from "/assets/images/contact-us/svg2.svg";
+import Navbar from "../components/common/Navbar.astro";
+
+import '../styles/container.css'
+---
+
+<style>
+  input[type="checkbox"]:checked {
+    background-color: rgba(47, 183, 184, 1);
+  }
+  .bg-image {
+    background-image: url(/assets/images/background-pattern.png);
+    background-repeat: repeat !important;
+  }
+</style>
+
+<Layout>
+  <Navbar />
+  <main class="page-wrapper bg-image">
+    <!-- Page title + Сontact form  from contacts-v2.html-->
+    <section
+      class="container pt-2 pt-lg-5 pb-lg-2 pb-xl-4 py-xxl-5"
+      data-bs-theme="dark"
+      style="margin-top:5rem"
+    >
+      <div class="row pb-1 pb-sm-3 pb-lg-4">
+        <div class="col-lg-4 pe-xxl-4">
+          <!-- Page title -->
+          <h1 class="display-2">Contact Us</h1>
+          <p class="fs-lg pb-4 mb-0 mb-sm-2">
+            Get in touch with us by completing the below form or book a 30 mins
+            free consultation
+          </p>
+
+          <div
+            class="mb-4"
+            style="width:100%; background-color:rgba(33, 37, 40, 1); border-radius:32px;
+            position:relative;  max-width:400px; aspect-ratio:1/1; overflow:hidden"
+          >
+            <img
+              src="/assets/images/contact-us/svg1.svg"
+              alt="svg1"
+              style="position:absolute; bottom:5%;"
+            />
+
+            <img
+              src="/assets/images/contact-us/svg2.svg"
+              alt="svg2"
+              style="position:absolute; bottom: 12%; left:15%;"
+            />
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-xl-7 offset-xl-1">
+          <!-- Contact form -->
+          <form
+            class="row g-4 needs-validation"
+            action="https://formsubmit.co/contact@digitalbackoffice.co.uk"
+            method="POST"
+            novalidate
+          >
+            {/*Name */}
+            <div class="col-sm-6">
+              <label class="form-label fs-base" for="name">Name</label>
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                placeholder="Your name"
+                required
+                name="Name"
+                id="name"
+                style="border-radius:18px;"
+              />
+              <div class="invalid-feedback">Please enter your name!</div>
+            </div>
+            {/*Email */}
+            <div class="col-sm-6">
+              <label class="form-label fs-base" for="email">Email</label>
+              <input
+                class="form-control form-control-lg"
+                type="email"
+                placeholder="Email address"
+                required
+                name="email"
+                id="Email"
+                style="border-radius:18px;"
+              />
+              <div class="invalid-feedback">
+                Please provide a valid email address!
+              </div>
+            </div>
+            {/*Company Name */}
+            <div class="col-sm-6">
+              <label class="form-label fs-base" for="phone">Company Name</label>
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                placeholder="Your Company Name"
+                required
+                name="Company-name"
+                id="company-name"
+                style="border-radius:18px;"
+              />
+            </div>
+            {/*Services */}
+            <div class="col-sm-6">
+              <label class="form-label fs-base" for="location">Service</label>
+              <select
+                class="form-select form-select-lg"
+                id="location"
+                name="Service"
+                required
+                style="border-radius:18px;"
+              >
+                <option value="" selected disabled hidden style="">
+                  <span>Service you are looking for</span>
+                </option>
+                <option value="Big Data Architecture">Big Data Architecture</option>
+                <option value="Big Data DevOps">Big Data DevOps</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Data Visualization">Data Visualization</option>
+                <option value="South America">Other</option>
+              </select>
+            </div>
+            {/*Message*/}
+            <div class="col-sm-12">
+              <label class="form-label fs-base" for="message"
+                >How can we help?</label
+              >
+              <textarea
+                class="form-control form-control-lg"
+                rows="5"
+                placeholder="How can we help?"
+                required
+                name="Message"
+                id="message"
+                style="border-radius:18px;"></textarea>
+              <div class="invalid-feedback">Please enter your message!</div>
+            </div>
+            {/*Checkbox */}
+            <div class="col-sm-12">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="agree"
+                  required
+                />
+                <label class="form-check-label" for="agree"
+                  >I agree to the <a
+                    class="nav-link d-inline fs-normal text-decoration-underline p-0"
+                    href="#">Terms &amp; Conditions</a
+                  ></label
+                >
+              </div>
+            </div>
+            {/*button */}
+            <div class="col-sm-12 pt-2">
+              <button
+                class="btn btn-lg btn-primary"
+                type="submit"
+                style="background-color:rgba(47, 183, 184, 1); border-radius:8px;"
+                >Send a request</button
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

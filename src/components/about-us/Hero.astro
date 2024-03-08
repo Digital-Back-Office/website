@@ -1,0 +1,36 @@
+---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("about", "about");
+const hero = Data.data.hero;
+---
+
+<style>
+  .hero-section {
+    height: 90vh;
+  }
+
+  .hero-section * {
+    z-index: 3;
+  }
+</style>
+
+<section class="hero-section d-flex align-items-end">
+  <div class="container position-relative py-5">
+    <div class="d-flex pb-3 align-items-center z-3">
+      <h1 class="text-start text-lg-start text-light fw-bold">
+        {hero.title}
+      </h1>
+    </div>
+    <ul class="list-unstyled d-flex flex-wrap mb-0">
+      {
+        hero.features.map((feature) => (
+          <li class="d-flex text-body text-white opacity-70 py-1 me-4">
+            <i class="ai-check-alt text-primary lead me-2" />
+            {feature}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
