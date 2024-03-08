@@ -57,8 +57,8 @@ features:
           info: 'Hiring for Big Data and Data Science projects is becoming increasingly difficult. Will I be able to deliver the project on time?'
 
 tech:
-    title: Open Source on Cloud
-    desc: More than 2,000 clients using Digital Back Office to analyze data
+    title: Best Big Data Tools
+    desc: We support all major open source tools, all major cloud providers.
     slider_1:
         - /assets/images/tech/airflow.png
         - /assets/images/tech/arrow.png
