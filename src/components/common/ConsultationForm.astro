@@ -12,18 +12,27 @@ import "flatpickr/dist/themes/dark.css";
         dateFormat: "Y-m-d H:i",
         onOpen: function (selectedDates, dateStr, instance) {
             const calendarContainer = instance.calendarContainer;
-            const monthElement = calendarContainer.querySelector(".flatpickr-month") as HTMLElement;
-            const monthDropDown = calendarContainer.querySelector(".flatpickr-monthDropdown-months") as HTMLElement;
-            const DropDownMonth = calendarContainer.querySelectorAll(".flatpickr-monthDropdown-month") as NodeListOf<HTMLElement>;
-            const weekdays = calendarContainer.querySelectorAll(".flatpickr-weekday") as NodeListOf<HTMLElement>;
-            const currMonth = calendarContainer.querySelector('.flatpickr-current-month') as HTMLElement;
-
+            const monthElement = calendarContainer.querySelector(
+                ".flatpickr-month",
+            ) as HTMLElement;
+            const monthDropDown = calendarContainer.querySelector(
+                ".flatpickr-monthDropdown-months",
+            ) as HTMLElement;
+            const DropDownMonth = calendarContainer.querySelectorAll(
+                ".flatpickr-monthDropdown-month",
+            ) as NodeListOf<HTMLElement>;
+            const weekdays = calendarContainer.querySelectorAll(
+                ".flatpickr-weekday",
+            ) as NodeListOf<HTMLElement>;
+            const currMonth = calendarContainer.querySelector(
+                ".flatpickr-current-month",
+            ) as HTMLElement;
 
             if (monthElement && monthDropDown && weekdays && DropDownMonth) {
                 monthElement.style.backgroundColor = "#121519";
                 monthDropDown.style.backgroundColor = "#121519";
-                currMonth.style.display = 'flex';
-                currMonth.style.justifyContent = 'space-between';
+                currMonth.style.display = "flex";
+                currMonth.style.justifyContent = "space-between";
                 weekdays.forEach((weekday) => {
                     weekday.style.backgroundColor = "#121519";
                 });
@@ -39,9 +48,7 @@ import "flatpickr/dist/themes/dark.css";
 <script src="https://accounts.google.com/gsi/client" is:inline></script>
 
 <script>
-    // import Calendar from "../../utils/api/event-calendar.js";
-    import dateTimeForCalander from "../../utils/helper/date-time.js";
-    import event from "../../utils/helper/event.js";
+    import dateTimeForCalander from "../../utils/helper/date-time-2.js";
 
     const BookBtn = document.querySelector(".book-btn");
     BookBtn?.addEventListener("click", async (e) => {
@@ -55,16 +62,26 @@ import "flatpickr/dist/themes/dark.css";
         const name = nameInput.value;
         const email = emailInput.value;
         const company = companyInput.value;
-        const dateTime = dateTimeInput.value;
+        const startDateTime = dateTimeInput.value;
 
-        if (name && email && company && dateTime) {
-            const start = dateTimeForCalander(dateTime);
-            const eventCreate = event(name, company, email, start);
-            // const calendar = new Calendar(eventCreate);
-            // await calendar.gapiLoaded();
-            // calendar.gisLoaded();
-            // calendar.handleAuthClick();
-            // await calendar.createEvent();
+        if (name && email && company && startDateTime) {
+            console.log('startDateTime' + startDateTime)
+            const formattedDateTime = dateTimeForCalander(startDateTime);
+            console.log('format' + formattedDateTime)
+
+            const url = `https://docs.google.com/forms/u/1/d/e/1FAIpQLSfjEw_OrfYyDm6XgCgvFG0uANSnCIGEXToxkosEXrFkOInNYQ/formResponse?&submit=Submit?usp%3Dpp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`;
+
+            try {
+                const response = await fetch(url, { method: "POST" });
+
+                if (response.ok) {
+                    console.log("Form submitted successfully!");
+                } else {
+                    console.error("Failed to submit form.");
+                }
+            } catch (error) {
+                console.error("Error submitting form:", error);
+            }
         }
     });
 </script>
@@ -125,6 +142,9 @@ import "flatpickr/dist/themes/dark.css";
     <div
         class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
     >
-        <button class="btn btn-outline-primary text-white book-btn w-100" type="submit">Book now</button>
+        <button
+            class="btn btn-outline-primary text-white book-btn w-100"
+            type="submit">Book now</button
+        >
     </div>
 </form>
