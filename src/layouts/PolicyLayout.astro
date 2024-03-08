@@ -29,6 +29,10 @@ import Contact from "../components/common/Contact.astro";
         z-index: 2;
     }
 
+    .hero-section {
+        height: 100vh;
+    }
+
     .content {
         padding-top: 8rem;
 
@@ -68,7 +72,7 @@ import Contact from "../components/common/Contact.astro";
                 <div class="container py-5 my-5">
                     <div class="row">
                         <div
-                            class="col-lg-6 order-lg-2 d-flex justify-content-center justify-content-lg-end mb-5 mb-lg-0"
+                            class="col-lg-6 col-8 order-lg-2 d-flex justify-content-center justify-content-lg-end mb-5 mb-lg-0 mx-auto"
                         >
                             <img src={frontmatter.img_url} alt="" />
                         </div>
