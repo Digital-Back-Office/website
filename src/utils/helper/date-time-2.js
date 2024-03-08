@@ -1,4 +1,5 @@
 export default function dateTimeForCalendar(startDateTime) {
+    // const TIMEOFFSET = '+05:30'
     let date = new Date(Date.parse(startDateTime));
 
     const year = date.getFullYear();
@@ -7,7 +8,7 @@ export default function dateTimeForCalendar(startDateTime) {
     const hour = String(date.getHours()).padStart(2, '0');
     const minute = String(date.getMinutes()).padStart(2, '0');
 
-    const start = `${year}-${month}-${day}T${hour}:${minute}Z`;
+    const start = `${year}-${month}-${day}T${hour}:${minute}:00`;
 
     const endDate = new Date(date.getTime() + 30 * 60000);
     const endYear = endDate.getFullYear();
@@ -16,7 +17,7 @@ export default function dateTimeForCalendar(startDateTime) {
     const endHour = String(endDate.getHours()).padStart(2, '0');
     const endMinute = String(endDate.getMinutes()).padStart(2, '0');
 
-    const end = `${endYear}-${endMonth}-${endDay}T${endHour}:${endMinute}Z`;
+    const end = `${endYear}-${endMonth}-${endDay}T${endHour}:${endMinute}:00`;
 
     console.log('start' + start);
     console.log('end' + end);

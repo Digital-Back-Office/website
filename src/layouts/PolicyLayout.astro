@@ -4,6 +4,7 @@ const { frontmatter } = Astro.props;
 import Layout from "./Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
 import Contact from "../components/common/Contact.astro";
+import '../styles/container.css'
 ---
 
 <style>
@@ -57,7 +58,7 @@ import Contact from "../components/common/Contact.astro";
     <main class="page-wrapper">
         <Navbar />
         <section class="top-sec">
-            <!-- <svg
+            <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1920"
                 height="421"
@@ -67,7 +68,7 @@ import Contact from "../components/common/Contact.astro";
                 <path
                     d="M0 420.972H1920V0.0774231C1920 0.0774231 1590.67 140.376 925.333 219.878C260 299.38 0 420.972 0 420.972Z"
                     fill="#17191D"></path>
-            </svg> -->
+            </svg>
             <div class="hero-section d-flex align-items-center">
                 <div class="container py-5 my-5">
                     <div class="row">
