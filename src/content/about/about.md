@@ -16,34 +16,36 @@ values:
     cards:
         - svg: /assets/icons/about-us/honesty.svg
           title: Honesty
-          desc:  Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do.
+          desc:  We have a culture of putting the truth at the forefront. We discuss the problems, admit the mistakes and are transparent about pricing with our clients. We believe building trust through transparent communication is crucial for long term succes.
 
         - svg: /assets/icons/about-us/quality.svg
           title: Quality
-          desc:  Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do.
+          desc: We strive to build reliable and consistent solutions. Through our "Quality First" principle, we invest in long term success of our clients by helping them make right decisions. This helps businesses build customer loyalty, and establish a solid foundation for sustainable success.
 
         - svg: /assets/icons/about-us/client-focus.svg
           title: Client Focus
-          desc:  Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do.
+          desc:  We put the needs, preferences, and satisfaction of clients at the center of our operations. We map entire decision journey and identify solutions suited for your need. Our solutions are coustomized to solve the specific problem your decisions makers face. 
 
 benefits:
     title: We Love Data
     points:
         - number: 1
-          title: Individual approach
-          desc: Hac erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor non.
+          title: Data-Driven Decision Making
+          desc: Use data to assess risks, identify opportunities, and optimize strategies. Make your decision based on Data.
+
         
         - number: 2
           title: Integrated analytics
-          desc: Find aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur neque congue aliqua dolor do leo proin odio est sed sit felis facilisi integer
+          desc: Integrate data from different departments, systems, and sources into a centralized platform to gain comprehensive insights.
+
         
         - number: 3
-          title: Step by step work
-          desc: More erat leo proin odio est sed sit felis facilisi integer sed congue neque turpis dictumst sit sed volutpat aliquet tortor non
+          title: Data Security
+          desc: We specialize in Safeguarding sensitive data, such as customer information, financial records, and intellectual property against unauthorized access and potential misuse.
 
         - number: 4
-          title: Full spectrum of services
-          desc: Adipiscing posuere dui, amet, augue nisl dictum justo, enim sed neque congue non quam ultrices interdum vitae vestibulum. Hac erat leo proin odio est sed sit felis facilisi integer sed.
+          title: Psychological Understanding of Data 
+          desc: Integration of psychology and data reflects the recognition that the human element is crucial in the world of data. Data analysis and interpretation are not purely technical processes; they involve understanding the human context in which data operates.
 
 approach:
     title: Our Approach
