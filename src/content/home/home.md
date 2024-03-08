@@ -82,20 +82,15 @@ tech:
 
 testimonials:
     - number: '1'
-      name: Lilia Bocouse
-      designation:  Head of Marketing
+      name: Anil Jwalanna
+      designation:  Chief Executive Officer
       title: Awesome experience with a professional team. Thank you :)
-      desc: Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.
+      desc: The biggest reason we engaged Digital Back Office was their knowledge and their expertise Big Data Architecture and DevOps. We started with their team on Architecture advisory and now use them across our complete data system.  We are really excited about working with Digital Back Office. 
 
     - number: '2'
-      name: Robert Fox
-      designation:  Marketing Coordinator
-      title: Thanks to your talented team for the banding we dreamed about
-      desc: Leo vitae sem eget eget at in vivamus placerat sodales tristique risusiis senectusic quisque faucibus est justo egetert lobortis ultrices eu dignissim etiamier turpis tincidunt eget placerat feugiat senectusic quisque faucibus placerat sodales vitae tempor morbi tellus pulvinar tristique in turpis.
+      name: Eric Davis
+      designation:  SVP, Technology
+      title: Thanks to your talented team for the exceptional work!
+      desc: Thanks to the Digital Back Office team led by Anurag, we now have a robust and scalable data infrastructure. Our system feeds models and has strengthen our decision making capabilities. The team at Digital Back Office is exceptionally capable and responsive, they display confidence and leadership in the in building complex systems. 
 
-    - number: '3'
-      name: Lilia Bocouse
-      designation:  Head of Marketing
-      title: Awesome experience with a professional team. Thank you :)
-      desc: Suspendisse mauris elit, pellentesque nec purus sed, finibus finibus ipsum. Proin posuere, metus sed porttitor pellentesque, ante magna tincidunt mi, nec fermentum dui ligula vel massa. Praesent ultrices iaculis arcu iaculis ultrices. Maecenas vitae nulla odio. In laoreet, lectus in tempus ultricies.
 ---
