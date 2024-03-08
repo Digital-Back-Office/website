@@ -7,8 +7,8 @@ const testimonials = Data.data.testimonials;
 ---
 
 <style>
-    .swiper-slide {
-        width: 12.25rem;
+    .open-source .swiper-slide {
+        /* width: 11rem; */
         height: 6.25rem;
         overflow: hidden;
     }
@@ -19,7 +19,7 @@ const testimonials = Data.data.testimonials;
         height: 100%;
         justify-content: center;
         align-items: center;
-        padding: 1.1rem 2.7rem 1.1rem 2.7rem;
+        padding: 1rem 2rem;
         overflow: hidden;
 
         img {
@@ -28,8 +28,8 @@ const testimonials = Data.data.testimonials;
     }
 
     @media (max-width: 768px) {
-        .swiper-slide {
-            width: 11rem;
+        .open-source .swiper-slide {
+            /* width: 11rem; */
             height: 5rem;
         }
 
@@ -39,7 +39,7 @@ const testimonials = Data.data.testimonials;
     }
 
     @media (min-width: 1600px) {
-        .swiper-slide {
+        .open-source .swiper-slide {
             height: 10rem;
         }
     }
@@ -59,7 +59,7 @@ const testimonials = Data.data.testimonials;
 
     const carousels = Array.from(document.querySelectorAll(".swiper"));
 
-    carousels.forEach((value, index) => {
+    carousels.forEach((value) => {
         let options;
         const htmlValueElement = value as HTMLElement;
         if (htmlValueElement.dataset.swiperOptions != undefined)
@@ -85,7 +85,7 @@ const testimonials = Data.data.testimonials;
 </script>
 
 <section class="tech d-flex flex-column justify-content-center">
-    <div class="pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
+    <div class="open-source pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
         <div class="container pb-4 mb-2 mb-lg-3">
             <h2 class="h1 text-center text-white">
                 {tech.title}
@@ -97,7 +97,7 @@ const testimonials = Data.data.testimonials;
         <div
             class="swiper pb-4"
             data-swiper-options={`{
-            "spaceBetween": 24,
+            "spaceBetween": 40,
             "loop": true,
             "grabCursor": false,
             "centeredSlides": true,
@@ -143,7 +143,7 @@ const testimonials = Data.data.testimonials;
             class="swiper"
             dir="rtl"
             data-swiper-options={`{
-            "spaceBetween": 24,
+            "spaceBetween": 40,
             "loop": true,
             "grabCursor": false,
             "centeredSlides": true,
@@ -246,21 +246,19 @@ const testimonials = Data.data.testimonials;
                     class="ai-quotes d-none d-md-block text-primary ms-n2 mb-1"
                     style="font-size: 150px;"></i>
 
-                <!-- Contnetn binded to slider (on screens > 768px) -->
+                <!-- Content binded to slider (on screens > 768px) -->
                 <div class="binded-content h-auto d-none d-md-block">
                     <div class="binded-item h-auto active" id="testimonial-1">
-                        <h3 class="h5 mb-1 text-white">Lilia Bocouse</h3>
-                        <p class="text-body-primary mb-0">Head of Marketing</p>
+                        <h3 class="h5 mb-1 text-white">{testimonials[0].name}</h3>
+                        <p class="text-body-primary mb-0">{testimonials[0].designation}</p>
                     </div>
                     <div class="binded-item h-auto" id="testimonial-2">
-                        <h3 class="h5 mb-1 text-white">Robert Fox</h3>
-                        <p class="text-body-primary mb-0">
-                            Marketing Coordinator
-                        </p>
+                        <h3 class="h5 mb-1 text-white">{testimonials[1].name}</h3>
+                        <p class="text-body-primary mb-0">{testimonials[1].designation}</p>
                     </div>
                     <div class="binded-item h-auto" id="testimonial-3">
-                        <h3 class="h5 mb-1 text-white">Jenny Wilson</h3>
-                        <p class="text-body-primary mb-0">CEO, Co-Founder</p>
+                        <h3 class="h5 mb-1 text-white">{testimonials[2].name}</h3>
+                        <p class="text-body-primary mb-0">{testimonials[2].designation}</p>
                     </div>
                 </div>
 

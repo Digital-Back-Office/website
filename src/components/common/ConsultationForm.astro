@@ -39,7 +39,7 @@ import "flatpickr/dist/themes/dark.css";
 <script src="https://accounts.google.com/gsi/client" is:inline></script>
 
 <script>
-    import Calendar from "../../utils/api/event-calendar.js";
+    // import Calendar from "../../utils/api/event-calendar.js";
     import dateTimeForCalander from "../../utils/helper/date-time.js";
     import event from "../../utils/helper/event.js";
 
@@ -60,10 +60,10 @@ import "flatpickr/dist/themes/dark.css";
         if (name && email && company && dateTime) {
             const start = dateTimeForCalander(dateTime);
             const eventCreate = event(name, company, email, start);
-            const calendar = new Calendar(eventCreate);
-            await calendar.gapiLoaded();
-            calendar.gisLoaded();
-            calendar.handleAuthClick();
+            // const calendar = new Calendar(eventCreate);
+            // await calendar.gapiLoaded();
+            // calendar.gisLoaded();
+            // calendar.handleAuthClick();
             // await calendar.createEvent();
         }
     });
