@@ -65,8 +65,8 @@ tech:
         - /assets/images/tech/aws.png
         - /assets/images/tech/azure.png
         - /assets/images/tech/cloudera.png
-        - /assets/images/tech/databricks.png
-        - /assets/images/tech/docker.png
+        - /assets/images/tech/open-ai.png
+        - /assets/images/tech/sedona.png
         - /assets/images/tech/gcp.png
         - /assets/images/tech/hadoop.png
     slider_2:
@@ -76,9 +76,9 @@ tech:
         - /assets/images/tech/python.png
         - /assets/images/tech/scala.png
         - /assets/images/tech/scikit.png
-        - /assets/images/tech/sedona.png
+        - /assets/images/tech/snowflake.png
         - /assets/images/tech/spark.png
-        - /assets/images/tech/tableau.png
+        - /assets/images/tech/superset.png
 
 testimonials:
     - number: '1'
