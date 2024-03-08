@@ -1,5 +1,5 @@
 const nav = document.getElementById("navbar");
-window.addEventListener("scroll", () => {
+function ScrollPosition(){
     if (window.scrollY > 40) {
         nav?.classList.remove("staticnav");
         nav?.classList.add("navbar-scrolled");
@@ -7,4 +7,10 @@ window.addEventListener("scroll", () => {
         nav?.classList.add("staticnav");
         nav?.classList.remove("navbar-scrolled");
     }
+}
+window.addEventListener("scroll", () => {
+    ScrollPosition();
 });
+document.addEventListener("DOMContentLoaded", ()=>{
+    ScrollPosition();
+})

@@ -52,6 +52,10 @@ const path = Astro.url.pathname;
     font-size: 1.5rem;
     font-weight: 400;
   }
+
+  .active-link{
+    color:#52CEC7;
+  }
 </style>
 
 <header
@@ -99,7 +103,7 @@ const path = Astro.url.pathname;
         <li class="nav-item dropdown">
           <a
             href="/services"
-            class={path.includes("services")?"nav-link  nav-links active":"nav-link nav-links"}
+            class={path.includes("services")?"nav-link  nav-links active-link":"nav-link nav-links"}
             data-bs-auto-close="outside"
             aria-expanded="false">Services</a
           >
