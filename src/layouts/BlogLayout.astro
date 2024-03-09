@@ -11,6 +11,7 @@ import '../styles/container.css'
     color: white;
   }
   .page-wrapper{
+<<<<<<< Updated upstream
     padding-top: 5rem;
   }
   
@@ -38,6 +39,29 @@ import '../styles/container.css'
     const swiper = new Swiper(htmlValueElement, options); // eslint-disable-line no-undef
   });
 </script> -->
+=======
+    padding-top: 4.56rem;
+  }
+  
+   
+  .white-70{
+    color:rgba(255,255,255,70%);
+  }
+  .white-90{
+    color:rgba(255,255,255,90%)
+  }
+  .key{
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .input{
+    border: solid 1px white;
+    border-radius: 8px;
+    color:white;
+  }
+</style>
+
+>>>>>>> Stashed changes
 
 <Layout>
   <Navbar />
@@ -47,18 +71,30 @@ import '../styles/container.css'
   >
     <section class="container pt-5 mt-5">
       <div class="row">
+<<<<<<< Updated upstream
         <div class="col-lg-9 col-xl-8 pe-lg-4 pe-xl-0">
           <!-- Post title + post meta -->
           <h1 class="pb-2 pb-lg-3 text-white">
+=======
+        <div class="col-lg-9 col-xl-8 pe-lg-4 pe-xl-0 pb-5">
+          <!-- Post title + post meta -->
+          <h1 class="pb-2 pb-lg-3 text-white" style="font-size: 2.5rem;">
+>>>>>>> Stashed changes
             {frontmatter.title}
           </h1>
           <div
             class="d-flex flex-wrap align-items-center justify-content-between border-bottom mb-4 text-white"
           >
             <div class="d-flex align-items-center mb-4 me-4">
+<<<<<<< Updated upstream
               <span class="fs-sm me-2">By:</span>
               <a
                 class="nav-link position-relative fw-semibold p-0 text-white"
+=======
+              <span class="fs-sm me-2 white-70">By:</span>
+              <a
+                class="nav-link position-relative fw-semibold p-0 white-90"
+>>>>>>> Stashed changes
                 href="#author"
                 data-scroll
                 data-scroll-offset="80"
@@ -84,7 +120,11 @@ import '../styles/container.css'
                 </a>
                 <a
                   class="nav-link p-2 me-2 text-white"
+<<<<<<< Updated upstream
                   href="#"
+=======
+                  href="https://www.facebook.com/sharer/sharer.php?u=http%3A//localhost%3A4321/posts/post-1"
+>>>>>>> Stashed changes
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title="Facebook"
@@ -117,7 +157,11 @@ import '../styles/container.css'
           </div>
 
           <!-- Post content -->
+<<<<<<< Updated upstream
           <p class="fs-lg pt-2 pt-sm-3 text-white">
+=======
+          <p class="fs-lg pt-2 pt-sm-3 white-70" style="font-size: 1.125rem;">
+>>>>>>> Stashed changes
             {frontmatter.description}
 
           </p>
@@ -130,11 +174,19 @@ import '../styles/container.css'
 
           <!-- Tags -->
           <div class="d-flex flex-wrap pb-5 pt-3 pt-md-4 pt-xl-5 mt-xl-n2">
+<<<<<<< Updated upstream
             <h3 class="h6 py-1 mb-0 me-4 text-white">Relevant tags:</h3>
             {
               frontmatter.tags.map((tag:any)=>{
                 return (
                 <a class="nav-link fs-sm py-1 px-0 me-3 text-white" href="#">
+=======
+            <h3 class=" py-1 mb-0 me-4 text-white" style="font-size: 1rem; font-weight:400">Relevant tags:</h3>
+            {
+              frontmatter.tags.map((tag:any)=>{
+                return (
+                <a class="nav-link fs-sm py-1 px-0 me-3 text-white" href="#" style="font-size:0.875rem; font-weight:700;">
+>>>>>>> Stashed changes
                   <span class="">#</span>{tag}
                 </a>
                 )
@@ -153,8 +205,13 @@ import '../styles/container.css'
               />
               <div class="d-md-flex w-100 ps-4">
                 <div style="max-width: 26rem;">
+<<<<<<< Updated upstream
                   <h3 class="h5 mb-2 text-white">{frontmatter.author}</h3>
                   <p class="fs-sm mb-0 text-white">
+=======
+                  <h3 class="mb-2 text-white" style="font-size:1.25rem; font-weight: 400;">{frontmatter.author}</h3>
+                  <p class="fs-sm mb-0 white-700" style="font-size: 0.875rem; font-weight: 400;">
+>>>>>>> Stashed changes
                     {frontmatter.author_desc}
                   </p>
                 </div>
@@ -207,6 +264,7 @@ import '../styles/container.css'
             </div>
           </div>
 
+<<<<<<< Updated upstream
           <!-- Comments -->
           <div class="pt-4 pt-xl-5 mt-4" id="comments">
             <h2 class="h1 py-lg-1 py-xl-3 text-white">14 comments</h2>
@@ -406,6 +464,104 @@ import '../styles/container.css'
           <div class="giscus">
 
           </div>
+=======
+          
+
+          <div class="giscus pt-5 pb-4 border-bottom" >
+
+          </div>
+
+          
+
+          <!-- Subscription -->
+            <section
+            class="mb-2 mb-md-3 mb-xl-4 py-4 border-top mt-4"
+            data-bs-theme="dark"
+          >
+            <div
+              class="position-relative bg-dark rounded-5 overflow-hidden p-md-5 p-4"
+            >
+              <div
+                class="position-absolute top-0 start-0 w-100 h-100"
+                style="background-color: rgba(255, 255, 255, .03);"
+              >
+              </div>
+              <div class="position-relative p-xl-2 p-md-2 px-sm-3">
+                <h2 class="h1 pb-md-4 pb-3 mt-n2" style="font-size: 2.5rem;">
+                  Stay up to date with important news!
+                </h2>
+                <div class="row gy-md-5 gy-4 gx-xl-5">
+                  <div class="col-lg-12">
+                    <div
+                      class="row row-cols-sm-3 row-cols-2 gy-lg-4 gy-3 gx-xl-4 gx-sm-3 gx-2"
+                    >
+                      <div class="col">
+                        <div class="form-check mb-0">
+                          <label
+                            class="form-check-label fs-base fw-medium"
+                            for="advert-updates">Advertising Updates</label
+                          >
+                          <input
+                            class="form-check-input"
+                            id="advert-updates"
+                            type="checkbox"
+                            checked
+                          />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-check mb-0">
+                          <label
+                            class="form-check-label fs-base fw-medium"
+                            for="newsletter">Daily Newsletter</label
+                          >
+                          <input
+                            class="form-check-input"
+                            id="newsletter"
+                            type="checkbox"
+                          />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-check mb-0">
+                          <label
+                            class="form-check-label fs-base fw-medium"
+                            for="week-in-review">Week in Review</label
+                          >
+                          <input
+                            class="form-check-input"
+                            id="week-in-review"
+                            type="checkbox"
+                          />
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="input-group rounded">
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="Your email"
+                      />
+                      <button class="btn btn-primary rounded-pill" type="button"
+                        >Subscribe</button
+                      >
+                    </div>
+                    <div class="form-text mt-3 fs-sm">
+                      * Yes, I agree to the <a href="#" style="color:#2FB7B8">terms</a> and 
+                      <a href="#" style="color:#2FB7B8"
+                        >privacy policy</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+>>>>>>> Stashed changes
         </div>
 
         <!-- Sidebar (offcanvas on sreens < 992px) -->
@@ -428,7 +584,11 @@ import '../styles/container.css'
                 <!-- Category links -->
                 <div
                   class="col contact-div offset-xxl-1 pt-sm-3 sticky-top"
+<<<<<<< Updated upstream
                   style="margin-left: -50px; z-index:1"
+=======
+                  style="margin-left: -50px; z-index:1; top:7rem;"
+>>>>>>> Stashed changes
                 >
                   <!-- Contact form -->
                   <div
@@ -440,16 +600,29 @@ import '../styles/container.css'
                   >
                     <form class="card-body" data-bs-theme="dark">
                       <h2
+<<<<<<< Updated upstream
                         class="h3 card-title text-white text-center pb-2 pb-xxl-3"
+=======
+                        class="card-title text-white text-center pb-2 pb-xxl-3"
+                        style="font-size: 1.5rem; font-weight: 700;"
+>>>>>>> Stashed changes
                       >
                         30 mins FREE Consultation
                       </h2>
                       <div class="mb-3">
+<<<<<<< Updated upstream
                         <label class="form-label fs-base" for="name">
                           Your Name
                         </label>
                         <input
                           class="form-control form-control-sm"
+=======
+                        <label class="form-label fs-base key" for="name">
+                          Your Name
+                        </label>
+                        <input
+                          class="form-control form-control-sm input" 
+>>>>>>> Stashed changes
                           type="text"
                           placeholder="John Doe"
                           required
@@ -457,11 +630,19 @@ import '../styles/container.css'
                         />
                       </div>
                       <div class="mb-3">
+<<<<<<< Updated upstream
                         <label class="form-label fs-base" for="company">
                           Company Name
                         </label>
                         <input
                           class="form-control form-control-sm"
+=======
+                        <label class="form-label fs-base key" for="company">
+                          Company Name
+                        </label>
+                        <input
+                          class="form-control form-control-sm input"
+>>>>>>> Stashed changes
                           type="text"
                           placeholder="Your company name"
                           required
@@ -469,11 +650,19 @@ import '../styles/container.css'
                         />
                       </div>
                       <div class="mb-3">
+<<<<<<< Updated upstream
                         <label class="form-label fs-base" for="email">
                           Email address
                         </label>
                         <input
                           class="form-control form-control-sm"
+=======
+                        <label class="form-label fs-base key" for="email">
+                          Email address
+                        </label>
+                        <input
+                          class="form-control form-control-sm input"
+>>>>>>> Stashed changes
                           type="email"
                           placeholder="Email address"
                           required
@@ -481,12 +670,20 @@ import '../styles/container.css'
                         />
                       </div>
                       <div class="mb-3">
+<<<<<<< Updated upstream
                         <label class="form-label" for="date-time-picker"
+=======
+                        <label class="form-label key" for="date-time-picker"
+>>>>>>> Stashed changes
                           >Date and time</label
                         >
                         <div class="position-relative">
                           <input
+<<<<<<< Updated upstream
                             class="form-control form-control-sm date-picker pe-5"
+=======
+                            class="form-control form-control-sm date-picker pe-5 input"
+>>>>>>> Stashed changes
                             type="text"
                             placeholder="Choose date/time"
                             data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}'
@@ -502,7 +699,11 @@ import '../styles/container.css'
                       >
                         <button
                           class="btn book-btn w-100 w-sm-auto w-lg-100 w-xxl-200 me-sm-3 me-lg-0 me-xxl-3"
+<<<<<<< Updated upstream
                           style=" background-color:white; color:#30BABA"
+=======
+                          style=" background-color:white; color:#30BABA; border-radius: 8px;"
+>>>>>>> Stashed changes
                           type="submit">Book now</button
                         >
                       </div>
@@ -515,6 +716,7 @@ import '../styles/container.css'
         </aside>
         
 
+<<<<<<< Updated upstream
         <!-- Subscription -->
         <section
           class="container mb-2 mb-md-3 mb-xl-4 pb-2"
@@ -641,6 +843,9 @@ import '../styles/container.css'
           </div>
         </section>
         <!-- Sidebar toggle button -->
+=======
+        
+>>>>>>> Stashed changes
         <!-- Sidebar toggle button -->
           <button
           class="d-lg-none btn btn-sm fs-sm btn-primary w-100 rounded-0 fixed-bottom"
@@ -652,7 +857,10 @@ import '../styles/container.css'
           Sidebar
         </button>
 
+<<<<<<< Updated upstream
         <!-- Subscription -->
+=======
+>>>>>>> Stashed changes
       </div>
     </section>
   </main>
@@ -665,7 +873,11 @@ import '../styles/container.css'
         data-category-id="DIC_kwDOFQVrZs4CdzGl"
         data-mapping="url"
         data-strict="0"
+<<<<<<< Updated upstream
         data-reactions-enabled="1"
+=======
+        data-reactions-enabled="0"
+>>>>>>> Stashed changes
         data-emit-metadata="0"
         data-input-position="top"
         data-theme="preferred_color_scheme"
