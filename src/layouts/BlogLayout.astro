@@ -2,8 +2,10 @@
 import Layout from "./Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
 const { frontmatter } = Astro.props;
-
+import Consultation_form from "../components/common/ConsultationForm.astro";
 import '../styles/container.css'
+const url  = Astro.url.href;
+console.log(url);
 ---
 
 <style>
@@ -63,51 +65,7 @@ import '../styles/container.css'
                   style="background-color: currentColor; height: 1px;"></span>
               </a>
             </div>
-            <div class="d-flex align-items-center mb-4">
-              <span class="fs-sm me-2">Share post:</span>
-              <div class="d-flex">
-                <a
-                  class="nav-link p-2 me-2 text-white"
-                  href="#"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Instagram"
-                  aria-label="Instagram"
-                >
-                  <i class="ai-instagram"></i>
-                </a>
-                <a
-                  class="nav-link p-2 me-2 text-white"
-                  href="https://www.facebook.com/sharer/sharer.php?u=http%3A//localhost%3A4321/posts/post-1"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Facebook"
-                  aria-label="Facebook"
-                >
-                  <i class="ai-facebook"></i>
-                </a>
-                <a
-                  class="nav-link p-2 me-2 text-white"
-                  href="#"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Telegram"
-                  aria-label="Telegram"
-                >
-                  <i class="ai-telegram fs-sm"></i>
-                </a>
-                <a
-                  class="nav-link p-2 text-white"
-                  href="#"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="X"
-                  aria-label="X"
-                >
-                  <i class="ai-x"></i>
-                </a>
-              </div>
-            </div>
+            
           </div>
 
           <!-- Post content -->
@@ -141,8 +99,8 @@ import '../styles/container.css'
             <div class="d-flex align-items-start py-2">
               <img
                 class="d-block rounded-circle mb-3"
-                src="/assets/img/avatar/04.jpg"
-                width="56"
+                src={frontmatter.author_img}
+                width="56" height="56"
                 alt="Author image"
               />
               <div class="d-md-flex w-100 ps-4">
@@ -157,17 +115,19 @@ import '../styles/container.css'
                   <div class="d-flex">
                     <a
                       class="nav-link p-2 me-2 text-white"
-                      href="#"
+                      href={"https://www.linkedin.com/sharing/share-offsite/?url="+url}
+                      target="_blank"
                       data-bs-toggle="tooltip"
                       data-bs-placement="bottom"
-                      title="Instagram"
-                      aria-label="Instagram"
+                      title="LinkedIn"
+                      aria-label="LinkedIn"
                     >
-                      <i class="ai-instagram"></i>
+                      <i class="ai-linkedin"></i>
                     </a>
                     <a
                       class="nav-link p-2 me-2 text-white"
-                      href="#"
+                      href={"https://www.facebook.com/sharer/sharer.php?u="+url}
+                      target="_blank"
                       data-bs-toggle="tooltip"
                       data-bs-placement="bottom"
                       title="Facebook"
@@ -177,7 +137,8 @@ import '../styles/container.css'
                     </a>
                     <a
                       class="nav-link p-2 me-2 text-white"
-                      href="#"
+                      href={"https://telegram.me/share/url?url="+url+"&text="+frontmatter.title}
+                      target="_blank"
                       data-bs-toggle="tooltip"
                       data-bs-placement="bottom"
                       title="Telegram"
@@ -187,7 +148,8 @@ import '../styles/container.css'
                     </a>
                     <a
                       class="nav-link p-2 text-white"
-                      href="#"
+                      href={"http://www.twitter.com/share?url="+url}
+                      target="_blank"
                       data-bs-toggle="tooltip"
                       data-bs-placement="bottom"
                       title="X"
@@ -210,7 +172,7 @@ import '../styles/container.css'
           
 
           <!-- Subscription -->
-            <section
+            <!-- <section
             class="mb-2 mb-md-3 mb-xl-4 py-4 border-top mt-4"
             data-bs-theme="dark"
           >
@@ -295,7 +257,7 @@ import '../styles/container.css'
                 </div>
               </div>
             </div>
-          </section>
+          </section> -->
 
         </div>
 
@@ -311,7 +273,7 @@ import '../styles/container.css'
                 data-bs-target="#sidebar"
                 aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body" style=" height:100%;">
+            <div class="offcanvas-body" style=" height:100%; padding-bottom: 1rem;">
               <!-- Popular posts -->
               <div class="offcanvas-body" style="height: 100%;">
                 <!-- Search box -->
@@ -319,86 +281,17 @@ import '../styles/container.css'
                 <!-- Category links -->
                 <div
                   class="col contact-div offset-xxl-1 pt-sm-3 sticky-top"
-                  style="margin-left: -50px; z-index:1; top:7rem;"
+                  style="margin-left: -50px; z-index:1; top:6rem;"
                 >
                   <!-- Contact form -->
                   <div
                     class="card contact-form
                   border-0
-                  py-4
-                  px-xxl-4"
-                    style="background-color: #30BABA;border-radius: 15px;"
+                  pt-3
+                  px-xxl-3"
+                    style="background-color: #30BABA;border-radius: 15px; box-shadow: 0px 2px 25px 0px rgba(123, 123, 123, 0.48);"
                   >
-                    <form class="card-body" data-bs-theme="dark">
-                      <h2
-                        class="card-title text-white text-center pb-2 pb-xxl-3"
-                        style="font-size: 1.5rem; font-weight: 700;"
-                      >
-                        30 mins FREE Consultation
-                      </h2>
-                      <div class="mb-3">
-                        <label class="form-label fs-base key" for="name">
-                          Your Name
-                        </label>
-                        <input
-                          class="form-control form-control-sm input" 
-                          type="text"
-                          placeholder="John Doe"
-                          required
-                          id="name"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label fs-base key" for="company">
-                          Company Name
-                        </label>
-                        <input
-                          class="form-control form-control-sm input"
-                          type="text"
-                          placeholder="Your company name"
-                          required
-                          id="company"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label fs-base key" for="email">
-                          Email address
-                        </label>
-                        <input
-                          class="form-control form-control-sm input"
-                          type="email"
-                          placeholder="Email address"
-                          required
-                          id="email"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label key" for="date-time-picker"
-                          >Date and time</label
-                        >
-                        <div class="position-relative">
-                          <input
-                            class="form-control form-control-sm date-picker pe-5 input"
-                            type="text"
-                            placeholder="Choose date/time"
-                            data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}'
-                            id="date-time-picker"
-                          />
-                          <i
-                            class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
-                          ></i>
-                        </div>
-                      </div>
-                      <div
-                        class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
-                      >
-                        <button
-                          class="btn book-btn w-100 w-sm-auto w-lg-100 w-xxl-200 me-sm-3 me-lg-0 me-xxl-3"
-                          style=" background-color:white; color:#30BABA; border-radius: 8px;"
-                          type="submit">Book now</button
-                        >
-                      </div>
-                    </form>
+                    <Consultation_form/>
                   </div>
                 </div>
               </div>
@@ -406,18 +299,6 @@ import '../styles/container.css'
           </div>
         </aside>
         
-
-        
-        <!-- Sidebar toggle button -->
-          <button
-          class="d-lg-none btn btn-sm fs-sm btn-primary w-100 rounded-0 fixed-bottom"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#sidebarBlog"
-        >
-          <i class="ai-layout-column me-2"></i>
-          Sidebar
-        </button>
 
       </div>
     </section>

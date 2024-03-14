@@ -24,3 +24,8 @@ body {
 .cm__title{
     color: white !important;
 }
+
+#book-now{
+    background-color: white !important;
+    color:#52CEC7 !important;
+  }
