@@ -6,7 +6,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "postbuild": "pagefind --site dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.6",
@@ -61,6 +62,7 @@
     "jquery": "^3.7.1",
     "mini-css-extract-plugin": "^2.8.0",
     "node-notifier": "^10.0.1",
+    "pagefind": "^1.0.4",
     "react": "^18.2.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",

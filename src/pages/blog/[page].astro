@@ -48,14 +48,15 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   <main
     class="page-wrapper wrapper"
     style="background-image: url(/assets/images/background-pattern.png);"
+    data-pagefind-ignore
   >
     <Navbar />
     <div class="container pt-3 pb-lg-5 pb-md-4 pb-2 my-5">
       <div class="row mb-md-2 mb-xl-4">
         <!-- Blog posts -->
         <div class="col-lg-9 pe-lg-4 pe-xl-5">
-          <h1 class="pb-3 pb-lg-4 text-white">Blog list with sidebar</h1>
- 
+          <!-- <h1 class="pb-3 pb-lg-4 text-white">Blog list with sidebar</h1> -->
+          <div id="results"></div>
           <!-- Post -->
           {
             (page['data'] as Object[]).map((post:any) => (
@@ -106,6 +107,7 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
                   class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"
                 ></i>
                 <input
+                  id="search"
                   class="form-control ps-5"
                   type="search"
                   placeholder="Enter keyword"
@@ -148,3 +150,33 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   </main>
 </Layout>
 
+
+
+<script is:inline>
+  document.querySelector('#search')?.addEventListener('input', async (e) => {
+    // only load the pagefind script once
+    if (e.target.dataset.loaded !== 'true') {
+      e.target.dataset.loaded = 'true'
+      // load the pagefind script
+      window.pagefind = await import("/pagefind/pagefind.js");
+    }
+
+    // search the index using the input value
+    const search = await window.pagefind.search(e.target.value)
+
+    // clear the old results
+    document.querySelector('#results').innerHTML = `
+    <h2>Search Results</h2>`
+
+    // add the new results
+    for (const result of search.results) {
+      const data = await result.data()
+      
+      document.querySelector('#results').innerHTML += `
+        <a href="${data.url}">
+          <h3>${data.meta.title}</h3>
+          <p>${data.excerpt}</p>
+        </a>`
+    }
+  })
+</script>
