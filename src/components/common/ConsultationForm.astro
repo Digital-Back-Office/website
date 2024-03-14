@@ -1,6 +1,8 @@
 ---
 import "flatpickr/dist/flatpickr.min.css";
 import "flatpickr/dist/themes/dark.css";
+const url =  Astro.url.pathname
+console.log(url)
 ---
 
 <script>
@@ -150,7 +152,8 @@ import "flatpickr/dist/themes/dark.css";
     >
         <button
             id="book-now"
-            class="btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py"
+            class={(url==='/')?" btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py":
+            "btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py bookNow-btn"}
             type="submit">Book now</button
         >
     </div>
