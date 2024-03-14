@@ -76,6 +76,12 @@ import "flatpickr/dist/themes/dark.css";
 
                 if (response.ok) {
                     console.log("Form submitted successfully!");
+                    const popUp = document.getElementById("pop-up") as HTMLElement;
+                    popUp.style.display = 'block';
+                    setTimeout(()=>{
+                    popUp.style.display = 'none';
+                    }, 3000)
+
                 } else {
                     console.error("Failed to submit form.");
                 }

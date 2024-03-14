@@ -3,16 +3,13 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/common/Navbar.astro";
 const allPosts = await Astro.glob("../../pages/posts/*.mdx");
 import Card from "../../components/blog/Card.astro";
+import Consultation_form from "../../components/common/ConsultationForm.astro";
 
 import '../../styles/container.css'
-const path = Astro.url.search!==""?Astro.url.search:"pageSize:5";
-//console.log(Astro.url);
 
 export async function getStaticPaths({ paginate }:any):Promise<any>{
   const allPosts = await Astro.glob("../../pages/posts/*.mdx");
   const pageSize = 5; 
-  
-  // Generate pages from our array of astronauts, with 2 to a page
   return paginate(allPosts, { pageSize: pageSize });
 }
 const {page} = Astro.props;
@@ -72,25 +69,9 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
           }
           <!-- Pagination -->
           <div class="row gy-3 align-items-center mt-lg-5 pt-2 pt-md-4 pt-lg-0">
-            <div class="col col-md-4 col-6 order-md-1 order-1">
-              <div class="d-flex align-items-center">
-                <span class="text-body-secondary fs-sm">Show</span>
-                <select class="form-select form-select-flush w-auto" id="page-size-toggle">
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                  <option value="25">25</option>
-                </select>
-              </div>
-            </div>
-            <div class="col col-md-4 col-12 order-md-2 order-3 text-center">
-              <button class="btn btn-primary w-md-auto w-100" type="button" style="border-radius: 7px;"
-                >Load more posts</button
-              >
-            </div>
             <div class="col col-md-4 col-6 order-md-3 order-2">
               <nav aria-label="Page navigation">
-                <ul class="pagination pagination-sm justify-content-end">
+                <ul class="pagination pagination-sm justify-content-start">
                   {
                     pages.map((pageNo)=>{
                       return (
@@ -118,7 +99,7 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
                 data-bs-target="#sidebarBlog"
                 aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body" style=" height:100%; ">
+            <div class="offcanvas-body" style=" height:100%; padding-bottom:1rem;">
               <!-- Search box -->
               <div class="position-relative mb-4 mb-lg-5">
                 <i
@@ -134,92 +115,20 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
               <!-- Category links -->
               <div
                 class="col contact-div offset-xxl-1 pt-sm-3 sticky-top forum"
-                style="margin-left: -50px; top:5rem;  z-index:5;"
+                style="margin-left: -50px; top:6rem;  z-index:5;"
               >
                 <!-- Contact form -->
                 <div
                   id="sticky-component"
                   class="card contact-form
                 border-0
-                py-4
-                px-xxl-4"
+                pt-3
+                px-xxl-3"
                   style="background-color: #30BABA;border-radius: 15px;"
                 >
-                  <form class="card-body" data-bs-theme="dark">
-                    <h2
-                      class="h3 card-title text-white text-center pb-2 pb-xxl-3"
-                    >
-                      30 mins FREE Consultation
-                    </h2>
-                    <div class="mb-3">
-                      <label class="form-label fs-base" for="name">
-                        Your Name
-                      </label>
-                      <input
-                        class="form-control form-control-sm"
-                        type="text"
-                        placeholder="John Doe"
-                        required
-                        id="name"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label fs-base" for="company">
-                        Company Name
-                      </label>
-                      <input
-                        class="form-control form-control-sm"
-                        type="text"
-                        placeholder="Your company name"
-                        required
-                        id="company"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label fs-base" for="email">
-                        Email address
-                      </label>
-                      <input
-                        class="form-control form-control-sm"
-                        type="email"
-                        placeholder="Email address"
-                        required
-                        id="email"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="date-time-picker"
-                        >Date and time</label
-                      >
-                      <div class="position-relative">
-                        <input
-                          class="form-control form-control-sm date-picker pe-5"
-                          type="text"
-                          placeholder="Choose date/time"
-                          data-datepicker-options='{"enableTime": true, "altInput": true, "altFormat": "F j, Y H:i", "dateFormat": "Y-m-d H:i"}'
-                          id="date-time-picker"
-                        />
-                        <i
-                          class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
-                        ></i>
-                      </div>
-                    </div>
-                    <div
-                      class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
-                    >
-                      <button
-                        class="btn book-btn w-100 w-sm-auto w-lg-100 w-xxl-200 me-sm-3 me-lg-0 me-xxl-3"
-                        style=" background-color:white; color:#30BABA"
-                        type="submit">Book now</button
-                      >
-                    </div>
-                  </form>
+                  <Consultation_form/>
                 </div>
               </div>
-
-              <!-- Featured posts widget -->
-
-              <!-- Social buttons -->
             </div>
           </div>
         </aside>
@@ -239,18 +148,3 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   </main>
 </Layout>
 
-<script>
-  //console.log(window.location.href)
-  const pageSize = parseInt(new URLSearchParams(window.location.search).get("pageSize") || "");
-  const pageSizeToggle  = document.getElementById("page-size-toggle") as HTMLInputElement;
-  // const currWindow = window.location.pathname;
-  //   console.log(currWindow)
-
-  pageSizeToggle.addEventListener("change", ()=>{
-    const value = (pageSizeToggle.value);
-    
-    window.location.href = "http://localhost:4321/blog/1?pageSize="+value;
-  })
-
-  
-</script>

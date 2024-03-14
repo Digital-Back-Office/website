@@ -1,7 +1,8 @@
 ---
 const { title, url, description, image } = Astro.props;
 
-const desc = (description.length>140)?description.substr(0, 140).trim()+"..":description;
+const title1 = (title.length>45)?title.substr(0, 45).trim()+"..":title;
+const desc = (description.length>100)?description.substr(0, 100).trim()+"..":description;
 ---
 
 <style>
@@ -14,12 +15,12 @@ const desc = (description.length>140)?description.substr(0, 140).trim()+"..":des
   <a
     class="col-sm-5 bg-repeat-0 bg-size-cover bg-position-center rounded-5"
     href={url}
-    style={{ backgroundImage: `url(${image.url})`, minHeight: " 14rem" }}
+    style={{ backgroundImage: `url(${image})`, minHeight: " 14rem" }}
     aria-label="Post image"></a>
   <div class="col-sm-7">
     <div class="pt-4 pb-sm-4 ps-sm-4 pe-lg-4 text-white">
       <h3 class="text-white">
-        <a href={url}>{title}</a>
+        <a href={url}>{title1}</a>
       </h3>
       <p class="d-sm-none d-md-block text-white">
         {desc}
