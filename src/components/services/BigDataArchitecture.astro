@@ -1,12 +1,7 @@
 ---
-// import { Image } from "astro:assets";
-// import patterns from "/assets/images/services/big-data-architecture/patterns.png"
-
-const heading = "Architectural Patterns";
-const text1 =
-  "Unstructured data is the fastest growing type of data, some example could be imagery, sensors, telemetry, video, documents, log files, and email data files. There are several techniques to address this problem space of unstructured analytics. The techniques share a common characteristics of scale-out, elasticity and high availability. MapReduce, in conjunction with the Hadoop Distributed File System (HDFS) and HBase database, as part of the Apache Hadoop project is a modern approach to analyze unstructured data. Hadoop clusters are an effective means of processing massive volumes of data, and can be improved with the right architectural approach.";
-const text2 =
-  "We support all three key architectural patterns, based on needs of the Business..";
+import { getEntry } from "astro:content";
+const Data = await getEntry("services", "services");
+const data = Data.data.individual_page.data_architecture;
 ---
 
 <style>
@@ -41,19 +36,19 @@ const text2 =
     <div class="col-md-6 col-xl-5 order-md-1">
       <div class="pe-md-4 pe-xl-0">
         <h2 class="h1 pb-2 pb-lg-3" style="color:white">
-          {heading}
+          {data.heading}
         </h2>
         <p
           class="pb-2 pb-lg-0 mb-3 mb-lg-3"
           style="color:rgba(255, 255, 255, 0.7)"
         >
-          {text1}
+          {data.text1}
         </p>
         <p
           class="pb-2 pb-lg-0 mb-3 mb-lg-3"
           style="color:rgba(255, 255, 255, 0.7)"
         >
-          {text2}
+          {data.text2}
         </p>
 
       </div>

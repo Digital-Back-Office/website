@@ -86,9 +86,9 @@ console.log(url);
             {
               frontmatter.tags.map((tag:any)=>{
                 return (
-                <a class="nav-link fs-sm py-1 px-0 me-3 text-white" href="#" style="font-size:0.875rem; font-weight:700;">
+                <span class="nav-link fs-sm py-1 px-0 me-3 text-white" style="font-size:0.875rem; font-weight:700;">
                   <span class="">#</span>{tag}
-                </a>
+                </span>
                 )
               })
             }
@@ -165,7 +165,7 @@ console.log(url);
 
           
 
-          <div class="giscus pt-5 pb-4 border-bottom" >
+          <div class="giscus pt-5 pb-4 border-bottom" id="comments">
 
           </div>
 

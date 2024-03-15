@@ -1,7 +1,7 @@
 ---
 const { title, url, description, image } = Astro.props;
 
-const title1 = (title.length>45)?title.substr(0, 45).trim()+"..":title;
+const title1 = (title.length>40)?title.substr(0, 40).trim()+"..":title;
 const desc = (description.length>100)?description.substr(0, 100).trim()+"..":description;
 ---
 
@@ -25,6 +25,19 @@ const desc = (description.length>100)?description.substr(0, 100).trim()+"..":des
       <p class="d-sm-none d-md-block text-white">
         {desc}
       </p>
+      <div class="d-flex flex-wrap align-items-center mt-n2">
+        <a
+          class="nav-link text-body-secondary fs-sm fw-normal d-flex align-items-end p-0 mt-2"
+          href={url+"#comments"}
+        >
+          <i class="ai-message fs-lg ms-1"></i>
+        </a>
+        
+        <span class="fs-xs opacity-20 mt-2 mx-3">|</span>
+        <a class="badge text-nav fs-xs border mt-2 text-white" href="#"
+          >Business</a
+        >
+      </div>
       
     </div>
   </div>

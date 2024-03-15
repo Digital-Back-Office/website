@@ -173,9 +173,10 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
       const data = await result.data()
       
       document.querySelector('#results').innerHTML += `
-        <a href="${data.url}">
-          <h3>${data.meta.title}</h3>
-          <p>${data.excerpt}</p>
+        <a style="text-decoration:none;" href="${data.url}">
+          <h4>${data.meta.title}</h3>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,70%);">
+            ${data.excerpt}</p>
         </a>`
     }
   })
