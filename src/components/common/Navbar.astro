@@ -130,7 +130,7 @@ const path = Astro.url.pathname;
             </li>
           </ul>
         </li>
-        <li class={path === "/blog" ? "nav-item active" : "nav-item"}>
+        <li class={path.includes("blog") ? "nav-item active" : "nav-item"}>
           <a href="/blog/1" class="nav-link nav-links">Blog</a>
         </li>
       </ul>

@@ -41,8 +41,8 @@ const url  = Astro.url.href;
     style="background-image: url(/assets/images/background-pattern.png);"
   >
     <section class="container pt-5 mt-5">
-      <div class="row">
-        <div class="col-lg-9 col-xl-8 pe-lg-4 pe-xl-0 pb-5">
+      <div class="row justify-content-between">
+        <div class="col-lg-8 col-xl-8 pe-lg-4 pe-xl-0 pb-5">
           <!-- Post title + post meta -->
           <h1 class="pb-2 pb-lg-3 text-white" style="font-size: 2.5rem;">
             {frontmatter.title}
@@ -171,7 +171,7 @@ const url  = Astro.url.href;
         </div>
 
         <!-- Sidebar (offcanvas on sreens < 992px) -->
-        <aside class="col-lg-3 offset-xl-1">
+        <aside class="col-lg-3 col-xl-3 offset-xl-1">
           <div class="offcanvas-lg offcanvas-end" id="sidebar" style="height: 100%;">
             <div class="offcanvas-header">
               <h4 class="offcanvas-title">Sidebar</h4>
