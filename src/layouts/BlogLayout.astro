@@ -36,7 +36,8 @@ const url  = Astro.url.href;
 
 <Layout 
   description={frontmatter.description}
-  title={frontmatter.title}>
+  title={frontmatter.title}
+  preview_image={frontmatter.image}>
   <Navbar />
   <main
     class="page-wrapper"
