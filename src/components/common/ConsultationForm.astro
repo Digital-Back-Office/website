@@ -51,6 +51,7 @@ console.log(url)
 
 <script>
     import dateTimeForCalander from "../../utils/helper/date-time-2.js";
+    const form_id = import.meta.env.PUBLIC_FORM_ID;
 
     const BookBtn = document.querySelector(".book-btn");
     BookBtn?.addEventListener("click", async (e) => {
@@ -70,7 +71,7 @@ console.log(url)
 
             const formattedDateTime = dateTimeForCalander(startDateTime);
 
-            const url = `https://docs.google.com/forms/d/e/1FAIpQLScGeBUcnvaFeBvb-paIvh5Olg2zK0DwoBi3ssNYEXYSAqoDuA/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`
+            const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`
  
             try{
                 const response = await fetch(url, { method: "POST" });
