@@ -7,12 +7,16 @@ import '../styles/container.css'
 export interface Props {
   title?: string;
   description?: string;
+  preview_image?:string;
 }
 
 const {
   title = "Digital Back Office",
   description = "We deliver Business Efficiency; We love data!",
+  preview_image = "/preview.jpg"
 } = Astro.props;
+
+const og_description = description.length>200?description.substring(0, 200):description;
 ---
 
 <script src="/assets/js/theme.min.js" is:inline></script>
@@ -29,9 +33,9 @@ const {
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta property="og:title" content="Digital Back Office" />
-    <meta property="og:description" content="We design and build custom solutions for Big Data Processing using open-source and cloud Auto-scaling in a cost-effective manner." />
-    <meta property="og:image" content="/preview.jpg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={og_description} />
+    <meta property="og:image" content={preview_image} />
     <title>{title}</title>
     <link
       rel="stylesheet"

@@ -118,7 +118,9 @@ import ServiceVideo from "../../layouts/ServiceVideo.astro"
   
 </style>
 
-<Layout>
+<Layout
+ title={frontmatter.hero_title}
+ description={frontmatter.p1_text+" "+frontmatter.p2_text}>
     <main class="page-wrapper background-style" data-pagefind-ignore>
         <ServiceVideo src={frontmatter.hero_video}>
           <div class="hero-text container">
