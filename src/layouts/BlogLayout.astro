@@ -4,7 +4,11 @@ import Navbar from "../components/common/Navbar.astro";
 const { frontmatter } = Astro.props;
 import Consultation_form from "../components/common/ConsultationForm.astro";
 import '../styles/container.css'
+import { getEntry } from "astro:content";
 const url  = Astro.url.href;
+
+const data = await getEntry("authors", `${frontmatter.author}`); 
+const author_data = data?.data;
 ---
 
 <style>
@@ -61,7 +65,7 @@ const url  = Astro.url.href;
                 data-scroll
                 data-scroll-offset="80"
               >
-                {frontmatter.author}
+                {author_data.name}
                 <span
                   class="d-block position-absolute start-0 bottom-0 w-100"
                   style="background-color: currentColor; height: 1px;"></span>
@@ -101,15 +105,15 @@ const url  = Astro.url.href;
             <div class="d-flex align-items-start py-2">
               <img
                 class="d-block rounded-circle mb-3"
-                src={frontmatter.author_img}
+                src={author_data.image}
                 width="56" height="56"
                 alt="Author image"
               />
               <div class="d-md-flex w-100 ps-4">
                 <div style="max-width: 26rem;">
-                  <h3 class="mb-2 text-white" style="font-size:1.25rem; font-weight: 400;">{frontmatter.author}</h3>
+                  <h3 class="mb-2 text-white" style="font-size:1.25rem; font-weight: 400;">{author_data.name}</h3>
                   <p class="fs-sm mb-0 white-700" style="font-size: 0.875rem; font-weight: 400;">
-                    {frontmatter.author_desc}
+                    {author_data.description}
                   </p>
                 </div>
                 <div class="pt-4 pt-md-0 ps-md-4 ms-md-auto text-white">
