@@ -19,9 +19,6 @@ export default function dateTimeForCalendar(startDateTime) {
 
     const end = `${endYear}-${endMonth}-${endDay}T${endHour}:${endMinute}:00`;
 
-    console.log('start' + start);
-    console.log('end' + end);
-
     return {
         start: start,
         end: end
