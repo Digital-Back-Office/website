@@ -1,157 +1,193 @@
 ---
 import "flatpickr/dist/flatpickr.min.css";
 import "flatpickr/dist/themes/dark.css";
-const url =  Astro.url.pathname
-console.log(url)
+const url = Astro.url.pathname;
 ---
+<style>
+  .error{
+    
+    padding: 0.3rem 1rem;
+    color: #52CEC7;
+    background-color: black;
+    border-radius: 4px;
+    position: absolute;
+    top: 100%;
+    left:1rem;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  .error::after{
+    content: "";
+    position: absolute;
+    border-radius: 2px;
+    width: 0.9rem; height: 0.9rem;
+    transform: rotate(45deg);
+    background-color: black;
+    top: -0.3rem;
+    left: 0.3rem;
+    
+  }
+</style>
 
 <script>
-    import flatpickr from "flatpickr";
-    flatpickr(".date-picker", {
-        enableTime: true,
-        altInput: true,
-        altFormat: "F j, Y H:i",
-        dateFormat: "Y-m-d H:i",
-        onOpen: function (selectedDates, dateStr, instance) {
-            const calendarContainer = instance.calendarContainer;
-            const monthElement = calendarContainer.querySelector(
-                ".flatpickr-month",
-            ) as HTMLElement;
-            const monthDropDown = calendarContainer.querySelector(
-                ".flatpickr-monthDropdown-months",
-            ) as HTMLElement;
-            const DropDownMonth = calendarContainer.querySelectorAll(
-                ".flatpickr-monthDropdown-month",
-            ) as NodeListOf<HTMLElement>;
-            const weekdays = calendarContainer.querySelectorAll(
-                ".flatpickr-weekday",
-            ) as NodeListOf<HTMLElement>;
-            const currMonth = calendarContainer.querySelector(
-                ".flatpickr-current-month",
-            ) as HTMLElement;
+  // API to get Busy time schedule from calendly
+  import getBusyTimes from "../../utils/api/calendly.js"
 
-            if (monthElement && monthDropDown && weekdays && DropDownMonth) {
-                monthElement.style.backgroundColor = "#121519";
-                monthDropDown.style.backgroundColor = "#121519";
-                currMonth.style.display = "flex";
-                currMonth.style.justifyContent = "space-between";
-                weekdays.forEach((weekday) => {
-                    weekday.style.backgroundColor = "#121519";
-                });
-                DropDownMonth.forEach((month) => {
-                    month.style.backgroundColor = "#121519";
-                });
-            }
-        },
-    });
+  import flatpickr from "flatpickr";
+  flatpickr(".date-picker", {
+    enableTime: true,
+    time_24hr: true,
+    altInput: true,
+    altFormat: "F j, Y H:i",
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+    
+    onOpen: function (selectedDates, dateStr, instance) {
+      const calendarContainer = instance.calendarContainer;
+      const monthElement = calendarContainer.querySelector(
+        ".flatpickr-month"
+      ) as HTMLElement;
+      const monthDropDown = calendarContainer.querySelector(
+        ".flatpickr-monthDropdown-months"
+      ) as HTMLElement;
+      const DropDownMonth = calendarContainer.querySelectorAll(
+        ".flatpickr-monthDropdown-month"
+      ) as NodeListOf<HTMLElement>;
+      const weekdays = calendarContainer.querySelectorAll(
+        ".flatpickr-weekday"
+      ) as NodeListOf<HTMLElement>;
+      const currMonth = calendarContainer.querySelector(
+        ".flatpickr-current-month"
+      ) as HTMLElement;
+
+      if (monthElement && monthDropDown && weekdays && DropDownMonth) {
+        monthElement.style.backgroundColor = "#121519";
+        monthDropDown.style.backgroundColor = "#121519";
+        currMonth.style.display = "flex";
+        currMonth.style.justifyContent = "space-between";
+        weekdays.forEach((weekday) => {
+          weekday.style.backgroundColor = "#121519";
+        });
+        DropDownMonth.forEach((month) => {
+          month.style.backgroundColor = "#121519";
+        });
+      }
+    },
+    onClose: async function (selectedDates, dateStr, instance) {
+      const data = await getBusyTimes();
+    },
+  });
 </script>
 
-<script src="https://apis.google.com/js/api.js" is:inline></script>
-<script src="https://accounts.google.com/gsi/client" is:inline></script>
-
 <script>
-    import dateTimeForCalander from "../../utils/helper/date-time-2.js";
-    const form_id = import.meta.env.PUBLIC_FORM_ID;
+  import dateTimeForCalander from "../../utils/helper/date-time.js";
+  const form_id = import.meta.env.PUBLIC_FORM_ID;
 
-    const BookBtn = document.querySelector(".book-btn");
-    BookBtn?.addEventListener("click", async (e) => {
-        e.preventDefault();
-        // do validation checks
-        const nameInput = document.querySelector("#name") as HTMLInputElement;
-        const emailInput = document.querySelector("#email") as HTMLInputElement;
-        const companyInput = document.querySelector("#company") as HTMLInputElement;
-        const dateTimeInput = document.querySelector("#date-time-picker") as HTMLInputElement;
+  const BookBtn = document.querySelector(".book-btn");
+  BookBtn?.addEventListener("click", async (e) => {
+    e.preventDefault();
+    // do validation checks
+    const nameInput = document.querySelector("#name") as HTMLInputElement;
+    const emailInput = document.querySelector("#email") as HTMLInputElement;
+    const companyInput = document.querySelector("#company") as HTMLInputElement;
+    const dateTimeInput = document.querySelector(
+      "#date-time-picker"
+    ) as HTMLInputElement;
+    const dateSet = document.getElementById("date-set") as HTMLElement;
 
-        const name = nameInput.value;
-        const email = emailInput.value;
-        const company = companyInput.value;
-        const startDateTime = dateTimeInput.value;
+    const name = nameInput.value;
+    const email = emailInput.value;
+    const company = companyInput.value;
+    const startDateTime = dateTimeInput.value;
 
-        if (name && email && company && startDateTime) {
+    if (name && email && company && startDateTime && dateSet.innerHTML==="true") {
+      const formattedDateTime = dateTimeForCalander(startDateTime);
 
-            const formattedDateTime = dateTimeForCalander(startDateTime);
+      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`;
 
-            const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`
- 
-            try{
-                const response = await fetch(url, { method: "POST" });
-            }catch(error){
-                console.log(error);
-            }
-            const popUp = document.getElementById("pop-up") as HTMLElement;
-            popUp.style.display = 'block';
-            setTimeout(()=>{
-            popUp.style.display = 'none';
-            }, 3000)
-            emailInput.value = "";
-            companyInput.value ="";
-            nameInput.value = "";
-            dateTimeInput.value = "";     
-        }
-    });
+      try {
+        const response = await fetch(url, { method: "POST" });
+      } catch (error) {
+        console.log(error);
+      }
+      const popUp = document.getElementById("pop-up") as HTMLElement;
+      popUp.style.display = "block";
+      setTimeout(() => {
+        popUp.style.display = "none";
+      }, 3000);
+      emailInput.value = "";
+      companyInput.value = "";
+      nameInput.value = "";
+      dateTimeInput.value = "";
+    }
+  });
 </script>
 
 <form class="card-body">
-    <h2 class="h3 card-title text-white text-center pb-2 pb-xxl-3">
-        30 mins FREE Consultation
-    </h2>
-    <div class="mb-2">
-        <label class="form-label fs-base" for="name"> Your Name</label>
-        <input
-            class="form-control form-control-lg fs-sm"
-            type="text"
-            placeholder="Enter your name"
-            name="Name"
-            required
-            id="name"
-        />
+  <h2 class="h3 card-title text-white text-center pb-2 pb-xxl-3">
+    30 mins FREE Consultation
+  </h2>
+  <div class="mb-2">
+    <label class="form-label fs-base" for="name"> Your Name</label>
+    <input
+      class="form-control form-control-lg fs-sm"
+      type="text"
+      placeholder="Enter your name"
+      name="Name"
+      required
+      id="name"
+    />
+  </div>
+  <div class="mb-2">
+    <label class="form-label fs-base" for="company"> Company Name</label>
+    <input
+      class="form-control form-control-lg fs-sm"
+      type="text"
+      placeholder="Enter your company's name"
+      name="Company-name"
+      required
+      id="company"
+    />
+  </div>
+  <div class="mb-2">
+    <label class="form-label fs-base" for="email"> Email address</label>
+    <input
+      class="form-control form-control-lg fs-sm"
+      type="email"
+      placeholder="Enter your email address"
+      name="Email"
+      required
+      id="email"
+    />
+  </div>
+  <div class="mb-2">
+    <label class="form-label" for="date-time-picker">Date and time</label>
+    <div class="position-relative">
+      <input
+        class="form-control form-control-lg date-picker pe-5 fs-sm"
+        type="text"
+        placeholder="Choose available date & time"
+        name="Date-time"
+        required
+        id="date-time-picker"
+      />
+      <i
+        class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
+      ></i>
+
+      <span id="schedule-error"></span>
+      <span style="display: none;" id="date-set">false</span>
     </div>
-    <div class="mb-2">
-        <label class="form-label fs-base" for="company"> Company Name</label>
-        <input
-            class="form-control form-control-lg fs-sm"
-            type="text"
-            placeholder="Enter your company's name"
-            name="Company-name"
-            required
-            id="company"
-        />
-    </div>
-    <div class="mb-2">
-        <label class="form-label fs-base" for="email"> Email address</label>
-        <input
-            class="form-control form-control-lg fs-sm"
-            type="email"
-            placeholder="Enter your email address"
-            name="Email"
-            required
-            id="email"
-        />
-    </div>
-    <div class="mb-2">
-        <label class="form-label" for="date-time-picker">Date and time</label>
-        <div class="position-relative">
-            <input
-                class="form-control form-control-lg date-picker pe-5 fs-sm"
-                type="text"
-                placeholder="Choose available date & time"
-                name="Date-time"
-                required
-                id="date-time-picker"
-            />
-            <i
-                class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
-            ></i>
-        </div>
-    </div>
-    <div
-        class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
+  </div>
+  <div
+    class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
+  >
+    <button
+      id="book-now"
+      class={url === "/"
+        ? " btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py"
+        : "btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py bookNow-btn"}
+      type="submit">Book now</button
     >
-        <button
-            id="book-now"
-            class={(url==='/')?" btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py":
-            "btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py bookNow-btn"}
-            type="submit">Book now</button
-        >
-    </div>
+  </div>
 </form>
