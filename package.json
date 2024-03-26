@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild":"astro check",
+    "prebuild": "astro check",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -40,6 +40,7 @@
     "swiper": "^11.0.6",
     "timezz": "^7.0.0",
     "typescript": "^5.3.3",
+    "uk-time": "^1.0.0",
     "vanilla-cookieconsent": "3.0.0",
     "webpack": "^5.90.3"
   },
