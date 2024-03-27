@@ -1,7 +1,5 @@
 ---
 const path = Astro.url.pathname;
-// import brandLogo from "/assets/images/dbo 1.png";
-// import { Image } from "astro:assets";
 ---
 
 <style>
@@ -62,6 +60,7 @@ const path = Astro.url.pathname;
   id="navbar"
   class="staticnav nav navbar navbar-expand-lg"
   data-bs-theme="dark"
+  data-pagefind-ignore
 >
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -96,14 +95,14 @@ const path = Astro.url.pathname;
         <li class={path === "/" ? "nav-item active" : "nav-item"}>
           <a href="/" class="nav-link nav-links">Home</a>
         </li>
-        <li class={path === "/about-us" ? "nav-item active" : "nav-item"}>
+        <li class={path.includes("/about-us") ? "nav-item active" : "nav-item"}>
           <a href="/about-us" class="nav-link nav-links">About us</a>
         </li>
 
         <li class="nav-item dropdown">
           <a
             href="/services"
-            class={path.includes("services")?"nav-link  nav-links active-link":"nav-link nav-links"}
+            class={path.includes("/services")?"nav-link  nav-links active-link":"nav-link nav-links"}
             data-bs-auto-close="outside"
             aria-expanded="false">Services</a
           >
@@ -129,19 +128,25 @@ const path = Astro.url.pathname;
             </li>
           </ul>
         </li>
-        <!-- <li class={path === "/blog" ? "nav-item active" : "nav-item"}>
-          <a href="/blog" class="nav-link nav-links">Blog</a>
+        <!-- <li class={path.includes("/blog") ? "nav-item active" : "nav-item"}>
+          <a href="/blog/1" class="nav-link nav-links">Blog</a>
         </li> -->
       </ul>
 
       <a
         href="/contact-us"
-        class={path === "/contact-us"
+        class={path.includes("/contact-us")
           ? "d-none btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0 contact-button"
           : "btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0 contact-button"}
       >
         <span style="font-size: 1.375rem;">Contact us</span>
       </a>
     </nav>
+  </div>
+
+  <div class="pop-up" id="pop-up" data-pagefind-ignore>
+    <div class="pop-up-text">
+        Form Submitted Successfully!!
+    </div>
   </div>
 </header>

@@ -1,0 +1,183 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/common/Navbar.astro";
+const allPosts = await Astro.glob("../../pages/posts/*.mdx");
+import Card from "../../components/blog/Card.astro";
+import Consultation_form from "../../components/common/ConsultationForm.astro";
+
+import '../../styles/container.css'
+
+export async function getStaticPaths({ paginate }:any):Promise<any>{
+  const allPosts = await Astro.glob("../../pages/posts/*.mdx");
+  const pageSize = 5; 
+  return paginate(allPosts, { pageSize: pageSize });
+}
+const {page} = Astro.props;
+const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
+---
+
+<style>
+  main {
+    background-color: black;
+  }
+  a {
+    color: white;
+  }
+  .wrapper{
+    padding-top: 5rem !important;
+  }
+  .wide{
+    width: fit-content !important;
+  }
+  .disabled-link {
+    pointer-events: none;
+    color: rgba(255,255,255,70%)
+  }
+
+  @media  (max-width: 992px) {
+    .forum{
+      max-width: 99% !important;
+      position: relative !important;
+      left: 3rem; top: 0rem !important;
+    }
+  }
+  
+</style>
+
+<Layout>
+  <main
+    class="page-wrapper wrapper"
+    style="background-image: url(/assets/images/background-pattern.png);"
+    data-pagefind-ignore
+  >
+    <Navbar />
+    <div class="container pt-3 pb-lg-5 pb-md-4 pb-2 my-5">
+      <div class="row mb-md-2 mb-xl-4">
+        <!-- Blog posts -->
+        <div class="col-lg-9 pe-lg-4 pe-xl-5">
+          <!-- <h1 class="pb-3 pb-lg-4 text-white">Blog list with sidebar</h1> -->
+          <div id="results"></div>
+          <!-- Post -->
+          {
+            (page['data'] as Object[]).map((post:any) => (
+              <Card
+                url={post.url}
+                title={post.frontmatter.title}
+                description={post.frontmatter.description}
+                image={post.frontmatter.image}
+              />
+            ))
+          }
+          <!-- Pagination -->
+          <div class="row gy-3 align-items-center mt-lg-5 pt-2 pt-md-4 pt-lg-0">
+            <div class="col col-md-4 col-6 order-md-3 order-2">
+              <nav aria-label="Page navigation">
+                <ul class="pagination pagination-sm justify-content-start">
+                  {
+                    pages.map((pageNo)=>{
+                      return (
+                        <li class="page-item">
+                          <a class={page['currentPage']===pageNo?"page-link disabled-link":"page-link"} href={"/blog/"+pageNo}>{pageNo}</a>
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar (offcanvas on sreens < 992px) -->
+        <aside class="col-lg-3">
+          <div class="offcanvas-lg offcanvas-end" id="sidebarBlog" style="height: 100%;">
+            <div class="offcanvas-header">
+              <h4 class="offcanvas-title">Sidebar</h4>
+              <button
+                class="btn-close ms-auto"
+                type="button"
+                data-bs-dismiss="offcanvas"
+                data-bs-target="#sidebarBlog"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body" style=" height:100%; padding-bottom:1rem;">
+              <!-- Search box -->
+              <div class="position-relative mb-4 mb-lg-5">
+                <i
+                  class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"
+                ></i>
+                <input
+                  id="search"
+                  class="form-control ps-5"
+                  type="search"
+                  placeholder="Enter keyword"
+                />
+              </div>
+
+              <!-- Category links -->
+              <div
+                class="col contact-div offset-xxl-1 pt-sm-3 sticky-top forum"
+                style="margin-left: -50px; top:6rem;  z-index:5;"
+              >
+                <!-- Contact form -->
+                <div
+                  id="sticky-component"
+                  class="card contact-form
+                border-0
+                pt-3
+                px-xxl-3"
+                  style="background-color: #30BABA;border-radius: 15px;"
+                >
+                  <Consultation_form/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Sidebar toggle button -->
+    <button
+      class="d-lg-none btn btn-sm fs-sm btn-primary w-100 rounded-0 fixed-bottom"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#sidebarBlog"
+    >
+      <i class="ai-layout-column me-2"></i>
+      Sidebar
+    </button>
+  </main>
+</Layout>
+
+
+
+<script is:inline>
+  document.querySelector('#search')?.addEventListener('input', async (e) => {
+    // only load the pagefind script once
+    if (e.target.dataset.loaded !== 'true') {
+      e.target.dataset.loaded = 'true'
+      // load the pagefind script
+      window.pagefind = await import("/pagefind/pagefind.js");
+    }
+
+    // search the index using the input value
+    const search = await window.pagefind.search(e.target.value)
+
+    // clear the old results
+    document.querySelector('#results').innerHTML = `
+    <h2>Search Results</h2>`
+
+    // add the new results
+    for (const result of search.results) {
+      const data = await result.data()
+      
+      document.querySelector('#results').innerHTML += `
+        <a style="text-decoration:none;" href="${data.url}">
+          <h4>${data.meta.title}</h3>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,70%);">
+            ${data.excerpt}</p>
+        </a>`
+    }
+  })
+</script>

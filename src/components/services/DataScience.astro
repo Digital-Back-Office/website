@@ -1,45 +1,7 @@
 ---
-import { Image } from "astro:assets";
-// import predictiveAnalysis from "/assets/images/services/data-science/predictiveAnalysis.svg";
-// import machineLearning from "/assets/images/services/data-science/machineLearning.svg";
-// import statisticalAnalysis from "/assets/images/services/data-science/statisticalAnalysis.svg";
-
-const heading1 = "Predictive Analytics";
-const text1 =
-  "We Combine sophisticated machine learning tools with complex statistical models and data mining techniques to build advanced bespoke predictive analytics models. Leverage our expertise in data science to increase the value of your existing data and generate most actionable insights in today’s highly competitive business environment.";
-const list1 = [
-  "Churn Prediction",
-  "Recommendation System",
-  "Customer Segmentation",
-  "Dynamic Pricing",
-  "Credit Scoring",
-  "Demand Forecasting",
-  "Market Campaign Optimization",
-];
-
-const heading2 = "Machine Learning & AI";
-const text2 =
-  "Build, train, validate, optimise, deploy, and test machine learning models using the latest tools and technologies. Some of the areas that we have worked are:";
-const list2 = [
-  "Customer Feedback Analysis",
-  "Segment Analysis",
-  "Data Categorization & Classification",
-  "Context Aware Search",
-  "Text Geneation",
-  "Visual Search",
-  "Video Analysis",
-];
-
-const heading3 = "Statistical Analysis & Data Mining";
-const text3 = "";
-const list3 = [
-  "Designing surveys and experiments",
-  "Summarizing and understanding data",
-  "Estimating population behavior",
-  "Data Discovery",
-  "Data Cleansing",
-  "Data Profiling",
-];
+import { getEntry } from "astro:content";
+const Data = await getEntry("services", "services");
+const data = Data.data.individual_page.data_science;
 ---
 
 <style>
@@ -79,44 +41,26 @@ const list3 = [
     <div class="col-md-6 col-xl-5 order-md-1">
       <div class="pe-md-4 pe-xl-0">
         <h2 class="h1 pb-2 pb-lg-3" style="color:white">
-          {heading1}
+          {data.heading1}
         </h2>
         <p
           class="pb-2 pb-lg-0 mb-3 mb-lg-3 para"
           
         >
-          {text1}
+          {data.text1}
         </p>
 
         <ul class="list-unstyled mb-0">
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[0]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[1]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[2]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[3]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[4]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[5]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[6]}</span>
-          </li>
+          {
+            data.list1.map((list:any)=>{
+              return (
+              <li class="d-flex pt-1 mt-2 align-items-center">
+                <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                <span class="para">{list}</span>
+              </li>
+              )
+            })
+          }
         </ul>
       </div>
     </div>
@@ -136,45 +80,27 @@ const list3 = [
     <div class="col-md-6 col-xl-5 offset-xl-1">
       <div class="ps-md-4 pe-xl-0">
         <h2 class="h1 pb-2 pb-lg-3" style="color:white;">
-          {heading2}
+          {data.heading2}
         </h2>
 
         <p
           class="pb-2 pb-lg-0 mb-3 mb-lg-3 para"
           
         >
-          {text2}
+          {data.text2}
         </p>
 
         <ul class="list-unstyled mb-0">
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list2[0]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list2[1]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list2[2]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list2[3]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list2[4]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list2[5]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list1[6]}</span>
-          </li>
+          {
+            data.list2.map((list:any)=>{
+              return (
+              <li class="d-flex pt-1 mt-2 align-items-center">
+                <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                <span class="para">{list}</span>
+              </li>
+              )
+            })
+          }
         </ul>
       </div>
     </div>
@@ -195,35 +121,21 @@ const list3 = [
     <div class="col-md-6 col-xl-5 order-md-1">
       <div class="pe-md-4 pe-xl-0">
         <h2 class="h1 pb-2 pb-lg-3" style="color:white">
-          {heading3}
+          {data.heading3}
         </h2>
         
 
         <ul class="list-unstyled mb-0">
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list3[0]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list3[1]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list3[2]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list3[3]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list3[4]}</span>
-          </li>
-          <li class="d-flex pt-1 mt-2 align-items-center">
-            <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
-            <span class="para">{list3[5]}</span>
-          </li>
+          {
+            data.list3.map((list:any)=>{
+              return (
+              <li class="d-flex pt-1 mt-2 align-items-center">
+                <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                <span class="para">{list}</span>
+              </li>
+              )
+            })
+          }
         </ul>
       </div>
     </div>

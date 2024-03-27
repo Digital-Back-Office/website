@@ -24,3 +24,30 @@ body {
 .cm__title{
     color: white !important;
 }
+
+.bookNow-btn{
+    background-color: white !important;
+    color:#52CEC7 !important;
+}
+
+#pop-up{
+position: fixed;
+display: none;
+top: 1rem;
+left: 0rem; right:0;
+
+z-index:60 !important;
+}
+
+.pop-up-text{
+margin: auto auto;
+z-index: 60 !important;
+width: fit-content;
+background-color: black;
+color:white;
+border-radius: 16px;
+padding: 1rem 2.5rem;
+font-size: 1.2rem;
+font-weight: 500;
+border: solid 1px #52CEC7;
+}
