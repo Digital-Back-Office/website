@@ -1,3 +1,5 @@
+import convert from "uk-time";
+
 export default async function getBusyTimes() {
     const dateInput = document.getElementById(
       "date-time-picker"
@@ -44,7 +46,10 @@ export default async function getBusyTimes() {
         
     })
 
-    if (!flag){
+    const flag2 = await getScheduledTime(start1);
+    //console.log(flag2)
+
+    if (!flag || !flag2){
       const error = document.getElementById("schedule-error");
       error.innerHTML = "Slot already booked, select another time"
       error.classList.add("error");
@@ -58,5 +63,83 @@ export default async function getBusyTimes() {
       error.classList.remove("error");
     }
 
+
     return data;
   }
+
+async function getScheduledTime(startTime){
+  const calendly_auth = import.meta.env.PUBLIC_CALENDLY_AUTH;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer '+calendly_auth,
+    }
+  };
+  
+  const data = await fetch('https://api.calendly.com/user_availability_schedules/cbb4c99f-fd37-418d-88ac-011e9dc839cf', options)
+    .then(response => response.json())
+    .catch(err => console.error(err));
+
+  const result = {...data};
+
+  let flag = false;
+  const day = startTime.getDay();
+
+  const intervals = result.resource.rules[day].intervals
+  
+  const utcTime = startTime.toUTCString();
+  const ukTime = convert.toUKTime(utcTime);
+  const date1 = new Date(ukTime);
+  
+  const hr = date1.getUTCHours();
+  const min = date1.getUTCMinutes();
+
+  intervals.map((interval)=>{
+    const start = interval.from;
+    const end = interval.to;
+    //console.log(start, end);
+    const hr1 = parseInt(start.substring(0, 3));
+    const min1 = parseInt(start.substring(3, 5));
+    const hr2 = parseInt(end.substring(0, 3));
+    const min2 = parseInt(end.substring(3, 5));
+    
+    if (hr>=hr1 && min>=min1 && hr<=hr2 && min<=min2){
+      flag = true;
+    }
+  })
+
+  return flag;
+
+}
+
+
+export async function getBusyDays(){
+
+  const calendly_auth = import.meta.env.PUBLIC_CALENDLY_AUTH;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer '+calendly_auth,
+    }
+  };
+  
+  const data = await fetch('https://api.calendly.com/user_availability_schedules/cbb4c99f-fd37-418d-88ac-011e9dc839cf', options)
+    .then(response => response.json())
+    .catch(err => console.error(err));
+
+  const result = {...data};
+  //console.log(result.resource.rules);
+
+  let arr = [];
+
+  result.resource.rules.map((obj, index)=>{
+    if (obj.intervals.length===0){
+      arr.push(index);
+    }
+  })
+  
+
+  return arr;
+}
