@@ -32,8 +32,8 @@ const url = Astro.url.pathname;
 <script>
   // API to get Busy time schedule from calendly
   import getBusyTimes from "../../utils/api/calendly.js"
-  import {getBusyDays} from "../../utils/api/calendly.js"
-  const busyDays:Array<any> = await getBusyDays();
+  //import {getBusyDays} from "../../utils/api/calendly.js"
+  const busyDays:Array<any> = [];
 
   import flatpickr from "flatpickr";
   flatpickr(".date-picker", {
