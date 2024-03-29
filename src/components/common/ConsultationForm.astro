@@ -29,7 +29,7 @@ const url = Astro.url.pathname;
   }
 </style>
 
-<script>
+<!-- <script>
   // API to get Busy time schedule from calendly
 
   import getBusyTimes from "../../utils/api/calendly.js"
@@ -85,10 +85,10 @@ const url = Astro.url.pathname;
       const data = await getBusyTimes();
     },
   });
-</script>
+</script> -->
 
-<!-- <script>
-  //import dateTimeForCalander from "../../utils/helper/date-time.js";
+<script>
+  import dateTimeForCalander from "../../utils/helper/date-time.js";
   const form_id = import.meta.env.PUBLIC_FORM_ID;
 
   const BookBtn = document.querySelector(".book-btn");
@@ -109,11 +109,10 @@ const url = Astro.url.pathname;
     const startDateTime = dateTimeInput.value;
 
     if (name && email && company && startDateTime && dateSet.innerHTML==="true") {
-      //const formattedDateTime = dateTimeForCalander(startDateTime);
-      const formattedDateTime = startDateTime;
+      const formattedDateTime = dateTimeForCalander(startDateTime);
 
-      //const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`;
-      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime}&entry.994043505=${formattedDateTime}`;
+      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`;
+      
 
       try {
         const response = await fetch(url, { method: "POST" });
@@ -131,7 +130,7 @@ const url = Astro.url.pathname;
       dateTimeInput.value = "";
     }
   });
-</script> -->
+</script>
 
 <form class="card-body">
   <h2 class="h3 card-title text-white text-center pb-2 pb-xxl-3">
