@@ -1,13 +1,12 @@
-import {toUKTime} from "uk-time";
+//import {toUKTime} from "uk-time";
 export default function dateTimeForCalendar(startDateTime) {
     // const TIMEOFFSET = '+05:30'
     let date = new Date(Date.parse(startDateTime));
     const utcTime = date.toUTCString();
     
-    const ukTime = toUKTime(utcTime);
-    //console.log(ukTime);
-    
-    const date1 = new Date(ukTime)
+    //const ukTime = toUKTime(utcTime);
+    //const date1 = new Date(ukTime)
+    const date1 = new Date(date);
     
     const year = date1.getUTCFullYear();
     const month = String(date1.getUTCMonth() + 1).padStart(2, '0');
