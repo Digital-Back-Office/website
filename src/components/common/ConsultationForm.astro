@@ -88,7 +88,7 @@ const url = Astro.url.pathname;
 </script>
 
 <script>
-  import dateTimeForCalander from "../../utils/helper/date-time.js";
+  //import dateTimeForCalander from "../../utils/helper/date-time.js";
   const form_id = import.meta.env.PUBLIC_FORM_ID;
 
   const BookBtn = document.querySelector(".book-btn");
@@ -109,7 +109,8 @@ const url = Astro.url.pathname;
     const startDateTime = dateTimeInput.value;
 
     if (name && email && company && startDateTime && dateSet.innerHTML==="true") {
-      const formattedDateTime = dateTimeForCalander(startDateTime);
+      //const formattedDateTime = dateTimeForCalander(startDateTime);
+      const formattedDateTime = startDateTime;
 
       const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`;
 
