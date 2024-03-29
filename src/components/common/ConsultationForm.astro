@@ -31,18 +31,19 @@ const url = Astro.url.pathname;
 
 <script>
   // API to get Busy time schedule from calendly
-  import getBusyTimes from "../../utils/api/calendly.js"
-  import {getBusyDays} from "../../utils/api/calendly.js"
-  const busyDays:Array<any> = await getBusyDays();
+
+  // import getBusyTimes from "../../utils/api/calendly.js"
+  // import {getBusyDays} from "../../utils/api/calendly.js"
+  // const busyDays:Array<any> = await getBusyDays();
 
   import flatpickr from "flatpickr";
   flatpickr(".date-picker", {
     enableTime: true,
-    disable:[
-      function(date){
-        return busyDays.includes(date.getDay());
-      }
-    ],
+    // disable:[
+    //   function(date){
+    //     return busyDays.includes(date.getDay());
+    //   }
+    // ],
     time_24hr: true,
     altInput: true,
     altFormat: "F j, Y H:i",
@@ -81,12 +82,12 @@ const url = Astro.url.pathname;
       }
     },
     onClose: async function (selectedDates, dateStr, instance) {
-      const data = await getBusyTimes();
+      //const data = await getBusyTimes();
     },
   });
 </script>
 
-<script>
+<!-- <script>
   import dateTimeForCalander from "../../utils/helper/date-time.js";
   const form_id = import.meta.env.PUBLIC_FORM_ID;
 
@@ -128,7 +129,7 @@ const url = Astro.url.pathname;
       dateTimeInput.value = "";
     }
   });
-</script>
+</script> -->
 
 <form class="card-body">
   <h2 class="h3 card-title text-white text-center pb-2 pb-xxl-3">
