@@ -7,12 +7,16 @@ import '../styles/container.css'
 export interface Props {
   title?: string;
   description?: string;
+  preview_image?:string;
 }
 
 const {
   title = "Digital Back Office",
   description = "We deliver Business Efficiency; We love data!",
+  preview_image = "/preview.jpg"
 } = Astro.props;
+
+const og_description = description.length>200?description.substring(0, 200):description;
 ---
 
 <script src="/assets/js/theme.min.js" is:inline></script>
@@ -23,20 +27,23 @@ const {
 
 <html lang="en" data-bs-theme="dark">
   <head>
+    <script src="/src/scripts/google-analytics.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={og_description} />
+    <meta property="og:image" content={preview_image} />
     <title>{title}</title>
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/dist/cookieconsent.css"
     />
     <link rel="stylesheet" href="/assets/css/theme.min.css" />
     <link rel="stylesheet" href="/assets/icons/around-icons.min.css" />
-    <link rel="stylesheet" href="/src/styles/container.css">
+    <!-- <link rel="stylesheet" href="/src/styles/container.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,6 +52,9 @@ const {
     />
   </head>
   <body style="background-color: black;">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLJ9M4LT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      
     <slot />
     <Footer />
   </body>
