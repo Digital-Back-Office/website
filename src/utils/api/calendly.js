@@ -86,7 +86,7 @@ async function getScheduledTime(startTime){
   let flag = false;
   const day = startTime.getDay();
 
-  const intervals = result.resource.rules[day].intervals
+  const intervals = result.resource.rules[day].intervals || [];
   
   const utcTime = startTime.toUTCString();
   const ukTime = convert.toUKTime(utcTime);
