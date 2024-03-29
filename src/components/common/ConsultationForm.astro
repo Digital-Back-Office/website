@@ -32,7 +32,7 @@ const url = Astro.url.pathname;
 <script>
   // API to get Busy time schedule from calendly
 
-  // import getBusyTimes from "../../utils/api/calendly.js"
+  import getBusyTimes from "../../utils/api/calendly.js"
   // import {getBusyDays} from "../../utils/api/calendly.js"
   // const busyDays:Array<any> = await getBusyDays();
 
@@ -82,7 +82,7 @@ const url = Astro.url.pathname;
       }
     },
     onClose: async function (selectedDates, dateStr, instance) {
-      //const data = await getBusyTimes();
+      const data = await getBusyTimes();
     },
   });
 </script>
