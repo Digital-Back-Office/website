@@ -1,4 +1,4 @@
-import convert from "uk-time";
+//import convert from "uk-time";
 
 export default async function getBusyTimes() {
     const dateInput = document.getElementById(
@@ -89,8 +89,9 @@ async function getScheduledTime(startTime){
   const intervals = result.resource.rules[day].intervals || [];
   
   const utcTime = startTime.toUTCString();
-  const ukTime = convert.toUKTime(utcTime);
-  const date1 = new Date(ukTime);
+  //const ukTime = convert.toUKTime(utcTime);
+  //const date1 = new Date(ukTime);
+  const date1 = new Date(utcTime);
   
   const hr = date1.getUTCHours();
   const min = date1.getUTCMinutes();
