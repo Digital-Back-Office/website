@@ -1,4 +1,4 @@
-//import convert from "uk-time";
+import {toUKTime} from "uk-time";
 
 export default async function getBusyTimes() {
     const dateInput = document.getElementById(
@@ -40,6 +40,8 @@ export default async function getBusyTimes() {
       const start2 = new Date(date.start_time);
       const end2 = new Date(date.end_time);
 
+      //console.log(start2);
+
       if ((start1<end2 && end1>start2) || (start2<end1 && end2>start1)){
         flag = false;
       }
@@ -47,7 +49,6 @@ export default async function getBusyTimes() {
     })
 
     const flag2 = await getScheduledTime(start1);
-    //console.log(flag2)
 
     if (!flag || !flag2){
       const error = document.getElementById("schedule-error");
@@ -87,14 +88,18 @@ async function getScheduledTime(startTime){
   const day = startTime.getDay();
 
   const intervals = result.resource.rules[day].intervals || [];
+  //console.log(intervals);
   
   const utcTime = startTime.toUTCString();
-  //const ukTime = convert.toUKTime(utcTime);
-  //const date1 = new Date(ukTime);
-  const date1 = new Date(utcTime);
+  const ukTime = toUKTime(utcTime);
+  //console.log(ukTime);
+  const date1 = new Date(ukTime);
   
-  const hr = date1.getUTCHours();
-  const min = date1.getUTCMinutes();
+  
+  const hr = parseInt(date1.getUTCHours());
+  const min = parseInt(date1.getUTCMinutes());
+
+  //console.log(hr, min);
 
   intervals.map((interval)=>{
     const start = interval.from;
@@ -105,7 +110,9 @@ async function getScheduledTime(startTime){
     const hr2 = parseInt(end.substring(0, 3));
     const min2 = parseInt(end.substring(3, 5));
     
-    if (hr>=hr1 && min>=min1 && hr<=hr2 && min<=min2){
+    if ( ((hr>hr1)||(hr==hr1&&min>=min1)) && 
+         ((hr<hr2)||(hr==hr2 && min<=min2))
+    ){
       flag = true;
     }
   })
@@ -141,6 +148,6 @@ export async function getBusyDays(){
     }
   })
   
-
+  //console.log(arr);
   return arr;
 }
