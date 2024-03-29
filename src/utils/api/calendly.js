@@ -90,14 +90,14 @@ async function getScheduledTime(startTime){
   const intervals = result.resource.rules[day].intervals || [];
   //console.log(intervals);
   
-  const utcTime = startTime.toUTCString();
-  //const ukTime = toUKTime(utcTime);
-  //const date1 = new Date(ukTime);
-  const date1 = new Date(startTime);
+  const ukTime = startTime.toLocaleString('en-US', {timeZone: 'Europe/London'});
+  //console.log(ukTime);
+  const date1 = new Date(ukTime);
+  //console.log(date1);
   
   
-  const hr = parseInt(date1.getUTCHours());
-  const min = parseInt(date1.getUTCMinutes());
+  const hr = parseInt(date1.getHours());
+  const min = parseInt(date1.getMinutes());
 
   //console.log(hr, min);
 
