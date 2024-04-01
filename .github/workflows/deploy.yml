@@ -16,6 +16,11 @@ permissions:
 
 jobs:
   build:
+    env:
+      PUBLIC_GOOGLE_TAG_ID: ${{ secrets.PUBLIC_GOOGLE_TAG_ID }}
+      PUBLIC_FORM_ID: ${{ secrets.PUBLIC_FORM_ID }}
+      PUBLIC_CALENDLY_AUTH: ${{ secrets.PUBLIC_CALENDLY_AUTH }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
