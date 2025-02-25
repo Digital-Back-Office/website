@@ -1,202 +1,293 @@
 ---
-import "flatpickr/dist/flatpickr.min.css";
-import "flatpickr/dist/themes/dark.css";
-const url = Astro.url.pathname;
+import 'flatpickr/dist/flatpickr.min.css'
+import 'flatpickr/dist/themes/dark.css'
+const url = Astro.url.pathname
 ---
+
 <style>
-  .error{
-    
+  .error {
     padding: 0.3rem 1rem;
-    color: #52CEC7;
+    color: #52cec7;
     background-color: black;
     border-radius: 4px;
     position: absolute;
     top: 100%;
-    left:1rem;
+    left: 1rem;
     font-style: italic;
     font-size: 0.9rem;
   }
-  .error::after{
-    content: "";
+  .error::after {
+    content: '';
     position: absolute;
     border-radius: 2px;
-    width: 0.9rem; height: 0.9rem;
+    width: 0.9rem;
+    height: 0.9rem;
     transform: rotate(45deg);
     background-color: black;
     top: -0.3rem;
     left: 0.3rem;
-    
+  }
+
+  .hidden {
+    display: none;
   }
 </style>
 
 <script>
-  // API to get Busy time schedule from calendly
+  import flatpickr from 'flatpickr'
+  flatpickr('.date-picker', {
+    dateFormat: 'Y-m-d',
+    minDate: 'today',
 
-  import getBusyTimes from "../../utils/api/calendly.js"
-  import {getBusyDays} from "../../utils/api/calendly.js"
-  const busyDays:Array<any> = await getBusyDays();
-
-  import flatpickr from "flatpickr";
-  flatpickr(".date-picker", {
-    enableTime: true,
-    disable:[
-      function(date){
-        return busyDays.includes(date.getDay());
-      }
-    ],
-    time_24hr: true,
-    altInput: true,
-    altFormat: "F j, Y H:i",
-    dateFormat: "Y-m-d H:i",
-    minDate: "today",
-    
     onOpen: function (selectedDates, dateStr, instance) {
-      const calendarContainer = instance.calendarContainer;
+      const calendarContainer = instance.calendarContainer
       const monthElement = calendarContainer.querySelector(
-        ".flatpickr-month"
-      ) as HTMLElement;
+        '.flatpickr-month'
+      ) as HTMLElement
       const monthDropDown = calendarContainer.querySelector(
-        ".flatpickr-monthDropdown-months"
-      ) as HTMLElement;
+        '.flatpickr-monthDropdown-months'
+      ) as HTMLElement
       const DropDownMonth = calendarContainer.querySelectorAll(
-        ".flatpickr-monthDropdown-month"
-      ) as NodeListOf<HTMLElement>;
+        '.flatpickr-monthDropdown-month'
+      ) as NodeListOf<HTMLElement>
       const weekdays = calendarContainer.querySelectorAll(
-        ".flatpickr-weekday"
-      ) as NodeListOf<HTMLElement>;
+        '.flatpickr-weekday'
+      ) as NodeListOf<HTMLElement>
       const currMonth = calendarContainer.querySelector(
-        ".flatpickr-current-month"
-      ) as HTMLElement;
+        '.flatpickr-current-month'
+      ) as HTMLElement
 
       if (monthElement && monthDropDown && weekdays && DropDownMonth) {
-        monthElement.style.backgroundColor = "#121519";
-        monthDropDown.style.backgroundColor = "#121519";
-        currMonth.style.display = "flex";
-        currMonth.style.justifyContent = "space-between";
+        monthElement.style.backgroundColor = '#121519'
+        monthDropDown.style.backgroundColor = '#121519'
+        currMonth.style.display = 'flex'
+        currMonth.style.justifyContent = 'space-between'
         weekdays.forEach((weekday) => {
-          weekday.style.backgroundColor = "#121519";
-        });
+          weekday.style.backgroundColor = '#121519'
+        })
         DropDownMonth.forEach((month) => {
-          month.style.backgroundColor = "#121519";
-        });
+          month.style.backgroundColor = '#121519'
+        })
       }
     },
     onClose: async function (selectedDates, dateStr, instance) {
-      const data = await getBusyTimes();
-    },
-  });
+      try {
+        if (dateStr === '') {
+          return
+        }
+
+        const selectElement = document.getElementById(
+          'time-slots-options'
+        ) as HTMLSelectElement
+        const slotsContainer = document.getElementById(
+          'time-slots-container'
+        ) as HTMLElement
+        const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
+
+        var url =
+          'https://script.google.com/macros/s/AKfycbzxfQ2aGdBtKER0BhPy8e5hbru19oRjs7sfzyjPkYCuPs4PfNHlEfuj3hRySLYy0PgEzw/exec'
+
+        var res = await fetch(`${url}?date=${dateStr}`)
+
+        console.log('res :>> ', res)
+        var data = await res.json()
+
+        console.log('data : ', data)
+        const availableSlots = data.availableSlots
+
+        // Clear previous options before adding new ones
+        selectElement.innerHTML = ''
+
+        if (availableSlots.length === 0) {
+          const option = document.createElement('option') as HTMLOptionElement
+          option.value = ''
+          option.textContent = 'No Available Slots'
+          option.selected = true
+          option.style.backgroundColor = '#121519'
+          selectElement.appendChild(option)
+          slotsContainer.classList.remove('hidden')
+          return
+        } else {
+          const option = document.createElement('option')
+          option.value = ''
+          option.textContent = 'Choose available time slots'
+          option.selected = true
+          option.style.backgroundColor = '#121519'
+          selectElement.appendChild(option)
+        }
+
+        availableSlots.forEach((slot: any) => {
+          let option = document.createElement('option')
+          option.value = slot
+          option.textContent = slot
+          option.style.backgroundColor = '#121519'
+          selectElement.appendChild(option)
+        })
+        slotsContainer.classList.remove('hidden')
+        BookBtn.disabled = false
+      } catch (error) {
+        console.log('error :>> ', error)
+      }
+    }
+  })
 </script>
 
 <script>
-  import dateTimeForCalander from "../../utils/helper/date-time.js";
-  const form_id = import.meta.env.PUBLIC_FORM_ID;
+  const form_id = import.meta.env.PUBLIC_FORM_ID
 
-  const BookBtn = document.querySelector(".book-btn");
-  BookBtn?.addEventListener("click", async (e) => {
-    e.preventDefault();
+  const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
+  BookBtn?.addEventListener('click', async (e) => {
+    e.preventDefault()
     // do validation checks
-    const nameInput = document.querySelector("#name") as HTMLInputElement;
-    const emailInput = document.querySelector("#email") as HTMLInputElement;
-    const companyInput = document.querySelector("#company") as HTMLInputElement;
+    const nameInput = document.querySelector('#name') as HTMLInputElement
+    const emailInput = document.querySelector('#email') as HTMLInputElement
+    const companyInput = document.querySelector('#company') as HTMLInputElement
     const dateTimeInput = document.querySelector(
-      "#date-time-picker"
-    ) as HTMLInputElement;
-    const dateSet = document.getElementById("date-set") as HTMLElement;
+      '#date-time-picker'
+    ) as HTMLInputElement
+    const dateSet = document.getElementById('date-set') as HTMLElement
+    const timeSlots = document.getElementById(
+      'time-slots-options'
+    ) as HTMLSelectElement
+    const timeSlotsContainer = document.getElementById(
+      'time-slots-container'
+    ) as HTMLElement
 
-    const name = nameInput.value;
-    const email = emailInput.value;
-    const company = companyInput.value;
-    const startDateTime = dateTimeInput.value;
+    const name = nameInput.value
+    const email = emailInput.value
+    const company = companyInput.value
+    const startDateTime = dateTimeInput.value
+    const timeSlot = timeSlots.value
 
-    if (name && email && company && startDateTime && dateSet.innerHTML==="true") {
-      const formattedDateTime = dateTimeForCalander(startDateTime);
-
-      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`;
-      
-
-      try {
-        const response = await fetch(url, { method: "POST" });
-      } catch (error) {
-        //console.log(error);
+    if (name && email && company && startDateTime) {
+      const formattedDateTime = {
+        start: timeSlot.split('-')[0],
+        end: timeSlot.split('-')[1]
       }
-      const popUp = document.getElementById("pop-up") as HTMLElement;
-      popUp.style.display = "block";
-      setTimeout(() => {
-        popUp.style.display = "none";
-      }, 3000);
-      emailInput.value = "";
-      companyInput.value = "";
-      nameInput.value = "";
-      dateTimeInput.value = "";
+
+      console.log('formattedDateTime :>> ', formattedDateTime)
+      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`
+
+      const scriptUrl =
+        'https://script.google.com/macros/s/AKfycbzxfQ2aGdBtKER0BhPy8e5hbru19oRjs7sfzyjPkYCuPs4PfNHlEfuj3hRySLYy0PgEzw/exec'
+      try {
+        // Google Form
+        const response = await fetch(url, { method: 'POST' })
+
+        const formData = new FormData()
+        formData.append('entry.1291198894', name)
+        formData.append('entry.1637227755', company)
+        formData.append('entry.800910305', startDateTime)
+        formData.append('entry.1284317816', timeSlot)
+        formData.append('entry.59580764', email)
+
+        // Google Calendar
+        fetch(scriptUrl, {
+          method: 'POST',
+          body: formData
+        })
+          .then((res) => {
+            console.log('res :>> ', res)
+            res.json()
+          })
+          .then((data) => {
+            console.log('data :>> ', data)
+            const popUp = document.getElementById('pop-up') as HTMLElement
+            popUp.style.display = 'block'
+            setTimeout(() => {
+              popUp.style.display = 'none'
+            }, 3000)
+            emailInput.value = ''
+            companyInput.value = ''
+            nameInput.value = ''
+            dateTimeInput.value = ''
+            timeSlotsContainer.classList.add('hidden')
+            BookBtn.disabled = true
+          })
+          .catch((error) => {
+            console.log('error while creating event :>> ', error)
+          })
+      } catch (error) {
+        console.log(error)
+      }
     }
-  });
+  })
 </script>
 
-<form class="card-body">
-  <h2 class="h3 card-title text-white text-center pb-2 pb-xxl-3">
+<form class='card-body'>
+  <h2 class='h3 card-title text-white text-center pb-2 pb-xxl-3'>
     30 mins FREE Consultation
   </h2>
-  <div class="mb-2">
-    <label class="form-label fs-base" for="name"> Your Name</label>
+  <div class='mb-2'>
+    <label class='form-label fs-base' for='name'> Your Name</label>
     <input
-      class="form-control form-control-lg fs-sm"
-      type="text"
-      placeholder="Enter your name"
-      name="Name"
+      class='form-control form-control-lg fs-sm'
+      type='text'
+      placeholder='Enter your name'
+      name='Name'
       required
-      id="name"
+      id='name'
     />
   </div>
-  <div class="mb-2">
-    <label class="form-label fs-base" for="company"> Company Name</label>
+  <div class='mb-2'>
+    <label class='form-label fs-base' for='company'> Company Name</label>
     <input
-      class="form-control form-control-lg fs-sm"
-      type="text"
+      class='form-control form-control-lg fs-sm'
+      type='text'
       placeholder="Enter your company's name"
-      name="Company-name"
+      name='Company-name'
       required
-      id="company"
+      id='company'
     />
   </div>
-  <div class="mb-2">
-    <label class="form-label fs-base" for="email"> Email address</label>
+  <div class='mb-2'>
+    <label class='form-label fs-base' for='email'> Email address</label>
     <input
-      class="form-control form-control-lg fs-sm"
-      type="email"
-      placeholder="Enter your email address"
-      name="Email"
+      class='form-control form-control-lg fs-sm'
+      type='email'
+      placeholder='Enter your email address'
+      name='Email'
       required
-      id="email"
+      id='email'
     />
   </div>
-  <div class="mb-2">
-    <label class="form-label" for="date-time-picker">Date and time</label>
-    <div class="position-relative">
+  <div class='mb-2'>
+    <label class='form-label' for='date-time-picker'>Date</label>
+    <div class='position-relative'>
       <input
-        class="form-control form-control-lg date-picker pe-5 fs-sm"
-        type="text"
-        placeholder="Choose available date & time"
-        name="Date-time"
+        class='form-control form-control-lg date-picker pe-5 fs-sm'
+        type='text'
+        placeholder='Choose available date'
+        name='Date-time'
         required
-        id="date-time-picker"
+        id='date-time-picker'
       />
       <i
-        class="ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3"
+        class='ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3'
       ></i>
-
-      <span id="schedule-error"></span>
-      <span style="display: none;" id="date-set">false</span>
+    </div>
+  </div>
+  <div class='mb-2 hidden' id='time-slots-container'>
+    <label class='form-label' for='time-slots'>Time</label>
+    <div class='position-relative'>
+      <select
+        name='time-slots'
+        id='time-slots-options'
+        class='form-control form-control-lg pe-5 fs-sm'
+      >
+      </select>
     </div>
   </div>
   <div
-    class="d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4"
+    class='d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4'
   >
     <button
-      id="book-now"
-      class={url === "/"
-        ? " btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py"
-        : "btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py bookNow-btn"}
-      type="submit">Book now</button
+      id='book-now'
+      disabled
+      class={url === '/'
+        ? ' btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py'
+        : 'btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py bookNow-btn'}
+      type='submit'>Book now</button
     >
   </div>
 </form>
