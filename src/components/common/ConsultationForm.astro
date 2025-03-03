@@ -84,15 +84,15 @@ const url = Astro.url.pathname
         ) as HTMLElement
         const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
 
-        var url =
-          'https://script.google.com/macros/s/AKfycbzxfQ2aGdBtKER0BhPy8e5hbru19oRjs7sfzyjPkYCuPs4PfNHlEfuj3hRySLYy0PgEzw/exec'
+        var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
-        var res = await fetch(`${url}?date=${dateStr}`)
+        const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
+        var url = `https://script.google.com/macros/s/${appScriptID}/exec`
 
-        console.log('res :>> ', res)
+        var res = await fetch(`${url}?date=${dateStr}&timezone=${timezone}`)
+
         var data = await res.json()
 
-        console.log('data : ', data)
         const availableSlots = data.availableSlots
 
         // Clear previous options before adding new ones
@@ -134,6 +134,7 @@ const url = Astro.url.pathname
 
 <script>
   const form_id = import.meta.env.PUBLIC_FORM_ID
+  const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
 
   const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
   BookBtn?.addEventListener('click', async (e) => {
@@ -159,20 +160,16 @@ const url = Astro.url.pathname
     const startDateTime = dateTimeInput.value
     const timeSlot = timeSlots.value
 
-    if (name && email && company && startDateTime) {
-      const formattedDateTime = {
-        start: timeSlot.split('-')[0],
-        end: timeSlot.split('-')[1]
-      }
+    if (name && email && company && startDateTime && timeSlot) {
+      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${startDateTime}&entry.994043505=${timeSlot}`
 
-      console.log('formattedDateTime :>> ', formattedDateTime)
-      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${formattedDateTime.start}&entry.994043505=${formattedDateTime.end}`
-
-      const scriptUrl =
-        'https://script.google.com/macros/s/AKfycbzxfQ2aGdBtKER0BhPy8e5hbru19oRjs7sfzyjPkYCuPs4PfNHlEfuj3hRySLYy0PgEzw/exec'
+      const scriptUrl = `https://script.google.com/macros/s/${appScriptID}/exec`
       try {
         // Google Form
-        const response = await fetch(url, { method: 'POST' })
+        fetch(url, { method: 'POST' }).catch((error) => {
+          // console.log('error while submitting form :>> ', error)
+          return
+        })
 
         const formData = new FormData()
         formData.append('entry.1291198894', name)
@@ -180,6 +177,7 @@ const url = Astro.url.pathname
         formData.append('entry.800910305', startDateTime)
         formData.append('entry.1284317816', timeSlot)
         formData.append('entry.59580764', email)
+        formData.append('ScheduledBy', 'Digital Back Office team')
 
         // Google Calendar
         fetch(scriptUrl, {
@@ -187,11 +185,9 @@ const url = Astro.url.pathname
           body: formData
         })
           .then((res) => {
-            console.log('res :>> ', res)
             res.json()
           })
           .then((data) => {
-            console.log('data :>> ', data)
             const popUp = document.getElementById('pop-up') as HTMLElement
             popUp.style.display = 'block'
             setTimeout(() => {
