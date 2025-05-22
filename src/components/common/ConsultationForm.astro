@@ -384,8 +384,7 @@ const url = Astro.url.pathname
     const timeSlot = timeSlots.value
 
     if (name && email && company && startDateTime && timeSlot) {
-      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366505830=${startDateTime}&entry.994043505=${timeSlot}`
-
+      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse`
       const scriptUrl = `https://script.google.com/macros/s/${appScriptID}/exec`
       try {
         const formData = new FormData()
@@ -395,13 +394,11 @@ const url = Astro.url.pathname
         formData.append('entry.1284317816', timeSlot)
         formData.append('entry.59580764', email)
         formData.append('ScheduledBy', 'Digital Back Office team')
-
         function parseTime(timeStr: any , year: any , month: any , day: any) {
-          
           var timeParts = timeStr.match(/(\d+):(\d+) (\w{2})/)
           var hours = parseInt(timeParts[1], 10)
           var minutes = parseInt(timeParts[2], 10)
-          var period = timeParts[3] // AM or PM
+          var period = timeParts[3]
 
           if (period === 'PM' && hours !== 12) {
             hours += 12
@@ -410,23 +407,20 @@ const url = Astro.url.pathname
           }
           return new Date(year, month, day, hours, minutes)
         }
-
         var dateParts = startDateTime.split('-')
         var year = parseInt(dateParts[0], 10)
         var month = parseInt(dateParts[1], 10) - 1
         var day = parseInt(dateParts[2], 10)
-
         var time = timeSlot.split('-')
         var startTime = parseTime(time[0], year, month, day)
         var endTime = parseTime(time[1], year, month, day)
-
         formData.append('StartTime', startTime.toString())
         formData.append('EndTime', endTime.toString())
-
-        fetch(url, { method: 'POST' }).catch((error) => {
-          return
-        })
-
+        await fetch(url, {
+          method: 'POST',
+          body: formData,
+        }).catch((error) => {
+        });
         fetch(scriptUrl, {
           method: 'POST',
           body: formData
