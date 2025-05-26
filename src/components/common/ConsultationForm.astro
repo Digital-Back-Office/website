@@ -384,15 +384,15 @@ const url = Astro.url.pathname
     const timeSlot = timeSlots.value
 
     if (name && email && company && startDateTime && timeSlot) {
-      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse`
+      const url = `https://docs.google.com/forms/u/0/d/e/${form_id}/formResponse`
       const scriptUrl = `https://script.google.com/macros/s/${appScriptID}/exec`
       try {
         const formData = new FormData()
         formData.append('entry.1291198894', name)
         formData.append('entry.1637227755', company)
-        formData.append('entry.800910305', startDateTime)
-        formData.append('entry.1284317816', timeSlot)
         formData.append('entry.59580764', email)
+        formData.append('entry.1366705830', startDateTime);
+        formData.append('entry.994043505', timeSlot);
         formData.append('ScheduledBy', 'Digital Back Office team')
         function parseTime(timeStr: any , year: any , month: any , day: any) {
           var timeParts = timeStr.match(/(\d+):(\d+) (\w{2})/)
@@ -416,17 +416,19 @@ const url = Astro.url.pathname
         var endTime = parseTime(time[1], year, month, day)
         formData.append('StartTime', startTime.toString())
         formData.append('EndTime', endTime.toString())
-        await fetch(url, {
-          method: 'POST',
-          body: formData,
-        }).catch((error) => {
-        });
+
         fetch(scriptUrl, {
           method: 'POST',
           body: formData
         })
-          .then((res) => {
+          .then((res:any) => {
             res.json()
+              fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData,
+              }).catch((error) => {
+              });
           })
           .then((data) => {
             const flipCard = document.querySelector('.flip-card') as HTMLElement
