@@ -5,36 +5,243 @@ const url = Astro.url.pathname
 ---
 
 <style>
-  .error {
-    padding: 0.3rem 1rem;
-    color: #52cec7;
-    background-color: black;
-    border-radius: 4px;
-    position: absolute;
-    top: 100%;
-    left: 1rem;
-    font-style: italic;
-    font-size: 0.9rem;
-  }
-  .error::after {
-    content: '';
-    position: absolute;
-    border-radius: 2px;
-    width: 0.9rem;
-    height: 0.9rem;
-    transform: rotate(45deg);
-    background-color: black;
-    top: -0.3rem;
-    left: 0.3rem;
-  }
+          .error {
+            padding: 0.3rem 1rem;
+            color: #52cec7;
+            background-color: black;
+            border-radius: 4px;
+            position: absolute;
+            top: 100%;
+            left: 1rem;
+            font-style: italic;
+            font-size: 0.9rem;
+          }
+          .error::after {
+            content: '';
+            position: absolute;
+            border-radius: 2px;
+            width: 0.9rem;
+            height: 0.9rem;
+            transform: rotate(45deg);
+            background-color: black;
+            top: -0.3rem;
+            left: 0.3rem;
+          }
 
-  .hidden {
-    display: none;
-  }
+          .hidden {
+            display: none;
+          }
+        .flip-card {
+          width: 100%;
+          max-width: 390px;
+          height: auto;
+          min-height: 650px;
+          perspective: 1000px;
+          margin: 0 auto;
+        }
+
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card.flipped .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, #30baba 0%, #2a9d9d 100%);
+            color: white;
+            width: 100%;
+            height: 100%;
+            min-height: 650px;
+            transform: rotateY(180deg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flip-card-back::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .checkmark {
+            width: 40px;
+            height: 40px;
+            border: 3px solid white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .checkmark::after {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 6px;
+            width: 8px;
+            height: 16px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        .success-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .success-message {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            max-width: 280px;
+        }
+
+        .small-grey-underline {
+          cursor: pointer;
+          margin-top: 20px;
+          font-size: 16px; 
+          color: #ffffff;
+          transition: all 0.3s ease;
+          display: inline-block;
+          user-select: none;
+          text-decoration: underline;
+          font-weight: 500;
+          backdrop-filter: blur(10px);
+          border: none;
+          background: none;
+        }
+        @media (max-width: 768px) {
+        .flip-card {
+          width: 95%;
+          max-width: 350px;
+          min-height: 600px;
+        }
+        
+        .flip-card-inner {
+          min-height: 600px;
+        }
+        
+        .flip-card-front, .flip-card-back {
+          min-height: 600px;
+        }
+        
+        .flip-card-front {
+          padding: 15px;
+        }
+        
+        .flip-card-back {
+          padding: 20px;
+          min-height: 600px;
+        }
+        
+        .success-title {
+          font-size: 24px;
+        }
+        
+        .success-message {
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .flip-card {
+          width: 100%;
+          max-width: 320px;
+          min-height: 600px;
+        }
+        
+        .flip-card-inner {
+          min-height: 600px;
+        }
+        
+        .flip-card-front, .flip-card-back {
+          min-height: 600px;
+        }
+        
+        .flip-card-front {
+          padding: 10px;
+        }
+        
+        .flip-card-back {
+          padding: 15px;
+          min-height: 550px;
+        }
+        
+        .card-title {
+          font-size: 1.3rem;
+        }
+        
+        .success-icon {
+          width: 60px;
+          height: 60px;
+        }
+        
+        .checkmark {
+          width: 30px;
+          height: 30px;
+        }
+        
+        .checkmark::after {
+          left: 9px;
+          top: 4px;
+          width: 6px;
+          height: 12px;
+        }
+      }
+
 </style>
 
 <script>
   import flatpickr from 'flatpickr'
+  let lastSelectedDate = '';
   flatpickr('.date-picker', {
     dateFormat: 'Y-m-d',
     minDate: 'today',
@@ -72,10 +279,15 @@ const url = Astro.url.pathname
     },
     onClose: async function (selectedDates, dateStr, instance) {
       try {
+        if (dateStr === lastSelectedDate) {
+          return; 
+        }
+        lastSelectedDate = dateStr; 
         if (dateStr === '') {
+          const selectElement = document.getElementById('time-slots-options') as HTMLSelectElement
+          selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Choose date first</option>'
           return
         }
-
         const selectElement = document.getElementById(
           'time-slots-options'
         ) as HTMLSelectElement
@@ -84,9 +296,13 @@ const url = Astro.url.pathname
         ) as HTMLElement
         const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
 
+          selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Loading available slots...</option>'
+          selectElement.disabled = true
+
         var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
-        const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
+       const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
+
         var url = `https://script.google.com/macros/s/${appScriptID}/exec`
 
         var res = await fetch(`${url}?date=${dateStr}&timezone=${timezone}`)
@@ -94,8 +310,9 @@ const url = Astro.url.pathname
         var data = await res.json()
 
         const availableSlots = data.availableSlots
+        selectElement.disabled = false
+        selectElement.innerHTML = ''
 
-        // Clear previous options before adding new ones
         selectElement.innerHTML = ''
 
         if (availableSlots.length === 0) {
@@ -125,17 +342,23 @@ const url = Astro.url.pathname
         })
         slotsContainer.classList.remove('hidden')
         BookBtn.disabled = false
+        validateForm()
       } catch (error) {
         console.log('error :>> ', error)
+        const selectElement = document.getElementById('time-slots-options') as HTMLSelectElement
+        selectElement.disabled = false
+        selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Error loading slots. Please try again.</option>'
       }
     }
   })
-</script>
-
-<script>
   const form_id = import.meta.env.PUBLIC_FORM_ID
   const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
-
+  
+  const submitAnotherForm = document.querySelector('.small-grey-underline') as HTMLElement
+  submitAnotherForm?.addEventListener('click', () => {
+    const flipCard = document.querySelector('.flip-card') as HTMLElement
+    flipCard.classList.remove('flipped')
+  })
   const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
   BookBtn?.addEventListener('click', async (e) => {
     e.preventDefault()
@@ -161,24 +384,21 @@ const url = Astro.url.pathname
     const timeSlot = timeSlots.value
 
     if (name && email && company && startDateTime && timeSlot) {
-      const url = `https://docs.google.com/forms/d/e/${form_id}/formResponse?&submit=Submit?usp=pp_url&entry.1291198894=${name}&entry.1637227755=${company}&entry.59580764=${email}&entry.1366705830=${startDateTime}&entry.994043505=${timeSlot}`
-
+      const url = `https://docs.google.com/forms/u/0/d/e/${form_id}/formResponse`
       const scriptUrl = `https://script.google.com/macros/s/${appScriptID}/exec`
       try {
         const formData = new FormData()
         formData.append('entry.1291198894', name)
         formData.append('entry.1637227755', company)
-        formData.append('entry.800910305', startDateTime)
-        formData.append('entry.1284317816', timeSlot)
         formData.append('entry.59580764', email)
+        formData.append('entry.1366705830', startDateTime);
+        formData.append('entry.994043505', timeSlot);
         formData.append('ScheduledBy', 'Digital Back Office team')
-
         function parseTime(timeStr: any , year: any , month: any , day: any) {
-          
           var timeParts = timeStr.match(/(\d+):(\d+) (\w{2})/)
           var hours = parseInt(timeParts[1], 10)
           var minutes = parseInt(timeParts[2], 10)
-          var period = timeParts[3] // AM or PM
+          var period = timeParts[3]
 
           if (period === 'PM' && hours !== 12) {
             hours += 12
@@ -187,45 +407,39 @@ const url = Astro.url.pathname
           }
           return new Date(year, month, day, hours, minutes)
         }
-
         var dateParts = startDateTime.split('-')
         var year = parseInt(dateParts[0], 10)
         var month = parseInt(dateParts[1], 10) - 1
         var day = parseInt(dateParts[2], 10)
-
         var time = timeSlot.split('-')
         var startTime = parseTime(time[0], year, month, day)
         var endTime = parseTime(time[1], year, month, day)
-
         formData.append('StartTime', startTime.toString())
         formData.append('EndTime', endTime.toString())
 
-        // Google Form
-        fetch(url, { method: 'POST' }).catch((error) => {
-          // console.log('error while submitting form :>> ', error)
-          return
-        })
-
-        // Google Calendar
         fetch(scriptUrl, {
           method: 'POST',
           body: formData
         })
-          .then((res) => {
+          .then((res:any) => {
             res.json()
+              fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData,
+              }).catch((error) => {
+              });
           })
           .then((data) => {
-            const popUp = document.getElementById('pop-up') as HTMLElement
-            popUp.style.display = 'block'
-            setTimeout(() => {
-              popUp.style.display = 'none'
-            }, 3000)
+            const flipCard = document.querySelector('.flip-card') as HTMLElement
+            flipCard.classList.add('flipped')
             emailInput.value = ''
             companyInput.value = ''
             nameInput.value = ''
             dateTimeInput.value = ''
-            timeSlotsContainer.classList.add('hidden')
             BookBtn.disabled = true
+            const selectElement = document.getElementById('time-slots-options') as HTMLSelectElement
+            selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Choose date first</option>'
           })
           .catch((error) => {
             console.log('error while creating event :>> ', error)
@@ -235,8 +449,39 @@ const url = Astro.url.pathname
       }
     }
   })
-</script>
+  function validateForm() {
+  const nameInput = document.querySelector('#name') as HTMLInputElement
+  const emailInput = document.querySelector('#email') as HTMLInputElement
+  const companyInput = document.querySelector('#company') as HTMLInputElement
+  const dateTimeInput = document.querySelector('#date-time-picker') as HTMLInputElement
+  const timeSlots = document.getElementById('time-slots-options') as HTMLSelectElement
+  const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
 
+  const name = nameInput.value.trim()
+  const email = emailInput.value.trim()
+  const company = companyInput.value.trim()
+  const startDateTime = dateTimeInput.value.trim()
+  const timeSlot = timeSlots.value.trim()
+  if (name && email && company && startDateTime && timeSlot) {
+    BookBtn.disabled = false
+  } else {
+    BookBtn.disabled = true
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const nameInput = document.querySelector('#name') as HTMLInputElement
+  const emailInput = document.querySelector('#email') as HTMLInputElement
+  const companyInput = document.querySelector('#company') as HTMLInputElement
+  const timeSlots = document.getElementById('time-slots-options') as HTMLSelectElement
+  nameInput?.addEventListener('input', validateForm)
+  emailInput?.addEventListener('input', validateForm)
+  companyInput?.addEventListener('input', validateForm)
+  timeSlots?.addEventListener('change', validateForm)
+})
+</script>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
 <form class='card-body'>
   <h2 class='h3 card-title text-white text-center pb-2 pb-xxl-3'>
     30 mins FREE Consultation
@@ -290,7 +535,7 @@ const url = Astro.url.pathname
       ></i>
     </div>
   </div>
-  <div class='mb-2 hidden' id='time-slots-container'>
+  <div class='mb-2' id='time-slots-container'>
     <label class='form-label' for='time-slots'>Time</label>
     <div class='position-relative'>
       <select
@@ -298,6 +543,7 @@ const url = Astro.url.pathname
         id='time-slots-options'
         class='form-control form-control-lg pe-5 fs-sm'
       >
+        <option value='' selected style='background-color: #121519;'>Choose date first</option>
       </select>
     </div>
   </div>
@@ -314,3 +560,18 @@ const url = Astro.url.pathname
     >
   </div>
 </form>
+</div>
+    <div class="flip-card-back">
+              <div class="success-icon">
+            <div class="checkmark"></div>
+        </div>
+        <h2 class="success-title">Time Slot Booked!</h2>
+        <p class="success-message">
+            Your appointment has been successfully scheduled. You will receive a confirmation email shortly with all the details.
+        </p>
+<button class="small-grey-underline">
+Submit another form
+</button>
+    </div>
+  </div>
+</div>
