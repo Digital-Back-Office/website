@@ -27,7 +27,15 @@ const og_description = description.length>200?description.substring(0, 200):desc
 
 <html lang="en" data-bs-theme="dark">
   <head>
-    <script src="/src/scripts/google-analytics.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0BZVVEWYEV"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0BZVVEWYEV');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
