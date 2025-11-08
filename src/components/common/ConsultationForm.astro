@@ -31,6 +31,18 @@ const url = Astro.url.pathname
           .hidden {
             display: none;
           }
+
+          .card-body {
+            background-color: #121519;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          }
+
+          .book-now-btn {
+            background-color: #52CEC7 !important;
+          }
+
         .flip-card {
           width: 100%;
           max-width: 390px;
@@ -43,10 +55,8 @@ const url = Astro.url.pathname
         .flip-card-inner {
           position: relative;
           width: 100%;
-          height: 100%;
           transition: transform 0.6s;
           transform-style: preserve-3d;
-          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         }
 
         .flip-card.flipped .flip-card-inner {
@@ -353,7 +363,6 @@ const url = Astro.url.pathname
   })
   const form_id = import.meta.env.PUBLIC_FORM_ID
   const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
-  
   const submitAnotherForm = document.querySelector('.small-grey-underline') as HTMLElement
   submitAnotherForm?.addEventListener('click', () => {
     const flipCard = document.querySelector('.flip-card') as HTMLElement
@@ -383,7 +392,7 @@ const url = Astro.url.pathname
     const startDateTime = dateTimeInput.value
     const timeSlot = timeSlots.value
 
-    if (name && email && company && startDateTime && timeSlot) {
+    if (name && email && company && startDateTime && timeSlot && form_id && appScriptID) {
       const url = `https://docs.google.com/forms/u/0/d/e/${form_id}/formResponse`
       const scriptUrl = `https://script.google.com/macros/s/${appScriptID}/exec`
       try {
@@ -555,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
       disabled
       class={url === '/'
         ? ' btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py'
-        : 'btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py bookNow-btn'}
+        : 'btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py book-now-btn'}
       type='submit'>Book now</button
     >
   </div>
