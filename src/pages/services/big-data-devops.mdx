@@ -1,23 +1,26 @@
 ---
 layout: ../../components/services/CommanComponent.astro
 hero_video: /assets/videos/temp5.mp4
-hero_title: Big Data DevOps
-hero_text: We deliver full range of Big Data DevOps for major cloud providers AWS, Azure and Google Cloud as well as on-prem.
+hero_title: Data Engineering
+hero_text: We create resilient, high-performance Data Pipelines that power your analytics. Our Data Engineering expertise guarantees the speed, Data Quality, and reliability needed for a strategic data ecosystem.
 
-p1_text: Since big data projects are more challenging, the data experts provide valuable contributions by integrating with the DevOps team throughout the software delivery pipeline. Deploying a big data platform in the cloud today is much more complicated; Things change a lot in the Hadoop ecosystem and the cloud – so teams will need specific skill sets and coordination across activities. You can’t just have a great big data team – you need a killer Data DevOps to deliver efficiently.
-p2_text: The real challenge holding back production big data cloud deployments is the pervasive lack of DevOps skills for big data.
+p1_text: Data Engineering is the practice of designing and building systems for collecting, storing, and transforming data at scale. It focuses on the infrastructure required to make data available and useful to data scientists and business users, forming the bedrock of successful Business Intelligence and advanced analytics.
+
+differentiators_heading: Why Partner with Us for Your Data Engineering Needs?
+
+approach_heading: Our Four-Phase Data Engineering Implementation Workflow
 
 card1_img: /assets/images/services/devops/img1.svg
-card1_heading: Speed
-card1_text: Automate your infrastructure, data and code deployment to rapidly prototype and deploy your models and pipeline and deliver results to tour customers.
+card1_heading: Focus on DataOps
+card1_text: We integrate DataOps methodologies to ensure continuous delivery, automation, and governance of your data infrastructure.
 
 card2_img: /assets/images/services/devops/img2.svg
-card2_heading: Reliability
-card2_text: Monitor the vitals of your system and fix them automatically. Built in fault tolerance to ensure your pipelines and models are producing insights reliably. 
+card2_heading: Cloud-Native Experts
+card2_text: Deep specialization in deploying and optimizing Cloud Data Architecture on leading platforms (AWS, Azure, GCP).
 
 card3_img:  /assets/images/services/devops/img3.svg
-card3_heading: Scale
-card3_text: Predictive auto scaling to optimize cost for distributed cluster.  We run and monitor your clusters to save every penny.  
+card3_heading: Guaranteed Data Quality
+card3_text: We implement robust testing and monitoring across all ETL/ELT Pipelines to ensure reliable, trusted data streams.
 
 approach1_img: /assets/images/services/devops/svg1.svg
 approach2_img: /assets/images/services/devops/svg2.svg
@@ -29,10 +32,10 @@ approach2_heading: Build, Deploy, Test
 approach3_heading: Monitor
 approach4_heading: Feedback and Improvements
 
-approach1_text: We help you hire or train your existing team on required tools to run efficient data operations. This is a vital step, as without right devops team no system can function efficiently. Big Data devpos is a very specialist role that require understanding of data system, code as well as infrastructure.  We have developed well defined process for training and hiring of big data devops professionals.  
-approach2_text: Build, Deploy and test infrastructure and continuous integration pipelines. We understand that data poses unique challenges to testing pipelines in lower environments, that is why we have developed a unique data development lifecycle. We build your infrastructure and pipelines on a flexible framework that we have developed after implementing many big data systems. This provides a foundation to build quality devops processes in a short time period.   
-approach3_text: Monitoring and analysing system metrics help identify performance bottlenecks. This analysis may reveal issues like data skew, inefficient queries, or resource contention. By pinpointing the bottlenecks, optimizations can be made at various levels. We ensure that your multi dimensional time series are easily query-able. This helps us alert and fix the problem quickly and  ensuring that your data systems are resilient. 
-approach4_text: Feedback loops play a crucial role in the world of DevOps. They provide several benefits that ensure the Data Pipelines being deployed are of high quality and produced in a timely manner. 
+approach1_text: Aligning specialized talent for Data Architecture design, pipeline development, and platform management
+approach2_text: Iterative development of Data Pipelines, rigorous testing for Data Quality, and infrastructure as code deployment (IaC)
+approach3_text: Establish comprehensive monitoring, alerting, and logging systems to track performance, latency, and costs, essential for stable DataOps
+approach4_text: Continuous refinement based on performance data and business feedback, driving ongoing Data Automation and optimization
 
 
 expertise1_heading: Adaptive Auto Scaling
@@ -52,7 +55,48 @@ expertise6_img: /assets/images/services/devops/icon6.svg
 
 
 ---
-import DevOps from "../../components/services/DevOps.astro"
 
+<section style="padding: 80px 0;" data-bs-theme="dark">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Data Engineering Services</h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 3rem;">Comprehensive solutions to power your data ecosystem.</p>
 
-<DevOps/>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      {/* Card 1 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Quality</h3>
+        <p style="color: rgba(255,255,255,0.8);">Strategy and implementation of data validation, cleansing, and profiling.</p>
+      </div>
+
+      {/* Card 2 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Pipelines (ETL/ELT)</h3>
+        <p style="color: rgba(255,255,255,0.8);">Designing and building robust and scalable data ingestion and transformation flows.</p>
+      </div>
+
+      {/* Card 3 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Business Intelligence</h3>
+        <p style="color: rgba(255,255,255,0.8);">Building the underlying Data Architecture that supports unified BI platforms.</p>
+      </div>
+
+      {/* Card 4 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Analytics Dashboards</h3>
+        <p style="color: rgba(255,255,255,0.8);">Developing high-impact, user-centric Analytics Dashboards and reporting capabilities.</p>
+      </div>
+
+      {/* Card 5 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">DataOps / MLOps</h3>
+        <p style="color: rgba(255,255,255,0.8);">Implementing CI/CD for data and machine learning workloads, enabling rapid deployment.</p>
+      </div>
+
+      {/* Card 6 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Mesh</h3>
+        <p style="color: rgba(255,255,255,0.8);">Advisory and implementation for decentralized data architectures.</p>
+      </div>
+    </div>
+  </div>
+</section>

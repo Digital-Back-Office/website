@@ -1,23 +1,24 @@
 ---
 layout: ../../components/services/CommanComponent.astro
 hero_video: /assets/videos/dbo_bg_video3.mp4
-hero_title: Big Data Architecture
-hero_text: We design secure, fault tolerant and scalable Big Data solutions that work across various departments and teams.
+hero_title: Data Strategy Services
+hero_text: We help you turn your data into a competitive advantage by designing modern data architectures, cloud strategies, and governance frameworks — preparing your organization for AI readiness and regulatory compliance.
 
-p1_text: Big data architecture is the foundation for big data analytics. The big data architecture framework serves as a reference blueprint for big data infrastructures and solutions, logically defining how big data solutions will work, the components that will be used, how information will flow, and security details. A good big data system is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems.
-p2_text: The size of Big Data realm differs for organizations. For some, it can mean hundreds of gigabytes of data, while for others it means hundreds of terabytes. Size of data, need for advance analytics capabilities, users and the budget are some of the key factors that affect the big data architecture.
+p1_text: A Data Strategy is a comprehensive plan that defines how an organization acquires, stores, governs, manages, shares, and utilizes its data to achieve business goals. It bridges the gap between technology capabilities and strategic objectives, ensuring your data assets deliver measurable business value.
 
-card1_img: /assets/images/services/big-data-architecture/img1.svg
-card1_heading: Code First
-card1_text: We follow Data Pipelines are code, which means they are versioned and have tests. The pipeline as code model creates automated processes that drives  efficiently
+differentiators_heading: Why Choose Our Data Strategy Consulting Services?
 
-card2_img: /assets/images/services/big-data-architecture/img2.svg
-card2_heading: Data Governance
-card2_text: We place Data Governance is at core of the system architecture. Data security and compliance are designed as integral part of the system and not as afterthought.  
+card1_img: /assets/images/services/big-data-architecture/img3.svg
+card1_heading: Business-First Approach
+card1_text: We start with your KPIs, not just technology. Our focus is on Data Monetization and tangible business ROI.
 
-card3_img:  /assets/images/services/big-data-architecture/img3.svg
-card3_heading: Cost Optimized
-card3_text: Highly scalable, large-scale distributed clusters are typically the foundation for modern big data architectures, we build them to run and scale to save every penny.
+card2_img: /assets/images/services/big-data-architecture/clock.svg
+card2_heading: Rapid Data Maturity Assessment
+card2_text: Quickly identify gaps in your Data Governance and architecture to prioritize the most impactful initiatives.
+
+card3_img:  /assets/images/services/big-data-architecture/setting.svg
+card3_heading: Expert Implementation
+card3_text: Our consultants don't just plan; we provide full-stack support for successful Data Strategy Implementation.
 
 approach1_img: /assets/images/services/big-data-architecture/svg1.svg
 approach2_img: /assets/images/services/big-data-architecture/svg2.svg
@@ -27,13 +28,13 @@ approach4_img: /assets/images/services/big-data-architecture/svg4.svg
 approach1_heading: Analyze the Business 
 approach2_heading: Decide Deployment Strategy
 approach3_heading: Select Tooling
-approach4_heading: Architecure, Design and Devops planning
+approach4_heading: Architecture, Design, & DevOps Planning
 
-approach1_text: Understand data variety, velocity, and challenges with the current system. Common use cases include data archival, process offload, data lake implementation, unstructured data processing, and data warehouse modernization. We work with various teams to model the the problem and understand the budget.
-approach2_text: Deployment can be either on-premises, which tends to be more secure; cloud-based, which is cost effective and provides flexibility regarding scalability; or a mix deployment strategy. If cloud based bring an agreement on the the provider AWS, Azure or GCP.
-approach3_text: Hadoop is one of the most widely recognized big data architecture tools for managing big data end to end architecture. Select from variou various Hadoop distribution, Databricks, BigInsights, Cloudera. Next select various component, orchestration tools, visualization tools etc.
+approach1_text: In-depth review of existing capabilities, operating models, and business objectives. We define success criteria and establish the need for a Data Roadmap
+approach2_text: Define the Target Operating Model (TOM). This includes defining roles, processes, and the approach for Cloud Data Strategy adoption (e.g., hybrid, multi-cloud, single-cloud)
+approach3_text: We help you evaluate and select the right data platforms, ensuring alignment with your Data Architecture and budget
 
-approach4_text: Plan for Data Architecture, pipeline design, CICD etc to support business requirments. This also includes data security, monitoring, autoscaling, disaster recovery, data governance.
+approach4_text: Finalize the technical design, establish principles for Data Quality, and define the CI/CD pipeline for ongoing data platform management
 
 
 expertise1_heading: Data Hub
@@ -53,7 +54,175 @@ expertise6_img: /assets/images/services/big-data-architecture/icon6.svg
 
 
 ---
-import BigDataArchitecture from "../../components/services/BigDataArchitecture.astro"
 
+<section style="padding: 80px 0;" data-bs-theme="dark">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Our Services</h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 3rem;">Strategic capabilities that accelerate your data transformation.</p>
 
-<BigDataArchitecture/>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      {/* Card 1 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Quality</h3>
+        <p style="color: rgba(255,255,255,0.8);">Implement processes and tools to ensure accuracy and reliability.</p>
+      </div>
+
+      {/* Card 2 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Architecture</h3>
+        <p style="color: rgba(255,255,255,0.8);">Design resilient, scalable, and secure data infrastructure.</p>
+      </div>
+
+      {/* Card 3 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Cloud Data Strategy</h3>
+        <p style="color: rgba(255,255,255,0.8);">Define the approach for migrating and optimizing data assets on cloud platforms (AWS, Azure, GCP).</p>
+      </div>
+
+      {/* Card 4 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Governance</h3>
+        <p style="color: rgba(255,255,255,0.8);">Establish policies, roles, and standards to ensure compliance and ethical use of data.</p>
+      </div>
+
+      {/* Card 5 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Roadmap</h3>
+        <p style="color: rgba(255,255,255,0.8);">Create a sequenced plan for data capability development and investment over 12-36 months.</p>
+      </div>
+
+      {/* Card 6 */}
+      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">AI Readiness</h3>
+        <p style="color: rgba(255,255,255,0.8);">Prepare your data foundation to support advanced analytics and AI/ML initiatives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Industries Section */}
+<section style="padding: 80px 0;" data-bs-theme="dark">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Industries</h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 3rem;">Tailored Data Strategy solutions for your sector.</p>
+
+    {/* Industry Pills */}
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
+      <button 
+        class="industry-pill active-pill" 
+        data-industry="financial"
+        style="padding: 0.875rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+        Financial Services
+      </button>
+      <button 
+        class="industry-pill" 
+        data-industry="healthcare"
+        style="padding: 0.875rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+        Healthcare
+      </button>
+      <button 
+        class="industry-pill" 
+        data-industry="retail"
+        style="padding: 0.875rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+        Retail
+      </button>
+    </div>
+
+    {/* Industry Content Container */}
+    <div style="padding: 2.5rem; background-color: rgba(255,255,255,3%); border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.25);">
+      <div id="industry-financial" class="industry-content" style="display: block;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">Financial Services: Building a Data-Driven Future</h3>
+        <p style="line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
+          In the highly regulated financial sector, a robust Data Strategy is essential for compliance, risk management, and competitive advantage. 
+          Our solutions help financial institutions establish comprehensive Data Governance frameworks that ensure regulatory compliance (GDPR, BCBS 239, MiFID II) 
+          while enabling advanced analytics for fraud detection, credit risk modeling, and customer 360 insights.
+        </p>
+        <p style="line-height: 1.7; color: rgba(255,255,255,0.8);">
+          We design Cloud Data Strategies that modernize legacy systems, implement real-time data architectures for trading and payments, and create 
+          AI-ready data platforms that power personalized banking experiences. Our Data Roadmap approach prioritizes quick wins like automated reporting 
+          while building toward transformative capabilities such as predictive customer lifetime value modeling and intelligent process automation.
+        </p>
+      </div>
+
+      <div id="industry-healthcare" class="industry-content" style="display: none;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">Healthcare: Data Strategy for Better Patient Outcomes</h3>
+        <p style="line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
+          Healthcare organizations face unique challenges with sensitive patient data, interoperability requirements, and the need for real-time clinical insights. 
+          Our Data Strategy services help healthcare providers navigate HIPAA compliance while building unified data platforms that connect EHR systems, 
+          medical devices, and research databases.
+        </p>
+        <p style="line-height: 1.7; color: rgba(255,255,255,0.8);">
+          We enable predictive analytics for patient readmission risk, optimize resource allocation through operational data analysis, and support precision 
+          medicine initiatives with genomic data integration. Our Data Governance frameworks ensure data privacy and security while establishing data quality 
+          standards critical for clinical decision support systems and population health management.
+        </p>
+      </div>
+
+      <div id="industry-retail" class="industry-content" style="display: none;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">Retail: Data Strategy for Omnichannel Excellence</h3>
+        <p style="line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
+          Modern retail success depends on unified customer data across online, mobile, and physical channels. Our Data Strategy consulting helps retailers 
+          break down data silos, implement customer data platforms (CDPs), and create single views of inventory, customers, and sales performance. 
+          We design data architectures that support real-time personalization, dynamic pricing, and demand forecasting.
+        </p>
+        <p style="line-height: 1.7; color: rgba(255,255,255,0.8);">
+          Our Cloud Data Strategy enables retailers to scale during peak seasons, integrate supplier and marketplace data, and leverage AI for product 
+          recommendations and visual search. We establish Data Quality processes for product catalogs, implement analytics for customer journey mapping, 
+          and create Data Roadmaps that balance quick wins (improved inventory visibility) with strategic initiatives (AI-powered merchandising).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>{`
+  .industry-pill:hover {
+    background-color: rgba(255,255,255,5%) !important;
+    border-color: #6366f1 !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+  }
+
+  .industry-pill.active-pill {
+    background-color: #6366f1 !important;
+    border-color: #6366f1 !important;
+    color: #fff !important;
+  }
+
+  @media (max-width: 768px) {
+    .industry-pill {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+`}</style>
+
+<script>{`
+  document.addEventListener('DOMContentLoaded', function() {
+    const industryPills = document.querySelectorAll('.industry-pill');
+    const industryContents = document.querySelectorAll('.industry-content');
+
+    industryPills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        const industry = this.getAttribute('data-industry');
+
+        // Remove active class from all pills
+        industryPills.forEach(p => p.classList.remove('active-pill'));
+        
+        // Add active class to clicked pill
+        this.classList.add('active-pill');
+
+        // Hide all content
+        industryContents.forEach(content => {
+          content.style.display = 'none';
+        });
+
+        // Show selected content
+        const selectedContent = document.getElementById('industry-' + industry);
+        if (selectedContent) {
+          selectedContent.style.display = 'block';
+        }
+      });
+    });
+  });
+`}</script>
