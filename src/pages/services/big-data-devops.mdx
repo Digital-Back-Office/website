@@ -1,26 +1,29 @@
 ---
 layout: ../../components/services/CommanComponent.astro
 hero_video: /assets/videos/temp5.mp4
-hero_title: Data Engineering
-hero_text: We create resilient, high-performance Data Pipelines that power your analytics. Our Data Engineering expertise guarantees the speed, Data Quality, and reliability needed for a strategic data ecosystem.
+hero_title: Data Engineering Services
+hero_text: Get resilient, high-performance Data Pipelines with our Data Engineering expertise, guaranteeing the speed and Data Quality your strategic data ecosystem needs.
 
-p1_text: Data Engineering is the practice of designing and building systems for collecting, storing, and transforming data at scale. It focuses on the infrastructure required to make data available and useful to data scientists and business users, forming the bedrock of successful Business Intelligence and advanced analytics.
+hero_cta_text: Get free consultation
+hero_cta_link: /contact-us
+
+p1_text: Data Engineering is the foundational discipline focused on designing, building, and managing the entire data infrastructure, ensuring data is collected, cleaned, and readily accessible at scale. Our focus is on making data reliable, timely, and suitable for advanced analytics and Business Intelligence.
 
 differentiators_heading: Why Partner with Us for Your Data Engineering Needs?
 
-approach_heading: Our Four-Phase Data Engineering Implementation Workflow
-
 card1_img: /assets/images/services/devops/img1.svg
-card1_heading: Focus on DataOps
-card1_text: We integrate DataOps methodologies to ensure continuous delivery, automation, and governance of your data infrastructure.
+card1_heading: ML/AI Readiness
+card1_text: Implementing DataOps and MLOps practices to ensure every data product is clean and version-controlled for seamless model training and deployment.
 
 card2_img: /assets/images/services/devops/img2.svg
-card2_heading: Cloud-Native Experts
-card2_text: Deep specialization in deploying and optimizing Cloud Data Architecture on leading platforms (AWS, Azure, GCP).
+card2_heading: Architecture Agility
+card2_text: Specializing in modern architectures like Data Mesh to decentralize ownership and deliver data autonomy across your organization.
 
 card3_img:  /assets/images/services/devops/img3.svg
-card3_heading: Guaranteed Data Quality
-card3_text: We implement robust testing and monitoring across all ETL/ELT Pipelines to ensure reliable, trusted data streams.
+card3_heading: Performance and Speed
+card3_text: Optimizing pipelines for Real-Time Data streaming and ensuring ultra-fast query performance for immediate Analytics Dashboards.
+
+approach_heading: Our Four-Phase Data Engineering Implementation Workflow
 
 approach1_img: /assets/images/services/devops/svg1.svg
 approach2_img: /assets/images/services/devops/svg2.svg
@@ -40,7 +43,7 @@ approach4_text: Continuous refinement based on performance data and business fee
 
 expertise1_heading: Adaptive Auto Scaling
 expertise2_heading: Continuous Data Integration (CDI)
-expertise3_heading: Continious Pipeline Deployment (CPD)
+expertise3_heading: Continuous Pipeline Deployment (CPD)
 expertise4_heading: Strong capability is Ansible, Terraform, K8s, Helm, and Python
 expertise5_heading: Large Spark Cluster Administration
 expertise6_heading: Airflow, Jupyter,  pipelines
@@ -58,45 +61,290 @@ expertise6_img: /assets/images/services/devops/icon6.svg
 
 <section style="padding: 80px 0;" data-bs-theme="dark">
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Data Engineering Services</h2>
+    <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Our <span style="color: #EEBF2E">Services</span></h2>
     <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 3rem;">Comprehensive solutions to power your data ecosystem.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-      {/* Card 1 */}
-      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Quality</h3>
-        <p style="color: rgba(255,255,255,0.8);">Strategy and implementation of data validation, cleansing, and profiling.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+      {/* Card 1 - Data Quality */}
+      <div class="service-card-flip">
+        <div class="service-card-flip-inner">
+          <div class="service-card-flip-front" style="background-color: #020609; border: 2px solid #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%; gap: 1rem;">
+              <div style="flex-grow: 1; background-image: url(/assets/images/data-sci.png); background-size: 60%; background-position: center; background-repeat: no-repeat;"></div>
+              <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff;">Data Quality</h3>
+            </div>
+          </div>
+          <div class="service-card-flip-back" style="background-color: #020609;">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #fff;">Data Quality</h3>
+              <p style="color: rgba(255,255,255,0.8);">Strategy and implementation of data validation, cleansing, and profiling to ensure data reliability.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Card 2 */}
-      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Pipelines (ETL/ELT)</h3>
-        <p style="color: rgba(255,255,255,0.8);">Designing and building robust and scalable data ingestion and transformation flows.</p>
+      {/* Card 2 - Data Pipelines (ETL/ELT) */}
+      <div class="service-card-flip">
+        <div class="service-card-flip-inner">
+          <div class="service-card-flip-front" style="background-color: #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%; gap: 1rem;">
+              <div style="flex-grow: 1; background-image: url(/assets/images/data-arch.png); background-size: 60%; background-position: center; background-repeat: no-repeat;"></div>
+              <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff;">Data Pipelines (ETL/ELT)</h3>
+            </div>
+          </div>
+          <div class="service-card-flip-back" style="background-color: #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #fff;">Data Pipelines (ETL/ELT)</h3>
+              <p style="color: rgba(255,255,255,0.9);">Designing and building robust and scalable data ingestion and transformation flows.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Card 3 */}
-      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Business Intelligence</h3>
-        <p style="color: rgba(255,255,255,0.8);">Building the underlying Data Architecture that supports unified BI platforms.</p>
+      {/* Card 3 - Business Intelligence */}
+      <div class="service-card-flip">
+        <div class="service-card-flip-inner">
+          <div class="service-card-flip-front" style="background-color: #020609; border: 2px solid #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%; gap: 1rem;">
+              <div style="flex-grow: 1; background-image: url(/assets/images/data-vis.png); background-size: 60%; background-position: center; background-repeat: no-repeat;"></div>
+              <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff;">Business Intelligence</h3>
+            </div>
+          </div>
+          <div class="service-card-flip-back" style="background-color: #020609;">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #fff;">Business Intelligence</h3>
+              <p style="color: rgba(255,255,255,0.8);">Building the underlying Data Architecture that supports unified BI platforms.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Card 4 */}
-      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Analytics Dashboards</h3>
-        <p style="color: rgba(255,255,255,0.8);">Developing high-impact, user-centric Analytics Dashboards and reporting capabilities.</p>
+      {/* Card 4 - Analytics Dashboards */}
+      <div class="service-card-flip">
+        <div class="service-card-flip-inner">
+          <div class="service-card-flip-front" style="background-color: #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%; gap: 1rem;">
+              <div style="flex-grow: 1; background-image: url(/assets/images/data-devops.png); background-size: 60%; background-position: center; background-repeat: no-repeat;"></div>
+              <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff;">Analytics Dashboards</h3>
+            </div>
+          </div>
+          <div class="service-card-flip-back" style="background-color: #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #fff;">Analytics Dashboards</h3>
+              <p style="color: rgba(255,255,255,0.9);">Developing high-impact, user-centric Analytics Dashboards and reporting capabilities.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Card 5 */}
-      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">DataOps / MLOps</h3>
-        <p style="color: rgba(255,255,255,0.8);">Implementing CI/CD for data and machine learning workloads, enabling rapid deployment.</p>
+      {/* Card 5 - DataOps / MLOps */}
+      <div class="service-card-flip">
+        <div class="service-card-flip-inner">
+          <div class="service-card-flip-front" style="background-color: #020609; border: 2px solid #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%; gap: 1rem;">
+              <div style="flex-grow: 1; background-image: url(/assets/images/data-sci.png); background-size: 60%; background-position: center; background-repeat: no-repeat;"></div>
+              <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff;">DataOps / MLOps</h3>
+            </div>
+          </div>
+          <div class="service-card-flip-back" style="background-color: #020609;">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #fff;">DataOps / MLOps</h3>
+              <p style="color: rgba(255,255,255,0.8);">Implementing CI/CD for data and machine learning workloads, enabling rapid deployment.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Card 6 */}
-      <div style="padding: 24px; border-radius: 20px; background-color: rgba(255,255,255,3%); border: none; transition: transform 0.3s ease; box-shadow: 0 6px 18px rgba(0,0,0,0.25);" onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'none'}>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Data Mesh</h3>
-        <p style="color: rgba(255,255,255,0.8);">Advisory and implementation for decentralized data architectures.</p>
+      {/* Card 6 - Data Mesh */}
+      <div class="service-card-flip">
+        <div class="service-card-flip-inner">
+          <div class="service-card-flip-front" style="background-color: #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%; gap: 1rem;">
+              <div style="flex-grow: 1; background-image: url(/assets/images/data-vis.png); background-size: 60%; background-position: center; background-repeat: no-repeat;"></div>
+              <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff;">Data Mesh</h3>
+            </div>
+          </div>
+          <div class="service-card-flip-back" style="background-color: #2FB7B8;">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #fff;">Data Mesh</h3>
+              <p style="color: rgba(255,255,255,0.9);">Advisory and implementation for decentralized data architectures.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+{/* Industries Section */}
+<section style="padding: 80px 0;" data-bs-theme="dark">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Industry <span style="color: #EEBF2E">use cases</span></h2>
+    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 3rem;">Tailored Data Engineering solutions for your sector.</p>
+
+    {/* Industry Pills */}
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
+      <button 
+        class="industry-pill active-pill" 
+        data-industry="financial"
+        style="padding: 0.5rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+        Financial Services
+      </button>
+      <button 
+        class="industry-pill" 
+        data-industry="retail"
+        style="padding: 0.5rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+        Retail & E-commerce
+      </button>
+      <button 
+        class="industry-pill" 
+        data-industry="manufacturing"
+        style="padding: 0.5rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+        Manufacturing
+      </button>
+      <button 
+        class="industry-pill" 
+        data-industry="media"
+        style="padding: 0.5rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+        Media & Telecom
+      </button>
+    </div>
+
+    {/* Industry Content Container */}
+    <div style="padding: 2.5rem; background-color: rgba(255,255,255,3%); border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.25);">
+      <div id="industry-financial" class="industry-content" style="display: block;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">Financial Services</h3>
+        <ul style="line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 0; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.75rem;"><strong>Low-Latency Data Pipelines:</strong> Building infrastructure for real-time fraud detection and instant transaction analysis.</li>
+          <li style="margin-bottom: 0.75rem;"><strong>Data Product Governance:</strong> Creating secure, trusted data marts for accurate risk modeling and compliance reporting.</li>
+        </ul>
+      </div>
+
+      <div id="industry-retail" class="industry-content" style="display: none;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">Retail & E-commerce</h3>
+        <ul style="line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 0; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.75rem;"><strong>Omnichannel Data Integration:</strong> Integrating point-of-sale, web clickstream, and logistics data into a unified platform for hyper-personalized marketing.</li>
+          <li style="margin-bottom: 0.75rem;"><strong>High-Volume ETL/ELT:</strong> Designing scalable flows to handle peak e-commerce traffic and rapidly update inventory.</li>
+        </ul>
+      </div>
+
+      <div id="industry-manufacturing" class="industry-content" style="display: none;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">Manufacturing</h3>
+        <ul style="line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 0; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.75rem;"><strong>IoT Streaming Architectures:</strong> Deploying infrastructure to ingest and process massive volumes of sensor data in real-time.</li>
+          <li style="margin-bottom: 0.75rem;"><strong>MLOps Support:</strong> Creating production environments that continuously feed and monitor Predictive Maintenance and quality control models.</li>
+        </ul>
+      </div>
+
+      <div id="industry-media" class="industry-content" style="display: none;">
+        <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">Media & Telecom</h3>
+        <ul style="line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 0; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.75rem;"><strong>Data Mesh Implementation:</strong> Decoupling data domains (e.g., subscription, content) to speed up innovation and personalized offering development.</li>
+          <li style="margin-bottom: 0.75rem;"><strong>Usage Data Processing:</strong> Building platforms to analyze high-velocity customer engagement and network traffic data.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>{`
+  .service-card-flip {
+    display: block;
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .service-card-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+  }
+
+  .service-card-flip-front,
+  .service-card-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    border-radius: 20px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  }
+
+  .service-card-flip-front {
+    transform: rotateY(0deg);
+  }
+
+  .service-card-flip-back {
+    transform: rotateY(180deg);
+  }
+
+  .service-card-flip:hover .service-card-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  @media (max-width: 768px) {
+    .service-card-flip {
+      height: 320px;
+    }
+  }
+
+  .industry-pill:hover {
+    background-color: rgba(255,255,255,5%) !important;
+    border-color: #6366f1 !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+  }
+
+  .industry-pill {
+    text-align: center !important;
+  }
+
+  .industry-pill.active-pill {
+    background-color: #30baba !important;
+    border: 1.5px solid #fff !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(48, 186, 186, 0.5), 0 0 20px rgba(48, 186, 186, 0.3) !important;
+  }
+
+  @media (max-width: 768px) {
+    .industry-pill {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+`}</style>
+
+<script>{`
+  document.addEventListener('DOMContentLoaded', function() {
+    const industryPills = document.querySelectorAll('.industry-pill');
+    const industryContents = document.querySelectorAll('.industry-content');
+
+    industryPills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        const industry = this.getAttribute('data-industry');
+
+        // Remove active class from all pills
+        industryPills.forEach(p => p.classList.remove('active-pill'));
+        
+        // Add active class to clicked pill
+        this.classList.add('active-pill');
+
+        // Hide all content
+        industryContents.forEach(content => {
+          content.style.display = 'none';
+        });
+
+        // Show selected content
+        const selectedContent = document.getElementById('industry-' + industry);
+        if (selectedContent) {
+          selectedContent.style.display = 'block';
+        }
+      });
+    });
+  });
+`}</script>

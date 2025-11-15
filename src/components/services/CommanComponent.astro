@@ -3,6 +3,45 @@ const {frontmatter} = Astro.props;
 import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../common/Contact.astro"
 import ServiceVideo from "../../layouts/ServiceVideo.astro"
+
+const diffHeadingRaw = frontmatter.differentiators_heading || "Why Choose Our Data Strategy Consulting Services?";
+let highlightPhrase = 'Data Strategy Consulting';
+// support highlighting multiple possible phrases (service names and custom headings)
+if (diffHeadingRaw.includes('Why Partner with Us')) {
+  highlightPhrase = 'Why Partner with Us';
+} else if (diffHeadingRaw.includes('Data science')) {
+  highlightPhrase = 'Data science';
+} else if (diffHeadingRaw.includes('Data Science')) {
+  highlightPhrase = 'Data Science';
+}
+const diffHasHighlight = diffHeadingRaw.includes(highlightPhrase);
+const diffParts = diffHasHighlight ? diffHeadingRaw.split(highlightPhrase) : null;
+
+const approachHeadingRaw = frontmatter.approach_heading || "Our Four-Step Data Strategy Implementation Process";
+let approachHighlight = 'Implementation Process';
+// support different phrasing for the approach highlight (e.g., 'Implementation Workflow')
+if (approachHeadingRaw.includes('Implementation Workflow')) {
+  approachHighlight = 'Implementation Workflow';
+} else if (approachHeadingRaw.includes('Implementation workflow')) {
+  approachHighlight = 'Implementation workflow';
+}
+const approachHasHighlight = approachHeadingRaw.includes(approachHighlight);
+const approachParts = approachHasHighlight ? approachHeadingRaw.split(approachHighlight) : null;
+
+const heroTitleRaw = frontmatter.hero_title || '';
+let heroHighlight = 'Data Strategy';
+// support highlighting service names (case variations) in hero title
+if (heroTitleRaw.includes('Data Engineering')) {
+  heroHighlight = 'Data Engineering';
+} else if (heroTitleRaw.includes('Data engineering')) {
+  heroHighlight = 'Data engineering';
+} else if (heroTitleRaw.includes('Data Science')) {
+  heroHighlight = 'Data Science';
+} else if (heroTitleRaw.includes('Data science')) {
+  heroHighlight = 'Data science';
+}
+const heroHasHighlight = heroTitleRaw.includes(heroHighlight);
+const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
 ---
 
 <style>
@@ -124,6 +163,28 @@ import ServiceVideo from "../../layouts/ServiceVideo.astro"
     }
   }
   
+  .hero-cta-btn {
+    font-size: 1.25rem !important;
+    padding: 0.875rem 2rem !important;
+    font-weight: 600;
+    background-color: #2fb7b8;
+    border-color: #2fb7b8;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .hero-cta-btn:hover {
+    background-color: transparent !important;
+    border-color: #2fb7b8 !important;
+    color: #2fb7b8 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(47, 183, 184, 0.3);
+  }
+
+  .hero-cta-btn:active {
+    transform: translateY(0);
+  }
+  
 </style>
 
 <Layout
@@ -134,12 +195,26 @@ import ServiceVideo from "../../layouts/ServiceVideo.astro"
           <div class="hero-text container">
             <div style="width:full; max-width:1296px; margin:0 auto 0 auto;">
               <h1  class="text-lg-start text-light fw-light fw-bold hero-heading">
-                {frontmatter.hero_title}
+                {heroHasHighlight ? (
+                  <>
+                    {heroParts[0]}<span style="color: #EEBF2E">{heroHighlight}</span>{heroParts.slice(1).join(heroHighlight)}
+                  </>
+                ) : (
+                  heroTitleRaw
+                )}
               </h1>
               <p class="fs-lg text-lg-start pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5 hero-text1"
               >
                 {frontmatter.hero_text}
               </p>
+              {frontmatter.hero_cta_text ? (
+                <div>
+                  <a class="btn btn-primary rounded-pill hero-cta-btn" href={frontmatter.hero_cta_link || '/contact-us'}>
+                    {frontmatter.hero_cta_text}
+                    <i class="ai-arrow-right ms-2 me-n1"></i>
+                  </a>
+                </div>
+              ) : null}
             </div>
           </div>
         </ServiceVideo>
@@ -164,7 +239,13 @@ import ServiceVideo from "../../layouts/ServiceVideo.astro"
           <section id="diff" class="container mt-md-3 mt-lg-2 mt-xl-4 mt-xxl-5 " data-bs-theme="dark"
         >
           <h2 class="h1 text-center pt-3 pt-sm-4 pt-lg-5 pb-3 mb-3 mb-lg-5 mt-xl-3">
-            {frontmatter.differentiators_heading || "Why Choose Our Data Strategy Consulting Services?"}
+            {diffHasHighlight ? (
+              <>
+                {diffParts[0]}<span style="color: #EEBF2E">{highlightPhrase}</span>{diffParts.slice(1).join(highlightPhrase)}
+              </>
+            ) : (
+              diffHeadingRaw
+            )}
           </h2>
           <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center
           ">
@@ -228,7 +309,15 @@ import ServiceVideo from "../../layouts/ServiceVideo.astro"
   <!--DONE== How it works (Steps) from about-product.html-->
   <section class="overflow-hidden py-5 my-md-2 my-xl-4 my-xxl-5" data-bs-theme="dark">
           <div class="container py-2 py-sm-4 py-lg-5">
-            <h2 class="h1 text-center pb-3 mb-4 mb-lg-5 mt-xxl-2">{frontmatter.approach_heading || "Our Four-Step Data Strategy Implementation Process"}</h2>
+            <h2 class="h1 text-center pb-3 mb-4 mb-lg-5 mt-xxl-2">
+              {approachHasHighlight ? (
+                <>
+                  {approachParts[0]}<span style="color: #EEBF2E">{approachHighlight}</span>{approachParts.slice(1).join(approachHighlight)}
+                </>
+              ) : (
+                approachHeadingRaw
+              )}
+            </h2>
   
             <!-- Step 1-->
             <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
@@ -339,7 +428,7 @@ import ServiceVideo from "../../layouts/ServiceVideo.astro"
         <!-- Features from landing-saas-v3.html-->
         <section class="container py-5 my-sm-2 my-md-4 my-lg-5 px-5" data-bs-theme="dark">
           <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto expertise-heading" style="max-width: 40rem; margin-bottom:2.5rem;">
-            Our Expertise
+            Our <span style="color: #EEBF2E">Expertise</span>
           </h2>
           
           <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-4 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
@@ -377,6 +466,104 @@ import ServiceVideo from "../../layouts/ServiceVideo.astro"
               <div class="text-center px-xxl-4 icons">
                 <img src={frontmatter.expertise6_img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50"/>
                 <h3 class="h4 mb-2">{frontmatter.expertise6_heading}</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Capabilities & Governance Section -->
+        <section class="container py-5 my-sm-2 my-md-4 my-lg-5" data-bs-theme="dark">
+          <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto" style="max-width: 50rem; margin-bottom:3rem;">
+            <span><span style="color: #EEBF2E">Technical Capabilities</span> & Enabling Platform</span>
+          </h2>
+          
+          <div class="accordion" id="capabilitiesAccordion" style="max-width: 900px; margin: 0 auto;">
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item" style="background-color: rgba(255,255,255,3%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1" style="background-color: rgba(255,255,255,3%); color: #fff; font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;">
+                  {frontmatter.capability1_heading || 'Strategic Alignment'}
+                </button>
+              </h3>
+              <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#capabilitiesAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.7;">
+                  {frontmatter.capability1_text || 'Platform-agnostic guidance focused on aligning technology choices (Snowflake, Databricks, BigQuery) with core business strategy, not vendor preference.'}
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item" style="background-color: rgba(255,255,255,3%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2" style="background-color: rgba(255,255,255,3%); color: #fff; font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;">
+                  {frontmatter.capability2_heading || 'Architecture Modeling'}
+                </button>
+              </h3>
+              <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#capabilitiesAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.7;">
+                  {frontmatter.capability2_text || 'Utilizing industry-standard frameworks to model current and future-state Data Architecture (e.g., TOGAF, DAMA principles).'}
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item" style="background-color: rgba(255,255,255,3%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3" style="background-color: rgba(255,255,255,3%); color: #fff; font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;">
+                  {frontmatter.capability3_heading || 'Tool Selection & Evaluation'}
+                </button>
+              </h3>
+              <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#capabilitiesAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.7;">
+                  {frontmatter.capability3_text || 'Providing unbiased advice on selecting the right tools for Data Governance, MDM, Data Catalogs, and ETL/ELT based on scale and budget.'}
+                </div>
+              </div>
+            </div>
+
+            <!-- Responsible AI and Governance Section -->
+            <h3 class="text-center mt-5 mb-4" style="font-size: 2.5rem; font-weight: 600; color: #fff;">
+              <span style="color: #EEBF2E">Responsible AI</span> and Governance
+            </h3>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item" style="background-color: rgba(255,255,255,3%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4" style="background-color: rgba(255,255,255,3%); color: #fff; font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;">
+                  Model Explainability (XAI)
+                </button>
+              </h3>
+              <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#capabilitiesAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.7;">
+                  {frontmatter.responsible_ai_text || 'Embedding Responsible AI principles into the initial data collection and management phase to proactively mitigate bias and ensure fairness.'}
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item" style="background-color: rgba(255,255,255,3%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5" style="background-color: rgba(255,255,255,3%); color: #fff; font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;">
+                  Bias and Fairness Audits
+                </button>
+              </h3>
+              <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#capabilitiesAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.7;">
+                  {frontmatter.governance_integration_text || 'Defining the organizational structure and tools necessary to enforce Data Governance policies across all analytics and AI systems.'}
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item" style="background-color: rgba(255,255,255,3%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6" style="background-color: rgba(255,255,255,3%); color: #fff; font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;">
+                  AI Governance Framework
+                </button>
+              </h3>
+              <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#capabilitiesAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.7;">
+                  {frontmatter.regulatory_compliance_text || 'Strategically planning data access, security, and lineage to ensure proactive compliance with all relevant global and regional data protection laws (GDPR, CCPA).'}
+                </div>
               </div>
             </div>
           </div>

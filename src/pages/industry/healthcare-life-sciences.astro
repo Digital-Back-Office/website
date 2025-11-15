@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/common/Navbar.astro';
+
+const pageTitle = "Healthcare & Life Sciences";
+const pageDescription = "Digital Back Office solutions for Healthcare & Life Sciences industry";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <Navbar />
+    <main>
+        <section class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1>{pageTitle}</h1>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
