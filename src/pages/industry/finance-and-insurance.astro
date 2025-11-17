@@ -12,6 +12,9 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
         background-image: url(/assets/images/background-pattern.png);
         background-repeat: repeat;
         padding: 8rem 0 6rem;
+        min-height: 110vh;
+        display: flex;
+        align-items: center;
     }
     
     .hero-heading {
@@ -307,8 +310,12 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
 <Layout title={pageTitle} description={pageDescription}>
     <Navbar />
     <main>
-        <section class="hero-section">
-            <div class="container">
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <section class="hero-section" style="position: relative; overflow: hidden;">
+            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.3;">
+                <source src="/assets/videos/finance-hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="container" style="position: relative; z-index: 1;">
                 <div class="row">
                     <div class="col-12">
                         <h1 class="hero-heading">Financial Services Transformation: Moving from Regulatory Risk to Predictive Growth</h1>
@@ -316,6 +323,8 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
                         <a href="/contact-us" class="btn hero-cta-btn">Schedule a Free 30-Minute AI Readiness Assessment</a>
                     </div>
                 </div>
+                <!-- Lottie animation: decorative finance hero -->
+                <lottie-player src="/assets/json/animation-soundwave.json" background="transparent" speed="1" loop autoplay style="width:220px; height:220px; position:absolute; right:2rem; top:50%; transform:translateY(-50%); z-index:2; pointer-events:none;"></lottie-player>
             </div>
         </section>
         <section class="trust-section">
@@ -356,6 +365,9 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
         <section class="products-section">
             <div class="container">
                 <h2 class="products-title"><span>Our Services,</span> your ease</h2>
+                <div style="display:inline-block; vertical-align: middle; margin-left: 1rem;">
+                    <lottie-player src="/assets/json/animation-sandwatch-light.json" background="transparent" speed="1" loop autoplay style="width:56px; height:56px;"></lottie-player>
+                </div>
                 <p class="products-subtitle">Your Next-Generation Financial Strategy: Built on DBO's Proven Framework</p>
                 
                 <ul class="nav nav-tabs" id="productsTab" role="tablist">
@@ -378,24 +390,51 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
                 
                 <div class="tab-content" id="productsTabContent">
                     <div class="tab-pane fade show active" id="data-strategy" role="tabpanel" aria-labelledby="data-strategy-tab">
-                        <div class="tab-content-box">
-                            <h3 class="tab-content-heading">Cloud Data Strategy & Data Governance</h3>
-                            <p class="tab-content-text">Establish a robust, compliant Cloud Governance Model that mitigates risk while accelerating cloud migration (a top priority for 75% of executives).</p>
-                            <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                        <div class="row align-items-center">
+                            <div class="col-lg-7">
+                                <div class="tab-content-box">
+                                    <h3 class="tab-content-heading">Cloud Data Strategy & Data Governance</h3>
+                                    <p class="tab-content-text">Establish a robust, compliant Cloud Governance Model that mitigates risk while accelerating cloud migration (a top priority for 75% of executives).</p>
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center;">
+                                    <img src="/assets/images/Finance/cloud for finance.png" alt="Cloud for Finance" style="max-width: 100%; height: auto; border-radius: 8px;">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="ai-solutions" role="tabpanel" aria-labelledby="ai-solutions-tab">
-                        <div class="tab-content-box">
-                            <h3 class="tab-content-heading">Custom AI Agents & Conversational AI</h3>
-                            <p class="tab-content-text">Deploy Automated Financial Processes (like claims, underwriting, and reconciliation) that reduce manual error and enhance customer experience.</p>
-                            <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                        <div class="row align-items-center">
+                            <div class="col-lg-7">
+                                <div class="tab-content-box">
+                                    <h3 class="tab-content-heading">Custom AI Agents & Conversational AI</h3>
+                                    <p class="tab-content-text">Deploy Automated Financial Processes (like claims, underwriting, and reconciliation) that reduce manual error and enhance customer experience.</p>
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center;">
+                                    <img src="/assets/images/Finance/custom-ai-finance.png" alt="Custom AI Finance" style="max-width: 100%; height: auto; border-radius: 8px;">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="data-science" role="tabpanel" aria-labelledby="data-science-tab">
-                        <div class="tab-content-box">
-                            <h3 class="tab-content-heading">Predictive Modeling & Classification</h3>
-                            <p class="tab-content-text">Create hyper-accurate models for credit scoring, risk modeling, and AI-driven fraud detection with necessary Explainable AI (XAI) components.</p>
-                            <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                        <div class="row align-items-center">
+                            <div class="col-lg-7">
+                                <div class="tab-content-box">
+                                    <h3 class="tab-content-heading">Predictive Modeling & Classification</h3>
+                                    <p class="tab-content-text">Create hyper-accurate models for credit scoring, risk modeling, and AI-driven fraud detection with necessary Explainable AI (XAI) components.</p>
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center;">
+                                    <img src="/assets/images/Finance/finance data science.png" alt="Finance Data Science" style="max-width: 100%; height: auto; border-radius: 8px;">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

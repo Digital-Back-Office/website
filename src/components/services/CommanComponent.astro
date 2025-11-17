@@ -16,6 +16,12 @@ if (diffHeadingRaw.includes('Why Partner with Us')) {
 }
 const diffHasHighlight = diffHeadingRaw.includes(highlightPhrase);
 const diffParts = diffHasHighlight ? diffHeadingRaw.split(highlightPhrase) : null;
+// default differentiator highlight color
+let diffHighlightColor = '#EEBF2E';
+// make differentiator highlight white on Data Science page
+if (frontmatter.hero_title && (frontmatter.hero_title.includes('Data Science') || frontmatter.hero_title.includes('Data science'))) {
+  diffHighlightColor = '#ffffff';
+}
 
 const approachHeadingRaw = frontmatter.approach_heading || "Our Four-Step Data Strategy Implementation Process";
 let approachHighlight = 'Implementation Process';
@@ -42,6 +48,18 @@ if (heroTitleRaw.includes('Data Engineering')) {
 }
 const heroHasHighlight = heroTitleRaw.includes(heroHighlight);
 const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
+// default highlight color
+let heroHighlightColor = '#EEBF2E';
+// make Data Strategy and Data Engineering hero highlight white on their pages
+if (
+  heroTitleRaw.includes('Data Strategy') ||
+  heroTitleRaw.includes('Data Engineering') ||
+  heroTitleRaw.includes('Data engineering') ||
+  heroTitleRaw.includes('Data Science') ||
+  heroTitleRaw.includes('Data science')
+) {
+  heroHighlightColor = '#ffffff';
+}
 ---
 
 <style>
@@ -197,7 +215,7 @@ const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
               <h1  class="text-lg-start text-light fw-light fw-bold hero-heading">
                 {heroHasHighlight ? (
                   <>
-                    {heroParts[0]}<span style="color: #EEBF2E">{heroHighlight}</span>{heroParts.slice(1).join(heroHighlight)}
+                    {heroParts[0]}<span style={`color: ${heroHighlightColor}`}>{heroHighlight}</span>{heroParts.slice(1).join(heroHighlight)}
                   </>
                 ) : (
                   heroTitleRaw
@@ -241,7 +259,7 @@ const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
           <h2 class="h1 text-center pt-3 pt-sm-4 pt-lg-5 pb-3 mb-3 mb-lg-5 mt-xl-3">
             {diffHasHighlight ? (
               <>
-                {diffParts[0]}<span style="color: #EEBF2E">{highlightPhrase}</span>{diffParts.slice(1).join(highlightPhrase)}
+                {diffParts[0]}<span style="color: #ffffff">{highlightPhrase}</span>{diffParts.slice(1).join(highlightPhrase)}
               </>
             ) : (
               diffHeadingRaw
@@ -312,7 +330,7 @@ const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
             <h2 class="h1 text-center pb-3 mb-4 mb-lg-5 mt-xxl-2">
               {approachHasHighlight ? (
                 <>
-                  {approachParts[0]}<span style="color: #EEBF2E">{approachHighlight}</span>{approachParts.slice(1).join(approachHighlight)}
+                  {approachParts[0]}<span style="color: #ffffff">{approachHighlight}</span>{approachParts.slice(1).join(approachHighlight)}
                 </>
               ) : (
                 approachHeadingRaw
@@ -428,7 +446,7 @@ const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
         <!-- Features from landing-saas-v3.html-->
         <section class="container py-5 my-sm-2 my-md-4 my-lg-5 px-5" data-bs-theme="dark">
           <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto expertise-heading" style="max-width: 40rem; margin-bottom:2.5rem;">
-            Our <span style="color: #EEBF2E">Expertise</span>
+            Our <span style="color: #ffffff">Expertise</span>
           </h2>
           
           <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-4 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
@@ -474,7 +492,7 @@ const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
         <!-- Technical Capabilities & Governance Section -->
         <section class="container py-5 my-sm-2 my-md-4 my-lg-5" data-bs-theme="dark">
           <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto" style="max-width: 50rem; margin-bottom:3rem;">
-            <span><span style="color: #EEBF2E">Technical Capabilities</span> & Enabling Platform</span>
+            <span><span style="color: #ffffff">Technical Capabilities</span> & Enabling Platform</span>
           </h2>
           
           <div class="accordion" id="capabilitiesAccordion" style="max-width: 900px; margin: 0 auto;">
@@ -522,7 +540,7 @@ const heroParts = heroHasHighlight ? heroTitleRaw.split(heroHighlight) : null;
 
             <!-- Responsible AI and Governance Section -->
             <h3 class="text-center mt-5 mb-4" style="font-size: 2.5rem; font-weight: 600; color: #fff;">
-              <span style="color: #EEBF2E">Responsible AI</span> and Governance
+              <span style="color: #ffffff">Responsible AI</span> and Governance
             </h3>
 
             <!-- Accordion Item 4 -->
