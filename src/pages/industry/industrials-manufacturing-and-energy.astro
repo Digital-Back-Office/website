@@ -8,6 +8,12 @@ const pageDescription = "We connect complex IT/OT environments, operationalizing
 ---
 
 <style>
+    body {
+        background-image: url(/assets/images/background-pattern.png);
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+    
     .hero-section {
         background-image: url(/assets/images/background-pattern.png);
         background-repeat: repeat;
@@ -15,6 +21,30 @@ const pageDescription = "We connect complex IT/OT environments, operationalizing
         min-height: 110vh;
         display: flex;
         align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(
+            to bottom,
+            rgba(18, 21, 25, 0) 0%,
+            rgba(18, 21, 25, 0.8) 50%,
+            #121519 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .hero-section > * {
+        position: relative;
+        z-index: 10;
     }
     
     .hero-heading {
@@ -338,21 +368,25 @@ const pageDescription = "We connect complex IT/OT environments, operationalizing
             <div class="container">
                 <div class="row align-items-start">
                     <div class="col-lg-5 mb-4 mb-lg-0">
-                        <h2 class="barriers-heading">The Critical Bottlenecks in Industrial AI and Digital Transformation</h2>
+                        <h2 class="barriers-heading">The Critical Barriers Slowing Down Industrial Innovation</h2>
                         
                     </div>
                     <div class="col-lg-7">
                         <div class="barrier-card">
-                            <h3 class="barrier-title">IT/OT Data Silos</h3>
-                            <p class="barrier-text">Inability to integrate high-velocity sensor data from OT (Operational Technology) with structured IT data, leading to stalled industrial AI initiatives.</p>
+                            <h3 class="barrier-title">1. The "Silver Tsunami" Knowledge Crisis</h3>
+                            <p class="barrier-text">Your experts are retiring, taking decades of "tribal knowledge" with them. 11.5% of the workforce leaves annually, and junior staff are left guessing. When the manual doesn't have the answer, the answer walks out the door—unless you capture it now.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Model Drift at the Edge</h3>
-                            <p class="barrier-text">Deployed models lose accuracy rapidly due to changing machine conditions, but the lack of MLOps infrastructure prevents proactive Model Drift Monitoring and retraining.</p>
+                            <h3 class="barrier-title">2. The "Swivel Chair" Operational Drag</h3>
+                            <p class="barrier-text">Your high-value traders and engineers waste 20% of their day manually copying data between legacy sensors (OT) and financial systems (IT). This friction kills productivity and causes missed arbitrage windows. You can't optimize what isn't connected.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Compliance & Governance</h3>
-                            <p class="barrier-text">Difficulty in managing Data Governance for highly distributed data assets (e.g., oil rigs, factory floors) while ensuring data quality and auditability across all sites.</p>
+                            <h3 class="barrier-title">3. The "Pilot Purgatory" Trap</h3>
+                            <p class="barrier-text">You invested millions in "Predictive Maintenance," but it won't scale. Your AI works on one machine but fails across the fleet because the underlying data is siloed. Without a clean data foundation, your AI can't distinguish a sensor glitch from a bearing failure.</p>
+                        </div>
+                        <div class="barrier-card">
+                            <h3 class="barrier-title">4. The Regulatory "Data Scramble"</h3>
+                            <p class="barrier-text">Compliance is no longer just a report; it's a data engineering challenge. New mandates like FERC Order 881 and CSRD require granular, real-time reporting. Spreadsheets can't handle this volume, leaving you exposed to fines and "greenwashing" risks.</p>
                         </div>
                     </div>
                 </div>
@@ -387,9 +421,15 @@ const pageDescription = "We connect complex IT/OT environments, operationalizing
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">DataOps / MLOps & Data Mesh</h3>
-                                    <p class="tab-content-text">Implement robust Industrial AI Deployment pipelines, ensuring models are continuously monitored and retrained to address Model Drift in real-time.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Bridging the IT/OT Gap</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Killing the "Swivel Chair" (IT/OT Convergence)</h4>
+                                    <p class="tab-content-text">Stop manual data entry. We build real-time data pipelines that connect your "Plant Floor" (SCADA/IoT) to your "Top Floor" (ERP/Trading). By automating this flow, we eliminate errors and give traders and plant managers instant visibility.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Automated Compliance (FERC & CSRD)</h4>
+                                    <p class="tab-content-text">Turn regulation into routine. We engineer automated reporting pipelines that aggregate data from thousands of endpoints instantly. Whether it's Carbon Scope 3 or Hourly Transmission Ratings, we ensure you are audit-ready without the spreadsheet scramble.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Engineers</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -403,9 +443,15 @@ const pageDescription = "We connect complex IT/OT environments, operationalizing
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Data Architecture & AI Readiness</h3>
-                                    <p class="tab-content-text">Design a Data Mesh for Manufacturing that decentralizes data ownership and ensures high-quality, trusted data products are available for every factory or field operation.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Capturing Knowledge & Governance</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Solving the "Silver Tsunami" (Knowledge Graphs)</h4>
+                                    <p class="tab-content-text">Capture wisdom before it retires. We implement Knowledge Graphs and GenAI Retrieval systems that ingest maintenance logs and manuals. This allows junior staff to ask: "How did Dave fix this pump in 2015?" and get an instant answer.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Industrial Data Governance</h4>
+                                    <p class="tab-content-text">Trust your data. We establish a Governance Framework specifically for industrial data, defining clear standards for asset tagging and sensor calibration. This ensures that when your AI sees a spike, it's real—not a data quality error.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Strategists</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -419,9 +465,15 @@ const pageDescription = "We connect complex IT/OT environments, operationalizing
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Timeseries Analysis & Classification</h3>
-                                    <p class="tab-content-text">Use Deep Learning on sensor data to move from reactive repairs to genuine Predictive Maintenance, reducing unplanned downtime and cutting costs.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Scaling Industrial AI</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Escaping "Pilot Purgatory"</h4>
+                                    <p class="tab-content-text">Move Predictive Maintenance from "Science Project" to ROI. We build robust MLOps pipelines that clean and contextualize your sensor data, allowing your models to scale from one asset to the entire fleet with high accuracy.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Grid & Asset Optimization</h4>
+                                    <p class="tab-content-text">Squeeze more value from existing assets. Our models analyze historical load, weather, and market pricing to optimize Energy Arbitrage and Maintenance Scheduling, ensuring you act on opportunities the moment they arise.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Data Scientists</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">

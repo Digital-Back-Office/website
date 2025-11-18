@@ -8,6 +8,12 @@ const pageDescription = "We empower you to deliver rapid innovation and reduce I
 ---
 
 <style>
+    body {
+        background-image: url(/assets/images/background-pattern.png);
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+    
     .hero-section {
         background-image: url(/assets/images/background-pattern.png);
         background-repeat: repeat;
@@ -15,6 +21,30 @@ const pageDescription = "We empower you to deliver rapid innovation and reduce I
         min-height: 110vh;
         display: flex;
         align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(
+            to bottom,
+            rgba(18, 21, 25, 0) 0%,
+            rgba(18, 21, 25, 0.8) 50%,
+            #121519 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .hero-section > * {
+        position: relative;
+        z-index: 10;
     }
     
     .hero-heading {
@@ -338,21 +368,25 @@ const pageDescription = "We empower you to deliver rapid innovation and reduce I
             <div class="container">
                 <div class="row align-items-start">
                     <div class="col-lg-5 mb-4 mb-lg-0">
-                        <h2 class="barriers-heading">The Velocity Traps in Innovation and Data Management</h2>
+                        <h2 class="barriers-heading">The Critical Barriers Slowing Down Media & Telecom Innovation</h2>
                         
                     </div>
                     <div class="col-lg-7">
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Innovation Bottlenecks</h3>
-                            <p class="barrier-text">Losing competitive edge because valuable developer and IT time is consumed by complex, manual knowledge and service desk management.</p>
+                            <h3 class="barrier-title">1. The "Swivel Chair" Provisioning Nightmare</h3>
+                            <p class="barrier-text">Your network is fast, but your provisioning is slow. Sales and Ops teams are stuck manually copying data between screens to activate orders. This "swivel chair" friction causes data errors, activation delays, and "fallout" orders that bleed revenue.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Cloud Cost & Security</h3>
-                            <p class="barrier-text">Struggling to manage exploding cloud data volumes while ensuring Cloud Security & Compliance and optimizing the cost of hyperscale infrastructure.</p>
+                            <h3 class="barrier-title">2. The "Spreadsheet Hell" of Royalties</h3>
+                            <p class="barrier-text">Your finance team is terrified of month-end. Calculating residuals across streaming and international channels is mathematically impossible in Excel. Reliance on fragile "spreadsheet math" risks million-dollar overpayments and legal disputes with talent.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Scaling AI Initiatives</h3>
-                            <p class="barrier-text">Most AI initiatives, particularly in knowledge management and content creation, fail to scale beyond proofs-of-concept due to a lack of a cohesive AI Strategy.</p>
+                            <h3 class="barrier-title">3. The "Invisible Asset" Crisis</h3>
+                            <p class="barrier-text">Your creative teams are wasting budget re-creating assets you already own. Without a Knowledge Graph, valuable images and videos are trapped in "dumb" storage. If you can't search by concept (e.g., "happy family"), the content effectively doesn't exist.</p>
+                        </div>
+                        <div class="barrier-card">
+                            <h3 class="barrier-title">4. The 5G "Monetization Gap"</h3>
+                            <p class="barrier-text">You invested billions in 5G, but your legacy back-office can't sell it. Rigid BSS (Business Support Systems) prevent you from launching dynamic pricing for "Network Slicing." You are connecting at 5G speeds but selling at 3G speeds.</p>
                         </div>
                     </div>
                 </div>
@@ -392,9 +426,15 @@ const pageDescription = "We empower you to deliver rapid innovation and reduce I
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Custom AI Agents & Agentic Workflows</h3>
-                                    <p class="tab-content-text">Revolutionize IT, customer support, and knowledge management with fully autonomous AI Agents in Knowledge Management that complete tasks end-to-end.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Intelligence for Content & Operations</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Auto-Tagging & "Findability"</h4>
+                                    <p class="tab-content-text">Stop re-creating assets you already own. We deploy Computer Vision and Multimodal AI models that watch your video archives and scan images, automatically generating rich metadata (e.g., "sunset," "happy family," "4K"). This turns your "dumb" storage into a searchable, intelligent library.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Autonomous Provisioning Agents</h4>
+                                    <p class="tab-content-text">Kill the "Swivel Chair." We deploy GenAI Operations Agents that read complex B2B orders from your CRM and autonomously interact with your legacy billing and network systems to activate services. They handle the manual "stare and compare" work, reducing activation time from days to minutes.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">See our AI in Action</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -408,9 +448,15 @@ const pageDescription = "We empower you to deliver rapid innovation and reduce I
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Cloud Data Strategy & Data Roadmap</h3>
-                                    <p class="tab-content-text">Optimize cloud spend and future-proof infrastructure by creating a clear, scalable roadmap that maximizes your investment in the latest cloud services.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Governance for Speed & Rights</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Rights Management Strategy</h4>
+                                    <p class="tab-content-text">Avoid legal landmines. We design the Data Governance framework for your intellectual property, ensuring every asset in your system is tagged with its expiration date and territory rights so you never accidentally misuse content.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Modernizing Legacy BSS</h4>
+                                    <p class="tab-content-text">Bridge the gap between Network and Sales. We design the API-led integration strategy that decouples your monolithic BSS. This creates a flexible "Digital Back Office" that lets you launch new telecom products in days, not months.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Strategists</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -424,9 +470,15 @@ const pageDescription = "We empower you to deliver rapid innovation and reduce I
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">DataOps / MLOps & Data Pipelines (ETL/ELT)</h3>
-                                    <p class="tab-content-text">Ensure your development and content delivery teams have real-time data access through automated, reliable pipelines, accelerating time-to-market for new features and media products.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Automating the Content & Network Backbone</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Zero-Touch Provisioning (Telecom)</h4>
+                                    <p class="tab-content-text">Eliminate the "Swivel Chair." We build Event-Driven Architectures (EDA) that sync your CRM orders directly to network provisioning systems in milliseconds. This reduces order fallout and automates activation without human data entry.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">The Content Knowledge Graph</h4>
+                                    <p class="tab-content-text">Stop losing assets. We ingest your disorganized media libraries into a Semantic Knowledge Graph. By extracting metadata from video/images and linking it to usage rights, we make every asset instantly searchable and reusable.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Engineers</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -440,9 +492,15 @@ const pageDescription = "We empower you to deliver rapid innovation and reduce I
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">NLP & Computer Vision</h3>
-                                    <p class="tab-content-text">Enhance content personalization, network optimization, and user experience by leveraging advanced models to understand vast amounts of unstructured text and media.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Smarter Rights & Network Revenue</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Automated Royalty Engines</h4>
+                                    <p class="tab-content-text">Retire the spreadsheets. We build algorithmic royalty engines that automatically calculate complex residuals based on real-time streaming data and contract logic, ensuring talent is paid accurately and instantly.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Dynamic 5G Pricing Models</h4>
+                                    <p class="tab-content-text">Monetize "Network Slicing." We build dynamic pricing models that analyze network congestion and B2B demand in real-time. This allows you to charge premium rates for guaranteed latency slices (e.g., for gaming or hospitals) on the fly.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Data Scientists</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">

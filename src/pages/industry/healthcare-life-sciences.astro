@@ -8,6 +8,12 @@ const pageDescription = "Leverage cutting-edge Data Engineering and Deep Learnin
 ---
 
 <style>
+    body {
+        background-image: url(/assets/images/background-pattern.png);
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+    
     .hero-section {
         background-image: url(/assets/images/background-pattern.png);
         background-repeat: repeat;
@@ -15,6 +21,30 @@ const pageDescription = "Leverage cutting-edge Data Engineering and Deep Learnin
         min-height: 110vh;
         display: flex;
         align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(
+            to bottom,
+            rgba(18, 21, 25, 0) 0%,
+            rgba(18, 21, 25, 0.8) 50%,
+            #121519 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .hero-section > * {
+        position: relative;
+        z-index: 10;
     }
     
     .hero-heading {
@@ -343,16 +373,20 @@ const pageDescription = "Leverage cutting-edge Data Engineering and Deep Learnin
                     </div>
                     <div class="col-lg-7">
                         <div class="barrier-card">
-                            <h3 class="barrier-title">R&D Time Compression</h3>
-                            <p class="barrier-text">The immense pressure to halve drug discovery timelines, which requires complex integration of unstructured research data with clinical trials (Clinical Data Management).</p>
+                            <h3 class="barrier-title">1. The R&D "Re-Invention" Tax</h3>
+                            <p class="barrier-text">Your scientists are wasting millions re-running experiments simply because they can't find previous results. "Dark Data" trapped in unstructured PDFs and legacy ELNs is creating a massive knowledge gap, forcing you to duplicate work while competitors race ahead.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Data Quality & Compliance</h3>
-                            <p class="barrier-text">Securing and governing massive, sensitive patient and genomic data volumes while meeting HIPAA/GDPR standards and ensuring data quality for model training.</p>
+                            <h3 class="barrier-title">2. The "Pajama Time" Burnout Crisis</h3>
+                            <p class="barrier-text">Your best clinicians are quitting. For every hour of patient care, they now spend 2 hours on EHR documentation. This administrative burden is driving the "Great Resignation," turning highly skilled providers into data entry clerks and risking patient safety.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Scaling Beyond Pilots</h3>
-                            <p class="barrier-text">Most AI initiatives get stuck in pilot phase due to the lack of Scalable AI Infrastructure and clear Data Architecture for production deployment.</p>
+                            <h3 class="barrier-title">3. The Supply Chain "Compliance Cliff"</h3>
+                            <p class="barrier-text">The regulatory wall is here. With the DSCSA deadline and the BioSecure Act looming, you face a perfect storm. If your supply chain lacks end-to-end digital traceability by late 2025, you face blocked contracts and immediate revenue stoppage.</p>
+                        </div>
+                        <div class="barrier-card">
+                            <h3 class="barrier-title">4. The Clinical Data "Reconciliation Nightmare"</h3>
+                            <p class="barrier-text">Your trials are delayed by weeks—not by science, but by spreadsheets. As FDA Diversity Plans and decentralized trials explode data variety, your teams are drowning in manual reconciliation. The bottleneck isn't finding patients; it's cleaning the data to reach Database Lock.</p>
                         </div>
                     </div>
                 </div>
@@ -387,9 +421,15 @@ const pageDescription = "Leverage cutting-edge Data Engineering and Deep Learnin
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Data Pipelines (ETL/ELT) & Analytics Dashboards</h3>
-                                    <p class="tab-content-text">Build secure, compliant Data Pipelines that unify siloed research, clinical, and operational data into real-time Business Intelligence views.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Unified Foundations: From Lab to Logistics</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">The "Glass Box" Lab (Knowledge Graphs)</h4>
+                                    <p class="tab-content-text">Stop paying for the same innovation twice. We break down silos by connecting your ELN and LIMS systems into a unified Knowledge Graph. This creates a single semantic layer, turning your disparate research data into a searchable asset.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Supply Chain Traceability (DSCSA)</h4>
+                                    <p class="tab-content-text">We turn compliance panic into audit-readiness. We build the interoperable data pipelines needed for DSCSA and BioSecure Act compliance, creating a "Control Tower" view that tracks every product unit across your global logistics network.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Engineers</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -403,9 +443,15 @@ const pageDescription = "Leverage cutting-edge Data Engineering and Deep Learnin
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Deep Learning & NLP & Computer Vision</h3>
-                                    <p class="tab-content-text">Accelerate Data-Driven Drug Discovery by applying advanced Classification and Timeseries Analysis to complex biological and imaging data.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Accelerating Trials & Reducing Risk</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Zero-Touch Clinical Reconciliation</h4>
+                                    <p class="tab-content-text">Cut weeks off your trial timelines. We replace manual cross-checking with Anomaly Detection models that automatically scan incoming clinical data (wearables, labs, sites) to flag discrepancies instantly, accelerating you to Database Lock.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Supply Chain Risk Prediction</h4>
+                                    <p class="tab-content-text">Don't wait for the stockout. We build predictive models that analyze vendor data and geopolitical signals to forecast supply chain disruptions or compliance gaps before they block your revenue.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Data Scientists</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -419,9 +465,15 @@ const pageDescription = "Leverage cutting-edge Data Engineering and Deep Learnin
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">AI Strategy & AI Readiness</h3>
-                                    <p class="tab-content-text">Define a clear path from R&D to commercialization with an AI Strategy built for regulatory auditability and enterprise-wide scale.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Automation for Care & Discovery</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Ambient Intelligence (No-Keyboard Care)</h4>
+                                    <p class="tab-content-text">Give clinicians their evenings back. We deploy Generative AI agents that listen to patient encounters and automatically draft structured SOAP notes in the EHR. This removes the administrative burden and stops the "Pajama Time" burnout crisis.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Unlocking "Dark Data" in R&D</h4>
+                                    <p class="tab-content-text">Make decades of research visible. We deploy NLP and OCR agents to ingest and "read" unstructured legacy PDFs, images, and hand-written notes, making your institution's "Dark Data" instantly queryable for your scientists.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">See our AI in Action</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">

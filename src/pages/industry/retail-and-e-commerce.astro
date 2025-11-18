@@ -8,6 +8,12 @@ const pageDescription = "Deploy Retrieval Augmented Generation (RAG) and Predict
 ---
 
 <style>
+    body {
+        background-image: url(/assets/images/background-pattern.png);
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+    
     .hero-section {
         background-image: url(/assets/images/background-pattern.png);
         background-repeat: repeat;
@@ -15,6 +21,30 @@ const pageDescription = "Deploy Retrieval Augmented Generation (RAG) and Predict
         min-height: 110vh;
         display: flex;
         align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(
+            to bottom,
+            rgba(18, 21, 25, 0) 0%,
+            rgba(18, 21, 25, 0.8) 50%,
+            #121519 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .hero-section > * {
+        position: relative;
+        z-index: 10;
     }
     
     .hero-heading {
@@ -338,21 +368,25 @@ const pageDescription = "Deploy Retrieval Augmented Generation (RAG) and Predict
             <div class="container">
                 <div class="row align-items-start">
                     <div class="col-lg-5 mb-4 mb-lg-0">
-                        <h2 class="barriers-heading">The Pressures of Personalized Commerce and Supply Chain Volatility</h2>
+                        <h2 class="barriers-heading">The Critical Barriers Slowing Down Retail Innovation</h2>
                         
                     </div>
                     <div class="col-lg-7">
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Personalization Failure</h3>
-                            <p class="barrier-text">Inability to deliver genuinely tailored experiences because current models lack access to real-time inventory, browsing history, and contextual data.</p>
+                            <h3 class="barrier-title">1. The "Ghost Stock" Epidemic</h3>
+                            <p class="barrier-text">You are losing sales because your system says "in stock," but the shelf is empty. "Phantom Inventory" caused by disconnects between POS, ERP, and the warehouse triggers a "death spiral"—automated replenishment stops ordering, and your revenue for that SKU vanishes.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Inventory & Overhead</h3>
-                            <p class="barrier-text">High operational cost and missed sales due to inaccurate forecasting, leading to overstocking, waste, or constant stockouts (Real-Time Inventory Replenishment).</p>
+                            <h3 class="barrier-title">2. The "Swivel Chair" Productivity Drain</h3>
+                            <p class="barrier-text">Your high-value teams spend more time copying data between screens than serving customers. This "Manual Integration" tax traps employees in low-value admin work, entering invoices into the ERP and re-keying them into logistics systems, killing operational speed.</p>
                         </div>
                         <div class="barrier-card">
-                            <h3 class="barrier-title">Customer Service Gaps</h3>
-                            <p class="barrier-text">GenAI chatbots that "hallucinate" or provide generic answers because they aren't grounded in proprietary product knowledge and policy documents.</p>
+                            <h3 class="barrier-title">3. The Regulatory "Greenwashing" Trap (DPP)</h3>
+                            <p class="barrier-text">Vague sustainability marketing is now a legal liability. With the EU Digital Product Passport (DPP) coming in 2025, you face audit risks if you cannot cryptographically prove your supply chain origins. You need a Knowledge Graph, not just a spreadsheet, to survive the scrutiny.</p>
+                        </div>
+                        <div class="barrier-card">
+                            <h3 class="barrier-title">4. The "One-and-Done" Customer Churn</h3>
+                            <p class="barrier-text">You spend a fortune acquiring customers, only to lose them after one purchase. Without a Unified Customer 360 view, you treat loyal online shoppers like strangers in-store. This fragmented experience is the primary driver of churn in an omnichannel world.</p>
                         </div>
                     </div>
                 </div>
@@ -387,9 +421,15 @@ const pageDescription = "Deploy Retrieval Augmented Generation (RAG) and Predict
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Retrieval Augmented Generation (RAG) & Conversational AI</h3>
-                                    <p class="tab-content-text">Eliminate "hallucinations" by grounding all customer-facing AI in your authoritative product, policy, and inventory data, enhancing trust and conversion.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Automating the "Swivel Chair"</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">The AI Back-Office Agents</h4>
+                                    <p class="tab-content-text">End the "Swivel Chair" productivity drain. We deploy AI Agents and RPA bots that autonomously handle invoice processing, order entry, and returns management—freeing your team to focus on growth, not data entry.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Intelligent Product Tagging</h4>
+                                    <p class="tab-content-text">Fix your catalog data instantly. We use Computer Vision and NLP to automatically tag and categorize thousands of SKUs, ensuring your online search works perfectly and customers can find exactly what they want.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">See our AI in Action</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -403,9 +443,15 @@ const pageDescription = "Deploy Retrieval Augmented Generation (RAG) and Predict
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Predictive Modeling & Timeseries Analysis</h3>
-                                    <p class="tab-content-text">Forecast demand and optimize pricing with superior accuracy, enabling Real-Time Inventory Replenishment and reducing capital overhead.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Predicting Demand & Retaining Loyalty</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Unified Customer 360 (Churn Prevention)</h4>
+                                    <p class="tab-content-text">Stop treating loyal customers like strangers. We build Customer Data Platforms (CDP) that unify online and offline behavior. Our models predict "next best action," empowering staff to personalize interactions and drive repeat purchases.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Dynamic Inventory Optimization</h4>
+                                    <p class="tab-content-text">Don't guess what sells. We use Predictive Demand Forecasting to analyze local trends, weather, and social signals, ensuring you stock the right products in the right locations, minimizing markdowns.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Data Scientists</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -419,9 +465,15 @@ const pageDescription = "Deploy Retrieval Augmented Generation (RAG) and Predict
                         <div class="row align-items-center">
                             <div class="col-lg-7">
                                 <div class="tab-content-box">
-                                    <h3 class="tab-content-heading">Analytics Dashboards & Data Pipelines (ETL/ELT)</h3>
-                                    <p class="tab-content-text">Centralize data from POS, e-commerce, and marketing platforms into a single view for true Personalized Product Recommendations at scale.</p>
-                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to us</a>
+                                    <h3 class="tab-content-heading" style="margin-bottom: 2rem;">Real-Time Inventory & Compliance</h3>
+                                    
+                                    <h4 class="tab-content-heading" style="font-size: 1.25rem;">Curing "Ghost Stock" (Real-Time Visibility)</h4>
+                                    <p class="tab-content-text">Stop the "Death Spiral." We build Event-Driven Data Pipelines that unify your POS, ERP, and Warehouse data in real-time. This ensures your inventory numbers are accurate to the second, preventing lost sales and stockouts.</p>
+                                    
+                                    <h4 class="tab-content-heading" style="margin-top: 2rem; font-size: 1.25rem;">Digital Product Passports (DPP)</h4>
+                                    <p class="tab-content-text">Turn compliance into a brand asset. We implement Supply Chain Traceability pipelines that map raw materials to finished goods, ensuring you are ready for EU DPP audits and can prove your sustainability claims.</p>
+                                    
+                                    <a href="/contact-us" class="btn tab-cta-btn">Talk to our Engineers</a>
                                 </div>
                             </div>
                             <div class="col-lg-5">

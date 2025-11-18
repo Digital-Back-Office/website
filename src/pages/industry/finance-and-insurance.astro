@@ -8,6 +8,12 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
 ---
 
 <style>
+    body {
+        background-image: url(/assets/images/background-pattern.png);
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+    
     .hero-section {
         background-image: url(/assets/images/background-pattern.png);
         background-repeat: repeat;
@@ -15,6 +21,30 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
         min-height: 110vh;
         display: flex;
         align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(
+            to bottom,
+            rgba(18, 21, 25, 0) 0%,
+            rgba(18, 21, 25, 0.8) 50%,
+            #121519 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .hero-section > * {
+        position: relative;
+        z-index: 10;
     }
     
     .hero-heading {
@@ -408,7 +438,7 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
                             </div>
                             <div class="col-lg-5">
                                 <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center;">
-                                    <img src="/assets/images/Finance/startegy finance.png" alt="Strategy Finance" style="max-width: 100%; height: auto; border-radius: 8px;">
+                                    <img src="/assets/images/Finance/data strategy.png" alt="Strategy Finance" style="max-width: 100%; height: auto; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
@@ -430,7 +460,7 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
                             </div>
                             <div class="col-lg-5">
                                 <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center;">
-                                    <img src="/assets/images/Finance/custom-ai-finance.png" alt="Custom AI Finance" style="max-width: 100%; height: auto; border-radius: 8px;">
+                                    <img src="/assets/images/Finance/ai automation (1).png" alt="AI Automation Finance" style="max-width: 100%; height: auto; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
@@ -452,7 +482,7 @@ const pageDescription = "We build the secure, Explainable AI (XAI) and Cloud Dat
                             </div>
                             <div class="col-lg-5">
                                 <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center;">
-                                    <img src="/assets/images/Finance/finance data science.png" alt="Finance Data Science" style="max-width: 100%; height: auto; border-radius: 8px;">
+                                    <img src="/assets/images/Finance/data science finance.png" alt="Data Science Finance" style="max-width: 100%; height: auto; border-radius: 8px;">
                                 </div>
                             </div>
                         </div>
