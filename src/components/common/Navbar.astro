@@ -54,6 +54,23 @@ const path = Astro.url.pathname;
   .active-link{
     color:#52CEC7;
   }
+
+  /* Show dropdown on hover */
+  .navbar-nav .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+  
+  /* Prevent the Industries dropdown toggle from being clickable */
+  .navbar-nav .dropdown > a[href="#"] {
+    pointer-events: none;
+    cursor: default;
+  }
+  
+  /* But keep the dropdown items clickable */
+  .navbar-nav .dropdown-menu .dropdown-item {
+    pointer-events: auto;
+  }
 </style>
 
 <header
@@ -94,9 +111,8 @@ const path = Astro.url.pathname;
       <ul class="navbar-nav">
         <li class={path.includes("/industry") ? "nav-item dropdown active" : "nav-item dropdown"}>
           <a
-            href="/industry"
+            href="#"
             class={path.includes("/industry")?"nav-link nav-links active-link":"nav-link nav-links"}
-            data-bs-auto-close="outside"
             aria-expanded="false"
           >Industries</a>
           <ul class="dropdown-menu">
@@ -159,7 +175,7 @@ const path = Astro.url.pathname;
               <a href="#" class="dropdown-item nav-links">Events</a>
             </li>
             <li>
-              <a href="#" class="dropdown-item nav-links">Partners</a>
+              <a href="/partners" class="dropdown-item nav-links">Partners</a>
             </li>
           </ul>
         </li>

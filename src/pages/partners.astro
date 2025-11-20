@@ -1,0 +1,271 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/common/Navbar.astro";
+import Footer from "../components/common/Footer.astro";
+---
+
+<style>
+	.page-wrapper {
+		background-image: url("/assets/images/background-pattern.png");
+		min-height: 100vh;
+	}
+
+	.hero-section {
+		padding: 8rem 0 5rem;
+		background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%);
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 700;
+		color: #fff;
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+	}
+
+	.hero-subtitle {
+		font-size: 1.5rem;
+		color: rgba(255, 255, 255, 0.8);
+		margin-bottom: 3rem;
+	}
+
+	.filter-tabs {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 4rem;
+		flex-wrap: wrap;
+	}
+
+	.filter-btn {
+		padding: 0.75rem 1.5rem;
+		border-radius: 50px;
+		border: 2px solid rgba(82, 206, 199, 0.3);
+		background: transparent;
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.filter-btn:hover,
+	.filter-btn.active {
+		background: rgba(82, 206, 199, 0.2);
+		border-color: #52CEC7;
+		color: #52CEC7;
+	}
+
+	.partners-section {
+		padding: 3rem 0 5rem;
+	}
+
+	.partner-card {
+		background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%);
+		border: 2px solid rgba(82, 206, 199, 0.2);
+		border-radius: 16px;
+		padding: 2rem;
+		height: 100%;
+		transition: all 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+	}
+
+	.partner-card:hover {
+		transform: translateY(-8px);
+		border-color: rgba(82, 206, 199, 0.5);
+		box-shadow: 0 12px 32px rgba(82, 206, 199, 0.2);
+	}
+
+	.partner-logo {
+		background: #fff;
+		border-radius: 12px;
+		padding: 2rem;
+		margin-bottom: 1.5rem;
+		min-height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.partner-logo img {
+		max-width: 100%;
+		max-height: 120px;
+		object-fit: contain;
+	}
+
+	.partner-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #fff;
+		margin-bottom: 1rem;
+	}
+
+	.partner-description {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.7);
+		flex-grow: 1;
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.25rem;
+		}
+
+		.filter-tabs {
+			justify-content: center;
+		}
+	}
+</style>
+
+<Layout>
+	<Navbar />
+	<main class="page-wrapper" data-bs-theme="dark">
+		<!-- Hero Section -->
+		<section class="hero-section">
+			<div class="container">
+				<h1 class="hero-title">
+					Datavid Partners: Strong alliances for<br />powerful data solutions
+				</h1>
+				<p class="hero-subtitle">
+					Learn about the partners who help us deliver your success.
+				</p>
+				
+				<!-- Filter Tabs -->
+				<div class="filter-tabs">
+					<button class="filter-btn active" data-filter="all">All</button>
+					<button class="filter-btn" data-filter="technology">Technology Provider</button>
+					<button class="filter-btn" data-filter="research">Research Partner</button>
+					<button class="filter-btn" data-filter="service">Service Provider</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Partners Grid Section -->
+		<section class="partners-section">
+			<div class="container">
+				<div class="row g-4">
+					<!-- Partner Card 1 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="partner-card">
+							<div class="partner-logo">
+								<img src="/assets/images/partners/partner-1.png" alt="Partner 1" />
+							</div>
+							<h3 class="partner-title">Partner Name 1</h3>
+							<p class="partner-description">
+								Partner description will go here. This section will contain information about the partnership and how it helps deliver value to customers.
+							</p>
+						</div>
+					</div>
+
+					<!-- Partner Card 2 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="partner-card">
+							<div class="partner-logo">
+								<img src="/assets/images/partners/partner-2.png" alt="Partner 2" />
+							</div>
+							<h3 class="partner-title">Partner Name 2</h3>
+							<p class="partner-description">
+								Partner description will go here. This section will contain information about the partnership and how it helps deliver value to customers.
+							</p>
+						</div>
+					</div>
+
+					<!-- Partner Card 3 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="partner-card">
+							<div class="partner-logo">
+								<img src="/assets/images/partners/partner-3.png" alt="Partner 3" />
+							</div>
+							<h3 class="partner-title">Partner Name 3</h3>
+							<p class="partner-description">
+								Partner description will go here. This section will contain information about the partnership and how it helps deliver value to customers.
+							</p>
+						</div>
+					</div>
+
+					<!-- Partner Card 4 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="partner-card">
+							<div class="partner-logo">
+								<img src="/assets/images/partners/partner-4.png" alt="Partner 4" />
+							</div>
+							<h3 class="partner-title">Partner Name 4</h3>
+							<p class="partner-description">
+								Partner description will go here. This section will contain information about the partnership and how it helps deliver value to customers.
+							</p>
+						</div>
+					</div>
+
+					<!-- Partner Card 5 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="partner-card">
+							<div class="partner-logo">
+								<img src="/assets/images/partners/partner-5.png" alt="Partner 5" />
+							</div>
+							<h3 class="partner-title">Partner Name 5</h3>
+							<p class="partner-description">
+								Partner description will go here. This section will contain information about the partnership and how it helps deliver value to customers.
+							</p>
+						</div>
+					</div>
+
+					<!-- Partner Card 6 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="partner-card">
+							<div class="partner-logo">
+								<img src="/assets/images/partners/partner-6.png" alt="Partner 6" />
+							</div>
+							<h3 class="partner-title">Partner Name 6</h3>
+							<p class="partner-description">
+								Partner description will go here. This section will contain information about the partnership and how it helps deliver value to customers.
+							</p>
+						</div>
+					</div>
+
+					<!-- Partner Card 7 -->
+					<div class="col-lg-4 col-md-6">
+						<div class="partner-card">
+							<div class="partner-logo">
+								<img src="/assets/images/partners/partner-7.png" alt="Partner 7" />
+							</div>
+							<h3 class="partner-title">Partner Name 7</h3>
+							<p class="partner-description">
+								Partner description will go here. This section will contain information about the partnership and how it helps deliver value to customers.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<script>
+	// Filter functionality
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	const partnerCards = document.querySelectorAll('.partner-card');
+
+	filterButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			// Update active state
+			filterButtons.forEach(btn => btn.classList.remove('active'));
+			button.classList.add('active');
+
+			// Filter logic will be implemented once partner data attributes are added
+			const filter = button.getAttribute('data-filter');
+			console.log('Filter selected:', filter);
+			
+			// For now, show all cards
+			// Later you can add data-category attributes to cards and filter based on them
+		});
+	});
+</script>
