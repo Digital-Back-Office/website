@@ -1,8 +1,8 @@
 ---
 hero:
-    title_part_1: 'We deliver'
-    title_part_2: 'Business Efficiency'
-    info: 'We design and build custom solutions for Big Data Processing using open-source and cloud Auto-scaling in a cost-effective manner.'
+    title_part_1: 'Transform Your Business with'
+    title_part_2: 'Intelligent AI Solutions'
+    info: 'Unlock the power of artificial intelligence and machine learning. We build custom AI solutions that turn complex data into predictive insights, automate decision-making, and drive real-time strategic action for your business.'
 
 about:
     parallax_images:
