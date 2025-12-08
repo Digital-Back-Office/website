@@ -83,4 +83,8 @@ const aboutCollection = defineCollection({
 export const collections = {
     'home': homeCollection,
     'about': aboutCollection,
+    'service-showcase': defineCollection({
+        type: 'content',
+        schema: z.any()
+    }),
 };
