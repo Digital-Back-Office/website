@@ -2,14 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import VideoLayout from "../layouts/VideoLayout.astro";
 import Hero from "../components/home/Hero.astro";
-import BestBigDataTools from "../components/home/BestBigDataTools.astro";
+import Partners from "../components/home/Partners.astro";
 import AISolutions from "../components/home/AISolutions.astro";
 import About from "../components/home/About.astro";
 import Features from "../components/home/Features.astro";
 import Services from "../components/common/Services.astro";
 import CaseStudies from "../components/home/CaseStudies.astro";
-import Tech from "../components/home/Tech.astro";
+import TechAndTestimonials from "../components/home/TechAndTestimonials.astro";
 import Contact from "../components/common/Contact.astro";
+import RoadMap from "../components/home/RoadMap.astro";
 
 import '../styles/container.css'
 
@@ -26,99 +27,14 @@ import '../styles/container.css'
 		<VideoLayout src="/assets/videos/dbo-bg-video-home.mp4">
 			<Hero />
 		</VideoLayout>
-		
-		<BestBigDataTools />
-		
+		<Partners />
 		<AISolutions />
-		
 		<About />
-		
-		<!-- 3-Step Roadmap Section -->
-		<section style="padding: 5rem 0; background-color: transparent;" data-bs-theme="dark">
-			<div class="container">
-				<h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; color: #fff;">
-					 Your Roadmap to <span style="color: #52CEC7;">AI Deployment</span>
-				</h2>
-				<p style="text-align: center; font-size: 1.25rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 4rem; max-width: 900px; margin-left: auto; margin-right: auto;">
-					We transform complex Big Data challenges into streamlined, cost-effective AI operations.
-				</p>
-				
-				<div class="row g-4">
-					<div class="col-lg-4">
-						<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%); border: 2px solid rgba(82, 206, 199, 0.3); border-radius: 16px; padding: 2.5rem; height: 100%; position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)'; this.style.borderColor='rgba(82, 206, 199, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(82, 206, 199, 0.3)';">
-							<div style="margin-bottom: 1.5rem;">
-								<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#52CEC7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<circle cx="12" cy="12" r="10"></circle>
-									<circle cx="12" cy="12" r="6"></circle>
-									<circle cx="12" cy="12" r="2"></circle>
-								</svg>
-							</div>
-							
-							<h3 style="font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">
-								Readiness & Roadmap
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 0;">
-								We don't guess; we audit. We identify high-ROI use cases and fix "Zombie Data" silos first, establishing a Data Governance framework that ensures your foundation is secure and scalable before development begins.
-							</p>
-							
-							<div style="position: absolute; top: 50%; right: -20px; transform: translateY(-50%); display: none;" class="d-lg-block">
-								<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#52CEC7" stroke-width="2">
-									<polyline points="9 18 15 12 9 6"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-lg-4">
-						<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%); border: 2px solid rgba(82, 206, 199, 0.3); border-radius: 16px; padding: 2.5rem; height: 100%; position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)'; this.style.borderColor='rgba(82, 206, 199, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(82, 206, 199, 0.3)';">
-							<div style="margin-bottom: 1.5rem;">
-								<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#52CEC7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<polyline points="16 18 22 12 16 6"></polyline>
-									<polyline points="8 6 2 12 8 18"></polyline>
-								</svg>
-							</div>
-							
-							<h3 style="font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">
-								Building Trustworthy Agents
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 0;">
-								We build "Glass Box" AI, not Black Boxes. Using Explainable AI (XAI) and strict regulatory guardrails (DORA/EU AI Act), we engineer agents that are auditable, secure, and hallucination-free by design.
-							</p>
-							
-							<div style="position: absolute; top: 50%; right: -20px; transform: translateY(-50%); display: none;" class="d-lg-block">
-								<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#52CEC7" stroke-width="2">
-									<polyline points="9 18 15 12 9 6"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-lg-4">
-						<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%); border: 2px solid rgba(82, 206, 199, 0.3); border-radius: 16px; padding: 2.5rem; height: 100%; position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)'; this.style.borderColor='rgba(82, 206, 199, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(82, 206, 199, 0.3)';">
-							<div style="margin-bottom: 1.5rem;">
-								<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#52CEC7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-									<polyline points="2 17 12 22 22 17"></polyline>
-									<polyline points="2 12 12 17 22 12"></polyline>
-								</svg>
-							</div>
-							
-							<h3 style="font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">
-								Training & MLOps Rollout
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 0;">
-								We bridge the gap to production. Through Human-in-the-Loop training and rigorous MLOps, we ensure your workforce adopts the tool and your models remain accurate, monitored, and profitable over time.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		
+		<RoadMap />
 		<Features />
 		<Services />
 		<!-- <CaseStudies /> -->
-		<Tech />
+		<TechAndTestimonials />
 		<Contact />
 	</main>
 </Layout>

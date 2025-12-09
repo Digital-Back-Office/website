@@ -2,7 +2,92 @@
 hero:
     title_part_1: 'Transform Your Business with'
     title_part_2: 'Intelligent AI Solutions'
+    pill_text: 'AI-Powered Solutions'
     info: 'Unlock the power of artificial intelligence and machine learning. We build custom AI solutions that turn complex data into predictive insights, automate decision-making, and drive real-time strategic action for your business.'
+
+partners:
+  title: 'Our Partners'
+  images:
+    - name: Snowflake
+      src: '/assets/images/tech/snowflake.png'
+    - name: Databricks
+      src: '/assets/images/tech/databricks.png'
+    - name: Azure
+      src: '/assets/images/tech/azure.png'
+    - name: AWS
+      src: '/assets/images/tech/aws.png'
+    - name: GCP
+      src: '/assets/images/tech/gcp.png'
+    - name: Graphite Note
+      src: '/assets/images/tech/graphitenote.png'
+    - name: Cast AI
+      src: '/assets/images/tech/castai.png'
+
+ai_solutions:
+  title: 'AI Solutions We Deliver'
+  sub_title: 'Transform your business with cutting-edge AI solutions designed for real-world impact'
+  cta_text: 'Explore All AI Solutions'
+  cards:
+    - id: 'ai-strategy'
+      heading: 'AI Strategy' 
+      description: 'Build a clear AI roadmap aligned with your business objectives'
+      icon: '/assets/icons/home/startegy.svg'
+      button_text: 'Learn more'
+    - id: 'custom-ai-agents'
+      heading: 'Custom AI Agents' 
+      description: 'Autonomous AI agents tailored to your specific business needs'
+      icon: '/assets/icons/home/custom.svg'
+      button_text: 'Learn more'
+    - id: 'rag-implementation'
+      heading: 'RAG Implementation' 
+      description: 'Retrieval Augmented Generation for accurate, enterprise-specific AI'
+      icon: '/assets/icons/home/rag.svg'
+      button_text: 'Learn more'
+    - id: 'agentic-workflows'
+      heading: 'Agentic Workflows' 
+      description: 'End-to-end business process automation without human intervention'
+      icon: '/assets/icons/home/agetic_workflow.svg'
+      button_text: 'Learn more'
+    - id: 'responsible-ai'
+      heading: 'Responsible AI' 
+      description: 'Ethical AI governance, bias monitoring, and compliance frameworks'
+      icon: '/assets/icons/home/responsible_ai.svg'
+      button_text: 'Learn more'
+    - id: 'machine-learning'
+      heading: 'Machine Learning' 
+      description: 'Predictive models and data-driven insights for smarter decisions'
+      icon: '/assets/icons/home/machine_learning.svg'
+      button_text: 'Learn more'
+    - id: 'generative-ai'
+      heading: 'GenAI & LLMs' 
+      description: 'Large language models and generative AI for content and automation'
+      icon: '/assets/icons/home/genai.svg'
+      button_text: 'Learn more'
+    - id: 'ai-platforms'
+      heading: 'AI Platforms' 
+      description: 'OpenAI, Azure OpenAI, Google Vertex AI, and AWS SageMaker'
+      icon: '/assets/icons/home/platform.svg'
+      button_text: 'Learn more'
+
+roadmap:
+  title_1: 'Your Roadmap to'
+  title_2: 'AI Deployment'
+  sub_title: 'We transform complex Big Data challenges into streamlined, cost-effective AI operations.'
+  cards:
+    - id: 'readiness-roadmap'
+      heading: 'Readiness & Roadmap'
+      description: 'We don''t guess; we audit. We identify high-ROI use cases and fix "Zombie Data" silos first, establishing a Data Governance framework that ensures your foundation is secure and scalable before development begins.'
+      icon: '/assets/icons/home/readiness.svg'
+
+    - id: 'building-trustworthy-agents'
+      heading: 'Building Trustworthy Agents'
+      description: 'We build "Glass Box" AI, not Black Boxes. Using Explainable AI (XAI) and strict regulatory guardrails (DORA/EU AI Act), we engineer agents that are auditable, secure, and hallucination-free by design.'
+      icon: '/assets/icons/home/readiness.svg'
+
+    - id: 'training-mlops-rollout'
+      heading: 'Training & MLOps Rollout'
+      description: 'We bridge the gap to production. Through Human-in-the-Loop training and rigorous MLOps, we ensure your workforce adopts the tool and your models remain accurate, monitored, and profitable over time.'
+      icon: '/assets/icons/home/readiness.svg'
 
 about:
     parallax_images:

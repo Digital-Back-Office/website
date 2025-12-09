@@ -6,7 +6,27 @@ const homeCollection = defineCollection({
         hero: z.object({
             title_part_1: z.string(),
             title_part_2: z.string(),
+            pill_text: z.string(),
             info: z.string()
+        }),
+        partners: z.object({
+            title: z.string(),
+            images: z.array(z.object({
+                name: z.string(),
+                src: z.string()
+            }))
+        }),
+        ai_solutions: z.object({
+            title: z.string(),
+            sub_title: z.string(),
+            cta_text: z.string(),
+            cards: z.array(z.object({
+                id: z.string(),
+                heading: z.string(), 
+                description: z.string(),
+                icon: z.string(),
+                button_text: z.string()
+            }))
         }),
         about: z.object({
             parallax_images: z.array(z.string()),
@@ -20,6 +40,17 @@ const homeCollection = defineCollection({
             title: z.string(),
             info: z.string()
         })),
+        roadmap: z.object({
+            title_1: z.string(),
+            title_2: z.string(),
+            sub_title: z.string(),
+            cards: z.array(z.object({
+                id: z.string(),
+                heading: z.string(),
+                description: z.string(),
+                icon: z.string()
+            }))
+        }),
         features: z.object({
             title: z.string(),
             cards: z.array(z.object({

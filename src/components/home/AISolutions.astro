@@ -1,4 +1,9 @@
 ---
+import { getEntry } from "astro:content"
+
+const Data = await getEntry("home", "home");
+const ai_solutions = Data.data.ai_solutions;
+
 ---
 
 <!-- AI Solutions Showcase Section -->
@@ -9,258 +14,51 @@
 				<span style="font-size: 0.875rem; font-weight: 600; color: #52CEC7; letter-spacing: 0.5px; text-transform: uppercase;">Our Expertise</span>
 			</div>
 			<h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; color: #fff;">
-				AI Solutions We Deliver
+				{ai_solutions.title}
 			</h2>
 			<p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.75); max-width: 800px; margin: 0 auto;">
-				Transform your business with cutting-edge AI solutions designed for real-world impact
+				{ai_solutions.sub_title}
 			</p>
 		</div>
 
 		<div class="row g-4">
-			<!-- AI Strategy Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/ai-solutions#ai-strategy" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-						<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-							<img src="/assets/icons/home/startegy.svg" alt="AI Strategy" style="width: 48px; height: 48px;" />
-						</div>							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								AI Strategy
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								Build a clear AI roadmap aligned with your business objectives
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
+			{ai_solutions.cards?.map((card: any) => (
+				<div class="col-lg-3 col-md-6">
+					<a href={card.link ?? `/services/ai-solutions#${card.id ?? ""}`} style="text-decoration: none; display: block; height: 100%;">
+						<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
+							<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
 
-			<!-- Custom AI Agents Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/ai-solutions#custom-ai-agents" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-						<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-							<img src="/assets/icons/home/custom.svg" alt="Custom AI Agents" style="width: 48px; height: 48px;" />
-						</div>							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								Custom AI Agents
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								Autonomous AI agents tailored to your specific business needs
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
+							<div style="position: relative; z-index: 1;">
+								<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+									<img src={card.icon ?? "/assets/icons/home/startegy.svg"} alt={card.title} style="width: 48px; height: 48px;" />
+								</div>
 
-			<!-- RAG Implementation Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/ai-solutions#rag-implementation" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-						<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-							<img src="/assets/icons/home/rag.svg" alt="RAG Implementation" style="width: 48px; height: 48px;" />
-						</div>							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								RAG Implementation
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								Retrieval Augmented Generation for accurate, enterprise-specific AI
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
+								<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
+									{card.heading}
+								</h3>
 
-			<!-- Agentic Workflows Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/ai-solutions#agentic-workflows" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-						<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-							<img src="/assets/icons/home/agetic workflow.svg" alt="Agentic Workflows" style="width: 48px; height: 48px;" />
-						</div>							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								Agentic Workflows
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								End-to-end business process automation without human intervention
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-		</div>
+								<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
+									{card.description}
+								</p>
 
-		<!-- Additional Row for More Solutions -->
-		<div class="row g-4 mt-2">
-			<!-- Responsible AI Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/ai-solutions#responsible-ai" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-							<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#52CEC7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-									<path d="m9 12 2 2 4-4"></path>
-								</svg>
-							</div>
-							
-							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								Responsible AI
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								Ethical AI governance, bias monitoring, and compliance frameworks
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
+								<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
+									<span style="font-size: 0.875rem;">Learn more</span>
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<line x1="5" y1="12" x2="19" y2="12"></line>
+										<polyline points="12 5 19 12 12 19"></polyline>
+									</svg>
+								</div>
 							</div>
 						</div>
-					</div>
-				</a>
-			</div>
-
-			<!-- Machine Learning Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/data-science" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-						<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-							<img src="/assets/icons/home/machine learning.svg" alt="Machine Learning" style="width: 48px; height: 48px;" />
-						</div>							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								Machine Learning
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								Predictive models and data-driven insights for smarter decisions
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<!-- GenAI & LLMs Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/ai-solutions#generative-ai" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-							<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-								<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#52CEC7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-									<circle cx="9" cy="10" r="1"></circle>
-									<circle cx="12" cy="10" r="1"></circle>
-									<circle cx="15" cy="10" r="1"></circle>
-								</svg>
-							</div>
-							
-							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								GenAI & LLMs
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								Large language models and generative AI for content and automation
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<!-- AI Platforms Card -->
-			<div class="col-lg-3 col-md-6">
-				<a href="/services/ai-solutions#ai-platforms" style="text-decoration: none; display: block; height: 100%;">
-					<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-						<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
-						
-						<div style="position: relative; z-index: 1;">
-						<div style="width: 64px; height: 64px; background: rgba(82, 206, 199, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-							<img src="/assets/icons/home/platform.svg" alt="AI Platforms" style="width: 48px; height: 48px;" />
-						</div>							<h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
-								AI Platforms
-							</h3>
-							<p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
-								OpenAI, Azure OpenAI, Google Vertex AI, and AWS SageMaker
-							</p>
-							
-							<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-								<span style="font-size: 0.875rem;">Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
+					</a>
+				</div>
+			))}
 		</div>
 
 		<!-- CTA Section -->
 		<div class="text-center mt-5 pt-4">
 			<a href="/services/ai-solutions" style="display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.125rem; padding: 1rem 2.5rem; font-weight: 600; background-color: #52CEC7; color: #000; transition: all 0.3s ease; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 16px rgba(82, 206, 199, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(82, 206, 199, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(82, 206, 199, 0.3)';">
-				Explore All AI Solutions
+				{ai_solutions.cta_text}
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
