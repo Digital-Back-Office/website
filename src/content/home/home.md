@@ -10,18 +10,16 @@ partners:
   images:
     - name: Snowflake
       src: '/assets/images/tech/snowflake.png'
-    - name: Databricks
-      src: '/assets/images/tech/databricks.png'
+    - name: Graphite Note
+      src: '/assets/images/tech/graphitenote.png'
+    - name: Cast AI
+      src: '/assets/images/tech/castai.png'
     - name: Azure
       src: '/assets/images/tech/azure.png'
     - name: AWS
       src: '/assets/images/tech/aws.png'
     - name: GCP
       src: '/assets/images/tech/gcp.png'
-    - name: Graphite Note
-      src: '/assets/images/tech/graphitenote.png'
-    - name: Cast AI
-      src: '/assets/images/tech/castai.png'
 
 ai_solutions:
   title: 'AI Solutions We Deliver'
