@@ -1,9 +1,9 @@
 ---
 hero:
     title_part_1: 'Transform Your Business with'
-    title_part_2: 'Intelligent AI Solutions'
+    title_part_2: 'Intelligent AI and Data Solutions'
     pill_text: 'AI-Powered Solutions'
-    info: 'Unlock the power of artificial intelligence and machine learning. We build custom AI solutions that turn complex data into predictive insights, automate decision-making, and drive real-time strategic action for your business.'
+    info: 'Unlock the power of AI and machine learning. We build custom solutions that turn complex data into predictive insights, automates decision-making fuelling growth and efficiency for your business.'
 
 partners:
   title: 'Our Partners'
