@@ -1,0 +1,24 @@
+---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("home", "home");
+const partners = Data.data.partners;
+
+---
+
+<section style="padding: 60px 0; background-color: transparent;" data-bs-theme="dark">
+	<div class="container">
+		<h2 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 3rem; color: #fff;">
+			{partners.title}
+		</h2>
+		<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem;">
+			{
+				partners.images.map((image) => (
+					<div style="flex: 0 1 auto; display: flex; align-items: center; justify-content: center; background-color: #fff; border-radius: 12px; padding: 1rem 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+						<img src={image.src} alt={image.name} style="height: 50px; width: auto; object-fit: contain; opacity: 0.8; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

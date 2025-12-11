@@ -1,6 +1,6 @@
 ---
 hero:
-    title: We deliver complete range of solutions in data processing from concept to delivery.
+    title: We deliver complete range of solutions in data processing and AI from concept to delivery.
     features:
         - Custom Solutions
         - Open Source
@@ -8,7 +8,7 @@ hero:
 
 mission:
     title: Our Mission
-    desc: Our mission is to enable the businesses make best decision by leveraging data. We strive to design and build best in class custom solutions for Big Data Processing in cost effective manner.
+    desc: Our mission is to empower businesses to make intelligent, predictive decisions by leveraging cutting-edge data technologies. We strive to design and build best-in-class custom solutions, including advanced Machine Learning and Generative AI models, for Big Data Processing that deliver unmatched predictive accuracy and cost-effective automation.
     img: /assets/images/about-us/misson.png
 
 values:
@@ -20,7 +20,7 @@ values:
 
         - svg: /assets/icons/about-us/quality.svg
           title: Quality
-          desc: We strive to build reliable and consistent solutions. Through our "Quality First" principle, we invest in long term success of our clients by helping them make right decisions. This helps businesses build customer loyalty, and establish a solid foundation for sustainable success.
+          desc: Our commitment to quality extends specifically to the precision, explainability, and reliability of our Machine Learning models. We employ rigorous MLOps (Machine Learning Operations) and validation practices to ensure our solutions maintain high performance and consistency, delivering true long-term value.
 
         - svg: /assets/icons/about-us/client-focus.svg
           title: Client Focus
@@ -47,8 +47,12 @@ benefits:
           title: Psychological Understanding of Data 
           desc: Integration of psychology and data reflects the recognition that the human element is crucial in the world of data. Data analysis and interpretation are not purely technical processes; they involve understanding the human context in which data operates.
 
+        - number: 5
+          title: Predictive Intelligence & MLOps
+          desc: We move beyond historical reporting by implementing robust Machine Learning and MLOps practices. Our focus is on building scalable, production-ready AI models that automate complex tasks, predict future outcomes, and transform raw data into a reliable source of competitive advantage.
+
 approach:
     title: Our Approach
-    desc: Our values and mission guides our approach. We only engage with clients where we find synergy. We work with companies that seek solution that are long lasting and of highest quality. Once we have decided to work for a client, we focus our efforts to make their plans successful. We generally do not engage in fixed cost project. We work on agile development, with weekly sprints. We guarantee predictable cost on our sprints and project.
+    desc: Our project delivery process is tailored for complex data science and AI implementations. We utilize an agile development framework and leverage MLOps pipelines to rapidly prototype, deploy, and continuously refine our Machine Learning models, ensuring a fast time-to-value for every client.
     img: /assets/images/about-us/approach.png
 ---

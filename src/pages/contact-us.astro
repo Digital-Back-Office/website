@@ -1,27 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { Image } from "astro:assets";
-// import svg1 from "/assets/images/contact-us/svg1.svg";
-// import svg2 from "/assets/images/contact-us/svg2.svg";
 import Navbar from "../components/common/Navbar.astro";
 
 import '../styles/container.css'
 ---
 
-<style>
-  input[type="checkbox"]:checked {
-    background-color: rgba(47, 183, 184, 1);
-  }
-  .bg-image {
-    background-image: url(/assets/images/background-pattern.png);
-    background-repeat: repeat !important;
-  }
-</style>
 
 <Layout>
   <Navbar />
   <main class="page-wrapper bg-image" data-pagefind-ignore>
-    <!-- Page title + Сontact form  from contacts-v2.html-->
     <section
       class="container pt-2 pt-lg-5 pb-lg-2 pb-xl-4 py-xxl-5"
       data-bs-theme="dark"

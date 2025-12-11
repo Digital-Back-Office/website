@@ -6,7 +6,27 @@ const homeCollection = defineCollection({
         hero: z.object({
             title_part_1: z.string(),
             title_part_2: z.string(),
+            pill_text: z.string(),
             info: z.string()
+        }),
+        partners: z.object({
+            title: z.string(),
+            images: z.array(z.object({
+                name: z.string(),
+                src: z.string()
+            }))
+        }),
+        ai_solutions: z.object({
+            title: z.string(),
+            sub_title: z.string(),
+            cta_text: z.string(),
+            cards: z.array(z.object({
+                id: z.string(),
+                heading: z.string(), 
+                description: z.string(),
+                icon: z.string(),
+                button_text: z.string()
+            }))
         }),
         about: z.object({
             parallax_images: z.array(z.string()),
@@ -20,6 +40,17 @@ const homeCollection = defineCollection({
             title: z.string(),
             info: z.string()
         })),
+        roadmap: z.object({
+            title_1: z.string(),
+            title_2: z.string(),
+            sub_title: z.string(),
+            cards: z.array(z.object({
+                id: z.string(),
+                heading: z.string(),
+                description: z.string(),
+                icon: z.string()
+            }))
+        }),
         features: z.object({
             title: z.string(),
             cards: z.array(z.object({
@@ -80,7 +111,83 @@ const aboutCollection = defineCollection({
     })
 });
 
+const industriesCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        hero: z.object({
+            heading: z.string(),
+            subtext: z.string(),
+            video: z.string(),
+            cta_text: z.string(),
+            cta_link: z.string()
+        }),
+        trust: z.object({
+            line: z.string()
+        }),
+        barriers: z.object({
+            heading: z.string(),
+            cards: z.array(z.object({
+                title: z.string(),
+                description: z.string()
+            }))
+        }),
+        products: z.object({
+            title: z.string(),
+            subtitle: z.string(),
+            tabs: z.array(z.object({
+                id: z.string(),
+                name: z.string(),
+                heading: z.string(),
+                sections: z.array(z.object({
+                    subheading: z.string(),
+                    description: z.string()
+                })),
+                cta_text: z.string(),
+                cta_link: z.string(),
+                image: z.string(),
+                image_alt: z.string()
+            }))
+        }),
+        why_trust: z.object({
+            heading: z.string(),
+            cards: z.array(z.object({
+                title: z.string(),
+                description: z.string(),
+                icon: z.string()
+            }))
+        })
+    })
+});
+
+const partnersCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        hero: z.object({
+            title: z.string(),
+            subtitle: z.string()
+        }),
+        filters: z.array(z.object({
+            id: z.string(),
+            label: z.string()
+        })),
+        partners: z.array(z.object({
+            name: z.string(),
+            description: z.string(),
+            logo: z.string(),
+            category: z.string()
+        }))
+    })
+});
+
 export const collections = {
     'home': homeCollection,
     'about': aboutCollection,
+    'industries': industriesCollection,
+    'partners': partnersCollection,
+    'service-showcase': defineCollection({
+        type: 'content',
+        schema: z.any()
+    }),
 };
