@@ -111,9 +111,60 @@ const aboutCollection = defineCollection({
     })
 });
 
+const industriesCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        hero: z.object({
+            heading: z.string(),
+            subtext: z.string(),
+            video: z.string(),
+            cta_text: z.string(),
+            cta_link: z.string()
+        }),
+        trust: z.object({
+            line: z.string()
+        }),
+        barriers: z.object({
+            heading: z.string(),
+            cards: z.array(z.object({
+                title: z.string(),
+                description: z.string()
+            }))
+        }),
+        products: z.object({
+            title: z.string(),
+            subtitle: z.string(),
+            tabs: z.array(z.object({
+                id: z.string(),
+                name: z.string(),
+                heading: z.string(),
+                sections: z.array(z.object({
+                    subheading: z.string(),
+                    description: z.string()
+                })),
+                cta_text: z.string(),
+                cta_link: z.string(),
+                image: z.string(),
+                image_alt: z.string()
+            }))
+        }),
+        why_trust: z.object({
+            heading: z.string(),
+            cards: z.array(z.object({
+                title: z.string(),
+                description: z.string(),
+                icon: z.string()
+            }))
+        })
+    })
+});
+
 export const collections = {
     'home': homeCollection,
     'about': aboutCollection,
+    'industries': industriesCollection,
     'service-showcase': defineCollection({
         type: 'content',
         schema: z.any()
