@@ -2,252 +2,8 @@
 import 'flatpickr/dist/flatpickr.min.css'
 import 'flatpickr/dist/themes/dark.css'
 const url = Astro.url.pathname
+import '../styles/consultation-form.css'
 ---
-
-<style>
-          .error {
-            padding: 0.3rem 1rem;
-            color: #52cec7;
-            background-color: black;
-            border-radius: 4px;
-            position: absolute;
-            top: 100%;
-            left: 1rem;
-            font-style: italic;
-            font-size: 0.9rem;
-          }
-          .error::after {
-            content: '';
-            position: absolute;
-            border-radius: 2px;
-            width: 0.9rem;
-            height: 0.9rem;
-            transform: rotate(45deg);
-            background-color: black;
-            top: -0.3rem;
-            left: 0.3rem;
-          }
-
-          .hidden {
-            display: none;
-          }
-
-          .card-body {
-            background-color: #121519;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-          }
-
-          .book-now-btn {
-            background-color: #52CEC7 !important;
-          }
-
-        .flip-card {
-          width: 100%;
-          max-width: 390px;
-          height: auto;
-          min-height: 650px;
-          perspective: 1000px;
-          margin: 0 auto;
-        }
-
-        .flip-card-inner {
-          position: relative;
-          width: 100%;
-          transition: transform 0.6s;
-          transform-style: preserve-3d;
-        }
-
-        .flip-card.flipped .flip-card-inner {
-          transform: rotateY(180deg);
-        }
-
-        .flip-card-front, .flip-card-back {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-        }
-
-        .flip-card-back {
-            background: linear-gradient(135deg, #30baba 0%, #2a9d9d 100%);
-            color: white;
-            width: 100%;
-            height: 100%;
-            min-height: 650px;
-            transform: rotateY(180deg);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 30px;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .flip-card-back::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-        @keyframes shimmer {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 25px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .checkmark {
-            width: 40px;
-            height: 40px;
-            border: 3px solid white;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .checkmark::after {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 6px;
-            width: 8px;
-            height: 16px;
-            border: solid white;
-            border-width: 0 3px 3px 0;
-            transform: rotate(45deg);
-        }
-
-        .success-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .success-message {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 35px;
-            opacity: 0.95;
-            max-width: 280px;
-        }
-
-        .small-grey-underline {
-          cursor: pointer;
-          margin-top: 20px;
-          font-size: 16px; 
-          color: #ffffff;
-          transition: all 0.3s ease;
-          display: inline-block;
-          user-select: none;
-          text-decoration: underline;
-          font-weight: 500;
-          backdrop-filter: blur(10px);
-          border: none;
-          background: none;
-        }
-        @media (max-width: 768px) {
-        .flip-card {
-          width: 95%;
-          max-width: 350px;
-          min-height: 600px;
-        }
-        
-        .flip-card-inner {
-          min-height: 600px;
-        }
-        
-        .flip-card-front, .flip-card-back {
-          min-height: 600px;
-        }
-        
-        .flip-card-front {
-          padding: 15px;
-        }
-        
-        .flip-card-back {
-          padding: 20px;
-          min-height: 600px;
-        }
-        
-        .success-title {
-          font-size: 24px;
-        }
-        
-        .success-message {
-          font-size: 14px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .flip-card {
-          width: 100%;
-          max-width: 320px;
-          min-height: 600px;
-        }
-        
-        .flip-card-inner {
-          min-height: 600px;
-        }
-        
-        .flip-card-front, .flip-card-back {
-          min-height: 600px;
-        }
-        
-        .flip-card-front {
-          padding: 10px;
-        }
-        
-        .flip-card-back {
-          padding: 15px;
-          min-height: 550px;
-        }
-        
-        .card-title {
-          font-size: 1.3rem;
-        }
-        
-        .success-icon {
-          width: 60px;
-          height: 60px;
-        }
-        
-        .checkmark {
-          width: 30px;
-          height: 30px;
-        }
-        
-        .checkmark::after {
-          left: 9px;
-          top: 4px;
-          width: 6px;
-          height: 12px;
-        }
-      }
-
-</style>
 
 <script>
   import flatpickr from 'flatpickr'
@@ -306,12 +62,12 @@ const url = Astro.url.pathname
         ) as HTMLElement
         const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
 
-          selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Loading available slots...</option>'
-          selectElement.disabled = true
+        selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Loading available slots...</option>'
+        selectElement.disabled = true
 
         var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
-       const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
+        const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
 
         var url = `https://script.google.com/macros/s/${appScriptID}/exec`
 
@@ -361,6 +117,7 @@ const url = Astro.url.pathname
       }
     }
   })
+
   const form_id = import.meta.env.PUBLIC_FORM_ID
   const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID
   const submitAnotherForm = document.querySelector('.small-grey-underline') as HTMLElement
@@ -368,6 +125,7 @@ const url = Astro.url.pathname
     const flipCard = document.querySelector('.flip-card') as HTMLElement
     flipCard.classList.remove('flipped')
   })
+
   const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
   BookBtn?.addEventListener('click', async (e) => {
     e.preventDefault()
@@ -432,12 +190,12 @@ const url = Astro.url.pathname
         })
           .then((res:any) => {
             res.json()
-              fetch(url, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData,
-              }).catch((error) => {
-              });
+            fetch(url, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: formData,
+            }).catch((error) => {
+            });
           })
           .then((data) => {
             const flipCard = document.querySelector('.flip-card') as HTMLElement
@@ -458,129 +216,132 @@ const url = Astro.url.pathname
       }
     }
   })
-  function validateForm() {
-  const nameInput = document.querySelector('#name') as HTMLInputElement
-  const emailInput = document.querySelector('#email') as HTMLInputElement
-  const companyInput = document.querySelector('#company') as HTMLInputElement
-  const dateTimeInput = document.querySelector('#date-time-picker') as HTMLInputElement
-  const timeSlots = document.getElementById('time-slots-options') as HTMLSelectElement
-  const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
 
-  const name = nameInput.value.trim()
-  const email = emailInput.value.trim()
-  const company = companyInput.value.trim()
-  const startDateTime = dateTimeInput.value.trim()
-  const timeSlot = timeSlots.value.trim()
-  if (name && email && company && startDateTime && timeSlot) {
-    BookBtn.disabled = false
-  } else {
-    BookBtn.disabled = true
+  function validateForm() {
+    const nameInput = document.querySelector('#name') as HTMLInputElement
+    const emailInput = document.querySelector('#email') as HTMLInputElement
+    const companyInput = document.querySelector('#company') as HTMLInputElement
+    const dateTimeInput = document.querySelector('#date-time-picker') as HTMLInputElement
+    const timeSlots = document.getElementById('time-slots-options') as HTMLSelectElement
+    const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
+
+    const name = nameInput.value.trim()
+    const email = emailInput.value.trim()
+    const company = companyInput.value.trim()
+    const startDateTime = dateTimeInput.value.trim()
+    const timeSlot = timeSlots.value.trim()
+    if (name && email && company && startDateTime && timeSlot) {
+      BookBtn.disabled = false
+    } else {
+      BookBtn.disabled = true
+    }
   }
-}
-document.addEventListener('DOMContentLoaded', function() {
-  const nameInput = document.querySelector('#name') as HTMLInputElement
-  const emailInput = document.querySelector('#email') as HTMLInputElement
-  const companyInput = document.querySelector('#company') as HTMLInputElement
-  const timeSlots = document.getElementById('time-slots-options') as HTMLSelectElement
-  nameInput?.addEventListener('input', validateForm)
-  emailInput?.addEventListener('input', validateForm)
-  companyInput?.addEventListener('input', validateForm)
-  timeSlots?.addEventListener('change', validateForm)
-})
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const nameInput = document.querySelector('#name') as HTMLInputElement
+    const emailInput = document.querySelector('#email') as HTMLInputElement
+    const companyInput = document.querySelector('#company') as HTMLInputElement
+    const timeSlots = document.getElementById('time-slots-options') as HTMLSelectElement
+    nameInput?.addEventListener('input', validateForm)
+    emailInput?.addEventListener('input', validateForm)
+    companyInput?.addEventListener('input', validateForm)
+    timeSlots?.addEventListener('change', validateForm)
+  })
 </script>
+
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-<form class='card-body'>
-  <h2 class='h3 card-title text-white text-center pb-2 pb-xxl-3'>
-    30 mins FREE Consultation
-  </h2>
-  <div class='mb-2'>
-    <label class='form-label fs-base' for='name'> Your Name</label>
-    <input
-      class='form-control form-control-lg fs-sm'
-      type='text'
-      placeholder='Enter your name'
-      name='Name'
-      required
-      id='name'
-    />
-  </div>
-  <div class='mb-2'>
-    <label class='form-label fs-base' for='company'> Company Name</label>
-    <input
-      class='form-control form-control-lg fs-sm'
-      type='text'
-      placeholder="Enter your company's name"
-      name='Company-name'
-      required
-      id='company'
-    />
-  </div>
-  <div class='mb-2'>
-    <label class='form-label fs-base' for='email'> Email address</label>
-    <input
-      class='form-control form-control-lg fs-sm'
-      type='email'
-      placeholder='Enter your email address'
-      name='Email'
-      required
-      id='email'
-    />
-  </div>
-  <div class='mb-2'>
-    <label class='form-label' for='date-time-picker'>Date</label>
-    <div class='position-relative'>
-      <input
-        class='form-control form-control-lg date-picker pe-5 fs-sm'
-        type='text'
-        placeholder='Choose available date'
-        name='Date-time'
-        required
-        id='date-time-picker'
-      />
-      <i
-        class='ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3'
-      ></i>
-    </div>
-  </div>
-  <div class='mb-2' id='time-slots-container'>
-    <label class='form-label' for='time-slots'>Time</label>
-    <div class='position-relative'>
-      <select
-        name='time-slots'
-        id='time-slots-options'
-        class='form-control form-control-lg pe-5 fs-sm'
-      >
-        <option value='' selected style='background-color: #121519;'>Choose date first</option>
-      </select>
-    </div>
-  </div>
-  <div
-    class='d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4'
-  >
-    <button
-      id='book-now'
-      disabled
-      class={url === '/'
-        ? ' btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py'
-        : 'btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py book-now-btn'}
-      type='submit'>Book now</button
-    >
-  </div>
-</form>
-</div>
-    <div class="flip-card-back">
-              <div class="success-icon">
-            <div class="checkmark"></div>
+      <form class='card-body'>
+        <h2 class='h3 card-title text-white text-center pb-2 pb-xxl-3'>
+          30 mins FREE Consultation
+        </h2>
+        <div class='mb-2'>
+          <label class='form-label fs-base' for='name'> Your Name</label>
+          <input
+            class='form-control form-control-lg fs-sm'
+            type='text'
+            placeholder='Enter your name'
+            name='Name'
+            required
+            id='name'
+          />
         </div>
-        <h2 class="success-title">Time Slot Booked!</h2>
-        <p class="success-message">
-            Your appointment has been successfully scheduled. You will receive a confirmation email shortly with all the details.
-        </p>
-<button class="small-grey-underline">
-Submit another form
-</button>
+        <div class='mb-2'>
+          <label class='form-label fs-base' for='company'> Company Name</label>
+          <input
+            class='form-control form-control-lg fs-sm'
+            type='text'
+            placeholder="Enter your company's name"
+            name='Company-name'
+            required
+            id='company'
+          />
+        </div>
+        <div class='mb-2'>
+          <label class='form-label fs-base' for='email'> Email address</label>
+          <input
+            class='form-control form-control-lg fs-sm'
+            type='email'
+            placeholder='Enter your email address'
+            name='Email'
+            required
+            id='email'
+          />
+        </div>
+        <div class='mb-2'>
+          <label class='form-label' for='date-time-picker'>Date</label>
+          <div class='position-relative'>
+            <input
+              class='form-control form-control-lg date-picker pe-5 fs-sm'
+              type='text'
+              placeholder='Choose available date'
+              name='Date-time'
+              required
+              id='date-time-picker'
+            />
+            <i
+              class='ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3'
+            ></i>
+          </div>
+        </div>
+        <div class='mb-2' id='time-slots-container'>
+          <label class='form-label' for='time-slots'>Time</label>
+          <div class='position-relative'>
+            <select
+              name='time-slots'
+              id='time-slots-options'
+              class='form-control form-control-lg pe-5 fs-sm'
+            >
+              <option value='' selected style='background-color: #121519;'>Choose date first</option>
+            </select>
+          </div>
+        </div>
+        <div
+          class='d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4'
+        >
+          <button
+            id='book-now'
+            disabled
+            class={url === '/'
+              ? ' btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py'
+              : 'btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py book-now-btn'}
+            type='submit'>Book now</button
+          >
+        </div>
+      </form>
+    </div>
+    <div class="flip-card-back">
+      <div class="success-icon">
+        <div class="checkmark"></div>
+      </div>
+      <h2 class="success-title">Time Slot Booked!</h2>
+      <p class="success-message">
+        Your appointment has been successfully scheduled. You will receive a confirmation email shortly with all the details.
+      </p>
+      <button class="small-grey-underline">
+        Submit another form
+      </button>
     </div>
   </div>
 </div>

@@ -1,0 +1,118 @@
+.page-wrapper {
+		background-image: url("/assets/images/background-pattern.png");
+		min-height: 100vh;
+	}
+
+	.hero-section {
+		padding: 8rem 0 5rem;
+		background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%);
+	}
+
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 700;
+		color: #fff;
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+	}
+
+	.hero-subtitle {
+		font-size: 1.5rem;
+		color: rgba(255, 255, 255, 0.8);
+		margin-bottom: 3rem;
+	}
+
+	.filter-tabs {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 4rem;
+		flex-wrap: wrap;
+	}
+
+	.filter-btn {
+		padding: 0.75rem 1.5rem;
+		border-radius: 50px;
+		border: 2px solid rgba(82, 206, 199, 0.3);
+		background: transparent;
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.filter-btn:hover,
+	.filter-btn.active {
+		background: rgba(82, 206, 199, 0.2);
+		border-color: #52CEC7;
+		color: #52CEC7;
+	}
+
+	.partners-section {
+		padding: 3rem 0 5rem;
+	}
+
+	.partner-card {
+		background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%);
+		border: 2px solid rgba(82, 206, 199, 0.2);
+		border-radius: 16px;
+		padding: 2rem;
+		height: 100%;
+		transition: all 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+	}
+
+	.partner-card:hover {
+		transform: translateY(-8px);
+		border-color: rgba(82, 206, 199, 0.5);
+		box-shadow: 0 12px 32px rgba(82, 206, 199, 0.2);
+	}
+
+	.partner-logo {
+		background: #fff;
+		border-radius: 12px;
+		padding: 2rem;
+		margin-bottom: 1.5rem;
+		min-height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.partner-logo img {
+		max-width: 100%;
+		max-height: 120px;
+		object-fit: contain;
+	}
+
+	.partner-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #fff;
+		margin-bottom: 1rem;
+	}
+
+	.partner-description {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.7);
+		flex-grow: 1;
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.25rem;
+		}
+
+		.filter-tabs {
+			justify-content: center;
+		}
+	}

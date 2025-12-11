@@ -161,10 +161,31 @@ const industriesCollection = defineCollection({
     })
 });
 
+const partnersCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        hero: z.object({
+            title: z.string(),
+            subtitle: z.string()
+        }),
+        filters: z.array(z.object({
+            id: z.string(),
+            label: z.string()
+        })),
+        partners: z.array(z.object({
+            name: z.string(),
+            description: z.string(),
+            logo: z.string(),
+            category: z.string()
+        }))
+    })
+});
+
 export const collections = {
     'home': homeCollection,
     'about': aboutCollection,
     'industries': industriesCollection,
+    'partners': partnersCollection,
     'service-showcase': defineCollection({
         type: 'content',
         schema: z.any()
