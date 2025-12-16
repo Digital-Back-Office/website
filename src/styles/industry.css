@@ -99,6 +99,8 @@ body {
     line-height: 1.3;
     color: #fff;
     margin-bottom: 2rem;
+    position: sticky;
+    top: 130px;
 }
 
 .barriers-subtext {
