@@ -2,9 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
 
-import '../styles/container.css'
 ---
 
+<style>
+  input[type="checkbox"]:checked {
+    background-color: rgba(47, 183, 184, 1);
+  }
+  .bg-image {
+    background-image: url(/assets/images/background-pattern.png);
+    background-repeat: repeat !important;
+  }
+</style>
 
 <Layout>
   <Navbar />
@@ -46,7 +54,7 @@ import '../styles/container.css'
           <!-- Contact form -->
           <form
             class="row g-4 needs-validation"
-            action="https://formsubmit.co/contact@digitalbackoffice.co.uk"
+            action="https://formsubmit.co/gokulnath@dataflow.zone"
             method="POST"
             novalidate
           >
@@ -140,7 +148,7 @@ import '../styles/container.css'
                 <label class="form-check-label" for="agree"
                   >I agree to the <a
                     class="nav-link d-inline fs-normal text-decoration-underline p-0"
-                    href="#">Terms &amp; Conditions</a
+                    href="/terms-of-use">Terms &amp; Conditions</a
                   ></label
                 >
               </div>
