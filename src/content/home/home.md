@@ -38,7 +38,7 @@ ai_solutions:
       button_text: 'Learn more'
     - id: 'rag-implementation'
       heading: 'RAG Implementation' 
-      description: 'Retrieval Augmented Generation for accurate, enterprise-specific AI'
+      description: 'Retrieval Augmented Generation for accurate, enterprise grade AI'
       icon: '/assets/icons/home/rag.svg'
       button_text: 'Learn more'
     - id: 'agentic-workflows'
@@ -63,7 +63,7 @@ ai_solutions:
       button_text: 'Learn more'
     - id: 'ai-platforms'
       heading: 'AI Platforms' 
-      description: 'OpenAI, Azure OpenAI, Google Vertex AI, and AWS SageMaker'
+      description: 'Implementations for OpenAI, Azure OpenAI, Google Vertex AI etc.'
       icon: '/assets/icons/home/platform.svg'
       button_text: 'Learn more'
 
