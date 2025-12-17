@@ -296,10 +296,19 @@ body {
 
 @media (max-width: 768px) {
     .hero-heading {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     .hero-subtext {
         font-size: 1.25rem;
+    }
+    .hero-cta-btn {
+        font-size: 16px;
+        padding: 1rem 1.5rem;
+        text-wrap-mode: wrap;
+        text-align: left;
+    }
+    .tab-cta-btn {
+        font-size: 14px;
     }
     .trust-line {
         font-size: 1.25rem;

@@ -130,6 +130,7 @@ import Consultation_form from "../common/ConsultationForm.astro";
     .card {
         form {
             padding: 2rem;
+            height: 100%;
         }
 
         .card-title {
@@ -212,6 +213,12 @@ import Consultation_form from "../common/ConsultationForm.astro";
         .gradient-orb-1, .gradient-orb-2, .gradient-orb-3 {
             width: 300px;
             height: 300px;
+        }   
+    }
+
+    @media (max-width: 576px) {
+        .ai-badge {
+            margin-top: 30px !important;
         }
     }
 </style>

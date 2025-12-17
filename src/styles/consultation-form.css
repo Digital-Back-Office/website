@@ -176,7 +176,7 @@
     }
 
     .flip-card-front {
-        padding: 15px;
+        padding: 0px;
     }
 
     .flip-card-back {
@@ -209,7 +209,7 @@
     }
 
     .flip-card-front {
-        padding: 10px;
+        padding: 0;
     }
 
     .flip-card-back {

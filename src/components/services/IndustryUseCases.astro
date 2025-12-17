@@ -32,19 +32,19 @@ const { heading, subtitle, cases } = Astro.props;
     <div class="row g-4">
       {cases.map((industryCase) => (
         <div class="col-12">
-          <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1rem; padding: 3rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(82, 206, 199, 0.15)'; this.style.borderColor='rgba(82, 206, 199, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255, 255, 255, 0.1)';">
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1rem; padding: 3rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; padding: 2rem; @media (max-width: 768px) { padding: 2rem; }" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(82, 206, 199, 0.15)'; this.style.borderColor='rgba(82, 206, 199, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255, 255, 255, 0.1)';">
             <h3 style="font-size: 1.75rem; font-weight: 700; color: #52CEC7; margin-bottom: 1.5rem;">
               {industryCase.industry}
             </h3>
             <ul style="list-style: none; padding: 0; margin: 0;">
               {industryCase.use_cases.map((useCase, index) => (
-                <li style={`padding: 1rem 0;${index < industryCase.use_cases.length - 1 ? ' border-bottom: 1px solid rgba(255, 255, 255, 0.1);' : ''}`}>
-                  <strong style="color: #fff; display: block; margin-bottom: 0.5rem;">{useCase.title}</strong>
-                  <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;" set:html={useCase.description}></span>
-                </li>
+              <li style={`padding: 1rem 0;${index < industryCase.use_cases.length - 1 ? ' border-bottom: 1px solid rgba(255, 255, 255, 0.1);' : ''}`}>
+                <strong style="color: #fff; display: block; margin-bottom: 0.5rem;">{useCase.title}</strong>
+                <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;" set:html={useCase.description}></span>
+              </li>
               ))}
             </ul>
-          </div>
+            </div>
         </div>
       ))}
     </div>

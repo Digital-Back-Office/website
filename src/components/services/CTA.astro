@@ -10,6 +10,16 @@ interface Props {
 const { cta } = Astro.props;
 ---
 
+
+<style>
+   @media (max-width: 768px) {
+    .cta { 
+      padding: 1rem 1.5rem !important; 
+      font-size: 16px !important; 
+    }
+  }
+</style>
+
 <section style="padding: 6rem 0; background: url('/assets/images/services/data-visualization/banner_bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom:3rem; position: relative;" data-bs-theme="dark">
   <div class="container">
     <div class="row justify-content-center">
@@ -20,7 +30,7 @@ const { cta } = Astro.props;
         <p style="font-size: 1.375rem; line-height: 1.6; color: rgba(255, 255, 255, 0.85); margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
           {cta.text}
         </p>
-        <a href="/contact-us" style="display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; padding: 1.125rem 2.5rem; font-weight: 600; background-color: #52CEC7; border: 2px solid #52CEC7; color: #000; transition: all 0.3s ease; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 20px rgba(82, 206, 199, 0.3);" onmouseover="this.style.backgroundColor='transparent'; this.style.color='#52CEC7'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 24px rgba(82, 206, 199, 0.4)';" onmouseout="this.style.backgroundColor='#52CEC7'; this.style.color='#000'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(82, 206, 199, 0.3)';">
+        <a href="/contact-us" style="display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; padding: 1.125rem 2.5rem; font-weight: 600; background-color: #52CEC7; border: 2px solid #52CEC7; color: #000; transition: all 0.3s ease; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 20px rgba(82, 206, 199, 0.3);" class="cta" onmouseover="this.style.backgroundColor='transparent'; this.style.color='#52CEC7'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 24px rgba(82, 206, 199, 0.4)';" onmouseout="this.style.backgroundColor='#52CEC7'; this.style.color='#000'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(82, 206, 199, 0.3)';">
           {cta.button_text}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
