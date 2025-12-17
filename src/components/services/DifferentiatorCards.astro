@@ -1,0 +1,64 @@
+---
+interface Card {
+  img: string;
+  heading: string;
+  text: string;
+}
+
+interface Props {
+  heading: string;
+  highlightPhrase: string | null;
+  highlightColor: string;
+  parts: string[] | null;
+  cards: Card[];
+}
+
+const { heading, highlightPhrase, highlightColor, parts, cards } = Astro.props;
+---
+
+<section
+  id="diff"
+  class="container mt-md-3 mt-lg-2 mt-xl-4 mt-xxl-5"
+  data-bs-theme="dark"
+>
+  <h2 class="h1 text-center pt-3 pt-sm-4 pt-lg-5 pb-3 mb-3 mb-lg-5 mt-xl-3">
+    {
+      parts ? (
+        <>
+          {parts[0]}
+          <span style={`color: ${highlightColor}`}>{highlightPhrase}</span>
+          {parts.slice(1).join(highlightPhrase || '')}
+        </>
+      ) : (
+        heading
+      )
+    }
+  </h2>
+  <div
+    class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center"
+  >
+    {
+      cards.map((card) => (
+        <div class="col">
+          <div
+            class="card h-100"
+            style="background-color: rgba(255, 255, 255, 3%);border:none"
+          >
+            <div class="h-100 rounded-5 py-2 py-lg-4 px-0">
+              <div class="card-body text-center">
+                <img
+                  src={card.img}
+                  alt="icon"
+                  class="d-block text-primary mb-4 mx-auto"
+                  height="40"
+                />
+                <h3>{card.heading}</h3>
+                <p class="card-text">{card.text}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
