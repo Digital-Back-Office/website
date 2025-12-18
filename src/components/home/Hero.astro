@@ -9,22 +9,129 @@ import Consultation_form from "../common/ConsultationForm.astro";
 
 <style>
     .hero-section {
-        /* padding: 8rem 0; */
+        position: relative;
+        overflow: hidden;
+        min-height: max-content;
     }
 
     .hero-section * {
         z-index: 3;
     }
 
+    /* Animated gradient background elements */
+    .gradient-orb-1 {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(82, 206, 199, 0.25) 0%, transparent 70%);
+        border-radius: 50%;
+        top: -200px;
+        left: -100px;
+        z-index: 1;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    .gradient-orb-2 {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(238, 191, 46, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        bottom: -150px;
+        right: -100px;
+        z-index: 1;
+        animation: float 10s ease-in-out infinite reverse;
+    }
+
+    .gradient-orb-3 {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(82, 206, 199, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        top: 50%;
+        right: 10%;
+        z-index: 1;
+        animation: float 12s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            transform: translateY(-30px) scale(1.05);
+        }
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #52CEC7 0%, #EEBF2E 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        display: inline-block;
+        animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    .ai-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, rgba(82, 206, 199, 0.2) 0%, rgba(238, 191, 46, 0.2) 100%);
+        border: 2px solid rgba(82, 206, 199, 0.4);
+        border-radius: 50px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #52CEC7;
+        margin-bottom: 1.5rem;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 0 20px rgba(82, 206, 199, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 40px rgba(82, 206, 199, 0.5);
+        }
+    }
+
+    .hero-description {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 2rem;
+    }
+
     .contact-form {
-        background-color: #121519 !important;
-        border-radius: 1rem;
-        box-shadow: 0px 2px 15px 0px #7b7b7b7a;
+        background: none !important;
+        border-radius: 1.5rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(82, 206, 199, 0.15);
+        border: 1px solid rgba(82, 206, 199, 0.2);
+        width: fit-content;
+        height: fit-content;
+        /* backdrop-filter: blur(10px); */
     }
 
     .card {
         form {
             padding: 2rem;
+            height: 100%;
         }
 
         .card-title {
@@ -40,16 +147,30 @@ import Consultation_form from "../common/ConsultationForm.astro";
         .form-control {
             border-radius: 0.5rem !important;
             line-height: 1 !important;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(82, 206, 199, 0.2);
+            color: #fff;
+
+            &:focus {
+                background-color: rgba(255, 255, 255, 0.08);
+                border-color: #52CEC7;
+                box-shadow: 0 0 20px rgba(82, 206, 199, 0.2);
+            }
         }
 
         .book-btn {
-            background-color: var(--ar-primary);
+            background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%);
             border-radius: 0.5rem;
             width: 100% !important;
+            font-weight: 600;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(82, 206, 199, 0.3);
 
             &:hover {
-                color: var(--ar-primary) !important;
-                background-color: transparent !important;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(82, 206, 199, 0.4);
+                background: linear-gradient(135deg, #3BA9A3 0%, #52CEC7 100%);
             }
         }
 
@@ -60,33 +181,76 @@ import Consultation_form from "../common/ConsultationForm.astro";
         }
     }
 
+    /* Floating AI icons */
+    .ai-icon {
+        position: absolute;
+        z-index: 2;
+        opacity: 0.15;
+        animation: floatIcon 6s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(5deg);
+        }
+    }
+
     @media (min-width: 1024px) {
         .hero-section {
-            height: 90vh;
+            min-height: 90vh;
+            padding: 6rem 0;
         }
     }
 
     @media (max-width: 1024px) {
         .hero-section {
-            padding-top: 4rem;
+            padding-top: 5rem;
+            padding-bottom: 3rem;
+        }
+
+        .gradient-orb-1, .gradient-orb-2, .gradient-orb-3 {
+            width: 300px;
+            height: 300px;
+        }   
+    }
+
+    @media (max-width: 576px) {
+        .ai-badge {
+            margin-top: 30px !important;
         }
     }
 </style>
 
 <section class="hero-section d-flex align-items-center">
+    <!-- Animated gradient orbs -->
+    <div class="gradient-orb-1"></div>
+    <!-- <div class="gradient-orb-2"></div> -->
+    <div class="gradient-orb-3"></div>
+
     <div class="container position-relative my-auto">
         <div class="row pt-lg-5 pb-lg-5 align-items-center justify-content-center">
             <div class="col-lg-6 col-sm-10 col-10 col-xxl-6">
-                <h1 class="text-center text-lg-start text-light fw-light">
-                    {hero.title_part_1}
-                    <br />
-                    <p class="fw-bold">{hero.title_part_2}</p>
-                </h1>
-                <p
-                    class="fs-lg text-center text-lg-start text-light pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5"
-                >
-                    {hero.info}
-                </p>
+                <div class="text-center text-lg-start">
+                    <div class="ai-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; margin-right: 0.5rem; vertical-align: middle;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                        {hero.pill_text}
+                    </div>
+                    <h1 class="hero-title text-light">
+                        {hero.title_part_1}
+                        <br />
+                        <span class="gradient-text">{hero.title_part_2}</span>
+                    </h1>
+                    <p class="hero-description">
+                        {hero.info}
+                    </p>
+                </div>
             </div>
             <div class="col-xl-4 col-lg-5 col-sm-8 col-10 contact-div offset-lg-1 offset-xl-2">
                 <!-- Contact form -->

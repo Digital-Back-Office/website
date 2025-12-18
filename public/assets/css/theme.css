@@ -323,7 +323,6 @@ h6, .h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1.125rem;
 }
 
 abbr[title] {
@@ -407,6 +406,7 @@ a {
   color: rgba(var(--ar-link-color-rgb), var(--ar-link-opacity, 1));
   text-decoration: underline;
 }
+
 a:hover {
   --ar-link-color-rgb: var(--ar-link-hover-color-rgb);
   text-decoration: none;

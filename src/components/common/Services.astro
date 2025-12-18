@@ -1,8 +1,8 @@
 ---
-import * as data_architecture from "../../pages/services/big-data-architecture.mdx";
+import * as data_architecture from "../../pages/services/data-strategy-services.mdx";
 import * as data_science from "../../pages/services/data-science.mdx";
-import * as data_devops from "../../pages/services/big-data-devops.mdx";
-import * as data_visualization from "../../pages/services/data-visualization.mdx";
+import * as data_devops from "../../pages/services/data-engineering-services.mdx";
+import * as data_visualization from "../../pages/services/ai-solutions.mdx";
 ---
 
 <style>
@@ -34,6 +34,21 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
     @media (min-width: 1024px) {
         .services {
             min-height: 100vh;
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        .card1 {
+            border-radius: 20px !important;
+        }
+        .card2 {
+            border-radius: 20px !important;
+        }
+        .card3 {
+            border-radius: 20px !important;
+        }
+        .card4 {
+            border-radius: 20px !important;
         }
     }
 </style>
@@ -184,7 +199,7 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                                         >
                                             <a
                                                 class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
-                                                href="/services/data-visualization"
+                                                href="/services/ai-solutions"
                                             >
                                                 <i class="ai-arrow-right"></i>
                                             </a>
@@ -238,7 +253,7 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                                         >
                                             <a
                                                 class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
-                                                href="/services/big-data-devops"
+                                                href="/services/data-engineering-services"
                                             >
                                                 <i class="ai-arrow-right"></i>
                                             </a>
@@ -300,7 +315,7 @@ import * as data_visualization from "../../pages/services/data-visualization.mdx
                                         >
                                             <a
                                                 class="btn btn-sm btn-icon btn-outline-primary rounded-circle"
-                                                href="/services/big-data-architecture"
+                                                href="/services/data-strategy-services"
                                             >
                                                 <i class="ai-arrow-right"></i>
                                             </a>

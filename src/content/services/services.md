@@ -11,7 +11,7 @@ data_devops:
     heading: Big Data DevOps
     text: The real challenge holding back production big data cloud deployments is the pervasive lack of DevOps skills for big data. We provide Fully-managed cloud services for big data and analytics so you can offload a lot of the challenges associated with getting big data platforms into production.
     icon1_heading: Open Source
-    icon1_text: Cutting edge open sourc devops tools
+    icon1_text: Cutting edge open source devops tools
     icon2_heading: Cloud Native
     icon2_text: Highly scalable, flexible, and resilient built for cloud computing.
 
@@ -19,7 +19,7 @@ data_science:
     heading: Data Science
     text: Data science helps mitigate business risks and drive business outcomes and innovations through smarter decisions. We build end-to-end data processing, modelling and machine learning pipelines in Python.
     icon1_heading: Open Source
-    icon1_text: Best Open Source AI//ML tools for your need.
+    icon1_text: Best Open Source AI/ML tools for your need.
     icon2_heading: Cloud Scaling
     icon2_text: Scale your model on cloud as per your needs and budget.
 
@@ -27,9 +27,9 @@ data_visualization:
     heading: Data Visualisation
     text: Data Visualisation is story telling with a purpose. Data Visualisation is an art and we treat is such. We don’t treat data visualisation as just a data problems, we understand that visuals are for humans.
     icon1_heading: Ease of Use
-    icon1_text: Interactive and Intuitive data , designed for business users.
+    icon1_text: Interactive and intuitive data, designed for business users.
     icon2_heading: Collaborative
-    icon2_text: Build to enable collaboration between business and IT. 
+    icon2_text: Built to enable collaboration between business and IT. 
 
 individual_page:
     data_architecture:

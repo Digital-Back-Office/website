@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Arimo", sans-serif;
 }
@@ -50,4 +54,76 @@ padding: 1rem 2.5rem;
 font-size: 1.2rem;
 font-weight: 500;
 border: solid 1px #52CEC7;
+}
+
+
+
+/* NavBar */
+.brand-logo {
+    width: auto;
+    height: 4.2rem;
+}
+.nav-link {
+    color: #fff;
+}
+
+#contact-button {
+    border-radius: 7px;
+    padding: 0.5rem 1.5rem !important;
+    font-size: 3.375rem !important;
+}
+
+.primary-button {
+    background-color: var(--ar-primary) !important;
+    color: white !important;
+}
+
+.navbar-scrolled {
+    background-image: url(/assets/images/background-pattern.png);
+    background-repeat: repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.staticnav {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+#navbar {
+    transition: background-color 0.4s ease-in-out;
+    z-index: 50;
+}
+
+.nav-links {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.active-link{
+    color:#52CEC7;
+}
+
+/* Show dropdown on hover */
+.navbar-nav .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Prevent the Industries dropdown toggle from being clickable */
+.navbar-nav .dropdown > a[href="#"] {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* But keep the dropdown items clickable */
+.navbar-nav .dropdown-menu .dropdown-item {
+    pointer-events: auto;
 }
