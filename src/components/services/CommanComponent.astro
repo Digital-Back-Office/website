@@ -72,6 +72,7 @@ const approachParts = approachHighlight
   description={frontmatter.seo_description || (frontmatter.p1_text + " " + (frontmatter.p2_text || ""))}
   keywords={frontmatter.seo_keywords || ""}
   canonical={Astro.url.pathname}
+  preview_image={frontmatter.preview_image || "/preview.png"}
 >
   <main class="page-wrapper background-style" style="height: max-content;" data-pagefind-ignore>
     <!-- Hero Section -->

@@ -1,0 +1,90 @@
+---
+const siteUrl = 'http://localhost:4321';
+const imageUrl = `${siteUrl}/preview.png`;
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Preview Image Test</title>
+  <style>
+    body {
+      background: #000;
+      color: white;
+      font-family: system-ui;
+      padding: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .test-card {
+      background: #1a1a1a;
+      border: 2px solid #2FB7B8;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #2FB7B8;
+    }
+    img {
+      max-width: 100%;
+      border: 2px solid #2FB7B8;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .success {
+      color: #2FB7B8;
+      font-weight: bold;
+    }
+    .info {
+      color: #ccc;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🖼️ Preview Image Test</h1>
+  
+  <div class="test-card">
+    <h2>Direct Image Load Test</h2>
+    <p class="info">Testing if preview.png loads correctly:</p>
+    <img src="/preview.png" alt="Preview Image" />
+    <p class="success">✓ If you see an image above, preview.png is working!</p>
+  </div>
+
+  <div class="test-card">
+    <h2>Meta Tags Test</h2>
+    <p class="info">Image URL being used in meta tags:</p>
+    <code style="color: #2FB7B8; background: #000; padding: 10px; display: block; border-radius: 4px;">
+      {imageUrl}
+    </code>
+  </div>
+
+  <div class="test-card">
+    <h2>File Information</h2>
+    <p class="info">Path: <code style="color: #2FB7B8;">/public/preview.png</code></p>
+    <p class="info">Expected dimensions: 1200 × 630 (or close to it)</p>
+    <p class="info">Actual dimensions: 1200 × 646</p>
+  </div>
+
+  <div class="test-card">
+    <h2>Next Steps</h2>
+    <ol style="line-height: 1.8;">
+      <li>If the image loads above, your preview.png is working correctly ✓</li>
+      <li>Go to <a href="/preview-test" style="color: #2FB7B8;">preview-test page</a></li>
+      <li>Do a hard refresh: <strong>Cmd+Shift+R</strong> (Mac) or <strong>Ctrl+Shift+R</strong> (Windows)</li>
+      <li>All pages should now show the preview.png image</li>
+    </ol>
+  </div>
+
+  <div class="test-card">
+    <h2>Still Not Working?</h2>
+    <p>Try these steps:</p>
+    <ul style="line-height: 1.8;">
+      <li>Open preview-test in an <strong>incognito/private window</strong></li>
+      <li>Clear your browser cache completely</li>
+      <li>Restart the dev server</li>
+    </ul>
+  </div>
+</body>
+</html>

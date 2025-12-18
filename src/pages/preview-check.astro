@@ -1,0 +1,276 @@
+---
+const pageTitle = "Social Media Preview Test";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{pageTitle}</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+      color: white;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #2FB7B8;
+      margin-bottom: 30px;
+      font-size: 36px;
+    }
+
+    .controls {
+      background: rgba(47, 183, 184, 0.1);
+      border: 2px solid rgba(47, 183, 184, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .refresh-btn {
+      background: #2FB7B8;
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .refresh-btn:hover {
+      background: #26a5a6;
+      transform: translateY(-2px);
+    }
+
+    .refresh-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    #results {
+      display: grid;
+      gap: 30px;
+    }
+
+    .page-card {
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(47, 183, 184, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .page-title {
+      color: #2FB7B8;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .meta-row {
+      display: flex;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .meta-label {
+      font-weight: 600;
+      color: #2FB7B8;
+      min-width: 180px;
+    }
+
+    .meta-value {
+      color: #ccc;
+      word-break: break-all;
+    }
+
+    .preview-image {
+      max-width: 100%;
+      border: 2px solid #2FB7B8;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 18px;
+      color: #2FB7B8;
+    }
+
+    .error {
+      color: #ff4444;
+    }
+
+    .success {
+      color: #2FB7B8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 Social Media Preview Test</h1>
+    
+    <div class="controls">
+      <button class="refresh-btn" id="refreshBtn">🔄 Load Preview Data</button>
+      <span id="status" style="margin-left: 20px; color: #2FB7B8;"></span>
+    </div>
+
+    <div id="results">
+      <div class="loading">Click "Load Preview Data" to fetch current meta tags from all pages...</div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const pages = [
+      { url: '/', title: 'Home' },
+      { url: '/about-us', title: 'About Us' },
+      { url: '/contact-us', title: 'Contact Us' },
+      { url: '/services/ai-solutions', title: 'AI Solutions' },
+      { url: '/services/data-strategy-services', title: 'Data Strategy' },
+      { url: '/services/data-engineering-services', title: 'Data Engineering' },
+      { url: '/services/data-science', title: 'Data Science' },
+    ];
+
+    function extractMetaTags(html) {
+      const extract = (pattern) => {
+        const match = html.match(pattern);
+        return match ? match[1] : '';
+      };
+
+      return {
+        ogTitle: extract(/property=.og:title.\s+content=.([^"']*)/i),
+        ogDescription: extract(/property=.og:description.\s+content=.([^"']*)/i),
+        ogImage: extract(/property=.og:image.\s+content=.([^"']*)/i),
+        twitterImage: extract(/name=.twitter:image.\s+content=.([^"']*)/i),
+      };
+    }
+
+    async function loadPreviews() {
+      const btn = document.getElementById('refreshBtn');
+      const status = document.getElementById('status');
+      const results = document.getElementById('results');
+      
+      btn.disabled = true;
+      status.textContent = 'Loading...';
+      results.innerHTML = '<div class="loading">Fetching meta tags from all pages...</div>';
+
+      try {
+        const cacheBuster = Date.now();
+        const data = await Promise.all(
+          pages.map(async (page) => {
+            try {
+              const response = await fetch(`${page.url}?t=${cacheBuster}`);
+              const html = await response.text();
+              const meta = extractMetaTags(html);
+              return { ...page, meta, status: 'success' };
+            } catch (error) {
+              return { ...page, status: 'error', error: error.message };
+            }
+          })
+        );
+
+        const successCount = data.filter(p => p.status === 'success').length;
+        status.innerHTML = `<span class="success">✓ Loaded ${successCount}/${pages.length} pages</span>`;
+
+        // Clear results
+        results.innerHTML = '';
+
+        // Build DOM elements instead of HTML strings to avoid quote issues
+        data.forEach(page => {
+          const card = document.createElement('div');
+          card.className = 'page-card';
+
+          const title = document.createElement('div');
+          title.className = 'page-title';
+          title.textContent = page.title;
+          card.appendChild(title);
+
+          if (page.status === 'error') {
+            const error = document.createElement('p');
+            error.className = 'error';
+            error.textContent = 'Error: ' + page.error;
+            card.appendChild(error);
+          } else {
+            // OG Title
+            const row1 = document.createElement('div');
+            row1.className = 'meta-row';
+            row1.innerHTML = '<div class="meta-label">OG Title:</div>';
+            const val1 = document.createElement('div');
+            val1.className = 'meta-value';
+            val1.textContent = page.meta.ogTitle;
+            row1.appendChild(val1);
+            card.appendChild(row1);
+
+            // OG Description
+            const row2 = document.createElement('div');
+            row2.className = 'meta-row';
+            row2.innerHTML = '<div class="meta-label">OG Description:</div>';
+            const val2 = document.createElement('div');
+            val2.className = 'meta-value';
+            val2.textContent = (page.meta.ogDescription || '').substring(0, 150) + '...';
+            row2.appendChild(val2);
+            card.appendChild(row2);
+
+            // OG Image
+            const row3 = document.createElement('div');
+            row3.className = 'meta-row';
+            row3.innerHTML = '<div class="meta-label">OG Image:</div>';
+            const val3 = document.createElement('div');
+            val3.className = 'meta-value success';
+            val3.textContent = page.meta.ogImage;
+            row3.appendChild(val3);
+            card.appendChild(row3);
+
+            // Twitter Image
+            const row4 = document.createElement('div');
+            row4.className = 'meta-row';
+            row4.innerHTML = '<div class="meta-label">Twitter Image:</div>';
+            const val4 = document.createElement('div');
+            val4.className = 'meta-value success';
+            val4.textContent = page.meta.twitterImage;
+            row4.appendChild(val4);
+            card.appendChild(row4);
+
+            // Preview Image
+            if (page.meta.ogImage) {
+              const img = document.createElement('img');
+              img.src = page.meta.ogImage;
+              img.alt = 'Preview';
+              img.className = 'preview-image';
+              img.onerror = function() {
+                this.style.border = '2px solid #ff4444';
+              };
+              card.appendChild(img);
+            }
+          }
+
+          results.appendChild(card);
+        });
+
+      } catch (error) {
+        status.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+        results.innerHTML = `<div class="page-card error">Failed to load previews</div>`;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById('refreshBtn').addEventListener('click', loadPreviews);
+  </script>
+</body>
+</html>
