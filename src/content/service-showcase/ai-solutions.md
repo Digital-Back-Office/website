@@ -9,7 +9,7 @@ ai_strategy:
       description: "Assess your current infrastructure and data governance."
     - title: "Prioritized Use Cases"
       description: "Identify high-ROI applications for immediate implementation."
-    - title: "3-Year AI Roadmap"
+    - title: "Sustainable AI Roadmap"
       description: "A phased plan for scalable and sustainable adoption."
 
 custom_ai_agents:
