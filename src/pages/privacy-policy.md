@@ -20,7 +20,7 @@ location information when you use DBO's websites as DBO may collect and process 
 - information that is considered aggregated data such as statistical or demographic data which DBO may use for any purpose. Aggregated data may be derived from your personal information but is not considered personal information in law as it does not directly or indirectly reveal your identity, unless DBO combines or connects aggregated data with your personal information so that it can directly or indirectly identify you; and
 - DBO collects technical data from various third parties and public sources as, such as:
     - analytics providers
-    - dvertising networks
+    - advertising networks
     - search information providers
 
 Other than as required by law, DBO websites do not collect any special categories of personal information about you (this includes details about your race or ethnicity, religious or philosophical beliefs, sex life, sexual orientation, political opinions, trade union membership, information about your health and genetic and biometric data). DBO will not collect any information about criminal convictions and offences.

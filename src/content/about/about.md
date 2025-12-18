@@ -24,7 +24,7 @@ values:
 
         - svg: /assets/icons/about-us/client-focus.svg
           title: Client Focus
-          desc:  We put the needs, preferences, and satisfaction of clients at the center of our operations. We map entire decision journey and identify solutions suited for your need. Our solutions are coustomized to solve the specific problem your decisions makers face. 
+          desc:  We put the needs, preferences, and satisfaction of clients at the center of our operations. We map the entire decision journey and identify solutions suited for your needs. Our solutions are customized to solve the specific problems your decision makers face. 
 
 benefits:
     title: We Love Data
