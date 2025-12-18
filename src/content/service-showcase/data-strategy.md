@@ -4,35 +4,35 @@ subtitle: Strategic capabilities that accelerate your data transformation.
 cards:
   - title: Data Quality Strategy
     description: Designing frameworks and processes to ensure data reliability, accuracy, and trustworthiness across all enterprise systems.
-    frontImage: /assets/images/data-sci.png
+    frontImage: /assets/images/data_sci.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: Data Architecture Design
     description: Blueprinting scalable and modern architectures (Cloud, Data Mesh, Data Lakehouse) to support future analytics and growth.
-    frontImage: /assets/images/data-arch.png
+    frontImage: /assets/images/data_arch.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
   - title: Cloud Data Strategy
     description: Defining the optimal migration path, platform selection (AWS, Azure, GCP), and governance model for the cloud.
-    frontImage: /assets/images/data-vis.png
+    frontImage: /assets/images/data_vis.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: Data Governance Framework
     description: Establishing organizational structures, policies, and roles for managing data ownership, compliance, and lifecycle.
-    frontImage: /assets/images/data-devops.png
+    frontImage: /assets/images/data_devops.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
   - title: Data Roadmap & Planning
     description: Creating a phased, prioritized investment plan that guides technology acquisition and talent development over 3-5 years.
-    frontImage: /assets/images/data-sci.png
+    frontImage: /assets/images/data_sci.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: AI Readiness Assessment
     description: Evaluating organizational, data, and technical capabilities required for successful and ethical adoption of AI solutions.
-    frontImage: /assets/images/data-vis.png
+    frontImage: /assets/images/data_vis.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
 industrySectionTitle: Industry use cases

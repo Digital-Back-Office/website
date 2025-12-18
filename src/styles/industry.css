@@ -1,11 +1,11 @@
 body {
-    background-image: url(/assets/images/background-pattern.png);
+    background-image: url(/assets/images/background_pattern.png);
     background-repeat: repeat;
     background-attachment: fixed;
 }
 
 .hero-section {
-    background-image: url(/assets/images/background-pattern.png);
+    background-image: url(/assets/images/background_pattern.png);
     background-repeat: repeat;
     padding: 8rem 0 6rem;
     min-height: 110vh;

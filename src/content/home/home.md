@@ -92,24 +92,24 @@ about:
     parallax_images:
       - /assets/images/home/stats.png
       - /assets/images/home/bulb.png
-      - /assets/images/home/cloud-key.png
+      - /assets/images/home/cloud_key.png
     title: 'Data Driven Innovation'
     info_part_1: 'Unleash the power of data in your organization to discover obnubilated insights and make real-time strategic decisions. Connect the dots with seamless data integration to drive innovation, save cost across the departments.'
     info_part_2: 'From complex analysis to stunning visualizations, our advanced data processing and AI can help you extract valuable insights and make data-driven decisions faster than ever before.'
 
 keyPoints:
-    - svg: /assets/icons/home/about/open-source.svg
-      bg: /assets/icons/home/about/bg-1.svg
+    - svg: /assets/icons/home/about/open_source.svg
+      bg: /assets/icons/home/about/bg_1.svg
       title: 'Open Source'
       info: 'Cutting-edge big data tools are open source; we bring the best of them to work together for you.'
 
     - svg: /assets/icons/home/about/24x7.svg
-      bg: /assets/icons/home/about/bg-3.svg
+      bg: /assets/icons/home/about/bg_3.svg
       title: '24x7 Support'
       info: 'We provide 24x7 support for our solutions, supporting your business across different time zones.'
 
-    - svg: /assets/icons/home/about/cost-effective.svg
-      bg: /assets/icons/home/about/bg-2.svg
+    - svg: /assets/icons/home/about/cost_effective.svg
+      bg: /assets/icons/home/about/bg_2.svg
       title: 'Cost Effective'
       info: 'Save up to 90% recurring costs with open source and optimized cloud auto scaling.'
     
@@ -149,7 +149,7 @@ tech:
         - /assets/images/tech/aws.png
         - /assets/images/tech/azure.png
         - /assets/images/tech/cloudera.png
-        - /assets/images/tech/open-ai.png
+        - /assets/images/tech/open_ai.png
         - /assets/images/tech/sedona.png
         - /assets/images/tech/gcp.png
         - /assets/images/tech/hadoop.png

@@ -42,7 +42,7 @@ products:
           description: "Turn regulation into routine. We engineer automated reporting pipelines that aggregate data from thousands of endpoints instantly. Whether it's Carbon Scope 3 or Hourly Transmission Ratings, we ensure you are audit-ready without the spreadsheet scramble."
       cta_text: "Talk to our Engineers"
       cta_link: "/contact-us"
-      image: "/assets/images/industrials/data engineering industry.png"
+      image: "/assets/images/industrials/data_engineering_industry.png"
       image_alt: "Data Engineering - Industrials"
     
     - id: "data-strategy"
@@ -56,7 +56,7 @@ products:
           description: "Trust your data. We establish a Governance Framework specifically for industrial data, defining clear standards for asset tagging and sensor calibration. This ensures that when your AI sees a spike, it's real—not a data quality error."
       cta_text: "Talk to our Strategists"
       cta_link: "/contact-us"
-      image: "/assets/images/industrials/data startegy industry.png"
+      image: "/assets/images/industrials/data_strategy_industry.png"
       image_alt: "Data Strategy - Industrials"
     
     - id: "data-science"
@@ -70,7 +70,7 @@ products:
           description: "Squeeze more value from existing assets. Our models analyze historical load, weather, and market pricing to optimize Energy Arbitrage and Maintenance Scheduling, ensuring you act on opportunities the moment they arise."
       cta_text: "Talk to our Data Scientists"
       cta_link: "/contact-us"
-      image: "/assets/images/industrials/data science industry.png"
+      image: "/assets/images/industrials/data_science_industry.png"
       image_alt: "Data Science - Industrials"
 
 why_trust:

@@ -9,7 +9,7 @@ hero:
 mission:
     title: Our Mission
     desc: Our mission is to empower businesses to make intelligent, predictive decisions by leveraging cutting-edge data technologies. We strive to design and build best-in-class custom solutions, including advanced Machine Learning and Generative AI models, for Big Data Processing that deliver unmatched predictive accuracy and cost-effective automation.
-    img: /assets/images/about-us/misson.png
+    img: /assets/images/about-us/mission.png
 
 values:
     title: Our Values
@@ -22,7 +22,7 @@ values:
           title: Quality
           desc: Our commitment to quality extends specifically to the precision, explainability, and reliability of our Machine Learning models. We employ rigorous MLOps (Machine Learning Operations) and validation practices to ensure our solutions maintain high performance and consistency, delivering true long-term value.
 
-        - svg: /assets/icons/about-us/client-focus.svg
+        - svg: /assets/icons/about-us/client_focus.svg
           title: Client Focus
           desc:  We put the needs, preferences, and satisfaction of clients at the center of our operations. We map the entire decision journey and identify solutions suited for your needs. Our solutions are customized to solve the specific problems your decision makers face. 
 

@@ -79,7 +79,7 @@ border: solid 1px #52CEC7;
 }
 
 .navbar-scrolled {
-    background-image: url(/assets/images/background-pattern.png);
+    background-image: url(/assets/images/background_pattern.png);
     background-repeat: repeat;
     position: fixed;
     top: 0;

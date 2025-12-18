@@ -57,9 +57,10 @@ const testimonials = Data.data.testimonials;
     import "swiper/css/pagination";
     import "swiper/css/bundle";
 
-    const carousels = Array.from(document.querySelectorAll(".swiper"));
+    const carousels = Array.from(document.querySelectorAll(".custom-swiper"));
 
     carousels.forEach((value) => {
+        value.classList.add('swiper');
         let options;
         const htmlValueElement = value as HTMLElement;
         if (htmlValueElement.dataset.swiperOptions != undefined)
@@ -95,7 +96,7 @@ const testimonials = Data.data.testimonials;
             </p>
         </div>
         <div
-            class="swiper pb-4"
+            class="custom-swiper pb-4"
             data-swiper-options={`{
             "spaceBetween": 40,
             "loop": true,
@@ -140,7 +141,7 @@ const testimonials = Data.data.testimonials;
             </div>
         </div>
         <div
-            class="swiper"
+            class="custom-swiper"
             dir="rtl"
             data-swiper-options={`{
             "spaceBetween": 40,
@@ -195,7 +196,7 @@ const testimonials = Data.data.testimonials;
             <div class="col-md-9 col-lg-7 order-md-2">
                 <!-- Swiper slider -->
                 <div
-                    class="swiper"
+                    class="custom-swiper"
                     data-swiper-options={`{
                         "spaceBetween": 40,
                         "loop": true,
