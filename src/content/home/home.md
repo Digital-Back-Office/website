@@ -117,8 +117,8 @@ features:
     title: 'Do these sound familiar to you?'
     cards:
         - img: /assets/icons/home/features/vol_vel_var.png
-          title: 'Volume, Velocity, Variety'
-          info: 'Understanding 3V''s of Big data is fundamental to building big data solution. How do I measure, manage and plan?'
+          title: 'The AI Maturity Curve'
+          info: 'Moving from "looking back" to "predicting forward" requires more than just tools—it requires a robust data engine. How do I escape PoC Trap?'
 
         - img: /assets/icons/home/features/cost_management.png
           title: 'Cost Management'
