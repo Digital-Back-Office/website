@@ -101,15 +101,15 @@ const breadcrumbSchema = {
   description={frontmatter.description}
   title={frontmatter.title}
   preview_image={frontmatter.image}
-  type=\"article\"
-  keywords={frontmatter.tags?.join(\", \") || \"AI, data engineering, machine learning\"}
+  type="article"
+  keywords={frontmatter.tags?.join(", ") || "AI, data engineering, machine learning"}
   canonical={url}>
   
   <!-- Article Structured Data -->
-  <script type=\"application/ld+json\" set:html={JSON.stringify(articleSchema)} slot=\"head\" />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
   
   <!-- Breadcrumb Structured Data -->
-  <script type=\"application/ld+json\" set:html={JSON.stringify(breadcrumbSchema)} slot=\"head\" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
   
   <Navbar />
   <main
