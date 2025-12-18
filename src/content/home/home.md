@@ -22,7 +22,7 @@ partners:
       src: '/assets/images/tech/gcp.png'
 
 ai_solutions:
-  title: 'AI Solutions We Deliver'
+  title: 'AI Solutions'
   sub_title: 'Transform your business with cutting-edge AI solutions designed for real-world impact'
   cta_text: 'Explore All AI Solutions'
   cards:
@@ -63,7 +63,8 @@ ai_solutions:
       button_text: 'Learn more'
     - id: 'ai-platforms'
       heading: 'AI Platforms' 
-      description: 'Implementations for OpenAI, Azure OpenAI, Google Vertex AI etc.'
+      description: 'Implementations for
+       OpenAI, Azure OpenAI, Google Vertex AI etc.'
       icon: '/assets/icons/home/platform.svg'
       button_text: 'Learn more'
 
@@ -73,7 +74,7 @@ roadmap:
   sub_title: 'We transform complex Big Data challenges into streamlined, cost-effective AI operations.'
   cards:
     - id: 'readiness-roadmap'
-      heading: 'Readiness & Roadmap'
+      heading: 'AI Readiness Audit'
       description: 'We don''t guess; we audit. We identify high-ROI use cases and fix "Zombie Data" silos first, establishing a Data Governance framework that ensures your foundation is secure and scalable before development begins.'
       icon: '/assets/icons/home/readiness.svg'
 
@@ -83,7 +84,7 @@ roadmap:
       icon: '/assets/icons/home/readiness.svg'
 
     - id: 'training-mlops-rollout'
-      heading: 'Training & MLOps Rollout'
+      heading: 'Deployment, Rollout and Training'
       description: 'We bridge the gap to production. Through Human-in-the-Loop training and rigorous MLOps, we ensure your workforce adopts the tool and your models remain accurate, monitored, and profitable over time.'
       icon: '/assets/icons/home/readiness.svg'
 
