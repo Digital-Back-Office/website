@@ -58,10 +58,11 @@ const cards = features.cards;
         </h2>
         <div
             class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-4 gy-4 pb-md-4 pb-lg-5 mb-2 mb-lg-0 mb-xxl-2"
+            
         >
             {
                 cards.map((card) => (
-                    <div class="col item text-center text-sm-start">
+                    <div class="col item text-center text-sm-start" style="background-color: transparent !important;">
                         <div class="p-4">
                             <img
                                 src={card.img}

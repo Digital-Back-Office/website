@@ -1,0 +1,36 @@
+---
+interface Expertise {
+  img: string;
+  heading: string;
+}
+
+interface Props {
+  items: Expertise[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="container py-5 my-sm-2 my-md-4 my-lg-5 px-5" data-bs-theme="dark">
+  <h2
+    class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto expertise-heading"
+    style="max-width: 40rem; margin-bottom:2.5rem;"
+  >
+    Our <span style="color: #ffffff">Expertise</span>
+  </h2>
+
+  <div
+    class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-4 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2"
+  >
+    {
+      items.map((item) => (
+        <div class="col-12 col-sm-6 col-lg-4 outer-card">
+          <div class="text-center px-xxl-4 icons">
+            <img src={item.img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50" />
+            <h3 class="h4 mb-2">{item.heading}</h3>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

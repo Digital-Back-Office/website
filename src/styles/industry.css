@@ -1,0 +1,338 @@
+body {
+    background-image: url(/assets/images/background-pattern.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.hero-section {
+    background-image: url(/assets/images/background-pattern.png);
+    background-repeat: repeat;
+    padding: 8rem 0 6rem;
+    min-height: 110vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 21, 25, 0) 0%,
+        rgba(18, 21, 25, 0.8) 50%,
+        #121519 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtext {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2.5rem;
+    max-width: 900px;
+}
+
+.trust-line {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 3rem;
+    max-width: 1200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.1;
+}
+.trust-section {
+    padding: 2.5rem 0 4rem;
+    background-color: transparent;
+}
+
+.hero-cta-btn {
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    background-color: #2fb7b8;
+    border-color: #2fb7b8;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.hero-cta-btn:hover {
+    background-color: transparent;
+    border-color: #2fb7b8;
+    color: #2fb7b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(47, 183, 184, 0.3);
+}
+
+.barriers-section {
+    padding: 5rem 0;
+    background-color: transparent;
+}
+
+.barriers-heading {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 130px;
+}
+
+.barriers-subtext {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0;
+}
+
+.barrier-card {
+    background-color: #0d1b2a;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.barrier-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(47, 183, 184, 0.15);
+}
+
+.barrier-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.barrier-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
+
+.products-section {
+    padding: 5rem 0;
+    background-color: transparent;
+}
+
+.products-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.products-title span {
+    color: #52CEC7;
+}
+
+.products-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 3rem;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 3rem;
+}
+
+.nav-tabs .nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom-color: rgba(82, 206, 199, 0.5);
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff;
+    background: transparent;
+    border-bottom-color: #52CEC7;
+}
+
+.tab-content-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.tab-content-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+}
+
+.tab-pane {
+    min-height: 200px;
+}
+
+.tab-content-box {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 3rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tab-cta-btn {
+    font-size: 1.125rem;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    background-color: transparent;
+    border: 2px solid #52CEC7;
+    color: #52CEC7;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    margin-top: 1.5rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.tab-cta-btn:hover {
+    background-color: #52CEC7;
+    border-color: #52CEC7;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(82, 206, 199, 0.3);
+}
+
+.why-trust-section {
+    padding: 5rem 0;
+    background-color: transparent;
+}
+
+.why-trust-heading {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.trust-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(47, 183, 184, 0.15);
+}
+
+.trust-card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(82, 206, 199, 0.1);
+    border-radius: 12px;
+}
+
+.trust-card-icon svg {
+    width: 32px;
+    height: 32px;
+    color: #52CEC7;
+}
+
+.trust-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.trust-card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero-heading {
+        font-size: 2rem;
+    }
+    .hero-subtext {
+        font-size: 1.25rem;
+    }
+    .hero-cta-btn {
+        font-size: 16px;
+        padding: 1rem 1.5rem;
+        text-wrap-mode: wrap;
+        text-align: left;
+    }
+    .tab-cta-btn {
+        font-size: 14px;
+    }
+    .trust-line {
+        font-size: 1.25rem;
+    }
+    .barriers-heading {
+        font-size: 2rem;
+    }
+    .barrier-title {
+        font-size: 1.5rem;
+    }
+    .products-title {
+        font-size: 2rem;
+    }
+    .tab-content-heading {
+        font-size: 1.5rem;
+    }
+    .nav-tabs .nav-link {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+    .why-trust-heading {
+        font-size: 2rem;
+    }
+    .trust-card-title {
+        font-size: 1.25rem;
+    }
+}

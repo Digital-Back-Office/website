@@ -1,0 +1,9 @@
+---
+import ServiceShowcase from './ServiceShowcase.astro';
+import { getEntry } from 'astro:content';
+
+const entry = await getEntry('service-showcase', 'data-engineering');
+const data = entry.data;
+---
+
+<ServiceShowcase {...data} />

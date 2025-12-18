@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/common/Navbar.astro";
+import Footer from "../components/common/Footer.astro";
+import { getEntry } from 'astro:content';
+import '../styles/partners.css';
+
+const entry = await getEntry('partners', 'partners');
+const data = entry.data;
+---
+
+
+<Layout>
+	<Navbar />
+	<main class="page-wrapper" data-bs-theme="dark">
+		<!-- Hero Section -->
+		<section class="hero-section">
+			<div class="container">
+				<h1 class="hero-title">
+					{data.hero.title}
+				</h1>
+				<p class="hero-subtitle">
+					{data.hero.subtitle}
+				</p>
+				
+				<!-- Filter Tabs -->
+				<div class="filter-tabs">
+					{data.filters.map((filter) => (
+						<button 
+							class={`filter-btn ${filter.id === 'all' ? 'active' : ''}`} 
+							data-filter={filter.id}
+						>
+							{filter.label}
+						</button>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Partners Grid Section -->
+		<section class="partners-section">
+			<div class="container">
+				<div class="row g-4">
+					{data.partners.map((partner) => (
+						<div class="col-lg-4 col-md-6" data-category={partner.category}>
+							<div class="partner-card">
+								<div class="partner-logo">
+									<img src={partner.logo} alt={partner.name} />
+								</div>
+								<h3 class="partner-title">{partner.name}</h3>
+								<p class="partner-description">
+									{partner.description}
+								</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<script>
+	// Filter functionality
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	const partnerCards = document.querySelectorAll('[data-category]') as NodeListOf<HTMLElement>;
+
+	filterButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			// Update active state
+			filterButtons.forEach(btn => btn.classList.remove('active'));
+			button.classList.add('active');
+
+			const filter = button.getAttribute('data-filter');
+			
+			// Filter cards based on category
+			partnerCards.forEach(card => {
+				if (filter === 'all' || card.getAttribute('data-category') === filter) {
+					card.style.display = '';
+				} else {
+					card.style.display = 'none';
+				}
+			});
+		});
+	});
+</script>

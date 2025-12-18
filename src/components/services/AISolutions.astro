@@ -1,0 +1,49 @@
+---
+import { getEntry } from 'astro:content';
+import ServiceSection from './ServiceSection.astro';
+import IndustryUseCases from './IndustryUseCases.astro';
+import CTA from './CTA.astro';
+
+const entry = await getEntry('service-showcase', 'ai-solutions');
+const data = entry.data;
+---
+
+<div style="margin-top: 70px;">
+  <ServiceSection
+    id="ai-strategy"
+    section={data.ai_strategy}
+    imagePosition="right"
+  />
+
+  <ServiceSection
+    id="custom-ai-agents"
+    section={data.custom_ai_agents}
+    imagePosition="left"
+  />
+
+  <ServiceSection
+    id="agentic-workflows"
+    section={data.agentic_workflows}
+    imagePosition="right"
+  />
+
+  <ServiceSection
+    id="generative-ai"
+    section={data.generative_ai}
+    imagePosition="left"
+  />
+
+  <ServiceSection
+    id="rag-implementation"
+    section={data.rag_implementation}
+    imagePosition="right"
+  />
+
+  <!--IndustryUseCases
+    heading={data.industry_use_cases.heading}
+    subtitle={data.industry_use_cases.subtitle}
+    cases={data.industry_use_cases.cases}
+  /-->
+
+  <CTA cta={data.cta} />
+</div>

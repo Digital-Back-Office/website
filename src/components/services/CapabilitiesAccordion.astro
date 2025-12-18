@@ -1,0 +1,72 @@
+---
+interface Capability {
+  heading: string;
+  text: string;
+}
+
+interface Props {
+  capabilities: Capability[];
+}
+
+const { capabilities } = Astro.props;
+---
+
+<section class="container py-5 my-sm-2 my-md-4 my-lg-5" data-bs-theme="dark">
+  <h2
+    class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto"
+    style="max-width: 50rem; margin-bottom:3rem;"
+  >
+    <span><span style="color: #ffffff">Technical Capabilities</span> & Enabling Platform</span>
+  </h2>
+
+  <div
+    class="accordion"
+    id="capabilitiesAccordion"
+    style="max-width: 900px; margin: 0 auto;"
+  >
+    {
+      capabilities.map((item, idx) => (
+        <>
+          {idx === 3 && (
+            <h3
+              class="text-center mt-5 mb-4"
+              style="font-size: 2.5rem; font-weight: 600; color: #fff;"
+            >
+              <span style="color: #ffffff">Responsible AI</span> and Governance
+            </h3>
+          )}
+          <div
+            class="accordion-item"
+            style="background-color: rgba(255,255,255,3%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;"
+          >
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={`#collapse${idx + 1}`}
+                aria-expanded="false"
+                aria-controls={`collapse${idx + 1}`}
+                style="background-color: rgba(255,255,255,3%); color: #fff; font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;"
+              >
+                {item.heading}
+              </button>
+            </h3>
+            <div
+              id={`collapse${idx + 1}`}
+              class="accordion-collapse collapse"
+              data-bs-parent="#capabilitiesAccordion"
+            >
+              <div
+                class="accordion-body"
+                style="padding: 1.5rem; color: rgba(255,255,255,0.8); line-height: 1.7;"
+              >
+                {item.text}
+              </div>
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</section>

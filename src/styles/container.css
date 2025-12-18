@@ -4,3 +4,7 @@
         padding-right: 1rem !important;
     }
 }
+
+.page-wrapper {
+    background-image: url("/assets/images/background-pattern.png");
+}

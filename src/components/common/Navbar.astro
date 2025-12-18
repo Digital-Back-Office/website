@@ -1,60 +1,8 @@
 ---
+import '../../styles/global.css'
 const path = Astro.url.pathname;
 ---
 
-<style>
-  .brand-logo {
-    width: auto;
-    height: 4.2rem;
-  }
-  .nav-link {
-    color: #fff;
-  }
-
-  #contact-button {
-    border-radius: 7px;
-    padding: 0.5rem 1.5rem !important;
-    font-size: 3.375rem !important;
-  }
-
-  .primary-button {
-    background-color: var(--ar-primary) !important;
-    color: white !important;
-  }
-
-  .navbar-scrolled {
-    background-image: url(/assets/images/background-pattern.png);
-    background-repeat: repeat;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-
-  .staticnav {
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-
-  #navbar {
-    transition: background-color 0.4s ease-in-out;
-    z-index: 50;
-  }
-
-  .nav-links {
-    font-size: 1.5rem;
-    font-weight: 400;
-  }
-
-  .active-link{
-    color:#52CEC7;
-  }
-</style>
 
 <header
   id="navbar"
@@ -92,44 +40,76 @@ const path = Astro.url.pathname;
 
     <nav class="collapse navbar-collapse bg-black" id="navbarCollapse2">
       <ul class="navbar-nav">
-        <li class={path === "/" ? "nav-item active" : "nav-item"}>
-          <a href="/" class="nav-link nav-links">Home</a>
-        </li>
-        <li class={path.includes("/about-us") ? "nav-item active" : "nav-item"}>
-          <a href="/about-us" class="nav-link nav-links">About us</a>
+        <li class={path.includes("/industry") ? "nav-item dropdown active" : "nav-item dropdown"}>
+          <a
+            href="#"
+            class={path.includes("/industry")?"nav-link nav-links active-link":"nav-link nav-links"}
+            aria-expanded="false"
+          >Industries</a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/industry/finance-and-insurance" class="dropdown-item nav-links">Finance</a>
+            </li>
+            <li>
+              <a href="/industry/healthcare-life-sciences" class="dropdown-item nav-links">Healthcare</a>
+            </li>
+            <li>
+              <a href="/industry/retail-and-e-commerce" class="dropdown-item nav-links">Retail</a>
+            </li>
+            <li>
+              <a href="/industry/industrials-manufacturing-and-energy" class="dropdown-item nav-links">Energy</a>
+            </li>
+            <li>
+              <a href="/industry/technology-media-and-telecom" class="dropdown-item nav-links">Media</a>
+            </li>
+             <li>
+              <a href="/industry/startups" class="dropdown-item nav-links">Startups</a>
+            </li>
+          </ul>
         </li>
 
         <li class="nav-item dropdown">
           <a
-            href="/services"
             class={path.includes("/services")?"nav-link  nav-links active-link":"nav-link nav-links"}
             data-bs-auto-close="outside"
             aria-expanded="false">Services</a
           >
           <ul class="dropdown-menu">
             <li>
-              <a
-                href="/services/big-data-architecture"
-                class="dropdown-item nav-links">Big Data Architecture</a>
+              <a href="/services/ai-solutions" class="dropdown-item nav-links">AI Solutions</a>
             </li>
             <li>
-              <a
-                href="/services/big-data-devops"
-                class="dropdown-item nav-links">Big Data DevOps</a>
+              <a href="/services/data-strategy-services" class="dropdown-item nav-links">Data Strategy</a>
             </li>
             <li>
-              <a href="/services/data-science" class="dropdown-item nav-links"
-                >Data Science</a>
+              <a href="/services/data-engineering-services" class="dropdown-item nav-links">Data Engineering</a>
             </li>
             <li>
-              <a
-                href="/services/data-visualization"
-                class="dropdown-item nav-links">Data Visualization</a>
+              <a href="/services/data-science" class="dropdown-item nav-links">Data Science</a>
             </li>
           </ul>
         </li>
-        <li class={path.includes("/blog") ? "nav-item active" : "nav-item"}>
-          <a href="/blog/1" class="nav-link nav-links">Blog</a>
+
+        <li class={path.includes("/about-us") ? "nav-item active" : "nav-item"}>
+          <a href="/about-us" class="nav-link nav-links">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class={(path.includes("/blog") || path.includes("/events") || path.includes("/partners"))?"nav-link  nav-links active-link":"nav-link nav-links"}
+            data-bs-auto-close="outside"
+            aria-expanded="false">Resources</a
+          >
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/blog/1" class="dropdown-item nav-links">Blogs</a>
+            </li>
+            <!-- <li>
+              <a href="#" class="dropdown-item nav-links">Events</a>
+            </li>
+            <li>
+              <a href="/partners" class="dropdown-item nav-links">Partners</a>
+            </li> -->
+          </ul>
         </li>
       </ul>
 

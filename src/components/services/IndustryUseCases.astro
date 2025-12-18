@@ -1,0 +1,52 @@
+---
+interface UseCase {
+  title: string;
+  description: string;
+}
+
+interface Industry {
+  industry: string;
+  use_cases: UseCase[];
+}
+
+interface Props {
+  heading: string;
+  subtitle: string;
+  cases: Industry[];
+}
+
+const { heading, subtitle, cases } = Astro.props;
+---
+
+<section style="padding: 6rem 0; margin-bottom:3rem;" data-bs-theme="dark">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 style="font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem;">
+        {heading}
+      </h2>
+      <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.75); max-width: 800px; margin: 0 auto;">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="row g-4">
+      {cases.map((industryCase) => (
+        <div class="col-12">
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1rem; padding: 3rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; padding: 2rem; @media (max-width: 768px) { padding: 2rem; }" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(82, 206, 199, 0.15)'; this.style.borderColor='rgba(82, 206, 199, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255, 255, 255, 0.1)';">
+            <h3 style="font-size: 1.75rem; font-weight: 700; color: #52CEC7; margin-bottom: 1.5rem;">
+              {industryCase.industry}
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              {industryCase.use_cases.map((useCase, index) => (
+              <li style={`padding: 1rem 0;${index < industryCase.use_cases.length - 1 ? ' border-bottom: 1px solid rgba(255, 255, 255, 0.1);' : ''}`}>
+                <strong style="color: #fff; display: block; margin-bottom: 0.5rem;">{useCase.title}</strong>
+                <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;" set:html={useCase.description}></span>
+              </li>
+              ))}
+            </ul>
+            </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
