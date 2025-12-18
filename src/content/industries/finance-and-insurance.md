@@ -46,7 +46,7 @@ products:
       image_alt: "Strategy Finance"
     
     - id: "ai-solutions"
-      name: "AI Solutions"
+      name: "AI Transformation"
       heading: "Frictionless Onboarding & Instant Claims"
       sections:
         - subheading: "The \"Day 0\" Welcome (Solves 25% Drop-off)"

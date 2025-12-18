@@ -22,7 +22,7 @@ partners:
       src: '/assets/images/tech/gcp.png'
 
 ai_solutions:
-  title: 'AI Solutions'
+  title: 'AI Transformation'
   sub_title: 'Transform your business with cutting-edge AI solutions designed for real-world impact'
   cta_text: 'Explore All AI Solutions'
   cards:

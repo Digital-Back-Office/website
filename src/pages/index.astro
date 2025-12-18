@@ -13,9 +13,19 @@ import RoadMap from "../components/home/RoadMap.astro";
 
 import '../styles/container.css'
 
+// SEO-optimized metadata for homepage
+const seoTitle = "Digital Back Office - Enterprise AI & Data Consulting Services";
+const seoDescription = "Transform your business with production-ready AI solutions. Expert AI consulting, RAG implementation, data engineering, and ML services trusted by global enterprises. Get measurable ROI in 6 months.";
+const seoKeywords = "AI consulting, enterprise AI solutions, RAG implementation, AI agents, data engineering services, machine learning consulting, data strategy, AI transformation, generative AI, data science consulting";
+
 ---
 
-<Layout>
+<Layout 
+	title={seoTitle}
+	description={seoDescription}
+	keywords={seoKeywords}
+	canonical="/"
+>
 	<main class="page-wrapper" data-pagefind-ignore>
 		<VideoLayout src="/assets/videos/dbo-bg-video-home.mp4">
 		<Hero />

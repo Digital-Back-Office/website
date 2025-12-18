@@ -32,7 +32,7 @@ products:
   subtitle: "Your Conversion-Driven Retail Strategy: Built on DBO's Proven Framework"
   tabs:
     - id: "ai-solutions"
-      name: "AI Solutions"
+      name: "AI Transformation "
       heading: "Automating the \"Swivel Chair\""
       sections:
         - subheading: "The AI Back-Office Agents"

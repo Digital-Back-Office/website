@@ -8,15 +8,25 @@ export interface Props {
   title?: string;
   description?: string;
   preview_image?:string;
+  canonical?: string;
+  keywords?: string;
+  author?: string;
+  type?: string;
 }
 
 const {
-  title = "Digital Back Office",
-  description = "We deliver Business Efficiency; We love data!",
-  preview_image = "/preview.jpg"
+  title = "Digital Back Office - Premium AI & Data Consulting",
+  description = "Transform your business with enterprise-grade AI solutions, data engineering, and ML expertise. Trusted by global enterprises for AI strategy, RAG implementation, and data transformation.",
+  preview_image = "/preview.jpg",
+  canonical = Astro.url.pathname,
+  keywords = "AI consulting, data engineering, machine learning, RAG implementation, AI agents, data strategy, enterprise AI",
+  author = "Digital Back Office",
+  type = "website"
 } = Astro.props;
 
 const og_description = description.length>200?description.substring(0, 200):description;
+const canonicalURL = new URL(canonical, Astro.site || 'https://www.digitalbackoffice.co.uk');
+const imageURL = new URL(preview_image, Astro.site || 'https://www.digitalbackoffice.co.uk');
 ---
 
 <script src="/assets/js/theme.min.js" is:inline></script>
@@ -41,11 +51,86 @@ const og_description = description.length>200?description.substring(0, 200):desc
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={og_description} />
-    <meta property="og:image" content={preview_image} />
-    <title>{title}</title>
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:site_name" content="Digital Back Office" />
+    <meta property="og:locale" content="en_GB" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={og_description} />
+    <meta name="twitter:image" content={imageURL} />
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Schema.org Organization Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Digital Back Office",
+        "legalName": "Digital Back Office Ltd",
+        "url": "https://www.digitalbackoffice.co.uk",
+        "logo": "https://www.digitalbackoffice.co.uk/favicon.png",
+        "description": "Premium AI and Data Consulting firm specializing in enterprise AI solutions, data engineering, and machine learning implementation.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/digital-back-office"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "url": "https://www.digitalbackoffice.co.uk/contact-us"
+        }
+      }
+    </script>
+    
+    <!-- Schema.org ProfessionalService Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Digital Back Office",
+        "image": "https://www.digitalbackoffice.co.uk/preview.jpg",
+        "description": "Enterprise AI and Data Consulting Services",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "GB"
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": "Global"
+        },
+        "serviceType": [
+          "AI Consulting",
+          "Data Engineering",
+          "Machine Learning",
+          "Data Strategy",
+          "RAG Implementation",
+          "AI Agent Development"
+        ]
+      }
+    </script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/dist/cookieconsent.css"
@@ -58,6 +143,9 @@ const og_description = description.length>200?description.substring(0, 200):desc
       href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Named slot for additional head content -->
+    <slot name="head" />
   </head>
   <body style="background-color: black; height: max-content;">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLJ9M4LT"
