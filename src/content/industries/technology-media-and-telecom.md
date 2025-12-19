@@ -6,7 +6,7 @@ hero:
   heading: "Technology, Media, & Telecom: Accelerate Digital Transformation with Agentic AI"
   subtext: "We empower you to deliver rapid innovation and reduce IT overhead by implementing sophisticated Agentic Workflows and a world-class Cloud Data Strategy."
   video: "/assets/videos/technology.mp4"
-  cta_text: "Schedule a Free 30-Minute AI Readiness Assessment"
+  cta_text: "Schedule AI Readiness Assessment"
   cta_link: "/contact-us"
 
 trust:
@@ -42,7 +42,7 @@ products:
           description: "Kill the \"Swivel Chair.\" We deploy GenAI Operations Agents that read complex B2B orders from your CRM and autonomously interact with your legacy billing and network systems to activate services. They handle the manual \"stare and compare\" work, reducing activation time from days to minutes."
       cta_text: "See our AI in Action"
       cta_link: "/contact-us"
-      image: "/assets/images/technology/ai solution tech.png"
+      image: "/assets/images/technology/ai_solution_tech.png"
       image_alt: "AI Solutions - Technology"
     
     - id: "data-strategy"
@@ -56,7 +56,7 @@ products:
           description: "Bridge the gap between Network and Sales. We design the API-led integration strategy that decouples your monolithic BSS. This creates a flexible \"Digital Back Office\" that lets you launch new telecom products in days, not months."
       cta_text: "Talk to our Strategists"
       cta_link: "/contact-us"
-      image: "/assets/images/technology/data strategy tech.png"
+      image: "/assets/images/technology/data_strategy_tech.png"
       image_alt: "Data Strategy - Technology"
     
     - id: "data-engineering"
@@ -70,7 +70,7 @@ products:
           description: "Stop losing assets. We ingest your disorganized media libraries into a Semantic Knowledge Graph. By extracting metadata from video/images and linking it to usage rights, we make every asset instantly searchable and reusable."
       cta_text: "Talk to our Engineers"
       cta_link: "/contact-us"
-      image: "/assets/images/technology/data engineering tech.png"
+      image: "/assets/images/technology/data_engineering_tech.png"
       image_alt: "Data Engineering - Technology"
     
     - id: "data-science"
@@ -84,7 +84,7 @@ products:
           description: "Monetize \"Network Slicing.\" We build dynamic pricing models that analyze network congestion and B2B demand in real-time. This allows you to charge premium rates for guaranteed latency slices (e.g., for gaming or hospitals) on the fly."
       cta_text: "Talk to our Data Scientists"
       cta_link: "/contact-us"
-      image: "/assets/images/technology/data science tech .png"
+      image: "/assets/images/technology/data_science_tech.png"
       image_alt: "Data Science - Technology"
 
 why_trust:

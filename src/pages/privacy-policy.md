@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PolicyLayout.astro
 title: Privacy Policy
-img_url: /assets/images/policies/privacy-policy.png
+img_url: /assets/images/policies/privacy_policy.png
 ---
 
 DIGITAL BACK OFFICE LTD, together with its subsidiaries ("DBO") has created this Privacy Policy in line with DBO's commitment to your privacy on DBO websites and marketing initiatives. The following discloses DBO's information gathering, dissemination and protection practices.

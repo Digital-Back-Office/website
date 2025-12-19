@@ -79,7 +79,7 @@ border: solid 1px #52CEC7;
 }
 
 .navbar-scrolled {
-    background-image: url(/assets/images/background-pattern.png);
+    background-image: url(/assets/images/background_pattern.png);
     background-repeat: repeat;
     position: fixed;
     top: 0;
@@ -126,4 +126,25 @@ border: solid 1px #52CEC7;
 /* But keep the dropdown items clickable */
 .navbar-nav .dropdown-menu .dropdown-item {
     pointer-events: auto;
+}
+
+/* Nested Dropdown Support */
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+}
+
+.dropdown-menu > li:hover > .dropdown-submenu {
+    display: block;
 }

@@ -13,7 +13,7 @@ const path = Astro.url.pathname;
   <div class="container">
     <a class="navbar-brand" href="/">
       <span class="text-primary flex-shrink-0 me-2">
-        <img src="/assets/images/dbo 1.png" alt="DBO logo" class="brand-logo" />
+        <img src="/assets/images/dbo_1.png" alt="DBO logo" class="brand-logo" />
       </span>
     </a>
 
@@ -56,9 +56,9 @@ const path = Astro.url.pathname;
             <li>
               <a href="/industry/retail-and-e-commerce" class="dropdown-item nav-links">Retail</a>
             </li>
-            <li>
+            <!--li>
               <a href="/industry/industrials-manufacturing-and-energy" class="dropdown-item nav-links">Energy</a>
-            </li>
+            </li-->
             <li>
               <a href="/industry/technology-media-and-telecom" class="dropdown-item nav-links">Media</a>
             </li>
@@ -76,7 +76,7 @@ const path = Astro.url.pathname;
           >
           <ul class="dropdown-menu">
             <li>
-              <a href="/services/ai-solutions" class="dropdown-item nav-links">AI Solutions</a>
+              <a href="/services/ai-solutions" class="dropdown-item nav-links">AI Transformation</a>
             </li>
             <li>
               <a href="/services/data-strategy-services" class="dropdown-item nav-links">Data Strategy</a>
@@ -95,13 +95,16 @@ const path = Astro.url.pathname;
         </li>
         <li class="nav-item dropdown">
           <a
-            class={(path.includes("/blog") || path.includes("/events") || path.includes("/partners"))?"nav-link  nav-links active-link":"nav-link nav-links"}
+            class={(path.includes("/blog") || path.includes("/events") || path.includes("/partners") || path.includes("/industry-insights"))?"nav-link  nav-links active-link":"nav-link nav-links"}
             data-bs-auto-close="outside"
             aria-expanded="false">Resources</a
           >
           <ul class="dropdown-menu">
             <li>
               <a href="/blog/1" class="dropdown-item nav-links">Blogs</a>
+            </li>
+            <li>
+              <a href="/industry-insights" class="dropdown-item nav-links">Industry Insights</a>
             </li>
             <!-- <li>
               <a href="#" class="dropdown-item nav-links">Events</a>

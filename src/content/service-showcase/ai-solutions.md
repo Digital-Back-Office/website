@@ -3,7 +3,7 @@ ai_strategy:
   badge: "Core AI Solution"
   heading: "AI Strategy"
   text: "Your AI Roadmap for Business Growth. Develop a clear, ethical, and measurable AI Strategy that aligns technology deployment with your core business objectives. We move you beyond experimentation to systematic integration."
-  image_placeholder: "/assets/images/services/data-visualization/ai strategy.png"
+  image_placeholder: "/assets/images/services/data-visualization/ai_strategy.png"
   cards:
     - title: "AI Readiness Audit"
       description: "Assess your current infrastructure and data governance."
@@ -16,7 +16,7 @@ custom_ai_agents:
   badge: "Core AI Solution"
   heading: "Custom AI Agents"
   text: "Intelligent Entities for Task Mastery. Deploy specialized, fine-tuned Custom AI Agents designed to master specific, complex roles within your organization. These entities function autonomously, automating high-value tasks from reconciliation to content generation."
-  image_placeholder: "/assets/images/services/data-visualization/custom ai agents.png"
+  image_placeholder: "/assets/images/services/data-visualization/custom_ai_agents.png"
   cards:
     - title: "Specialized Functions"
       description: "Agents trained on proprietary data for accuracy."
@@ -29,7 +29,7 @@ agentic_workflows:
   badge: "Core AI Solution"
   heading: "Agentic Workflows"
   text: "End-to-End Business Process Automation. Move beyond simple task automation. Agentic Workflows orchestrate multiple AI agents and legacy systems to execute complex, multi-step business processes from start to finish without human intervention."
-  image_placeholder: "/assets/images/services/data-visualization/agentic workflows.png"
+  image_placeholder: "/assets/images/services/data-visualization/agentic_workflows.png"
   cards:
     - title: "Seamless Integration"
       description: "Connects specialized agents in a logical sequence."

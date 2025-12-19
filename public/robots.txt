@@ -1,0 +1,25 @@
+# Robots.txt for Digital Back Office
+# https://www.digitalbackoffice.co.uk
+
+User-agent: *
+Allow: /
+
+# Disallow admin or draft pages
+Disallow: /admin/
+Disallow: /draft/
+
+# Sitemap location
+Sitemap: https://www.digitalbackoffice.co.uk/sitemap-index.xml
+
+# Crawl delay (optional, be gentle with crawlers)
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

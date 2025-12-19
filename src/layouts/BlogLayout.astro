@@ -9,6 +9,65 @@ const url  = Astro.url.href;
 
 const data = await getEntry("authors", `${frontmatter.author}`); 
 const author_data = data?.data;
+
+// Format date for structured data
+const publishDate = new Date().toISOString(); // You may want to add a date field to frontmatter
+const modifiedDate = new Date().toISOString();
+
+// Generate article schema
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "image": frontmatter.image,
+  "datePublished": publishDate,
+  "dateModified": modifiedDate,
+  "author": {
+    "@type": "Person",
+    "name": author_data?.name || "Digital Back Office",
+    "url": `https://www.digitalbackoffice.co.uk/authors/${frontmatter.author}`
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Digital Back Office",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.digitalbackoffice.co.uk/favicon.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": url
+  },
+  "keywords": frontmatter.tags?.join(", ") || ""
+};
+
+// Generate breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.digitalbackoffice.co.uk"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://www.digitalbackoffice.co.uk/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": frontmatter.title,
+      "item": url
+    }
+  ]
+};
 ---
 
 <style>
@@ -35,17 +94,65 @@ const author_data = data?.data;
     border-radius: 8px;
     color:white;
   }
+
+  /* Blog Content Styling */
+  #content {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  #content :global(p) {
+    margin-bottom: 2rem;
+  }
+
+  #content :global(h2) {
+    color: white;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  #content :global(h3) {
+    color: white;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+  }
+
+  #content :global(ul), #content :global(ol) {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+  }
+
+  #content :global(li) {
+    margin-bottom: 0.75rem;
+  }
+
+  #content :global(strong) {
+    color: white;
+  }
 </style>
 
 
 <Layout 
   description={frontmatter.description}
   title={frontmatter.title}
-  preview_image={frontmatter.image}>
+  preview_image={frontmatter.image}
+  type="article"
+  keywords={frontmatter.tags?.join(", ") || "AI, data engineering, machine learning"}
+  canonical={url}>
+  
+  <!-- Article Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+  
   <Navbar />
   <main
     class="page-wrapper"
-    style="background-image: url(/assets/images/background-pattern.png);"
+    style="background-image: url(/assets/images/background_pattern.png);"
   >
     <section class="container pt-5 mt-5">
       <div class="row justify-content-between">

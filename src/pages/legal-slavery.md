@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PolicyLayout.astro
 title: Modern Slavery Statement
-img_url: /assets/images/policies/modern-slavery-statement.svg
+img_url: /assets/images/policies/modern_slavery_statement.svg
 ---
 
 ## Introduction

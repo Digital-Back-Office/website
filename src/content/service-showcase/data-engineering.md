@@ -4,35 +4,35 @@ subtitle: Comprehensive solutions to power your data ecosystem.
 cards:
   - title: Data Quality
     description: Strategy and implementation of data validation, cleansing, and profiling to ensure data reliability.
-    frontImage: /assets/images/data-sci.png
+    frontImage: /assets/images/data_sci.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: Data Pipelines (ETL/ELT)
     description: Designing and building robust and scalable data ingestion and transformation flows.
-    frontImage: /assets/images/data-arch.png
+    frontImage: /assets/images/data_arch.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
   - title: Business Intelligence
     description: Building the underlying Data Architecture that supports unified BI platforms.
-    frontImage: /assets/images/data-vis.png
+    frontImage: /assets/images/data_vis.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: Analytics Dashboards
     description: Developing high-impact, user-centric Analytics Dashboards and reporting capabilities.
-    frontImage: /assets/images/data-devops.png
+    frontImage: /assets/images/data_devops.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
   - title: DataOps / MLOps
     description: Implementing CI/CD for data and machine learning workloads, enabling rapid deployment.
-    frontImage: /assets/images/data-sci.png
+    frontImage: /assets/images/data_sci.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: Data Mesh
     description: Advisory and implementation for decentralized data architectures.
-    frontImage: /assets/images/data-vis.png
+    frontImage: /assets/images/data_vis.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
 industrySectionTitle: Industry use cases

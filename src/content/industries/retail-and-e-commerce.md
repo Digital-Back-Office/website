@@ -6,7 +6,7 @@ hero:
   heading: "Retail & E-commerce: Achieve Hyper-Personalization and Operational Resilience"
   subtext: "Deploy Retrieval Augmented Generation (RAG) and Predictive Modeling for Sales to transform customer experience, eliminate stockouts, and maximize lifetime value."
   video: "/assets/videos/retail.mp4"
-  cta_text: "Schedule a Free 30-Minute AI Readiness Assessment"
+  cta_text: "Schedule a AI Readiness Discovery"
   cta_link: "/contact-us"
 
 trust:
@@ -32,7 +32,7 @@ products:
   subtitle: "Your Conversion-Driven Retail Strategy: Built on DBO's Proven Framework"
   tabs:
     - id: "ai-solutions"
-      name: "AI Solutions"
+      name: "AI Transformation "
       heading: "Automating the \"Swivel Chair\""
       sections:
         - subheading: "The AI Back-Office Agents"
@@ -42,7 +42,7 @@ products:
           description: "Fix your catalog data instantly. We use Computer Vision and NLP to automatically tag and categorize thousands of SKUs, ensuring your online search works perfectly and customers can find exactly what they want."
       cta_text: "See our AI in Action"
       cta_link: "/contact-us"
-      image: "/assets/images/retail/ai solution retail.png"
+      image: "/assets/images/retail/ai_solution_retail.png"
       image_alt: "AI Solutions - Retail"
     
     - id: "data-science"
@@ -56,7 +56,7 @@ products:
           description: "Don't guess what sells. We use Predictive Demand Forecasting to analyze local trends, weather, and social signals, ensuring you stock the right products in the right locations, minimizing markdowns."
       cta_text: "Talk to our Data Scientists"
       cta_link: "/contact-us"
-      image: "/assets/images/retail/data science retail.png"
+      image: "/assets/images/retail/data_science_retail.png"
       image_alt: "Data Science - Retail"
     
     - id: "data-engineering"
@@ -70,7 +70,7 @@ products:
           description: "Turn compliance into a brand asset. We implement Supply Chain Traceability pipelines that map raw materials to finished goods, ensuring you are ready for EU DPP audits and can prove your sustainability claims."
       cta_text: "Talk to our Engineers"
       cta_link: "/contact-us"
-      image: "/assets/images/retail/data engineering retail.png"
+      image: "/assets/images/retail/data_engineering_retail.png"
       image_alt: "Data Engineering - Retail"
 
 why_trust:

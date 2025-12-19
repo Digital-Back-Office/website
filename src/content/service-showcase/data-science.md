@@ -4,35 +4,35 @@ subtitle: Cutting-edge data science solutions that transform data into actionabl
 cards:
   - title: Data Quality
     description: "Build trust in your insights with solutions for data validation, cleansing, and governance."
-    frontImage: /assets/images/data-sci.png
+    frontImage: /assets/images/data_sci.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: Deep Learning
     description: Implement cutting-edge neural networks for complex tasks like image recognition and advanced Predictive Modeling.
-    frontImage: /assets/images/data-arch.png
+    frontImage: /assets/images/data_arch.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
   - title: Predictive Modeling
     description: Forecast key business metrics, from customer churn to demand, using advanced statistical models.
-    frontImage: /assets/images/data-vis.png
+    frontImage: /assets/images/data_vis.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: Timeseries Analysis
     description: Leverage historical data to accurately predict future trends, optimal stock levels, and capacity needs.
-    frontImage: /assets/images/data-devops.png
+    frontImage: /assets/images/data_devops.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
   - title: Data Visualization
     description: Transform complex data into clear, interactive dashboards for intuitive, data-driven decision-making.
-    frontImage: /assets/images/data-sci.png
+    frontImage: /assets/images/data_sci.png
     frontColor: "#020609"
     backColor: "#020609"
     borderColor: "#2FB7B8"
   - title: "Classification, NLP & Computer Vision"
     description: Utilize Natural Language Processing and Computer Vision to unlock insights from text, images, and video.
-    frontImage: /assets/images/data-vis.png
+    frontImage: /assets/images/data_vis.png
     frontColor: "#2FB7B8"
     backColor: "#2FB7B8"
 industrySectionTitle: Industry use cases

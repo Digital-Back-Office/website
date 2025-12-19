@@ -2,6 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/common/Navbar.astro";
 
+// SEO metadata for Contact page
+const seoTitle = "Contact Us - Digital Back Office | Get Your Free AI Consultation";
+const seoDescription = "Ready to transform your business with AI and data solutions? Contact Digital Back Office for discovery call. Expert AI consulting, data engineering, and ML services for enterprises.";
+const seoKeywords = "contact AI consultant, free AI consultation, enterprise AI consulting, data engineering services, machine learning consultation, AI strategy assessment";
+
 ---
 
 <style>
@@ -9,12 +14,18 @@ import Navbar from "../components/common/Navbar.astro";
     background-color: rgba(47, 183, 184, 1);
   }
   .bg-image {
-    background-image: url(/assets/images/background-pattern.png);
+    background-image: url(/assets/images/background_pattern.png);
     background-repeat: repeat !important;
   }
 </style>
 
-<Layout>
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  canonical="/contact-us"
+  preview_image="/preview.png"
+>
   <Navbar />
   <main class="page-wrapper bg-image" data-pagefind-ignore>
     <section
@@ -113,7 +124,7 @@ import Navbar from "../components/common/Navbar.astro";
                 <option value="" selected disabled hidden style="">
                   <span>Service you are looking for</span>
                 </option>
-                <option value="AI Solutions">AI Solutions</option>
+                <option value="AI Transformation">AI Transformation</option>
                 <option value="Data Strategy">Data Strategy</option>
                 <option value="Data Engineering">Data Engineering</option>
                 <option value="Data Science">Data Science</option>

@@ -6,7 +6,7 @@ hero:
   heading: "Healthcare & Life Sciences: Accelerate R&D and Deliver Precision Care with AI"
   subtext: "Leverage cutting-edge Data Engineering and Deep Learning to unify complex clinical data, dramatically reducing drug discovery timelines and delivering true Precision Care."
   video: "/assets/videos/healthcare.mp4"
-  cta_text: "Schedule a Free 30-Minute AI Readiness Assessment"
+  cta_text: "Schedule a Discovery Call"
   cta_link: "/contact-us"
 
 trust:
@@ -42,7 +42,7 @@ products:
           description: "We turn compliance panic into audit-readiness. We build the interoperable data pipelines needed for DSCSA and BioSecure Act compliance, creating a \"Control Tower\" view that tracks every product unit across your global logistics network."
       cta_text: "Talk to our Engineers"
       cta_link: "/contact-us"
-      image: "/assets/images/healthcare/data engineering health.png"
+      image: "/assets/images/healthcare/data_engineering_health.png"
       image_alt: "Data Engineering - Healthcare"
     
     - id: "data-science"
@@ -56,7 +56,7 @@ products:
           description: "Don't wait for the stockout. We build predictive models that analyze vendor data and geopolitical signals to forecast supply chain disruptions or compliance gaps before they block your revenue."
       cta_text: "Talk to our Data Scientists"
       cta_link: "/contact-us"
-      image: "/assets/images/healthcare/data science health.png"
+      image: "/assets/images/healthcare/data_science_health.png"
       image_alt: "Data Science - Healthcare"
     
     - id: "ai-solutions"
@@ -70,7 +70,7 @@ products:
           description: "Make decades of research visible. We deploy NLP and OCR agents to ingest and \"read\" unstructured legacy PDFs, images, and hand-written notes, making your institution's \"Dark Data\" instantly queryable for your scientists."
       cta_text: "See our AI in Action"
       cta_link: "/contact-us"
-      image: "/assets/images/healthcare/ai solution health.png"
+      image: "/assets/images/healthcare/ai_solution_health.png"
       image_alt: "AI Solutions - Healthcare"
 
 why_trust:
