@@ -6,7 +6,7 @@ hero:
   heading: "Healthcare & Life Sciences: Accelerate R&D and Deliver Precision Care with AI"
   subtext: "Leverage cutting-edge Data Engineering and Deep Learning to unify complex clinical data, dramatically reducing drug discovery timelines and delivering true Precision Care."
   video: "/assets/videos/healthcare.mp4"
-  cta_text: "Schedule a Free 30-Minute AI Readiness Assessment"
+  cta_text: "Schedule a Discovery Call"
   cta_link: "/contact-us"
 
 trust:

@@ -6,7 +6,7 @@ hero:
   heading: "Retail & E-commerce: Achieve Hyper-Personalization and Operational Resilience"
   subtext: "Deploy Retrieval Augmented Generation (RAG) and Predictive Modeling for Sales to transform customer experience, eliminate stockouts, and maximize lifetime value."
   video: "/assets/videos/retail.mp4"
-  cta_text: "Schedule a Free 30-Minute AI Readiness Assessment"
+  cta_text: "Schedule a AI Readiness Discovery"
   cta_link: "/contact-us"
 
 trust:

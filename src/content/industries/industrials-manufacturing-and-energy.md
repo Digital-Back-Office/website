@@ -6,7 +6,7 @@ hero:
   heading: "Industrials & Energy: Achieve Predictive Maintenance and Operational Efficiency with MLOps"
   subtext: "We connect complex IT/OT environments, operationalizing AI models for superior yield optimization, risk reduction, and Predictive Maintenance at the edge."
   video: "/assets/videos/technology.mp4"
-  cta_text: "Schedule a Free MLOps Maturity Assessment"
+  cta_text: "Schedule a MLOps Maturity Discovery"
   cta_link: "/contact-us"
 
 trust:

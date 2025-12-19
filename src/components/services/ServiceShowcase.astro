@@ -68,9 +68,9 @@ const safeIndustries = industries && typeof industries === 'object' ? industries
               </div>
             </div>
             <div class="service-card-flip-back" style={`background-color: ${card.backColor};`}>
-              <div style="display: flex; flex-direction: column; height: 100%;">
+              <div style="display: flex; flex-direction: column; height: 100%; justify-content: center; align-items: center; text-align: center; padding: 1rem;">
                 <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #fff;">{card.title}</h3>
-                <p style="color: rgba(255,255,255,0.85);">{card.description}</p>
+                <p style="color: rgba(255,255,255,0.85); margin-bottom: 0;">{card.description}</p>
               </div>
             </div>
           </div>

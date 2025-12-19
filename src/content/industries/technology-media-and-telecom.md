@@ -6,7 +6,7 @@ hero:
   heading: "Technology, Media, & Telecom: Accelerate Digital Transformation with Agentic AI"
   subtext: "We empower you to deliver rapid innovation and reduce IT overhead by implementing sophisticated Agentic Workflows and a world-class Cloud Data Strategy."
   video: "/assets/videos/technology.mp4"
-  cta_text: "Schedule a Free 30-Minute AI Readiness Assessment"
+  cta_text: "Schedule AI Readiness Assessment"
   cta_link: "/contact-us"
 
 trust:
