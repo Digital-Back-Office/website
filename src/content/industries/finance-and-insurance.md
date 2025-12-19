@@ -1,5 +1,5 @@
 ---
-title: "Finance and Insurance"
+title: "Financial Services"
 description: "Secure AI & Data Intelligence for Financial Services"
 
 hero:
