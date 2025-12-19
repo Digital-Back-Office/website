@@ -1,30 +1,30 @@
 ---
 hero:
-    title: We deliver complete range of solutions in data processing and AI from concept to delivery.
+    title: Engineering the Future of Enterprise Intelligence.
     features:
-        - Custom Solutions
-        - Open Source
-        - Cost Optimized
+        - Bespoke AI Architectures
+        - Vendor-Agnostic Engineering
+        - High-ROI Scalability
 
 mission:
     title: Our Mission
-    desc: Our mission is to empower businesses to make intelligent, predictive decisions by leveraging cutting-edge data technologies. We strive to design and build best-in-class custom solutions, including advanced Machine Learning and Generative AI models, for Big Data Processing that deliver unmatched predictive accuracy and cost-effective automation.
+    desc: Bridging the gap between raw data and strategic advantage. We don't just build models; we engineer resilient, production-grade AI systems that turn complex data into clear, actionable business value.
     img: /assets/images/about-us/mission.png
 
 values:
-    title: Our Values
+    title: The DBO Standard
     cards:
         - svg: /assets/icons/about-us/honesty.svg
-          title: Honesty
-          desc:  We have a culture of putting the truth at the forefront. We discuss the problems, admit the mistakes and are transparent about pricing with our clients. We believe building trust through transparent communication is crucial for long term succes.
+          title: Radical Transparency
+          desc:  We believe in clear, unvarnished truth. No black boxes, no hidden costs—just explainable AI and honest partnership.
 
         - svg: /assets/icons/about-us/quality.svg
-          title: Quality
-          desc: Our commitment to quality extends specifically to the precision, explainability, and reliability of our Machine Learning models. We employ rigorous MLOps (Machine Learning Operations) and validation practices to ensure our solutions maintain high performance and consistency, delivering true long-term value.
+          title: Engineering Excellence
+          desc: We don't just write code; we craft resilient systems. Our rigorous MLOps and validation frameworks ensure your AI performs in the real world, not just the lab.
 
         - svg: /assets/icons/about-us/client_focus.svg
-          title: Client Focus
-          desc:  We put the needs, preferences, and satisfaction of clients at the center of our operations. We map the entire decision journey and identify solutions suited for your needs. Our solutions are customized to solve the specific problems your decision makers face. 
+          title: Strategic Partnership
+          desc:  We aren't just vendors; we are your technical co-founders. We align our deep engineering expertise with your high-level business goals. 
 
 benefits:
     title: We Love Data
@@ -40,12 +40,12 @@ benefits:
 
         
         - number: 3
-          title: Data Security
+          title: Enterprise-Grade Security
           desc: We specialize in Safeguarding sensitive data, such as customer information, financial records, and intellectual property against unauthorized access and potential misuse.
 
         - number: 4
-          title: Psychological Understanding of Data 
-          desc: Integration of psychology and data reflects the recognition that the human element is crucial in the world of data. Data analysis and interpretation are not purely technical processes; they involve understanding the human context in which data operates.
+          title: Human-Centric AI Design
+          desc: Data doesn't exist in a vacuum. We design systems that understand the human context and user behavior, ensuring high adoption rates and trust in automated decisions.
 
         - number: 5
           title: Predictive Intelligence & MLOps
