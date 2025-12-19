@@ -95,13 +95,16 @@ const path = Astro.url.pathname;
         </li>
         <li class="nav-item dropdown">
           <a
-            class={(path.includes("/blog") || path.includes("/events") || path.includes("/partners"))?"nav-link  nav-links active-link":"nav-link nav-links"}
+            class={(path.includes("/blog") || path.includes("/events") || path.includes("/partners") || path.includes("/industry-insights"))?"nav-link  nav-links active-link":"nav-link nav-links"}
             data-bs-auto-close="outside"
             aria-expanded="false">Resources</a
           >
           <ul class="dropdown-menu">
             <li>
               <a href="/blog/1" class="dropdown-item nav-links">Blogs</a>
+            </li>
+            <li>
+              <a href="/industry-insights" class="dropdown-item nav-links">Industry Insights</a>
             </li>
             <!-- <li>
               <a href="#" class="dropdown-item nav-links">Events</a>

@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/common/Navbar.astro";
+
+const seoTitle = "Industry Insights & Reports - Digital Back Office";
+const seoDescription = "Curated list of essential AI publications, reports, and whitepapers for enterprise leaders and data strategists.";
+const seoKeywords = "AI reports, Stanford AI Index, State of AI Report, McKinsey AI, AI publications, industry insights";
+
+const publications = [
+  {
+    title: "The \"Big Picture\" Authority: AI Index Report",
+    publisher: "Stanford University (HAI)",
+    date: "2025",
+    summary: "The AI Index is an independent initiative at the Stanford Institute for Human-Centered AI (HAI). The annual report tracks, collates, distills, and visualizes data relating to artificial intelligence, enabling decision-makers to take meaningful action to advance AI responsibly and ethically.",
+    link: "/assets/reports/hai_ai_index_report_2025.pdf",
+    linkText: "Read Report"
+  },
+  {
+    title: "The Industry Insider Favorite: State of AI Report",
+    publisher: "Air Street Capital (Nathan Benaich)",
+    date: "2025",
+    summary: "The State of AI Report analyzes the most interesting developments in AI. Produced by Air Street Capital, it aims to trigger an informed conversation about the state of AI and its implication for the future, focusing on research, industry, politics, and safety.",
+    link: "https://www.stateof.ai/",
+    linkText: "Read Report"
+  },
+  {
+    title: "The Enterprise & Business Strategy Guide: The State of AI",
+    publisher: "McKinsey & Company",
+    date: "Nov, 2025",
+    summary: "McKinsey's global survey on the state of AI confirms the explosive growth of generative AI tools. This report provides deep insights into how organizations are adopting GenAI, the risks they are managing, and the value they are capturing across different business functions.",
+    link: "/assets/reports/the-state-of-ai-in-2025.pdf",
+    linkText: "Read Report"
+  },
+  {
+    title: "The Ethics & Governance Standard: The Business Case for Responsible AI",
+    publisher: "Microsoft & IDC",
+    date: "2024",
+    summary: "This IDC study, commissioned by Microsoft, quantifies the value of Responsible AI. It demonstrates how mature governance frameworks don't just mitigate risk—they accelerate innovation velocity and improve long-term ROI. Essential reading for Risk Officers.",
+    link: "/assets/reports/Responsible-AI-Transparency-Report-2024.pdf",
+    linkText: "Read Report"
+  },
+  {
+    title: "The Ecosystem Map: The MAD Landscape (Machine Learning, AI & Data)",
+    publisher: "Matt Turck (FirstMark)",
+    date: "2025",
+    summary: "The definitive annual map of the Machine Learning, AI, and Data ecosystem. This comprehensive landscape highlights key trends like the rise of agentic systems, infrastructure consolidation, and the evolving data stack.",
+    link: "https://mattturck.com/mad2025/",
+    linkText: "View Landscape"
+  }
+];
+---
+
+<style>
+  .bg-image {
+    background-image: url(/assets/images/background_pattern.png);
+    background-repeat: repeat;
+    min-height: 100vh;
+  }
+  
+  .pub-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .pub-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--ar-primary);
+  }
+
+  .pub-publisher {
+    color: var(--ar-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pub-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+  }
+
+  .pub-title {
+    color: white;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pub-summary {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .pub-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .pub-link:hover {
+    color: var(--ar-primary);
+  }
+
+  .hero-section {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%);
+    margin-bottom: 3rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+</style>
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  canonical="/industry-insights"
+>
+  <Navbar />
+  <main class="page-wrapper bg-image" data-pagefind-ignore>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container text-center">
+        <h1 class="hero-title">Industry Insights</h1>
+        <p class="hero-subtitle mx-auto">
+          A curated collection of the most authoritative reports and whitepapers shaping the AI landscape.
+        </p>
+      </div>
+    </section>
+
+    <section class="container pb-5">
+      <div class="row g-4">
+        {publications.map((pub) => (
+          <div class="col-lg-12">
+            <div class="pub-card p-4 p-md-5">
+              <div class="row align-items-center">
+                <div class="col-lg-9">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="pub-publisher">{pub.publisher}</span>
+                    <span class="text-white-50">•</span>
+                    <span class="pub-date">{pub.date}</span>
+                  </div>
+                  <h2 class="pub-title h3">{pub.title}</h2>
+                  <p class="pub-summary mb-4 mb-lg-0">{pub.summary}</p>
+                </div>
+                <div class="col-lg-3 text-lg-end">
+                  <a href={pub.link} target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary rounded-pill px-4 py-2">
+                    {pub.linkText}
+                    <i class="ai-arrow-right ms-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
