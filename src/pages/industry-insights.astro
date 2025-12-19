@@ -48,6 +48,33 @@ const publications = [
     linkText: "View Landscape"
   }
 ];
+
+const newArrivals = [
+  {
+    title: "Deloitte Tech Trends 2026",
+    publisher: "Deloitte Insights",
+    date: "December 10, 2025",
+    summary: "This report explores the \"Invisible Force\" of AI, focusing on Agentic AI and the critical infrastructure needed to support it. It delves into how AI is moving from a tool to a core business driver.",
+    link: "/assets/reports/deloitte-tech-trends-2026.pdf",
+    linkText: "Read Report"
+  },
+  {
+    title: "The State of Enterprise AI 2025",
+    publisher: "OpenAI",
+    date: "December 8, 2025",
+    summary: "OpenAI's latest insights on enterprise adoption, providing key metrics on ROI, adoption speeds, and the specific value generated across departments like IT, Marketing, and HR.",
+    link: "/assets/reports/the-state-of-enterprise-ai_2025-report.pdf",
+    linkText: "Read Report"
+  },
+  {
+    title: "Gartner Top 10 Strategic Technology Trends 2026",
+    publisher: "Gartner",
+    date: "November 2025",
+    summary: "Gartner's strategic outlook for 2026, identifying Agentic AI and AI TRiSM (Trust, Risk, and Security Management) as top trends that will drive significant disruption and opportunity.",
+    link: "https://www.gartner.com/en/articles/top-technology-trends-2026",
+    linkText: "Read Report"
+  }
+];
 ---
 
 <style>
@@ -152,6 +179,34 @@ const publications = [
     </section>
 
     <section class="container pb-5">
+      <h2 class="h2 text-white mb-4">The 2026 Strategic Outlook (New Arrivals)</h2>
+      <div class="row g-4 mb-5">
+        {newArrivals.map((pub) => (
+          <div class="col-lg-12">
+            <div class="pub-card p-4 p-md-5">
+              <div class="row align-items-center">
+                <div class="col-lg-9">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <span class="pub-publisher">{pub.publisher}</span>
+                    <span class="text-white-50">•</span>
+                    <span class="pub-date">{pub.date}</span>
+                  </div>
+                  <h2 class="pub-title h3">{pub.title}</h2>
+                  <p class="pub-summary mb-4 mb-lg-0">{pub.summary}</p>
+                </div>
+                <div class="col-lg-3 text-lg-end">
+                  <a href={pub.link} target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary rounded-pill px-4 py-2">
+                    {pub.linkText}
+                    <i class="ai-arrow-right ms-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="h2 text-white mb-4">Essential Industry Reports</h2>
       <div class="row g-4">
         {publications.map((pub) => (
           <div class="col-lg-12">
