@@ -9,8 +9,13 @@ import '../../styles/container.css'
 
 export async function getStaticPaths({ paginate }:any):Promise<any>{
   const allPosts = await Astro.glob("../../pages/posts/*.mdx");
+  const sortedPosts = allPosts.sort((a, b) => {
+    const dateA = a.frontmatter.date ? new Date(a.frontmatter.date).getTime() : 0;
+    const dateB = b.frontmatter.date ? new Date(b.frontmatter.date).getTime() : 0;
+    return dateB - dateA;
+  });
   const pageSize = 6; 
-  return paginate(allPosts, { pageSize: pageSize });
+  return paginate(sortedPosts, { pageSize: pageSize });
 }
 const {page} = Astro.props;
 const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
