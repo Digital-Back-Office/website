@@ -1,6 +1,6 @@
 ---
-title: "Healthcare & Life Sciences"
-description: "Leverage cutting-edge Data Engineering and Deep Learning to unify complex clinical data, dramatically reducing drug discovery timelines and delivering true Precision Care."
+title: "Clinical Data Analysis & Healthcare - Digital Back Office"
+description: "Leverage healthcare and data science to unify clinical data, enabling precision care, faster R&D, and responsible AI deployment."
 
 hero:
   heading: "Healthcare & Life Sciences: Accelerate R&D and Deliver Precision Care with AI"
