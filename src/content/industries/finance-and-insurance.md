@@ -1,6 +1,6 @@
 ---
-title: "Financial Services"
-description: "Secure AI & Data Intelligence for Financial Services"
+title: "Modern Data Architectures & Predictive Modeling - Digital Back Office"
+description: "Modern data architectures enable predictive modeling solutions and data intelligence solutions to enhance security and compliance in finance."
 
 hero:
   heading: "Secure AI & Data Intelligence for Financial Services"
