@@ -1,4 +1,9 @@
 ---
+// SEO-optimized metadata for homepage
+const seoTitle = "Privacy Policy - Digital Back Office";
+const seoDescription = "Read Digital Back Office privacy policy to understand how we collect, use, and protect your data when you use our services and visit our website.";
+---
+---
 layout: ../layouts/PolicyLayout.astro
 title: Privacy Policy
 img_url: /assets/images/policies/privacy_policy.png
