@@ -1,6 +1,6 @@
 ---
-title: "Media and Telecom"
-description: "We empower you to deliver rapid innovation and reduce IT overhead by implementing sophisticated Agentic Workflows and a world-class Cloud Data Strategy."
+title: "AI Digital Transformation & Telecom Solutions - Digital Back Office"
+description: "Transform your business with AI Digital Transformation and Telecom Digital Transformation, modernizing processes and enhancing enterprise efficiency."
 
 hero:
   heading: "Technology, Media, & Telecom: Accelerate Digital Transformation with Agentic AI"
