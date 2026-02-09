@@ -1,6 +1,6 @@
 ---
-title: "Retail & E-commerce"
-description: "Deploy Retrieval Augmented Generation (RAG) and Predictive Modeling for Sales to transform customer experience, eliminate stockouts, and maximize lifetime value. test test"
+title: "Retail & E-commerce Data Monetization Strategy - Digital Back Office"
+description: "Maximize retail value with a Data Monetization Strategy using RAG, predictive modeling, and omnichannel analytics to eliminate stockouts and elevate customer experience."
 
 hero:
   heading: "Retail & E-commerce: Achieve Hyper-Personalization and Operational Resilience"
