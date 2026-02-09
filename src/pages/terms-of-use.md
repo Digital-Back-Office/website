@@ -1,4 +1,9 @@
 ---
+// SEO-optimized metadata for homepage
+const seoTitle = "Terms of Use - Digital Back Office";
+const seoDescription = "Review the terms of use explaining website access, acceptable conduct, content ownership, user responsibilities, disclaimers and legal conditions.";
+---
+---
 layout: ../layouts/PolicyLayout.astro
 title: Terms of Use
 img_url: /assets/images/policies/tos.png
