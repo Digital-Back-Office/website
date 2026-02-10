@@ -1,12 +1,9 @@
 ---
-// SEO-optimized metadata for homepage
-const seoTitle = "Privacy Policy - Digital Back Office";
-const seoDescription = "Read Digital Back Office privacy policy to understand how we collect, use, and protect your data when you use our services and visit our website.";
----
----
 layout: ../layouts/PolicyLayout.astro
 title: Privacy Policy
 img_url: /assets/images/policies/privacy_policy.png
+seo_title: "Privacy Policy - Digital Back Office"
+seo_description: "Read Digital Back Office privacy policy to understand how we collect, use, and protect your data when you use our services and visit our website."
 ---
 
 DIGITAL BACK OFFICE LTD, together with its subsidiaries ("DBO") has created this Privacy Policy in line with DBO's commitment to your privacy on DBO websites and marketing initiatives. The following discloses DBO's information gathering, dissemination and protection practices.
