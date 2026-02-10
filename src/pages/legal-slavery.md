@@ -2,6 +2,8 @@
 layout: ../layouts/PolicyLayout.astro
 title: Modern Slavery Statement
 img_url: /assets/images/policies/modern_slavery_statement.svg
+seo_title: "Modern Slavery Statement - Digital Back Office"
+seo_description: "This modern slavery statement outlines responsibilities and actions to prevent slavery, including worker protections, training and supplier compliance."
 ---
 
 ## Introduction

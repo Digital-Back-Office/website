@@ -2,6 +2,8 @@
 layout: ../layouts/PolicyLayout.astro
 title: Terms of Use
 img_url: /assets/images/policies/tos.png
+seo_title: "Terms of Use - Digital Back Office"
+seo_description: "Review the terms of use explaining website access, acceptable conduct, content ownership, user responsibilities, disclaimers and legal conditions."
 ---
 
 ### Terms of Use for www.digitalbackoffice.co.uk, blogs.digitalbackoffice.co.uk 

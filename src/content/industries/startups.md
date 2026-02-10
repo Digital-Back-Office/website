@@ -1,6 +1,6 @@
 ---
-title: "Startups & Scale-ups"
-description: "Accelerate your growth with scalable cloud infrastructure and high-performance engineering teams."
+title: "Cloud & Data Solutions for Startups - Digital Back Office"
+description: "We help startups leverage cloud solutions, Data Science Startups expertise, and Data Engineering Startups services to drive growth, innovation, and efficiency."
 
 hero:
   heading: "Build Fast, Scale Right: Cloud & Engineering for High-Growth Startups"
