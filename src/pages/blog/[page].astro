@@ -262,7 +262,10 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   
 </style>
 
-<Layout>
+<Layout 
+  title={seoTitle}
+  description={seoDescription}
+>
   <Navbar />
   <main
     class="page-wrapper wrapper"
