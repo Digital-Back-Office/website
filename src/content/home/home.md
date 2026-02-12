@@ -10,16 +10,22 @@ partners:
   images:
     - name: Snowflake
       src: '/assets/images/tech/snowflake.png'
+      alt: 'Snowflake'
     - name: Graphite Note
       src: '/assets/images/tech/graphitenote.png'
+      alt: 'Graphitenote'
     - name: Cast AI
       src: '/assets/images/tech/castai.png'
+      alt: 'Castai'
     - name: Azure
       src: '/assets/images/tech/azure.png'
+      alt: 'Azure'      
     - name: AWS
       src: '/assets/images/tech/aws.png'
+      alt: 'AWS'      
     - name: GCP
       src: '/assets/images/tech/gcp.png'
+      alt: 'GCP'      
 
 ai_solutions:
   title: 'AI Transformation'
