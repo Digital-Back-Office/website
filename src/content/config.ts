@@ -57,6 +57,7 @@ const homeCollection = defineCollection({
             title: z.string(),
             cards: z.array(z.object({
                 img: z.string(),
+                alt: z.string(),
                 title: z.string(),
                 info: z.string()
             }))
