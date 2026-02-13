@@ -39,7 +39,8 @@ const homeCollection = defineCollection({
             svg: z.string(),
             bg: z.string(),
             title: z.string(),
-            info: z.string()
+            info: z.string(),
+            alt: z.string()
         })),
         roadmap: z.object({
             title_1: z.string(),
