@@ -116,16 +116,19 @@ about:
 keyPoints:
     - svg: /assets/icons/home/about/open_source.svg
       bg: /assets/icons/home/about/bg_1.svg
+      alt: 'Open Source'
       title: 'Open Source'
       info: 'Cutting-edge big data tools are open source; we bring the best of them to work together for you.'
 
     - svg: /assets/icons/home/about/24x7.svg
       bg: /assets/icons/home/about/bg_3.svg
+      alt: '24x7 Support'
       title: '24x7 Support'
       info: 'We provide 24x7 support for our solutions, supporting your business across different time zones.'
 
     - svg: /assets/icons/home/about/cost_effective.svg
       bg: /assets/icons/home/about/bg_2.svg
+      alt: 'Cost Effective'
       title: 'Cost Effective'
       info: 'Save up to 90% recurring costs with open source and optimized cloud auto scaling.'
     
@@ -133,26 +136,32 @@ features:
     title: 'Do these sound familiar to you?'
     cards:
         - img: /assets/icons/home/features/vol_vel_var.png
+          alt: 'The AI Maturity Curve'
           title: 'The AI Maturity Curve'
           info: 'Moving from "looking back" to "predicting forward" requires more than just tools—it requires a robust data engine. How do I escape PoC Trap?'
 
         - img: /assets/icons/home/features/cost_management.png
+          alt: 'Cost Management'
           title: 'Cost Management'
           info: 'Big Data storage, processing, and software licensing cost increases exponentially. How do I keep cost under control?'
 
         - img: /assets/icons/home/features/security.png
+          alt: 'Data Security'
           title: 'Data Security'
           info: 'Data security is key to organizations survival. Is my data safe from unauthorized access, malware attacks?'
 
         - img: /assets/icons/home/features/selection.png
+          alt: 'Tool Selection'
           title: 'Tool Selection'
           info: 'Big Data tools pose a problem of “Paradox of choices”. What are the right tools for my organization''s data needs?'
 
         - img: /assets/icons/home/features/changing_landscape.png
+          alt: 'Changing Landscape'
           title: 'Changing Landscape'
           info: 'It is predicted that the Big Data Landscape will continue to change at high velocity. Will my team be able to keep up with the pace?'
 
         - img: /assets/icons/home/features/specialized_hiring.png
+          alt: 'Specialized Hiring'
           title: 'Specialized Hiring'
           info: 'Hiring for Big Data and Data Science projects is becoming increasingly difficult. Will I be able to deliver the project on time?'
 
