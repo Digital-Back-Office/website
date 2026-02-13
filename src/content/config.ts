@@ -24,6 +24,7 @@ const homeCollection = defineCollection({
                 id: z.string(),
                 heading: z.string(), 
                 description: z.string(),
+                alt: z.string(),
                 icon: z.string(),
                 button_text: z.string()
             }))
