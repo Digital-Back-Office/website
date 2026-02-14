@@ -2,6 +2,7 @@
 layout: ../layouts/PolicyLayout.astro
 title: Privacy Policy
 img_url: /assets/images/policies/privacy_policy.png
+alt:'Privacy Policy'
 seo_title: "Privacy Policy - Digital Back Office"
 seo_description: "Read Digital Back Office privacy policy to understand how we collect, use, and protect your data when you use our services and visit our website."
 ---
