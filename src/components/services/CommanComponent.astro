@@ -137,19 +137,22 @@ const approachParts = approachHighlight
       parts={diffParts}
       cards={[
         {
-          img: frontmatter.card1_img,
-          heading: frontmatter.card1_heading,
-          text: frontmatter.card1_text,
+            img: frontmatter.card1_img,
+            alt: frontmatter.card1_alt || frontmatter.card1_heading || "",
+            heading: frontmatter.card1_heading,
+            text: frontmatter.card1_text,
         },
         {
-          img: frontmatter.card2_img,
-          heading: frontmatter.card2_heading,
-          text: frontmatter.card2_text,
+            img: frontmatter.card2_img,
+            alt: frontmatter.card2_alt || frontmatter.card2_heading || "",
+            heading: frontmatter.card2_heading,
+            text: frontmatter.card2_text,
         },
         {
-          img: frontmatter.card3_img,
-          heading: frontmatter.card3_heading,
-          text: frontmatter.card3_text,
+            img: frontmatter.card3_img,
+            alt: frontmatter.card3_alt || frontmatter.card3_heading || "",
+            heading: frontmatter.card3_heading,
+            text: frontmatter.card3_text,
         },
       ]}
     />
@@ -164,21 +167,25 @@ const approachParts = approachHighlight
       steps={[
         {
           img: frontmatter.approach1_img,
+          alt: frontmatter.approach1_alt || frontmatter.approach1_heading || "",
           heading: frontmatter.approach1_heading,
           text: frontmatter.approach1_text,
         },
         {
           img: frontmatter.approach2_img,
+          alt: frontmatter.approach2_alt || frontmatter.approach2_heading || "",
           heading: frontmatter.approach2_heading,
           text: frontmatter.approach2_text,
         },
         {
           img: frontmatter.approach3_img,
+          alt: frontmatter.approach3_alt || frontmatter.approach3_heading || "",
           heading: frontmatter.approach3_heading,
           text: frontmatter.approach3_text,
         },
         {
           img: frontmatter.approach4_img,
+          alt: frontmatter.approach4_alt || frontmatter.approach4_heading || "",
           heading: frontmatter.approach4_heading,
           text: frontmatter.approach4_text,
         },
@@ -190,26 +197,32 @@ const approachParts = approachHighlight
       items={[
         {
           img: frontmatter.expertise1_img,
+          alt: frontmatter.expertise1_alt || frontmatter.expertise1_heading || "",
           heading: frontmatter.expertise1_heading,
         },
         {
           img: frontmatter.expertise2_img,
+          alt: frontmatter.expertise2_alt || frontmatter.expertise2_heading || "",
           heading: frontmatter.expertise2_heading,
         },
         {
           img: frontmatter.expertise3_img,
+          alt: frontmatter.expertise3_alt || frontmatter.expertise3_heading || "",
           heading: frontmatter.expertise3_heading,
         },
         {
           img: frontmatter.expertise4_img,
+          alt: frontmatter.expertise4_alt || frontmatter.expertise4_heading || "",
           heading: frontmatter.expertise4_heading,
         },
         {
           img: frontmatter.expertise5_img,
+          alt: frontmatter.expertise5_alt || frontmatter.expertise5_heading || "",
           heading: frontmatter.expertise5_heading,
         },
         {
           img: frontmatter.expertise6_img,
+          alt: frontmatter.expertise6_alt || frontmatter.expertise6_heading || "",
           heading: frontmatter.expertise6_heading,
         },
       ]}

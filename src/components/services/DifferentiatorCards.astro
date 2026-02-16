@@ -1,6 +1,7 @@
 ---
 interface Card {
   img: string;
+  alt?: string;
   heading: string;
   text: string;
 }
@@ -48,7 +49,7 @@ const { heading, highlightPhrase, highlightColor, parts, cards } = Astro.props;
               <div class="card-body text-center">
                 <img
                   src={card.img}
-                  alt="icon"
+                  alt={card.alt || card.heading || "icon"}
                   class="d-block text-primary mb-4 mx-auto"
                   height="40"
                 />

@@ -1,6 +1,7 @@
 ---
 interface Step {
   img: string;
+  alt?: string;
   heading: string;
   text: string;
 }
@@ -53,7 +54,7 @@ const arrows = [
                 class="d-none d-dark-mode-block"
                 src={step.img}
                 width={idx === 0 ? "525" : "473"}
-                alt="Image"
+                alt={step.alt || step.heading || "Image"}
               />
             </div>
             <div
