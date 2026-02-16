@@ -1,6 +1,7 @@
 ---
 interface Expertise {
   img: string;
+  alt?: string;
   heading: string;
 }
 
@@ -25,8 +26,8 @@ const { items } = Astro.props;
     {
       items.map((item) => (
         <div class="col-12 col-sm-6 col-lg-4 outer-card">
-          <div class="text-center px-xxl-4 icons">
-            <img src={item.img} alt="image" class="d-inline-block mb-3 mb-md-4" height="50" />
+            <div class="text-center px-xxl-4 icons">
+            <img src={item.img} alt={item.alt || item.heading || "image"} class="d-inline-block mb-3 mb-md-4" height="50" />
             <h3 class="h4 mb-2">{item.heading}</h3>
           </div>
         </div>
