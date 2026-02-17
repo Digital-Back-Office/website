@@ -115,18 +115,21 @@ about:
 
 keyPoints:
     - svg: /assets/icons/home/about/open_source.svg
+      alt: 'Open Source'
       bg: /assets/icons/home/about/bg_1.svg
       alt: 'Open Source'
       title: 'Open Source'
       info: 'Cutting-edge big data tools are open source; we bring the best of them to work together for you.'
 
     - svg: /assets/icons/home/about/24x7.svg
+      alt: '24x7 Support'
       bg: /assets/icons/home/about/bg_3.svg
       alt: '24x7 Support'
       title: '24x7 Support'
       info: 'We provide 24x7 support for our solutions, supporting your business across different time zones.'
 
     - svg: /assets/icons/home/about/cost_effective.svg
+      alt: 'Cost Effective'
       bg: /assets/icons/home/about/bg_2.svg
       alt: 'Cost Effective'
       title: 'Cost Effective'
