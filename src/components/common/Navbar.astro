@@ -48,22 +48,22 @@ const path = Astro.url.pathname;
           >Industries</a>
           <ul class="dropdown-menu">
             <li>
-              <a href="/industry/finance-and-insurance" class="dropdown-item nav-links">Finance</a>
+              <a href="/industry/finance-and-insurance" title="Finance" class="dropdown-item nav-links">Finance</a>
             </li>
             <li>
-              <a href="/industry/healthcare-life-sciences" class="dropdown-item nav-links">Healthcare</a>
+              <a href="/industry/healthcare-life-sciences" title="Healthcare" class="dropdown-item nav-links">Healthcare</a>
             </li>
             <li>
-              <a href="/industry/retail-and-e-commerce" class="dropdown-item nav-links">Retail</a>
+              <a href="/industry/retail-and-e-commerce" title="Retail" class="dropdown-item nav-links">Retail</a>
             </li>
             <!--li>
-              <a href="/industry/industrials-manufacturing-and-energy" class="dropdown-item nav-links">Energy</a>
+              <a href="/industry/industrials-manufacturing-and-energy" title="Energy" class="dropdown-item nav-links">Energy</a>
             </li-->
             <li>
-              <a href="/industry/technology-media-and-telecom" class="dropdown-item nav-links">Media</a>
+              <a href="/industry/technology-media-and-telecom" title="Media" class="dropdown-item nav-links">Media</a>
             </li>
              <li>
-              <a href="/industry/startups" class="dropdown-item nav-links">Startups</a>
+              <a href="/industry/startups" title="Startups" class="dropdown-item nav-links">Startups</a>
             </li>
           </ul>
         </li>
@@ -76,22 +76,22 @@ const path = Astro.url.pathname;
           >
           <ul class="dropdown-menu">
             <li>
-              <a href="/services/ai-solutions" class="dropdown-item nav-links">AI Transformation</a>
+              <a href="/services/ai-solutions" title="AI Transformation" class="dropdown-item nav-links">AI Transformation</a>
             </li>
             <li>
-              <a href="/services/data-strategy-services" class="dropdown-item nav-links">Data Strategy</a>
+              <a href="/services/data-strategy-services" title="Data Strategy" class="dropdown-item nav-links">Data Strategy</a>
             </li>
             <li>
-              <a href="/services/data-engineering-services" class="dropdown-item nav-links">Data Engineering</a>
+              <a href="/services/data-engineering-services" title="Data Engineering" class="dropdown-item nav-links">Data Engineering</a>
             </li>
             <li>
-              <a href="/services/data-science" class="dropdown-item nav-links">Data Science</a>
+              <a href="/services/data-science" title="Data Science" class="dropdown-item nav-links">Data Science</a>
             </li>
           </ul>
         </li>
 
         <li class={path.includes("/about-us") ? "nav-item active" : "nav-item"}>
-          <a href="/about-us" class="nav-link nav-links">About us</a>
+          <a href="/about-us" title="About us" class="nav-link nav-links">About us</a>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -101,10 +101,10 @@ const path = Astro.url.pathname;
           >
           <ul class="dropdown-menu">
             <li>
-              <a href="/blog/1" class="dropdown-item nav-links">Blogs</a>
+              <a href="/blog/1" title="Blogs" class="dropdown-item nav-links">Blogs</a>
             </li>
             <li>
-              <a href="/industry-insights" class="dropdown-item nav-links">Industry Insights</a>
+              <a href="/industry-insights" title="Industry Insights" class="dropdown-item nav-links">Industry Insights</a>
             </li>
             <!-- <li>
               <a href="#" class="dropdown-item nav-links">Events</a>
@@ -117,7 +117,7 @@ const path = Astro.url.pathname;
       </ul>
 
       <a
-        href="/contact-us"
+        href="/contact-us" title="Contact us"
         class={path.includes("/contact-us")
           ? "d-none btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0 contact-button"
           : "btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0 contact-button"}
