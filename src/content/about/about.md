@@ -15,17 +15,17 @@ values:
     title: The DBO Standard
     cards:
         - svg: /assets/icons/about-us/honesty.svg
-        alt="Radical Transparency"
+          alt="Radical Transparency"
           title: Radical Transparency
           desc:  We believe in clear, unvarnished truth. No black boxes, no hidden costs—just explainable AI and honest partnership.
 
         - svg: /assets/icons/about-us/quality.svg
-        alt="Engineering Excellence"
+          alt="Engineering Excellence"
           title: Engineering Excellence
           desc: We don't just write code; we craft resilient systems. Our rigorous MLOps and validation frameworks ensure your AI performs in the real world, not just the lab.
 
         - svg: /assets/icons/about-us/client_focus.svg
-        alt="Strategic Partnership"
+          alt="Strategic Partnership"
           title: Strategic Partnership
           desc:  We aren't just vendors; we are your technical co-founders. We align our deep engineering expertise with your high-level business goals. 
 
