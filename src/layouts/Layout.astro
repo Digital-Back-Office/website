@@ -25,8 +25,8 @@ const {
 } = Astro.props;
 
 const og_description = description.length>200?description.substring(0, 200):description;
-const canonicalURL = new URL(canonical, Astro.site || 'https://www.digitalbackoffice.co.uk');
-const imageURL = new URL(preview_image, Astro.site || 'https://www.digitalbackoffice.co.uk');
+const canonicalURL = new URL(canonical, Astro.site || 'https://digitalbackoffice.co.uk');
+const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice.co.uk');
 ---
 
 <script src="/assets/js/theme.min.js" is:inline></script>
