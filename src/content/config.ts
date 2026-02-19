@@ -95,7 +95,8 @@ const aboutCollection = defineCollection({
             cards: z.array(z.object({
                 svg: z.string(),
                 title: z.string(),
-                desc: z.string()
+                desc: z.string(),
+                alt: z.string()
             }))
         }),
         benefits: z.object({
