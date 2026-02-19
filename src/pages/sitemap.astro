@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/common/Navbar.astro";
+
+const seoTitle = "Sitemap - Digital Back Office";
+const seoDescription = "Browse the Digital Back Office sitemap.";
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/sitemap">
+	<Navbar />
+	<main class="page-wrapper " data-pagefind-ignore>
+		<section class="container gap-up py-5">
+			<h1>Sitemap</h1>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li>
+					Industries
+					<ul>
+						<li><a href="/industry/finance-and-insurance">Finance</a></li>
+						<li><a href="/industry/healthcare-life-sciences">Healthcare</a></li>
+						<li><a href="/industry/retail-and-e-commerce">Retail</a></li>
+						<li><a href="/industry/technology-media-and-telecom">Media</a></li>
+						<li><a href="/industry/startups">Startups</a></li>
+					</ul>
+				</li>
+				<li>
+					Services
+					<ul>
+						<li><a href="/services/ai-solutions">AI Transformation</a></li>
+						<li><a href="/services/data-strategy-services">Data Strategy</a></li>
+						<li><a href="/services/data-engineering-services">Data Engineering</a></li>
+						<li><a href="/services/data-science">Data Science</a></li>
+					</ul>
+				</li>
+				<li>
+					Resources
+					<ul>
+						<li><a href="/blog">Blogs</a></li>
+						<li><a href="/industry-insights">Industry Insights</a></li>
+					</ul>
+				</li>
+				<li>
+					Company
+					<ul>
+						<li><a href="/about-us">About</a></li>
+						<li><a href="/privacy-policy">Privacy Policy</a></li>
+						<li><a href="/terms-of-use">Terms of Use</a></li>
+						<li><a href="/legal-slavery">Modern Slavery Statement</a></li>
+					</ul>
+				</li>
+				<li>
+					Quick links
+					<ul>
+						<li><a href="/">Book a Discovery Call</a></li>
+						<li><a href="/contact-us">Contact</a></li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+	</main>
+</Layout>
