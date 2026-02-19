@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/common/Navbar.astro";
+
+const seoTitle = "Page Not Found - Digital Back Office";
+const seoDescription = "The page you are looking for could not be found.";
+---
+
+<Layout title={seoTitle} description={seoDescription} canonical="/404">
+  <Navbar />
+  <main class="page-wrapper " data-pagefind-ignore>
+    <section class="container gap-up py-5">
+      <h1>404</h1>
+      <p>The page you are looking for could not be found.</p>
+      <p><a href="/">Go back home</a></p>
+    </section>
+  </main>
+</Layout>
