@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.digitalbackoffice.co.uk',
+  site: 'https://digitalbackoffice.co.uk',
   buildOptions: {
     baseUrl: '/src/'
   },
