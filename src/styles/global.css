@@ -9,11 +9,14 @@ html {
 }
 
 body {
-    font-family: "Arimo", sans-serif;
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: var(--line-height-base);
 }
 
 .cm__body{
-    background-color: black !important;
+    background-color: var(--bg-base) !important;
     width: 100%;
     max-width: 100% !important;
     display: flex;
@@ -26,12 +29,12 @@ body {
 }
 
 .cm__title{
-    color: white !important;
+    color: var(--text-primary) !important;
 }
 
 .bookNow-btn{
-    background-color: white !important;
-    color:#52CEC7 !important;
+    background-color: var(--text-primary) !important;
+    color: var(--brand-cyan) !important;
 }
 
 #pop-up{
@@ -47,13 +50,13 @@ z-index:60 !important;
 margin: auto auto;
 z-index: 60 !important;
 width: fit-content;
-background-color: black;
-color:white;
-border-radius: 16px;
+background-color: var(--bg-base);
+color: var(--text-primary);
+border-radius: var(--radius-xl);
 padding: 1rem 2.5rem;
 font-size: 1.2rem;
 font-weight: 500;
-border: solid 1px #52CEC7;
+border: solid 1px var(--brand-cyan);
 }
 
 
@@ -64,7 +67,7 @@ border: solid 1px #52CEC7;
     height: 4.2rem;
 }
 .nav-link {
-    color: #fff;
+    color: var(--text-primary);
 }
 
 #contact-button {
@@ -74,8 +77,8 @@ border: solid 1px #52CEC7;
 }
 
 .primary-button {
-    background-color: var(--ar-primary) !important;
-    color: white !important;
+    background-color: var(--brand-cyan) !important;
+    color: var(--text-primary) !important;
 }
 
 .navbar-scrolled {
@@ -108,7 +111,7 @@ border: solid 1px #52CEC7;
 }
 
 .active-link{
-    color:#52CEC7;
+    color: var(--brand-cyan);
 }
 
 /* Show dropdown on hover */
@@ -151,4 +154,12 @@ border: solid 1px #52CEC7;
 
 .gap-up {
     margin-top: 5rem;
+}
+
+.ui-footer {
+    background-color: var(--bg-base);
+}
+
+.footer-muted {
+    color: var(--text-muted);
 }

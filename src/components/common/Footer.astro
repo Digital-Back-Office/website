@@ -2,10 +2,28 @@
 
 ---
 
+<style>
+  .footer {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(10, 10, 10, 1) 100%);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .footer .nav-link {
+    color: var(--text-secondary);
+  }
+
+  .footer .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .footer h6 {
+    letter-spacing: 0.02em;
+  }
+</style>
+
 <footer
-  class="footer py-5"
+  class="footer py-5 ui-footer"
   data-bs-theme="dark"
-  style="background-color: #000 !important;"
   data-pagefind-ignore
 >
   <div class="container pt-md-2 pt-lg-3 pt-xl-4">
@@ -149,7 +167,7 @@
       </div>
     </div>
     <p class="nav fs-sm mb-0">
-      <span class="d-flex" style="color: #858C97">
+      <span class="d-flex footer-muted">
         &copy;
         <a
           class="nav-link fw-normal p-0 ms-1"

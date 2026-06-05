@@ -7,34 +7,33 @@ const testimonials = Data.data.testimonials;
 ---
 
 <style>
+    .tech {
+        padding: var(--space-20) 0;
+    }
+
     .open-source .swiper-slide {
         /* width: 11rem; */
         /* height: 6.25rem; */
         overflow: hidden;
     }
 
-    .bg-white {
+    .tech-logo {
         display: flex;
         width: 100%;
         height: 100%;
         justify-content: center;
         align-items: center;
-        /* padding: 1rem 2rem; */
+        background-color: var(--bg-surface);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-sm);
         overflow: hidden;
-
-        img {
-            /* height: 80%; */
-        }
     }
 
     @media (max-width: 768px) {
         .open-source .swiper-slide {
             /* width: 11rem; */
             height: 5rem;
-        }
-
-        .bg-white {
-            /* padding: 0.8rem 1.8rem; */
         }
     }
 
@@ -48,6 +47,33 @@ const testimonials = Data.data.testimonials;
         .tech {
             min-height: 100vh;
         }
+    }
+
+    .tech-header {
+        text-align: center;
+        margin-bottom: var(--space-10);
+    }
+
+    .tech-title {
+        font-size: clamp(2.25rem, 3vw, 3.25rem);
+        font-weight: var(--font-weight-bold);
+        color: var(--text-primary);
+    }
+
+    .tech-subtitle {
+        color: var(--text-secondary);
+        font-size: var(--text-lg);
+        max-width: 720px;
+        margin: var(--space-3) auto 0;
+    }
+
+    .testimonials-wrap {
+        margin-top: var(--space-16);
+        background: linear-gradient(135deg, rgba(18, 21, 25, 0.85) 0%, rgba(18, 21, 25, 0.5) 100%);
+        border-radius: var(--radius-2xl);
+        border: 1px solid var(--border-subtle);
+        padding: var(--space-12);
+        box-shadow: var(--shadow-md);
     }
 </style>
 
@@ -88,12 +114,10 @@ const testimonials = Data.data.testimonials;
 <section class="tech d-flex flex-column justify-content-center">
     <div class="open-source pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
         <div class="container pb-4 mb-2 mb-lg-3">
-            <h2 class="h1 text-center text-white">
-                {tech.title}
-            </h2>
-            <p class="text-center mb-0 text-white opacity-70">
-                {tech.desc}
-            </p>
+            <div class="tech-header">
+                <h2 class="tech-title">{tech.title}</h2>
+                <p class="tech-subtitle">{tech.desc}</p>
+            </div>
         </div>
         <div
             class="custom-swiper pb-4"
@@ -127,7 +151,7 @@ const testimonials = Data.data.testimonials;
                 {
                     tech.slider_1.map((card) => (
                         <div class="swiper-slide">
-                            <div class="bg-white rounded-4">
+                            <div class="tech-logo">
                                 <img
                                     class="d-block d-dark-mode-block mx-auto"
                                     src={card}
@@ -173,7 +197,7 @@ const testimonials = Data.data.testimonials;
                 {
                     tech.slider_2.map((card) => (
                         <div class="swiper-slide">
-                            <div class="bg-white rounded-4">
+                            <div class="tech-logo">
                                 <img
                                     class="d-block d-dark-mode-block mx-auto"
                                     src={card}
@@ -189,10 +213,9 @@ const testimonials = Data.data.testimonials;
     </div>
 
     <!-- testimonials -->
-    <div
-        class="container position-relative z-1 py-5 mb-md-3 my-lg-3 my-xl-4 my-xxl-5"
-    >
-        <div class="row py-md-4 py-lg-5">
+    <div class="container position-relative z-1 py-5 mb-md-3 my-lg-3 my-xl-4 my-xxl-5">
+        <div class="testimonials-wrap">
+            <div class="row py-md-4 py-lg-5">
             <div class="col-md-9 col-lg-7 order-md-2">
                 <!-- Swiper slider -->
                 <div
@@ -287,6 +310,7 @@ const testimonials = Data.data.testimonials;
                         <i class="ai-arrow-right"></i>
                     </button>
                 </div>
+            </div>
             </div>
         </div>
     </div>

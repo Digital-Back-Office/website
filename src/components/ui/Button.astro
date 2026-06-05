@@ -1,0 +1,145 @@
+---
+export interface Props {
+  href?: string;
+  variant?: "primary" | "secondary" | "ghost" | "outline";
+  size?: "sm" | "md" | "lg";
+  type?: "button" | "submit" | "reset";
+  class?: string;
+  target?: string;
+  rel?: string;
+  disabled?: boolean;
+}
+
+const {
+  href,
+  variant = "primary",
+  size = "md",
+  type = "button",
+  class: className = "",
+  target,
+  rel,
+  disabled = false
+} = Astro.props;
+
+const classes = [
+  "ui-button",
+  `ui-button--${variant}`,
+  `ui-button--${size}`,
+  className
+]
+  .filter(Boolean)
+  .join(" ");
+
+const relValue = href && target === "_blank" && !rel ? "noopener noreferrer" : rel;
+---
+
+{href ? (
+  <a
+    class={classes}
+    href={href}
+    target={target}
+    rel={relValue}
+    aria-disabled={disabled ? "true" : undefined}
+    tabindex={disabled ? "-1" : undefined}
+  >
+    <slot />
+  </a>
+) : (
+  <button class={classes} type={type} disabled={disabled}>
+    <slot />
+  </button>
+)}
+
+<style>
+  .ui-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      transform var(--motion-fast),
+      box-shadow var(--motion-fast),
+      background-color var(--motion-fast),
+      border-color var(--motion-fast),
+      color var(--motion-fast);
+  }
+
+  .ui-button--primary {
+    background-color: var(--brand-cyan);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ui-button--primary:hover {
+    transform: translateY(-1px);
+    background-color: var(--brand-cyan-hover);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .ui-button--secondary {
+    background-color: var(--bg-surface-elevated);
+    color: var(--text-primary);
+    border-color: var(--border-subtle);
+  }
+
+  .ui-button--secondary:hover {
+    border-color: var(--border-brand);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ui-button--ghost {
+    background-color: transparent;
+    color: var(--text-secondary);
+  }
+
+  .ui-button--ghost:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-glass-hover);
+  }
+
+  .ui-button--outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-brand);
+  }
+
+  .ui-button--outline:hover {
+    background-color: var(--bg-glass-hover);
+  }
+
+  .ui-button--sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .ui-button--md {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+  }
+
+  .ui-button--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-lg);
+  }
+
+  .ui-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(82, 206, 199, 0.3);
+  }
+
+  .ui-button[aria-disabled="true"],
+  .ui-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+</style>

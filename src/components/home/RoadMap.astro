@@ -5,69 +5,97 @@ const Data = await getEntry("home", "home");
 const roadmap = (Data.data as any).roadmap;
 ---
 
-<section
-  style="padding: 5rem 0; background-color: transparent;"
-  data-bs-theme="dark"
->
+<style>
+  .roadmap {
+    padding: var(--space-20) 0;
+  }
+
+  .roadmap-title {
+    text-align: center;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+  }
+
+  .roadmap-title span {
+    color: var(--brand-cyan);
+  }
+
+  .roadmap-subtitle {
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-12);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .roadmap-grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .roadmap-card {
+    position: relative;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-brand);
+    background: linear-gradient(140deg, rgba(82, 206, 199, 0.14) 0%, rgba(82, 206, 199, 0.04) 100%);
+    transition: transform var(--motion-base), box-shadow var(--motion-base), border-color var(--motion-base);
+    height: 100%;
+  }
+
+  .roadmap-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(82, 206, 199, 0.6);
+  }
+
+  .roadmap-icon {
+    margin-bottom: var(--space-5);
+  }
+
+  .roadmap-card h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .roadmap-card p {
+    font-size: var(--text-base);
+    line-height: var(--line-height-base);
+    color: var(--text-secondary);
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .roadmap-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="roadmap" data-bs-theme="dark">
   <div class="container">
-    <h2
-      style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; color: #fff; "
-    >
-      {roadmap?.title_1}
-      <span style="color: #52CEC7;">{roadmap?.title_2}</span>
+    <h2 class="roadmap-title">
+      {roadmap?.title_1} <span>{roadmap?.title_2}</span>
     </h2>
-    <p
-      style="text-align: center; font-size: 1.25rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 4rem; max-width: 900px; margin-left: auto; margin-right: auto;"
-    >
-      {roadmap?.sub_title}
-    </p>
+    <p class="roadmap-subtitle">{roadmap?.sub_title}</p>
 
-    <div class="row g-4">
-      {/** Render roadmap cards from content/home/home.md */}
-      {
-        roadmap?.cards?.map((card: any) => (
-          <div class="col-lg-4">
-            <div
-              style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%); border: 2px solid rgba(82, 206, 199, 0.3); border-radius: 16px; padding: 2.5rem; height: 100%; position: relative; transition: all 0.3s ease;"
-              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)'; this.style.borderColor='rgba(82, 206, 199, 0.6)';"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(82, 206, 199, 0.3)';"
-            >
-              <div style="margin-bottom: 1.5rem;">
-                <img
-                  src={card.icon ?? "/assets/icons/home/readiness.svg"}
-                  alt={card.heading}
-                />
-              </div>
-
-              <h3 style="font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">
-                {card.heading}
-              </h3>
-              <p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 0;">
-                {card.description}
-              </p>
-
-              {roadmap?.cards &&
-                roadmap.cards.indexOf(card) !== roadmap.cards.length - 1 && (
-                  <div
-                    style="position: absolute; top: 50%; right: -20px; transform: translateY(-50%); display: none;"
-                    class="d-lg-block"
-                  >
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#52CEC7"
-                      stroke-width="2"
-                    >
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </div>
-                )}
-            </div>
+    <div class="roadmap-grid">
+      {roadmap?.cards?.map((card: any) => (
+        <div class="roadmap-card">
+          <div class="roadmap-icon">
+            <img src={card.icon ?? "/assets/icons/home/readiness.svg"} alt={card.heading} />
           </div>
-        ))
-      }
+          <h3>{card.heading}</h3>
+          <p>{card.description}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

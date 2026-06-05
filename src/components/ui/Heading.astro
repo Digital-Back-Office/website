@@ -1,0 +1,96 @@
+---
+export interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl";
+  align?: "left" | "center" | "right";
+  class?: string;
+}
+
+const { level = 2, size, align = "left", class: className = "" } = Astro.props;
+
+const sizeMap: Record<number, string> = {
+  1: "5xl",
+  2: "4xl",
+  3: "3xl",
+  4: "2xl",
+  5: "xl",
+  6: "lg"
+};
+
+const resolvedSize = size ?? sizeMap[level];
+const Tag = `h${level}`;
+const classes = [
+  "ui-heading",
+  `ui-heading--${resolvedSize}`,
+  `ui-heading--${align}`,
+  className
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>
+
+<style>
+  .ui-heading {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .ui-heading--left {
+    text-align: left;
+  }
+
+  .ui-heading--center {
+    text-align: center;
+  }
+
+  .ui-heading--right {
+    text-align: right;
+  }
+
+  .ui-heading--xs {
+    font-size: var(--text-xs);
+  }
+
+  .ui-heading--sm {
+    font-size: var(--text-sm);
+  }
+
+  .ui-heading--md {
+    font-size: var(--text-base);
+  }
+
+  .ui-heading--lg {
+    font-size: var(--text-lg);
+  }
+
+  .ui-heading--xl {
+    font-size: var(--text-xl);
+  }
+
+  .ui-heading--2xl {
+    font-size: var(--text-2xl);
+  }
+
+  .ui-heading--3xl {
+    font-size: var(--text-3xl);
+  }
+
+  .ui-heading--4xl {
+    font-size: var(--text-4xl);
+  }
+
+  .ui-heading--5xl {
+    font-size: var(--text-5xl);
+  }
+
+  .ui-heading--6xl {
+    font-size: var(--text-6xl);
+  }
+</style>

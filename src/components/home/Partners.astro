@@ -6,19 +6,79 @@ const partners = Data.data.partners;
 
 ---
 
-<section style="padding: 60px 0; background-color: transparent;" data-bs-theme="dark">
+<style>
+	.partners {
+		padding: var(--space-16) 0;
+	}
+
+	.partners-title {
+		text-align: center;
+		font-size: var(--text-3xl);
+		font-weight: var(--font-weight-bold);
+		margin-bottom: var(--space-12);
+		color: var(--text-primary);
+	}
+
+	.partners-grid {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--space-6);
+	}
+
+	.partner-card {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--bg-surface);
+		border: 1px solid var(--border-subtle);
+		border-radius: var(--radius-lg);
+		padding: var(--space-3) var(--space-5);
+		box-shadow: var(--shadow-sm);
+		transition: border-color var(--motion-fast), box-shadow var(--motion-fast), transform var(--motion-fast);
+	}
+
+	.partner-card:hover {
+		border-color: var(--border-brand);
+		box-shadow: var(--shadow-glow);
+		transform: translateY(-2px);
+	}
+
+	.partner-logo {
+		height: 50px;
+		width: auto;
+		object-fit: contain;
+		opacity: 0.85;
+		transition: opacity var(--motion-fast);
+	}
+
+	.partner-card:hover .partner-logo {
+		opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+		.partners {
+			padding: var(--space-12) 0;
+		}
+
+		.partners-title {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>
+
+<section class="partners" data-bs-theme="dark">
 	<div class="container">
-		<h2 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 3rem; color: #fff;">
+		<h2 class="partners-title">
 			{partners.title}
 		</h2>
-		<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem;">
-			{
-				partners.images.map((image) => (
-					<div style="flex: 0 1 auto; display: flex; align-items: center; justify-content: center; background-color: #fff; border-radius: 12px; padding: 1rem 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-						<img src={image.src} alt={image.name} style="height: 50px; width: auto; object-fit: contain; opacity: 0.8; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
-					</div>
-				))
-			}
+		<div class="partners-grid">
+			{partners.images.map((image) => (
+				<div class="partner-card">
+					<img class="partner-logo" src={image.src} alt={image.name} />
+				</div>
+			))}
 		</div>
 	</div>
 </section>

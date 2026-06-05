@@ -1,0 +1,54 @@
+---
+export interface Props {
+  variant?: "brand" | "subtle" | "outline";
+  size?: "sm" | "md";
+  class?: string;
+}
+
+const { variant = "brand", size = "md", class: className = "" } = Astro.props;
+const classes = ["ui-badge", `ui-badge--${variant}`, `ui-badge--${size}`, className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<span class={classes}>
+  <slot />
+</span>
+
+<style>
+  .ui-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.02em;
+  }
+
+  .ui-badge--brand {
+    background-color: var(--brand-cyan);
+    color: var(--text-inverse);
+  }
+
+  .ui-badge--subtle {
+    background-color: var(--bg-glass);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .ui-badge--outline {
+    background-color: transparent;
+    color: var(--brand-cyan);
+    border: 1px solid var(--border-brand);
+  }
+
+  .ui-badge--sm {
+    font-size: var(--text-xs);
+  }
+
+  .ui-badge--md {
+    font-size: var(--text-sm);
+  }
+</style>

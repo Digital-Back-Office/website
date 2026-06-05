@@ -1,0 +1,56 @@
+---
+export interface Props {
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "fluid";
+  class?: string;
+}
+
+const { size = "xl", class: className = "" } = Astro.props;
+const classes = ["ui-container", `ui-container--${size}`, className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div class={classes}>
+  <slot />
+</div>
+
+<style>
+  .ui-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  .ui-container--sm {
+    max-width: var(--container-sm);
+  }
+
+  .ui-container--md {
+    max-width: var(--container-md);
+  }
+
+  .ui-container--lg {
+    max-width: var(--container-lg);
+  }
+
+  .ui-container--xl {
+    max-width: var(--container-xl);
+  }
+
+  .ui-container--2xl {
+    max-width: var(--container-2xl);
+  }
+
+  .ui-container--fluid {
+    max-width: none;
+  }
+
+  @media (max-width: 768px) {
+    .ui-container {
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+  }
+</style>
