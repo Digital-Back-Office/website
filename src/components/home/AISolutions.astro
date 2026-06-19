@@ -1,58 +1,110 @@
 ---
 import { getEntry } from "astro:content"
+import Button from "../ui/Button.astro";
+import "../../styles/ai-solutions.css";
 
 const Data = await getEntry("home", "home");
 const ai_solutions = Data.data.ai_solutions;
-
 ---
 
-<style>
-	@media (max-width: 768px) {
-		.cta {
-			font-size: 1rem !important;
-			padding: 0.875rem 2rem !important;
-		}
-	}
-</style>
-
 <!-- AI Solutions Showcase Section -->
-<section style="padding: 5rem 0;">
+<section class="ai-solutions-section">
 	<div class="container">
-		<div class="text-center mb-5">
-			<div style="display: inline-block; background-color: rgba(82, 206, 199, 0.02); border-radius: 50px; padding: 0.5rem 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgba(82, 206, 199, 0.3);">
-				<span style="font-size: 0.875rem; font-weight: 600; color: #52CEC7; letter-spacing: 0.5px; text-transform: uppercase;">Our Expertise</span>
+		<div class="solutions-header">
+			<div class="expertise-badge">
+				<span class="expertise-badge-text">Our Expertise</span>
 			</div>
-			<h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem;">
+			<h2 class="solutions-title">
 				{ai_solutions.title}
 			</h2>
-			<p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">
+			<p class="solutions-subtitle">
 				{ai_solutions.sub_title}
 			</p>
 		</div>
 
-		<div class="row g-4">
+		<div class="row g-4 solutions-grid">
 			{ai_solutions.cards?.map((card: any) => (
 				<div class="col-lg-3 col-md-6">
-					<a href={card.link ?? `/services/ai-solutions#${card.id ?? ""}`} style="text-decoration: none; display: block; height: 100%;">
-						<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
-							<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
+					<a href={card.link ?? `/services/ai-solutions#${card.id ?? ""}`} class="solution-card-link">
+						<div class="solution-card">
+							<div class="card-glow-layer"></div>
 
-							<div style="position: relative; z-index: 1;">
-								<div style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-									<img src={card.icon ?? "/assets/icons/home/startegy.svg"} alt={card.alt} style="width: 48px; height: 48px;" />
+							<div class="card-inner">
+								<div class="icon-box">
+									{card.id === 'ai-strategy' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<circle cx="12" cy="12" r="10"></circle>
+											<circle cx="12" cy="12" r="6"></circle>
+											<circle cx="12" cy="12" r="2"></circle>
+											<line x1="12" y1="2" x2="12" y2="22"></line>
+											<line x1="2" y1="12" x2="22" y2="12"></line>
+										</svg>
+									)}
+									{card.id === 'custom-ai-agents' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<rect x="4" y="4" width="16" height="16" rx="2"></rect>
+											<rect x="9" y="9" width="6" height="6"></rect>
+											<path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"></path>
+										</svg>
+									)}
+									{card.id === 'rag-implementation' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M4 22V4c0-.5.2-1 .6-1.4C5 2.2 5.5 2 6 2h12c.5 0 1 .2 1.4.6.4.4.6.9.6 1.4v18l-8-4-8 4z"></path>
+											<circle cx="12" cy="9" r="3"></circle>
+											<line x1="14.2" y1="11.2" x2="17" y2="14"></line>
+										</svg>
+									)}
+									{card.id === 'agentic-workflows' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<rect x="3" y="3" width="6" height="6" rx="1"></rect>
+											<rect x="15" y="3" width="6" height="6" rx="1"></rect>
+											<rect x="9" y="15" width="6" height="6" rx="1"></rect>
+											<path d="M6 9v3a2 2 0 0 0 2 2h1M18 9v3a2 2 0 0 1-2 2h-1M12 15V12"></path>
+										</svg>
+									)}
+									{card.id === 'responsible-ai' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+											<path d="m9 12 2 2 4-4"></path>
+										</svg>
+									)}
+									{card.id === 'machine-learning' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M21 21H3V3"></path>
+											<circle cx="7" cy="14" r="1.5"></circle>
+											<circle cx="11" cy="10" r="1.5"></circle>
+											<circle cx="16" cy="12" r="1.5"></circle>
+											<circle cx="20" cy="6" r="1.5"></circle>
+											<path d="m5 16 5-5 5 2 5-8" stroke-dasharray="3 3"></path>
+										</svg>
+									)}
+									{card.id === 'generative-ai' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+											<path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5Z" opacity="0.6"></path>
+											<path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1Z" opacity="0.6"></path>
+										</svg>
+									)}
+									{card.id === 'ai-platforms' && (
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+											<polyline points="2 17 12 22 22 17"></polyline>
+											<polyline points="2 12 12 17 22 12"></polyline>
+										</svg>
+									)}
 								</div>
 
-								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">
+								<h3 class="card-heading">
 									{card.heading}
 								</h3>
 
-								<p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
+								<p class="card-desc">
 									{card.description}
 								</p>
 
-								<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
-									<span style="font-size: 0.875rem;">Learn more</span>
-									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<div class="learn-more-link">
+									<span>Learn more</span>
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 										<line x1="5" y1="12" x2="19" y2="12"></line>
 										<polyline points="12 5 19 12 12 19"></polyline>
 									</svg>
@@ -65,18 +117,14 @@ const ai_solutions = Data.data.ai_solutions;
 		</div>
 
 		<!-- CTA Section -->
-		<div class="text-center mt-5 pt-4">
-			<a href="/services/ai-solutions" 
-				style="display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.125rem; padding: 1rem 2.5rem; font-weight: 600; background-color: #52CEC7; color: var(--text-inverse); transition: all 0.3s ease; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 16px rgba(82, 206, 199, 0.3);" 
-				class="cta" 
-				onmouseover="this.style.backgroundColor='var(--bg-base)'; this.style.border='1px solid rgba(82, 206, 199, 0.4)'; this.style.color='var(--brand-cyan)'" 
-				onmouseout="this.style.backgroundColor='#52CEC7'; this.style.border='0px solid rgba(82, 206, 199, 0.4)'; this.style.color='var(--text-inverse)'">
-				{ai_solutions.cta_text}
-				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<div class="cta-wrapper">
+			<Button href="/services/ai-solutions" variant="primary" size="lg">
+				<span>{ai_solutions.cta_text}</span>
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
 					<line x1="5" y1="12" x2="19" y2="12"></line>
 					<polyline points="12 5 19 12 12 19"></polyline>
 				</svg>
-			</a>
+			</Button>
 		</div>
 	</div>
 </section>

@@ -1,0 +1,285 @@
+/* Features Bento Grid Dark Styles */
+.features {
+    position: relative;
+    padding: var(--space-20) 0;
+    background-color: #0b0f19;
+    overflow: hidden;
+}
+
+.features-glow-left {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(82, 206, 199, 0.06) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.features-glow-right {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(82, 206, 199, 0.04) 0%, transparent 70%);
+    filter: blur(70px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.features-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--space-16);
+    position: relative;
+    z-index: 2;
+}
+
+.features-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(48, 186, 186, 0.08);
+    border: 1px solid rgba(48, 186, 186, 0.25);
+    border-radius: var(--radius-full);
+    padding: 0.35rem 0.95rem;
+    margin-bottom: var(--space-4);
+}
+
+.features-badge-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--brand-teal-alt);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.features-title {
+    font-size: clamp(2.2rem, 4vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+}
+
+.features-desc {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+}
+
+.features-title-box {
+    margin-bottom: var(--space-8);
+}
+
+/* Bento Grid Setup */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    position: relative;
+    z-index: 2;
+}
+
+.bento-card {
+    background-color: rgba(15, 20, 28, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    transition: 
+        border-color var(--motion-base), 
+        box-shadow var(--motion-base), 
+        background-color var(--motion-base);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bento-card:hover {
+    border-color: rgba(48, 186, 186, 0.38);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    background-color: rgba(15, 20, 28, 0.85);
+}
+
+/* Colspan configurations */
+.span-2 {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.span-1 {
+    grid-column: span 1;
+}
+
+.card-glow-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, rgba(82, 206, 199, 0.03) 0%, transparent 60%);
+    opacity: 0.4;
+    pointer-events: none;
+    transition: opacity var(--motion-base);
+}
+
+.bento-card:hover .card-glow-glow {
+    opacity: 0.9;
+}
+
+.card-text-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Icon box inside Bento */
+.bento-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-5);
+    color: rgba(255, 255, 255, 0.65);
+    transition: 
+        background var(--motion-base), 
+        border-color var(--motion-base),
+        color var(--motion-base);
+}
+
+.bento-card:hover .bento-icon-box {
+    background: rgba(48, 186, 186, 0.1);
+    border-color: rgba(48, 186, 186, 0.35);
+    color: var(--brand-teal-alt);
+}
+
+.card-title-text {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.01em;
+}
+
+.card-desc-text {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Mini visual graphics for span-2 cards */
+.card-visual-side {
+    width: 140px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-left: 1px dashed rgba(255, 255, 255, 0.06);
+    padding-left: var(--space-6);
+}
+
+/* Visuals: Curve graph */
+.mini-curve-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.curve-dot {
+    animation: curveDotPulse 2s infinite ease-in-out;
+}
+
+@keyframes curveDotPulse {
+    0%, 100% { r: 3px; opacity: 0.6; }
+    50% { r: 4.5px; opacity: 1; }
+}
+
+/* Visuals: Connected stacked layers */
+.mini-layers-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100px;
+}
+
+.mini-layer {
+    height: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: monospace;
+    transition: all var(--motion-base);
+}
+
+.bento-card:hover .mini-layer.active {
+    border-color: var(--brand-teal-alt);
+    background: rgba(48, 186, 186, 0.08);
+    color: var(--brand-teal-alt);
+}
+
+/* Visuals: Connected loop network */
+.mini-loop-svg {
+    width: 80px;
+    height: 80px;
+    overflow: visible;
+}
+
+.loop-path {
+    stroke-dasharray: 8 8;
+    animation: loopFlow 12s linear infinite;
+}
+
+@keyframes loopFlow {
+    to {
+        stroke-dashoffset: -100;
+    }
+}
+
+/* Mobile responsive layouts */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .span-2 {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .span-2 {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-5);
+    }
+    
+    .card-visual-side {
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 1px dashed rgba(255, 255, 255, 0.06);
+        padding-left: 0;
+        padding-top: var(--space-4);
+        justify-content: flex-start;
+    }
+}

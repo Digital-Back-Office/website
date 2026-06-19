@@ -1,101 +1,66 @@
 ---
 import { getEntry } from "astro:content";
+import "../../styles/roadmap.css";
 
 const Data = await getEntry("home", "home");
 const roadmap = (Data.data as any).roadmap;
 ---
 
-<style>
-  .roadmap {
-    padding: var(--space-20) 0;
-  }
-
-  .roadmap-title {
-    text-align: center;
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-4);
-    color: var(--text-primary);
-  }
-
-  .roadmap-title span {
-    color: var(--brand-cyan);
-  }
-
-  .roadmap-subtitle {
-    text-align: center;
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    margin-bottom: var(--space-12);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .roadmap-grid {
-    display: grid;
-    gap: var(--space-6);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .roadmap-card {
-    position: relative;
-    padding: var(--space-8);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border-brand);
-    background: linear-gradient(140deg, rgba(82, 206, 199, 0.14) 0%, rgba(82, 206, 199, 0.04) 100%);
-    transition: transform var(--motion-base), box-shadow var(--motion-base), border-color var(--motion-base);
-    height: 100%;
-  }
-
-  .roadmap-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-glow);
-    border-color: rgba(82, 206, 199, 0.6);
-  }
-
-  .roadmap-icon {
-    margin-bottom: var(--space-5);
-  }
-
-  .roadmap-card h3 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-4);
-  }
-
-  .roadmap-card p {
-    font-size: var(--text-base);
-    line-height: var(--line-height-base);
-    color: var(--text-secondary);
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 1024px) {
-    .roadmap-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
-<section class="roadmap" >
+<section class="roadmap">
   <div class="container">
     <h2 class="roadmap-title">
       {roadmap?.title_1} <span>{roadmap?.title_2}</span>
     </h2>
     <p class="roadmap-subtitle">{roadmap?.sub_title}</p>
 
-    <div class="roadmap-grid">
-      {roadmap?.cards?.map((card: any) => (
-        <div class="roadmap-card">
-          <div class="roadmap-icon">
-            <img src={card.icon ?? "/assets/icons/home/readiness.svg"} alt={card.heading} />
+    <div class="roadmap-timeline">
+      <div class="timeline-trunk">
+        <div class="timeline-trunk-pulse"></div>
+      </div>
+
+      {roadmap?.cards?.map((card: any, index: number) => {
+        const isLeft = index % 2 === 0;
+        return (
+          <div class={`timeline-row ${isLeft ? 'row-left' : 'row-right'}`}>
+            <!-- Central Node -->
+            <div class="timeline-node">
+              <span class="node-num">{`0${index + 1}`}</span>
+              <div class="node-pulse"></div>
+            </div>
+            
+            <!-- Card wrapper -->
+            <div class="timeline-card-wrapper">
+              <div class="roadmap-card">
+                <div class="roadmap-icon">
+                  {index === 0 && (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="9" y1="9" x2="15" y2="9"></line>
+                      <line x1="9" y1="13" x2="15" y2="13"></line>
+                      <line x1="9" y1="17" x2="13" y2="17"></line>
+                    </svg>
+                  )}
+                  {index === 1 && (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                  )}
+                  {index === 2 && (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                      <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                  )}
+                </div>
+                
+                <h3>{card.heading}</h3>
+                <p>{card.description}</p>
+              </div>
+            </div>
           </div>
-          <h3>{card.heading}</h3>
-          <p>{card.description}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>

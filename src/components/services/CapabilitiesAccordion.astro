@@ -9,64 +9,52 @@ interface Props {
 }
 
 const { capabilities } = Astro.props;
+const techCapabilities = capabilities.slice(0, 3);
+const aiCapabilities = capabilities.slice(3);
 ---
 
-<section class="container py-5 my-sm-2 my-md-4 my-lg-5">
-  <h2
-    class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto"
-    style="max-width: 50rem; margin-bottom:3rem;"
-  >
-    <span><span>Technical Capabilities</span> & Enabling Platform</span>
-  </h2>
+<section class="capabilities-section container py-5 my-sm-2 my-md-4 my-lg-5">
+  <div class="capabilities-inner">
+    <h2 class="capabilities-main-title text-center mx-auto">
+      <span>Technical Capabilities</span> & Enabling Platform
+    </h2>
 
-  <div
-    class="accordion"
-    id="capabilitiesAccordion"
-    style="max-width: 900px; margin: 0 auto;"
-  >
-    {
-      capabilities.map((item, idx) => (
-        <>
-          {idx === 3 && (
-            <h3
-              class="text-center mt-5 mb-4"
-              style="font-size: 2.5rem; font-weight: 600;"
-            >
-              <span>Responsible AI</span> and Governance
-            </h3>
-          )}
-          <div
-            class="accordion-item"
-            style="background-color: rgba(0,0,0,1%); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1rem;"
-          >
-            <h3 class="accordion-header"> 
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target={`#collapse${idx + 1}`}
-                aria-expanded="false"
-                aria-controls={`collapse${idx + 1}`}
-                style="background-color: rgba(0,0,0,1%); font-size: 1.25rem; font-weight: 600; padding: 1.25rem 1.5rem;"
-              >
-                {item.heading}
-              </button>
-            </h3>
-            <div
-              id={`collapse${idx + 1}`}
-              class="accordion-collapse collapse"
-              data-bs-parent="#capabilitiesAccordion"
-            >
-              <div
-                class="accordion-body"
-                style="padding: 1.5rem; line-height: 1.7;"
-              >
-                {item.text}
-              </div>
+    <div class="capabilities-grid mb-5 pb-3">
+      {
+        techCapabilities.map((item, idx) => (
+          <div class="capability-card">
+            <div class="capability-card-glow"></div>
+            <div class="capability-header">
+              <span class="capability-number">0{idx + 1}</span>
             </div>
+            <h3 class="capability-title">{item.heading}</h3>
+            <p class="capability-text">{item.text}</p>
           </div>
-        </>
-      ))
-    }
+        ))
+      }
+    </div>
+
+    {aiCapabilities.length > 0 && (
+      <>
+        <h2 class="capabilities-main-title text-center mx-auto mt-5 pt-4">
+          <span>Responsible AI</span> and Governance
+        </h2>
+
+        <div class="capabilities-grid">
+          {
+            aiCapabilities.map((item, idx) => (
+              <div class="capability-card">
+                <div class="capability-card-glow"></div>
+                <div class="capability-header">
+                  <span class="capability-number">0{idx + 4}</span>
+                </div>
+                <h3 class="capability-title">{item.heading}</h3>
+                <p class="capability-text">{item.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </>
+    )}
   </div>
 </section>

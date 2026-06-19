@@ -6,14 +6,90 @@ const mission = Data.data.mission;
 ---
 
 <style>
-    /* Removed min-height: 100vh to reduce spacing */
+    .flow-line-1, .flow-line-2, .flow-line-3, .flow-line-4 {
+        stroke-dasharray: 12 30;
+        animation: svgFlow 3s infinite linear;
+    }
+    @keyframes svgFlow {
+        to { stroke-dashoffset: -42; }
+    }
+    .about-svg-graphic {
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
+    }
+    .mission-svg {
+        background-color: #ffffff;
+        border-radius: 16px;
+        display: block;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+    }
 </style>
 
 <section class="mission d-flex align-items-center">
     <div class="container py-5 my-5">
         <article class="row align-items-center justify-content-center">
             <div class="col-md-5 col-8 order-2 d-flex offset-xl-2 offset-md-1">
-                <img src={mission.img} alt="Enterprise Intelligence" />
+                <div class="about-svg-graphic">
+                    <svg width="100%" height="320" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="mission-svg">
+                        <!-- Background Grid -->
+                        <defs>
+                            <pattern id="grid-mission" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(15, 23, 42, 0.03)" stroke-width="1"/>
+                            </pattern>
+                            <linearGradient id="coreGlowMission" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="var(--brand-cyan)"/>
+                                <stop offset="100%" stop-color="#2fb7b8"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid-mission)" rx="16" />
+                        <rect width="100%" height="100%" stroke="rgba(15, 23, 42, 0.05)" stroke-width="1.5" fill="none" rx="16" />
+
+                        <!-- Connection Paths -->
+                        <path d="M80,100 Q150,100 200,160" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                        <path d="M80,160 L200,160" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                        <path d="M80,220 Q150,220 200,160" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                        <path d="M200,160 L320,160" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+
+                        <!-- Animated Flow lines -->
+                        <path class="flow-line-1" d="M80,100 Q150,100 200,160" stroke="var(--brand-cyan)" stroke-width="2" fill="none"/>
+                        <path class="flow-line-2" d="M80,160 L200,160" stroke="var(--brand-cyan)" stroke-width="2" fill="none"/>
+                        <path class="flow-line-3" d="M80,220 Q150,220 200,160" stroke="var(--brand-cyan)" stroke-width="2" fill="none"/>
+                        <path class="flow-line-4" d="M200,160 L320,160" stroke="var(--brand-cyan)" stroke-width="2" fill="none"/>
+
+                        <!-- Input Nodes (Raw Data) -->
+                        <circle cx="80" cy="100" r="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <circle cx="80" cy="100" r="4" fill="var(--brand-cyan)"/>
+                        <circle cx="80" cy="160" r="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <circle cx="80" cy="160" r="4" fill="var(--brand-cyan)"/>
+                        <circle cx="80" cy="220" r="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <circle cx="80" cy="220" r="4" fill="var(--brand-cyan)"/>
+
+                        <!-- Processor Core (Enterprise AI) -->
+                        <circle cx="200" cy="160" r="32" fill="rgba(48, 186, 186, 0.08)" stroke="var(--brand-cyan)" stroke-width="1.5">
+                            <animate attributeName="r" values="24;36;24" dur="3s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.9;0.2;0.9" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="200" cy="160" r="22" fill="url(#coreGlowMission)" stroke="#ffffff" stroke-width="2"/>
+                        <!-- Core CPU/Brain icon in core -->
+                        <path d="M194,154 H206 V166 H194 Z" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M197,151 V154 M203,151 V154 M209,157 H206 M209,163 H206 M203,169 V166 M197,169 V166 M191,163 H194 M191,157 H194" stroke="#ffffff" stroke-width="1" stroke-linecap="round"/>
+
+                        <!-- Output Widget (Strategic Insights) -->
+                        <g transform="translate(290, 115)">
+                            <rect width="70" height="90" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+                            <!-- Bar Chart inside -->
+                            <rect x="15" y="60" width="8" height="20" rx="1" fill="#cbd5e1" />
+                            <rect x="27" y="45" width="8" height="35" rx="1" fill="var(--brand-cyan)" />
+                            <rect x="39" y="30" width="8" height="50" rx="1" fill="#cbd5e1" />
+                            <rect x="51" y="55" width="8" height="25" rx="1" fill="var(--brand-cyan)" />
+                            <circle cx="15" cy="20" r="3" fill="var(--brand-cyan)" />
+                            <line x1="22" y1="20" x2="55" y2="20" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" />
+                        </g>
+                    </svg>
+                </div>
             </div>
             <div class="col-md-6 col-xl-5 order-1 mb-5 mb-md-0">
                 <div class="fs-sm mb-2">DIGITAL BACK OFFICE</div>

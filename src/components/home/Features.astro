@@ -1,116 +1,117 @@
 ---
 import { getEntry } from "astro:content";
+import "../../styles/features.css";
 
 const Data = await getEntry("home", "home");
 const features = Data.data.features;
 const cards = features.cards;
 ---
 
-<style>
-    .features {
-        position: relative;
-        padding: var(--space-20) 0;
-        background-image: url(/assets/images/home/star_links.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .features::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            180deg,
-            rgba(18, 21, 25, 0.95) 0%,
-            rgba(18, 21, 25, 0.8) 50%,
-            rgba(18, 21, 25, 0.95) 100%
-        );
-    }
-
-    .features-inner {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
-        gap: var(--space-12);
-        align-items: start;
-    }
-
-    .features-title {
-        font-size: clamp(2.25rem, 3vw, 3rem);
-        font-weight: var(--font-weight-bold);
-        color: var(--bg-base);
-        margin-bottom: var(--space-4);
-    }
-
-    .faq-list {
-        display: grid;
-        gap: var(--space-4);
-    }
-
-    .faq-item {
-        border-radius: var(--radius-xl);
-        border: 1px solid var(--border-subtle);
-        background-color: rgba(18, 21, 25, 0.9);
-        padding: var(--space-5) var(--space-6);
-        transition: border-color var(--motion-fast), box-shadow var(--motion-fast);
-    }
-
-    .faq-item[open] {
-        border-color: var(--border-brand);
-        box-shadow: var(--shadow-glow);
-    }
-
-    .faq-question {
-        cursor: pointer;
-        font-size: var(--text-lg);
-        font-weight: var(--font-weight-medium);
-        color: var(--bg-base);
-        list-style: none;
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-    }
-
-    .faq-question::-webkit-details-marker {
-        display: none;
-    }
-
-    .faq-icon {
-        width: 32px;
-        height: 32px;
-    }
-
-    .faq-answer {
-        margin-top: var(--space-3);
-        color: var(--bg-glass);
-        line-height: var(--line-height-base);
-    }
-
-    @media (max-width: 1024px) {
-        .features-inner {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-
 <section class="features">
+    <div class="features-glow-left"></div>
+    <div class="features-glow-right"></div>
+    
     <div class="container">
         <div class="features-inner">
-            <div>
+            <div class="features-title-box">
+                <div class="features-badge">
+                    <span class="features-badge-text">Operational Barriers</span>
+                </div>
                 <h2 class="features-title">{features.title}</h2>
+                <p class="features-desc">Unblocking standard friction points in analytics pipelines, data engineering projects, and machine learning deployments.</p>
             </div>
-            <div class="faq-list">
-                {cards.map((card) => (
-                    <details class="faq-item">
-                        <summary class="faq-question">
-                            <img class="faq-icon" src={card.img} alt={card.alt} />
-                            {card.title}
-                        </summary>
-                        <p class="faq-answer">{card.info}</p>
-                    </details>
-                ))}
+            
+            <div class="bento-grid">
+                {cards.map((card, index) => {
+                    const isSpan2 = index === 0 || index === 3 || index === 4;
+                    return (
+                        <div class={`bento-card ${isSpan2 ? 'span-2' : 'span-1'}`}>
+                            <div class="card-glow-glow"></div>
+                            <div class="card-text-side">
+                                <div class="bento-icon-box">
+                                    {index === 0 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                    )}
+                                    {index === 1 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                                            <line x1="2" y1="10" x2="22" y2="10"></line>
+                                            <line x1="6" y1="15" x2="10" y2="15"></line>
+                                        </svg>
+                                    )}
+                                    {index === 2 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                            <circle cx="12" cy="11" r="1.5"></circle>
+                                            <path d="M12 12.5V15"></path>
+                                        </svg>
+                                    )}
+                                    {index === 3 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="4" y1="21" x2="4" y2="14"></line>
+                                            <line x1="4" y1="10" x2="4" y2="3"></line>
+                                            <line x1="12" y1="21" x2="12" y2="12"></line>
+                                            <line x1="12" y1="8" x2="12" y2="3"></line>
+                                            <line x1="20" y1="21" x2="20" y2="16"></line>
+                                            <line x1="20" y1="12" x2="20" y2="3"></line>
+                                            <line x1="2" y1="14" x2="6" y2="14"></line>
+                                            <line x1="10" y1="8" x2="14" y2="8"></line>
+                                            <line x1="18" y1="16" x2="22" y2="16"></line>
+                                        </svg>
+                                    )}
+                                    {index === 4 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="23 4 23 10 17 10"></polyline>
+                                            <polyline points="1 20 1 14 7 14"></polyline>
+                                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                        </svg>
+                                    )}
+                                    {index === 5 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <polyline points="16 11 18 13 22 9"></polyline>
+                                        </svg>
+                                    )}
+                                </div>
+                                <h3 class="card-title-text">{card.title}</h3>
+                                <p class="card-desc-text">{card.info}</p>
+                            </div>
+                            
+                            {isSpan2 && (
+                                <div class="card-visual-side">
+                                    {index === 0 && (
+                                        <svg class="mini-curve-svg" viewBox="0 0 100 60">
+                                            <path d="M5,50 Q25,45 45,30 T85,15" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"></path>
+                                            <path d="M5,50 Q25,45 45,30 T85,15" fill="none" stroke="var(--brand-teal-alt)" stroke-width="2"></path>
+                                            <circle cx="85" cy="15" r="4" fill="var(--brand-teal-alt)" class="curve-dot"></circle>
+                                        </svg>
+                                    )}
+                                    {index === 3 && (
+                                        <div class="mini-layers-stack">
+                                            <div class="mini-layer">App Layer</div>
+                                            <div class="mini-layer active">Model Engine</div>
+                                            <div class="mini-layer">Data Pipeline</div>
+                                        </div>
+                                    )}
+                                    {index === 4 && (
+                                        <svg class="mini-loop-svg" viewBox="0 0 80 80">
+                                            <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"></circle>
+                                            <circle cx="40" cy="40" r="30" fill="none" stroke="var(--brand-teal-alt)" stroke-width="2" class="loop-path"></circle>
+                                            <circle cx="40" cy="10" r="3" fill="var(--brand-teal-alt)"></circle>
+                                            <circle cx="70" cy="40" r="3" fill="var(--brand-teal-alt)"></circle>
+                                            <circle cx="40" cy="70" r="3" fill="var(--brand-teal-alt)"></circle>
+                                            <circle cx="10" cy="40" r="3" fill="var(--brand-teal-alt)"></circle>
+                                        </svg>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    );
+                })}
             </div>
         </div>
     </div>

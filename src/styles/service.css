@@ -222,3 +222,120 @@
     font-size: 1rem !important;
   }
 }
+
+/* ===== Capabilities Grid Section ===== */
+.capabilities-section {
+  position: relative;
+  z-index: 2;
+}
+
+.capabilities-main-title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3.5rem;
+  max-width: 50rem;
+}
+
+.capabilities-main-title span {
+  background: linear-gradient(135deg, #ffffff 40%, var(--brand-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.capability-card {
+  position: relative;
+  background-color: rgba(15, 20, 28, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: 
+    border-color var(--motion-base),
+    background-color var(--motion-base),
+    box-shadow var(--motion-base);
+}
+
+.capability-card-glow {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(82, 206, 199, 0.02) 0%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-base);
+}
+
+.capability-card:hover {
+  border-color: rgba(48, 186, 186, 0.35);
+  background-color: rgba(15, 20, 28, 0.75);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.capability-card:hover .capability-card-glow {
+  opacity: 1;
+}
+
+.capability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.capability-number {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-cyan);
+  background: rgba(48, 186, 186, 0.08);
+  border: 1px solid rgba(48, 186, 186, 0.2);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.capability-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.capability-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .capabilities-main-title {
+    margin-bottom: 2.5rem;
+  }
+  
+  .capability-card {
+    padding: 1.75rem 1.5rem;
+  }
+}

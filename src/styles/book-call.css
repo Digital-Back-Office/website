@@ -1,0 +1,220 @@
+/* ===== Book Call Section Premium Styles ===== */
+.book-call-section {
+  position: relative;
+  background-color: var(--bg-base);
+  padding: 8rem 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.book-call-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Centered Header Styles */
+.book-call-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.book-call-title {
+  font-size: clamp(2.3rem, 3.5vw, 2.85rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.book-call-title span {
+  background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-teal-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.book-call-desc {
+  font-size: 1.075rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* Form Container */
+.book-call-form-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.book-call-form-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.book-call-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.book-call-form-group:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.book-call-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.book-call-input,
+.book-call-select {
+  background-color: var(--bg-base);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  color: var(--text-primary);
+  padding: 0.85rem 1.15rem;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: 
+    border-color var(--motion-base),
+    box-shadow var(--motion-base);
+}
+
+.book-call-input:focus,
+.book-call-select:focus {
+  background-color: var(--bg-surface);
+  border-color: var(--brand-cyan);
+  box-shadow: 0 0 0 4px rgba(48, 186, 186, 0.15);
+  outline: none;
+}
+
+.book-call-input::placeholder {
+  color: var(--text-muted);
+}
+
+.book-call-submit-btn {
+  background: linear-gradient(135deg, var(--brand-cyan) 0%, #2fb7b8 100%);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  width: 100%;
+  transition: 
+    opacity var(--motion-base),
+    box-shadow var(--motion-base);
+}
+
+.book-call-submit-btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 8px 20px -4px rgba(48, 186, 186, 0.35);
+}
+
+.book-call-submit-btn:disabled {
+  background: var(--border-strong);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Success Message Container */
+.book-call-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  color: #10b981;
+  margin-bottom: 1.5rem;
+  border: 1px solid #d1fae5;
+}
+
+.success-badge-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2.5;
+}
+
+.success-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.success-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 340px;
+}
+
+.book-another-btn {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: 
+    background-color var(--motion-base),
+    color var(--motion-base),
+    border-color var(--motion-base);
+}
+
+.book-another-btn:hover {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+/* Hide Utility */
+.d-none {
+  display: none !important;
+}
+
+/* Flatpickr Styling Overrides */
+.flatpickr-calendar {
+  border-radius: 16px !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Responsive configurations */
+@media (max-width: 991px) {
+  .book-call-section {
+    padding: 5rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .book-call-form-container {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+}

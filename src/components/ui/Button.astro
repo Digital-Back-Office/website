@@ -66,7 +66,6 @@ const relValue = href && target === "_blank" && !rel ? "noopener noreferrer" : r
     text-decoration: none;
     cursor: pointer;
     transition:
-      transform var(--motion-fast),
       box-shadow var(--motion-fast),
       background-color var(--motion-fast),
       border-color var(--motion-fast),
@@ -80,7 +79,6 @@ const relValue = href && target === "_blank" && !rel ? "noopener noreferrer" : r
   }
 
   .ui-button--primary:hover {
-    transform: translateY(-1px);
     background-color: var(--brand-cyan-hover);
     box-shadow: var(--shadow-glow);
   }
