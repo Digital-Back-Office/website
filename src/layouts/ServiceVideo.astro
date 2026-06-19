@@ -1,11 +1,6 @@
 ---
 import Navbar from "../components/common/Navbar.astro";
 
-export interface Props {
-  src: string;
-}
-
-const { src } = Astro.props;
 import '../styles/container.css'
 ---
 
@@ -55,6 +50,5 @@ import '../styles/container.css'
 </style>
 
 <section class="hero-section">
-
   <slot />
 </section>
