@@ -1,6 +1,5 @@
 ---
-import { getEntry } from "astro:content";
-import Button from "../ui/Button.astro";
+import { getEntry } from "astro:content"
 
 const Data = await getEntry("home", "home");
 const ai_solutions = Data.data.ai_solutions;
@@ -8,188 +7,76 @@ const ai_solutions = Data.data.ai_solutions;
 ---
 
 <style>
-	.ai-section {
-		padding: var(--space-20) 0;
-	}
-
-	.ai-header {
-		text-align: center;
-		margin-bottom: var(--space-12);
-	}
-
-	.ai-eyebrow {
-		display: inline-flex;
-		align-items: center;
-		gap: var(--space-2);
-		padding: var(--space-2) var(--space-4);
-		border-radius: var(--radius-full);
-		border: 1px solid var(--border-brand);
-		background-color: rgba(82, 206, 199, 0.1);
-		color: var(--brand-cyan);
-		font-size: var(--text-sm);
-		font-weight: var(--font-weight-medium);
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-	}
-
-	.ai-title {
-		font-size: clamp(2.25rem, 4vw, 3.5rem);
-		font-weight: var(--font-weight-bold);
-		margin: var(--space-6) 0 var(--space-4);
-		color: var(--text-primary);
-	}
-
-	.ai-subtitle {
-		font-size: var(--text-lg);
-		color: var(--text-secondary);
-		max-width: 820px;
-		margin: 0 auto;
-	}
-
-	.ai-grid {
-		display: grid;
-		gap: var(--space-6);
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-	}
-
-	.ai-card {
-		position: relative;
-		padding: var(--space-6);
-		border-radius: var(--radius-xl);
-		border: 1px solid var(--border-subtle);
-		background: linear-gradient(160deg, rgba(82, 206, 199, 0.08), rgba(82, 206, 199, 0.02));
-		color: var(--text-primary);
-		min-height: 100%;
-		overflow: hidden;
-		transition: transform var(--motion-base), box-shadow var(--motion-base), border-color var(--motion-base);
-	}
-
-	.ai-card::after {
-		content: "";
-		position: absolute;
-		inset: -40% -30% auto auto;
-		width: 240px;
-		height: 240px;
-		background: radial-gradient(circle, rgba(82, 206, 199, 0.25) 0%, transparent 70%);
-		opacity: 0.4;
-	}
-
-	.ai-card:hover {
-		transform: translateY(-6px);
-		border-color: var(--border-brand);
-		box-shadow: var(--shadow-glow);
-	}
-
-	.ai-card-body {
-		position: relative;
-		z-index: 1;
-	}
-
-	.ai-icon {
-		width: 56px;
-		height: 56px;
-		border-radius: var(--radius-md);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: rgba(82, 206, 199, 0.15);
-		margin-bottom: var(--space-5);
-	}
-
-	.ai-card-title {
-		font-size: var(--text-xl);
-		font-weight: var(--font-weight-bold);
-		margin-bottom: var(--space-3);
-	}
-
-	.ai-card-desc {
-		font-size: var(--text-base);
-		line-height: var(--line-height-base);
-		color: var(--text-secondary);
-		margin-bottom: var(--space-6);
-	}
-
-	.ai-card-link {
-		display: inline-flex;
-		align-items: center;
-		gap: var(--space-2);
-		color: var(--brand-cyan);
-		font-weight: var(--font-weight-medium);
-		font-size: var(--text-sm);
-	}
-
-	.ai-grid > a:nth-child(1),
-	.ai-grid > a:nth-child(4) {
-		grid-column: span 2;
-	}
-
-	.ai-cta {
-		margin-top: var(--space-12);
-		display: flex;
-		justify-content: center;
-	}
-
-	@media (max-width: 1200px) {
-		.ai-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		.ai-grid > a:nth-child(1),
-		.ai-grid > a:nth-child(4) {
-			grid-column: span 1;
-		}
-	}
-
 	@media (max-width: 768px) {
-		.ai-section {
-			padding: var(--space-16) 0;
-		}
-
-		.ai-grid {
-			grid-template-columns: 1fr;
+		.cta {
+			font-size: 1rem !important;
+			padding: 0.875rem 2rem !important;
 		}
 	}
 </style>
 
 <!-- AI Solutions Showcase Section -->
-<section class="ai-section" data-bs-theme="dark">
+<section style="padding: 5rem 0;">
 	<div class="container">
-		<div class="ai-header">
-			<div class="ai-eyebrow">Our Expertise</div>
-			<h2 class="ai-title">{ai_solutions.title}</h2>
-			<p class="ai-subtitle">{ai_solutions.sub_title}</p>
+		<div class="text-center mb-5">
+			<div style="display: inline-block; background-color: rgba(82, 206, 199, 0.02); border-radius: 50px; padding: 0.5rem 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgba(82, 206, 199, 0.3);">
+				<span style="font-size: 0.875rem; font-weight: 600; color: #52CEC7; letter-spacing: 0.5px; text-transform: uppercase;">Our Expertise</span>
+			</div>
+			<h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem;">
+				{ai_solutions.title}
+			</h2>
+			<p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">
+				{ai_solutions.sub_title}
+			</p>
 		</div>
 
-		<div class="ai-grid">
+		<div class="row g-4">
 			{ai_solutions.cards?.map((card: any) => (
-				<a
-					href={card.link ?? `/services/ai-solutions#${card.id ?? ""}`}
-					class="text-decoration-none"
-				>
-					<div class="ai-card">
-						<div class="ai-card-body">
-							<div class="ai-icon">
-								<img src={card.icon ?? "/assets/icons/home/startegy.svg"} alt={card.alt} width="36" height="36" />
+				<div class="col-lg-3 col-md-6">
+					<a href={card.link ?? `/services/ai-solutions#${card.id ?? ""}`} style="text-decoration: none; display: block; height: 100%;">
+						<div style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(82, 206, 199, 0.02) 100%); border: 2px solid rgba(82, 206, 199, 0.2); border-radius: 16px; padding: 2rem; height: 100%; transition: all 0.3s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(82, 206, 199, 0.5)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(82, 206, 199, 0.2)'; this.style.boxShadow='none';">
+							<div style="position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%); opacity: 0.3;"></div>
+
+							<div style="position: relative; z-index: 1;">
+								<div style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+									<img src={card.icon ?? "/assets/icons/home/startegy.svg"} alt={card.alt} style="width: 48px; height: 48px;" />
+								</div>
+
+								<h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">
+									{card.heading}
+								</h3>
+
+								<p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
+									{card.description}
+								</p>
+
+								<div style="display: flex; align-items: center; gap: 0.5rem; color: #52CEC7; font-weight: 600;">
+									<span style="font-size: 0.875rem;">Learn more</span>
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<line x1="5" y1="12" x2="19" y2="12"></line>
+										<polyline points="12 5 19 12 12 19"></polyline>
+									</svg>
+								</div>
 							</div>
-							<h3 class="ai-card-title">{card.heading}</h3>
-							<p class="ai-card-desc">{card.description}</p>
-							<span class="ai-card-link">
-								<span>Learn more</span>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<line x1="5" y1="12" x2="19" y2="12"></line>
-									<polyline points="12 5 19 12 12 19"></polyline>
-								</svg>
-							</span>
 						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 			))}
 		</div>
 
-		<div class="ai-cta">
-			<Button href="/services/ai-solutions" size="lg">
+		<!-- CTA Section -->
+		<div class="text-center mt-5 pt-4">
+			<a href="/services/ai-solutions" 
+				style="display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.125rem; padding: 1rem 2.5rem; font-weight: 600; background-color: #52CEC7; color: var(--text-inverse); transition: all 0.3s ease; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 16px rgba(82, 206, 199, 0.3);" 
+				class="cta" 
+				onmouseover="this.style.backgroundColor='var(--bg-base)'; this.style.border='1px solid rgba(82, 206, 199, 0.4)'; this.style.color='var(--brand-cyan)'" 
+				onmouseout="this.style.backgroundColor='#52CEC7'; this.style.border='0px solid rgba(82, 206, 199, 0.4)'; this.style.color='var(--text-inverse)'">
 				{ai_solutions.cta_text}
-			</Button>
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
 		</div>
 	</div>
 </section>

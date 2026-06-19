@@ -1,7 +1,8 @@
 :root {
   color-scheme: dark;
 
-  --font-sans: "Arimo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -44,7 +45,7 @@
   --radius-3xl: 24px;
   --radius-full: 9999px;
 
-  --bg-base: #000000;
+  /* --bg-base: #000000;
   --bg-surface: #0a0a0a;
   --bg-surface-elevated: #121519;
   --bg-contrast: #020609;
@@ -52,10 +53,10 @@
   --bg-glass: rgba(255, 255, 255, 0.03);
   --bg-glass-hover: rgba(255, 255, 255, 0.08);
 
-  --brand-cyan: #52cec7;
+  --brand-cyan: #30baba;
   --brand-cyan-hover: #3ba9a3;
   --brand-teal-strong: #2fb7b8;
-  --brand-teal-alt: #30baba;
+  --brand-teal-alt: #52cec7;
   --brand-teal-deep: #2a9d9d;
   --brand-yellow: #eebf2e;
   --brand-emerald: #448c74;
@@ -73,7 +74,39 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
-  --shadow-glow: 0 0 20px rgba(82, 206, 199, 0.2);
+  --shadow-glow: 0 0 20px rgba(82, 206, 199, 0.2); */
+
+  --bg-base: #f7f9fc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-contrast: #f6f6fa;
+  --bg-muted: rgba(15, 23, 42, 0.06);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-glass-hover: rgba(255, 255, 255, 0.9);
+
+  --brand-cyan: #30baba;
+  --brand-cyan-hover: #2a9d9d;
+  --brand-teal-strong: #2fb7b8;
+  --brand-teal-alt: #52cec7;
+  --brand-teal-deep: #248787;
+  --brand-yellow: #eebf2e;
+  --brand-emerald: #448c74;
+
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.75);
+  --text-tertiary: rgba(15, 23, 42, 0.55);
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.15);
+  --border-brand: rgba(48, 186, 186, 0.25);
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 24px rgba(48, 186, 186, 0.18);
+
 
   --motion-fast: 150ms ease;
   --motion-base: 250ms ease;

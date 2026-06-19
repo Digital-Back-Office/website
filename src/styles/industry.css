@@ -1,11 +1,5 @@
-body {
-    background-image: url(/assets/images/background_pattern.png);
-    background-repeat: repeat;
-    background-attachment: fixed;
-}
 
 .hero-section {
-    background-image: url(/assets/images/background_pattern.png);
     background-repeat: repeat;
     padding: 8rem 0 4rem;
     min-height: 80vh;
@@ -22,12 +16,6 @@ body {
     left: 0;
     width: 100%;
     height: 50%;
-    background: linear-gradient(
-        to bottom,
-        rgba(18, 21, 25, 0) 0%,
-        rgba(18, 21, 25, 0.8) 50%,
-        #121519 100%
-    );
     z-index: 0;
     pointer-events: none;
 }
@@ -48,7 +36,7 @@ body {
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-secondary);
     margin-bottom: 2.5rem;
     max-width: 900px;
 }
@@ -56,7 +44,7 @@ body {
 .trust-line {
     font-size: 2.25rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
     margin-top: 1rem;
     max-width: 1200px;
     text-align: center;
@@ -73,17 +61,17 @@ body {
     font-size: 1.25rem;
     padding: 1rem 2.5rem;
     font-weight: 600;
-    background-color: #2fb7b8;
-    border-color: #2fb7b8;
-    color: #fff;
+    background-color: var(--brand-teal-strong);
+    border-color: var(--brand-teal-strong);
+    color: var(--text-inverse);
     transition: all 0.3s ease;
     border-radius: 50px;
 }
 
 .hero-cta-btn:hover {
     background-color: transparent;
-    border-color: #2fb7b8;
-    color: #2fb7b8;
+    border-color: var(--brand-teal-strong);
+    color: var(--brand-teal-strong);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(47, 183, 184, 0.3);
 }
@@ -97,7 +85,7 @@ body {
     font-size: 2.75rem;
     font-weight: 700;
     line-height: 1.3;
-    color: #fff;
+    color: var(--text-primary);
     margin-bottom: 2rem;
     position: sticky;
     top: 130px;
@@ -111,7 +99,7 @@ body {
 }
 
 .barrier-card {
-    background-color: #0d1b2a;
+    background-color: var(--bg-contrast);
     border-radius: 12px;
     padding: 2.5rem 2rem;
     margin-bottom: 1.5rem;
@@ -121,20 +109,20 @@ body {
 
 .barrier-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(47, 183, 184, 0.15);
+    box-shadow: 0 8px 24px rgba(82, 206, 199, 0.15);
 }
 
 .barrier-title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .barrier-text {
     font-size: 1.125rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     margin-bottom: 0;
 }
 
@@ -146,18 +134,18 @@ body {
 .products-title {
     font-size: 2.75rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
 .products-title span {
-    color: #52CEC7;
+    color: var(--brand-teal-alt);
 }
 
 .products-subtitle {
     font-size: 1.25rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--text-secondary);
     margin-bottom: 3rem;
 }
 
@@ -167,7 +155,7 @@ body {
 }
 
 .nav-tabs .nav-link {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-secondary);
     font-size: 1.25rem;
     font-weight: 600;
     padding: 1rem 2rem;
@@ -178,27 +166,27 @@ body {
 }
 
 .nav-tabs .nav-link:hover {
-    color: rgba(255, 255, 255, 0.9);
-    border-bottom-color: rgba(82, 206, 199, 0.5);
+    color: var(--text-primary);
+    border-bottom-color: var(--brand-teal-alt);
 }
 
 .nav-tabs .nav-link.active {
-    color: #fff;
+    color: var(--brand-cyan-hover);
     background: transparent;
-    border-bottom-color: #52CEC7;
+    border-bottom-color: var(--brand-teal-alt);
 }
 
 .tab-content-heading {
     font-size: 2rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
 }
 
 .tab-content-text {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-secondary);
     max-width: 800px;
 }
 
@@ -207,10 +195,10 @@ body {
 }
 
 .tab-content-box {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: var(--bg-contrast);
     border-radius: 12px;
     padding: 3rem 2.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
 }
 
 .tab-cta-btn {
@@ -218,8 +206,8 @@ body {
     padding: 0.875rem 2rem;
     font-weight: 600;
     background-color: transparent;
-    border: 2px solid #52CEC7;
-    color: #52CEC7;
+    border: 2px solid var(--brand-teal-alt);
+    color: var(--brand-teal-alt);
     transition: all 0.3s ease;
     border-radius: 50px;
     margin-top: 1.5rem;
@@ -228,9 +216,9 @@ body {
 }
 
 .tab-cta-btn:hover {
-    background-color: #52CEC7;
-    border-color: #52CEC7;
-    color: #000;
+    background-color: var(--brand-teal-alt);
+    border-color: var(--brand-teal-alt);
+    color: var(--text-inverse);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(82, 206, 199, 0.3);
 }
@@ -243,25 +231,25 @@ body {
 .why-trust-heading {
     font-size: 2.75rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     text-align: center;
     margin-bottom: 3rem;
 }
 
 .trust-card {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: var(--bg-contrast);
     border-radius: 12px;
     padding: 2.5rem 2rem;
     height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
 }
 
 .trust-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(47, 183, 184, 0.15);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-brand);
 }
-
+    
 .trust-card-icon {
     width: 60px;
     height: 60px;
@@ -276,13 +264,13 @@ body {
 .trust-card-icon svg {
     width: 32px;
     height: 32px;
-    color: #52CEC7;
+    color: var(--brand-teal-alt);
 }
 
 .trust-card-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -290,7 +278,7 @@ body {
 .trust-card-text {
     font-size: 1rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     text-align: center;
 }
 

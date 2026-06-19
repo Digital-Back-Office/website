@@ -47,10 +47,10 @@ const safeIndustries = industries && typeof industries === 'object' ? industries
 
 ---
 
-<section style="padding: 80px 0;" data-bs-theme="dark">
+<section style="padding: 80px 0;">
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">{title}</h2>
-    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 3rem;">{subtitle}</p>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">{subtitle}</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
       {safeCards.map((card) => (
@@ -64,7 +64,7 @@ const safeIndustries = industries && typeof industries === 'object' ? industries
                 <div
                   style={`flex-grow: 1; background-image: url(${card.frontImage}); background-size: 60%; background-position: center; background-repeat: no-repeat;`}
                 ></div>
-                <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff;">{card.title}</h3>
+                <h3 style="font-size: 1.5rem; font-weight: 700; text-align: center; margin: 0; color: #fff; ">{card.title}</h3>
               </div>
             </div>
             <div class="service-card-flip-back" style={`background-color: ${card.backColor};`}>
@@ -80,32 +80,32 @@ const safeIndustries = industries && typeof industries === 'object' ? industries
   </div>
 </section>
 
-<section style="padding: 80px 0;" data-bs-theme="dark">
+<section style="padding: 80px 0;" >
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">{industrySectionTitle}</h2>
-    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 3rem;">{industrySectionSubtitle}</p>
+    <p style="text-align: center; margin-bottom: 3rem;">{industrySectionSubtitle}</p>
 
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
       {safePills.map((pill) => (
         <button
           class={`industry-pill${pill === pills[0] ? ' active-pill' : ''}`}
           data-industry={pill.key}
-          style="padding: 0.5rem 2rem; background-color: rgba(255,255,255,3%); color: rgba(255,255,255,0.8); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;"
+          style="padding: 0.5rem 2rem; background-color: var(--bg-contrast); color: var(--text-secondary); border: 2px solid transparent; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;"
         >
           {pill.label}
         </button>
       ))}
     </div>
 
-    <div style="padding: 2.5rem; background-color: rgba(255,255,255,3%); border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.25);">
+    <div style="padding: 2.5rem; background-color: var(--bg-contrast); border-radius: 20px; box-shadow: var(--shadow-lg)">
       {Object.entries(safeIndustries).map(([key, industry], index) => (
         <div
           id={`industry-${key}`}
           class="industry-content"
           style={`display: ${index === 0 ? 'block' : 'none'};`}
         >
-          <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem; color: #fff;">{industry.title}</h3>
-          <ul style="line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 0; padding-left: 1.5rem;">
+          <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.25rem;">{industry.title}</h3>
+          <ul style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 0; padding-left: 1.5rem;">
             {industry.bullets.map((bullet) => (
               <li style="margin-bottom: 0.75rem;">{bullet}</li>
             ))}

@@ -4,7 +4,7 @@
 
 <style>
   .footer {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(10, 10, 10, 1) 100%);
+    background: var(--bg-base);
     border-top: 1px solid var(--border-subtle);
   }
 
@@ -17,13 +17,14 @@
   }
 
   .footer h6 {
+    color: var(--text-primary);
     letter-spacing: 0.02em;
   }
 </style>
 
 <footer
   class="footer py-5 ui-footer"
-  data-bs-theme="dark"
+  
   data-pagefind-ignore
 >
   <div class="container pt-md-2 pt-lg-3 pt-xl-4">
@@ -36,12 +37,12 @@
             style="width: 110px; height: 50px;"
           />
         </a>
-        <p class="fs-sm pb-2 pb-md-3 mb-3 text-white">
+        <p class="fs-sm pb-2 pb-md-3 mb-3 ">
           We deliver business efficiency; We Love Data!
         </p>
         <div class="d-flex">
           <a
-            class="btn btn-icon btn-sm btn-light btn-x rounded-circle me-3"
+            class="btn btn-icon btn-sm btn-light rounded-circle me-3"
             href="https://x.com/Digital_B_O"
             aria-label="X"
             target="_blank"
@@ -50,7 +51,7 @@
             <i class="ai-x"></i>
           </a>
           <a
-            class="btn btn-icon btn-sm btn-light btn-linkedin rounded-circle me-3"
+            class="btn btn-icon btn-sm btn-light rounded-circle me-3"
             href="https://www.linkedin.com/company/digital-back-office/"
             aria-label="Linkedin"
             target="_blank"
@@ -61,7 +62,7 @@
         </div>
       </div>
       <div class="col-sm-6 col-lg-2 mb-3">
-        <h6 class="text-white fw-semibold">Company</h6>
+        <h6 class=" fw-semibold">Company</h6>
         <ul class="nav flex-column">
           <li>
             <a class="nav-link fw-normal py-1 px-0" href="/about-us" title="About">
@@ -86,7 +87,7 @@
         </ul>
       </div>
       <div class="col-sm-6 col-lg-2 mb-3">
-        <h6 class="text-white fw-semibold">Quick links</h6>
+        <h6 class=" fw-semibold">Quick links</h6>
         <ul class="nav flex-column">
           <li>
             <a class="nav-link fw-normal py-1 px-0" href="/" title="Book a Discovery Call">
@@ -106,7 +107,7 @@
         </ul>
       </div>
       <div class="col-sm-6 col-lg-2 mb-3">
-        <h6 class="text-white fw-semibold">Industries</h6>
+        <h6 class=" fw-semibold">Industries</h6>
         <ul class="nav flex-column">
           <li>
             <a class="nav-link fw-normal py-1 px-0" href="/industry/finance-and-insurance" title="Finance">
@@ -141,7 +142,7 @@
         </ul>
       </div>
       <div class="col-sm-6 col-lg-2 mb-3">
-        <h6 class="text-white fw-semibold">Services</h6>
+        <h6 class=" fw-semibold">Services</h6>
         <ul class="nav flex-column">
           <li>
             <a class="nav-link fw-normal py-1 px-0" href="/services/ai-solutions" title="AI transformation">

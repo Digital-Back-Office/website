@@ -19,14 +19,8 @@ const data = industry.data;
 ---
 
 <Layout title={data.title} description={data.description}>
-    <Navbar />
     <main>
         <section class="hero-section" style="position: relative; overflow: hidden;">
-            {data.hero?.video && (
-                <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.3;">
-                    <source src={data.hero.video} type="video/mp4">
-                </video>
-            )}
             <div class="container" style="position: relative; z-index: 1;">
                 <div class="row">
                     <div class="col-12">

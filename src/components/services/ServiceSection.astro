@@ -34,20 +34,20 @@ const isImageRight = imagePosition === 'right';
   }
 </style>
 
-<section id={id} style="padding: 5rem 0; background-color: transparent; margin-bottom:3rem;" data-bs-theme="dark">
+<section id={id} style="padding: 5rem 0; background-color: transparent; margin-bottom:3rem;" >
   <div class="container">
     <div class="row g-4">
       {isImageRight ? (
         <>
           {/* Text on left, Image on right */}
           <div class="col-lg-5 mb-4 mb-lg-0 order-1">
-            <div style="display: inline-block; background-color: rgba(255, 255, 255, 0.1); border-radius: 50px; padding: 0.5rem 1.25rem; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.2);">
-              <span style="font-size: 0.875rem; font-weight: 600; color: #fff; letter-spacing: 0.5px;">{section.badge}</span>
+            <div style="display: inline-block; background-color: rgba(234, 255, 250,0.7); border-radius: 50px; padding: 0.5rem 1.25rem; margin-bottom: 1.5rem; border: 1px solid rgb(234, 255, 250);">
+              <span style="font-size: 0.875rem; font-weight: 600;  letter-spacing: 0.5px;">{section.badge}</span>
             </div>
-            <h2 style="font-size: 2.75rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 2.75rem; font-weight: 700;  margin-bottom: 1.5rem;">
               {section.heading}
             </h2>
-            <p style="font-size: 1.25rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 2rem;">
+            <p style="font-size: 1.25rem; line-height: 1.6;  margin-bottom: 2rem;">
               {section.text}
             </p>
             <a href="/contact-us" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.125rem; padding: 0.875rem 2rem; font-weight: 600; background-color: transparent; border: 2px solid #52CEC7; color: #52CEC7; transition: all 0.3s ease; border-radius: 50px; text-decoration: none;" onmouseover="this.style.backgroundColor='#52CEC7'; this.style.color='#000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(82, 206, 199, 0.3)';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#52CEC7'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
@@ -67,11 +67,11 @@ const isImageRight = imagePosition === 'right';
             <div class="row row-cols-1 row-cols-md-3 g-3">
               {section.cards.map((card) => (
                 <div class="col">
-                  <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 1.5rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(47, 183, 184, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
+                  <div style="background-color: rgb(245, 247, 247); border-radius: 12px; padding: 1.5rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(47, 183, 184, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <h3 style="font-size: 1.25rem; font-weight: 700;  margin-bottom: 0.75rem;">
                       {card.title}
                     </h3>
-                    <p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.8); margin-bottom: 0;">
+                    <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 0;">
                       {card.description}
                     </p>
                   </div>
@@ -91,11 +91,11 @@ const isImageRight = imagePosition === 'right';
             <div class="row row-cols-1 row-cols-md-3 g-3">
               {section.cards.map((card) => (
                 <div class="col">
-                  <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 1.5rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(47, 183, 184, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem;">
+                  <div style="background-color: rgb(245, 247, 247); border-radius: 12px; padding: 1.5rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(47, 183, 184, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <h3 style="font-size: 1.25rem; font-weight: 700;  margin-bottom: 0.75rem;">
                       {card.title}
                     </h3>
-                    <p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.8); margin-bottom: 0;">
+                    <p style="font-size: 1rem; line-height: 1.6;  margin-bottom: 0;">
                       {card.description}
                     </p>
                   </div>
@@ -104,13 +104,13 @@ const isImageRight = imagePosition === 'right';
             </div>
           </div>
             <div class="col-lg-5 order-1">
-            <div style="display: inline-block; background-color: rgba(255, 255, 255, 0.1); border-radius: 50px; padding: 0.5rem 1.25rem; margin-bottom: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.2);">
-              <span style="font-size: 0.875rem; font-weight: 600; color: #fff; letter-spacing: 0.5px;">{section.badge}</span>
+            <div style="display: inline-block; background-color: rgba(234, 255, 250,0.7); border-radius: 50px; padding: 0.5rem 1.25rem; margin-bottom: 1.5rem; border: 1px solid rgb(234, 255, 250);">
+              <span style="font-size: 0.875rem; font-weight: 600;  letter-spacing: 0.5px;">{section.badge}</span>
             </div>
-            <h2 style="font-size: 2.75rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 2.75rem; font-weight: 700;  margin-bottom: 1.5rem;">
               {section.heading}
             </h2>
-            <p style="font-size: 1.25rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 2rem;">
+            <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 2rem;">
               {section.text}
             </p>
             <a href="/contact-us" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.125rem; padding: 0.875rem 2rem; font-weight: 600; background-color: transparent; border: 2px solid #52CEC7; color: #52CEC7; transition: all 0.3s ease; border-radius: 50px; text-decoration: none; margin-bottom: 1rem;" onmouseover="this.style.backgroundColor='#52CEC7'; this.style.color='#000'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(82, 206, 199, 0.3)';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#52CEC7'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">

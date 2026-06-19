@@ -143,27 +143,24 @@ const newArrivals = [
 
 <style>
   .bg-image {
-    background-image: url(/assets/images/background_pattern.png);
-    background-repeat: repeat;
     min-height: 100vh;
   }
   
   .pub-card {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--bg-contrast);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     height: 100%;
   }
   
   .pub-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: var(--ar-primary);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-brand);
   }
 
   .pub-publisher {
-    color: var(--ar-primary);
+    color: var(--brand-cyan);
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -171,26 +168,26 @@ const newArrivals = [
   }
 
   .pub-date {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-secondary);
     font-size: 0.9rem;
   }
 
   .pub-title {
-    color: white;
+    color: var(--text-primary);
     font-weight: 700;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
   }
 
   .pub-summary {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
 
   .pub-link {
     text-decoration: none;
-    color: white;
+    color: var(--brand-cyan);
     font-weight: 600;
     display: inline-flex;
     align-items: center;
@@ -199,7 +196,7 @@ const newArrivals = [
   }
 
   .pub-link:hover {
-    color: var(--ar-primary);
+    color: var(--brand-cyan-hover);
   }
 
   .hero-section {
@@ -211,14 +208,13 @@ const newArrivals = [
   .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    color: #fff;
     margin-bottom: 1rem;
     line-height: 1.2;
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
     margin-bottom: 2rem;
     max-width: 700px;
   }
@@ -230,8 +226,6 @@ const newArrivals = [
   keywords={seoKeywords}
   canonical="/industry-insights"
 >
-  <Navbar />
-  <main class="page-wrapper bg-image" data-pagefind-ignore>
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="container text-center">
@@ -243,7 +237,7 @@ const newArrivals = [
     </section>
 
     <section class="container pb-5">
-      <h2 class="h2 text-white mb-4">The 2026 Strategic Outlook (New Arrivals)</h2>
+      <h2 class="h2  mb-4">The 2026 Strategic Outlook (New Arrivals)</h2>
       <div class="row g-4 mb-5">
         {newArrivals.map((pub) => (
           <div class="col-lg-12">
@@ -252,7 +246,7 @@ const newArrivals = [
                 <div class="col-lg-9">
                   <div class="d-flex align-items-center gap-3 mb-2">
                     <span class="pub-publisher">{pub.publisher}</span>
-                    <span class="text-white-50">•</span>
+                    <span class="">•</span>
                     <span class="pub-date">{pub.date}</span>
                   </div>
                   <h2 class="pub-title h3">{pub.title}</h2>
@@ -270,7 +264,7 @@ const newArrivals = [
         ))}
       </div>
 
-      <h2 class="h2 text-white mb-4">Essential Industry Reports</h2>
+      <h2 class="h2  mb-4">Essential Industry Reports</h2>
       <div class="row g-4">
         {publications.map((pub) => (
           <div class="col-lg-12">
@@ -279,7 +273,7 @@ const newArrivals = [
                 <div class="col-lg-9">
                   <div class="d-flex align-items-center gap-3 mb-2">
                     <span class="pub-publisher">{pub.publisher}</span>
-                    <span class="text-white-50">•</span>
+                    <span >•</span>
                     <span class="pub-date">{pub.date}</span>
                   </div>
                   <h2 class="pub-title h3">{pub.title}</h2>
@@ -297,5 +291,4 @@ const newArrivals = [
         ))}
       </div>
     </section>
-  </main>
 </Layout>

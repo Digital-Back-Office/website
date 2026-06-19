@@ -126,7 +126,7 @@
   --ar-dark-border-subtle: #f6f0e1;
   --ar-white-rgb: 255, 255, 255;
   --ar-black-rgb: 0, 0, 0;
-  --ar-font-sans-serif: "Arimo", sans-serif;
+  --ar-font-sans-serif: "Manrope", sans-serif;
   --ar-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --ar-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --ar-root-font-size: 1rem;
@@ -16517,7 +16517,7 @@ a.badge {
 }
 
 .leaflet-container {
-  font-family: "Arimo", sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 .leaflet-container a.leaflet-popup-close-button {
   top: 0.5rem;

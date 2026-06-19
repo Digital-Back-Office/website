@@ -8,8 +8,6 @@ import Hero from "../components/about-us/Hero.astro";
 import Approach from '../components/about-us/Approach.astro'
 import Mission from '../components/about-us/Mission.astro'
 
-import '../styles/container.css'
-
 // SEO metadata for About Us page
 const seoTitle = "About Us - Digital Back Office";
 const seoDescription = "Helping organizations bridge data and strategy with secure AI engineering, advanced analytics, and scalable MLOps practices built for real enterprise impact.";
@@ -22,15 +20,10 @@ const seoKeywords = "about digital back office, AI consulting team, data enginee
   description={seoDescription}
   keywords={seoKeywords}
   canonical="/about-us"  preview_image="/preview.png">
-  <main class="page-wrapper" data-pagefind-ignore>
-    <VideoLayout src="/assets/videos/about_us_3.mp4">
-      <Hero />
-    </VideoLayout>
-
+    <Hero />
     <Mission />
     <Values />
     <Benefit />
     <Approach />
     <Contact />
-  </main>
 </Layout>

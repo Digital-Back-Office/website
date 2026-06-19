@@ -33,6 +33,7 @@
 
 .book-now-btn {
     background-color: var(--brand-cyan) !important;
+    color: var(--text-inverse) !important;
 }
 
 .flip-card {

@@ -31,7 +31,7 @@ const heroHighlightColor =
   (heroHighlight.includes("Data") ||
     heroHighlight.includes("Data Strategy") ||
     heroHighlight.includes("Data Engineering"))
-    ? "#ffffff"
+    ? "#30baba"
     : "#EEBF2E";
 
 const heroParts = heroHighlight
@@ -40,17 +40,13 @@ const heroParts = heroHighlight
 
 // Differentiator highlight logic
 const diffHighlight = getHighlightedText(frontmatter.differentiators_heading || "", [
-  "Why Partner with Us",
+  "Data Engineering",
   "Data Science",
-  "Data science",
   "Data Strategy Consulting",
+  "AI Solutions",
 ]);
 
-const diffHighlightColor =
-  frontmatter.hero_title?.includes("Data Science") ||
-  frontmatter.hero_title?.includes("Data science")
-    ? "#ffffff"
-    : "#ffff";
+const diffHighlightColor = "var(--brand-cyan)";
 
 const diffParts = diffHighlight
   ? (frontmatter.differentiators_heading || "").split(diffHighlight)
@@ -74,25 +70,13 @@ const approachParts = approachHighlight
   canonical={Astro.url.pathname}
   preview_image={frontmatter.preview_image || "/preview.png"}
 >
-  <main class="page-wrapper background-style" style="height: max-content;" data-pagefind-ignore>
+  <main class="page-wrapper" style="height: max-content;" data-pagefind-ignore>
     <!-- Hero Section -->
-    <ServiceVideo src={frontmatter.hero_video}>
+    <ServiceVideo>
       <div class="hero-text container">
         <div style="width:full; max-width:1296px; margin:0 auto 0 auto;">
-          <h1 class="text-lg-start text-light fw-light fw-bold hero-heading">
-            {
-              heroParts ? (
-                <>
-                  {heroParts[0]}
-                  <span style={`color: ${heroHighlightColor}`}>
-                    {heroHighlight}
-                  </span>
-                  {heroParts.slice(1).join(heroHighlight)}
-                </>
-              ) : (
-                frontmatter.hero_title
-              )
-            }
+          <h1 class="text-lg-start fw-light fw-bold hero-heading">
+            {frontmatter.hero_title}
           </h1>
           <p class="fs-lg text-lg-start pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5 hero-text1">
             {frontmatter.hero_text}
@@ -120,10 +104,10 @@ const approachParts = approachHighlight
       class="container"
     >
       <div style="max-width:1296px;">
-        <p style="font-size: 1.35rem; color:white">
+        <p style="font-size: 1.35rem; ">
           {frontmatter.p1_text}
         </p>
-        <p style="font-size: 1.35rem; color:white; font-style:italic">
+        <p style="font-size: 1.35rem; font-style:italic">
           {frontmatter.p2_text}
         </p>
       </div>

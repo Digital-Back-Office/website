@@ -82,7 +82,7 @@ border: solid 1px var(--brand-cyan);
 }
 
 .navbar-scrolled {
-    background-image: url(/assets/images/background_pattern.png);
+    background: var(--bg-base) !important;
     background-repeat: repeat;
     position: fixed;
     top: 0;
@@ -92,7 +92,7 @@ border: solid 1px var(--brand-cyan);
 }
 
 .staticnav {
-    background-color: transparent;
+    background-color: var(--bg-base) !important;
     position: fixed;
     top: 0;
     left: 0;

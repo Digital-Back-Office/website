@@ -72,7 +72,7 @@ const breadcrumbSchema = {
 
 <style>
   a {
-    color: white;
+    color: var(--brand-cyan);
   }
   .page-wrapper{
     padding-top: 4.56rem;
@@ -90,14 +90,14 @@ const breadcrumbSchema = {
     font-weight: 700;
   }
   .input{
-    border: solid 1px white;
+    border: solid 1px var(--text-secondary);
     border-radius: 8px;
-    color:white;
+    color: var(--text-secondary);
   }
 
   /* Blog Content Styling */
   #content {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-primary);
     font-size: 1.125rem;
     line-height: 1.8;
   }
@@ -107,14 +107,14 @@ const breadcrumbSchema = {
   }
 
   #content :global(h2) {
-    color: white;
+    color: var(--text-primary);
     margin-top: 3rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
   }
 
   #content :global(h3) {
-    color: white;
+    color: var(--text-primary);
     margin-top: 2.5rem;
     margin-bottom: 1.25rem;
     font-weight: 600;
@@ -130,7 +130,7 @@ const breadcrumbSchema = {
   }
 
   #content :global(strong) {
-    color: white;
+    color: var(--text-primary);
   }
 </style>
 
@@ -148,26 +148,20 @@ const breadcrumbSchema = {
   
   <!-- Breadcrumb Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
-  
-  <Navbar />
-  <main
-    class="page-wrapper"
-    style="background-image: url(/assets/images/background_pattern.png);"
-  >
     <section class="container pt-5 mt-5">
       <div class="row justify-content-between">
         <div class="col-lg-8 col-xl-8 pe-lg-4 pe-xl-0 pb-5">
           <!-- Post title + post meta -->
-          <h1 class="pb-2 pb-lg-3 text-white" style="font-size: 2.5rem;">
+          <h1 class="pb-2 pb-lg-3 " style="font-size: 2.5rem;">
             {frontmatter.title}
           </h1>
           <div
-            class="d-flex flex-wrap align-items-center justify-content-between border-bottom mb-4 text-white"
+            class="d-flex flex-wrap align-items-center justify-content-between border-bottom mb-4 "
           >
             <div class="d-flex align-items-center mb-4 me-4">
-              <span class="fs-sm me-2 white-70">By:</span>
+              <span class="fs-sm me-2">By:</span>
               <a
-                class="nav-link position-relative fw-semibold p-0 white-90"
+                class="nav-link position-relative fw-semibold p-0 "
                 href="#author"
                 data-scroll
                 data-scroll-offset="80"
@@ -182,7 +176,7 @@ const breadcrumbSchema = {
           </div>
 
           <!-- Post content -->
-          <p class="fs-lg pt-2 pt-sm-3 white-70" style="font-size: 1.125rem;">
+          <p class="fs-lg pt-2 pt-sm-3 " style="font-size: 1.125rem;">
             {frontmatter.description}
 
           </p>
@@ -195,11 +189,11 @@ const breadcrumbSchema = {
 
           <!-- Tags -->
           <div class="d-flex flex-wrap pb-5 pt-3 pt-md-4 pt-xl-5 mt-xl-n2">
-            <h3 class=" py-1 mb-0 me-4 text-white" style="font-size: 1rem; font-weight:400">Relevant tags:</h3>
+            <h3 class=" py-1 mb-0 me-4 " style="font-size: 1rem; font-weight:400">Relevant tags:</h3>
             {
               frontmatter.tags.map((tag:any)=>{
                 return (
-                <span class="nav-link fs-sm py-1 px-0 me-3 text-white" style="font-size:0.875rem; font-weight:700;">
+                <span class="nav-link fs-sm py-1 px-0 me-3 " style="font-size:0.875rem; font-weight:700;">
                   <span class="">#</span>{tag}
                 </span>
                 )
@@ -218,16 +212,16 @@ const breadcrumbSchema = {
               />
               <div class="d-md-flex w-100 ps-4">
                 <div style="max-width: 26rem;">
-                  <h3 class="mb-2 text-white" style="font-size:1.25rem; font-weight: 400;">{author_data.name}</h3>
-                  <p class="fs-sm mb-0 white-700" style="font-size: 0.875rem; font-weight: 400;">
+                  <h3 class="mb-2 " style="font-size:1.25rem; font-weight: 400;">{author_data.name}</h3>
+                  <p class="fs-sm mb-0 " style="font-size: 0.875rem; font-weight: 400;">
                     {author_data.description}
                   </p>
                 </div>
-                <div class="pt-4 pt-md-0 ps-md-4 ms-md-auto text-white">
-                  <h3 class="h5 text-white">Share post:</h3>
+                <div class="pt-4 pt-md-0 ps-md-4 ms-md-auto ">
+                  <h3 class="h5 ">Share post:</h3>
                   <div class="d-flex">
                     <a
-                      class="nav-link p-2 me-2 text-white"
+                      class="nav-link p-2 me-2 "
                       href={"https://www.linkedin.com/sharing/share-offsite/?url="+url}
                       target="_blank"
                       data-bs-toggle="tooltip"
@@ -238,7 +232,7 @@ const breadcrumbSchema = {
                       <i class="ai-linkedin"></i>
                     </a>
                     <a
-                      class="nav-link p-2 me-2 text-white"
+                      class="nav-link p-2 me-2 "
                       href={"https://www.facebook.com/sharer/sharer.php?u="+url}
                       target="_blank"
                       data-bs-toggle="tooltip"
@@ -249,7 +243,7 @@ const breadcrumbSchema = {
                       <i class="ai-facebook"></i>
                     </a>
                     <a
-                      class="nav-link p-2 me-2 text-white"
+                      class="nav-link p-2 me-2 "
                       href={"https://telegram.me/share/url?url="+url+"&text="+frontmatter.title}
                       target="_blank"
                       data-bs-toggle="tooltip"
@@ -260,7 +254,7 @@ const breadcrumbSchema = {
                       <i class="ai-telegram fs-sm"></i>
                     </a>
                     <a
-                      class="nav-link p-2 text-white"
+                      class="nav-link p-2 "
                       href={"http://www.twitter.com/share?url="+url}
                       target="_blank"
                       data-bs-toggle="tooltip"
@@ -323,7 +317,6 @@ const breadcrumbSchema = {
 
       </div>
     </section>
-  </main>
 </Layout>
 
 <script src="https://giscus.app/client.js"
@@ -336,7 +329,7 @@ const breadcrumbSchema = {
         data-reactions-enabled="0"
         data-emit-metadata="0"
         data-input-position="top"
-        data-theme="preferred_color_scheme"
+        data-theme="light"
         data-lang="en"
         data-loading="lazy"
         crossorigin="anonymous"

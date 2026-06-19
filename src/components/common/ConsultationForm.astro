@@ -1,6 +1,5 @@
 ---
 import 'flatpickr/dist/flatpickr.min.css'
-import 'flatpickr/dist/themes/dark.css'
 const url = Astro.url.pathname
 import '../../styles/consultation-form.css'
 ---
@@ -31,15 +30,20 @@ import '../../styles/consultation-form.css'
       ) as HTMLElement
 
       if (monthElement && monthDropDown && weekdays && DropDownMonth) {
-        monthElement.style.backgroundColor = '#121519'
-        monthDropDown.style.backgroundColor = '#121519'
+        calendarContainer.style.backgroundColor = 'var(--bg-surface-elevated)'
+        calendarContainer.style.color = 'var(--text-primary)'
+        monthElement.style.backgroundColor = 'var(--bg-surface-elevated)'
+        monthDropDown.style.backgroundColor = 'var(--bg-surface-elevated)'
+        monthDropDown.style.color = 'var(--text-primary)'
         currMonth.style.display = 'flex'
         currMonth.style.justifyContent = 'space-between'
         weekdays.forEach((weekday) => {
-          weekday.style.backgroundColor = '#121519'
+          weekday.style.backgroundColor = 'var(--bg-surface-elevated)'
+          weekday.style.color = 'var(--text-secondary)'
         })
         DropDownMonth.forEach((month) => {
-          month.style.backgroundColor = '#121519'
+          month.style.backgroundColor = 'var(--bg-surface-elevated)'
+          month.style.color = 'var(--text-primary)'
         })
       }
     },
@@ -51,7 +55,7 @@ import '../../styles/consultation-form.css'
         lastSelectedDate = dateStr; 
         if (dateStr === '') {
           const selectElement = document.getElementById('time-slots-options') as HTMLSelectElement
-          selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Choose date first</option>'
+          selectElement.innerHTML = '<option value="" selected style="background-color: var(--bg-surface-elevated); color: var(--text-primary);">Choose date first</option>'
           return
         }
         const selectElement = document.getElementById(
@@ -62,7 +66,7 @@ import '../../styles/consultation-form.css'
         ) as HTMLElement
         const BookBtn = document.querySelector('#book-now') as HTMLButtonElement
 
-        selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Loading available slots...</option>'
+        selectElement.innerHTML = '<option value="" selected style="background-color: var(--bg-surface-elevated); color: var(--text-primary);">Loading available slots...</option>'
         selectElement.disabled = true
 
         var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -86,7 +90,8 @@ import '../../styles/consultation-form.css'
           option.value = ''
           option.textContent = 'No Available Slots'
           option.selected = true
-          option.style.backgroundColor = '#121519'
+          option.style.backgroundColor = 'var(--bg-surface-elevated)'
+          option.style.color = 'var(--text-primary)'
           selectElement.appendChild(option)
           slotsContainer.classList.remove('hidden')
           return
@@ -95,7 +100,8 @@ import '../../styles/consultation-form.css'
           option.value = ''
           option.textContent = 'Choose available time slots'
           option.selected = true
-          option.style.backgroundColor = '#121519'
+          option.style.backgroundColor = 'var(--bg-surface-elevated)'
+          option.style.color = 'var(--text-primary)'
           selectElement.appendChild(option)
         }
 
@@ -103,7 +109,8 @@ import '../../styles/consultation-form.css'
           let option = document.createElement('option')
           option.value = slot
           option.textContent = slot
-          option.style.backgroundColor = '#121519'
+          option.style.backgroundColor = 'var(--bg-surface-elevated)'
+          option.style.color = 'var(--text-primary)'
           selectElement.appendChild(option)
         })
         slotsContainer.classList.remove('hidden')
@@ -113,7 +120,7 @@ import '../../styles/consultation-form.css'
         console.log('error :>> ', error)
         const selectElement = document.getElementById('time-slots-options') as HTMLSelectElement
         selectElement.disabled = false
-        selectElement.innerHTML = '<option value="" selected style="background-color: #121519;">Error loading slots. Please try again.</option>'
+        selectElement.innerHTML = '<option value="" selected style="background-color: var(--bg-surface-elevated); color: var(--text-primary);">Error loading slots. Please try again.</option>'
       }
     }
   })
@@ -252,8 +259,8 @@ import '../../styles/consultation-form.css'
 <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
-      <form class='card-body' style="background-color: #121519;">
-        <h2 class='h3 card-title text-white text-center pb-2 pb-xxl-3'>
+      <form class='card-body' style="background-color: var(--bg-contrast);">
+        <h2 class='h3 card-title  text-center pb-2 pb-xxl-3'>
           Book a Discovery Call
         </h2>
         <div class='mb-2'>
@@ -301,7 +308,7 @@ import '../../styles/consultation-form.css'
               id='date-time-picker'
             />
             <i
-              class='ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg text-white opacity-80 me-3'
+              class='ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg  opacity-80 me-3'
             ></i>
           </div>
         </div>
@@ -313,7 +320,7 @@ import '../../styles/consultation-form.css'
               id='time-slots-options'
               class='form-control form-control-lg pe-5 fs-sm'
             >
-              <option value='' selected style='background-color: #121519;'>Choose date first</option>
+              <option value='' selected style='background-color: var(--bg-surface-elevated); color: var(--text-primary);'>Choose date first</option>
             </select>
           </div>
         </div>
@@ -324,8 +331,8 @@ import '../../styles/consultation-form.css'
             id='book-now'
             disabled
             class={url === '/'
-              ? ' btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py'
-              : 'btn btn-lg btn-outline-primary text-white book-btn w-100 h-100 py book-now-btn'}
+              ? ' btn btn-lg btn-outline-primary  book-btn w-100 h-100 py'
+              : 'btn btn-lg btn-outline-primary  book-btn w-100 h-100 py book-now-btn'}
             type='submit'>Book now</button
           >
         </div>
