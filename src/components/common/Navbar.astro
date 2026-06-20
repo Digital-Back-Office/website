@@ -25,18 +25,6 @@ import Button from "../ui/Button.astro";
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <Button
-      href="/contact-us"
-      variant="primary"
-      size="md"
-      class={path === "/contact-us"
-        ? "order-lg-3 d-none"
-        : path === "/about-us"
-          ? "order-lg-3 d-none d-lg-inline-flex"
-          : "order-lg-3 d-none d-lg-inline-flex"}
-    >
-      Contact us
-    </Button>
 
     <nav class="collapse navbar-collapse" id="navbarCollapse2">
       <ul class="navbar-nav">
@@ -120,13 +108,22 @@ import Button from "../ui/Button.astro";
         href="/contact-us"
         variant="primary"
         size="lg"
-        class={path.includes("/contact-us")
-          ? "d-none d-lg-none"
-          : "d-lg-none"}
+        class="d-lg-none"
       >
         Contact us
       </Button>
     </nav>
+
+    <Button
+      href="/contact-us"
+      variant="primary"
+      size="md"
+      class={path === "/contact-us"
+        ? "d-none"
+        : "d-lg-inline-flex"}
+    >
+      Contact us
+    </Button>
   </div>
 
   <div class="pop-up" id="pop-up" data-pagefind-ignore>
