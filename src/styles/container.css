@@ -1,3 +1,14 @@
+@media (min-width: 1348px) {
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl {
+        max-width: 1280px !important;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding-left: 1rem !important;
@@ -7,4 +18,6 @@
 
 .page-wrapper {
     background-image: url("/assets/images/background_pattern.png");
+    background-repeat: repeat;
+    background-color: #000;
 }

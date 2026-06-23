@@ -1,0 +1,84 @@
+---
+---
+
+<section class="form-section" id="claim-offer">
+  <div class="container" style="max-width: 600px;">
+    <div class="startup-form-container">
+      <div class="text-center mb-4">
+        <h2 class="h2 text-white">Apply for the Startup Offer</h2>
+        <p class="text-white opacity-70">Tell us about your startup idea. Our engineering pod can deploy as fast as 48 hours.</p>
+      </div>
+
+      <form
+        class="needs-validation row g-4"
+        action="https://formsubmit.co/startups@digitalbackoffice.co.uk"
+        method="POST"
+        novalidate
+      >
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="founder_name">Founder Name</label>
+          <input
+            class="form-control form-control-lg rounded-2"
+            type="text"
+            placeholder="Your name"
+            required
+            name="founder_name"
+            id="founder_name"
+            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(82, 206, 199, 0.2); color: #fff;"
+          />
+        </div>
+        
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="founder_email">Email Address</label>
+          <input
+            class="form-control form-control-lg rounded-2"
+            type="email"
+            placeholder="Email address"
+            required
+            name="email"
+            id="founder_email"
+            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(82, 206, 199, 0.2); color: #fff;"
+          />
+        </div>
+
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="startup_stage">Startup Stage</label>
+          <select 
+            class="form-select form-select-lg rounded-2" 
+            name="stage" 
+            id="startup_stage"
+            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(82, 206, 199, 0.2); color: #fff; option { background: #000; }"
+          >
+            <option value="idea">Idea Stage / Pitch Deck</option>
+            <option value="mvp">Building MVP</option>
+            <option value="funded">Seed / Pre-Seed Funded</option>
+            <option value="scaling">Product Scaling / Series A</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="startup_message">Describe Your Product / Tech Challenge</label>
+          <textarea
+            class="form-control form-control-lg rounded-2"
+            placeholder="Tell us about your product idea and what you need the pod to build..."
+            rows="4"
+            required
+            name="message"
+            id="startup_message"
+            style="background: rgba(255,255,255,0.05); border: 1px solid rgba(82, 206, 199, 0.2); color: #fff;"
+          ></textarea>
+        </div>
+
+        <div class="col-12 mt-4">
+          <button
+            class="btn btn-lg btn-primary rounded-pill w-100"
+            type="submit"
+            style="background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%); border: none; color: #000; font-weight: 700;"
+          >
+            Submit Startup Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
