@@ -102,7 +102,7 @@ border: solid 1px var(--brand-cyan);
 
 #navbar {
     transition: background-color 0.4s ease-in-out;
-    z-index: 50;
+    z-index: 1030;
 }
 
 .nav-links {

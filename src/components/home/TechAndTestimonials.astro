@@ -2,7 +2,6 @@
 import { getEntry } from "astro:content";
 
 const Data = await getEntry("home", "home");
-const tech = Data.data.tech;
 const testimonials = Data.data.testimonials;
 ---
 
@@ -44,8 +43,8 @@ const testimonials = Data.data.testimonials;
     }
 
     @media (min-width: 1024px) {
-        .tech {
-            min-height: 100vh;
+        .testimonials-section {
+            min-height: 70vh;
         }
     }
 
@@ -253,10 +252,10 @@ const testimonials = Data.data.testimonials;
                                             </p>
                                         </div>
                                     </div>
-                                    <h2 class="mb-lg-4 text-white">
+                                    <h2 class="mb-lg-4 text-white testimonial-title">
                                         {testimonial.title}
                                     </h2>
-                                    <p class="lead mb-0 text-white opacity-70 z-1">
+                                    <p class="lead mb-0 text-white opacity-70 z-1 testimonial-text">
                                         {testimonial.desc}
                                     </p>
                                 </div>
@@ -266,9 +265,7 @@ const testimonials = Data.data.testimonials;
                 </div>
             </div>
             <div class="col-md-3 offset-lg-1 order-md-1 mt-n3">
-                <i
-                    class="ai-quotes d-none d-md-block text-primary ms-n2 mb-1"
-                    style="font-size: 150px;"></i>
+                <i class="ai-quotes d-none d-md-block testimonial-quotes-icon ms-n2 mb-1"></i>
 
                 <!-- Content binded to slider (on screens > 768px) -->
                 <div class="binded-content h-auto d-none d-md-block">
@@ -280,16 +277,12 @@ const testimonials = Data.data.testimonials;
                         <h3 class="h5 mb-1 text-white">{testimonials[1].name}</h3>
                         <p class="text-body-primary mb-0">{testimonials[1].designation}</p>
                     </div>
-                    <!-- <div class="binded-item h-auto" id="testimonial-3">
-                        <h3 class="h5 mb-1 text-white">{testimonials[2].name}</h3>
-                        <p class="text-body-primary mb-0">{testimonials[2].designation}</p>
-                    </div> -->
                 </div>
 
                 <!-- Swiper controls (Prev / Next) -->
                 <div class="d-flex align-items-center pb-2 pb-md-0 pt-4 mt-3">
                     <button
-                        class="btn btn-icon btn-sm btn-outline-primary rounded-circle me-3"
+                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle me-3"
                         type="button"
                         id="prev-testimonial"
                         aria-label="Prev"
@@ -297,12 +290,12 @@ const testimonials = Data.data.testimonials;
                         <i class="ai-arrow-left"></i>
                     </button>
                     <div
-                        class="testimonials-count fw-medium flex-shrink-0 text-center"
+                        class="testimonials-count fw-medium flex-shrink-0 text-center text-white"
                         style="width: 2.5rem;"
                     >
                     </div>
                     <button
-                        class="btn btn-icon btn-sm btn-outline-primary rounded-circle ms-3"
+                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle ms-3"
                         type="button"
                         id="next-testimonial"
                         aria-label="Next"
