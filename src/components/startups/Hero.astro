@@ -22,12 +22,31 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
             Get an elite engineering pod on a pre-seed budget. We handle design, dev, AI, and DevOps infrastructure so you can focus on growth.
           </p>
 
-          <div class="d-flex flex-wrap gap-3 mt-2">
-            <a href="#claim-offer" class="btn btn-lg btn-primary rounded-pill px-4" style="background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%); border: none; color: #000; font-weight: 600;">
-              Apply for the Offer
-            </a>
-            <a href="#how-it-works" class="btn btn-lg btn-outline-light rounded-pill px-4">
-              How It Works
+          <form id="hero-cta-form" class="hero-cta-form-container">
+            <input 
+              type="email" 
+              id="hero-cta-email" 
+              placeholder="Enter your work email" 
+              required
+              class="form-control hero-cta-input px-4" 
+            />
+            <button 
+              type="submit" 
+              class="hero-cta-button"
+            >
+              Apply Now
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+          <div class="mt-3">
+            <a href="#how-it-works" class="text-white opacity-70 hover-opacity-100 text-decoration-none fs-sm d-inline-flex align-items-center" style="transition: opacity 0.2s ease;">
+              How It Works 
+              <svg class="ms-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
             </a>
           </div>
         </div>
@@ -210,9 +229,9 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
 
               <!-- ================= BACKGROUND DEPTH ================= -->
               <!-- Ambient Glow Behind Idea -->
-              <circle cx="120" cy="210" r="95" fill="url(#ideaGlow)" opacity="0.18" />
+              <circle cx="120" cy="210" r="80" fill="url(#ideaGlow)" opacity="0.18" />
               <!-- Ambient Glow Behind Product -->
-              <circle cx="470" cy="220" r="110" fill="url(#ideaGlow)" opacity="0.2" />
+              <circle cx="450" cy="220" r="100" fill="url(#ideaGlow)" opacity="0.2" />
 
               <!-- Subtle Technical Dot Grid -->
               <g opacity="0.08">
@@ -444,3 +463,27 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
     </div>
   </section>
 </VideoLayout>
+
+<script>
+  const heroForm = document.getElementById('hero-cta-form');
+  if (heroForm) {
+    heroForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('hero-cta-email') as HTMLInputElement;
+      const targetEmailInput = document.getElementById('founder_email') as HTMLInputElement;
+      
+      if (emailInput && targetEmailInput) {
+        targetEmailInput.value = emailInput.value;
+      }
+      
+      const targetSection = document.getElementById('claim-offer');
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+        const nameInput = document.getElementById('founder_name') as HTMLInputElement;
+        if (nameInput) {
+          nameInput.focus();
+        }
+      }
+    });
+  }
+</script>
