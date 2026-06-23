@@ -3,19 +3,86 @@ import { getEntry } from "astro:content";
 
 const Data = await getEntry("home", "home");
 const partners = Data.data.partners;
-
 ---
 
-<section style="padding: 60px 0; background-color: transparent;" data-bs-theme="dark">
+<style>
+	.partners-section {
+		padding: 4rem 0;
+		background-color: transparent;
+	}
+
+	.partners-title {
+		text-align: center;
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		margin-bottom: 3rem;
+		color: rgba(255, 255, 255, 0.6);
+		letter-spacing: 0.5px;
+	}
+
+	.partners-grid {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+
+	.partner-card {
+		flex: 0 1 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #fff;
+		border-radius: 16px;
+		padding: 1.25rem 2rem;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+		transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.partner-img {
+		height: 38px;
+		width: auto;
+		object-fit: contain;
+		opacity: 0.75;
+		transition: all 0.3s ease;
+	}
+
+	/* Hover Effects */
+	.partner-card:hover {
+		transform: translateY(-4px) scale(1.03);
+		box-shadow: 0 12px 25px rgba(82, 206, 199, 0.15);
+		border-color: rgba(82, 206, 199, 0.3);
+	}
+
+	.partner-card:hover .partner-img {
+		opacity: 1;
+	}
+
+	@media (max-width: 576px) {
+		.partners-grid {
+			gap: 1.25rem;
+		}
+		.partner-card {
+			padding: 0.85rem 1.25rem;
+		}
+		.partner-img {
+			height: 30px;
+		}
+	}
+</style>
+
+<section class="partners-section" data-bs-theme="dark">
 	<div class="container">
-		<h2 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 3rem; color: #fff;">
+		<h2 class="partners-title">
 			{partners.title}
 		</h2>
-		<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem;">
+		<div class="partners-grid">
 			{
 				partners.images.map((image) => (
-					<div style="flex: 0 1 auto; display: flex; align-items: center; justify-content: center; background-color: #fff; border-radius: 12px; padding: 1rem 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-						<img src={image.src} alt={image.name} style="height: 50px; width: auto; object-fit: contain; opacity: 0.8; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" />
+					<div class="partner-card">
+						<img src={image.src} alt={image.name} class="partner-img" />
 					</div>
 				))
 			}

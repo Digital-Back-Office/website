@@ -2,52 +2,55 @@
 import { getEntry } from "astro:content";
 
 const Data = await getEntry("home", "home");
-const tech = Data.data.tech;
 const testimonials = Data.data.testimonials;
 ---
 
 <style>
-    .open-source .swiper-slide {
-        /* width: 11rem; */
-        /* height: 6.25rem; */
+    .testimonials-section {
+        position: relative;
+        background: radial-gradient(circle at 10% 20%, rgba(82, 206, 199, 0.04) 0%, transparent 50%),
+                    radial-gradient(circle at 90% 80%, rgba(238, 191, 46, 0.03) 0%, transparent 50%);
         overflow: hidden;
-    }
-
-    .bg-white {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        /* padding: 1rem 2rem; */
-        overflow: hidden;
-
-        img {
-            /* height: 80%; */
-        }
-    }
-
-    @media (max-width: 768px) {
-        .open-source .swiper-slide {
-            /* width: 11rem; */
-            height: 5rem;
-        }
-
-        .bg-white {
-            /* padding: 0.8rem 1.8rem; */
-        }
-    }
-
-    @media (min-width: 1600px) {
-        .open-source .swiper-slide {
-            /* height: 10rem; */
-        }
+        padding: 5rem 0;
     }
 
     @media (min-width: 1024px) {
-        .tech {
-            min-height: 100vh;
+        .testimonials-section {
+            min-height: 70vh;
         }
+    }
+
+    .testimonial-quotes-icon {
+        color: #52CEC7;
+        opacity: 0.15;
+        font-size: 130px;
+        line-height: 1;
+        display: block;
+    }
+
+    .testimonial-title {
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1.35;
+    }
+
+    .testimonial-text {
+        font-size: 1.15rem;
+        line-height: 1.8;
+    }
+
+    .btn-nav-testimonial {
+        border-color: rgba(82, 206, 199, 0.3) !important;
+        color: #52CEC7 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .btn-nav-testimonial:hover {
+        background-color: #52CEC7 !important;
+        border-color: #52CEC7 !important;
+        color: #000 !important;
+        box-shadow: 0 0 15px rgba(82, 206, 199, 0.4);
     }
 </style>
 
@@ -85,109 +88,7 @@ const testimonials = Data.data.testimonials;
     });
 </script>
 
-<section class="tech d-flex flex-column justify-content-center">
-    <div class="open-source pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
-        <div class="container pb-4 mb-2 mb-lg-3">
-            <h2 class="h1 text-center text-white">
-                {tech.title}
-            </h2>
-            <p class="text-center mb-0 text-white opacity-70">
-                {tech.desc}
-            </p>
-        </div>
-        <div
-            class="custom-swiper pb-4"
-            data-swiper-options={`{
-            "spaceBetween": 40,
-            "loop": true,
-            "grabCursor": false,
-            "centeredSlides": true,
-            "autoplay": {
-              "delay": 0,
-              "disableOnInteraction": false
-            },
-            "freeMode": true,
-            "speed": 10000,
-            "freeModeMomentum": false,
-            "breakpoints": {
-              "0": { "slidesPerView": 2 },
-              "400": { "slidesPerView": 3 },
-              "600": { "slidesPerView": 4 },
-              "1000": { "slidesPerView": 5 },
-              "1200": { "slidesPerView": 6 },
-              "1400": { "slidesPerView": 6 },
-              "1600": { "slidesPerView": 6 }
-            }
-          }`}
-        >
-            <div
-                class="swiper-wrapper"
-                style="transition-timing-function: linear !important;"
-            >
-                {
-                    tech.slider_1.map((card) => (
-                        <div class="swiper-slide">
-                            <div class="bg-white rounded-4">
-                                <img
-                                    class="d-block d-dark-mode-block mx-auto"
-                                    src={card}
-                                    width="196"
-                                    alt="Logo"
-                                />
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-        <div
-            class="custom-swiper"
-            dir="rtl"
-            data-swiper-options={`{
-            "spaceBetween": 40,
-            "loop": true,
-            "grabCursor": false,
-            "centeredSlides": true,
-            "autoplay": {
-              "delay": 0,
-              "disableOnInteraction": false
-            },
-            "freeMode": true,
-            "speed": 8500,
-            "freeModeMomentum": false,
-            "breakpoints": {
-                "0": { "slidesPerView": 2 },
-                "400": { "slidesPerView": 3 },
-                "600": { "slidesPerView": 4 },
-                "1000": { "slidesPerView": 5 },
-                "1200": { "slidesPerView": 6 },
-                "1400": { "slidesPerView": 6 },
-                "1600": { "slidesPerView": 6 }
-            }
-          }`}
-        >
-            <div
-                class="swiper-wrapper"
-                style="transition-timing-function: linear !important;"
-            >
-                {
-                    tech.slider_2.map((card) => (
-                        <div class="swiper-slide">
-                            <div class="bg-white rounded-4">
-                                <img
-                                    class="d-block d-dark-mode-block mx-auto"
-                                    src={card}
-                                    width="196"
-                                    alt="Logo"
-                                />
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    </div>
-
+<section class="testimonials-section d-flex flex-column justify-content-center">
     <!-- testimonials -->
     <div
         class="container position-relative z-1 py-5 mb-md-3 my-lg-3 my-xl-4 my-xxl-5"
@@ -230,10 +131,10 @@ const testimonials = Data.data.testimonials;
                                             </p>
                                         </div>
                                     </div>
-                                    <h2 class="mb-lg-4 text-white">
+                                    <h2 class="mb-lg-4 text-white testimonial-title">
                                         {testimonial.title}
                                     </h2>
-                                    <p class="lead mb-0 text-white opacity-70 z-1">
+                                    <p class="lead mb-0 text-white opacity-70 z-1 testimonial-text">
                                         {testimonial.desc}
                                     </p>
                                 </div>
@@ -243,9 +144,7 @@ const testimonials = Data.data.testimonials;
                 </div>
             </div>
             <div class="col-md-3 offset-lg-1 order-md-1 mt-n3">
-                <i
-                    class="ai-quotes d-none d-md-block text-primary ms-n2 mb-1"
-                    style="font-size: 150px;"></i>
+                <i class="ai-quotes d-none d-md-block testimonial-quotes-icon ms-n2 mb-1"></i>
 
                 <!-- Content binded to slider (on screens > 768px) -->
                 <div class="binded-content h-auto d-none d-md-block">
@@ -257,16 +156,12 @@ const testimonials = Data.data.testimonials;
                         <h3 class="h5 mb-1 text-white">{testimonials[1].name}</h3>
                         <p class="text-body-primary mb-0">{testimonials[1].designation}</p>
                     </div>
-                    <!-- <div class="binded-item h-auto" id="testimonial-3">
-                        <h3 class="h5 mb-1 text-white">{testimonials[2].name}</h3>
-                        <p class="text-body-primary mb-0">{testimonials[2].designation}</p>
-                    </div> -->
                 </div>
 
                 <!-- Swiper controls (Prev / Next) -->
                 <div class="d-flex align-items-center pb-2 pb-md-0 pt-4 mt-3">
                     <button
-                        class="btn btn-icon btn-sm btn-outline-primary rounded-circle me-3"
+                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle me-3"
                         type="button"
                         id="prev-testimonial"
                         aria-label="Prev"
@@ -274,12 +169,12 @@ const testimonials = Data.data.testimonials;
                         <i class="ai-arrow-left"></i>
                     </button>
                     <div
-                        class="testimonials-count fw-medium flex-shrink-0 text-center"
+                        class="testimonials-count fw-medium flex-shrink-0 text-center text-white"
                         style="width: 2.5rem;"
                     >
                     </div>
                     <button
-                        class="btn btn-icon btn-sm btn-outline-primary rounded-circle ms-3"
+                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle ms-3"
                         type="button"
                         id="next-testimonial"
                         aria-label="Next"
