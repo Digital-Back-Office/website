@@ -1,0 +1,431 @@
+.page-wrapper {
+  background-image: url("/assets/images/background_pattern.png");
+  background-repeat: repeat;
+  background-color: #000;
+}
+
+.startup-hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 3;
+}
+
+.startup-hero * {
+  z-index: 3;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(18, 21, 25, 0.85) 100%),
+              url("/assets/images/background_pattern.png");
+  background-repeat: repeat;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(82, 206, 199, 0.12);
+  border: 1.5px solid rgba(82, 206, 199, 0.4);
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #52CEC7;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(82, 206, 199, 0.15);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #52CEC7 0%, #38d9d0 60%, #7ee8e3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.price-capsule {
+  background: rgba(82, 206, 199, 0.05);
+  border: 1px solid rgba(82, 206, 199, 0.22);
+  backdrop-filter: blur(8px);
+  border-radius: 50px;
+  padding: 0.4rem 1.5rem;
+  margin: 1rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-graphic-container {
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero-graphic-container {
+    transform: scale(1.15);
+    transform-origin: center right;
+  }
+}
+
+/* Dilemma / Problem Section */
+.dilemma-section {
+  padding: 6rem 0;
+  background: transparent;
+}
+
+.dilemma-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  padding: 2.25rem;
+  height: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.dilemma-card:hover {
+  border-color: rgba(82, 206, 199, 0.3);
+}
+
+/* Services Grid Section */
+.pod-services {
+  padding: 6rem 0;
+  background: radial-gradient(circle at 50% 50%, rgba(82, 206, 199, 0.03) 0%, transparent 60%);
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(82, 206, 199, 0.15);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(82, 206, 199, 0.55);
+  background: rgba(82, 206, 199, 0.02);
+  box-shadow: 0 20px 40px rgba(82, 206, 199, 0.1);
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(82, 206, 199, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #52CEC7;
+  font-size: 1.5rem;
+}
+
+/* How it works */
+.how-it-works {
+  padding: 7rem 0;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .how-it-works-row {
+    position: relative;
+  }
+  .how-it-works-row::before {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(82, 206, 199, 0.15) 0%, rgba(82, 206, 199, 0.5) 50%, rgba(82, 206, 199, 0.15) 100%);
+    background-size: 15px 2px;
+    background-repeat: repeat-x;
+    z-index: 1;
+  }
+}
+
+.step-card {
+  background: linear-gradient(135deg, rgba(82, 206, 199, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(82, 206, 199, 0.15);
+  border-radius: 24px;
+  padding: 3rem 2.25rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 2;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(82, 206, 199, 0.45);
+  background: rgba(82, 206, 199, 0.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(82, 206, 199, 0.1);
+}
+
+.step-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(82, 206, 199, 0.3) 0%, #52CEC7 100%);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.step-card:hover::after {
+  opacity: 1;
+}
+
+.step-icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(82, 206, 199, 0.08);
+  border: 1px solid rgba(82, 206, 199, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  transition: all 0.4s ease;
+}
+
+.step-card:hover .step-icon-container {
+  background: rgba(82, 206, 199, 0.15);
+  border-color: rgba(82, 206, 199, 0.4);
+  box-shadow: 0 0 15px rgba(82, 206, 199, 0.2);
+}
+
+.step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #52CEC7;
+  background: rgba(82, 206, 199, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(82, 206, 199, 0.2);
+}
+
+.step-card:hover .step-badge {
+  border-color: rgba(82, 206, 199, 0.4);
+  background: rgba(82, 206, 199, 0.15);
+}
+
+.step-large-num {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  user-select: none;
+  transition: all 0.4s ease;
+}
+
+.step-card:hover .step-large-num {
+  color: rgba(82, 206, 199, 0.08);
+  transform: scale(1.1);
+}
+
+/* Pricing Offer block */
+.pricing-offer {
+  padding: 6rem 0;
+  background: radial-gradient(circle at 10% 20%, rgba(82, 206, 199, 0.02) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(82, 206, 199, 0.03) 0%, transparent 40%);
+}
+
+.pricing-box {
+  background: linear-gradient(135deg, rgba(82, 206, 199, 0.08) 0%, rgba(82, 206, 199, 0.02) 100%);
+  border: 2px solid rgba(82, 206, 199, 0.3);
+  border-radius: 24px;
+  padding: 4rem 3rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.pricing-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(82, 206, 199, 0.1) 0%, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.feature-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.feature-list i {
+  color: #52CEC7;
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+/* FAQ Accordion Styling */
+.faq-section {
+  padding: 7rem 0;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(82, 206, 199, 0.3);
+  background: rgba(82, 206, 199, 0.01);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.faq-item[open] {
+  border-color: rgba(82, 206, 199, 0.45);
+  background: rgba(82, 206, 199, 0.02);
+  box-shadow: 0 15px 35px rgba(82, 206, 199, 0.05);
+}
+
+.faq-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  list-style: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question-content {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-right: 1.5rem;
+}
+
+.faq-q-badge {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(82, 206, 199, 0.1);
+  border: 1px solid rgba(82, 206, 199, 0.2);
+  color: #52CEC7;
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover .faq-q-badge {
+  background: rgba(82, 206, 199, 0.2);
+  border-color: rgba(82, 206, 199, 0.4);
+  box-shadow: 0 0 10px rgba(82, 206, 199, 0.15);
+}
+
+.faq-item[open] .faq-q-badge {
+  background: #52CEC7;
+  color: #000;
+  border-color: #52CEC7;
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-item:hover .faq-chevron {
+  color: #52CEC7;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+  color: #52CEC7;
+}
+
+.faq-answer {
+  padding-top: 1.25rem;
+  padding-left: 3.25rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.75);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 1.25rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FAQ styling placeholder class to prevent empty reference error */
+.faq-card {
+  display: none;
+}
+
+/* Form section */
+.form-section {
+  padding: 6rem 0;
+  background: transparent;
+}
+
+.startup-form-container {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(82, 206, 199, 0.2);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}

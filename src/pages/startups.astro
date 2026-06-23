@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/startups/Hero.astro";
+import Dilemma from "../components/startups/Dilemma.astro";
+import Capabilities from "../components/startups/Capabilities.astro";
+import HowItWorks from "../components/startups/HowItWorks.astro";
+import Pricing from "../components/startups/Pricing.astro";
+import FAQ from "../components/startups/FAQ.astro";
+import ApplyForm from "../components/startups/ApplyForm.astro";
+import "../styles/startups.css";
+
+const seoTitle = "Elite Engineering Pod for Startups - Digital Back Office";
+const seoDescription = "Turn your startup idea into a scalable product with our elite engineering pod on a pre-seed budget. Complete DevOps, backend, UI, and AI development starting from £2,500/mo.";
+const seoKeywords = "startup engineering, pre-seed tech team, outsourced CTO, MVP development, startup developer pod, fractional engineering team, startups DevOps, startups AI integration";
+---
+
+<Layout 
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  canonical="/startups"
+>
+  <main class="page-wrapper" data-pagefind-ignore>
+    <Hero />
+    <Dilemma />
+    <Capabilities />
+    <HowItWorks />
+    <Pricing />
+    <FAQ />
+    <ApplyForm />
+  </main>
+</Layout>
