@@ -8,7 +8,7 @@
   min-height: 85vh;
   display: flex;
   align-items: center;
-  padding-top: 6rem;
+  padding-top: 10rem;
   padding-bottom: 4rem;
   position: relative;
   z-index: 3;
@@ -635,14 +635,14 @@
   padding: 1rem 1.5rem;
   border-radius: 50px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   text-decoration: none !important;
   transition: all 0.3s ease;
 }
 
 .btn-pricing-cta.primary-btn {
   background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%);
-  color: #000;
+  color: #fff;
   border: none;
 }
 
@@ -852,7 +852,6 @@
   min-width: 160px;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #000;
   background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%);
   border: none;
   display: flex;
