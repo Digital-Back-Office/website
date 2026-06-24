@@ -82,3 +82,24 @@
     </div>
   </div>
 </section>
+
+<script>
+  const startupForm = document.querySelector('#claim-offer form') as HTMLFormElement;
+  if (startupForm) {
+    startupForm.addEventListener('submit', (event) => {
+      if (!startupForm.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      } else {
+        // Trigger Google Tag conversion tracking event
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'generate_lead', {
+            'event_category': 'form_submission',
+            'event_label': 'Startup Pod Application'
+          });
+        }
+      }
+      startupForm.classList.add('was-validated');
+    }, false);
+  }
+</script>
