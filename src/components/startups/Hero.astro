@@ -474,9 +474,24 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
       const targetEmailInput = document.getElementById('founder_email') as HTMLInputElement;
       
       if (emailInput && targetEmailInput) {
+        // Set email field value in the main application form below
         targetEmailInput.value = emailInput.value;
+        
+        // Save the lead email immediately in the background to the Google Form
+        if (typeof (window as any).submitHeroLead === 'function') {
+          (window as any).submitHeroLead(emailInput.value);
+        }
+        
+        // Trigger Google Tag conversion event for the captured lead
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'generate_lead', {
+            'event_category': 'form_submission',
+            'event_label': 'Startup Hero Lead (Email CTA)'
+          });
+        }
       }
       
+      // Scroll down smoothly to the main form so the user can fill out the rest of the details
       const targetSection = document.getElementById('claim-offer');
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
