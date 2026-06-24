@@ -104,7 +104,7 @@ const roadmap = (Data.data as any).roadmap;
   .arrow-connector {
     position: absolute;
     top: 50%;
-    right: -25px;
+    right: -16px;
     transform: translateY(-50%);
     z-index: 10;
     transition: transform 0.4s ease;
@@ -142,7 +142,7 @@ const roadmap = (Data.data as any).roadmap;
   }
 
   .roadmap-card:hover + .arrow-connector {
-    transform: translateY(-50%) translateX(5px);
+    transform: translateY(-50%) translateX(4px);
   }
 
   .roadmap-card:hover .arrow-svg {
@@ -169,7 +169,7 @@ const roadmap = (Data.data as any).roadmap;
       {roadmap?.sub_title}
     </p>
 
-    <div class="row g-4 position-relative">
+    <div class="row gx-lg-5 gy-4 position-relative">
       {
         roadmap?.cards?.map((card: any, index: number) => (
           <div class="col-lg-4 position-relative">
@@ -194,8 +194,8 @@ const roadmap = (Data.data as any).roadmap;
               <div class="arrow-connector d-none d-lg-block">
                 <svg
                   class="arrow-svg"
-                  width="40"
-                  height="40"
+                  width="32"
+                  height="32"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="#52CEC7"
