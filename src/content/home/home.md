@@ -96,13 +96,13 @@ roadmap:
     - id: 'building-trustworthy-agents'
       heading: 'Building Trustworthy Agents'
       description: 'We build "Glass Box" AI, not Black Boxes. Using Explainable AI (XAI) and strict regulatory guardrails (DORA/EU AI Act), we engineer agents that are auditable, secure, and hallucination-free by design.'
-      icon: '/assets/icons/home/readiness.svg'
+      icon: '/assets/icons/home/responsible_ai.svg'
       alt: 'Building Trustworthy Agents'
 
     - id: 'training-mlops-rollout'
       heading: 'Deployment, Rollout and Training'
       description: 'We bridge the gap to production. Through Human-in-the-Loop training and rigorous MLOps, we ensure your workforce adopts the tool and your models remain accurate, monitored, and profitable over time.'
-      icon: '/assets/icons/home/readiness.svg'
+      icon: '/assets/icons/home/machine_learning.svg'
       alt: 'Deployment, Rollout and Training'  
 about:
     parallax_images:
