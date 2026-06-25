@@ -5,66 +5,208 @@ const Data = await getEntry("home", "home");
 const roadmap = (Data.data as any).roadmap;
 ---
 
-<section
-  style="padding: 5rem 0; background-color: transparent;"
-  data-bs-theme="dark"
->
+<style>
+  .roadmap-section {
+    padding: 6rem 0;
+    background-color: transparent;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  .accent-text {
+    color: #52CEC7;
+    background: linear-gradient(135deg, #52CEC7 0%, #EEBF2E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .roadmap-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(82, 206, 199, 0.2);
+    border-radius: 18px;
+    padding: 3rem 2.25rem 2.5rem;
+    height: 100%;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+  }
+
+  .step-number {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, rgba(82, 206, 199, 0.15) 0%, rgba(238, 191, 46, 0.05) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    user-select: none;
+    transition: all 0.4s ease;
+  }
+
+  .icon-container {
+    width: 56px;
+    height: 56px;
+    background: rgba(82, 206, 199, 0.1);
+    border: 1px solid rgba(82, 206, 199, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+  }
+
+  .icon-container img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .card-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 0;
+  }
+
+  .arrow-connector {
+    position: absolute;
+    top: 50%;
+    right: -16px;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: transform 0.4s ease;
+  }
+
+  .arrow-svg {
+    filter: drop-shadow(0 0 8px rgba(82, 206, 199, 0.3));
+    transition: all 0.4s ease;
+  }
+
+  /* Hover Effects */
+  .roadmap-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(82, 206, 199, 0.45);
+    background: rgba(82, 206, 199, 0.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 25px rgba(82, 206, 199, 0.1);
+  }
+
+  .roadmap-card:hover .step-number {
+    background: linear-gradient(135deg, rgba(82, 206, 199, 0.3) 0%, rgba(238, 191, 46, 0.15) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.05);
+  }
+
+  .roadmap-card:hover .icon-container {
+    background: rgba(82, 206, 199, 0.2);
+    border-color: rgba(82, 206, 199, 0.35);
+    box-shadow: 0 0 15px rgba(82, 206, 199, 0.2);
+  }
+
+  .roadmap-card:hover .card-heading {
+    color: #52CEC7;
+  }
+
+  .roadmap-card:hover + .arrow-connector {
+    transform: translateY(-50%) translateX(4px);
+  }
+
+  .roadmap-card:hover .arrow-svg {
+    stroke: #EEBF2E;
+  }
+
+  @media (max-width: 991px) {
+    .roadmap-section {
+      padding: 4rem 0;
+    }
+    .arrow-connector {
+      display: none !important;
+    }
+  }
+</style>
+
+<section class="roadmap-section" data-bs-theme="dark">
   <div class="container">
-    <h2
-      style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; color: #fff; "
-    >
+    <h2 class="section-title">
       {roadmap?.title_1}
-      <span style="color: #52CEC7;">{roadmap?.title_2}</span>
+      <span class="accent-text">{roadmap?.title_2}</span>
     </h2>
-    <p
-      style="text-align: center; font-size: 1.25rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 4rem; max-width: 900px; margin-left: auto; margin-right: auto;"
-    >
+    <p class="section-subtitle">
       {roadmap?.sub_title}
     </p>
 
-    <div class="row g-4">
-      {/** Render roadmap cards from content/home/home.md */}
+    <div class="row gx-lg-5 gy-4 position-relative">
       {
-        roadmap?.cards?.map((card: any) => (
-          <div class="col-lg-4">
-            <div
-              style="background: linear-gradient(135deg, rgba(82, 206, 199, 0.1) 0%, rgba(82, 206, 199, 0.05) 100%); border: 2px solid rgba(82, 206, 199, 0.3); border-radius: 16px; padding: 2.5rem; height: 100%; position: relative; transition: all 0.3s ease;"
-              onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 32px rgba(82, 206, 199, 0.2)'; this.style.borderColor='rgba(82, 206, 199, 0.6)';"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(82, 206, 199, 0.3)';"
-            >
-              <div style="margin-bottom: 1.5rem;">
+        roadmap?.cards?.map((card: any, index: number) => (
+          <div class="col-lg-4 position-relative">
+            <div class="roadmap-card">
+              <span class="step-number">0{index + 1}</span>
+              <div class="icon-container">
                 <img
                   src={card.icon ?? "/assets/icons/home/readiness.svg"}
                   alt={card.heading}
                 />
               </div>
 
-              <h3 style="font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">
+              <h3 class="card-heading">
                 {card.heading}
               </h3>
-              <p style="font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 0;">
+              <p class="card-desc">
                 {card.description}
               </p>
-
-              {roadmap?.cards &&
-                roadmap.cards.indexOf(card) !== roadmap.cards.length - 1 && (
-                  <div
-                    style="position: absolute; top: 50%; right: -20px; transform: translateY(-50%); display: none;"
-                    class="d-lg-block"
-                  >
-                    <svg
-                      width="40"
-                      height="40"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#52CEC7"
-                      stroke-width="2"
-                    >
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </div>
-                )}
             </div>
+
+            {roadmap?.cards && index !== roadmap.cards.length - 1 && (
+              <div class="arrow-connector d-none d-lg-block">
+                <svg
+                  class="arrow-svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#52CEC7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </div>
+            )}
           </div>
         ))
       }

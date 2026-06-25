@@ -1,0 +1,365 @@
+---
+---
+
+<style>
+  /* Success checkmark animation styling */
+  .success-icon-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: rgba(82, 206, 199, 0.1);
+    border: 2px solid rgba(82, 206, 199, 0.25);
+    box-shadow: 0 0 20px rgba(82, 206, 199, 0.15);
+  }
+
+  .success-checkmark-svg {
+    width: 48px;
+    height: 48px;
+    stroke: #52CEC7;
+    stroke-width: 3.5;
+    stroke-miterlimit: 10;
+  }
+
+  .success-checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 3.5;
+    stroke-miterlimit: 10;
+    stroke: rgba(82, 206, 199, 0.3);
+    fill: none;
+    animation: strokeCircle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+
+  .success-checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke: #52CEC7;
+    animation: strokeCheck 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+  }
+
+  @keyframes strokeCircle {
+    100% { stroke-dashoffset: 0; }
+  }
+
+  @keyframes strokeCheck {
+    100% { stroke-dashoffset: 0; }
+  }
+
+  .success-animation {
+    animation: fadeInUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .error-text-visual {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Custom input styles for visual validation and premium look */
+  .startup-form-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(82, 206, 199, 0.2) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .startup-form-input:focus {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(82, 206, 199, 0.6) !important;
+    box-shadow: 0 0 0 0.25rem rgba(82, 206, 199, 0.25) !important;
+    color: #fff !important;
+  }
+
+  .startup-form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .startup-form-input option {
+    background: #111518;
+    color: #fff;
+  }
+
+  /* Custom visual validation state */
+  .needs-validation.was-validated .startup-form-input:invalid {
+    border-color: rgba(255, 107, 107, 0.6) !important;
+    background-image: none !important; /* Hide default Bootstrap feedback icon */
+    box-shadow: 0 0 0 0.25rem rgba(255, 107, 107, 0.15) !important;
+  }
+
+  .needs-validation.was-validated .startup-form-input:valid {
+    border-color: rgba(82, 206, 199, 0.5) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Visual warning message elements helper */
+  .invalid-feedback-custom {
+    display: none;
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .needs-validation.was-validated :invalid ~ .invalid-feedback-custom {
+    display: block;
+  }
+</style>
+
+<section class="form-section" id="claim-offer">
+  <div class="container" style="max-width: 400px;">
+    <div class="startup-form-container" style="background: rgba(255, 255, 255, 0.01); border: 1.5px solid rgba(82, 206, 199, 0.12); padding: 3rem 2.25rem; border-radius: 24px; backdrop-filter: blur(20px);">
+      
+      <!-- Standard Form Header -->
+      <div id="form-header-block" class="text-center mb-4">
+        <h2 class="h2 text-white">Apply for the Startup Offer</h2>
+        <p class="text-white opacity-70">Tell us about your startup idea. Our engineering pod can deploy as fast as 48 hours.</p>
+      </div>
+
+      <!-- Visually Stunning Success Acknowledgement (Initially Hidden) -->
+      <div id="form-success-message" class="d-none text-center py-4 success-animation">
+        <div class="success-icon-wrap mb-4">
+          <svg class="success-checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+        <h3 class="h3 text-white mb-3">Application Received!</h3>
+        <p class="text-white opacity-80 mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+          Thank you for applying. Our Tech Lead will review your challenge and reach out within 24 hours to schedule your scoping session.
+        </p>
+        <button id="btn-submit-another" class="btn btn-outline-primary rounded-pill btn-sm px-4" style="border-color: rgba(82, 206, 199, 0.4); color: #52CEC7;">
+          Submit Another Request
+        </button>
+      </div>
+
+      <!-- Form (Shown by default) -->
+      <form
+        class="needs-validation row g-4"
+        id="startup-application-form"
+        novalidate
+      >
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="founder_name">Founder Name</label>
+          <input
+            class="form-control form-control-lg rounded-2 startup-form-input"
+            type="text"
+            placeholder="Your name"
+            required
+            name="founder_name"
+            id="founder_name"
+          />
+          <div class="invalid-feedback-custom">Please enter your name.</div>
+        </div>
+        
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="founder_email">Email Address</label>
+          <input
+            class="form-control form-control-lg rounded-2 startup-form-input"
+            type="email"
+            placeholder="Email address"
+            required
+            name="email"
+            id="founder_email"
+          />
+          <div class="invalid-feedback-custom">Please provide a valid email address.</div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="startup_stage">Startup Stage</label>
+          <select 
+            class="form-select form-select-lg rounded-2 startup-form-input" 
+            name="stage" 
+            id="startup_stage"
+          >
+            <option value="idea">Idea Stage / Pitch Deck</option>
+            <option value="mvp">Building MVP</option>
+            <option value="funded">Seed / Pre-Seed Funded</option>
+            <option value="scaling">Product Scaling / Series A</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label fs-base text-white" for="startup_message">Describe Your Product / Tech Challenge</label>
+          <textarea
+            class="form-control form-control-lg rounded-2 startup-form-input"
+            placeholder="Tell us about your product idea and what you need the pod to build..."
+            rows="4"
+            required
+            name="message"
+            id="startup_message"
+          ></textarea>
+          <div class="invalid-feedback-custom">Please describe your product idea or tech challenge.</div>
+        </div>
+
+        <div id="visual-error-container" class="col-12 d-none text-center error-text-visual"></div>
+
+        <div class="col-12 mt-4">
+          <button
+            class="btn btn-lg btn-primary rounded-pill w-100"
+            type="submit"
+            style="background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%); border: none;"
+          >
+            Submit Startup Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Google Form Configuration (Shared)
+  const googleFormId = '1UA0xNQdmItDlzTjhEwdPp5ohLN1xvCAv-ZJio7h1f7c'; 
+  const entryIdName = 'entry.1797053214';     
+  const entryIdEmail = 'entry.210357390';    
+  const entryIdStage = 'entry.1637992876';    
+  const entryIdMessage = 'entry.1679600658';  
+
+  // Helper function to resolve the correct formResponse URL endpoint from the ID or full URL
+  function getGoogleFormUrl(target: string): string {
+    if (target.startsWith('http')) {
+      // Replace /viewform or /edit with /formResponse
+      let resolved = target
+        .replace(/\/viewform(?:\?.*)?$/, '/formResponse')
+        .replace(/\/edit(?:\?.*)?$/, '/formResponse')
+        .replace(/\/formResponse(?:\?.*)?$/, '/formResponse');
+      
+      if (!resolved.endsWith('/formResponse') && resolved.includes('docs.google.com/forms')) {
+        resolved = resolved.replace(/\/$/, '') + '/formResponse';
+      }
+      return resolved;
+    }
+    // If it's just the ID, determine if it starts with 1FAIpQL (public Form ID) or not
+    if (target.startsWith('1FAIpQL')) {
+      return `https://docs.google.com/forms/d/e/${target}/formResponse`;
+    } else {
+      // Standard Workspace or editor document ID path
+      return `https://docs.google.com/forms/d/${target}/formResponse`;
+    }
+  }
+
+  // Expose global lead submission function for the Hero CTA form
+  (window as any).submitHeroLead = async (email: string) => {
+    if (!email) return;
+    const url = getGoogleFormUrl(googleFormId);
+    const formBody = new URLSearchParams();
+    formBody.append(entryIdName, 'Hero Lead (Partial)');
+    formBody.append(entryIdEmail, email);
+    formBody.append(entryIdStage, 'idea');
+    formBody.append(entryIdMessage, 'Initial lead email captured from Hero Section CTA.');
+
+    try {
+      await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formBody
+      });
+      console.log('Hero lead email submitted successfully to Google Form');
+    } catch (e) {
+      console.error('Failed to submit hero lead to Google Form:', e);
+    }
+  };
+
+  const startupForm = document.getElementById('startup-application-form') as HTMLFormElement;
+  const formHeaderBlock = document.getElementById('form-header-block');
+  const formSuccessMessage = document.getElementById('form-success-message');
+  const btnSubmitAnother = document.getElementById('btn-submit-another');
+  const visualErrorContainer = document.getElementById('visual-error-container');
+
+  if (startupForm && formHeaderBlock && formSuccessMessage) {
+    // Form Submission
+    startupForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!startupForm.checkValidity()) {
+        event.stopPropagation();
+        startupForm.classList.add('was-validated');
+        return;
+      }
+
+      if (visualErrorContainer) {
+        visualErrorContainer.classList.add('d-none');
+        visualErrorContainer.textContent = '';
+      }
+
+      // Trigger Google Tag conversion tracking event
+      if (typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'generate_lead', {
+          'event_category': 'form_submission',
+          'event_label': 'Startup Pod Application'
+        });
+      }
+
+      // Gather form inputs
+      const name = (document.getElementById('founder_name') as HTMLInputElement).value;
+      const email = (document.getElementById('founder_email') as HTMLInputElement).value;
+      const stage = (document.getElementById('startup_stage') as HTMLSelectElement).value;
+      const message = (document.getElementById('startup_message') as HTMLTextAreaElement).value;
+
+      const googleFormUrl = getGoogleFormUrl(googleFormId);
+      
+      // Map standard form names to Google entry IDs using URLSearchParams (standard form urlencoded format)
+      const formBody = new URLSearchParams();
+      formBody.append(entryIdName, name);
+      formBody.append(entryIdEmail, email);
+      formBody.append(entryIdStage, stage);
+      formBody.append(entryIdMessage, message);
+
+      try {
+        // Send request in background (no-cors mode is mandatory for Google Forms)
+        await fetch(googleFormUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: formBody
+        });
+
+        // Visually swap layout to Success state
+        formHeaderBlock.classList.add('d-none');
+        startupForm.classList.add('d-none');
+        formSuccessMessage.classList.remove('d-none');
+      } catch (error) {
+        console.error('Error submitting to Google Forms:', error);
+        if (visualErrorContainer) {
+          visualErrorContainer.classList.remove('d-none');
+          visualErrorContainer.textContent = 'Submission error. Please verify your connection and try again.';
+        }
+      }
+    }, false);
+
+    // Reset layout to submit another application
+    if (btnSubmitAnother) {
+      btnSubmitAnother.addEventListener('click', () => {
+        startupForm.reset();
+        startupForm.classList.remove('was-validated');
+        
+        formSuccessMessage.classList.add('d-none');
+        formHeaderBlock.classList.remove('d-none');
+        startupForm.classList.remove('d-none');
+      });
+    }
+  }
+</script>
