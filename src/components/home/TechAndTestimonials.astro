@@ -3,6 +3,7 @@ import { getEntry } from "astro:content";
 
 const Data = await getEntry("home", "home");
 const testimonials = Data.data.testimonials;
+const tech = Data.data.tech;
 ---
 
 <style>
@@ -148,7 +149,7 @@ const testimonials = Data.data.testimonials;
                 style="transition-timing-function: linear !important;"
             >
                 {
-                    tech.slider_1.map((card) => (
+                    tech.slider_1.map((card: string) => (
                         <div class="swiper-slide">
                             <div class="tech-logo">
                                 <img
@@ -194,7 +195,7 @@ const testimonials = Data.data.testimonials;
                 style="transition-timing-function: linear !important;"
             >
                 {
-                    tech.slider_2.map((card) => (
+                    tech.slider_2.map((card: string) => (
                         <div class="swiper-slide">
                             <div class="tech-logo">
                                 <img

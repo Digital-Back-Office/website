@@ -196,7 +196,7 @@ import Button from "../ui/Button.astro";
     .hero-visual-wrapper {
         position: relative;
         width: 100%;
-        max-width: 580px;
+        max-width: 700px;
         aspect-ratio: 1.1 / 1;
         display: flex;
         align-items: center;
@@ -230,7 +230,7 @@ import Button from "../ui/Button.astro";
 
     .main-dashboard-panel {
         position: absolute;
-        inset: 6% 6% 12% 6%;
+        inset: 2% 2% 6% 2%;
         background: rgba(11, 15, 25, 0.96);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: var(--radius-xl);
@@ -642,29 +642,29 @@ import Button from "../ui/Button.astro";
 
     /* Positioning and Float Animations */
     .wrapper-top-left {
-        top: 4%;
-        left: -2%;
+        top: -2%;
+        left: -8%;
         transform: translateZ(75px);
         animation: floatCard-TL 6.5s ease-in-out infinite;
     }
 
     .wrapper-top-right {
-        top: 14%;
-        right: -4%;
+        top: 8%;
+        right: -10%;
         transform: translateZ(100px);
         animation: floatCard-TR 7.5s ease-in-out infinite 0.8s;
     }
 
     .wrapper-bottom-left {
-        bottom: 12%;
-        left: -6%;
+        bottom: 2%;
+        left: -10%;
         transform: translateZ(90px);
         animation: floatCard-BL 8.5s ease-in-out infinite 1.8s;
     }
 
     .wrapper-bottom-right {
-        bottom: 6%;
-        right: 0%;
+        bottom: -2%;
+        right: -6%;
         transform: translateZ(80px);
         animation: floatCard-BR 7s ease-in-out infinite 0.4s;
     }
@@ -947,7 +947,7 @@ import Button from "../ui/Button.astro";
             </div>
             
             <!-- Right Column: Premium AI Orchestrator Dashboard Visualizer -->
-            <div class="col-lg-6 col-xl-6 d-flex justify-content-center align-items-center">
+            <div class="col-lg-5 offset-lg-1 d-flex justify-content-center align-items-center">
                 <div class="hero-visual-wrapper">
                     <div class="visual-glow"></div>
                     

@@ -1,0 +1,29 @@
+---
+import FinanceGraphic from './graphics/FinanceGraphic.astro';
+import HealthcareGraphic from './graphics/HealthcareGraphic.astro';
+import HrGraphic from './graphics/HrGraphic.astro';
+import IndustrialGraphic from './graphics/IndustrialGraphic.astro';
+import RealEstateGraphic from './graphics/RealEstateGraphic.astro';
+import RetailGraphic from './graphics/RetailGraphic.astro';
+import SportsGraphic from './graphics/SportsGraphic.astro';
+import StartupsGraphic from './graphics/StartupsGraphic.astro';
+import TelecomGraphic from './graphics/TelecomGraphic.astro';
+import TravelGraphic from './graphics/TravelGraphic.astro';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+{slug === 'finance-and-insurance' && <FinanceGraphic />}
+{slug === 'healthcare-life-sciences' && <HealthcareGraphic />}
+{slug === 'hr-and-talent-tech' && <HrGraphic />}
+{slug === 'industrials-manufacturing-and-energy' && <IndustrialGraphic />}
+{slug === 'real-estate' && <RealEstateGraphic />}
+{slug === 'retail-and-e-commerce' && <RetailGraphic />}
+{slug === 'sports-and-entertainment' && <SportsGraphic />}
+{slug === 'startups' && <StartupsGraphic />}
+{slug === 'technology-media-and-telecom' && <TelecomGraphic />}
+{slug === 'travel-and-hospitality' && <TravelGraphic />}

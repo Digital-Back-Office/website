@@ -1,0 +1,119 @@
+---
+/* HEALTHCARE: 3D Isometric Platforms (DNA Strand Inflow, Medical Inference Tower, & EHR Database Stack) */
+---
+<svg class="architecture-svg" viewBox="0 0 950 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="hlth-bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="var(--brand-teal-alt)" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="var(--brand-teal-alt)" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hlth-plat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--brand-cyan)"/>
+      <stop offset="100%" stop-color="var(--brand-teal-alt)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="none" />
+  <circle cx="475" cy="225" r="350" fill="url(#hlth-bg-glow)" pointer-events="none" />
+
+  <!-- Isometric Matrix background -->
+  <g stroke="rgba(255, 255, 255, 0.02)" stroke-width="1">
+    <path d="M 50 150 L 900 370 M 50 250 L 900 470 M 50 50 L 900 270" />
+    <path d="M 900 150 L 50 370 M 900 250 L 50 470 M 900 50 L 50 270" />
+  </g>
+
+  <!-- Developer console telemetry printout (Top) -->
+  <text x="475" y="40" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    CLINICAL PIPELINE // SEQUENCER: RUNNING // HIPAA STATUS: SECURED // PATIENT RECORD ENCRYPTED
+  </text>
+
+  <!-- 1. LEFT PLATFORM: INGESTION (cx=220, cy=280) -->
+  <g class="node-group">
+    <!-- Platform Base Shadow -->
+    <polygon points="140,295 220,335 220,350 140,310" fill="#04070d" />
+    <polygon points="220,335 300,295 300,310 220,350" fill="#050912" />
+    <!-- Platform Base Left/Right Faces -->
+    <polygon points="140,280 220,320 220,335 140,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="220,320 300,280 300,295 220,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <!-- Platform Top Face -->
+    <polygon points="140,280 220,240 300,280 220,320" fill="#090d16" stroke="var(--brand-cyan)" stroke-width="1.5" />
+
+    <!-- DNA Double Helix spiral rising vertically -->
+    <g transform="translate(220, 150)" stroke="var(--brand-cyan)" stroke-width="2" fill="none">
+      <path d="M -10,80 Q -2,60 10,40 T -10,0" stroke-linecap="round" />
+      <path d="M 10,80 Q 2,60 -10,40 T 10,0" opacity="0.6" stroke-linecap="round" />
+      <!-- Base links -->
+      <line x1="-9" y1="70" x2="9" y2="70" stroke-dasharray="3 3" />
+      <line x1="-8" y1="50" x2="8" y2="50" stroke-dasharray="3 3" />
+      <line x1="-9" y1="30" x2="9" y2="30" stroke-dasharray="3 3" />
+      <line x1="-8" y1="10" x2="8" y2="10" stroke-dasharray="3 3" />
+    </g>
+
+    <text x="220" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">INGESTION CORE</text>
+  </g>
+
+  <!-- 2. CENTRAL PLATFORM: CLINICAL INFERENCE (cx=475, cy=240, Taller block structure) -->
+  <!-- Wires connecting Ingest -> Central -->
+  <path d="M 270,265 Q 370,225 425,200" stroke="url(#hlth-plat-grad)" stroke-width="2.5" stroke-dasharray="6 4" />
+  <circle r="4" fill="var(--brand-cyan)">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M 270,265 Q 370,225 425,200" />
+  </circle>
+
+  <g class="node-group main-engine">
+    <!-- Big base column -->
+    <polygon points="375,250 475,300 475,340 375,290" fill="#050912" />
+    <polygon points="475,300 575,250 575,290 475,340" fill="#080e1c" />
+    <polygon points="375,250 475,200 575,250 475,300" fill="#090d19" stroke="var(--brand-teal-alt)" stroke-width="2" />
+
+    <!-- Second Stacked Block -->
+    <g transform="translate(0, -40)">
+      <polygon points="415,230 475,260 475,290 415,260" fill="#0b1224" />
+      <polygon points="475,260 535,230 535,260 475,290" fill="#0d1830" />
+      <polygon points="415,230 475,200 535,230 475,260" fill="#0c1429" stroke="var(--brand-teal-alt)" stroke-width="1" />
+    </g>
+
+    <!-- Floating 3D Medical Cross above Core -->
+    <g transform="translate(0, -90)">
+      <ellipse cx="475" cy="200" rx="40" ry="16" stroke="var(--brand-teal-alt)" stroke-width="2" stroke-dasharray="6 3" fill="none" />
+      <path d="M 470 200 H 480 M 475 195 V 205" stroke="var(--brand-teal-alt)" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    </g>
+
+    <text x="475" y="325" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-weight="900" letter-spacing="1">INFERENCE ENGINE</text>
+  </g>
+
+  <!-- 3. RIGHT PLATFORM: EHR DATABASE (cx=730, cy=280) -->
+  <!-- Wires connecting Central -> EHR -->
+  <path d="M 525,215 Q 615,225 680,265" stroke="url(#hlth-plat-grad)" stroke-width="2" stroke-dasharray="6 4" />
+  <circle r="4.5" fill="var(--brand-teal-alt)">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 525,215 Q 615,225 680,265" />
+  </circle>
+
+  <g class="node-group">
+    <!-- Platform Base -->
+    <polygon points="650,295 730,335 730,350 650,310" fill="#04070d" />
+    <polygon points="730,335 810,295 810,310 730,350" fill="#050912" />
+    <polygon points="650,280 730,320 730,335 650,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="730,320 810,280 810,295 730,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="650,280 730,240 810,280 730,320" fill="#090d16" stroke="var(--brand-yellow)" stroke-width="1.5" />
+
+    <!-- 3D Stacked database cylinders -->
+    <g transform="translate(710, 170)">
+      <!-- Cylinder Base -->
+      <ellipse cx="20" cy="80" rx="14" ry="6" fill="#0b1224" stroke="var(--brand-yellow)" stroke-width="1.5" />
+      <path d="M 6 80 V 60 A 14 6 0 0 0 34 60 V 80" fill="#0d1830" stroke="var(--brand-yellow)" stroke-width="1.5" />
+      <ellipse cx="20" cy="60" rx="14" ry="6" fill="#0c1429" stroke="var(--brand-yellow)" stroke-width="1.5" />
+
+      <!-- Cylinder Top -->
+      <path d="M 6 60 V 40 A 14 6 0 0 0 34 40 V 60" fill="#0d1830" stroke="var(--brand-yellow)" stroke-width="1.5" />
+      <ellipse cx="20" cy="40" rx="14" ry="6" fill="#0b1224" stroke="var(--brand-yellow)" stroke-width="1.5" />
+    </g>
+
+    <text x="730" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">SECURE REGISTRY</text>
+  </g>
+
+  <!-- Developer console telemetry printout (Bottom) -->
+  <text x="475" y="425" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    EHR SYNC: 0.05ms | FDA TITLE 21 COMPLIANT | ISO 13485 CERTIFIED | ENCRYPTION: AES-256-GCM
+  </text>
+</svg>

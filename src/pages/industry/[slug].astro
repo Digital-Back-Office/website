@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/common/Navbar.astro';
 import Contact from '../../components/common/Contact.astro';
+import IndustryGraphic from '../../components/industry/IndustryGraphic.astro';
+import Button from '../../components/ui/Button.astro';
 import { getCollection } from 'astro:content';
 import "../../styles/industry.css"
 
@@ -14,84 +15,117 @@ export async function getStaticPaths() {
 }
 
 const { industry } = Astro.props;
-const { Content } = await industry.render();
 const data = industry.data;
+const slug = industry.slug;
 ---
 
 <Layout title={data.title} description={data.description}>
-    <main>
-        <section class="hero-section" style="position: relative; overflow: hidden;">
-            <div class="container" style="position: relative; z-index: 1;">
-                <div class="row">
-                    <div class="col-12">
+    <main class="industry-page-wrapper">
+        <!-- Redesigned Two-Column Hero Section with SVG Architecture Graphic -->
+        <section class="hero-section">
+            <div class="gradient-orb-cyan"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-text-col mb-5 mb-lg-0">
+                        <div class="industry-badge-wrapper">
+                            <span class="industry-badge">
+                                <span class="badge-dot"></span>
+                                Enterprise Focus
+                            </span>
+                        </div>
                         <h1 class="hero-heading">{data.hero?.heading}</h1>
                         <p class="hero-subtext">{data.hero?.subtext}</p>
                         {data.hero?.cta_text && (
-                            <a href={data.hero.cta_link || '/contact-us'} class="btn hero-cta-btn">
-                                {data.hero.cta_text}
-                            </a>
+                            <Button href={data.hero.cta_link || '/contact-us'} class="hero-cta-btn">
+                                <span>{data.hero.cta_text}</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </Button>
                         )}
+                    </div>
+                    <div class="col-lg-6 hero-graphic-col">
+                        <div class="graphic-canvas">
+                            <IndustryGraphic slug={slug} />
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Trust Line Section -->
         {data.trust?.line && (
             <section class="trust-section">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="trust-line" set:html={data.trust.line}></p>
-                        </div>
+                    <div class="trust-box">
+                        <p class="trust-line" set:html={data.trust.line}></p>
                     </div>
                 </div>
             </section>
         )}
-        
+
+        <!-- Barriers Section -->
         {data.barriers && (
             <section class="barriers-section">
                 <div class="container">
-                    <div class="row align-items-start">
-                        <div class="col-lg-5 mb-4 mb-lg-0" style="height: -webkit-fill-available;">
-                            <h2 class="barriers-heading">{data.barriers.heading}</h2>
+                    <div class="row">
+                        <div class="col-lg-5 mb-5 mb-lg-0">
+                            <div class="barriers-sticky-content">
+                                <h2 class="barriers-heading">{data.barriers.heading}</h2>
+                                <p class="barriers-lead">Deploying AI in regulated environments requires balancing innovation velocity with safety standards.</p>
+                            </div>
                         </div>
                         <div class="col-lg-7">
-                            {data.barriers.cards?.map((card: any) => (
-                                <div class="barrier-card">
-                                    <h3 class="barrier-title">{card.title}</h3>
-                                    <p class="barrier-text">{card.description}</p>
-                                </div>
-                            ))}
+                            <div class="barriers-grid">
+                                {data.barriers.cards?.map((card: any, index: number) => {
+                                    const cleanTitle = card.title.replace(/^\d+[\.\s\-]+/, '');
+                                    return (
+                                        <div class="barrier-card">
+                                            <div class="barrier-card-badge">
+                                                <span>0{index + 1}</span>
+                                            </div>
+                                            <h3 class="barrier-title">{cleanTitle}</h3>
+                                            <p class="barrier-text">{card.description}</p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         )}
-        
+
+        <!-- Products / Services Tabs Section -->
         {data.products && (
             <section class="products-section">
                 <div class="container">
-                    <h2 class="products-title"><span>Our Services,</span> your ease</h2>
-                    <p class="products-subtitle">{data.products.subtitle}</p>
+                    <div class="section-header text-center">
+                        <h2 class="products-title"><span>Our Services,</span> your ease</h2>
+                        <p class="products-subtitle">{data.products.subtitle}</p>
+                    </div>
                     
-                    <ul class="nav nav-tabs" id="productsTab" role="tablist">
-                        {data.products.tabs?.map((tab: any, index: number) => (
-                            <li class="nav-item" role="presentation">
-                                <button 
-                                    class={`nav-link ${index === 0 ? 'active' : ''}`}
-                                    id={`${tab.id}-tab`}
-                                    data-bs-toggle="tab" 
-                                    data-bs-target={`#${tab.id}`}
-                                    type="button" 
-                                    role="tab" 
-                                    aria-controls={tab.id}
-                                    aria-selected={index === 0 ? 'true' : 'false'}
-                                >
-                                    {tab.name}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs justify-content-center" id="productsTab" role="tablist">
+                            {data.products.tabs?.map((tab: any, index: number) => (
+                                <li class="nav-item" role="presentation">
+                                    <button 
+                                        class={`nav-link ${index === 0 ? 'active' : ''}`}
+                                        id={`${tab.id}-tab`}
+                                        data-bs-toggle="tab" 
+                                        data-bs-target={`#${tab.id}`}
+                                        type="button" 
+                                        role="tab" 
+                                        aria-controls={tab.id}
+                                        aria-selected={index === 0 ? 'true' : 'false'}
+                                    >
+                                        {tab.name}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                     
                     <div class="tab-content" id="productsTabContent">
                         {data.products.tabs?.map((tab: any, index: number) => (
@@ -102,33 +136,50 @@ const data = industry.data;
                                 aria-labelledby={`${tab.id}-tab`}
                             >
                                 <div class="row align-items-center">
-                                    <div class="col-lg-7">
+                                    <div class="col-lg-7 pr-lg-5">
                                         <div class="tab-content-box">
-                                            <h3 class="tab-content-heading" style="margin-bottom: 2rem;">
+                                            <h3 class="tab-content-heading">
                                                 {tab.heading}
                                             </h3>
                                             
-                                            {tab.sections?.map((section: any) => (
-                                                <>
-                                                    <h4 class="tab-content-heading" style="font-size: 1.25rem; margin-top: 2rem;">
-                                                        {section.subheading}
-                                                    </h4>
-                                                    <p class="tab-content-text">{section.description}</p>
-                                                </>
-                                            ))}
+                                            <div class="tab-sections-list">
+                                                {tab.sections?.map((section: any) => (
+                                                    <div class="tab-section-item">
+                                                        <h4 class="tab-section-subheading">
+                                                            <span class="subheading-dot"></span>
+                                                            {section.subheading}
+                                                        </h4>
+                                                        <p class="tab-section-text">{section.description}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
                                             
-                                            <a href={tab.cta_link || '/contact-us'} class="btn tab-cta-btn">
-                                                {tab.cta_text}
-                                            </a>
+                                            <Button href={tab.cta_link || '/contact-us'} variant="outline" class="tab-cta-btn">
+                                                <span>{tab.cta_text}</span>
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                </svg>
+                                            </Button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-5">
-                                        <div style="background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center;">
-                                            <img 
-                                                src={tab.image} 
-                                                alt={tab.image_alt || tab.name}
-                                                style="max-width: 100%; height: auto; border-radius: 8px;"
-                                            />
+                                    <div class="col-lg-5 mt-5 mt-lg-0">
+                                        <div class="product-image-window">
+                                            <div class="window-header">
+                                                <div class="window-dots">
+                                                    <span class="dot dot-close"></span>
+                                                    <span class="dot dot-minimize"></span>
+                                                    <span class="dot dot-maximize"></span>
+                                                </div>
+                                                <div class="window-title">{tab.name.toLowerCase().replace(/\s+/g, '_')}_platform.png</div>
+                                            </div>
+                                            <div class="window-body">
+                                                <img 
+                                                    src={tab.image} 
+                                                    alt={tab.image_alt || tab.name}
+                                                    class="product-showcase-image"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -138,30 +189,50 @@ const data = industry.data;
                 </div>
             </section>
         )}
-        
+
+        <!-- Why Trust Section -->
         {data.why_trust && (
             <section class="why-trust-section">
                 <div class="container">
                     <h2 class="why-trust-heading" set:html={data.why_trust.heading}></h2>
                     
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
                         {data.why_trust.cards?.map((card: any) => (
                             <div class="col">
                                 <div class="trust-card">
+                                    <div class="trust-card-glow"></div>
                                     <div class="trust-card-icon">
                                         {card.icon === 'shield-check' && (
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z"/>
+                                                <path d="m9 12 2 2 4-4"/>
                                             </svg>
                                         )}
                                         {card.icon === 'lock' && (
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                                             </svg>
                                         )}
                                         {card.icon === 'clipboard-check' && (
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+                                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                                <path d="m9 14 2 2 4-4"/>
+                                            </svg>
+                                        )}
+                                        {card.icon === 'rocket' && (
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                                                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                                                <path d="M9 15 2 22"/>
+                                                <path d="M15 9l7-7"/>
+                                            </svg>
+                                        )}
+                                        {card.icon === 'chart-line' && (
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                                                <polyline points="16 7 22 7 22 13"/>
                                             </svg>
                                         )}
                                     </div>
@@ -174,7 +245,7 @@ const data = industry.data;
                 </div>
             </section>
         )}
-        
+
         <Contact />
     </main>
 </Layout>
