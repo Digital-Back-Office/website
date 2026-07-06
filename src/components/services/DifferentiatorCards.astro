@@ -40,21 +40,17 @@ const { heading, highlightPhrase, highlightColor, parts, cards } = Astro.props;
     {
       cards.map((card) => (
         <div class="col">
-          <div
-            class="card h-100"
-            style="background-color: rgba(255, 255, 255, 3%);border:none"
-          >
-            <div class="h-100 rounded-5 py-2 py-lg-4 px-0">
-              <div class="card-body text-center">
-                <img
-                  src={card.img}
-                  alt={card.alt || card.heading || "icon"}
-                  class="d-block text-primary mb-4 mx-auto"
-                  height="40"
-                />
-                <h3>{card.heading}</h3>
-                <p class="card-text">{card.text}</p>
-              </div>
+          <div class="diff-card">
+            <div class="diff-card-glow"></div>
+            <div class="diff-card-body text-center">
+              <img
+                src={card.img}
+                alt={card.alt || card.heading || "icon"}
+                class="d-block mb-4 mx-auto"
+                height="48"
+              />
+              <h3 class="h4 mb-3 font-bold ">{card.heading}</h3>
+              <p class="card-text mb-0">{card.text}</p>
             </div>
           </div>
         </div>

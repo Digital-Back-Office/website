@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Contact from "../common/Contact.astro";
 import ServiceVideo from "../../layouts/ServiceVideo.astro";
+import Button from "../ui/Button.astro";
 import DifferentiatorCards from "./DifferentiatorCards.astro";
 import ApproachSection from "./ApproachSection.astro";
 import ExpertiseGrid from "./ExpertiseGrid.astro";
@@ -73,24 +74,27 @@ const approachParts = approachHighlight
   <main class="page-wrapper" style="height: max-content;" data-pagefind-ignore>
     <!-- Hero Section -->
     <ServiceVideo>
-      <div class="hero-text container">
-        <div style="width:full; max-width:1296px; margin:0 auto 0 auto;">
-          <h1 class="text-lg-start fw-light fw-bold hero-heading">
+      <div class="container hero-container-inner">
+        <div class="hero-content-col">
+          <h1 class="hero-heading">
             {frontmatter.hero_title}
           </h1>
-          <p class="fs-lg text-lg-start pb-3 pb-sm-0 pb-md-2 mb-4 mb-sm-5 hero-text1">
+          <p class="hero-subtext">
             {frontmatter.hero_text}
           </p>
           {
             frontmatter.hero_cta_text && (
-              <div>
-                <a
-                  class="btn btn-primary rounded-pill hero-cta-btn"
+              <div class="hero-actions">
+                <Button
                   href={frontmatter.hero_cta_link || "/contact-us"}
+                  class="hero-cta-btn"
                 >
-                  {frontmatter.hero_cta_text}
-                  <i class="ai-arrow-right ms-2 me-n1" />
-                </a>
+                  <span>{frontmatter.hero_cta_text}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </Button>
               </div>
             )
           }
@@ -99,17 +103,16 @@ const approachParts = approachHighlight
     </ServiceVideo>
 
     <!-- Intro Section -->
-    <section
-      style="display: flex; justify-content: center; margin-top:5rem; margin-bottom:5rem;"
-      class="container"
-    >
-      <div style="max-width:1296px;">
-        <p style="font-size: 1.35rem; ">
-          {frontmatter.p1_text}
-        </p>
-        <p style="font-size: 1.35rem; font-style:italic">
-          {frontmatter.p2_text}
-        </p>
+    <section class="intro-section container">
+      <div class="intro-card-wrapper">
+        <div class="intro-glow"></div>
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <p class="intro-lead-text">
+              {frontmatter.p1_text}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 

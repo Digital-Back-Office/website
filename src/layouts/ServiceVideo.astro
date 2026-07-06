@@ -1,6 +1,10 @@
 ---
-import Navbar from "../components/common/Navbar.astro";
+export interface Props {
+  videoSrc?: string;
+}
 
+const { videoSrc } = Astro.props;
+import Navbar from "../components/common/Navbar.astro";
 import '../styles/container.css'
 ---
 
@@ -8,48 +12,67 @@ import '../styles/container.css'
   .hero-section {
     width: 100%;
     height: 100vh;
-    max-height: 110vh;
+    min-height: 600px;
     position: relative;
     overflow: hidden;
     background-color: var(--bg-base);
+    background: radial-gradient(circle at 10% 20%, rgba(82, 206, 199, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(238, 191, 46, 0.1) 0%, transparent 50%),
+                var(--bg-base);
+    display: flex;
+    align-items: center;
   }
 
-  .hero-section::before {
+  .hero-video {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    z-index: 1;
   }
 
-  .hero-section * {
-    z-index: 3;
-  }
-  
-  .hero-text {
+  .hero-overlay {
     position: absolute;
-    top: 70vh;
+    top: 0;
     left: 0;
-    right: 0;
-    z-index: 10;
-
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(247, 249, 252, 0.2) 0%,
+      rgba(247, 249, 252, 0.75) 75%,
+      var(--bg-base) 100%
+    );
+    z-index: 2;
   }
 
-    @media screen and (max-width: 1024px) {
-      .hero-section {
-        height: 1000px;
-        overflow: hidden;
-      }
+  .hero-content-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding-top: 80px; /* Offset for navbar */
+  }
 
-      .hero-video {
-        height: 1000px;
-      }
+  @media screen and (max-width: 1024px) {
+    .hero-section {
+      height: auto;
+      padding: 160px 0 100px 0;
     }
+    .hero-content-container {
+      padding-top: 0;
+    }
+  }
 </style>
 
 <Navbar />
 <section class="hero-section">
-  <slot />
+  {videoSrc && (
+    <video class="hero-video" src={videoSrc} preload="auto" muted autoplay loop playsinline></video>
+  )}
+  <div class="hero-overlay"></div>
+  <div class="hero-content-container">
+    <slot />
+  </div>
 </section>
