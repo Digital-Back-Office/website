@@ -41,10 +41,10 @@ const arrows = [
       steps.map((step, idx) => (
         <>
           <div
-            class={`row align-items-center position-relative pb-5 pb-lg-0 ${idx === steps.length - 1 ? "" : "mb-1 mb-sm-2 mb-md-4 mb-lg-0"}`}
+            class={`row align-items-center justify-content-between position-relative pb-5 pb-lg-0 ${idx === steps.length - 1 ? "" : "mb-1 mb-sm-2 mb-md-4 mb-lg-0"}`}
           >
             <div
-              class={`col-md-6 col-xl-5 ${idx % 2 === 0 ? "offset-lg-1 order-md-2" : "offset-xl-1"} pb-2 pb-md-0 mb-4 mb-md-0`}
+              class={`col-md-6 col-lg-5 ${idx % 2 === 0 ? "order-md-2" : ""} pb-2 pb-md-0 mb-4 mb-md-0 d-flex justify-content-center`}
               data-aos="fade-left"
               data-aos-duration="500"
               data-aos-offset="250"
@@ -53,17 +53,18 @@ const arrows = [
               <img
                 src={step.img}
                 width={idx === 0 ? "525" : "473"}
+                class="img-fluid"
                 alt={step.alt || step.heading || "Image"}
               />
             </div>
             <div
-              class={`col-md-6 col-lg-5 col-xl-4 ${idx % 2 === 0 ? "order-md-1" : "offset-lg-1"}`}
+              class={`col-md-6 col-lg-5 ${idx % 2 === 0 ? "order-md-1" : ""}`}
               data-aos="fade-right"
               data-aos-duration="500"
               data-aos-offset="250"
               data-disable-parallax-down="md"
             >
-              <div class={idx % 2 === 0 ? "pe-md-4 pe-lg-0" : "ps-md-4 ps-lg-0"}>
+              <div>
                 <h3 class="h2 mb-3 mb-lg-4">{step.heading}</h3>
                 <p class="pb-1 pb-lg-0 mb-4 mb-lg-5">
                   {step.text}
