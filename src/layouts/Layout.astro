@@ -34,6 +34,21 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
 <script src="/src/scripts/navbar.js"></script>
 <script src="/src/scripts/chat-bot.js"></script>
 <script src="/src/scripts/cookie-consent.js"></script>
+<script>
+fetch("https://b132-2401-4900-7912-6664-a939-8916-4a2e-3931.ngrok-free.app/visitor", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        page: window.location.href,
+        referrer: document.referrer,
+        userAgent: navigator.userAgent,
+        time: new Date().toISOString()
+    })
+});
+</script>
+
 
 <html lang="en" data-bs-theme="dark">
   <head>
