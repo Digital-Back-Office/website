@@ -8,155 +8,277 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
     <div class="container position-relative">
       <div class="row align-items-center g-5">
         <div class="col-lg-5 text-start">
-          <div class="hero-badge">
-            AI-Native Engineering Pods
-          </div>
-          <h1 class="display-4 fw-bold text-white mb-4">
-            Dedicated Engineering Pod for <span class="gradient-text">Startups</span>
-
+          <div class="hero-badge">AI-Native Engineering Pods</div>
+          <h1 class="display-4 fw-bold text-dark mb-4">
+            Dedicated Engineering Pod for <span class="gradient-text"
+              >Startups</span
+            >
           </h1>
-          <p class="fs-lg text-white opacity-90 mb-4">
-            A fully managed engineering pod of developers, designers, and DevOps engineers, led by a dedicated Tech Lead. Deploy in 48 hours with no hiring overhead.
+          <p class="fs-lg text-dark opacity-90 mb-4">
+            A fully managed engineering pod of developers, designers, and DevOps
+            engineers, led by a dedicated Tech Lead. Deploy in 48 hours with no
+            hiring overhead.
           </p>
 
           <form id="hero-cta-form" class="hero-cta-form-container">
-            <input 
-              type="email" 
-              id="hero-cta-email" 
-              placeholder="Enter your work email" 
+            <input
+              type="email"
+              id="hero-cta-email"
+              placeholder="Enter your work email"
               required
-              class="form-control hero-cta-input px-4" 
+              class="form-control hero-cta-input px-4"
             />
-            <button 
-              type="submit" 
-              class="hero-cta-button"
-            >
+            <button type="submit" class="hero-cta-button">
               Apply Now
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </button>
           </form>
           <div class="mt-3">
-            <a href="#how-it-works" class="text-white opacity-70 hover-opacity-100 text-decoration-none fs-sm d-inline-flex align-items-center" style="transition: opacity 0.2s ease;">
-              How It Works 
-              <svg class="ms-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <a
+              href="#how-it-works"
+              class="text-dark opacity-70 hover-opacity-100 text-decoration-none fs-sm d-inline-flex align-items-center"
+              style="transition: opacity 0.2s ease;"
+            >
+              How It Works
+              <svg
+                class="ms-1"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </a>
           </div>
         </div>
-        
+
         <div class="col-lg-6 offset-lg-1">
           <div class="hero-graphic-container">
             <!-- Custom SVG Idea to Scalable Product Graphic -->
-            <svg class="idea-to-product-svg w-100 h-auto d-block" xmlns="http://www.w3.org/2000/svg" viewBox="50 50 500 335" role="img" aria-label="Turn Your Startup Idea into a Scalable Product">
+            <svg
+              class="idea-to-product-svg w-100 h-auto d-block"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="50 50 500 335"
+              role="img"
+              aria-label="Turn Your Startup Idea into a Scalable Product"
+            >
               <defs>
                 <!-- Glow filters -->
-                <filter id="glow-light" x="-30%" y="-30%" width="160%" height="160%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                <filter
+                  id="glow-light"
+                  x="-30%"
+                  y="-30%"
+                  width="160%"
+                  height="160%"
+                >
+                  <feGaussianBlur stdDeviation="3.5" result="blur"
+                  ></feGaussianBlur>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"
+                  ></feComposite>
                 </filter>
-                <filter id="glow-strong" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="8" result="blur1" />
-                  <feGaussianBlur stdDeviation="4" result="blur2" />
+                <filter
+                  id="glow-strong"
+                  x="-50%"
+                  y="-50%"
+                  width="200%"
+                  height="200%"
+                >
+                  <feGaussianBlur stdDeviation="8" result="blur1"
+                  ></feGaussianBlur>
+                  <feGaussianBlur stdDeviation="4" result="blur2"
+                  ></feGaussianBlur>
                   <feMerge>
-                    <feMergeNode in="blur1" />
-                    <feMergeNode in="blur2" />
-                    <feMergeNode in="SourceGraphic" />
+                    <feMergeNode in="blur1"></feMergeNode>
+                    <feMergeNode in="blur2"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
                   </feMerge>
                 </filter>
 
                 <!-- Gradients -->
                 <radialGradient id="ideaGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#52CEC7" stop-opacity="0.8" />
-                  <stop offset="40%" stop-color="#52CEC7" stop-opacity="0.25" />
-                  <stop offset="100%" stop-color="#52CEC7" stop-opacity="0" />
+                  <stop offset="0%" stop-color="#52CEC7" stop-opacity="0.8"
+                  ></stop>
+                  <stop offset="40%" stop-color="#52CEC7" stop-opacity="0.25"
+                  ></stop>
+                  <stop offset="100%" stop-color="#52CEC7" stop-opacity="0"
+                  ></stop>
                 </radialGradient>
                 <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
-                  <stop offset="50%" stop-color="#52CEC7" stop-opacity="0.8" />
-                  <stop offset="100%" stop-color="#38d9d0" stop-opacity="0" />
+                  <stop offset="0%" stop-color="#EAFBFA" stop-opacity="1"
+                  ></stop>
+                  <stop offset="50%" stop-color="#52CEC7" stop-opacity="0.8"
+                  ></stop>
+                  <stop offset="100%" stop-color="#38d9d0" stop-opacity="0"
+                  ></stop>
                 </radialGradient>
-                
+
                 <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#52CEC7" stop-opacity="0.2" />
-                  <stop offset="50%" stop-color="#38d9d0" stop-opacity="0.85" />
-                  <stop offset="100%" stop-color="#52CEC7" stop-opacity="0.2" />
+                  <stop offset="0%" stop-color="#52CEC7" stop-opacity="0.2"
+                  ></stop>
+                  <stop offset="50%" stop-color="#38d9d0" stop-opacity="0.85"
+                  ></stop>
+                  <stop offset="100%" stop-color="#52CEC7" stop-opacity="0.2"
+                  ></stop>
                 </linearGradient>
 
                 <!-- Glassmorphic Dashboard Gradients -->
                 <linearGradient id="dbFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#0f2b2e" stop-opacity="0.75" />
-                  <stop offset="100%" stop-color="#051518" stop-opacity="0.9" />
+                  <stop offset="0%" stop-color="#0f2b2e" stop-opacity="0.75"
+                  ></stop>
+                  <stop offset="100%" stop-color="#051518" stop-opacity="0.9"
+                  ></stop>
                 </linearGradient>
-                <linearGradient id="dbStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#52CEC7" stop-opacity="0.5" />
-                  <stop offset="50%" stop-color="#38d9d0" stop-opacity="0.15" />
-                  <stop offset="100%" stop-color="#52CEC7" stop-opacity="0.4" />
+                <linearGradient
+                  id="dbStroke"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#52CEC7" stop-opacity="0.5"
+                  ></stop>
+                  <stop offset="50%" stop-color="#38d9d0" stop-opacity="0.15"
+                  ></stop>
+                  <stop offset="100%" stop-color="#52CEC7" stop-opacity="0.4"
+                  ></stop>
                 </linearGradient>
 
                 <!-- Glassmorphic Middle layer Gradients -->
-                <linearGradient id="midFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#0e2326" stop-opacity="0.6" />
-                  <stop offset="100%" stop-color="#041113" stop-opacity="0.8" />
+                <linearGradient
+                  id="midFill"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#0e2326" stop-opacity="0.6"
+                  ></stop>
+                  <stop offset="100%" stop-color="#041113" stop-opacity="0.8"
+                  ></stop>
                 </linearGradient>
               </defs>
 
               <style>
                 /* Orbit rings rotation */
                 @keyframes rotClockwise {
-                  0% { transform: rotate(0deg); }
-                  100% { transform: rotate(360deg); }
+                  0% {
+                    transform: rotate(0deg);
+                  }
+                  100% {
+                    transform: rotate(360deg);
+                  }
                 }
                 @keyframes rotCounter {
-                  0% { transform: rotate(360deg); }
-                  100% { transform: rotate(0deg); }
+                  0% {
+                    transform: rotate(360deg);
+                  }
+                  100% {
+                    transform: rotate(0deg);
+                  }
                 }
-                
+
                 /* Spark pulse animation */
                 @keyframes sparkPulse {
-                  0%, 100% { transform: scale(1); opacity: 0.85; filter: drop-shadow(0 0 4px rgba(82,206,199,0.5)); }
-                  50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 10px rgba(82,206,199,0.95)); }
+                  0%,
+                  100% {
+                    transform: scale(1);
+                    opacity: 0.85;
+                    filter: drop-shadow(0 0 4px rgba(82, 206, 199, 0.5));
+                  }
+                  50% {
+                    transform: scale(1.2);
+                    opacity: 1;
+                    filter: drop-shadow(0 0 10px rgba(82, 206, 199, 0.95));
+                  }
                 }
 
                 /* Horizontal continuous data flow */
                 @keyframes dataFlow {
-                  from { stroke-dashoffset: 0; }
-                  to { stroke-dashoffset: -300; }
+                  from {
+                    stroke-dashoffset: 0;
+                  }
+                  to {
+                    stroke-dashoffset: -300;
+                  }
                 }
 
                 /* Vertical transmission columns flow */
                 @keyframes verticalFlow {
-                  from { stroke-dashoffset: 0; }
-                  to { stroke-dashoffset: -20; }
+                  from {
+                    stroke-dashoffset: 0;
+                  }
+                  to {
+                    stroke-dashoffset: -20;
+                  }
                 }
 
                 /* Floating effects */
                 @keyframes floatIdea {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(-8px); }
+                  0%,
+                  100% {
+                    transform: translateY(0px);
+                  }
+                  50% {
+                    transform: translateY(-8px);
+                  }
                 }
                 @keyframes floatProduct {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(-6px); }
+                  0%,
+                  100% {
+                    transform: translateY(0px);
+                  }
+                  50% {
+                    transform: translateY(-6px);
+                  }
                 }
 
                 /* Status LEDs and mini-nodes pulsing */
                 @keyframes indicatorPulse {
-                  0%, 100% { opacity: 0.4; }
-                  50% { opacity: 1; }
+                  0%,
+                  100% {
+                    opacity: 0.4;
+                  }
+                  50% {
+                    opacity: 1;
+                  }
                 }
                 @keyframes scalePulse {
-                  0%, 100% { transform: scale(1); opacity: 0.3; }
-                  50% { transform: scale(1.15); opacity: 0.7; }
+                  0%,
+                  100% {
+                    transform: scale(1);
+                    opacity: 0.3;
+                  }
+                  50% {
+                    transform: scale(1.15);
+                    opacity: 0.7;
+                  }
                 }
 
                 /* Upward trend chart animation */
                 @keyframes chartDraw {
-                  0% { stroke-dashoffset: 160; }
-                  100% { stroke-dashoffset: 0; }
+                  0% {
+                    stroke-dashoffset: 160;
+                  }
+                  100% {
+                    stroke-dashoffset: 0;
+                  }
                 }
 
                 /* Applying classes to SVG elements */
@@ -172,16 +294,16 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
                   transform-origin: 120px 210px;
                   animation: rotClockwise 20s infinite linear;
                 }
-                
+
                 .idea-bulb-static {
-                   opacity: 0.95;
-                   filter: drop-shadow(0 0 5px rgba(82,206,199,0.6));
-                 }
-                
+                  opacity: 0.95;
+                  filter: drop-shadow(0 0 5px rgba(82, 206, 199, 0.6));
+                }
+
                 .idea-container {
                   animation: floatIdea 5s infinite ease-in-out;
                 }
-                
+
                 .flow-line-top {
                   stroke-dasharray: 10 60;
                   animation: dataFlow 3.5s infinite linear;
@@ -220,242 +342,628 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
                 .chart-growth-line {
                   stroke-dasharray: 160;
                   stroke-dashoffset: 0;
-                  animation: chartDraw 4s infinite cubic-bezier(0.4, 0, 0.2, 1) alternate;
+                  animation: chartDraw 4s infinite cubic-bezier(0.4, 0, 0.2, 1)
+                    alternate;
                 }
               </style>
 
               <!-- ================= BACKGROUND DEPTH ================= -->
               <!-- Ambient Glow Behind Idea -->
-              <circle cx="120" cy="210" r="80" fill="url(#ideaGlow)" opacity="0.18" />
+              <circle
+                cx="120"
+                cy="210"
+                r="80"
+                fill="url(#ideaGlow)"
+                opacity="0.18"></circle>
               <!-- Ambient Glow Behind Product -->
-              <circle cx="450" cy="220" r="100" fill="url(#ideaGlow)" opacity="0.2" />
+              <circle
+                cx="450"
+                cy="220"
+                r="100"
+                fill="url(#ideaGlow)"
+                opacity="0.2"></circle>
 
               <!-- Subtle Technical Dot Grid -->
-              <g opacity="0.08">
-                <circle cx="50" cy="50" r="1" fill="#52CEC7"/>
-                <circle cx="150" cy="50" r="1" fill="#52CEC7"/>
-                <circle cx="250" cy="50" r="1" fill="#52CEC7"/>
-                <circle cx="350" cy="50" r="1" fill="#52CEC7"/>
-                <circle cx="450" cy="50" r="1" fill="#52CEC7"/>
-                <circle cx="550" cy="50" r="1" fill="#52CEC7"/>
-                
-                <circle cx="50" cy="150" r="1" fill="#52CEC7"/>
-                <circle cx="550" cy="150" r="1" fill="#52CEC7"/>
-                <circle cx="50" cy="270" r="1" fill="#52CEC7"/>
-                <circle cx="550" cy="270" r="1" fill="#52CEC7"/>
-                
-                <circle cx="50" cy="370" r="1" fill="#52CEC7"/>
-                <circle cx="150" cy="370" r="1" fill="#52CEC7"/>
-                <circle cx="250" cy="370" r="1" fill="#52CEC7"/>
-                <circle cx="350" cy="370" r="1" fill="#52CEC7"/>
-                <circle cx="450" cy="370" r="1" fill="#52CEC7"/>
-                <circle cx="550" cy="370" r="1" fill="#52CEC7"/>
-              </g>
+              <g opacity="0.1">
+                <circle cx="50" cy="50" r="1" fill="#2E9691"></circle>
+                <circle cx="150" cy="50" r="1" fill="#2E9691"></circle>
+                <circle cx="250" cy="50" r="1" fill="#2E9691"></circle>
+                <circle cx="350" cy="50" r="1" fill="#2E9691"></circle>
+                <circle cx="450" cy="50" r="1" fill="#2E9691"></circle>
+                <circle cx="550" cy="50" r="1" fill="#2E9691"></circle>
 
+                <circle cx="50" cy="150" r="1" fill="#2E9691"></circle>
+                <circle cx="550" cy="150" r="1" fill="#2E9691"></circle>
+                <circle cx="50" cy="270" r="1" fill="#2E9691"></circle>
+                <circle cx="550" cy="270" r="1" fill="#2E9691"></circle>
+
+                <circle cx="50" cy="370" r="1" fill="#2E9691"></circle>
+                <circle cx="150" cy="370" r="1" fill="#2E9691"></circle>
+                <circle cx="250" cy="370" r="1" fill="#2E9691"></circle>
+                <circle cx="350" cy="370" r="1" fill="#2E9691"></circle>
+                <circle cx="450" cy="370" r="1" fill="#2E9691"></circle>
+                <circle cx="550" cy="370" r="1" fill="#2E9691"></circle>
+              </g>
 
               <!-- ================= LEFT SIDE: THE IDEA ================= -->
               <g class="idea-container">
                 <!-- Outer Rotating Orbits -->
                 <g class="orbit-ring-1">
-                  <ellipse cx="120" cy="210" rx="55" ry="18" fill="none" stroke="rgba(82, 206, 199, 0.4)" stroke-dasharray="6 8" stroke-width="1.2" />
-                  <circle cx="65" cy="210" r="3" fill="#FFFFFF" filter="url(#glow-light)" />
+                  <ellipse
+                    cx="120"
+                    cy="210"
+                    rx="55"
+                    ry="18"
+                    fill="none"
+                    stroke="rgba(82, 206, 199, 0.4)"
+                    stroke-dasharray="6 8"
+                    stroke-width="1.2"></ellipse>
+                  <circle
+                    cx="65"
+                    cy="210"
+                    r="3"
+                    fill="#2E9691"
+                    filter="url(#glow-light)"></circle>
                 </g>
-                
+
                 <g class="orbit-ring-2">
-                  <ellipse cx="120" cy="210" rx="50" ry="26" fill="none" stroke="rgba(56, 217, 208, 0.3)" stroke-dasharray="4 8" stroke-width="1" />
-                  <circle cx="170" cy="210" r="2.5" fill="#52CEC7" />
+                  <ellipse
+                    cx="120"
+                    cy="210"
+                    rx="50"
+                    ry="26"
+                    fill="none"
+                    stroke="rgba(56, 217, 208, 0.3)"
+                    stroke-dasharray="4 8"
+                    stroke-width="1"></ellipse>
+                  <circle cx="170" cy="210" r="2.5" fill="#52CEC7"></circle>
                 </g>
-                
+
                 <g class="orbit-ring-3">
-                  <ellipse cx="120" cy="210" rx="22" ry="52" fill="none" stroke="rgba(82, 206, 199, 0.25)" stroke-dasharray="10 5" stroke-width="1.2" />
-                  <circle cx="120" cy="158" r="2.5" fill="#52CEC7" />
+                  <ellipse
+                    cx="120"
+                    cy="210"
+                    rx="22"
+                    ry="52"
+                    fill="none"
+                    stroke="rgba(82, 206, 199, 0.25)"
+                    stroke-dasharray="10 5"
+                    stroke-width="1.2"></ellipse>
+                  <circle cx="120" cy="158" r="2.5" fill="#52CEC7"></circle>
                 </g>
 
                 <!-- Glowing Radial Core -->
-                <circle cx="120" cy="210" r="24" fill="url(#coreGlow)" />
-                
+                <circle cx="120" cy="210" r="24" fill="url(#coreGlow)"></circle>
+
                 <!-- Modern Minimalist Lightbulb Icon -->
                 <g class="idea-bulb-static" filter="url(#glow-light)">
                   <!-- Bulb outline -->
-                  <path d="M 114 223 C 111 220, 107 215, 107 207 A 13 13 0 1 1 133 207 C 133 215, 129 220, 126 223 Z" fill="rgba(82, 206, 199, 0.15)" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" />
+                  <path
+                    d="M 114 223 C 111 220, 107 215, 107 207 A 13 13 0 1 1 133 207 C 133 215, 129 220, 126 223 Z"
+                    fill="rgba(82, 206, 199, 0.18)"
+                    stroke="#0F2523"
+                    stroke-width="2"
+                    stroke-linejoin="round"></path>
                   <!-- Bulb base lines -->
-                  <path d="M 116 226 H 124" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
-                  <path d="M 118 229 H 122" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                  <path
+                    d="M 116 226 H 124"
+                    stroke="#0F2523"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+                  <path
+                    d="M 118 229 H 122"
+                    stroke="#0F2523"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
                   <!-- Filament -->
-                  <path d="M 117 214 L 119 205 Q 120 202 121 205 L 123 214" fill="none" stroke="#52CEC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M 117 214 L 119 205 Q 120 202 121 205 L 123 214"
+                    fill="none"
+                    stroke="#2E9691"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
                 </g>
 
                 <!-- Floating Plus Indicators -->
-                <path d="M 85 165 H 91 M 88 162 V 168" stroke="#52CEC7" stroke-width="1" opacity="0.6" />
-                <path d="M 152 248 H 158 M 155 245 V 251" stroke="#52CEC7" stroke-width="1" opacity="0.6" />
+                <path
+                  d="M 85 165 H 91 M 88 162 V 168"
+                  stroke="#2E9691"
+                  stroke-width="1"
+                  opacity="0.6"></path>
+                <path
+                  d="M 152 248 H 158 M 155 245 V 251"
+                  stroke="#2E9691"
+                  stroke-width="1"
+                  opacity="0.6"></path>
               </g>
 
               <!-- Static Labels (Kept static to ensure sharp rendering and eliminate animation jitter) -->
               <g>
-                <text x="120" y="295" fill="rgba(255,255,255,0.9)" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1.5">STARTUP IDEA</text>
-                <text x="120" y="310" fill="#52CEC7" font-size="8.5" font-weight="500" text-anchor="middle" letter-spacing="1">RAW &amp; UNSTRUCTURED</text>
+                <text
+                  x="120"
+                  y="295"
+                  fill="rgba(15,37,35,0.85)"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  letter-spacing="1.5">STARTUP IDEA</text
+                >
+                <text
+                  x="120"
+                  y="310"
+                  fill="#2E9691"
+                  font-size="8.5"
+                  font-weight="500"
+                  text-anchor="middle"
+                  letter-spacing="1">RAW &amp; UNSTRUCTURED</text
+                >
               </g>
-
 
               <!-- ================= MIDDLE: PIPELINE FLOW & ACCELERATOR GATES ================= -->
               <!-- The Holographic Accelerator Arches -->
               <!-- Gate 1: DESIGN -->
               <g>
-                <ellipse cx="210" cy="210" rx="10" ry="42" fill="none" stroke="rgba(82, 206, 199, 0.25)" stroke-width="1.5" stroke-dasharray="4 4" transform="rotate(10, 210, 210)" />
-                <line x1="210" y1="168" x2="210" y2="152" stroke="rgba(82, 206, 199, 0.4)" stroke-width="1" stroke-dasharray="2 2" />
-                <circle cx="210" cy="168" r="2" fill="#52CEC7" />
-                <text x="210" y="144" fill="rgba(255, 255, 255, 0.7)" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1">DESIGN</text>
+                <ellipse
+                  cx="210"
+                  cy="210"
+                  rx="10"
+                  ry="42"
+                  fill="none"
+                  stroke="rgba(82, 206, 199, 0.3)"
+                  stroke-width="1.5"
+                  stroke-dasharray="4 4"
+                  transform="rotate(10, 210, 210)"></ellipse>
+                <line
+                  x1="210"
+                  y1="168"
+                  x2="210"
+                  y2="152"
+                  stroke="rgba(82, 206, 199, 0.5)"
+                  stroke-width="1"
+                  stroke-dasharray="2 2"></line>
+                <circle cx="210" cy="168" r="2" fill="#2E9691"></circle>
+                <text
+                  x="210"
+                  y="144"
+                  fill="rgba(15, 37, 35, 0.75)"
+                  font-size="8"
+                  font-weight="700"
+                  text-anchor="middle"
+                  letter-spacing="1">DESIGN</text
+                >
               </g>
 
               <!-- Gate 2: BUILD -->
               <g>
-                <ellipse cx="285" cy="210" rx="10" ry="42" fill="none" stroke="rgba(82, 206, 199, 0.25)" stroke-width="1.5" stroke-dasharray="4 4" transform="rotate(10, 285, 210)" />
-                <line x1="285" y1="168" x2="285" y2="152" stroke="rgba(82, 206, 199, 0.4)" stroke-width="1" stroke-dasharray="2 2" />
-                <circle cx="285" cy="168" r="2" fill="#52CEC7" />
-                <text x="285" y="144" fill="rgba(255, 255, 255, 0.7)" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1">BUILD</text>
+                <ellipse
+                  cx="285"
+                  cy="210"
+                  rx="10"
+                  ry="42"
+                  fill="none"
+                  stroke="rgba(82, 206, 199, 0.3)"
+                  stroke-width="1.5"
+                  stroke-dasharray="4 4"
+                  transform="rotate(10, 285, 210)"></ellipse>
+                <line
+                  x1="285"
+                  y1="168"
+                  x2="285"
+                  y2="152"
+                  stroke="rgba(82, 206, 199, 0.5)"
+                  stroke-width="1"
+                  stroke-dasharray="2 2"></line>
+                <circle cx="285" cy="168" r="2" fill="#2E9691"></circle>
+                <text
+                  x="285"
+                  y="144"
+                  fill="rgba(15, 37, 35, 0.75)"
+                  font-size="8"
+                  font-weight="700"
+                  text-anchor="middle"
+                  letter-spacing="1">BUILD</text
+                >
               </g>
 
               <!-- Gate 3: SCALE -->
               <g>
-                <ellipse cx="360" cy="210" rx="10" ry="42" fill="none" stroke="rgba(82, 206, 199, 0.25)" stroke-width="1.5" stroke-dasharray="4 4" transform="rotate(10, 360, 210)" />
-                <line x1="360" y1="168" x2="360" y2="152" stroke="rgba(82, 206, 199, 0.4)" stroke-width="1" stroke-dasharray="2 2" />
-                <circle cx="360" cy="168" r="2" fill="#52CEC7" />
-                <text x="360" y="144" fill="rgba(255, 255, 255, 0.7)" font-size="8" font-weight="700" text-anchor="middle" letter-spacing="1">SCALE</text>
+                <ellipse
+                  cx="360"
+                  cy="210"
+                  rx="10"
+                  ry="42"
+                  fill="none"
+                  stroke="rgba(82, 206, 199, 0.3)"
+                  stroke-width="1.5"
+                  stroke-dasharray="4 4"
+                  transform="rotate(10, 360, 210)"></ellipse>
+                <line
+                  x1="360"
+                  y1="168"
+                  x2="360"
+                  y2="152"
+                  stroke="rgba(82, 206, 199, 0.5)"
+                  stroke-width="1"
+                  stroke-dasharray="2 2"></line>
+                <circle cx="360" cy="168" r="2" fill="#2E9691"></circle>
+                <text
+                  x="360"
+                  y="144"
+                  fill="rgba(15, 37, 35, 0.75)"
+                  font-size="8"
+                  font-weight="700"
+                  text-anchor="middle"
+                  letter-spacing="1">SCALE</text
+                >
               </g>
 
               <!-- Dynamic Flowing Wave Lines -->
               <!-- Static background wave guides -->
-              <path d="M 150 195 Q 210 185, 285 200 T 400 195" fill="none" stroke="rgba(82, 206, 199, 0.08)" stroke-width="2" />
-              <path d="M 150 210 Q 210 215, 285 210 T 400 215" fill="none" stroke="rgba(82, 206, 199, 0.08)" stroke-width="2" />
-              <path d="M 150 225 Q 210 235, 285 220 T 400 230" fill="none" stroke="rgba(82, 206, 199, 0.08)" stroke-width="2" />
+              <path
+                d="M 150 195 Q 210 185, 285 200 T 400 195"
+                fill="none"
+                stroke="rgba(82, 206, 199, 0.12)"
+                stroke-width="2"></path>
+              <path
+                d="M 150 210 Q 210 215, 285 210 T 400 215"
+                fill="none"
+                stroke="rgba(82, 206, 199, 0.12)"
+                stroke-width="2"></path>
+              <path
+                d="M 150 225 Q 210 235, 285 220 T 400 230"
+                fill="none"
+                stroke="rgba(82, 206, 199, 0.12)"
+                stroke-width="2"></path>
 
               <!-- Flowing packets curves -->
-              <path class="flow-line-top" d="M 150 195 Q 210 185, 285 200 T 400 195" fill="none" stroke="url(#flowGrad)" stroke-width="2" stroke-linecap="round" />
-              <path class="flow-line-mid" d="M 150 210 Q 210 215, 285 210 T 400 215" fill="none" stroke="url(#flowGrad)" stroke-width="2" stroke-linecap="round" />
-              <path class="flow-line-bot" d="M 150 225 Q 210 235, 285 220 T 400 230" fill="none" stroke="url(#flowGrad)" stroke-width="2" stroke-linecap="round" />
-
+              <path
+                class="flow-line-top"
+                d="M 150 195 Q 210 185, 285 200 T 400 195"
+                fill="none"
+                stroke="url(#flowGrad)"
+                stroke-width="2"
+                stroke-linecap="round"></path>
+              <path
+                class="flow-line-mid"
+                d="M 150 210 Q 210 215, 285 210 T 400 215"
+                fill="none"
+                stroke="url(#flowGrad)"
+                stroke-width="2"
+                stroke-linecap="round"></path>
+              <path
+                class="flow-line-bot"
+                d="M 150 225 Q 210 235, 285 220 T 400 230"
+                fill="none"
+                stroke="url(#flowGrad)"
+                stroke-width="2"
+                stroke-linecap="round"></path>
 
               <!-- ================= RIGHT SIDE: THE SCALABLE PRODUCT ================= -->
               <g class="product-container">
                 <!-- Connecting Vertical Transmission Columns (Data flow linking tiers) -->
-                <line x1="440" y1="285" x2="440" y2="135" stroke="rgba(82, 206, 199, 0.2)" stroke-width="1.5" />
-                <line x1="440" y1="285" x2="440" y2="135" stroke="#52CEC7" stroke-width="1.5" class="vertical-transmission" />
-                
-                <line x1="500" y1="295" x2="500" y2="145" stroke="rgba(82, 206, 199, 0.2)" stroke-width="1.5" />
-                <line x1="500" y1="295" x2="500" y2="145" stroke="#52CEC7" stroke-width="1.5" class="vertical-transmission" style="animation-delay: 0.6s;" />
+                <line
+                  x1="440"
+                  y1="285"
+                  x2="440"
+                  y2="135"
+                  stroke="rgba(82, 206, 199, 0.25)"
+                  stroke-width="1.5"></line>
+                <line
+                  x1="440"
+                  y1="285"
+                  x2="440"
+                  y2="135"
+                  stroke="#52CEC7"
+                  stroke-width="1.5"
+                  class="vertical-transmission"></line>
 
+                <line
+                  x1="500"
+                  y1="295"
+                  x2="500"
+                  y2="145"
+                  stroke="rgba(82, 206, 199, 0.25)"
+                  stroke-width="1.5"></line>
+                <line
+                  x1="500"
+                  y1="295"
+                  x2="500"
+                  y2="145"
+                  stroke="#52CEC7"
+                  stroke-width="1.5"
+                  class="vertical-transmission"
+                  style="animation-delay: 0.6s;"></line>
 
                 <!-- TIER 1: CLOUD FOUNDATION (Bottom) -->
                 <g>
                   <!-- Isometric Grid Base -->
-                  <path d="M 400 290 L 470 255 L 540 290 L 470 325 Z" fill="rgba(8, 22, 26, 0.85)" stroke="rgba(82, 206, 199, 0.3)" stroke-width="1.5" />
+                  <path
+                    d="M 400 290 L 470 255 L 540 290 L 470 325 Z"
+                    fill="rgba(8, 22, 26, 0.85)"
+                    stroke="rgba(82, 206, 199, 0.3)"
+                    stroke-width="1.5"></path>
                   <!-- Grid Detail Lines -->
-                  <path d="M 417.5 281.25 L 487.5 316.25 M 435 272.5 L 505 307.5 M 452.5 263.75 L 522.5 298.75" stroke="rgba(82, 206, 199, 0.15)" stroke-width="0.8" />
-                  <path d="M 417.5 298.75 L 487.5 263.75 M 435 307.5 L 505 272.5 M 452.5 316.25 L 522.5 281.25" stroke="rgba(82, 206, 199, 0.15)" stroke-width="0.8" />
+                  <path
+                    d="M 417.5 281.25 L 487.5 316.25 M 435 272.5 L 505 307.5 M 452.5 263.75 L 522.5 298.75"
+                    stroke="rgba(82, 206, 199, 0.15)"
+                    stroke-width="0.8"></path>
+                  <path
+                    d="M 417.5 298.75 L 487.5 263.75 M 435 307.5 L 505 272.5 M 452.5 316.25 L 522.5 281.25"
+                    stroke="rgba(82, 206, 199, 0.15)"
+                    stroke-width="0.8"></path>
 
                   <!-- Server Pillar 1 -->
                   <g>
                     <!-- Cylinder Base / Body -->
-                    <path d="M 428 275 L 428 293 A 12 5 0 0 0 452 293 L 452 275 Z" fill="rgba(16, 45, 50, 0.75)" stroke="rgba(82, 206, 199, 0.4)" stroke-width="0.8" />
+                    <path
+                      d="M 428 275 L 428 293 A 12 5 0 0 0 452 293 L 452 275 Z"
+                      fill="rgba(16, 45, 50, 0.75)"
+                      stroke="rgba(82, 206, 199, 0.4)"
+                      stroke-width="0.8"></path>
                     <!-- Cylinder Top -->
-                    <ellipse cx="440" cy="275" rx="12" ry="5" fill="rgba(82, 206, 199, 0.5)" stroke="rgba(82, 206, 199, 0.7)" stroke-width="0.8" />
+                    <ellipse
+                      cx="440"
+                      cy="275"
+                      rx="12"
+                      ry="5"
+                      fill="rgba(82, 206, 199, 0.5)"
+                      stroke="rgba(82, 206, 199, 0.7)"
+                      stroke-width="0.8"></ellipse>
                     <!-- LED lines -->
-                    <path d="M 428 281 A 12 5 0 0 0 452 281" fill="none" stroke="#52CEC7" stroke-width="1" class="led-indicator" />
-                    <path d="M 428 287 A 12 5 0 0 0 452 287" fill="none" stroke="#52CEC7" stroke-width="1" class="led-indicator-delayed" />
+                    <path
+                      d="M 428 281 A 12 5 0 0 0 452 281"
+                      fill="none"
+                      stroke="#52CEC7"
+                      stroke-width="1"
+                      class="led-indicator"></path>
+                    <path
+                      d="M 428 287 A 12 5 0 0 0 452 287"
+                      fill="none"
+                      stroke="#52CEC7"
+                      stroke-width="1"
+                      class="led-indicator-delayed"></path>
                   </g>
 
                   <!-- Server Pillar 2 -->
                   <g>
                     <!-- Cylinder Base / Body -->
-                    <path d="M 488 285 L 488 303 A 12 5 0 0 0 512 303 L 512 285 Z" fill="rgba(16, 45, 50, 0.75)" stroke="rgba(82, 206, 199, 0.4)" stroke-width="0.8" />
+                    <path
+                      d="M 488 285 L 488 303 A 12 5 0 0 0 512 303 L 512 285 Z"
+                      fill="rgba(16, 45, 50, 0.75)"
+                      stroke="rgba(82, 206, 199, 0.4)"
+                      stroke-width="0.8"></path>
                     <!-- Cylinder Top -->
-                    <ellipse cx="500" cy="285" rx="12" ry="5" fill="rgba(82, 206, 199, 0.5)" stroke="rgba(82, 206, 199, 0.7)" stroke-width="0.8" />
+                    <ellipse
+                      cx="500"
+                      cy="285"
+                      rx="12"
+                      ry="5"
+                      fill="rgba(82, 206, 199, 0.5)"
+                      stroke="rgba(82, 206, 199, 0.7)"
+                      stroke-width="0.8"></ellipse>
                     <!-- LED lines -->
-                    <path d="M 488 291 A 12 5 0 0 0 512 291" fill="none" stroke="#52CEC7" stroke-width="1" class="led-indicator" />
-                    <path d="M 488 297 A 12 5 0 0 0 512 297" fill="none" stroke="#52CEC7" stroke-width="1" class="led-indicator-delayed" />
+                    <path
+                      d="M 488 291 A 12 5 0 0 0 512 291"
+                      fill="none"
+                      stroke="#52CEC7"
+                      stroke-width="1"
+                      class="led-indicator"></path>
+                    <path
+                      d="M 488 297 A 12 5 0 0 0 512 297"
+                      fill="none"
+                      stroke="#52CEC7"
+                      stroke-width="1"
+                      class="led-indicator-delayed"></path>
                   </g>
                 </g>
-
 
                 <!-- TIER 2: MIDDLE ENGINE / LOGIC & AI (Middle) -->
                 <g>
                   <!-- Transparent Layer Plate -->
-                  <path d="M 400 210 L 470 175 L 540 210 L 470 245 Z" fill="url(#midFill)" stroke="rgba(82, 206, 199, 0.25)" stroke-width="1.2" />
+                  <path
+                    d="M 400 210 L 470 175 L 540 210 L 470 245 Z"
+                    fill="url(#midFill)"
+                    stroke="rgba(82, 206, 199, 0.25)"
+                    stroke-width="1.2"></path>
 
                   <!-- Microservice Cube 1 -->
                   <g>
                     <!-- Top Face -->
-                    <path d="M 440 189 L 452 195 L 440 201 L 428 195 Z" fill="rgba(82, 206, 199, 0.45)" stroke="rgba(82, 206, 199, 0.6)" stroke-width="0.8" />
+                    <path
+                      d="M 440 189 L 452 195 L 440 201 L 428 195 Z"
+                      fill="rgba(82, 206, 199, 0.45)"
+                      stroke="rgba(82, 206, 199, 0.6)"
+                      stroke-width="0.8"></path>
                     <!-- Left Face -->
-                    <path d="M 428 195 L 428 209 L 440 215 L 440 201 Z" fill="rgba(14, 42, 47, 0.85)" stroke="rgba(82, 206, 199, 0.25)" stroke-width="0.8" />
+                    <path
+                      d="M 428 195 L 428 209 L 440 215 L 440 201 Z"
+                      fill="rgba(14, 42, 47, 0.85)"
+                      stroke="rgba(82, 206, 199, 0.25)"
+                      stroke-width="0.8"></path>
                     <!-- Right Face -->
-                    <path d="M 440 201 L 440 215 L 452 209 L 452 195 Z" fill="rgba(8, 30, 34, 0.85)" stroke="rgba(82, 206, 199, 0.25)" stroke-width="0.8" />
+                    <path
+                      d="M 440 201 L 440 215 L 452 209 L 452 195 Z"
+                      fill="rgba(8, 30, 34, 0.85)"
+                      stroke="rgba(82, 206, 199, 0.25)"
+                      stroke-width="0.8"></path>
                   </g>
 
                   <!-- Microservice Cube 2 -->
                   <g>
                     <!-- Top Face -->
-                    <path d="M 500 199 L 512 205 L 500 211 L 488 205 Z" fill="rgba(82, 206, 199, 0.45)" stroke="rgba(82, 206, 199, 0.6)" stroke-width="0.8" />
+                    <path
+                      d="M 500 199 L 512 205 L 500 211 L 488 205 Z"
+                      fill="rgba(82, 206, 199, 0.45)"
+                      stroke="rgba(82, 206, 199, 0.6)"
+                      stroke-width="0.8"></path>
                     <!-- Left Face -->
-                    <path d="M 488 205 L 488 219 L 500 225 L 500 211 Z" fill="rgba(14, 42, 47, 0.85)" stroke="rgba(82, 206, 199, 0.25)" stroke-width="0.8" />
+                    <path
+                      d="M 488 205 L 488 219 L 500 225 L 500 211 Z"
+                      fill="rgba(14, 42, 47, 0.85)"
+                      stroke="rgba(82, 206, 199, 0.25)"
+                      stroke-width="0.8"></path>
                     <!-- Right Face -->
-                    <path d="M 500 211 L 500 225 L 512 219 L 512 205 Z" fill="rgba(8, 30, 34, 0.85)" stroke="rgba(82, 206, 199, 0.25)" stroke-width="0.8" />
+                    <path
+                      d="M 500 211 L 500 225 L 512 219 L 512 205 Z"
+                      fill="rgba(8, 30, 34, 0.85)"
+                      stroke="rgba(82, 206, 199, 0.25)"
+                      stroke-width="0.8"></path>
                   </g>
 
                   <!-- Central Glowing AI / Neural Node -->
                   <g>
-                    <circle cx="470" cy="210" r="4.5" fill="#52CEC7" filter="url(#glow-light)" />
+                    <circle
+                      cx="470"
+                      cy="210"
+                      r="4.5"
+                      fill="#52CEC7"
+                      filter="url(#glow-light)"></circle>
                     <!-- Connection Links -->
-                    <line x1="440" y1="201" x2="470" y2="210" stroke="#52CEC7" stroke-width="1.2" opacity="0.65" />
-                    <line x1="500" y1="211" x2="470" y2="210" stroke="#52CEC7" stroke-width="1.2" opacity="0.65" />
-                    
-                    <path d="M 470 210 L 462 222 M 470 210 L 478 198" stroke="#52CEC7" stroke-width="0.8" opacity="0.5" stroke-dasharray="2 2" />
+                    <line
+                      x1="440"
+                      y1="201"
+                      x2="470"
+                      y2="210"
+                      stroke="#52CEC7"
+                      stroke-width="1.2"
+                      opacity="0.65"></line>
+                    <line
+                      x1="500"
+                      y1="211"
+                      x2="470"
+                      y2="210"
+                      stroke="#52CEC7"
+                      stroke-width="1.2"
+                      opacity="0.65"></line>
+
+                    <path
+                      d="M 470 210 L 462 222 M 470 210 L 478 198"
+                      stroke="#52CEC7"
+                      stroke-width="0.8"
+                      opacity="0.5"
+                      stroke-dasharray="2 2"></path>
                   </g>
                 </g>
-
 
                 <!-- TIER 3: SAAS DASHBOARD & GROWTH (Top) -->
                 <g>
                   <!-- Glassmorphic Dashboard Panel -->
-                  <path d="M 400 130 L 470 95 L 540 130 L 470 165 Z" fill="url(#dbFill)" stroke="url(#dbStroke)" stroke-width="1.5" style="backdrop-filter: blur(4px);" />
+                  <path
+                    d="M 400 130 L 470 95 L 540 130 L 470 165 Z"
+                    fill="url(#dbFill)"
+                    stroke="url(#dbStroke)"
+                    stroke-width="1.5"
+                    style="backdrop-filter: blur(4px);"></path>
 
                   <!-- UI Header Mock -->
-                  <path d="M 412 124 L 424 118 L 424 133 L 412 139 Z" fill="rgba(82, 206, 199, 0.18)" stroke="rgba(82, 206, 199, 0.3)" stroke-width="0.5" />
-                  <circle cx="421" cy="116" r="1.5" fill="#52CEC7" opacity="0.8" />
-                  <line x1="427" y1="113" x2="517" y2="68" stroke="rgba(82, 206, 199, 0.2)" stroke-width="1" />
+                  <path
+                    d="M 412 124 L 424 118 L 424 133 L 412 139 Z"
+                    fill="rgba(82, 206, 199, 0.18)"
+                    stroke="rgba(82, 206, 199, 0.3)"
+                    stroke-width="0.5"></path>
+                  <circle cx="421" cy="116" r="1.5" fill="#52CEC7" opacity="0.8"
+                  ></circle>
+                  <line
+                    x1="427"
+                    y1="113"
+                    x2="517"
+                    y2="68"
+                    stroke="rgba(82, 206, 199, 0.2)"
+                    stroke-width="1"></line>
 
                   <!-- Chart Metric Card 1 -->
-                  <path d="M 445 146 L 465 136 L 478 142.5 L 458 152.5 Z" fill="rgba(82, 206, 199, 0.12)" stroke="rgba(82, 206, 199, 0.35)" stroke-width="0.8" />
-                  <path d="M 450 146 L 458 142 M 452 149 L 466 142" stroke="rgba(255, 255, 255, 0.4)" stroke-width="0.8" />
+                  <path
+                    d="M 445 146 L 465 136 L 478 142.5 L 458 152.5 Z"
+                    fill="rgba(82, 206, 199, 0.12)"
+                    stroke="rgba(82, 206, 199, 0.35)"
+                    stroke-width="0.8"></path>
+                  <path
+                    d="M 450 146 L 458 142 M 452 149 L 466 142"
+                    stroke="rgba(255, 255, 255, 0.4)"
+                    stroke-width="0.8"></path>
 
                   <!-- Chart Metric Card 2 -->
-                  <path d="M 482 127.5 L 502 117.5 L 515 124 L 495 134 Z" fill="rgba(82, 206, 199, 0.12)" stroke="rgba(82, 206, 199, 0.35)" stroke-width="0.8" />
-                  <path d="M 487 127.5 L 495 123.5 M 489 130.5 L 503 123.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="0.8" />
+                  <path
+                    d="M 482 127.5 L 502 117.5 L 515 124 L 495 134 Z"
+                    fill="rgba(82, 206, 199, 0.12)"
+                    stroke="rgba(82, 206, 199, 0.35)"
+                    stroke-width="0.8"></path>
+                  <path
+                    d="M 487 127.5 L 495 123.5 M 489 130.5 L 503 123.5"
+                    stroke="rgba(255, 255, 255, 0.4)"
+                    stroke-width="0.8"></path>
 
                   <!-- Soaring Upward Trend Growth Line inside Dashboard -->
-                  <path class="chart-growth-line" d="M 430 138 L 445 130 L 458 133 L 473 121 L 488 126 L 503 111 L 518 115 L 530 102" fill="none" stroke="#52CEC7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow-light)" />
+                  <path
+                    class="chart-growth-line"
+                    d="M 430 138 L 445 130 L 458 133 L 473 121 L 488 126 L 503 111 L 518 115 L 530 102"
+                    fill="none"
+                    stroke="#52CEC7"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    filter="url(#glow-light)"></path>
 
                   <!-- Soaring Growth Arrow shooting out of the SaaS screen -->
-                  <path d="M 490 120 Q 515 110 530 75" fill="none" stroke="#52CEC7" stroke-width="3" stroke-linecap="round" filter="url(#glow-light)" />
+                  <path
+                    d="M 490 120 Q 515 110 530 75"
+                    fill="none"
+                    stroke="#52CEC7"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    filter="url(#glow-light)"></path>
                   <!-- Arrowhead -->
-                  <path d="M 530 75 L 522 76 L 526 82 Z" fill="#52CEC7" filter="url(#glow-light)" />
-                  
+                  <path
+                    d="M 530 75 L 522 76 L 526 82 Z"
+                    fill="#52CEC7"
+                    filter="url(#glow-light)"></path>
+
                   <!-- Expanding Scale Star Sparks -->
                   <g class="scale-pulsar" filter="url(#glow-light)">
-                    <path d="M 535 70 L 538 67 L 535 64 L 532 67 Z" fill="#FFFFFF" />
-                    <circle cx="535" cy="67" r="8" fill="#52CEC7" opacity="0.25" />
+                    <path
+                      d="M 535 70 L 538 67 L 535 64 L 532 67 Z"
+                      fill="#FFFFFF"></path>
+                    <circle cx="535" cy="67" r="8" fill="#52CEC7" opacity="0.25"
+                    ></circle>
                   </g>
-                  
+
                   <!-- Floating Sparks around scale -->
-                  <circle cx="510" cy="65" r="1.5" fill="#52CEC7" class="led-indicator" />
-                  <circle cx="545" cy="78" r="1" fill="#FFFFFF" class="led-indicator-delayed" />
+                  <circle
+                    cx="510"
+                    cy="65"
+                    r="1.5"
+                    fill="#52CEC7"
+                    class="led-indicator"></circle>
+                  <circle
+                    cx="545"
+                    cy="78"
+                    r="1"
+                    fill="#FFFFFF"
+                    class="led-indicator-delayed"></circle>
                 </g>
               </g>
 
               <!-- Static Labels (Kept static to ensure sharp rendering and eliminate animation jitter) -->
               <g>
-                <text x="470" y="355" fill="rgba(255,255,255,0.9)" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1.5">SCALABLE PRODUCT</text>
-                <text x="470" y="370" fill="#52CEC7" font-size="8.5" font-weight="500" text-anchor="middle" letter-spacing="1">SECURE &amp; PRODUCTION-READY</text>
+                <text
+                  x="470"
+                  y="355"
+                  fill="rgba(15,37,35,0.85)"
+                  font-size="11"
+                  font-weight="700"
+                  text-anchor="middle"
+                  letter-spacing="1.5">SCALABLE PRODUCT</text
+                >
+                <text
+                  x="470"
+                  y="370"
+                  fill="#2E9691"
+                  font-size="8.5"
+                  font-weight="500"
+                  text-anchor="middle"
+                  letter-spacing="1">SECURE &amp; PRODUCTION-READY</text
+                >
               </g>
             </svg>
           </div>
@@ -466,36 +974,42 @@ import VideoLayout from "../../layouts/VideoLayout.astro";
 </VideoLayout>
 
 <script>
-  const heroForm = document.getElementById('hero-cta-form');
+  const heroForm = document.getElementById("hero-cta-form");
   if (heroForm) {
-    heroForm.addEventListener('submit', (e) => {
+    heroForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const emailInput = document.getElementById('hero-cta-email') as HTMLInputElement;
-      const targetEmailInput = document.getElementById('founder_email') as HTMLInputElement;
-      
+      const emailInput = document.getElementById(
+        "hero-cta-email",
+      ) as HTMLInputElement;
+      const targetEmailInput = document.getElementById(
+        "founder_email",
+      ) as HTMLInputElement;
+
       if (emailInput && targetEmailInput) {
         // Set email field value in the main application form below
         targetEmailInput.value = emailInput.value;
-        
+
         // Save the lead email immediately in the background to the Google Form
-        if (typeof (window as any).submitHeroLead === 'function') {
+        if (typeof (window as any).submitHeroLead === "function") {
           (window as any).submitHeroLead(emailInput.value);
         }
-        
+
         // Trigger Google Tag conversion event for the captured lead
-        if (typeof (window as any).gtag === 'function') {
-          (window as any).gtag('event', 'generate_lead', {
-            'event_category': 'form_submission',
-            'event_label': 'Startup Hero Lead (Email CTA)'
+        if (typeof (window as any).gtag === "function") {
+          (window as any).gtag("event", "generate_lead", {
+            event_category: "form_submission",
+            event_label: "Startup Hero Lead (Email CTA)",
           });
         }
       }
-      
+
       // Scroll down smoothly to the main form so the user can fill out the rest of the details
-      const targetSection = document.getElementById('claim-offer');
+      const targetSection = document.getElementById("claim-offer");
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-        const nameInput = document.getElementById('founder_name') as HTMLInputElement;
+        targetSection.scrollIntoView({ behavior: "smooth" });
+        const nameInput = document.getElementById(
+          "founder_name",
+        ) as HTMLInputElement;
         if (nameInput) {
           nameInput.focus();
         }
