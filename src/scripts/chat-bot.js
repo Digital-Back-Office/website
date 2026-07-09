@@ -1,20 +1,8 @@
-// window.$crisp = [];
-// // window.CRISP_WEBSITE_ID = "4abd2d6b-9b40-4da0-9159-556eeb546157";
-// window.CRISP_WEBSITE_ID = "e8003f14-3892-48ce-99d6-0e1235596030";  //added by Shubhanshu for the testing
-// (function () {
-//     const d = document;
-//     const s = d.createElement("script");
-//     s.src = "https://client.crisp.chat/l.js";
-//     s.async = 1;
-//     d.getElementsByTagName("head")[0].appendChild(s);
-// })();
-
-
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
-s1.src='https://embed.tawk.to/6a4f2dee8926201d475f46f5/1jt2kmrll';
+s1.src='https://embed.tawk.to/6a4f6339634c491d47a3af1b/1jt31n72a';
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
