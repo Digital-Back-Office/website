@@ -457,7 +457,7 @@
 
 .step-large-num {
   position: absolute;
-  bottom: 1.5rem;
+  /* bottom: 1.5rem; */
   right: 2rem;
   font-size: 5rem;
   font-weight: 900;
