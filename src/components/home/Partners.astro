@@ -6,15 +6,21 @@ const Data = await getEntry("home", "home");
 const partners = Data.data.partners;
 ---
 
-<section class="partners" >
-	<div class="container">
-		<h2 class="partners-title">
-			{partners.title}
-		</h2>
+<section class="partners">
+	<div class="container solutions-header">
+		<div class="expertise-badge">
+			<span class="expertise-badge-text">Our Partners</span>
+		</div>
 		<div class="partners-grid">
-			{partners.images.map((image) => (
-				<img class="partner-logo" src={image.src} alt={image.name} />
-			))}
+			{
+				partners.images.map((image) => (
+					<img
+						class="partner-logo"
+						src={image.src}
+						alt={image.name}
+					/>
+				))
+			}
 		</div>
 	</div>
 </section>

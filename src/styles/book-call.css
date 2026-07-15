@@ -2,8 +2,7 @@
 .book-call-section {
   position: relative;
   background-color: var(--bg-base);
-  padding: 8rem 0;
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 4rem 0;
 }
 
 .book-call-inner {
@@ -13,8 +12,7 @@
 
 /* Centered Header Styles */
 .book-call-header {
-  text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .book-call-title {
@@ -37,7 +35,6 @@
   font-size: 1.075rem;
   color: var(--text-secondary);
   line-height: 1.65;
-  margin: 0 auto;
   max-width: 640px;
 }
 
@@ -208,7 +205,7 @@
 /* Responsive configurations */
 @media (max-width: 991px) {
   .book-call-section {
-    padding: 5rem 0;
+    padding: 3rem 0;
   }
 }
 

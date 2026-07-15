@@ -73,10 +73,11 @@ const approachParts = approachHighlight
 >
   <main class="page-wrapper" style="height: max-content;" data-pagefind-ignore>
     <!-- Hero Section -->
-    <ServiceVideo>
+    <ServiceVideo videoSrc={frontmatter.hero_video}>
       <div class="container hero-container-inner">
         <div class="hero-content-col">
-          <h1 class="hero-heading">
+          <div class="fs-sm mb-2 text-uppercase" style="color: var(--brand-teal-deep); font-weight: 500; letter-spacing: 0.5px;">DIGITAL BACK OFFICE</div>
+          <h1 class="display-6 pb-2 mb-lg-3 fw-medium">
             {frontmatter.hero_title}
           </h1>
           <p class="hero-subtext">

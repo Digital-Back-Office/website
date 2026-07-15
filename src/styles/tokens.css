@@ -76,7 +76,7 @@
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
   --shadow-glow: 0 0 20px rgba(82, 206, 199, 0.2); */
 
-  --bg-base: #f7f9fc;
+  --bg-base: transparent;
   --bg-surface: #ffffff;
   --bg-surface-elevated: #ffffff;
   --bg-contrast: #f6f6fa;

@@ -1,6 +1,6 @@
 /* Roadmap Timeline Styles */
 .roadmap {
-    padding: var(--space-20) 0;
+    padding: var(--space-10) 0;
     background-color: var(--bg-base);
     position: relative;
     overflow: hidden;

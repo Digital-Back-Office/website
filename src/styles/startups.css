@@ -1,7 +1,5 @@
 .page-wrapper {
-  background-image: url("/assets/images/background_pattern.png");
-  background-repeat: repeat;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .startup-hero {
@@ -24,10 +22,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ffffff;
-  /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(238, 247, 246, 0.92) 100%),
-    url("/assets/images/background_pattern.png"); */
-  background-repeat: repeat;
+  background: transparent;
   z-index: 2;
   pointer-events: none;
 }
@@ -81,7 +76,7 @@
 /* Dilemma / Problem Section Redesign */
 .dilemma-section {
   padding: 6rem 0;
-  background: #ffffff;
+  background: transparent;
 }
 
 .comparison-container {
@@ -320,7 +315,7 @@
 /* Services Grid Section */
 .pod-services {
   padding: 6rem 0;
-  background: #ffffff;
+  background: transparent;
 }
 
 .service-card {
@@ -358,7 +353,7 @@
 .how-it-works {
   padding: 7rem 0;
   position: relative;
-  background: #FFFFFF;
+  background: transparent;
 }
 
 @media (min-width: 992px) {
@@ -475,7 +470,7 @@
 /* Pricing Section Reworked Styles */
 .pricing-section {
   padding: 8rem 0;
-  background: #ffffff;
+  background: transparent;
   position: relative;
 }
 
@@ -722,7 +717,7 @@
 /* FAQ Accordion Styling */
 .faq-section {
   padding: 7rem 0;
-  background: #ffffff;
+  background: transparent;
 }
 
 .faq-accordion {

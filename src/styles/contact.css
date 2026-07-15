@@ -1,10 +1,9 @@
 /* ===== Contact Section Premium Light Theme Styles ===== */
 .contact-section {
   position: relative;
-  background-color: #f8fafc;
+  background-color: transparent;
   overflow: hidden;
-  padding: 8rem 0;
-  border-top: 1px solid #e2e8f0;
+  padding: 4rem 0;
 }
 
 .contact-inner {
@@ -329,7 +328,7 @@
 /* Responsive configurations */
 @media (max-width: 991px) {
   .contact-section {
-    padding: 5rem 0;
+    padding: 3rem 0;
   }
 }
 

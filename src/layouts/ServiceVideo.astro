@@ -11,14 +11,10 @@ import '../styles/container.css'
 <style>
   .hero-section {
     width: 100%;
-    height: 100vh;
-    min-height: 600px;
+    padding: 160px 0 80px 0;
     position: relative;
     overflow: hidden;
-    background-color: var(--bg-base);
-    background: radial-gradient(circle at 10% 20%, rgba(82, 206, 199, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(238, 191, 46, 0.1) 0%, transparent 50%),
-                var(--bg-base);
+    background-color: transparent;
     display: flex;
     align-items: center;
   }
@@ -40,9 +36,15 @@ import '../styles/container.css'
     width: 100%;
     height: 100%;
     background: linear-gradient(
+      90deg,
+      rgba(247, 249, 252, 0.95) 0%,
+      rgba(247, 249, 252, 0.75) 45%,
+      rgba(247, 249, 252, 0.05) 100%
+    ),
+    linear-gradient(
       180deg,
-      rgba(247, 249, 252, 0.2) 0%,
-      rgba(247, 249, 252, 0.75) 75%,
+      rgba(247, 249, 252, 0.1) 0%,
+      rgba(247, 249, 252, 0.5) 75%,
       var(--bg-base) 100%
     );
     z-index: 2;
@@ -52,17 +54,6 @@ import '../styles/container.css'
     position: relative;
     z-index: 3;
     width: 100%;
-    padding-top: 80px; /* Offset for navbar */
-  }
-
-  @media screen and (max-width: 1024px) {
-    .hero-section {
-      height: auto;
-      padding: 160px 0 100px 0;
-    }
-    .hero-content-container {
-      padding-top: 0;
-    }
   }
 </style>
 
@@ -71,7 +62,7 @@ import '../styles/container.css'
   {videoSrc && (
     <video class="hero-video" src={videoSrc} preload="auto" muted autoplay loop playsinline></video>
   )}
-  <div class="hero-overlay"></div>
+  {videoSrc && <div class="hero-overlay"></div>}
   <div class="hero-content-container">
     <slot />
   </div>

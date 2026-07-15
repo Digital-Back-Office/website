@@ -30,7 +30,8 @@ const ai_solutions = Data.data.ai_solutions;
 							<div class="card-glow-layer"></div>
 
 							<div class="card-inner">
-								<div class="icon-box">
+								<div class="card-header-row">
+									<div class="icon-box">
 									{card.id === 'ai-strategy' && (
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 											<circle cx="12" cy="12" r="10"></circle>
@@ -92,11 +93,12 @@ const ai_solutions = Data.data.ai_solutions;
 											<polyline points="2 12 12 17 22 12"></polyline>
 										</svg>
 									)}
-								</div>
+									</div>
 
-								<h3 class="card-heading">
-									{card.heading}
-								</h3>
+									<h3 class="card-heading">
+										{card.heading}
+									</h3>
+								</div>
 
 								<p class="card-desc">
 									{card.description}

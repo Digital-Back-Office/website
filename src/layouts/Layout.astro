@@ -263,7 +263,8 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
     <!-- Named slot for additional head content -->
     <slot name="head" />
   </head>
-  <body style="height: max-content;">
+  <!-- <body style="height: max-content; background-image: url('/assets/images/bg-2.png'); background-size: cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;"> -->
+  <body style="height: max-content; background-image: url('/assets/images/background_pattern-white.png'); background-size: cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLJ9M4LT"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <Navbar />  

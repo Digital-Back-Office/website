@@ -1,9 +1,7 @@
 /* Partners Section Home Styles */
 .partners {
-    padding: var(--space-16) 0;
+    padding: var(--space-8) 0;
     background-color: var(--bg-base);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
     position: relative;
 }
 
@@ -39,7 +37,7 @@
 
 @media (max-width: 768px) {
     .partners {
-        padding: var(--space-12) 0;
+        padding: var(--space-6) 0;
     }
     
     .partners-grid {

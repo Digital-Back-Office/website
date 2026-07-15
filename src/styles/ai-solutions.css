@@ -1,8 +1,8 @@
 /* AI Solutions Showcase Styles */
 .ai-solutions-section {
     width: 100%;
-    padding: var(--space-20) 0;
-    background-color: var(--bg-base);
+    padding: var(--space-10) 0;
+    background-color: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -71,11 +71,12 @@
     background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
-    padding: var(--space-6);
+    padding: var(--space-8);
     height: 100%;
     transition: 
         border-color var(--motion-base),
         box-shadow var(--motion-base),
+        transform var(--motion-base),
         background-color var(--motion-base);
     position: relative;
     overflow: hidden;
@@ -84,9 +85,10 @@
 }
 
 .solution-card:hover {
-    border-color: rgba(48, 186, 186, 0.35);
-    box-shadow: var(--shadow-glow), var(--shadow-sm);
+    border-color: rgba(48, 186, 186, 0.4);
+    box-shadow: 0 10px 40px -10px rgba(48, 186, 186, 0.15), var(--shadow-sm);
     background-color: var(--bg-surface-elevated);
+    transform: translateY(-4px);
 }
 
 .card-glow-layer {
@@ -114,16 +116,23 @@
 }
 
 /* Icon styling */
+.card-header-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
 .icon-box {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: var(--radius-lg);
     background: rgba(48, 186, 186, 0.05);
     border: 1px solid rgba(48, 186, 186, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--space-6);
+    flex-shrink: 0;
     color: var(--brand-teal-deep);
     transition: 
         background var(--motion-base),
@@ -137,16 +146,21 @@
     color: var(--brand-teal-alt);
 }
 
+.icon-box svg {
+    width: 20px;
+    height: 20px;
+}
+
 .card-heading {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: var(--space-3);
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 0;
     color: var(--text-primary);
     text-align: left;
 }
 
 .card-desc {
-    font-size: var(--text-sm);
+    font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: var(--space-6);
     color: var(--text-secondary);
@@ -160,7 +174,7 @@
     gap: 0.4rem;
     color: var(--brand-teal-deep);
     font-weight: 700;
-    font-size: var(--text-sm);
+    font-size: 0.9rem;
     transition: color var(--motion-fast);
     margin-top: auto;
 }
