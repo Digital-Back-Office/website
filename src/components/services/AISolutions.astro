@@ -9,35 +9,41 @@ const data = entry.data;
 ---
 
 <div style="margin-top: 70px;">
-  <ServiceSection
-    id="ai-strategy"
-    section={data.ai_strategy}
-    imagePosition="right"
-  />
+  <section class="py-5">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-lg-2 ">
+        <ServiceSection
+          id="ai-strategy"
+          section={data.ai_strategy}
+          imagePosition="right"
+        />
 
-  <ServiceSection
-    id="custom-ai-agents"
-    section={data.custom_ai_agents}
-    imagePosition="left"
-  />
+        <ServiceSection
+          id="custom-ai-agents"
+          section={data.custom_ai_agents}
+          imagePosition="left"
+        />
 
-  <ServiceSection
-    id="agentic-workflows"
-    section={data.agentic_workflows}
-    imagePosition="right"
-  />
+        <ServiceSection
+          id="agentic-workflows"
+          section={data.agentic_workflows}
+          imagePosition="right"
+        />
 
-  <ServiceSection
-    id="generative-ai"
-    section={data.generative_ai}
-    imagePosition="left"
-  />
+        <ServiceSection
+          id="generative-ai"
+          section={data.generative_ai}
+          imagePosition="left"
+        />
 
-  <ServiceSection
-    id="rag-implementation"
-    section={data.rag_implementation}
-    imagePosition="right"
-  />
+        <ServiceSection
+          id="rag-implementation"
+          section={data.rag_implementation}
+          imagePosition="right"
+        />
+      </div>
+    </div>
+  </section>
 
   <!--IndustryUseCases
     heading={data.industry_use_cases.heading}

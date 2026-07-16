@@ -1,142 +1,118 @@
 ---
 import { getEntry } from "astro:content";
+import "../../styles/features.css";
 
 const Data = await getEntry("home", "home");
 const features = Data.data.features;
 const cards = features.cards;
 ---
 
-<style>
-    .features-section {
-        position: relative;
-        background-image: url(/assets/images/background_pattern.png), url(/assets/images/home/star_links.png);
-        background-repeat: repeat, no-repeat;
-        background-size: auto, cover;
-        background-position: center;
-        padding: 6rem 0;
-    }
-
-    .features-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            180deg,
-            #000 0%,
-            rgba(0, 0, 0, 0.4) 50%,
-            #000 100%
-        );
-        pointer-events: none;
-    }
-
-    .container {
-        position: relative;
-        z-index: 2;
-    }
-
-    .section-title {
-        font-size: clamp(2rem, 3.5vw, 2.75rem);
-        font-weight: 800;
-        margin-bottom: 3.5rem;
-        color: #fff;
-        letter-spacing: -0.5px;
-    }
-
-    .feature-card {
-        background: rgba(18, 21, 25, 0.65);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 24px;
-        padding: 2.5rem 2rem;
-        width: 100%;
-        height: 100%;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .feature-icon {
-        height: 48px;
-        width: auto;
-        object-fit: contain;
-        margin-bottom: 1.5rem;
-        transition: transform 0.4s ease;
-    }
-
-    .card-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #fff;
-        margin-bottom: 0.75rem;
-        transition: color 0.3s ease;
-    }
-
-    .card-info {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.65);
-    }
-
-    /* Hover States */
-    .item:hover .feature-card {
-        transform: translateY(-6px);
-        border-color: rgba(82, 206, 199, 0.3);
-        background: rgba(18, 21, 25, 0.8);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(82, 206, 199, 0.08);
-    }
-
-    .item:hover .feature-icon {
-        transform: scale(1.1) rotate(2deg);
-    }
-
-    .item:hover .card-title {
-        color: #52CEC7;
-    }
-
-    @media (min-width: 1024px) {
-        .features-section {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .features-section {
-            padding: 4rem 0;
-        }
-        .section-title {
-            margin-bottom: 2.5rem;
-        }
-    }
-</style>
-
-<section class="features-section" data-bs-theme="dark">
+<section class="features">
+    <div class="features-glow-left"></div>
+    <div class="features-glow-right"></div>
+    
     <div class="container">
-        <h2 class="section-title text-center">
-            {features.title}
-        </h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {
-                cards.map((card) => (
-                    <div class="col item text-center text-sm-start">
-                        <div class="feature-card">
-                            <img
-                                src={card.img}
-                                alt={card.alt}
-                                class="feature-icon"
-                            />
-                            <h3 class="card-title">{card.title}</h3>
-                            <p class="card-info mb-0">
-                                {card.info}
-                            </p>
+        <div class="features-inner">
+            <div class="features-title-box">
+                <div class="features-badge">
+                    <span class="features-badge-text">Operational Barriers</span>
+                </div>
+                <h2 class="features-title">{features.title}</h2>
+                <p class="features-desc">Unblocking standard friction points in analytics pipelines, data engineering projects, and machine learning deployments.</p>
+            </div>
+            
+            <div class="bento-grid">
+                {cards.map((card, index) => {
+                    const isSpan2 = index === 0 || index === 3 || index === 4;
+                    return (
+                        <div class={`bento-card ${isSpan2 ? 'span-2' : 'span-1'}`}>
+                            <div class="card-glow-glow"></div>
+                            <div class="card-text-side">
+                                <div class="bento-icon-box">
+                                    {index === 0 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                    )}
+                                    {index === 1 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                                            <line x1="2" y1="10" x2="22" y2="10"></line>
+                                            <line x1="6" y1="15" x2="10" y2="15"></line>
+                                        </svg>
+                                    )}
+                                    {index === 2 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                            <circle cx="12" cy="11" r="1.5"></circle>
+                                            <path d="M12 12.5V15"></path>
+                                        </svg>
+                                    )}
+                                    {index === 3 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="4" y1="21" x2="4" y2="14"></line>
+                                            <line x1="4" y1="10" x2="4" y2="3"></line>
+                                            <line x1="12" y1="21" x2="12" y2="12"></line>
+                                            <line x1="12" y1="8" x2="12" y2="3"></line>
+                                            <line x1="20" y1="21" x2="20" y2="16"></line>
+                                            <line x1="20" y1="12" x2="20" y2="3"></line>
+                                            <line x1="2" y1="14" x2="6" y2="14"></line>
+                                            <line x1="10" y1="8" x2="14" y2="8"></line>
+                                            <line x1="18" y1="16" x2="22" y2="16"></line>
+                                        </svg>
+                                    )}
+                                    {index === 4 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="23 4 23 10 17 10"></polyline>
+                                            <polyline points="1 20 1 14 7 14"></polyline>
+                                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                        </svg>
+                                    )}
+                                    {index === 5 && (
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <polyline points="16 11 18 13 22 9"></polyline>
+                                        </svg>
+                                    )}
+                                </div>
+                                <h3 class="card-title-text">{card.title}</h3>
+                                <p class="card-desc-text">{card.info}</p>
+                            </div>
+                            
+                            {isSpan2 && (
+                                <div class="card-visual-side">
+                                    {index === 0 && (
+                                        <svg class="mini-curve-svg" viewBox="0 0 100 60">
+                                            <path d="M5,50 Q25,45 45,30 T85,15" fill="none" stroke="var(--border-strong)" stroke-width="2"></path>
+                                            <path d="M5,50 Q25,45 45,30 T85,15" fill="none" stroke="var(--brand-teal-alt)" stroke-width="2"></path>
+                                            <circle cx="85" cy="15" r="4" fill="var(--brand-teal-alt)" class="curve-dot"></circle>
+                                        </svg>
+                                    )}
+                                    {index === 3 && (
+                                        <div class="mini-layers-stack">
+                                            <div class="mini-layer">App Layer</div>
+                                            <div class="mini-layer active">Model Engine</div>
+                                            <div class="mini-layer">Data Pipeline</div>
+                                        </div>
+                                    )}
+                                    {index === 4 && (
+                                        <svg class="mini-loop-svg" viewBox="0 0 80 80">
+                                            <circle cx="40" cy="40" r="30" fill="none" stroke="var(--border-strong)" stroke-width="2"></circle>
+                                            <circle cx="40" cy="40" r="30" fill="none" stroke="var(--brand-teal-alt)" stroke-width="2" class="loop-path"></circle>
+                                            <circle cx="40" cy="10" r="3" fill="var(--brand-teal-alt)"></circle>
+                                            <circle cx="70" cy="40" r="3" fill="var(--brand-teal-alt)"></circle>
+                                            <circle cx="40" cy="70" r="3" fill="var(--brand-teal-alt)"></circle>
+                                            <circle cx="10" cy="40" r="3" fill="var(--brand-teal-alt)"></circle>
+                                        </svg>
+                                    )}
+                                </div>
+                            )}
                         </div>
-                    </div>
-                ))
-            }
+                    );
+                })}
+            </div>
         </div>
     </div>
 </section>

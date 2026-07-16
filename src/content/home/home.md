@@ -1,11 +1,11 @@
 ---
 hero:
     title_part_1: 'Transform Your Business with'
-    title_part_2: 'AI and Intelligent Analytics Solutions '
+    title_part_2: 'AI'
     pill_text: 'AI-Powered Solutions'
-    info: 'Unlock the power of AI and machine learning. We build custom solutions that turn complex data into predictive insights, automates decision-making fuelling growth and efficiency for your business.'
+    info: Turn complex data into actionable insights with custom AI solutions that automate decisions, improve efficiency, and accelerate growth.
 
-partners:
+partners  :
   title: 'Our Partners'
   images:
     - name: Snowflake

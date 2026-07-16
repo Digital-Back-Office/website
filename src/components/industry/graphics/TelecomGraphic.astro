@@ -1,0 +1,118 @@
+---
+/* TELECOM/TECH: 3D Isometric Platforms (Server Racks, Cluster Nodes Swarm, & Cloud Storage Vault) */
+---
+<svg class="architecture-svg" viewBox="0 0 950 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="tmt-bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="var(--brand-teal-alt)" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="var(--brand-teal-alt)" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tmt-plat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--brand-cyan)"/>
+      <stop offset="100%" stop-color="var(--brand-teal-alt)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="none" />
+  <circle cx="475" cy="225" r="350" fill="url(#tmt-bg-glow)" pointer-events="none" />
+
+  <!-- Isometric Matrix background -->
+  <g stroke="rgba(255, 255, 255, 0.02)" stroke-width="1">
+    <path d="M 50 150 L 900 370 M 50 250 L 900 470 M 50 50 L 900 270" />
+    <path d="M 900 150 L 50 370 M 900 250 L 50 470 M 900 50 L 50 270" />
+  </g>
+
+  <!-- Developer console telemetry printout (Top) -->
+  <text x="475" y="40" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    CLOUD NETWORK ARCHITECTURE // SWARM SYSTEM: IN SYNC // SHARD RATE: 140,000 / SEC
+  </text>
+
+  <!-- 1. LEFT PLATFORM: INGESTION (cx=220, cy=280) -->
+  <g class="node-group">
+    <!-- Platform Base Shadow -->
+    <polygon points="140,295 220,335 220,350 140,310" fill="#04070d" />
+    <polygon points="220,335 300,295 300,310 220,350" fill="#050912" />
+    <!-- Platform Base Left/Right Faces -->
+    <polygon points="140,280 220,320 220,335 140,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="220,320 300,280 300,295 220,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <!-- Platform Top Face -->
+    <polygon points="140,280 220,240 300,280 220,320" fill="#090d16" stroke="var(--brand-cyan)" stroke-width="1.5" />
+
+    <!-- 3D Stacked Server Racks -->
+    <g transform="translate(190, 180)">
+      <!-- Rack Base -->
+      <polygon points="20,40 40,50 20,60 0,50" fill="#0c1429" stroke="var(--brand-cyan)" stroke-width="1" />
+      <polygon points="0,50 20,60 20,72 0,62" fill="#0b1224" stroke="var(--brand-cyan)" stroke-width="1" />
+      <polygon points="40,50 20,60 20,72 40,62" fill="#0d1830" stroke="var(--brand-cyan)" stroke-width="1" />
+      <!-- LED indicators (Front Left Face) -->
+      <circle cx="5" cy="55" r="1.2" fill="var(--brand-cyan)" />
+      <circle cx="10" cy="57" r="1.2" fill="var(--brand-cyan)" />
+      <circle cx="15" cy="59" r="1.2" fill="var(--brand-cyan)" />
+    </g>
+
+    <text x="220" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">INGRESS API RACK</text>
+  </g>
+
+  <!-- 2. CENTRAL PLATFORM: SWARM ORCHESTRATION (cx=475, cy=240, Taller block structure) -->
+  <!-- Wires connecting Ingest -> Central -->
+  <path d="M 270,265 Q 370,225 425,200" stroke="url(#tmt-plat-grad)" stroke-width="2.5" stroke-dasharray="6 4" />
+  <circle r="4" fill="var(--brand-cyan)">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M 270,265 Q 370,225 425,200" />
+  </circle>
+
+  <g class="node-group main-engine">
+    <!-- Big base column -->
+    <polygon points="375,250 475,300 475,340 375,290" fill="#050912" />
+    <polygon points="475,300 575,250 575,290 475,340" fill="#080e1c" />
+    <polygon points="375,250 475,200 575,250 475,300" fill="#090d19" stroke="var(--brand-teal-alt)" stroke-width="2" />
+
+    <!-- Second Stacked Block -->
+    <g transform="translate(0, -40)">
+      <polygon points="415,230 475,260 475,290 415,260" fill="#0b1224" />
+      <polygon points="475,260 535,230 535,260 475,290" fill="#0d1830" />
+      <polygon points="415,230 475,200 535,230 475,260" fill="#0c1429" stroke="var(--brand-teal-alt)" stroke-width="1" />
+    </g>
+
+    <!-- Hexagonal Swarm nodes hovering above Core -->
+    <g transform="translate(0, -90)">
+      <ellipse cx="475" cy="200" rx="40" ry="16" stroke="var(--brand-teal-alt)" stroke-width="2" stroke-dasharray="6 3" fill="none" />
+      <!-- Swarm nodes -->
+      <polygon points="475,190 482,194 482,201 475,205 468,201 468,194" stroke="var(--brand-teal-alt)" stroke-width="1.5" fill="none" />
+      <polygon points="450,195 455,198 455,203 450,206 445,203 445,198" stroke="var(--brand-teal-alt)" stroke-width="1.2" opacity="0.6" fill="none" />
+      <polygon points="500,195 505,198 505,203 500,206 495,203 495,198" stroke="var(--brand-teal-alt)" stroke-width="1.2" opacity="0.6" fill="none" />
+    </g>
+
+    <text x="475" y="325" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-weight="900" letter-spacing="1">CLUSTER SWARM</text>
+  </g>
+
+  <!-- 3. RIGHT PLATFORM: CLOUD VAULT (cx=730, cy=280) -->
+  <!-- Wires connecting Central -> Cloud -->
+  <path d="M 525,215 Q 615,225 680,265" stroke="url(#tmt-plat-grad)" stroke-width="2" stroke-dasharray="6 4" />
+  <circle r="4.5" fill="var(--brand-teal-alt)">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 525,215 Q 615,225 680,265" />
+  </circle>
+
+  <g class="node-group">
+    <!-- Platform Base -->
+    <polygon points="650,295 730,335 730,350 650,310" fill="#04070d" />
+    <polygon points="730,335 810,295 810,310 730,350" fill="#050912" />
+    <polygon points="650,280 730,320 730,335 650,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="730,320 810,280 810,295 730,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="650,280 730,240 810,280 730,320" fill="#090d16" stroke="var(--brand-yellow)" stroke-width="1.5" />
+
+    <!-- 3D Cloud icon base above platform -->
+    <g transform="translate(710, 180)" stroke="var(--brand-yellow)" stroke-width="1.8" fill="none">
+      <!-- 3D cloud profile plate -->
+      <path d="M 5 25 H 35 M 20 10 V 25 L 12 18 M 20 25 L 28 18" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 5 25 C 2 25, 0 22, 2 18 C 0 14, 5 10, 12 11 C 15 5, 25 5, 28 11 C 35 10, 40 14, 38 18 C 40 22, 38 25, 35 25" opacity="0.6" stroke-linecap="round" />
+    </g>
+
+    <text x="730" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">CDN EDGE VAULT</text>
+  </g>
+
+  <!-- Developer console telemetry printout (Bottom) -->
+  <text x="475" y="425" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    SHARD REPLICAS: 8 | PACKET LOSS: 0.00% | CLUSTER CAPACITY: 82% | DDoS PROTECTION: ON
+  </text>
+</svg>

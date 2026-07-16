@@ -11,8 +11,7 @@ const data = entry.data;
 
 
 <Layout>
-	<Navbar />
-	<main class="page-wrapper" data-bs-theme="dark">
+	<main class="page-wrapper" >
 		<!-- Hero Section -->
 		<section class="hero-section">
 			<div class="container">
@@ -43,7 +42,7 @@ const data = entry.data;
 				<div class="row g-4">
 					{data.partners.map((partner) => (
 						<div class="col-lg-4 col-md-6" data-category={partner.category}>
-							<div class="partner-card">
+							<div class="partner-item">
 								<div class="partner-logo">
 									<img src={partner.logo} alt={partner.name} />
 								</div>

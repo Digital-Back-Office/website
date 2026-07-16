@@ -1,0 +1,123 @@
+---
+/* FINANCE: 3D Isometric Platforms (Ledger Ingestion, Cognitive Core Tower, & Settlement Platform) */
+---
+<svg class="architecture-svg" viewBox="0 0 950 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="fin-bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="var(--brand-cyan)" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="var(--brand-cyan)" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fin-plat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--brand-cyan)"/>
+      <stop offset="100%" stop-color="var(--brand-teal-alt)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="none" />
+  <circle cx="475" cy="225" r="350" fill="url(#fin-bg-glow)" pointer-events="none" />
+
+  <!-- 3D Grid Guide lines (Subtle isometric matrix background) -->
+  <g stroke="rgba(255, 255, 255, 0.02)" stroke-width="1">
+    <path d="M 50 150 L 900 370 M 50 250 L 900 470 M 50 50 L 900 270" />
+    <path d="M 900 150 L 50 370 M 900 250 L 50 470 M 900 50 L 50 270" />
+  </g>
+
+  <!-- Developer console telemetry printout (Top) -->
+  <text x="475" y="40" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    STATUS: VERIFIED // RATE: 14,891 TPS // MEMPOOL: CLEAR // NETWORK: ZERO THREAT
+  </text>
+
+  <!-- 1. LEFT PLATFORM: INGESTION (cx=220, cy=280) -->
+  <g class="node-group">
+    <!-- Platform Base Shadow / Bottom Lip -->
+    <polygon points="140,295 220,335 220,350 140,310" fill="#04070d" />
+    <polygon points="220,335 300,295 300,310 220,350" fill="#050912" />
+    <!-- Platform Base Left/Right Faces -->
+    <polygon points="140,280 220,320 220,335 140,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="220,320 300,280 300,295 220,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <!-- Platform Top Face -->
+    <polygon points="140,280 220,240 300,280 220,320" fill="#090d16" stroke="var(--brand-cyan)" stroke-width="1.5" />
+
+    <!-- Ingress data pillars (Floating) -->
+    <!-- Column A -->
+    <g transform="translate(0, -20)">
+      <polygon points="180,260 200,270 180,280 160,270" fill="rgba(82, 206, 199, 0.25)" stroke="var(--brand-cyan)" stroke-width="1" />
+      <polygon points="160,270 180,280 180,295 160,285" fill="rgba(82, 206, 199, 0.35)" />
+      <polygon points="180,280 200,270 200,285 180,295" fill="rgba(82, 206, 199, 0.45)" />
+    </g>
+    <!-- Column B -->
+    <g transform="translate(40, 20)">
+      <polygon points="180,260 200,270 180,280 160,270" fill="rgba(82, 206, 199, 0.25)" stroke="var(--brand-cyan)" stroke-width="1" />
+      <polygon points="160,270 180,280 180,295 160,285" fill="rgba(82, 206, 199, 0.35)" />
+      <polygon points="180,280 200,270 200,285 180,295" fill="rgba(82, 206, 199, 0.45)" />
+    </g>
+
+    <text x="220" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">INGESTION CORE</text>
+  </g>
+
+  <!-- 2. CENTRAL PLATFORM: COGNITIVE ENGINE (cx=475, cy=240, Taller block structure) -->
+  <!-- Wires connecting Ingest -> Central -->
+  <path d="M 270,265 Q 370,225 425,200" stroke="url(#fin-plat-grad)" stroke-width="2.5" stroke-dasharray="6 4" />
+  <circle r="4" fill="var(--brand-cyan)">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M 270,265 Q 370,225 425,200" />
+  </circle>
+
+  <g class="node-group main-engine">
+    <!-- Big base column -->
+    <polygon points="375,250 475,300 475,340 375,290" fill="#050912" />
+    <polygon points="475,300 575,250 575,290 475,340" fill="#080e1c" />
+    <polygon points="375,250 475,200 575,250 475,300" fill="#090d19" stroke="var(--brand-yellow)" stroke-width="2" />
+
+    <!-- Second Stacked Block -->
+    <g transform="translate(0, -40)">
+      <polygon points="415,230 475,260 475,290 415,260" fill="#0b1224" />
+      <polygon points="475,260 535,230 535,260 475,290" fill="#0d1830" />
+      <polygon points="415,230 475,200 535,230 475,260" fill="#0c1429" stroke="var(--brand-yellow)" stroke-width="1" />
+    </g>
+
+    <!-- Floating Secure Lock Ring above Core -->
+    <g transform="translate(0, -90)">
+      <ellipse cx="475" cy="200" rx="40" ry="16" stroke="var(--brand-yellow)" stroke-width="2" stroke-dasharray="6 3" fill="none" />
+      <!-- Lock bar -->
+      <rect x="469" y="193" width="12" height="10" rx="1.5" stroke="var(--brand-yellow)" stroke-width="1.8" fill="none" />
+      <path d="M 471 193 V 189 A 4 4 0 0 1 479 189 V 193" stroke="var(--brand-yellow)" stroke-width="1.2" fill="none" />
+    </g>
+
+    <text x="475" y="325" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-weight="900" letter-spacing="1">COGNITIVE ENGINE</text>
+  </g>
+
+  <!-- 3. RIGHT PLATFORM: SETTLEMENT VAULT (cx=730, cy=280) -->
+  <!-- Wires connecting Central -> Settlement -->
+  <path d="M 525,215 Q 615,225 680,265" stroke="url(#fin-plat-grad)" stroke-width="2" stroke-dasharray="6 4" />
+  <circle r="4.5" fill="var(--brand-teal-alt)">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 525,215 Q 615,225 680,265" />
+  </circle>
+
+  <g class="node-group">
+    <!-- Platform Base -->
+    <polygon points="650,295 730,335 730,350 650,310" fill="#04070d" />
+    <polygon points="730,335 810,295 810,310 730,350" fill="#050912" />
+    <polygon points="650,280 730,320 730,335 650,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="730,320 810,280 810,295 730,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="650,280 730,240 810,280 730,320" fill="#090d16" stroke="var(--brand-teal-alt)" stroke-width="1.5" />
+
+    <!-- Floating Escrow chest blocks -->
+    <g transform="translate(250, 0)">
+      <!-- Block A -->
+      <polygon points="460,230 480,240 460,250 440,240" fill="rgba(82, 206, 199, 0.25)" stroke="var(--brand-teal-alt)" stroke-width="1" />
+      <polygon points="440,240 460,250 460,265 440,255" fill="rgba(82, 206, 199, 0.35)" />
+      <polygon points="460,250 480,240 480,255 460,265" fill="rgba(82, 206, 199, 0.45)" />
+
+      <!-- Checkmark on top -->
+      <path d="M 456 240 L 459 243 L 464 237" stroke="var(--brand-teal-alt)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    </g>
+
+    <text x="730" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">SETTLEMENT VAULT</text>
+  </g>
+
+  <!-- Developer console telemetry printout (Bottom) -->
+  <text x="475" y="425" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    LATENCY: 0.02ms  |  BLOCK_HEIGHT: #8,491,922  |  GAS_PRICE: 18 GWEI  |  CONSENSUS: 100% PASS
+  </text>
+</svg>

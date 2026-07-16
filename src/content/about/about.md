@@ -30,7 +30,7 @@ values:
           desc:  We aren't just vendors, we are your technical co-founders. We align our deep engineering expertise with your high-level business goals. 
 
 benefits:
-    title: We Love Data
+    title: We Love Efficiency
     points:
         - number: 1
           title: Data-Driven Decision Making

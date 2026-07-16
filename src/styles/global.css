@@ -9,11 +9,21 @@ html {
 }
 
 body {
-    font-family: "Arimo", sans-serif;
+    font-family: var(--font-sans) !important;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: var(--line-height-base);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6,
+p, a, span {
+    font-family: var(--font-sans);
 }
 
 .cm__body{
-    background-color: black !important;
+    background-color: var(--bg-base) !important;
     width: 100%;
     max-width: 100% !important;
     display: flex;
@@ -26,12 +36,12 @@ body {
 }
 
 .cm__title{
-    color: white !important;
+    color: var(--text-primary) !important;
 }
 
 .bookNow-btn{
-    background-color: white !important;
-    color:#52CEC7 !important;
+    background-color: var(--text-primary) !important;
+    color: var(--brand-cyan) !important;
 }
 
 #pop-up{
@@ -47,13 +57,13 @@ z-index:60 !important;
 margin: auto auto;
 z-index: 60 !important;
 width: fit-content;
-background-color: black;
-color:white;
-border-radius: 16px;
+background-color: var(--bg-base);
+color: var(--text-primary);
+border-radius: var(--radius-xl);
 padding: 1rem 2.5rem;
 font-size: 1.2rem;
 font-weight: 500;
-border: solid 1px #52CEC7;
+border: solid 1px var(--brand-cyan);
 }
 
 
@@ -64,7 +74,7 @@ border: solid 1px #52CEC7;
     height: 4.2rem;
 }
 .nav-link {
-    color: #fff;
+    color: var(--text-primary);
 }
 
 #contact-button {
@@ -74,12 +84,12 @@ border: solid 1px #52CEC7;
 }
 
 .primary-button {
-    background-color: var(--ar-primary) !important;
-    color: white !important;
+    background-color: var(--brand-cyan) !important;
+    color: var(--text-primary) !important;
 }
 
 .navbar-scrolled {
-    background-image: url(/assets/images/background_pattern.png);
+    background: var(--bg-base) !important;
     background-repeat: repeat;
     position: fixed;
     top: 0;
@@ -89,7 +99,7 @@ border: solid 1px #52CEC7;
 }
 
 .staticnav {
-    background-color: transparent;
+    background-color: var(--bg-base) !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -108,7 +118,7 @@ border: solid 1px #52CEC7;
 }
 
 .active-link{
-    color:#52CEC7;
+    color: var(--brand-cyan);
 }
 
 /* Show dropdown on hover */
@@ -151,4 +161,12 @@ border: solid 1px #52CEC7;
 
 .gap-up {
     margin-top: 5rem;
+}
+
+.ui-footer {
+    background-color: var(--bg-base);
+}
+
+.footer-muted {
+    color: var(--text-muted);
 }

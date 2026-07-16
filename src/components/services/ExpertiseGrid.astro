@@ -1,37 +1,30 @@
 ---
-interface Expertise {
+interface Item {
   img: string;
   alt?: string;
   heading: string;
 }
 
 interface Props {
-  items: Expertise[];
+  items: Item[];
 }
 
 const { items } = Astro.props;
 ---
 
-<section class="container py-5 my-sm-2 my-md-4 my-lg-5 px-5" data-bs-theme="dark">
-  <h2
-    class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto expertise-heading"
-    style="max-width: 40rem; margin-bottom:2.5rem;"
-  >
-    Our <span style="color: #ffffff">Expertise</span>
-  </h2>
-
-  <div
-    class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-4 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2"
-  >
-    {
-      items.map((item) => (
-        <div class="col-12 col-sm-6 col-lg-4 outer-card">
-            <div class="text-center px-xxl-4 icons">
-            <img src={item.img} alt={item.alt || item.heading || "image"} class="d-inline-block mb-3 mb-md-4" height="50" />
-            <h3 class="h4 mb-2">{item.heading}</h3>
+<section class="container py-5 my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+  <h2 class="h1 text-center pt-1 pt-sm-3 pt-lg-4 pb-3 mb-3 mb-lg-5">Our Expertise</h2>
+  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-4 justify-content-center">
+    {items.map((item) => (
+      <div class="col">
+        <div class="expertise-card">
+          <div class="expertise-card-glow"></div>
+          <div class="expertise-card-body text-center">
+            <img src={item.img} alt={item.alt || item.heading || "icon"} class="d-block mb-3 mx-auto" height="36" />
+            <h3 class="h6 mb-0 text-primary fw-bold">{item.heading}</h3>
           </div>
         </div>
-      ))
-    }
+      </div>
+    ))}
   </div>
 </section>

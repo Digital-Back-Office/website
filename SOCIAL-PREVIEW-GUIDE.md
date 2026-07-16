@@ -61,7 +61,7 @@ Each blog post should ideally have its own preview image based on the featured i
 ### Branding
 - Use company colors consistently
 - Include Digital Back Office logo
-- Maintain brand font (Arimo)
+- Maintain brand font (Manrope)
 - Dark theme consistent with website
 
 ### Content

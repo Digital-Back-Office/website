@@ -7,7 +7,40 @@ const hero = Data.data.hero;
 
 <style>
   .hero-section {
-    height: 90vh;
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(247, 249, 252, 0.95) 0%,
+      rgba(247, 249, 252, 0.75) 45%,
+      rgba(247, 249, 252, 0.05) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(247, 249, 252, 0.1) 0%,
+      rgba(247, 249, 252, 0.5) 75%,
+      var(--bg-base) 100%
+    );
+    z-index: 2;
   }
 
   .hero-section * {
@@ -15,17 +48,19 @@ const hero = Data.data.hero;
   }
 </style>
 
-<section class="hero-section d-flex align-items-end">
+<section class="hero-section d-flex align-items-center">
+  <video class="hero-video" src="/assets/videos/about_us_3.mp4" preload="auto" muted autoplay loop playsinline></video>
+  <div class="hero-overlay"></div>
   <div class="container position-relative py-5">
     <div class="d-flex pb-3 align-items-center z-3">
-      <h1 class="text-start text-lg-start text-light fw-bold">
+      <h1 class="text-start text-lg-start   fw-bold">
         {hero.title}
-      </h1>
+      </h1> 
     </div>
     <ul class="list-unstyled d-flex flex-wrap mb-0">
       {
         hero.features.map((feature) => (
-          <li class="d-flex text-body text-white opacity-70 py-1 me-4">
+          <li class="d-flex text-body py-1 me-4">
             <i class="ai-check-alt text-primary lead me-2" />
             {feature}
           </li>

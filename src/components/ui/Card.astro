@@ -1,0 +1,46 @@
+---
+export interface Props {
+  variant?: "base" | "interactive" | "glass";
+  as?: "div" | "section" | "article" | "aside";
+  class?: string;
+}
+
+const { variant = "base", as = "div", class: className = "" } = Astro.props;
+const Tag = as;
+const classes = ["ui-card", `ui-card--${variant}`, className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>
+
+<style>
+  .ui-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .ui-card--interactive {
+    transition:
+      transform var(--motion-fast),
+      border-color var(--motion-fast),
+      box-shadow var(--motion-fast);
+  }
+
+  .ui-card--interactive:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-brand);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .ui-card--glass {
+    background-color: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    border-color: var(--border-subtle);
+  }
+</style>

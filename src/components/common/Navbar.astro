@@ -1,13 +1,12 @@
 ---
 import '../../styles/global.css'
 const path = Astro.url.pathname;
+import Button from "../ui/Button.astro";
 ---
-
 
 <header
   id="navbar"
   class="staticnav nav navbar navbar-expand-lg"
-  data-bs-theme="dark"
   data-pagefind-ignore
 >
   <div class="container">
@@ -26,23 +25,12 @@ const path = Astro.url.pathname;
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a
-      id="contact-button"
-      href="/contact-us"
-      class={path === "/contact-us"
-        ? "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none"
-        : path === "/about-us"
-          ? "primary-button btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"
-          : "btn btn-outline-primary btn-sm fs-sm order-lg-3 d-none d-lg-inline-flex"}
-    >
-      <span style="font-size: 1.375rem;">Contact us</span>
-    </a>
 
-    <nav class="collapse navbar-collapse bg-black" id="navbarCollapse2">
+    <nav class="collapse navbar-collapse" id="navbarCollapse2">
       <ul class="navbar-nav">
         <li class={path.includes("/industry") ? "nav-item dropdown active" : "nav-item dropdown"}>
           <a
-            href="#"
+            href="javascript:void(0)"
             class={path.includes("/industry")?"nav-link nav-links active-link":"nav-link nav-links"}
             aria-expanded="false"
           >Industries</a>
@@ -63,7 +51,7 @@ const path = Astro.url.pathname;
               <a href="/industry/technology-media-and-telecom" title="Media" class="dropdown-item nav-links">Media</a>
             </li>
              <li>
-              <a href="/industry/startups" title="Startups" class="dropdown-item nav-links">Startups</a>
+              <a href="/startups" title="For startups" class="dropdown-item nav-links">For startups</a>
             </li>
           </ul>
         </li>
@@ -91,11 +79,11 @@ const path = Astro.url.pathname;
         </li>
 
         <li class={path.includes("/about-us") ? "nav-item active" : "nav-item"}>
-          <a href="/about-us" title="About us" class="nav-link nav-links">About us</a>
+          <a href="/about-us" title="About Us" class="nav-link nav-links">About Us</a>
         </li>
         <li class={path.includes("/startups") ? "nav-item active" : "nav-item"}>
-          <a href="/startups" title="Startups" class={path === "/startups" ? "nav-link nav-links active-link d-flex align-items-center" : "nav-link nav-links d-flex align-items-center"}>
-            Startups <span class="startups-pulse-dot"></span>
+          <a href="/startups" title="For startups" class={path === "/startups" ? "nav-link nav-links active-link d-flex align-items-center" : "nav-link nav-links d-flex align-items-center"}>
+            For startups <span class="startups-pulse-dot"></span>
           </a>
         </li>
 
@@ -141,15 +129,26 @@ const path = Astro.url.pathname;
         </li>
       </ul>
 
-      <a
-        href="/contact-us" title="Contact us"
-        class={path.includes("/contact-us")
-          ? "d-none btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0 contact-button"
-          : "btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0 contact-button"}
+      <Button
+        href="/contact-us"
+        variant="primary"
+        size="lg"
+        class="d-lg-none"
       >
-        <span style="font-size: 1.375rem;">Contact us</span>
-      </a>
+        Book a free consultation
+      </Button>
     </nav>
+
+    <Button
+      href="/contact-us"
+      variant="primary"
+      size="md"
+      class={path === "/contact-us"
+        ? "d-none"
+        : "d-lg-inline-flex"}
+    >
+      Book a free consultation
+    </Button>
   </div>
 
   <div class="pop-up" id="pop-up" data-pagefind-ignore>
@@ -158,3 +157,162 @@ const path = Astro.url.pathname;
     </div>
   </div>
 </header>
+
+<style is:global>
+  /* Header Wrapper styling - Modern Opaque */
+  #navbar {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      transition: all var(--motion-base);
+      border-bottom: 1px solid transparent;
+      z-index: 100;
+  }
+
+  /* Scrolled State styling */
+  #navbar.navbar-scrolled {
+      background-color: #ffffff !important;
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+      height: 70px; /* Subtle height transition on scroll */
+  }
+
+  /* Static State styling */
+  #navbar.staticnav {
+      background-color: #f7f9fc !important;
+      border-bottom: 1px solid transparent;
+  }
+
+  /* Brand Logo */
+  .brand-logo {
+      height: 38px !important;
+      width: auto;
+      transition: transform var(--motion-base);
+  }
+
+  .navbar-brand:hover .brand-logo {
+      /* Removed scale effect */
+  }
+
+  /* Sleek, premium nav links */
+  .navbar-nav {
+      align-items: center;
+      gap: var(--space-2);
+  }
+
+  .navbar-nav .nav-link.nav-links {
+      font-size: 0.925rem !important;
+      font-weight: 600 !important;
+      color: var(--text-secondary) !important;
+      padding: 0.5rem 1rem !important;
+      transition: all var(--motion-base) !important;
+      border-radius: var(--radius-md);
+  }
+
+  .navbar-nav .nav-link.nav-links:hover {
+      color: var(--brand-teal-deep) !important;
+      background-color: rgba(48, 186, 186, 0.05);
+  }
+
+  /* Ensure dropdown toggle links are hoverable and show pointer cursors */
+  .navbar-nav .dropdown > a {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+  }
+
+  .navbar-nav .nav-link.nav-links.active-link {
+      color: var(--brand-cyan) !important;
+  }
+
+  /* Dropdown Menu overrides - Glassmorphic look */
+  .navbar-nav .dropdown-menu {
+      background: var(--bg-surface) !important;
+      border: 1px solid var(--border-subtle) !important;
+      box-shadow: var(--shadow-lg) !important;
+      border-radius: var(--radius-lg) !important;
+      padding: 0.5rem !important;
+      margin-top: 0.5rem !important;
+      animation: navDropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes navDropdownFade {
+      from {
+          opacity: 0;
+          transform: translateY(6px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item {
+      font-size: 0.875rem !important;
+      font-weight: 500 !important;
+      color: var(--text-secondary) !important;
+      padding: 0.5rem 0.85rem !important;
+      border-radius: var(--radius-md) !important;
+      transition: all var(--motion-fast) !important;
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item:hover {
+      background-color: rgba(48, 186, 186, 0.06) !important;
+      color: var(--brand-teal-deep) !important;
+  }
+
+  /* Mobile menu button styling */
+  .navbar-toggler {
+      border: none !important;
+      padding: 0.25rem !important;
+  }
+
+  .navbar-toggler:focus {
+      box-shadow: none !important;
+  }
+
+  /* Mobile Collapse Styling */
+  @media (max-width: 991.98px) {
+      #navbar {
+          height: auto;
+          padding: 0.75rem 0;
+      }
+      
+      .navbar-collapse {
+          background-color: var(--bg-surface) !important;
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--radius-xl);
+          padding: 1.25rem !important;
+          margin-top: 1rem !important;
+          box-shadow: var(--shadow-lg) !important;
+      }
+
+      .navbar-nav {
+          align-items: stretch;
+          gap: 0;
+      }
+
+      .navbar-nav .nav-link.nav-links {
+          font-size: 0.95rem !important;
+          padding: 0.75rem 0.5rem !important;
+          border-bottom: 1px solid var(--border-subtle);
+          border-radius: 0;
+      }
+
+      .navbar-nav .nav-link.nav-links:hover {
+          background-color: transparent;
+          color: var(--brand-teal-deep) !important;
+      }
+
+      .navbar-nav .nav-item:last-child .nav-link {
+          border-bottom: none;
+      }
+
+      .navbar-nav .dropdown-menu {
+          box-shadow: none !important;
+          border: none !important;
+          padding-left: 1rem !important;
+          background: transparent !important;
+          margin-top: 0 !important;
+      }
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+export interface Props {
+  padding?: "none" | "sm" | "md" | "lg" | "xl";
+  class?: string;
+}
+
+const { padding = "md", class: className = "" } = Astro.props;
+const classes = ["ui-section", `ui-section--${padding}`, className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<section class={classes}>
+  <slot />
+</section>
+
+<style>
+  .ui-section {
+    width: 100%;
+  }
+
+  .ui-section--none {
+    padding: 0;
+  }
+
+  .ui-section--sm {
+    padding: var(--space-8) 0;
+  }
+
+  .ui-section--md {
+    padding: var(--space-12) 0;
+  }
+
+  .ui-section--lg {
+    padding: var(--space-16) 0;
+  }
+
+  .ui-section--xl {
+    padding: var(--space-24) 0;
+  }
+</style>

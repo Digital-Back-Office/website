@@ -6,23 +6,100 @@ const approach = Data.data.approach;
 ---
 
 <style>
-    /* Removed min-height: 100vh to reduce spacing */
+    .loop-flow-1, .loop-flow-2, .loop-flow-3 {
+        stroke-dasharray: 10 25;
+        animation: svgLoopFlow 4s infinite linear;
+    }
+    @keyframes svgLoopFlow {
+        to { stroke-dashoffset: -35; }
+    }
+    .about-svg-graphic {
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
+    }
+    .approach-svg {
+        background-color: #ffffff;
+        border-radius: 16px;
+        display: block;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+    }
 </style>
 
 <section class="approach d-flex align-items-center">
     <div class="container py-5 my-5">
         <article class="row align-items-center justify-content-center">
-            <div
-                class="col-md-5 col-8 order-2 d-flex offset-xl-2 offset-md-1"
-            >
-                <img src={approach.img} alt="Project Delivery Process" />
+            <div class="col-md-5 col-8 order-2 d-flex offset-xl-2 offset-md-1">
+                <div class="about-svg-graphic">
+                    <svg width="100%" height="320" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="approach-svg">
+                        <!-- Background Grid -->
+                        <defs>
+                            <pattern id="grid-approach" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(15, 23, 42, 0.03)" stroke-width="1"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid-approach)" rx="16" />
+                        <rect width="100%" height="100%" stroke="rgba(15, 23, 42, 0.05)" stroke-width="1.5" fill="none" rx="16" />
+
+                        <!-- Curved Loop Paths -->
+                        <path d="M100,200 Q200,60 200,100" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                        <path d="M200,100 Q200,60 300,200" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                        <path d="M300,200 Q200,290 100,200" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+
+                        <!-- Animated Flows -->
+                        <path class="loop-flow-1" d="M100,200 Q200,60 200,100" stroke="var(--brand-cyan)" stroke-width="2" fill="none"/>
+                        <path class="loop-flow-2" d="M200,100 Q200,60 300,200" stroke="var(--brand-cyan)" stroke-width="2" fill="none"/>
+                        <path class="loop-flow-3" d="M300,200 Q200,290 100,200" stroke="var(--brand-cyan)" stroke-width="2" fill="none"/>
+
+                        <!-- Stage 1 Node: Prototype -->
+                        <g transform="translate(75, 175)">
+                            <circle cx="25" cy="25" r="25" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+                            <circle cx="25" cy="25" r="25" fill="none" stroke="var(--brand-cyan)" stroke-width="1.5">
+                                <animate attributeName="r" values="22;29;22" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <!-- Lightbulb icon -->
+                            <path d="M25,15 C21,15 18,18 18,22 C18,25 21,27 22,29 V32 H28 V29 C29,27 32,25 32,22 C32,18 29,15 25,15 Z" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="23" y1="35" x2="27" y2="35" stroke="var(--brand-cyan)" stroke-width="1.5"/>
+                        </g>
+                        <text x="100" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a" font-family="var(--font-sans)">1. PROTOTYPE</text>
+
+                        <!-- Stage 2 Node: Deploy -->
+                        <g transform="translate(175, 75)">
+                            <circle cx="25" cy="25" r="25" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+                            <circle cx="25" cy="25" r="25" fill="none" stroke="var(--brand-cyan)" stroke-width="1.5">
+                                <animate attributeName="r" values="22;29;22" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <!-- Cloud icon with arrow up -->
+                            <path d="M20,27 C17,27 15,25 15,22 C15,19 18,17 21,17 C22,14 25,13 28,15 C31,17 32,20 31,23 C33,23 35,25 35,27" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M25,29 V23 M22,26 L25,23 L28,26" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <text x="200" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a" font-family="var(--font-sans)">2. DEPLOY (MLOPS)</text>
+
+                        <!-- Stage 3 Node: Refine -->
+                        <g transform="translate(275, 175)">
+                            <circle cx="25" cy="25" r="25" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+                            <circle cx="25" cy="25" r="25" fill="none" stroke="var(--brand-cyan)" stroke-width="1.5">
+                                <animate attributeName="r" values="22;29;22" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <!-- Sync/Refresh icon -->
+                            <path d="M20,25 A5,5 0 1,1 25,30 M28,22 L30,25 L27,27" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M30,25 A5,5 0 1,1 25,20 M12,28 L10,25 L13,23" stroke="var(--brand-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <text x="300" y="245" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a" font-family="var(--font-sans)">3. REFINE</text>
+                    </svg>
+                </div>
             </div>
             <div class="col-md-6 col-xl-5 order-1 mb-5 mb-md-0">
-                <div class="fs-sm mb-2 text-white">DIGITAL BACK OFFICE</div>
-                <h2 class="mb-4 text-white">
+                <div class="fs-sm mb-2 ">DIGITAL BACK OFFICE</div>
+                <h2 class="display-6 pb-3 mb-lg-4 ">
                     {approach.title}
                 </h2>
-                <p class="text-white opacity-70">
+                <p class=" opacity-70">
                     {approach.desc}
                 </p>
             </div>

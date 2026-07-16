@@ -19,7 +19,7 @@
   .success-checkmark-svg {
     width: 48px;
     height: 48px;
-    stroke: #52CEC7;
+    stroke: #2E9691;
     stroke-width: 3.5;
     stroke-miterlimit: 10;
   }
@@ -29,7 +29,7 @@
     stroke-dashoffset: 166;
     stroke-width: 3.5;
     stroke-miterlimit: 10;
-    stroke: rgba(82, 206, 199, 0.3);
+    stroke: rgba(82, 206, 199, 0.35);
     fill: none;
     animation: strokeCircle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
   }
@@ -38,7 +38,7 @@
     transform-origin: 50% 50%;
     stroke-dasharray: 48;
     stroke-dashoffset: 48;
-    stroke: #52CEC7;
+    stroke: #2E9691;
     animation: strokeCheck 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
   }
 
@@ -66,40 +66,40 @@
   }
 
   .error-text-visual {
-    color: #ff6b6b;
+    color: #E05A47;
     font-size: 0.875rem;
     margin-top: 0.5rem;
   }
 
   /* Custom input styles for visual validation and premium look */
   .startup-form-input {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(82, 206, 199, 0.2) !important;
-    color: #fff !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(15, 37, 35, 0.15) !important;
+    color: #0F2523 !important;
     transition: all 0.2s ease-in-out;
   }
 
   .startup-form-input:focus {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: #FFFFFF !important;
     border-color: rgba(82, 206, 199, 0.6) !important;
-    box-shadow: 0 0 0 0.25rem rgba(82, 206, 199, 0.25) !important;
-    color: #fff !important;
+    box-shadow: 0 0 0 0.25rem rgba(82, 206, 199, 0.2) !important;
+    color: #0F2523 !important;
   }
 
   .startup-form-input::placeholder {
-    color: rgba(255, 255, 255, 0.4) !important;
+    color: rgba(15, 37, 35, 0.4) !important;
   }
 
   .startup-form-input option {
-    background: #111518;
-    color: #fff;
+    background: #FFFFFF;
+    color: #0F2523;
   }
 
   /* Custom visual validation state */
   .needs-validation.was-validated .startup-form-input:invalid {
-    border-color: rgba(255, 107, 107, 0.6) !important;
+    border-color: rgba(224, 90, 71, 0.6) !important;
     background-image: none !important; /* Hide default Bootstrap feedback icon */
-    box-shadow: 0 0 0 0.25rem rgba(255, 107, 107, 0.15) !important;
+    box-shadow: 0 0 0 0.25rem rgba(224, 90, 71, 0.15) !important;
   }
 
   .needs-validation.was-validated .startup-form-input:valid {
@@ -111,7 +111,7 @@
   /* Visual warning message elements helper */
   .invalid-feedback-custom {
     display: none;
-    color: #ff6b6b;
+    color: #E05A47;
     font-size: 0.85rem;
     margin-top: 0.35rem;
     font-weight: 500;
@@ -125,12 +125,12 @@
 
 <section class="form-section" id="claim-offer">
   <div class="container" style="max-width: 400px;">
-    <div class="startup-form-container" style="background: rgba(255, 255, 255, 0.01); border: 1.5px solid rgba(82, 206, 199, 0.12); padding: 3rem 2.25rem; border-radius: 24px; backdrop-filter: blur(20px);">
+    <div class="startup-form-container" style="background: #FFFFFF; border: 1.5px solid rgba(82, 206, 199, 0.18); padding: 3rem 2.25rem; border-radius: 24px; backdrop-filter: blur(20px); box-shadow: 0 20px 40px rgba(20, 40, 40, 0.08);">
       
       <!-- Standard Form Header -->
       <div id="form-header-block" class="text-center mb-4">
-        <h2 class="h2 text-white">Apply for the Startup Offer</h2>
-        <p class="text-white opacity-70">Tell us about your startup idea. Our engineering pod can deploy as fast as 48 hours.</p>
+        <h2 class="h2 text-dark">Apply for the Startup Offer</h2>
+        <p class="text-dark opacity-70">Tell us about your startup idea. Our engineering pod can deploy as fast as 48 hours.</p>
       </div>
 
       <!-- Visually Stunning Success Acknowledgement (Initially Hidden) -->
@@ -141,11 +141,11 @@
             <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
           </svg>
         </div>
-        <h3 class="h3 text-white mb-3">Application Received!</h3>
-        <p class="text-white opacity-80 mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+        <h3 class="h3 text-dark mb-3">Application Received!</h3>
+        <p class="text-dark opacity-80 mb-4" style="font-size: 0.95rem; line-height: 1.6;">
           Thank you for applying. Our Tech Lead will review your challenge and reach out within 24 hours to schedule your scoping session.
         </p>
-        <button id="btn-submit-another" class="btn btn-outline-primary rounded-pill btn-sm px-4" style="border-color: rgba(82, 206, 199, 0.4); color: #52CEC7;">
+        <button id="btn-submit-another" class="btn btn-outline-primary rounded-pill btn-sm px-4" style="border-color: rgba(82, 206, 199, 0.4); color: #2E9691;">
           Submit Another Request
         </button>
       </div>
@@ -157,7 +157,7 @@
         novalidate
       >
         <div class="col-12">
-          <label class="form-label fs-base text-white" for="founder_name">Founder Name</label>
+          <label class="form-label fs-base text-dark" for="founder_name">Founder Name</label>
           <input
             class="form-control form-control-lg rounded-2 startup-form-input"
             type="text"
@@ -170,7 +170,7 @@
         </div>
         
         <div class="col-12">
-          <label class="form-label fs-base text-white" for="founder_email">Email Address</label>
+          <label class="form-label fs-base text-dark" for="founder_email">Email Address</label>
           <input
             class="form-control form-control-lg rounded-2 startup-form-input"
             type="email"
@@ -183,7 +183,7 @@
         </div>
 
         <div class="col-12">
-          <label class="form-label fs-base text-white" for="startup_stage">Startup Stage</label>
+          <label class="form-label fs-base text-dark" for="startup_stage">Startup Stage</label>
           <select 
             class="form-select form-select-lg rounded-2 startup-form-input" 
             name="stage" 
@@ -197,7 +197,7 @@
         </div>
 
         <div class="col-12">
-          <label class="form-label fs-base text-white" for="startup_message">Describe Your Product / Tech Challenge</label>
+          <label class="form-label fs-base text-dark" for="startup_message">Describe Your Product / Tech Challenge</label>
           <textarea
             class="form-control form-control-lg rounded-2 startup-form-input"
             placeholder="Tell us about your product idea and what you need the pod to build..."
@@ -215,7 +215,7 @@
           <button
             class="btn btn-lg btn-primary rounded-pill w-100"
             type="submit"
-            style="background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%); border: none;"
+            style="background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%); border: none; color: #fff;"
           >
             Submit Startup Application
           </button>

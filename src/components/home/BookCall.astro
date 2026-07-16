@@ -1,0 +1,341 @@
+---
+import 'flatpickr/dist/flatpickr.min.css';
+import '../../styles/book-call.css';
+---
+
+<section id="book-a-call-section" class="book-call-section">
+  <div class="container book-call-inner">
+    <div class="row align-items-center g-5">
+      <!-- Left Column: Header & Description -->
+      <div class="col-lg-5 col-xl-5 text-center text-lg-start book-call-header">
+        <h2 class="book-call-title">
+          Ready to Automate? <br />
+          <span>Book a Discovery Call</span>
+        </h2>
+        <p class="book-call-desc mx-auto ms-lg-0 me-lg-auto">
+          Schedule a direct 1-on-1 technical session with our lead data architects. Let's discuss your engineering bottlenecks, AI roadmap, and how DBO can accelerate your business operations.
+        </p>
+      </div>
+
+      <!-- Right Column: Form -->
+      <div class="col-lg-7 col-xl-6 offset-xl-1">
+        <div class="book-call-form-container">
+          <!-- Form Element -->
+          <form id="book-call-form" class="row g-3">
+            <h3 class="book-call-form-title">Choose date and time</h3>
+
+            <div class="col-12 book-call-form-group">
+              <label class="book-call-label" for="book-name">Your Name</label>
+              <input
+                class="book-call-input"
+                type="text"
+                placeholder="Enter your name"
+                name="Name"
+                required
+                id="book-name"
+              />
+            </div>
+
+            <div class="col-12 book-call-form-group">
+              <label class="book-call-label" for="book-company">Company Name</label>
+              <input
+                class="book-call-input"
+                type="text"
+                placeholder="Enter your company name"
+                name="Company-name"
+                required
+                id="book-company"
+              />
+            </div>
+
+            <div class="col-12 book-call-form-group">
+              <label class="book-call-label" for="book-email">Email Address</label>
+              <input
+                class="book-call-input"
+                type="email"
+                placeholder="Enter your email address"
+                name="Email"
+                required
+                id="book-email"
+              />
+            </div>
+
+            <div class="col-sm-6 book-call-form-group">
+              <label class="book-call-label" for="book-date-picker">Date</label>
+              <div class="position-relative">
+                <input
+                  class="book-call-input date-picker pe-5"
+                  type="text"
+                  placeholder="Select Date"
+                  name="Date-time"
+                  required
+                  id="book-date-picker"
+                />
+              </div>
+            </div>
+
+            <div class="col-sm-6 book-call-form-group" id="book-time-slots-wrapper">
+              <label class="book-call-label" for="book-time-slots">Time Slot</label>
+              <div class="position-relative">
+                <select
+                  name="time-slots"
+                  id="book-time-slots"
+                  class="book-call-select"
+                  required
+                >
+                  <option value="" selected>Choose date first</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 pt-3">
+              <button
+                id="book-submit-btn"
+                disabled
+                class="book-call-submit-btn"
+                type="submit"
+              >
+                Schedule Meeting
+              </button>
+            </div>
+          </form>
+
+          <!-- Success Message -->
+          <div id="book-call-success" class="book-call-success d-none">
+            <div class="success-badge-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="success-heading">Appointment Booked!</h3>
+            <p class="success-text">
+              We have booked your discovery call. You will receive a Google Calendar invitation and a confirmation email shortly.
+            </p>
+            <button id="book-another-btn" class="book-another-btn">
+              Book another session
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import flatpickr from 'flatpickr';
+
+  let lastSelectedDate = '';
+
+  // Initialize Flatpickr for the calendar input
+  flatpickr('#book-date-picker', {
+    dateFormat: 'Y-m-d',
+    minDate: 'today',
+    onOpen: function (selectedDates, dateStr, instance) {
+      // Inject theme styling classes when open
+      const calendarContainer = instance.calendarContainer;
+      calendarContainer.style.backgroundColor = 'var(--bg-surface-elevated)';
+      calendarContainer.style.color = 'var(--text-primary)';
+    },
+    onClose: async function (selectedDates, dateStr, instance) {
+      try {
+        if (dateStr === lastSelectedDate) {
+          return;
+        }
+        lastSelectedDate = dateStr;
+
+        const selectElement = document.getElementById('book-time-slots') as HTMLSelectElement;
+
+        if (dateStr === '') {
+          selectElement.innerHTML = '<option value="" selected>Choose date first</option>';
+          return;
+        }
+
+        selectElement.innerHTML = '<option value="" selected>Loading time slots...</option>';
+        selectElement.disabled = true;
+
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID;
+        const url = `https://script.google.com/macros/s/${appScriptID}/exec`;
+
+        const res = await fetch(`${url}?date=${dateStr}&timezone=${timezone}`);
+        const data = await res.json();
+        const availableSlots = data.availableSlots;
+
+        selectElement.disabled = false;
+        selectElement.innerHTML = '';
+
+        if (availableSlots.length === 0) {
+          const option = document.createElement('option');
+          option.value = '';
+          option.textContent = 'No Available Slots';
+          option.selected = true;
+          selectElement.appendChild(option);
+          return;
+        } else {
+          const option = document.createElement('option');
+          option.value = '';
+          option.textContent = 'Choose time slot';
+          option.selected = true;
+          selectElement.appendChild(option);
+        }
+
+        availableSlots.forEach((slot: string) => {
+          const option = document.createElement('option');
+          option.value = slot;
+          option.textContent = slot;
+          selectElement.appendChild(option);
+        });
+
+        validateBookForm();
+      } catch (error) {
+        console.error('Error fetching slots:', error);
+        const selectElement = document.getElementById('book-time-slots') as HTMLSelectElement;
+        selectElement.disabled = false;
+        selectElement.innerHTML = '<option value="" selected>Error loading slots. Try again.</option>';
+      }
+    }
+  });
+
+  // Validation Form Checks
+  function validateBookForm() {
+    const nameInput = document.getElementById('book-name') as HTMLInputElement;
+    const emailInput = document.getElementById('book-email') as HTMLInputElement;
+    const companyInput = document.getElementById('book-company') as HTMLInputElement;
+    const dateInput = document.getElementById('book-date-picker') as HTMLInputElement;
+    const timeSelect = document.getElementById('book-time-slots') as HTMLSelectElement;
+    const submitBtn = document.getElementById('book-submit-btn') as HTMLButtonElement;
+
+    const name = nameInput?.value.trim();
+    const email = emailInput?.value.trim();
+    const company = companyInput?.value.trim();
+    const date = dateInput?.value.trim();
+    const time = timeSelect?.value.trim();
+
+    if (name && email && company && date && time) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  }
+
+  // Set up event registrations inside a lifecycle helper
+  function initBookCall() {
+    const nameInput = document.getElementById('book-name') as HTMLInputElement;
+    const emailInput = document.getElementById('book-email') as HTMLInputElement;
+    const companyInput = document.getElementById('book-company') as HTMLInputElement;
+    const timeSelect = document.getElementById('book-time-slots') as HTMLSelectElement;
+
+    nameInput?.addEventListener('input', validateBookForm);
+    emailInput?.addEventListener('input', validateBookForm);
+    companyInput?.addEventListener('input', validateBookForm);
+    timeSelect?.addEventListener('change', validateBookForm);
+
+    // Book another call button logic
+    const bookAnotherBtn = document.getElementById('book-another-btn');
+    bookAnotherBtn?.addEventListener('click', () => {
+      const formEl = document.getElementById('book-call-form') as HTMLFormElement;
+      const successEl = document.getElementById('book-call-success') as HTMLElement;
+      
+      formEl.reset();
+      const timeSelectEl = document.getElementById('book-time-slots') as HTMLSelectElement;
+      timeSelectEl.innerHTML = '<option value="" selected>Choose date first</option>';
+      
+      successEl.classList.add('d-none');
+      formEl.classList.remove('d-none');
+      
+      const submitBtn = document.getElementById('book-submit-btn') as HTMLButtonElement;
+      submitBtn.disabled = true;
+    });
+
+    // Form submit logic
+    const formElement = document.getElementById('book-call-form');
+    formElement?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nameInputVal = (document.getElementById('book-name') as HTMLInputElement).value;
+      const emailInputVal = (document.getElementById('book-email') as HTMLInputElement).value;
+      const companyInputVal = (document.getElementById('book-company') as HTMLInputElement).value;
+      const dateInputVal = (document.getElementById('book-date-picker') as HTMLInputElement).value;
+      const timeSelectVal = (document.getElementById('book-time-slots') as HTMLSelectElement).value;
+      const submitBtn = document.getElementById('book-submit-btn') as HTMLButtonElement;
+
+      const formId = import.meta.env.PUBLIC_FORM_ID;
+      const appScriptID = import.meta.env.PUBLIC_GOOGLE_APP_SCRIPT_ID;
+
+      if (nameInputVal && emailInputVal && companyInputVal && dateInputVal && timeSelectVal && formId && appScriptID) {
+        const formUrl = `https://docs.google.com/forms/u/0/d/e/${formId}/formResponse`;
+        const scriptUrl = `https://script.google.com/macros/s/${appScriptID}/exec`;
+
+        try {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Scheduling...';
+
+          const formData = new FormData();
+          formData.append('entry.1291198894', nameInputVal);
+          formData.append('entry.1637227755', companyInputVal);
+          formData.append('entry.59580764', emailInputVal);
+          formData.append('entry.1366705830', dateInputVal);
+          formData.append('entry.994043505', timeSelectVal);
+          formData.append('ScheduledBy', 'Digital Back Office team');
+
+          function parseTime(timeStr: string, year: number, month: number, day: number) {
+            const timeParts = timeStr.match(/(\d+):(\d+) (\w{2})/);
+            if (!timeParts) return new Date();
+            let hours = parseInt(timeParts[1], 10);
+            const minutes = parseInt(timeParts[2], 10);
+            const period = timeParts[3];
+
+            if (period === 'PM' && hours !== 12) {
+              hours += 12;
+            } else if (period === 'AM' && hours === 12) {
+              hours = 0;
+            }
+            return new Date(year, month, day, hours, minutes);
+          }
+
+          const dateParts = dateInputVal.split('-');
+          const year = parseInt(dateParts[0], 10);
+          const month = parseInt(dateParts[1], 10) - 1;
+          const day = parseInt(dateParts[2], 10);
+          const timeParts = timeSelectVal.split('-');
+          const startTime = parseTime(timeParts[0], year, month, day);
+          const endTime = parseTime(timeParts[1], year, month, day);
+
+          formData.append('StartTime', startTime.toString());
+          formData.append('EndTime', endTime.toString());
+
+          const scriptResponse = await fetch(scriptUrl, {
+            method: 'POST',
+            body: formData
+          });
+          await scriptResponse.json();
+
+          fetch(formUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+          }).catch((err) => console.log('Form silent error:', err));
+
+          const formEl = document.getElementById('book-call-form') as HTMLFormElement;
+          const successEl = document.getElementById('book-call-success') as HTMLElement;
+          formEl.classList.add('d-none');
+          successEl.classList.remove('d-none');
+
+          submitBtn.textContent = 'Schedule Meeting';
+        } catch (err) {
+          console.error('Error submitting appointment:', err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Schedule Meeting';
+          alert('An error occurred while booking. Please try again.');
+        }
+      }
+    });
+  }
+
+  // Fire listener registration robustly regardless of script loading delay
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBookCall);
+  } else {
+    initBookCall();
+  }
+</script>

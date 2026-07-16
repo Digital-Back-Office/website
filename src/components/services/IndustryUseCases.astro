@@ -18,13 +18,95 @@ interface Props {
 const { heading, subtitle, cases } = Astro.props;
 ---
 
-<section style="padding: 6rem 0; margin-bottom:3rem;" data-bs-theme="dark">
+<style>
+  .use-cases-section {
+    padding: 6rem 0;
+    margin-bottom: 3rem;
+  }
+
+  .use-cases-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .use-cases-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .use-case-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-xl);
+    padding: 3rem;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color var(--motion-base), background-color var(--motion-base);
+  }
+
+  .use-case-card:hover {
+    border-color: rgba(82, 206, 199, 0.25);
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .use-case-industry-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--brand-teal-alt);
+    margin-bottom: 1.5rem;
+  }
+
+  .use-cases-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .use-case-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .use-case-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .use-case-item:first-child {
+    padding-top: 0;
+  }
+
+  .use-case-item-title {
+    color: #fff;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .use-case-item-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) {
+    .use-case-card {
+      padding: 2rem;
+    }
+  }
+</style>
+
+<section class="use-cases-section">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 style="font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem;">
+      <h2 class="use-cases-title">
         {heading}
       </h2>
-      <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.75); max-width: 800px; margin: 0 auto;">
+      <p class="use-cases-subtitle">
         {subtitle}
       </p>
     </div>
@@ -32,19 +114,19 @@ const { heading, subtitle, cases } = Astro.props;
     <div class="row g-4">
       {cases.map((industryCase) => (
         <div class="col-12">
-            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1rem; padding: 3rem; height: 100%; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; padding: 2rem; @media (max-width: 768px) { padding: 2rem; }" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(82, 206, 199, 0.15)'; this.style.borderColor='rgba(82, 206, 199, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255, 255, 255, 0.1)';">
-            <h3 style="font-size: 1.75rem; font-weight: 700; color: #52CEC7; margin-bottom: 1.5rem;">
+          <div class="use-case-card">
+            <h3 class="use-case-industry-title">
               {industryCase.industry}
             </h3>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              {industryCase.use_cases.map((useCase, index) => (
-              <li style={`padding: 1rem 0;${index < industryCase.use_cases.length - 1 ? ' border-bottom: 1px solid rgba(255, 255, 255, 0.1);' : ''}`}>
-                <strong style="color: #fff; display: block; margin-bottom: 0.5rem;">{useCase.title}</strong>
-                <span style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;" set:html={useCase.description}></span>
-              </li>
+            <ul class="use-cases-list">
+              {industryCase.use_cases.map((useCase) => (
+                <li class="use-case-item">
+                  <strong class="use-case-item-title">{useCase.title}</strong>
+                  <span class="use-case-item-desc" set:html={useCase.description}></span>
+                </li>
               ))}
             </ul>
-            </div>
+          </div>
         </div>
       ))}
     </div>

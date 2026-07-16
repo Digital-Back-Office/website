@@ -1,0 +1,117 @@
+---
+/* HR: 3D Isometric Platforms (Talent Intake, Vetting Core, & HRIS Integration Platform) */
+---
+<svg class="architecture-svg" viewBox="0 0 950 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="hr-bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="var(--brand-cyan)" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="var(--brand-cyan)" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hr-plat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--brand-yellow)"/>
+      <stop offset="100%" stop-color="var(--brand-cyan)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="none" />
+  <circle cx="475" cy="225" r="350" fill="url(#hr-bg-glow)" pointer-events="none" />
+
+  <!-- Isometric Matrix background -->
+  <g stroke="rgba(255, 255, 255, 0.02)" stroke-width="1">
+    <path d="M 50 150 L 900 370 M 50 250 L 900 470 M 50 50 L 900 270" />
+    <path d="M 900 150 L 50 370 M 900 250 L 50 470 M 900 50 L 50 270" />
+  </g>
+
+  <!-- Developer console telemetry printout (Top) -->
+  <text x="475" y="40" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    TALENT PIPELINE // MATCH RATE: 98.7% // HRIS SYNC: ACTIVE // ACTIVE APPLICATIONS: 1,842
+  </text>
+
+  <!-- 1. LEFT PLATFORM: INGESTION (cx=220, cy=280) -->
+  <g class="node-group">
+    <!-- Platform Base Shadow -->
+    <polygon points="140,295 220,335 220,350 140,310" fill="#04070d" />
+    <polygon points="220,335 300,295 300,310 220,350" fill="#050912" />
+    <!-- Platform Base Left/Right Faces -->
+    <polygon points="140,280 220,320 220,335 140,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="220,320 300,280 300,295 220,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <!-- Platform Top Face -->
+    <polygon points="140,280 220,240 300,280 220,320" fill="#090d16" stroke="var(--brand-cyan)" stroke-width="1.5" />
+
+    <!-- Candidate Profile Cards floating in 3D -->
+    <g transform="translate(0, -20)">
+      <!-- Panel 1 -->
+      <polygon points="170,250 210,260 210,280 170,270" fill="rgba(82, 206, 199, 0.15)" stroke="var(--brand-cyan)" stroke-width="1" />
+      <circle cx="190" cy="265" r="3" fill="var(--brand-cyan)" />
+    </g>
+    <g transform="translate(40, 20)">
+      <!-- Panel 2 -->
+      <polygon points="170,250 210,260 210,280 170,270" fill="rgba(82, 206, 199, 0.15)" stroke="var(--brand-cyan)" stroke-width="1" />
+      <circle cx="190" cy="265" r="3" fill="var(--brand-cyan)" />
+    </g>
+
+    <text x="220" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">TALENT INGEST</text>
+  </g>
+
+  <!-- 2. CENTRAL PLATFORM: COGNITIVE MATCHING (cx=475, cy=240, Taller block structure) -->
+  <!-- Wires connecting Ingest -> Central -->
+  <path d="M 270,265 Q 370,225 425,200" stroke="url(#hr-plat-grad)" stroke-width="2.5" stroke-dasharray="6 4" />
+  <circle r="4" fill="var(--brand-cyan)">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M 270,265 Q 370,225 425,200" />
+  </circle>
+
+  <g class="node-group main-engine">
+    <!-- Big base column -->
+    <polygon points="375,250 475,300 475,340 375,290" fill="#050912" />
+    <polygon points="475,300 575,250 575,290 475,340" fill="#080e1c" />
+    <polygon points="375,250 475,200 575,250 475,300" fill="#090d19" stroke="var(--brand-teal-alt)" stroke-width="2" />
+
+    <!-- Second Stacked Block -->
+    <g transform="translate(0, -40)">
+      <polygon points="415,230 475,260 475,290 415,260" fill="#0b1224" />
+      <polygon points="475,260 535,230 535,260 475,290" fill="#0d1830" />
+      <polygon points="415,230 475,200 535,230 475,260" fill="#0c1429" stroke="var(--brand-teal-alt)" stroke-width="1" />
+    </g>
+
+    <!-- Floating Target reticle above Core -->
+    <g transform="translate(0, -90)">
+      <ellipse cx="475" cy="200" rx="40" ry="16" stroke="var(--brand-teal-alt)" stroke-width="2" stroke-dasharray="6 3" fill="none" />
+      <!-- Target reticle cross -->
+      <circle cx="475" cy="200" r="10" stroke="var(--brand-teal-alt)" stroke-width="1.8" fill="none" />
+      <path d="M 460 200 H 490 M 475 185 V 215" stroke="var(--brand-teal-alt)" stroke-width="1.2" />
+    </g>
+
+    <text x="475" y="325" text-anchor="middle" fill="var(--text-primary)" font-size="11" font-weight="900" letter-spacing="1">MATCHING ENGINE</text>
+  </g>
+
+  <!-- 3. RIGHT PLATFORM: HRIS EXPORT (cx=730, cy=280) -->
+  <!-- Wires connecting Central -> HRIS -->
+  <path d="M 525,215 Q 615,225 680,265" stroke="url(#hr-plat-grad)" stroke-width="2" stroke-dasharray="6 4" />
+  <circle r="4.5" fill="var(--brand-teal-alt)">
+    <animateMotion dur="3.5s" repeatCount="indefinite" path="M 525,215 Q 615,225 680,265" />
+  </circle>
+
+  <g class="node-group">
+    <!-- Platform Base -->
+    <polygon points="650,295 730,335 730,350 650,310" fill="#04070d" />
+    <polygon points="730,335 810,295 810,310 730,350" fill="#050912" />
+    <polygon points="650,280 730,320 730,335 650,295" fill="#080e1a" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="730,320 810,280 810,295 730,335" fill="#0b1326" stroke="rgba(255,255,255,0.04)" />
+    <polygon points="650,280 730,240 810,280 730,320" fill="#090d16" stroke="var(--brand-yellow)" stroke-width="1.5" />
+
+    <!-- Floating Cloud Export Arrow -->
+    <g transform="translate(710, 190)" stroke="var(--brand-yellow)" stroke-width="1.8" fill="none">
+      <path d="M 5 25 H 35 M 20 10 V 25 L 12 18 M 20 25 L 28 18" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Cloud outline -->
+      <path d="M 5 25 C 2 25, 0 22, 2 18 C 0 14, 5 10, 12 11 C 15 5, 25 5, 28 11 C 35 10, 40 14, 38 18 C 40 22, 38 25, 35 25" opacity="0.6" stroke-linecap="round" />
+    </g>
+
+    <text x="730" y="375" text-anchor="middle" fill="var(--text-secondary)" font-size="9" font-weight="700">HRIS / PAYROLL SYNC</text>
+  </g>
+
+  <!-- Developer console telemetry printout (Bottom) -->
+  <text x="475" y="425" text-anchor="middle" fill="rgba(82, 206, 199, 0.6)" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">
+    BIAS MITIGATION: ACTIVE | ATS MATCH: 0.08s | VETTING COMPLETED | GDPR SECURED
+  </text>
+</svg>

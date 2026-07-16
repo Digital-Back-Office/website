@@ -11,13 +11,8 @@
 
 @media (max-width: 768px) {
     .container {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: var(--space-4) !important;
+        padding-right: var(--space-4) !important;
     }
 }
 
-.page-wrapper {
-    background-image: url("/assets/images/background_pattern.png");
-    background-repeat: repeat;
-    background-color: #000;
-}

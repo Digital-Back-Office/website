@@ -8,24 +8,57 @@ const benefits = Data.data.benefits;
 
 <style>
   /* Removed min-height: 100vh to reduce spacing */
+  .scrollable-content {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 1.5rem;
+  }
+  
+  .scrollable-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .scrollable-content {
+      max-height: none;
+      overflow-y: visible;
+      padding-right: 0;
+    }
+  }
 </style>
 
 <section class="benefit d-flex align-items-center">
   <div class="container py-5 my-5">
     <div class="row align-items-center">
       <div class="col-md-6 col-xl-5 offset-xl-1 order-md-2 mb-5 mb-md-0">
-        <h2 class="pb-2 pb-sm-3 pb-xl-4 text-white">{benefits.title}</h2>
-        {
-          benefits.points.map((point) => (
-            <div class="d-flex pb-3 mb-2 mb-xl-3">
-              <div class="text-body-secondary pt-1">{point.number}</div>
-              <div class="ps-3">
-                <h3 class="h5 text-white">{point.title}</h3>
-                <p class="mb-0 text-white opacity-70">{point.desc}</p>
+        <h2 class="pb-2 pb-sm-3 pb-xl-4 ">{benefits.title}</h2>
+        <div class="scrollable-content">
+          {
+            benefits.points.map((point) => (
+              <div class="d-flex pb-3 mb-2 mb-xl-3">
+                <div class="text-body-secondary pt-1">{point.number}</div>
+                <div class="ps-3">
+                  <h3 class="h5 ">{point.title}</h3>
+                  <p class="mb-0  opacity-70">{point.desc}</p>
+                </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
       </div>
       <div class="col-md-6 order-md-1">
         <div

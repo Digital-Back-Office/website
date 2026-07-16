@@ -3,15 +3,47 @@ import { getEntry } from "astro:content";
 
 const Data = await getEntry("home", "home");
 const testimonials = Data.data.testimonials;
+const tech = Data.data.tech;
 ---
 
 <style>
-    .testimonials-section {
-        position: relative;
-        background: radial-gradient(circle at 10% 20%, rgba(82, 206, 199, 0.04) 0%, transparent 50%),
-                    radial-gradient(circle at 90% 80%, rgba(238, 191, 46, 0.03) 0%, transparent 50%);
+    .tech {
+        padding: var(--space-10) 0;
+    }
+
+    .open-source .swiper-slide {
+        /* width: 11rem; */
+        /* height: 6.25rem; */
         overflow: hidden;
-        padding: 5rem 0;
+    }
+
+    .tech-logo {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg-surface);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+    }
+    .testimonials-header {
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .open-source .swiper-slide {
+            /* width: 11rem; */
+            height: 5rem;
+        }
+    }
+
+    @media (min-width: 1600px) {
+        .open-source .swiper-slide {
+            /* height: 10rem; */
+        }
     }
 
     @media (min-width: 1024px) {
@@ -20,37 +52,31 @@ const testimonials = Data.data.testimonials;
         }
     }
 
-    .testimonial-quotes-icon {
-        color: #52CEC7;
-        opacity: 0.15;
-        font-size: 130px;
-        line-height: 1;
-        display: block;
+    .tech-header {
+        text-align: center;
+        margin-bottom: var(--space-10);
     }
 
-    .testimonial-title {
-        font-size: clamp(1.75rem, 3vw, 2.5rem);
-        font-weight: 800;
-        letter-spacing: -0.5px;
-        line-height: 1.35;
+    .tech-title {
+        font-size: clamp(2.25rem, 3vw, 3.25rem);
+        font-weight: var(--font-weight-bold);
+        color: var(--text-primary);
     }
 
-    .testimonial-text {
-        font-size: 1.15rem;
-        line-height: 1.8;
+    .tech-subtitle {
+        color: var(--text-secondary);
+        font-size: var(--text-lg);
+        max-width: 720px;
+        margin: var(--space-3) auto 0;
     }
 
-    .btn-nav-testimonial {
-        border-color: rgba(82, 206, 199, 0.3) !important;
-        color: #52CEC7 !important;
-        transition: all 0.3s ease !important;
-    }
-
-    .btn-nav-testimonial:hover {
-        background-color: #52CEC7 !important;
-        border-color: #52CEC7 !important;
-        color: #000 !important;
-        box-shadow: 0 0 15px rgba(82, 206, 199, 0.4);
+    .testimonials-wrap {
+        margin: var(--space-8) auto 0;
+        max-width: 900px;
+        background: var(--bg-surface, #ffffff);
+        border-radius: var(--radius-2xl);
+        border: 1px solid var(--border-subtle);
+        padding: var(--space-8) var(--space-10);
     }
 </style>
 
@@ -63,7 +89,7 @@ const testimonials = Data.data.testimonials;
     const carousels = Array.from(document.querySelectorAll(".custom-swiper"));
 
     carousels.forEach((value) => {
-        value.classList.add('swiper');
+        value.classList.add("swiper");
         let options;
         const htmlValueElement = value as HTMLElement;
         if (htmlValueElement.dataset.swiperOptions != undefined)
@@ -88,17 +114,122 @@ const testimonials = Data.data.testimonials;
     });
 </script>
 
-<section class="testimonials-section d-flex flex-column justify-content-center">
+<section class="tech d-flex flex-column justify-content-center">
+    <!-- <div class="open-source pt-2 pt-sm-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
+        <div class="container pb-4 mb-2 mb-lg-3">
+            <div class="tech-header">
+                <h2 class="tech-title">{tech.title}</h2>
+                <p class="tech-subtitle">{tech.desc}</p>
+            </div>
+        </div>
+        <div
+            class="custom-swiper pb-4"
+            data-swiper-options={`{
+            "spaceBetween": 40,
+            "loop": true,
+            "grabCursor": false,
+            "centeredSlides": true,
+            "autoplay": {
+              "delay": 0,
+              "disableOnInteraction": false
+            },
+            "freeMode": true,
+            "speed": 10000,
+            "freeModeMomentum": false,
+            "breakpoints": {
+              "0": { "slidesPerView": 2 },
+              "400": { "slidesPerView": 3 },
+              "600": { "slidesPerView": 4 },
+              "1000": { "slidesPerView": 5 },
+              "1200": { "slidesPerView": 6 },
+              "1400": { "slidesPerView": 6 },
+              "1600": { "slidesPerView": 6 }
+            }
+          }`}
+        >
+            <div
+                class="swiper-wrapper"
+                style="transition-timing-function: linear !important;"
+            >
+                {
+                    tech.slider_1.map((card: string) => (
+                        <div class="swiper-slide">
+                            <div class="tech-logo">
+                                <img
+                                    class="d-block d-dark-mode-block mx-auto"
+                                    src={card}
+                                    width="196"
+                                    alt="Logo"
+                                />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+        <div
+            class="custom-swiper"
+            dir="rtl"
+            data-swiper-options={`{
+            "spaceBetween": 40,
+            "loop": true,
+            "grabCursor": false,
+            "centeredSlides": true,
+            "autoplay": {
+              "delay": 0,
+              "disableOnInteraction": false
+            },
+            "freeMode": true,
+            "speed": 8500,
+            "freeModeMomentum": false,
+            "breakpoints": {
+                "0": { "slidesPerView": 2 },
+                "400": { "slidesPerView": 3 },
+                "600": { "slidesPerView": 4 },
+                "1000": { "slidesPerView": 5 },
+                "1200": { "slidesPerView": 6 },
+                "1400": { "slidesPerView": 6 },
+                "1600": { "slidesPerView": 6 }
+            }
+          }`}
+        >
+            <div
+                class="swiper-wrapper"
+                style="transition-timing-function: linear !important;"
+            >
+                {
+                    tech.slider_2.map((card: string) => (
+                        <div class="swiper-slide">
+                            <div class="tech-logo">
+                                <img
+                                    class="d-block d-dark-mode-block mx-auto"
+                                    src={card}
+                                    width="196"
+                                    alt="Logo"
+                                />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div> -->
+
     <!-- testimonials -->
-    <div
-        class="container position-relative z-1 py-5 mb-md-3 my-lg-3 my-xl-4 my-xxl-5"
-    >
-        <div class="row py-md-4 py-lg-5">
-            <div class="col-md-9 col-lg-7 order-md-2">
-                <!-- Swiper slider -->
-                <div
-                    class="custom-swiper"
-                    data-swiper-options={`{
+    <div class="container position-relative z-1 testimonials-section">
+        <div class="testimonials-header">
+            <div class="expertise-badge">
+                <span class="expertise-badge-text">Testimonials</span>
+            </div>
+            <h2 class="solutions-title">What Our Clients Say</h2>
+        </div>
+        <div class="testimonials-wrap">
+            <div class="row py-md-4 py-lg-5">
+                <div class="col-md-9 col-lg-7 order-md-2">
+                    <!-- Swiper slider -->
+                    <div
+                        class="custom-swiper"
+                        data-swiper-options={`{
                         "spaceBetween": 40,
                         "loop": true,
                         "bindedContent": true,
@@ -112,75 +243,94 @@ const testimonials = Data.data.testimonials;
                             "nextEl": "#next-testimonial"
                         }
                     }`}
-                >
-                    <div class="swiper-wrapper">
-                        {
-                            testimonials.map((testimonial) => (
-                                <div
-                                    class="swiper-slide"
-                                    data-swiper-binded={testimonial.number}
-                                >
-                                    <div class="d-flex d-md-none pt-3 mb-3">
-                                        <i class="ai-quotes d-md-none text-primary display-3 mt-n2" />
-                                        <div class="ps-3">
-                                            <h3 class="text-white h5 mb-0">
-                                                {testimonial.name}
-                                            </h3>
-                                            <p class="text-body-primary mb-0">
-                                                {testimonial.designation}
-                                            </p>
+                    >
+                        <div class="swiper-wrapper">
+                            {
+                                testimonials.map((testimonial) => (
+                                    <div
+                                        class="swiper-slide"
+                                        data-swiper-binded={testimonial.number}
+                                    >
+                                        <div class="d-flex d-md-none pt-3 mb-3">
+                                            <i class="ai-quotes d-md-none text-primary display-3 mt-n2" />
+                                            <div class="ps-3">
+                                                <h3 class="text-body h5 mb-0">
+                                                    {testimonial.name}
+                                                </h3>
+                                                <p class="text-body-secondary mb-0">
+                                                    {testimonial.designation}
+                                                </p>
+                                            </div>
                                         </div>
+                                        <h3 class="h4 mb-lg-3 text-body testimonial-title">
+                                            {testimonial.title}
+                                        </h3>
+                                        <p
+                                            class="mb-0 text-body-secondary z-1 testimonial-text"
+                                            style="font-size: 0.95rem; line-height: 1.6;"
+                                        >
+                                            {testimonial.desc}
+                                        </p>
                                     </div>
-                                    <h2 class="mb-lg-4 text-white testimonial-title">
-                                        {testimonial.title}
-                                    </h2>
-                                    <p class="lead mb-0 text-white opacity-70 z-1 testimonial-text">
-                                        {testimonial.desc}
-                                    </p>
-                                </div>
-                            ))
-                        }
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 offset-lg-1 order-md-1 mt-n3">
-                <i class="ai-quotes d-none d-md-block testimonial-quotes-icon ms-n2 mb-1"></i>
+                <div class="col-md-3 offset-lg-1 order-md-1 mt-n3">
+                    <i
+                        class="ai-quotes d-none d-md-block testimonial-quotes-icon ms-n2 mb-1"
+                    ></i>
 
-                <!-- Content binded to slider (on screens > 768px) -->
-                <div class="binded-content h-auto d-none d-md-block">
-                    <div class="binded-item h-auto active" id="testimonial-1">
-                        <h3 class="h5 mb-1 text-white">{testimonials[0].name}</h3>
-                        <p class="text-body-primary mb-0">{testimonials[0].designation}</p>
+                    <!-- Content binded to slider (on screens > 768px) -->
+                    <div class="binded-content h-auto d-none d-md-block">
+                        <div
+                            class="binded-item h-auto active"
+                            id="testimonial-1"
+                        >
+                            <h3 class="h5 mb-1 text-body">
+                                {testimonials[0].name}
+                            </h3>
+                            <p class="text-body-secondary mb-0">
+                                {testimonials[0].designation}
+                            </p>
+                        </div>
+                        <div class="binded-item h-auto" id="testimonial-2">
+                            <h3 class="h5 mb-1 text-body">
+                                {testimonials[1].name}
+                            </h3>
+                            <p class="text-body-secondary mb-0">
+                                {testimonials[1].designation}
+                            </p>
+                        </div>
                     </div>
-                    <div class="binded-item h-auto" id="testimonial-2">
-                        <h3 class="h5 mb-1 text-white">{testimonials[1].name}</h3>
-                        <p class="text-body-primary mb-0">{testimonials[1].designation}</p>
-                    </div>
-                </div>
 
-                <!-- Swiper controls (Prev / Next) -->
-                <div class="d-flex align-items-center pb-2 pb-md-0 pt-4 mt-3">
-                    <button
-                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle me-3"
-                        type="button"
-                        id="prev-testimonial"
-                        aria-label="Prev"
-                    >
-                        <i class="ai-arrow-left"></i>
-                    </button>
+                    <!-- Swiper controls (Prev / Next) -->
                     <div
-                        class="testimonials-count fw-medium flex-shrink-0 text-center text-white"
-                        style="width: 2.5rem;"
+                        class="d-flex align-items-center pb-2 pb-md-0 pt-4 mt-3"
                     >
+                        <button
+                            class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle me-3"
+                            type="button"
+                            id="prev-testimonial"
+                            aria-label="Prev"
+                        >
+                            <i class="ai-arrow-left"></i>
+                        </button>
+                        <div
+                            class="testimonials-count fw-medium flex-shrink-0 text-center text-body"
+                            style="width: 2.5rem;"
+                        >
+                        </div>
+                        <button
+                            class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle ms-3"
+                            type="button"
+                            id="next-testimonial"
+                            aria-label="Next"
+                        >
+                            <i class="ai-arrow-right"></i>
+                        </button>
                     </div>
-                    <button
-                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle ms-3"
-                        type="button"
-                        id="next-testimonial"
-                        aria-label="Next"
-                    >
-                        <i class="ai-arrow-right"></i>
-                    </button>
                 </div>
             </div>
         </div>
