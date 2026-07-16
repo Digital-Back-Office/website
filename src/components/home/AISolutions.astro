@@ -23,14 +23,15 @@ const ai_solutions = Data.data.ai_solutions;
 		</div>
 
 		<div class="row g-4 solutions-grid">
-			{ai_solutions.cards?.map((card: any) => (
+			{ai_solutions.cards?.map((card: any, index: number) => (
 				<div class="col-lg-3 col-md-6">
 					<a href={card.link ?? `/services/ai-solutions#${card.id ?? ""}`} class="solution-card-link">
 						<div class="solution-card">
+							<span class="card-accent-bar"></span>
 							<div class="card-glow-layer"></div>
 
 							<div class="card-inner">
-								<div class="card-header-row">
+								<div class="card-top">
 									<div class="icon-box">
 									{card.id === 'ai-strategy' && (
 										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -95,10 +96,12 @@ const ai_solutions = Data.data.ai_solutions;
 									)}
 									</div>
 
-									<h3 class="card-heading">
-										{card.heading}
-									</h3>
+									<span class="card-index">{String(index + 1).padStart(2, "0")}</span>
 								</div>
+
+								<h3 class="card-heading">
+									{card.heading}
+								</h3>
 
 								<p class="card-desc">
 									{card.description}

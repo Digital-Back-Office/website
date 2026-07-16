@@ -115,23 +115,16 @@ import Button from "../ui/Button.astro";
     }
 
     .hero-title {
-        color: var(--text-primary);
+        background: linear-gradient(135deg, #000000 0%, #30baba 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
         font-size: clamp(2.6rem, 5vw, 4.25rem);
         font-weight: 800;
         line-height: 1.12;
         letter-spacing: -0.025em;
         margin-bottom: var(--space-6);
-    }
-
-    /* Clean Solid Brand Color Highlight instead of Gradient Text */
-    .gradient-text {
-        background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-teal-deep) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-weight: 800;
-        display: inline-block;
-        animation: shimmer 3s ease-in-out infinite;
     }
 
     .hero-description {
@@ -909,8 +902,7 @@ import Button from "../ui/Button.astro";
                 </div>
                 
                 <h1 class="hero-title">
-                    {hero.title_part_1}
-                    <span class="gradient-text">{hero.title_part_2}</span>
+                    {hero.title_part_1} {hero.title_part_2}
                 </h1>
                 
                 <p class="hero-description">

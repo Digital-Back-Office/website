@@ -164,23 +164,11 @@ const slug = industry.slug;
                                         </div>
                                     </div>
                                     <div class="col-lg-5 mt-5 mt-lg-0">
-                                        <div class="product-image-window">
-                                            <div class="window-header">
-                                                <div class="window-dots">
-                                                    <span class="dot dot-close"></span>
-                                                    <span class="dot dot-minimize"></span>
-                                                    <span class="dot dot-maximize"></span>
-                                                </div>
-                                                <div class="window-title">{tab.name.toLowerCase().replace(/\s+/g, '_')}_platform.png</div>
-                                            </div>
-                                            <div class="window-body">
-                                                <img 
-                                                    src={tab.image} 
-                                                    alt={tab.image_alt || tab.name}
-                                                    class="product-showcase-image"
-                                                />
-                                            </div>
-                                        </div>
+                                        <img 
+                                            src={tab.image} 
+                                            alt={tab.image_alt || tab.name}
+                                            class="product-showcase-image"
+                                        />
                                     </div>
                                 </div>
                             </div>

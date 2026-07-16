@@ -51,7 +51,7 @@ import Button from "../ui/Button.astro";
               <a href="/industry/technology-media-and-telecom" title="Media" class="dropdown-item nav-links">Media</a>
             </li>
              <li>
-              <a href="/startups" title="Startups" class="dropdown-item nav-links">Startups</a>
+              <a href="/startups" title="For startups" class="dropdown-item nav-links">For startups</a>
             </li>
           </ul>
         </li>
@@ -79,11 +79,11 @@ import Button from "../ui/Button.astro";
         </li>
 
         <li class={path.includes("/about-us") ? "nav-item active" : "nav-item"}>
-          <a href="/about-us" title="About us" class="nav-link nav-links">About us</a>
+          <a href="/about-us" title="About Us" class="nav-link nav-links">About Us</a>
         </li>
         <li class={path.includes("/startups") ? "nav-item active" : "nav-item"}>
-          <a href="/startups" title="Startups" class={path === "/startups" ? "nav-link nav-links active-link d-flex align-items-center" : "nav-link nav-links d-flex align-items-center"}>
-            Startups <span class="startups-pulse-dot"></span>
+          <a href="/startups" title="For startups" class={path === "/startups" ? "nav-link nav-links active-link d-flex align-items-center" : "nav-link nav-links d-flex align-items-center"}>
+            For startups <span class="startups-pulse-dot"></span>
           </a>
         </li>
 
@@ -135,7 +135,7 @@ import Button from "../ui/Button.astro";
         size="lg"
         class="d-lg-none"
       >
-        Contact us
+        Book a free consultation
       </Button>
     </nav>
 
@@ -147,7 +147,7 @@ import Button from "../ui/Button.astro";
         ? "d-none"
         : "d-lg-inline-flex"}
     >
-      Contact us
+      Book a free consultation
     </Button>
   </div>
 
