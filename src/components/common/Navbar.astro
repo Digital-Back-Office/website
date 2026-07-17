@@ -82,7 +82,7 @@ import Button from "../ui/Button.astro";
           <a href="/about-us" title="About Us" class="nav-link nav-links">About Us</a>
         </li>
         <li class={path.includes("/startups") ? "nav-item active" : "nav-item"}>
-          <a href="/startups" title="For startups" class={path === "/startups" ? "nav-link nav-links active-link d-flex align-items-center" : "nav-link nav-links d-flex align-items-center"}>
+          <a href="/startups" title="For startups" class={path.includes("/startups") ? "nav-link nav-links active-link d-flex align-items-center" : "nav-link nav-links d-flex align-items-center"}>
             For startups <span class="startups-pulse-dot"></span>
           </a>
         </li>
@@ -143,9 +143,9 @@ import Button from "../ui/Button.astro";
       href="/contact-us"
       variant="primary"
       size="md"
-      class={path === "/contact-us"
-        ? "d-none"
-        : "d-lg-inline-flex"}
+      class={path.includes("/contact-us")
+        ? "book-button d-none"
+        : "book-button d-lg-inline-flex"}
     >
       Book a free consultation
     </Button>
@@ -272,11 +272,17 @@ import Button from "../ui/Button.astro";
 
   /* Mobile Collapse Styling */
   @media (max-width: 991.98px) {
+      /* Hamburger takes over here and the collapsed menu carries its own
+         CTA, so the header one would be a duplicate. */
+      .book-button {
+          display: none !important;
+      }
+
       #navbar {
           height: auto;
           padding: 0.75rem 0;
       }
-      
+
       .navbar-collapse {
           background-color: var(--bg-surface) !important;
           border: 1px solid var(--border-subtle);
