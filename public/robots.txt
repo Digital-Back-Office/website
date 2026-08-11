@@ -8,8 +8,9 @@ Allow: /
 Disallow: /admin/
 Disallow: /draft/
 
-# Sitemap location
-Sitemap: https://www.digitalbackoffice.co.uk/sitemap-index.xml
+# Sitemap location — no www, matching astro.config.mjs `site` and the CNAME,
+# which is the host every canonical tag on the site points at.
+Sitemap: https://digitalbackoffice.co.uk/sitemap.xml
 
 # Crawl delay (optional, be gentle with crawlers)
 Crawl-delay: 1
