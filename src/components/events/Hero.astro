@@ -1,0 +1,43 @@
+---
+import Button from "../ui/Button.astro";
+
+export interface Props {
+  badge: string;
+  title_part_1: string;
+  title_part_2: string;
+  subtitle: string;
+  primary_cta: { label: string; href: string };
+  secondary_cta: { label: string; href: string };
+}
+
+const {
+  badge,
+  title_part_1,
+  title_part_2,
+  subtitle,
+  primary_cta,
+  secondary_cta
+} = Astro.props;
+---
+
+<section class="events-hero">
+  <div class="container">
+    <div class="events-hero-inner">
+      <span class="events-badge">{badge}</span>
+      <h1 class="events-hero-title">
+        {title_part_1}{" "}
+        <span class="events-gradient-text">{title_part_2}</span>
+      </h1>
+      <p class="events-hero-subtitle">{subtitle}</p>
+
+      <div class="events-hero-actions">
+        <Button href={primary_cta.href} variant="primary" size="lg">
+          {primary_cta.label}
+        </Button>
+        <Button href={secondary_cta.href} variant="outline" size="lg">
+          {secondary_cta.label}
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
