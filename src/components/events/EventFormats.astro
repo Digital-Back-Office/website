@@ -1,0 +1,41 @@
+---
+export interface Props {
+  badge: string;
+  title: string;
+  subtitle: string;
+  cards: {
+    icon: string;
+    alt: string;
+    title: string;
+    description: string;
+    meta: string;
+  }[];
+}
+
+const { badge, title, subtitle, cards } = Astro.props;
+---
+
+<section class="events-section">
+  <div class="container">
+    <div class="events-section-head">
+      <span class="events-badge">{badge}</span>
+      <h2 class="events-section-title">{title}</h2>
+      <p class="events-section-subtitle">{subtitle}</p>
+    </div>
+
+    <div class="formats-grid">
+      {
+        cards.map((card) => (
+          <article class="format-card">
+            <div class="format-card-icon">
+              <img src={card.icon} alt={card.alt} width="30" height="30" loading="lazy" />
+            </div>
+            <h3 class="format-card-title">{card.title}</h3>
+            <p class="format-card-desc">{card.description}</p>
+            <p class="format-card-meta">{card.meta}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

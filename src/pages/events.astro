@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/events/Hero.astro";
+import UpcomingEvents from "../components/events/UpcomingEvents.astro";
+import EventFormats from "../components/events/EventFormats.astro";
+import EventsCTA from "../components/events/EventsCTA.astro";
+import { getEntry } from "astro:content";
+import "../styles/events.css";
+
+const entry = await getEntry("events", "events");
+const data = entry.data;
+
+/**
+ * There is no sample/dummy event data to fall back to — with only a handful
+ * of real events at a time, hand-written placeholders would either go stale
+ * or duplicate what Eventbrite already has. The featured card, event grid
+ * and past events are populated entirely client-side by
+ * src/scripts/eventbrite-live.js from a public n8n webhook; if that fetch
+ * fails or Eventbrite has nothing live, the page just shows the "no events
+ * right now" message below with a way to get in touch, never fake events.
+ */
+
+const seoTitle = "Events, Webinars & Workshops - Digital Back Office";
+const seoDescription =
+  "Join Digital Back Office for live webinars, hands-on workshops, executive roundtables and conferences on AI adoption, data engineering and AI governance.";
+const seoKeywords =
+  "AI events, AI webinars, data engineering workshop, AI governance roundtable, machine learning conference UK, enterprise AI events";
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  canonical="/events"
+>
+  <main class="page-wrapper events-page">
+    <Hero {...data.hero} />
+    <div id="featured-event-root"></div>
+    <UpcomingEvents
+      title={data.upcoming.title}
+      subtitle={data.upcoming.subtitle}
+      empty_message={data.upcoming.empty_message}
+      host_cta={data.hero.secondary_cta}
+    />
+    <EventFormats {...data.formats} />
+    <div
+      id="past-events-root"
+      data-badge={data.past.badge}
+      data-title={data.past.title}
+      data-subtitle={data.past.subtitle}
+    ></div>
+    <EventsCTA {...data.cta} />
+  </main>
+
+  <script src="/src/scripts/eventbrite-live.js"></script>
+</Layout>

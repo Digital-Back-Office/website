@@ -185,11 +185,55 @@ const partnersCollection = defineCollection({
     })
 });
 
+const eventsCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+        hero: z.object({
+            badge: z.string(),
+            title_part_1: z.string(),
+            title_part_2: z.string(),
+            subtitle: z.string(),
+            primary_cta: z.object({ label: z.string(), href: z.string() }),
+            secondary_cta: z.object({ label: z.string(), href: z.string() })
+        }),
+        upcoming: z.object({
+            title: z.string(),
+            subtitle: z.string(),
+            empty_message: z.string()
+        }),
+        formats: z.object({
+            badge: z.string(),
+            title: z.string(),
+            subtitle: z.string(),
+            cards: z.array(z.object({
+                icon: z.string(),
+                alt: z.string(),
+                title: z.string(),
+                description: z.string(),
+                meta: z.string()
+            }))
+        }),
+        past: z.object({
+            badge: z.string(),
+            title: z.string(),
+            subtitle: z.string()
+        }),
+        cta: z.object({
+            title: z.string(),
+            description: z.string(),
+            primary_cta: z.object({ label: z.string(), href: z.string() }),
+            secondary_cta: z.object({ label: z.string(), href: z.string() }),
+            points: z.array(z.string())
+        })
+    })
+});
+
 export const collections = {
     'home': homeCollection,
     'about': aboutCollection,
     'industries': industriesCollection,
     'partners': partnersCollection,
+    'events': eventsCollection,
     'service-showcase': defineCollection({
         type: 'content',
         schema: z.any()

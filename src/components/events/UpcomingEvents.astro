@@ -1,0 +1,82 @@
+---
+import Button from "../ui/Button.astro";
+
+export interface Props {
+  title: string;
+  subtitle: string;
+  empty_message: string;
+  host_cta: { label: string; href: string };
+}
+
+const { title, subtitle, empty_message, host_cta } = Astro.props;
+
+// This renders the shell only. The filter chips and event cards are built at
+// runtime by src/scripts/eventbrite-live.js from the live Eventbrite feed, so
+// the page ships with the "no events right now" state showing and the script
+// hides it once it has something real to put in the grid.
+---
+
+<section class="events-section" id="upcoming-events">
+  <div class="container">
+    <div class="events-section-head">
+      <h2 class="events-section-title">{title}</h2>
+      <p class="events-section-subtitle">{subtitle}</p>
+    </div>
+
+    <div
+      class="event-filters"
+      id="event-filters-root"
+      aria-label="Filter events by format"
+      hidden
+    >
+    </div>
+
+    <div class="events-grid" id="events-grid"></div>
+
+    <div class="events-empty is-visible" id="events-empty">
+      <p>{empty_message}</p>
+      <div class="events-empty-cta">
+        <Button href={host_cta.href} variant="outline" size="md">{host_cta.label}</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Delegated on the section itself (never replaced) rather than bound to the
+  // individual buttons/cards, because eventbrite-live.js swaps the filter bar
+  // and grid out from under this script when the live schedule loads.
+  const section = document.getElementById("upcoming-events");
+
+  section?.addEventListener("click", (event) => {
+    const button = (event.target as HTMLElement)?.closest<HTMLButtonElement>(
+      "[data-event-filter]"
+    );
+    if (!button) return;
+
+    const filter = button.getAttribute("data-event-filter");
+
+    section
+      .querySelectorAll<HTMLButtonElement>("[data-event-filter]")
+      .forEach((btn) => {
+        const isActive = btn === button;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+    let visibleCount = 0;
+
+    section
+      .querySelectorAll<HTMLElement>("[data-event-category]")
+      .forEach((card) => {
+        const matches =
+          filter === "all" || card.getAttribute("data-event-category") === filter;
+        card.hidden = !matches;
+        if (matches) visibleCount += 1;
+      });
+
+    document
+      .getElementById("events-empty")
+      ?.classList.toggle("is-visible", visibleCount === 0);
+  });
+</script>
