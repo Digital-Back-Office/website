@@ -12,8 +12,10 @@ const { title, subtitle, empty_message, host_cta } = Astro.props;
 
 // This renders the shell only. The filter chips and event cards are built at
 // runtime by src/scripts/eventbrite-live.js from the live Eventbrite feed, so
-// the page ships with the "no events right now" state showing and the script
-// hides it once it has something real to put in the grid.
+// the grid ships with loading skeletons in it and the script overwrites them
+// with real cards — or reveals the "no events right now" state below when the
+// feed comes back empty or unreachable. Without JavaScript the skeletons are
+// swapped for that same empty state (see the <noscript> block in events.astro).
 ---
 
 <section class="events-section" id="upcoming-events">
@@ -31,9 +33,23 @@ const { title, subtitle, empty_message, host_cta } = Astro.props;
     >
     </div>
 
-    <div class="events-grid" id="events-grid"></div>
+    <div class="events-grid" id="events-grid">
+      {
+        [0, 1, 2].map(() => (
+          <article class="event-card events-skeleton-stack" data-events-skeleton aria-hidden="true">
+            <span class="events-skeleton-line events-skeleton-line--short"></span>
+            <span class="events-skeleton-line events-skeleton-line--title"></span>
+            <span class="events-skeleton-line events-skeleton-line--long"></span>
+            <span class="events-skeleton-line events-skeleton-line--medium"></span>
+            <span class="events-skeleton-line events-skeleton-line--long"></span>
+          </article>
+        ))
+      }
+    </div>
 
-    <div class="events-empty is-visible" id="events-empty">
+    <p class="visually-hidden" id="events-status" role="status">Loading upcoming events…</p>
+
+    <div class="events-empty" id="events-empty">
       <p>{empty_message}</p>
       <div class="events-empty-cta">
         <Button href={host_cta.href} variant="outline" size="md">{host_cta.label}</Button>

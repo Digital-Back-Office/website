@@ -109,7 +109,7 @@
 
 .featured-event {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
   gap: 0;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-3xl);
@@ -183,7 +183,7 @@
 }
 
 .featured-event-aside {
-  padding: var(--space-12) var(--space-10);
+  padding: var(--space-12) var(--space-8);
   background: linear-gradient(
     160deg,
     rgba(82, 206, 199, 0.14) 0%,
@@ -230,6 +230,131 @@
   font-size: var(--text-base);
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.featured-event-media {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  aspect-ratio: 2 / 1;
+  background-color: var(--bg-surface);
+}
+
+.featured-event-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Stands in when the feed has no banner for the event: the format icon on the
+   card's own gradient, rather than a stock photo that says nothing. */
+.featured-event-media--placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    140deg,
+    rgba(82, 206, 199, 0.22) 0%,
+    rgba(82, 206, 199, 0.06) 100%
+  );
+}
+
+.featured-event-media--placeholder img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.featured-event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Side by side while both labels fit on one line, full width each once they
+   do not — the aside is narrow and the labels come from the live feed. The
+   tighter padding buys the pair enough room to share a row on desktop. */
+.featured-event-actions > * {
+  flex: 1 1 auto;
+  min-width: max-content;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+/* ---------- Loading skeletons ---------- */
+
+/* Placeholders for the seconds the live schedule takes to arrive on a first
+   visit. They sit inside the nodes the feed replaces, so they need no
+   show/hide logic — the real markup simply overwrites them. */
+.events-skeleton-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.events-skeleton-line,
+.events-skeleton-media,
+.events-skeleton-button {
+  display: block;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    rgba(17, 24, 39, 0.05) 0%,
+    rgba(17, 24, 39, 0.1) 50%,
+    rgba(17, 24, 39, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  animation: events-skeleton-sheen 1.4s ease-in-out infinite;
+}
+
+.events-skeleton-line {
+  height: 0.9rem;
+  width: 100%;
+}
+
+.events-skeleton-line--title {
+  height: 1.75rem;
+}
+
+.events-skeleton-line--short {
+  width: 30%;
+}
+
+.events-skeleton-line--medium {
+  width: 55%;
+}
+
+.events-skeleton-line--long {
+  width: 80%;
+}
+
+.events-skeleton-media {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  border-radius: var(--radius-2xl);
+}
+
+.events-skeleton-button {
+  width: 100%;
+  height: 2.9rem;
+}
+
+@keyframes events-skeleton-sheen {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-skeleton-line,
+  .events-skeleton-media,
+  .events-skeleton-button {
+    animation: none;
+  }
 }
 
 /* ---------- Filter tabs ---------- */
