@@ -35,7 +35,34 @@ const seoKeywords =
 >
   <main class="page-wrapper events-page">
     <Hero {...data.hero} />
-    <div id="featured-event-root"></div>
+    {/*
+      The skeletons below sit inside the very nodes the live schedule replaces,
+      so there is nothing to hide once the data lands — it simply overwrites
+      them. They stand in for the seconds the webhook takes to answer on a
+      first visit; a returning visitor paints straight from the cache instead.
+    */}
+    <div id="featured-event-root">
+      <section class="events-section events-section--tight" data-events-skeleton aria-hidden="true">
+        <div class="container">
+          <article class="featured-event">
+            <div class="featured-event-body events-skeleton-stack">
+              <span class="events-skeleton-line events-skeleton-line--short"></span>
+              <span class="events-skeleton-line events-skeleton-line--title"></span>
+              <span class="events-skeleton-line events-skeleton-line--title events-skeleton-line--long"></span>
+              <span class="events-skeleton-line events-skeleton-line--long"></span>
+              <span class="events-skeleton-line events-skeleton-line--medium"></span>
+            </div>
+            <div class="featured-event-aside events-skeleton-stack">
+              <span class="events-skeleton-media"></span>
+              <span class="events-skeleton-line events-skeleton-line--medium"></span>
+              <span class="events-skeleton-line events-skeleton-line--long"></span>
+              <span class="events-skeleton-line events-skeleton-line--medium"></span>
+              <span class="events-skeleton-button"></span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
     <UpcomingEvents
       title={data.upcoming.title}
       subtitle={data.upcoming.subtitle}
@@ -51,6 +78,19 @@ const seoKeywords =
     ></div>
     <EventsCTA {...data.cta} />
   </main>
+
+  {/*
+    Without JavaScript nothing ever replaces the skeletons, so they come out
+    and the honest empty state — which is otherwise revealed by the script —
+    stands in their place. `is:inline` keeps Astro from lifting this out of the
+    <noscript> and applying it to every visitor.
+  */}
+  <noscript>
+    <style is:inline>
+      [data-events-skeleton] { display: none !important; }
+      .events-empty { display: block; }
+    </style>
+  </noscript>
 
   <script src="/src/scripts/eventbrite-live.js"></script>
 </Layout>

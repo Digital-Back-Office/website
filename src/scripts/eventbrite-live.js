@@ -1,20 +1,26 @@
 /**
- * Fetches the live event schedule from a public n8n webhook and populates the
- * events page after load. The webhook holds the Eventbrite token in its own
- * environment and returns only structured, already-public event data — the
- * browser never sees an API key.
+ * Populates the events page from the live event schedule (see
+ * ./events-feed.js, which owns the webhook and its cache). The webhook holds
+ * the Eventbrite token in its own environment and returns only structured,
+ * already-public event data — the browser never sees an API key.
+ *
+ * Rendering is cache-first: whatever was last cached — usually warmed by
+ * events-prefetch.js while the visitor was on another page — is painted
+ * immediately, then the live payload silently replaces it if it differs. Only
+ * a visitor landing here first, with nothing cached, waits on the network, and
+ * they wait behind loading skeletons rather than the empty state.
  *
  * There is no sample/dummy event data on this page — hand-written
- * placeholders would go stale or duplicate Eventbrite. The page's initial
- * HTML already shows the "no events right now, get in touch" empty state
- * (see UpcomingEvents.astro), so if the webhook is unset, unreachable, or
- * Eventbrite has nothing live, that honest empty state is simply what stays
- * on screen — nothing here is required for the page to be correct.
+ * placeholders would go stale or duplicate Eventbrite. So if the webhook is
+ * unset, unreachable, or Eventbrite has nothing live, the page falls back to
+ * the honest "no events right now, get in touch" state (see
+ * UpcomingEvents.astro) rather than inventing anything.
  *
  * Expected response shape:
  * {
- *   "featured": { eyebrow, title, format, summary, date_label, time_label,
- *                 location, mode, topics: string[], cta_text, cta_link } | null,
+ *   "featured": { eyebrow, title, format, summary, date, date_label,
+ *                 time_label, location, mode, topics: string[], image,
+ *                 cta_text, cta_link } | null,
  *   "upcoming": {
  *     "filters": [{ id, label }, ...],
  *     "events": [{ title, category, format, summary, day, month, time_label,
@@ -27,10 +33,13 @@
  *   }
  * }
  * Any field can be omitted or empty; missing sections just stay empty.
+ * Two optional fields on `featured` degrade rather than break: `image` is the
+ * event banner (Eventbrite's `logo.url`) and falls back to the format icon,
+ * and `date` is the ISO 8601 start the "Add to Calendar" link is built from —
+ * that button is left out entirely when the feed has no date.
  */
 
-const WEBHOOK_URL = import.meta.env.PUBLIC_EVENTBRITE_WEBHOOK_URL;
-const FETCH_TIMEOUT_MS = 8000;
+import { fetchFeed, readCachedFeed } from "./events-feed.js";
 
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (char) =>
@@ -59,18 +68,26 @@ const ICON_PERSON =
 const ICON_ARROW =
   '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
 
+const ICON_CALENDAR_ADD =
+  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="18" y1="15" x2="18" y2="21"/><line x1="15" y1="18" x2="21" y2="18"/></svg>';
+
 /**
- * Button.astro's styles are scoped by Astro to an auto-generated `astro-*`
- * class. Buttons built here are plain HTML, so they borrow that class off an
- * existing statically-rendered button rather than hardcoding a hash that can
- * change on every build.
+ * Button.astro's styles are scoped by Astro to an auto-generated
+ * `data-astro-cid-*` attribute. Buttons built here are plain HTML, so they
+ * borrow that attribute off an existing statically-rendered button (the empty
+ * state always ships one) rather than hardcoding a hash that changes whenever
+ * the component does. Without it the injected buttons render unstyled.
  */
-function buttonClass(...modifiers) {
+function buttonAttrs(...modifiers) {
   const sample = document.querySelector(".ui-button");
-  const scopeClass = sample
-    ? [...sample.classList].filter((c) => c.startsWith("astro-")).join(" ")
+  const scopeAttr = sample
+    ? [...sample.attributes]
+        .map((attribute) => attribute.name)
+        .filter((name) => name.startsWith("data-astro-cid-"))
+        .join(" ")
     : "";
-  return ["ui-button", ...modifiers, scopeClass].filter(Boolean).join(" ");
+  const classes = ["ui-button", ...modifiers].join(" ");
+  return `class="${classes}" ${scopeAttr}`.trim();
 }
 
 function renderFilterButton(filter, index) {
@@ -117,10 +134,96 @@ function renderEventCard(event) {
   </article>`;
 }
 
+const FORMAT_ICONS = {
+  webinar: "/assets/icons/events/webinar.svg",
+  workshop: "/assets/icons/events/workshop.svg",
+  roundtable: "/assets/icons/events/roundtable.svg",
+  conference: "/assets/icons/events/conference.svg",
+};
+
+const DEFAULT_EVENT_MINUTES = 60;
+
+/**
+ * The featured card shows the event's own banner when the feed carries one.
+ * Eventbrite images are not always set, so the fallback is the icon for the
+ * format on the card's own gradient — a stock photo would say nothing about
+ * the session and read as filler.
+ */
+function renderFeaturedMedia(event) {
+  const image = event.image || event.image_url || event.logo_url;
+
+  if (image) {
+    return `<div class="featured-event-media">
+      <img src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async" />
+    </div>`;
+  }
+
+  const format = String(event.format ?? "").toLowerCase();
+  const icon =
+    FORMAT_ICONS[Object.keys(FORMAT_ICONS).find((name) => format.includes(name))] ??
+    FORMAT_ICONS.webinar;
+
+  return `<div class="featured-event-media featured-event-media--placeholder">
+      <img src="${icon}" alt="" width="56" height="56" loading="lazy" />
+    </div>`;
+}
+
+function toCalendarStamp(date) {
+  return `${date.toISOString().replace(/[-:]/g, "").split(".")[0]}Z`;
+}
+
+/**
+ * Only the start is machine-readable in the feed, so the length of the session
+ * comes from the two clock times in `time_label` ("14:00 – 15:00 BST") and
+ * falls back to an hour when the label has no range to read.
+ */
+function eventMinutes(timeLabel) {
+  const times = String(timeLabel ?? "").match(/\d{1,2}:\d{2}/g);
+  if (!times || times.length < 2) return DEFAULT_EVENT_MINUTES;
+
+  const [start, end] = times.slice(0, 2).map((time) => {
+    const [hours, minutes] = time.split(":").map(Number);
+    return hours * 60 + minutes;
+  });
+
+  const span = end - start;
+  if (span > 0) return span;
+  // A backwards span is a session that runs past midnight.
+  if (span < 0) return span + 24 * 60;
+  return DEFAULT_EVENT_MINUTES;
+}
+
+/**
+ * A Google Calendar "create event" URL with the session already filled in, so
+ * the button is a plain link that opens the pre-filled form in a new tab.
+ * Returns null when the feed has no readable start, and the caller then leaves
+ * the button out.
+ */
+function googleCalendarLink(event) {
+  const start = new Date(event.date);
+  if (Number.isNaN(start.getTime())) return null;
+
+  const end = new Date(start.getTime() + eventMinutes(event.time_label) * 60000);
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: event.title ?? "",
+    dates: `${toCalendarStamp(start)}/${toCalendarStamp(end)}`,
+    details: [event.summary, event.cta_link].filter(Boolean).join("\n\n"),
+    location: event.location ?? "",
+  });
+
+  return `https://calendar.google.com/calendar/render?${params}`;
+}
+
 function renderFeatured(event) {
   const topics = Array.isArray(event.topics) && event.topics.length
     ? event.topics
     : ["Live session", "Q&A"];
+
+  const calendarLink = googleCalendarLink(event);
+  const calendarButton = calendarLink
+    ? `<a ${buttonAttrs("ui-button--outline", "ui-button--md")} href="${escapeHtml(calendarLink)}" target="_blank" rel="noopener noreferrer">${ICON_CALENDAR_ADD}Add to Calendar</a>`
+    : "";
 
   return `<section class="events-section events-section--tight">
     <div class="container">
@@ -141,6 +244,7 @@ function renderFeatured(event) {
           </ul>
         </div>
         <div class="featured-event-aside">
+          ${renderFeaturedMedia(event)}
           <ul class="featured-event-meta">
             <li class="featured-event-meta-item">
               ${ICON_CALENDAR}
@@ -155,7 +259,10 @@ function renderFeatured(event) {
               <span><span class="featured-event-meta-label">Where</span><span class="featured-event-meta-value">${escapeHtml(event.location)}</span></span>
             </li>
           </ul>
-          <a class="${buttonClass("ui-button--primary", "ui-button--lg")}" href="${escapeHtml(event.cta_link)}">${escapeHtml(event.cta_text)}</a>
+          <div class="featured-event-actions">
+            <a ${buttonAttrs("ui-button--primary", "ui-button--md")} href="${escapeHtml(event.cta_link)}">${escapeHtml(event.cta_text)}</a>
+            ${calendarButton}
+          </div>
         </div>
       </article>
     </div>
@@ -237,30 +344,72 @@ function applyPast(events) {
   </section>`;
 }
 
-async function hydrateLiveEvents() {
-  if (!WEBHOOK_URL) return;
+function setStatus(message) {
+  const status = document.getElementById("events-status");
+  if (status) status.textContent = message;
+}
 
-  let data;
+/**
+ * What the cached payload was rendered from, so a revalidation that comes back
+ * unchanged — the common case — leaves the DOM alone instead of rebuilding the
+ * cards under the visitor and resetting whichever filter they picked.
+ */
+let renderedSignature = null;
+
+function applyFeed(data) {
+  const signature = JSON.stringify(data);
+  if (signature === renderedSignature) return;
+
+  applyFeatured(data.featured ?? null);
+  applyUpcoming(data.upcoming);
+  applyPast(data.past?.events);
+
+  renderedSignature = signature;
+  setStatus("");
+}
+
+/**
+ * Nothing to show and nothing cached: clear the skeletons out of the mount
+ * points and let the "no events right now" state stand.
+ */
+function showEmptyState() {
+  document.getElementById("featured-event-root")?.replaceChildren();
+  document.getElementById("events-grid")?.replaceChildren();
+  document.getElementById("events-empty")?.classList.add("is-visible");
+  setStatus("");
+}
+
+async function hydrateLiveEvents() {
+  // Painted first and without waiting on the network — usually warmed by
+  // events-prefetch.js while the visitor was on another page.
+  const cached = readCachedFeed();
+  if (cached) {
+    try {
+      applyFeed(cached);
+    } catch (error) {
+      console.warn("[events] cached schedule was malformed, waiting for the live one", error);
+    }
+  }
+
+  let data = null;
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-    const response = await fetch(WEBHOOK_URL, { signal: controller.signal });
-    clearTimeout(timeout);
-    if (!response.ok) throw new Error(`webhook responded ${response.status}`);
-    data = await response.json();
+    data = await fetchFeed();
   } catch (error) {
-    console.warn("[events] live schedule fetch failed, showing the no-events state", error);
+    console.warn("[events] live schedule fetch failed", error);
+  }
+
+  if (!data) {
+    // Stale cards beat an empty page, so a failed refresh only clears the
+    // screen when there was nothing on it to begin with.
+    if (renderedSignature === null) showEmptyState();
     return;
   }
 
-  if (!data || typeof data !== "object") return;
-
   try {
-    applyFeatured(data.featured ?? null);
-    applyUpcoming(data.upcoming);
-    applyPast(data.past?.events);
+    applyFeed(data);
   } catch (error) {
-    console.warn("[events] live schedule payload was malformed, showing the no-events state", error);
+    console.warn("[events] live schedule payload was malformed", error);
+    if (renderedSignature === null) showEmptyState();
   }
 }
 
