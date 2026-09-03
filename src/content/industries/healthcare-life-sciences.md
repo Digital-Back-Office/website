@@ -7,7 +7,7 @@ hero:
   subtext: "Leverage cutting-edge Data Engineering and Deep Learning to unify complex clinical data, dramatically reducing drug discovery timelines and delivering true Precision Care."
   video: "/assets/videos/healthcare.mp4"
   cta_text: "Schedule a Discovery Call"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "Our AI Strategy is informed by regulatory experts to ensure <span style=\"color: #52CEC7;\">Responsible AI in Healthcare</span> deployment."
@@ -41,7 +41,7 @@ products:
         - subheading: "Supply Chain Traceability (DSCSA)"
           description: "We turn compliance panic into audit-readiness. We build the interoperable data pipelines needed for DSCSA and BioSecure Act compliance, creating a \"Control Tower\" view that tracks every product unit across your global logistics network."
       cta_text: "Talk to our Engineers"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/healthcare/data_engineering_health.png"
       image_alt: "Data Engineering - Healthcare"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Supply Chain Risk Prediction"
           description: "Don't wait for the stockout. We build predictive models that analyze vendor data and geopolitical signals to forecast supply chain disruptions or compliance gaps before they block your revenue."
       cta_text: "Talk to our Data Scientists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/healthcare/data_science_health.png"
       image_alt: "Data Science - Healthcare"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "Unlocking \"Dark Data\" in R&D"
           description: "Make decades of research visible. We deploy NLP and OCR agents to ingest and \"read\" unstructured legacy PDFs, images, and hand-written notes, making your institution's \"Dark Data\" instantly queryable for your scientists."
       cta_text: "See our AI in Action"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/healthcare/ai_solution_health.png"
       image_alt: "AI Solutions - Healthcare"
 

@@ -7,7 +7,7 @@ hero:
   subtext: "Optimize fan lifetime value, deploy real-time athlete wearability models, and index digital media catalogs using intelligent computer vision agents."
   video: "/assets/videos/dbo-bg-video-home.mp4"
   cta_text: "Schedule a Sports & Media Consultation"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "We build high-performance data systems indexing <span style=\"color: #52CEC7;\">wearable metrics and fan behaviors</span> to power modern franchises."
@@ -41,7 +41,7 @@ products:
         - subheading: "Interactive Fan Agents"
           description: "Integrate intelligent ticket assistant agents that help fans navigate stadium venues, buy parking, and access merchandise."
       cta_text: "Explore AI Solutions"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_sci.png"
       image_alt: "Sports AI"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Dynamic Venue Pricing"
           description: "Deploy price adjustment models that evaluate team standings, local weather, and ticketing trends to maximize occupancy."
       cta_text: "Talk to our Data Scientists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_vis.png"
       image_alt: "Sports Analytics"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "Consolidated Fan Profiles"
           description: "Stitch POS, ticketing, and app engagement data to create a Customer 360 view for marketing personalization."
       cta_text: "Talk to our Engineers"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_arch.png"
       image_alt: "Sports Pipelines"
 

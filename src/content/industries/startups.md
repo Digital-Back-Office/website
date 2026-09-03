@@ -7,7 +7,7 @@ hero:
   subtext: "We help founders and CTOs escape technical debt. From MVP to IPO, we build the production-ready cloud infrastructure and scalable engineering teams you need to grow without the chaos."
   video: "/assets/videos/dbo_bg_video3.mp4"
   cta_text: "Book a Technical Audit"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "Partnering with founders to build <span style=\"color: #52CEC7;\">unicorn-ready</span> technology foundations from Day 1."
@@ -41,7 +41,7 @@ products:
         - subheading: "Automated CI/CD Pipelines"
           description: "Ship with confidence. We build robust CI/CD pipelines (GitHub Actions, GitLab CI) that automate testing, security scans, and deployment. Reduce 'works on my machine' issues and deploy multiple times a day."
       cta_text: "Optimize Your Cloud"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/startups/cloud-infra.png"
       image_alt: "Cloud Infrastructure"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Senior Engineering Augmentation"
           description: "Inject senior talent into your squads immediately. Our engineers don't just write code; they mentor your junior team members and establish best practices (TDD, Code Reviews) that elevate your entire culture."
       cta_text: "Scale Your Team"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/startups/team-scaling.png"
       image_alt: "Team Scaling"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "AI Feature Integration"
           description: "Don't reinvent the wheel. We help you integrate powerful AI features (LLMs, Vector Search) into your product using managed services, allowing you to launch AI capabilities in weeks, not months."
       cta_text: "Unlock Data Insights"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/startups/data-ai.png"
       image_alt: "Data & AI"
 

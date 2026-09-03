@@ -25,7 +25,7 @@ const ai_solutions = Data.data.ai_solutions;
 		<div class="row g-4 solutions-grid">
 			{ai_solutions.cards?.map((card: any, index: number) => (
 				<div class="col-lg-3 col-md-6">
-					<a href={card.link ?? `/services/ai-solutions#${card.id ?? ""}`} class="solution-card-link">
+					<a href={card.link ?? `/services/ai-solutions/#${card.id ?? ""}`} class="solution-card-link">
 						<div class="solution-card">
 							<span class="card-accent-bar"></span>
 							<div class="card-glow-layer"></div>
@@ -123,7 +123,7 @@ const ai_solutions = Data.data.ai_solutions;
 
 		<!-- CTA Section -->
 		<div class="cta-wrapper">
-			<Button href="/services/ai-solutions" variant="primary" size="lg">
+			<Button href="/services/ai-solutions/" variant="primary" size="lg">
 				<span>{ai_solutions.cta_text}</span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
 					<line x1="5" y1="12" x2="19" y2="12"></line>

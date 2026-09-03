@@ -7,7 +7,7 @@ hero:
   subtext: "Move beyond traditional analytics. We help financial institutions deploy Audit-Ready AI Agents and RAG systems to automate compliance, revolutionize underwriting, and detect fraud with unprecedented accuracy—all within a secure, governed framework."
   video: "/assets/videos/finance-hero-video.mp4"
   cta_text: "Book a Discovery Call"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "Built by a leadership team with <span style=\"color: #52CEC7;\">15+</span> years of experience scaling secure AI & data platforms for global financial institutions."
@@ -41,7 +41,7 @@ products:
         - subheading: "Modern Data Foundation"
           description: "We engineer secure data architectures that bridge the gap between legacy silos and modern AI, ensuring your data is clean, governed, and ready for advanced analytics."
       cta_text: "Talk to our Strategists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/Finance/data_strategy.png"
       image_alt: "Strategy Finance"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Automated Claims Processing"
           description: "Use Computer Vision and NLP to assess claim photos and adjuster notes automatically, turning \"managing\" claims into \"resolving\" them instantly."
       cta_text: "See our AI in Action"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/Finance/ai_automation_1.png"
       image_alt: "AI Automation Finance"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "Predictive Risk Modeling"
           description: "Build and deploy explainable predictive models that inform strategy and automate decision-making across your enterprise, from credit scoring to market risk analysis."
       cta_text: "Talk to our Data Scientists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/Finance/data_science_finance.webp"
       image_alt: "Data Science Finance"
 

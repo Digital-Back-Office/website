@@ -7,7 +7,7 @@ hero:
   subtext: "Transform real estate operations with intelligent portfolio analysis, automated valuation models (AVMs), and document processing RAG agents built for secure compliance."
   video: "/assets/videos/dbo-bg-video-home.mp4"
   cta_text: "Schedule a PropTech Consultation"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "We build secure data platforms mapping <span style=\"color: #52CEC7;\">millions of property data points</span> for real estate funds and developers."
@@ -41,7 +41,7 @@ products:
         - subheading: "Virtual Appraisal Assistants"
           description: "Implement generative AI agents to auto-summarize property descriptions and draft structural disclosure notes."
       cta_text: "Explore AI Solutions"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_sci.png"
       image_alt: "Real Estate AI"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Investment Risk Analytics"
           description: "Run advanced simulations on portfolio yields, cash flow trends, and local neighborhood demographics to optimize asset allocations."
       cta_text: "Talk to our Data Scientists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_vis.png"
       image_alt: "Real Estate Analytics"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "Portfolio Analytics Dashboard"
           description: "Integrate ERP data with visual property dashboards to track occupancy, yields, and maintenance metrics."
       cta_text: "Talk to our Engineers"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_arch.png"
       image_alt: "Real Estate Data Pipelines"
 

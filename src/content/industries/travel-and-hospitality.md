@@ -7,7 +7,7 @@ hero:
   subtext: "Deploy dynamic pricing engines, automated logistics routing, and generative AI travel assistants to reduce operational friction and maximize occupancy."
   video: "/assets/videos/dbo-bg-video-home.mp4"
   cta_text: "Schedule a Travel & Logistics Consultation"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "We build secure data platforms processing <span style=\"color: #52CEC7;\">millions of booking transactions</span> and travel itineraries."
@@ -41,7 +41,7 @@ products:
         - subheading: "Disruption Recovery Agent"
           description: "Use automated AI agents to match cancelation patterns and automatically prompt passenger re-routing rules."
       cta_text: "Explore AI Solutions"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_sci.png"
       image_alt: "Travel AI"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Operational Forecasting"
           description: "Project future travel demand vectors to optimize crew deployment, fleet scheduling, and maintenance windows."
       cta_text: "Talk to our Data Scientists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_vis.png"
       image_alt: "Travel Analytics"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "Unified Customer Profiles"
           description: "Stitch together flight histories, hotel rewards, and customer preferences into a real-time analytics hub."
       cta_text: "Talk to our Engineers"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_arch.png"
       image_alt: "Travel Pipelines"
 

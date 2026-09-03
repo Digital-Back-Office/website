@@ -7,7 +7,7 @@ hero:
   subtext: "We connect complex IT/OT environments, operationalizing AI models for superior yield optimization, risk reduction, and Predictive Maintenance at the edge."
   video: "/assets/videos/technology.mp4"
   cta_text: "Schedule a MLOps Maturity Discovery"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "Pioneers in bridging the gap between Data Science and Operational Technology (OT) through industry-first <span style=\"color: #52CEC7;\">Data Mesh architecture.</span>"
@@ -41,7 +41,7 @@ products:
         - subheading: "Automated Compliance (FERC & CSRD)"
           description: "Turn regulation into routine. We engineer automated reporting pipelines that aggregate data from thousands of endpoints instantly. Whether it's Carbon Scope 3 or Hourly Transmission Ratings, we ensure you are audit-ready without the spreadsheet scramble."
       cta_text: "Talk to our Engineers"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/industrials/data_engineering_industry.png"
       image_alt: "Data Engineering - Industrials"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Industrial Data Governance"
           description: "Trust your data. We establish a Governance Framework specifically for industrial data, defining clear standards for asset tagging and sensor calibration. This ensures that when your AI sees a spike, it's real—not a data quality error."
       cta_text: "Talk to our Strategists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/industrials/data_strategy_industry.png"
       image_alt: "Data Strategy - Industrials"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "Grid & Asset Optimization"
           description: "Squeeze more value from existing assets. Our models analyze historical load, weather, and market pricing to optimize Energy Arbitrage and Maintenance Scheduling, ensuring you act on opportunities the moment they arise."
       cta_text: "Talk to our Data Scientists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/industrials/data_science_industry.png"
       image_alt: "Data Science - Industrials"
 

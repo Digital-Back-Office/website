@@ -28,6 +28,14 @@ const {
 
 const og_description = description.length>200?description.substring(0, 200):description;
 const canonicalURL = new URL(canonical, Astro.site || 'https://digitalbackoffice.co.uk');
+// GitHub Pages serves each route as a directory index and 301-redirects the
+// slashless form (/about-us -> /about-us/). A canonical pointing at a redirect
+// is a dead signal — Google indexes neither version — and the call sites are
+// inconsistent about it, so normalise here rather than at each one. Paths with
+// a file extension (/404.html) are already exact and are left alone.
+if (!canonicalURL.pathname.endsWith('/') && !/\.[a-z0-9]+$/i.test(canonicalURL.pathname)) {
+  canonicalURL.pathname += '/';
+}
 const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice.co.uk');
 ---
 
@@ -114,8 +122,8 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
         "@type": "Organization",
         "name": "Digital Back Office",
         "legalName": "Digital Back Office Ltd",
-        "url": "https://www.digitalbackoffice.co.uk",
-        "logo": "https://www.digitalbackoffice.co.uk/favicon.png",
+        "url": "https://digitalbackoffice.co.uk/",
+        "logo": "https://digitalbackoffice.co.uk/favicon.png",
         "description": "Premium AI and Data Consulting firm specializing in enterprise AI solutions, data engineering, and machine learning implementation.",
         "address": {
           "@type": "PostalAddress",
@@ -127,7 +135,7 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "Customer Service",
-          "url": "https://www.digitalbackoffice.co.uk/contact-us"
+          "url": "https://digitalbackoffice.co.uk/contact-us/"
         }
       }
     </script>
@@ -138,7 +146,7 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Digital Back Office",
-        "image": "https://www.digitalbackoffice.co.uk/preview.png",
+        "image": "https://digitalbackoffice.co.uk/preview.png",
         "description": "Enterprise AI and Data Consulting Services",
         "priceRange": "$$$",
         "address": {
@@ -172,47 +180,47 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
           "@type": "ListItem", 
           "position": 2, 
           "name": "Finance",
-          "item": "https://digitalbackoffice.co.uk/industry/finance-and-insurance"  
+          "item": "https://digitalbackoffice.co.uk/industry/finance-and-insurance/"  
         },{
           "@type": "ListItem", 
           "position": 3, 
           "name": "Healthcare",
-          "item": "https://digitalbackoffice.co.uk/industry/healthcare-life-sciences"  
+          "item": "https://digitalbackoffice.co.uk/industry/healthcare-life-sciences/"  
         },{
           "@type": "ListItem", 
           "position": 4, 
           "name": "Retail",
-          "item": "https://digitalbackoffice.co.uk/industry/retail-and-e-commerce"  
+          "item": "https://digitalbackoffice.co.uk/industry/retail-and-e-commerce/"  
         },{
           "@type": "ListItem", 
           "position": 5, 
           "name": "Media",
-          "item": "https://digitalbackoffice.co.uk/industry/technology-media-and-telecom"  
+          "item": "https://digitalbackoffice.co.uk/industry/technology-media-and-telecom/"  
         },{
           "@type": "ListItem", 
           "position": 6, 
           "name": "Startups",
-          "item": "https://digitalbackoffice.co.uk/industry/startups"  
+          "item": "https://digitalbackoffice.co.uk/industry/startups/"  
         },{
           "@type": "ListItem", 
           "position": 7, 
           "name": "AI Transformation",
-          "item": "https://digitalbackoffice.co.uk/services/ai-solutions"  
+          "item": "https://digitalbackoffice.co.uk/services/ai-solutions/"  
         },{
           "@type": "ListItem", 
           "position": 8, 
           "name": "Data Strategy",
-          "item": "https://digitalbackoffice.co.uk/services/data-strategy-services"  
+          "item": "https://digitalbackoffice.co.uk/services/data-strategy-services/"  
         },{
           "@type": "ListItem", 
           "position": 9, 
           "name": "Data Engineering",
-          "item": "https://digitalbackoffice.co.uk/services/data-engineering-services"  
+          "item": "https://digitalbackoffice.co.uk/services/data-engineering-services/"  
         },{
           "@type": "ListItem", 
           "position": 10, 
           "name": "Data Science",
-          "item": "https://digitalbackoffice.co.uk/services/data-science"  
+          "item": "https://digitalbackoffice.co.uk/services/data-science/"  
         },{
           "@type": "ListItem", 
           "position": 11, 
@@ -222,124 +230,32 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
           "@type": "ListItem", 
           "position": 12, 
           "name": "Industry Insights",
-          "item": "https://digitalbackoffice.co.uk/industry-insights"  
+          "item": "https://digitalbackoffice.co.uk/industry-insights/"  
         },{
           "@type": "ListItem", 
           "position": 13, 
           "name": "About",
-          "item": "https://digitalbackoffice.co.uk/about-us"  
+          "item": "https://digitalbackoffice.co.uk/about-us/"  
         },{
           "@type": "ListItem", 
           "position": 14, 
           "name": "Privacy Policy",
-          "item": "https://digitalbackoffice.co.uk/privacy-policy"  
+          "item": "https://digitalbackoffice.co.uk/privacy-policy/"  
         },{
           "@type": "ListItem", 
           "position": 15, 
           "name": "Terms of Use",
-          "item": "https://digitalbackoffice.co.uk/terms-of-use"  
+          "item": "https://digitalbackoffice.co.uk/terms-of-use/"  
         },{
           "@type": "ListItem", 
           "position": 16, 
           "name": "Modern Slavery Statement",
-          "item": "https://digitalbackoffice.co.uk/legal-slavery"  
+          "item": "https://digitalbackoffice.co.uk/legal-slavery/"  
         },{
           "@type": "ListItem", 
           "position": 17, 
           "name": "Contact",
-          "item": "https://digitalbackoffice.co.uk/contact-us"  
-        }]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org/", 
-        "@type": "BreadcrumbList", 
-        "itemListElement": [{
-          "@type": "ListItem", 
-          "position": 1, 
-          "name": "Home",
-          "item": "https://digitalbackoffice.co.uk/"  
-        },{
-          "@type": "ListItem", 
-          "position": 2, 
-          "name": "Finance",
-          "item": "https://digitalbackoffice.co.uk/industry/finance-and-insurance"  
-        },{
-          "@type": "ListItem", 
-          "position": 3, 
-          "name": "Healthcare",
-          "item": "https://digitalbackoffice.co.uk/industry/healthcare-life-sciences"  
-        },{
-          "@type": "ListItem", 
-          "position": 4, 
-          "name": "Retail",
-          "item": "https://digitalbackoffice.co.uk/industry/retail-and-e-commerce"  
-        },{
-          "@type": "ListItem", 
-          "position": 5, 
-          "name": "Media",
-          "item": "https://digitalbackoffice.co.uk/industry/technology-media-and-telecom"  
-        },{
-          "@type": "ListItem", 
-          "position": 6, 
-          "name": "Startups",
-          "item": "https://digitalbackoffice.co.uk/industry/startups"  
-        },{
-          "@type": "ListItem", 
-          "position": 7, 
-          "name": "AI Transformation",
-          "item": "https://digitalbackoffice.co.uk/services/ai-solutions"  
-        },{
-          "@type": "ListItem", 
-          "position": 8, 
-          "name": "Data Strategy",
-          "item": "https://digitalbackoffice.co.uk/services/data-strategy-services"  
-        },{
-          "@type": "ListItem", 
-          "position": 9, 
-          "name": "Data Engineering",
-          "item": "https://digitalbackoffice.co.uk/services/data-engineering-services"  
-        },{
-          "@type": "ListItem", 
-          "position": 10, 
-          "name": "Data Science",
-          "item": "https://digitalbackoffice.co.uk/services/data-science"  
-        },{
-          "@type": "ListItem", 
-          "position": 11, 
-          "name": "Blogs",
-          "item": "https://digitalbackoffice.co.uk/blog/1/"  
-        },{
-          "@type": "ListItem", 
-          "position": 12, 
-          "name": "Industry Insights",
-          "item": "https://digitalbackoffice.co.uk/industry-insights"  
-        },{
-          "@type": "ListItem", 
-          "position": 13, 
-          "name": "About",
-          "item": "https://digitalbackoffice.co.uk/about-us"  
-        },{
-          "@type": "ListItem", 
-          "position": 14, 
-          "name": "Privacy Policy",
-          "item": "https://digitalbackoffice.co.uk/privacy-policy"  
-        },{
-          "@type": "ListItem", 
-          "position": 15, 
-          "name": "Terms of Use",
-          "item": "https://digitalbackoffice.co.uk/terms-of-use"  
-        },{
-          "@type": "ListItem", 
-          "position": 16, 
-          "name": "Modern Slavery Statement",
-          "item": "https://digitalbackoffice.co.uk/legal-slavery"  
-        },{
-          "@type": "ListItem", 
-          "position": 17, 
-          "name": "Contact",
-          "item": "https://digitalbackoffice.co.uk/contact-us"  
+          "item": "https://digitalbackoffice.co.uk/contact-us/"  
         }]
       }
     </script>

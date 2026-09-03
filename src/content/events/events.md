@@ -9,7 +9,7 @@ hero:
     href: "#upcoming-events"
   secondary_cta:
     label: "Host an event with us"
-    href: "/contact-us"
+    href: "/contact-us/"
 
 upcoming:
   title: "Upcoming events"
@@ -52,10 +52,10 @@ cta:
   description: "Tell us what you are working on and we will let you know when a session covers it — or bring our team in to run a private workshop for your organisation."
   primary_cta:
     label: "Get event invites"
-    href: "/contact-us"
+    href: "/contact-us/"
   secondary_cta:
     label: "Host a private session"
-    href: "/contact-us"
+    href: "/contact-us/"
   points:
     - "One email per event, never a mailing list"
     - "Private workshops run on your schedule, on site or remote"

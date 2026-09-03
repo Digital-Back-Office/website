@@ -7,7 +7,7 @@ hero:
   subtext: "Supercharge recruitment workflows, reduce attrition risks, and ensure bias-free talent assessment processes with enterprise-grade data platforms."
   video: "/assets/videos/dbo-bg-video-home.mp4"
   cta_text: "Schedule a Talent Tech Consultation"
-  cta_link: "/contact-us"
+  cta_link: "/contact-us/"
 
 trust:
   line: "We build secure data platforms mapping <span style=\"color: #52CEC7;\">millions of candidate records</span> and workforce metrics."
@@ -41,7 +41,7 @@ products:
         - subheading: "Onboarding Orchestration AI"
           description: "Implement interactive chat agents to guide employees through compliance documents and workspace allocation checklists."
       cta_text: "Explore AI Solutions"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_sci.png"
       image_alt: "HR AI"
     
@@ -55,7 +55,7 @@ products:
         - subheading: "Explainable Candidate Vetting"
           description: "Develop transparent, explainable machine learning models to rate applicant skills without risk of bias."
       cta_text: "Talk to our Data Scientists"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_vis.png"
       image_alt: "HR Analytics"
     
@@ -69,7 +69,7 @@ products:
         - subheading: "Workforce Data Warehouse"
           description: "Design secure, consolidated snowflake schemas to power diversity tracking, payroll forecasts, and attrition reports."
       cta_text: "Talk to our Engineers"
-      cta_link: "/contact-us"
+      cta_link: "/contact-us/"
       image: "/assets/images/data_arch.png"
       image_alt: "HR Data Pipelines"
 

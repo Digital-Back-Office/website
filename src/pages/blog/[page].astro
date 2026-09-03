@@ -364,7 +364,7 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
                 return (
                   <a 
                     class={page['currentPage']===pageNo ? "page-number active" : "page-number"} 
-                    href={"/blog/"+pageNo}
+                    href={"/blog/"+pageNo+"/"}
                   >
                     {pageNo}
                   </a>
