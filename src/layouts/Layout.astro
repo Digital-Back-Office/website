@@ -79,6 +79,18 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <!-- The page background is painted on <body>, so it is only discovered once
+         the CSSOM resolves — far too late, and the content lands on bare white
+         first. Preloading it at high priority starts the fetch with the HTML,
+         and body carries the pattern's average colour so the very first paint
+         is already the right ground even if the image has not arrived. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/background_pattern-white.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
     <meta name="generator" content={Astro.generator} />
     
     <!-- SEO Meta Tags -->
@@ -199,61 +211,56 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
         },{
           "@type": "ListItem", 
           "position": 6, 
-          "name": "Startups",
-          "item": "https://digitalbackoffice.co.uk/industry/startups/"  
-        },{
-          "@type": "ListItem", 
-          "position": 7, 
           "name": "AI Transformation",
           "item": "https://digitalbackoffice.co.uk/services/ai-solutions/"  
         },{
           "@type": "ListItem", 
-          "position": 8, 
+          "position": 7, 
           "name": "Data Strategy",
           "item": "https://digitalbackoffice.co.uk/services/data-strategy-services/"  
         },{
           "@type": "ListItem", 
-          "position": 9, 
+          "position": 8, 
           "name": "Data Engineering",
           "item": "https://digitalbackoffice.co.uk/services/data-engineering-services/"  
         },{
           "@type": "ListItem", 
-          "position": 10, 
+          "position": 9, 
           "name": "Data Science",
           "item": "https://digitalbackoffice.co.uk/services/data-science/"  
         },{
           "@type": "ListItem", 
-          "position": 11, 
+          "position": 10, 
           "name": "Blogs",
           "item": "https://digitalbackoffice.co.uk/blog/1/"  
         },{
           "@type": "ListItem", 
-          "position": 12, 
+          "position": 11, 
           "name": "Industry Insights",
           "item": "https://digitalbackoffice.co.uk/industry-insights/"  
         },{
           "@type": "ListItem", 
-          "position": 13, 
+          "position": 12, 
           "name": "About",
           "item": "https://digitalbackoffice.co.uk/about-us/"  
         },{
           "@type": "ListItem", 
-          "position": 14, 
+          "position": 13, 
           "name": "Privacy Policy",
           "item": "https://digitalbackoffice.co.uk/privacy-policy/"  
         },{
           "@type": "ListItem", 
-          "position": 15, 
+          "position": 14, 
           "name": "Terms of Use",
           "item": "https://digitalbackoffice.co.uk/terms-of-use/"  
         },{
           "@type": "ListItem", 
-          "position": 16, 
+          "position": 15, 
           "name": "Modern Slavery Statement",
           "item": "https://digitalbackoffice.co.uk/legal-slavery/"  
         },{
           "@type": "ListItem", 
-          "position": 17, 
+          "position": 16, 
           "name": "Contact",
           "item": "https://digitalbackoffice.co.uk/contact-us/"  
         }]
@@ -273,7 +280,7 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
     <slot name="head" />
   </head>
   <!-- <body style="height: max-content; background-image: url('/assets/images/bg-2.png'); background-size: cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;"> -->
-  <body style="height: max-content; background-image: url('/assets/images/background_pattern-white.png'); background-size: cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
+  <body style="height: max-content; background-color: #fdfdfd; background-image: url('/assets/images/background_pattern-white.webp'); background-size: cover; background-attachment: fixed; background-position: center; background-repeat: no-repeat;">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLJ9M4LT"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <Navbar />  
