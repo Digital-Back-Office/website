@@ -1,0 +1,904 @@
+# Decap CMS config. Keep in step with src/content/config.ts (see CLAUDE.md, "Content editing").
+backend:
+  name: github
+  repo: Digital-Back-Office/website
+  branch: master
+  # base_url: https://YOUR-OAUTH-PROXY.example.workers.dev  # REQUIRED for production login, see CLAUDE.md "Content editing"
+local_backend: true
+publish_mode: editorial_workflow
+media_folder: public/assets/images
+public_folder: /assets/images
+site_url: https://digitalbackoffice.co.uk
+display_url: https://digitalbackoffice.co.uk
+collections:
+  - name: home
+    label: Home page
+    media_folder: public/assets/images/home
+    public_folder: /assets/images/home
+    files:
+      - label: Home page
+        name: home
+        file: src/content/home/home.md
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title part 1, name: title_part_1, widget: string}
+              - {label: Title part 2, name: title_part_2, widget: string}
+              - {label: Pill text, name: pill_text, widget: string}
+              - {label: Info, name: info, widget: text}
+          - label: Partners
+            name: partners
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - label: Images
+                name: images
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Name, name: name, widget: string}
+                  - {label: Src, name: src, widget: string}
+                summary: '{{fields.name}}'
+          - label: Ai solutions
+            name: ai_solutions
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Sub title, name: sub_title, widget: string}
+              - {label: Cta text, name: cta_text, widget: string}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Id, name: id, widget: string}
+                  - {label: Heading, name: heading, widget: string}
+                  - {label: Description, name: description, widget: string}
+                  - {label: Icon, name: icon, widget: string}
+                  - {label: Alt, name: alt, widget: string}
+                  - {label: Button text, name: button_text, widget: string}
+                summary: '{{fields.heading}}'
+          - label: Roadmap
+            name: roadmap
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title 1, name: title_1, widget: string}
+              - {label: Title 2, name: title_2, widget: string}
+              - {label: Sub title, name: sub_title, widget: string}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Id, name: id, widget: string}
+                  - {label: Heading, name: heading, widget: string}
+                  - {label: Description, name: description, widget: text}
+                  - {label: Icon, name: icon, widget: string}
+                summary: '{{fields.heading}}'
+          - label: About
+            name: about
+            widget: object
+            collapsed: true
+            fields:
+              - label: Parallax images
+                name: parallax_images
+                widget: list
+                collapsed: true
+                field: {label: Item, name: item, widget: image}
+              - {label: Title, name: title, widget: string}
+              - {label: Info part 1, name: info_part_1, widget: text}
+              - {label: Info part 2, name: info_part_2, widget: text}
+          - label: Key points
+            name: keyPoints
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Svg, name: svg, widget: string}
+              - {label: Bg, name: bg, widget: string}
+              - {label: Alt, name: alt, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Info, name: info, widget: text}
+            summary: '{{fields.title}}'
+          - label: Features
+            name: features
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Img, name: img, widget: string}
+                  - {label: Alt, name: alt, widget: string}
+                  - {label: Title, name: title, widget: string}
+                  - {label: Info, name: info, widget: text}
+                summary: '{{fields.title}}'
+          - label: Tech
+            name: tech
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Desc, name: desc, widget: string}
+              - label: Slider 1
+                name: slider_1
+                widget: list
+                collapsed: true
+                field: {label: Item, name: item, widget: string}
+              - label: Slider 2
+                name: slider_2
+                widget: list
+                collapsed: true
+                field: {label: Item, name: item, widget: string}
+          - label: Testimonials
+            name: testimonials
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Number, name: number, widget: string, pattern: [^\d+$, Digits only]}
+              - {label: Name, name: name, widget: string}
+              - {label: Designation, name: designation, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Desc, name: desc, widget: text}
+            summary: '{{fields.title}}'
+  - name: about
+    label: About page
+    media_folder: public/assets/images/about-us
+    public_folder: /assets/images/about-us
+    files:
+      - label: About page
+        name: about
+        file: src/content/about/about.md
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - label: Features
+                name: features
+                widget: list
+                collapsed: true
+                field: {label: Item, name: item, widget: string}
+          - label: Mission
+            name: mission
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Desc, name: desc, widget: text}
+              - {label: Img, name: img, widget: image}
+          - label: Values
+            name: values
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Svg, name: svg, widget: string}
+                  - {label: Alt, name: alt, widget: string}
+                  - {label: Title, name: title, widget: string}
+                  - {label: Desc, name: desc, widget: text}
+                summary: '{{fields.title}}'
+          - label: Benefits
+            name: benefits
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - label: Points
+                name: points
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Number, name: number, widget: number, value_type: int}
+                  - {label: Title, name: title, widget: string}
+                  - {label: Desc, name: desc, widget: text}
+                summary: '{{fields.title}}'
+          - label: Approach
+            name: approach
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Desc, name: desc, widget: text}
+              - {label: Img, name: img, widget: image}
+  - name: events_page
+    label: Events page
+    description: Page copy only. The live schedule comes from Eventbrite.
+    files:
+      - label: Events page
+        name: events
+        file: src/content/events/events.md
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title part 1, name: title_part_1, widget: string}
+              - {label: Title part 2, name: title_part_2, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - label: Primary cta
+                name: primary_cta
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Label, name: label, widget: string}
+                  - {label: Href, name: href, widget: string}
+              - label: Secondary cta
+                name: secondary_cta
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Label, name: label, widget: string}
+                  - {label: Href, name: href, widget: string}
+          - label: Upcoming
+            name: upcoming
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - {label: Empty message, name: empty_message, widget: text}
+          - label: Formats
+            name: formats
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Icon, name: icon, widget: string}
+                  - {label: Alt, name: alt, widget: string}
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: text}
+                  - {label: Meta, name: meta, widget: string}
+                summary: '{{fields.title}}'
+          - label: Past
+            name: past
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: string}
+          - label: Cta
+            name: cta
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Description, name: description, widget: text}
+              - label: Primary cta
+                name: primary_cta
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Label, name: label, widget: string}
+                  - {label: Href, name: href, widget: string}
+              - label: Secondary cta
+                name: secondary_cta
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Label, name: label, widget: string}
+                  - {label: Href, name: href, widget: string}
+              - label: Points
+                name: points
+                widget: list
+                collapsed: true
+                field: {label: Item, name: item, widget: string}
+  - name: services_page
+    label: Services page
+    files:
+      - label: Services page
+        name: services
+        file: src/content/services/services.md
+        fields:
+          - label: Data architecture
+            name: data_architecture
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Icon 1 heading, name: icon1_heading, widget: string}
+              - {label: Icon 1 text, name: icon1_text, widget: string}
+              - {label: Icon 2 heading, name: icon2_heading, widget: string}
+              - {label: Icon 2 text, name: icon2_text, widget: string}
+          - label: Data devops
+            name: data_devops
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Icon 1 heading, name: icon1_heading, widget: string}
+              - {label: Icon 1 text, name: icon1_text, widget: string}
+              - {label: Icon 2 heading, name: icon2_heading, widget: string}
+              - {label: Icon 2 text, name: icon2_text, widget: string}
+          - label: Data science
+            name: data_science
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Icon 1 heading, name: icon1_heading, widget: string}
+              - {label: Icon 1 text, name: icon1_text, widget: string}
+              - {label: Icon 2 heading, name: icon2_heading, widget: string}
+              - {label: Icon 2 text, name: icon2_text, widget: string}
+          - label: Data visualization
+            name: data_visualization
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Icon 1 heading, name: icon1_heading, widget: string}
+              - {label: Icon 1 text, name: icon1_text, widget: string}
+              - {label: Icon 2 heading, name: icon2_heading, widget: string}
+              - {label: Icon 2 text, name: icon2_text, widget: string}
+          - label: Individual page
+            name: individual_page
+            widget: object
+            collapsed: true
+            fields:
+              - label: Data architecture
+                name: data_architecture
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Heading, name: heading, widget: string}
+                  - {label: Text 1, name: text1, widget: text}
+                  - {label: Text 2, name: text2, widget: string}
+              - label: Data science
+                name: data_science
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Heading 1, name: heading1, widget: string}
+                  - {label: Text 1, name: text1, widget: text}
+                  - label: List 1
+                    name: list1
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+                  - {label: Heading 2, name: heading2, widget: string}
+                  - {label: Text 2, name: text2, widget: text}
+                  - label: List 2
+                    name: list2
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+                  - {label: Heading 3, name: heading3, widget: string}
+                  - label: List 3
+                    name: list3
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Data visualization
+                name: data_visualization
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Heading 1, name: heading1, widget: string}
+                  - {label: Text 1, name: text1, widget: text}
+                  - label: List 1
+                    name: list1
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Data devops
+                name: data_devops
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Heading 1, name: heading1, widget: string}
+                  - {label: Text 1, name: text1, widget: text}
+  - name: service_showcase
+    label: Service pages
+    media_folder: public/assets/images
+    public_folder: /assets/images
+    files:
+      - label: AI Solutions
+        name: ai_solutions
+        file: src/content/service-showcase/ai-solutions.md
+        fields:
+          - label: Ai strategy
+            name: ai_strategy
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Image placeholder, name: image_placeholder, widget: image}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: string}
+                summary: '{{fields.title}}'
+          - label: Custom ai agents
+            name: custom_ai_agents
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Image placeholder, name: image_placeholder, widget: image}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: string}
+                summary: '{{fields.title}}'
+          - label: Agentic workflows
+            name: agentic_workflows
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Image placeholder, name: image_placeholder, widget: image}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: string}
+                summary: '{{fields.title}}'
+          - label: Generative ai
+            name: generative_ai
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Image placeholder, name: image_placeholder, widget: image}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: string}
+                summary: '{{fields.title}}'
+          - label: Rag implementation
+            name: rag_implementation
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Image placeholder, name: image_placeholder, widget: image}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: string}
+                summary: '{{fields.title}}'
+          - label: Industry use cases
+            name: industry_use_cases
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Subtitle, name: subtitle, widget: string}
+              - label: Cases
+                name: cases
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Industry, name: industry, widget: string}
+                  - label: Use cases
+                    name: use_cases
+                    widget: list
+                    collapsed: true
+                    fields:
+                      - {label: Title, name: title, widget: string}
+                      - {label: Description, name: description, widget: text}
+                    summary: '{{fields.title}}'
+                summary: '{{fields.industry}}'
+          - label: Cta
+            name: cta
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Button text, name: button_text, widget: string}
+      - label: Data Engineering
+        name: data_engineering
+        file: src/content/service-showcase/data-engineering.md
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - label: Cards
+            name: cards
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Description, name: description, widget: text}
+              - {label: Front image, name: frontImage, widget: image}
+              - {label: Front color, name: frontColor, widget: string}
+              - {label: Back color, name: backColor, widget: string}
+              - {label: Border color, name: borderColor, widget: string, required: false}
+            summary: '{{fields.title}}'
+          - {label: Industry section title, name: industrySectionTitle, widget: string}
+          - {label: Industry section subtitle, name: industrySectionSubtitle, widget: string}
+          - label: Pills
+            name: pills
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Key, name: key, widget: string}
+              - {label: Label, name: label, widget: string}
+            summary: '{{fields.label}}'
+          - label: Industries
+            name: industries
+            widget: object
+            collapsed: true
+            fields:
+              - label: Financial
+                name: financial
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Retail
+                name: retail
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Manufacturing
+                name: manufacturing
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Media
+                name: media
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+      - label: Data Science
+        name: data_science
+        file: src/content/service-showcase/data-science.md
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - label: Cards
+            name: cards
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Description, name: description, widget: text}
+              - {label: Front image, name: frontImage, widget: image}
+              - {label: Front color, name: frontColor, widget: string}
+              - {label: Back color, name: backColor, widget: string}
+              - {label: Border color, name: borderColor, widget: string, required: false}
+            summary: '{{fields.title}}'
+          - {label: Industry section title, name: industrySectionTitle, widget: string}
+          - {label: Industry section subtitle, name: industrySectionSubtitle, widget: string}
+          - label: Pills
+            name: pills
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Key, name: key, widget: string}
+              - {label: Label, name: label, widget: string}
+            summary: '{{fields.label}}'
+          - label: Industries
+            name: industries
+            widget: object
+            collapsed: true
+            fields:
+              - label: Financial
+                name: financial
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Retail
+                name: retail
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Manufacturing
+                name: manufacturing
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Healthcare
+                name: healthcare
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+      - label: Data Strategy
+        name: data_strategy
+        file: src/content/service-showcase/data-strategy.md
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - label: Cards
+            name: cards
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Description, name: description, widget: text}
+              - {label: Front image, name: frontImage, widget: image}
+              - {label: Front color, name: frontColor, widget: string}
+              - {label: Back color, name: backColor, widget: string}
+              - {label: Border color, name: borderColor, widget: string, required: false}
+            summary: '{{fields.title}}'
+          - {label: Industry section title, name: industrySectionTitle, widget: string}
+          - {label: Industry section subtitle, name: industrySectionSubtitle, widget: string}
+          - label: Pills
+            name: pills
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Key, name: key, widget: string}
+              - {label: Label, name: label, widget: string}
+            summary: '{{fields.label}}'
+          - label: Industries
+            name: industries
+            widget: object
+            collapsed: true
+            fields:
+              - label: Financial
+                name: financial
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Retail
+                name: retail
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Healthcare
+                name: healthcare
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+              - label: Energy
+                name: energy
+                widget: object
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    collapsed: true
+                    field: {label: Item, name: item, widget: string}
+  - name: industries
+    label: Industries
+    folder: src/content/industries
+    extension: md
+    format: frontmatter
+    create: true
+    delete: false
+    identifier_field: title
+    slug: '{{slug}}'
+    media_folder: public/assets/images
+    public_folder: /assets/images
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Description, name: description, widget: text}
+      - label: Hero
+        name: hero
+        widget: object
+        collapsed: true
+        fields:
+          - {label: Heading, name: heading, widget: string}
+          - {label: Subtext, name: subtext, widget: text}
+          - {label: Video, name: video, widget: string}
+          - {label: Cta text, name: cta_text, widget: string}
+          - {label: Cta link, name: cta_link, widget: string}
+      - label: Trust
+        name: trust
+        widget: object
+        collapsed: true
+        fields:
+          - {label: Line, name: line, widget: text}
+      - label: Barriers
+        name: barriers
+        widget: object
+        collapsed: true
+        fields:
+          - {label: Heading, name: heading, widget: string}
+          - label: Cards
+            name: cards
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Description, name: description, widget: text}
+            summary: '{{fields.title}}'
+      - label: Products
+        name: products
+        widget: object
+        collapsed: true
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Subtitle, name: subtitle, widget: string}
+          - label: Tabs
+            name: tabs
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Id, name: id, widget: string}
+              - {label: Name, name: name, widget: string}
+              - {label: Heading, name: heading, widget: string}
+              - label: Sections
+                name: sections
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Subheading, name: subheading, widget: string}
+                  - {label: Description, name: description, widget: text}
+                summary: '{{fields.subheading}}'
+              - {label: Cta text, name: cta_text, widget: string}
+              - {label: Cta link, name: cta_link, widget: string}
+              - {label: Image, name: image, widget: image}
+              - {label: Image alt, name: image_alt, widget: string}
+            summary: '{{fields.heading}}'
+      - label: Why trust
+        name: why_trust
+        widget: object
+        collapsed: true
+        fields:
+          - {label: Heading, name: heading, widget: string}
+          - label: Cards
+            name: cards
+            widget: list
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Description, name: description, widget: text}
+              - {label: Icon, name: icon, widget: string}
+            summary: '{{fields.title}}'
+  - name: authors
+    label: Authors
+    folder: src/content/authors
+    extension: md
+    format: frontmatter
+    create: true
+    delete: false
+    identifier_field: name
+    slug: '{{slug}}'
+    media_folder: public/assets/images/blogs/authors
+    public_folder: /assets/images/blogs/authors
+    fields:
+      - {label: Name, name: name, widget: string}
+      - {label: Description, name: description, widget: text}
+      - {label: Image, name: image, widget: image}
+  - name: blog
+    label: Blog posts
+    folder: src/pages/posts
+    extension: mdx
+    format: frontmatter
+    create: true
+    delete: false
+    identifier_field: title
+    slug: '{{slug}}'
+    media_folder: public/assets/images/blogs
+    public_folder: /assets/images/blogs
+    fields:
+      - {label: Layout, name: layout, widget: hidden, default: ../../layouts/BlogLayout.astro}
+      - {label: Title, name: title, widget: string}
+      - {label: Author, name: author, widget: relation, collection: authors, value_field: '{{slug}}', search_fields: [name], display_fields: [name]}
+      - {label: Description, name: description, widget: text}
+      - {label: Image, name: image, widget: image}
+      - label: Tags
+        name: tags
+        widget: list
+        collapsed: true
+        field: {label: Item, name: item, widget: string}
+      - {label: Date, name: date, widget: string, pattern: ['^\d{4}-\d{2}-\d{2}$', Use YYYY-MM-DD], required: false}
+      - label: Body
+        name: body
+        widget: markdown
+        modes:
+          - raw
+        hint: 'MDX: keep the import/export lines and JSX components exactly as they are.'
