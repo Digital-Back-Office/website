@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Content Manager</title>
+    <script>window.CMS_MANUAL_INIT = true;</script>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+    <script>CMS.init({ config: { backend: { base_url: window.location.origin } } });</script>
   </body>
 </html>
