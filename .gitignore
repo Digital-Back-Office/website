@@ -21,3 +21,4 @@ pnpm-debug.log*
 .DS_Store
 .frontmatter/database/taxonomyDb.json
 .vscode/settings.json
+CLAUDE.md
