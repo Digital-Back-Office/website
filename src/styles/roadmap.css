@@ -8,10 +8,12 @@
 
 .roadmap-title {
     text-align: center;
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
-    font-weight: 800;
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
     margin-bottom: var(--space-4);
     color: var(--text-primary);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
 }
 
 .roadmap-title span {
@@ -20,13 +22,14 @@
 
 .roadmap-subtitle {
     text-align: center;
-    font-size: var(--text-lg);
+    font-size: var(--fs-lead);
     color: var(--text-secondary);
     margin-bottom: var(--space-16);
     max-width: 780px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.6;
+    line-height: var(--lh-body);
+    font-weight: var(--fw-regular);
 }
 
 /* Stepper Timeline Tree */
@@ -112,8 +115,8 @@
 }
 
 .timeline-node .node-num {
-    font-size: var(--text-xs);
-    font-weight: 800;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-extrabold);
     color: var(--brand-teal-deep);
     font-family: monospace;
 }
@@ -220,16 +223,17 @@
 }
 
 .roadmap-card h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: var(--fs-card);
+    font-weight: var(--fw-bold);
     color: var(--text-primary);
     margin-bottom: var(--space-3);
-    letter-spacing: -0.01em;
+    letter-spacing: var(--ls-snug);
+    line-height: var(--lh-snug);
 }
 
 .roadmap-card p {
-    font-size: var(--text-sm);
-    line-height: 1.6;
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-body);
     color: var(--text-secondary);
     margin-bottom: 0;
 }

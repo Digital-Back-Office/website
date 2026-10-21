@@ -59,13 +59,14 @@
   color: var(--text-secondary) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: var(--radius-md) !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
+  font-size: var(--fs-body-sm) !important;
+  font-weight: var(--fw-bold) !important;
   cursor: pointer !important;
   transition: background-color var(--motion-base), border-color var(--motion-base), color var(--motion-base), box-shadow var(--motion-base) !important;
   text-align: center !important;
   display: inline-flex !important;
   align-items: center !important;
+  line-height: 1.2;
 }
 
 .industry-pill:hover {
@@ -150,22 +151,23 @@
 }
 
 .hero-heading {
-  font-size: clamp(2.5rem, 5vw, 4rem) !important;
-  font-weight: 800 !important;
+  font-size: var(--fs-hero) !important;
+  font-weight: var(--fw-extrabold) !important;
   color: var(--text-primary);
-  line-height: 1.15;
+  line-height: var(--lh-hero);
   margin-bottom: var(--space-4);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-hero);
 }
 
 .hero-subtext {
-  font-size: clamp(1.15rem, 2vw, 1.4rem) !important;
+  font-size: var(--fs-lead) !important;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: var(--lh-body);
   margin-bottom: var(--space-8);
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
+  font-weight: var(--fw-regular);
 }
 
 .hero-actions {
@@ -176,9 +178,9 @@
 }
 
 .hero-cta-btn {
-  font-size: 1.05rem !important;
+  font-size: var(--fs-body-sm) !important;
   padding: 0.9rem 2.25rem !important;
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   background: linear-gradient(135deg, var(--brand-cyan) 0%, #2fb7b8 100%) !important;
   border: none !important;
   color: #ffffff !important;
@@ -221,14 +223,14 @@
 }
 
 .intro-lead-text {
-  font-size: 1.45rem;
-  line-height: 1.6;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
   color: var(--text-primary);
   margin-bottom: 0;
   position: relative;
   z-index: 2;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-snug);
 }
 
 .intro-aside-box {
@@ -241,12 +243,12 @@
 }
 
 .intro-aside-text {
-  font-size: 1.1rem;
-  line-height: 1.55;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--brand-teal-deep);
   margin-bottom: 0;
   font-style: italic;
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 
 /* ===== Differentiator Section Styles ===== */
@@ -268,8 +270,10 @@
 }
 
 .expertise-heading {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--fs-section);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
 }
 
 /* ===== Card & Background Styles ===== */
@@ -301,17 +305,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* ===== Responsive Styles ===== */
-@media (max-width: 450px) {
-  .hero-heading {
-    font-size: 3rem !important;
-  }
-
-  .hero-text1 {
-    font-size: 1rem !important;
-  }
-}
-
 /* ===== Capabilities Grid Section ===== */
 .capabilities-section {
   position: relative;
@@ -319,12 +312,13 @@
 }
 
 .capabilities-main-title {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 800;
+  font-size: var(--fs-section);
+  font-weight: var(--fw-extrabold);
   color: var(--text-primary);
   margin-bottom: 3.5rem;
   max-width: 50rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-heading);
 }
 
 .capabilities-main-title span {
@@ -383,29 +377,29 @@
 
 .capability-number {
   font-family: var(--font-mono, monospace);
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
   color: var(--brand-teal-deep);
   background: rgba(82, 206, 199, 0.08);
   border: 1px solid rgba(82, 206, 199, 0.2);
   padding: 0.25rem 0.65rem;
   border-radius: 6px;
-  letter-spacing: 0.05em;
+  line-height: 1.2;
 }
 
 .capability-title {
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: var(--fs-card);
+  font-weight: var(--fw-bold);
   color: var(--text-primary);
   margin-bottom: 0.75rem;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
 }
 
 .capability-text {
-  font-size: 0.95rem;
+  font-size: var(--fs-body-sm);
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: var(--lh-body);
   margin-bottom: 0;
 }
 
@@ -422,6 +416,10 @@
   
   .capabilities-main-title {
     margin-bottom: 2.5rem;
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
   }
   
   .capability-card {
@@ -512,21 +510,24 @@
 
 .service-showcase-main-title {
   text-align: center;
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 800;
+  font-size: var(--fs-section);
+  font-weight: var(--fw-extrabold);
   color: var(--text-primary);
   margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-heading);
 }
 
 .service-showcase-main-subtitle {
   text-align: center;
   color: var(--text-secondary);
   margin-bottom: 3.5rem;
-  font-size: 1.15rem;
+  font-size: var(--fs-lead);
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
 }
 
 /* ===== Service Showcase Grid & Bento Layout ===== */
@@ -637,16 +638,17 @@
 }
 
 .service-showcase-card-title {
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: var(--fs-card);
+  font-weight: var(--fw-bold);
   color: var(--text-primary);
   margin-bottom: 0.75rem;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--ls-snug);
+  line-height: var(--lh-snug);
 }
 
 .service-showcase-card-text {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body);
   color: var(--text-secondary);
   margin-bottom: 0;
 }

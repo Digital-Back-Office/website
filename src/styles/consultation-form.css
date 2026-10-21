@@ -7,7 +7,7 @@
     top: 100%;
     left: 1rem;
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: var(--fs-caption);
 }
 .error::after {
     content: '';
@@ -133,15 +133,16 @@
 }
 
 .success-title {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: var(--fs-subsection);
+    font-weight: var(--fw-bold);
     margin-bottom: 15px;
-    letter-spacing: -0.5px;
+    letter-spacing: var(--ls-heading);
+    line-height: var(--lh-heading);
 }
 
 .success-message {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
     margin-bottom: 35px;
     opacity: 0.95;
     max-width: 280px;
@@ -150,13 +151,13 @@
 .small-grey-underline {
     cursor: pointer;
     margin-top: 20px;
-    font-size: 16px; 
+    font-size: var(--fs-body); 
     color: var(--text-primary);
     transition: all 0.3s ease;
     display: inline-block;
     user-select: none;
     text-decoration: underline;
-    font-weight: 500;
+    font-weight: var(--fw-medium);
     backdrop-filter: blur(10px);
     border: none;
     background: none;
@@ -185,13 +186,6 @@
         min-height: 600px;
     }
 
-    .success-title {
-        font-size: 24px;
-    }
-
-    .success-message {
-        font-size: 14px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -216,10 +210,6 @@
     .flip-card-back {
         padding: 15px;
         min-height: 550px;
-    }
-
-    .card-title {
-        font-size: 1.3rem;
     }
 
     .success-icon {

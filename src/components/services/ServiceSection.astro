@@ -35,26 +35,28 @@ import Button from "../ui/Button.astro";
     padding: 0.35rem 1rem;
     margin-bottom: 1.5rem;
     color: var(--brand-teal-alt);
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    font-weight: var(--fw-extrabold);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--ls-eyebrow);
+    line-height: 1.2;
   }
 
   .service-heading {
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    font-weight: 800;
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
     color: var(--text-primary);
     margin-bottom: 1.5rem;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
   }
 
   .service-lead-text {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-body);
     color: var(--text-secondary);
     margin-bottom: 2.25rem;
+    font-weight: var(--fw-regular);
   }
 
   .service-image-container {
@@ -113,15 +115,17 @@ import Button from "../ui/Button.astro";
   }
 
   .service-info-card-title {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: var(--fs-title-sm);
+    font-weight: var(--fw-bold);
     color: var(--text-primary);
     margin-bottom: 0.75rem;
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
   }
 
   .service-info-card-text {
-    font-size: 0.7rem;
-    line-height: 1.55;
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-body);
     color: var(--text-secondary);
     margin-bottom: 0;
   }

@@ -10,11 +10,11 @@
         style="display: inline-block; background-color: rgba(82, 206, 199, 0.1); border-radius: 50px; padding: 0.35rem 1.25rem; border: 1px solid rgba(82, 206, 199, 0.2);"
       >
         <span
-          style="font-size: 0.8rem; font-weight: 600; color: #2E9691; text-transform: uppercase;"
+          class="eyebrow"
           >Enterprise Verticals</span
         >
       </div>
-      <h2 class="h1 text-dark">Industries We Build For</h2>
+      <h2 class="text-dark">Industries We Build For</h2>
       <p class="text-dark opacity-70 max-width-700 mx-auto">
         Our engineering pods build bespoke AI workflows, secure data
         architectures, and compliant software for founders across these sectors:
@@ -444,13 +444,15 @@
 
   /* Card Title */
   .card-title {
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     margin: 0;
-    font-size: 1.05rem;
+    font-size: var(--fs-title-sm);
     color: #0f2523;
     transition: color 0.3s ease;
     flex-grow: 1;
     padding-right: 0.5rem;
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
   }
 
   .industry-vertical-card:hover .card-title {

@@ -58,25 +58,87 @@ const tech = Data.data.tech;
     }
 
     .tech-title {
-        font-size: clamp(2.25rem, 3vw, 3.25rem);
-        font-weight: var(--font-weight-bold);
+        font-size: var(--fs-section);
+        font-weight: var(--fw-extrabold);
+        line-height: var(--lh-heading);
+        letter-spacing: var(--ls-heading);
         color: var(--text-primary);
     }
 
     .tech-subtitle {
         color: var(--text-secondary);
-        font-size: var(--text-lg);
+        font-size: var(--fs-lead);
+        line-height: var(--lh-body);
         max-width: 720px;
         margin: var(--space-3) auto 0;
     }
 
+    /* Same card as the case study pages: square except the top right, brand
+       cyan on the left rule only, and a hard grey slab bottom left. */
     .testimonials-wrap {
         margin: var(--space-8) auto 0;
         max-width: 900px;
         background: var(--bg-surface, #ffffff);
-        border-radius: var(--radius-2xl);
         border: 1px solid var(--border-subtle);
-        padding: var(--space-8) var(--space-10);
+        border-left: 3px solid var(--brand-cyan);
+        border-radius: 0 var(--radius-lg) 0 0;
+        box-shadow: -16px 16px 0 0 var(--border-strong);
+        padding: var(--space-8);
+    }
+
+    .testimonial-quote-mark {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: var(--fs-quote-mark);
+        line-height: 0.7;
+        color: var(--brand-cyan);
+    }
+
+    .testimonial-title {
+        font-size: var(--fs-card);
+        font-weight: var(--fw-bold);
+        line-height: var(--lh-snug);
+        letter-spacing: var(--ls-snug);
+        color: var(--text-primary);
+    }
+
+    .testimonial-text {
+        font-size: var(--fs-body);
+        line-height: var(--lh-relaxed);
+        color: var(--text-secondary);
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    .testimonial-avatar {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--border-subtle);
+    }
+
+    .testimonial-author {
+        margin-top: var(--space-6);
+    }
+
+    .testimonial-name {
+        font-size: var(--fs-body);
+        font-weight: var(--fw-bold);
+        color: var(--text-primary);
+    }
+
+    .testimonial-role {
+        font-size: var(--fs-body-sm);
+        color: var(--text-muted);
+    }
+
+    .testimonial-head {
+        margin-bottom: var(--space-4);
     }
 </style>
 
@@ -224,113 +286,88 @@ const tech = Data.data.tech;
             <h2 class="solutions-title">What Our Clients Say</h2>
         </div>
         <div class="testimonials-wrap">
-            <div class="row py-md-4 py-lg-5">
-                <div class="col-md-9 col-lg-7 order-md-2">
-                    <!-- Swiper slider -->
-                    <div
-                        class="custom-swiper"
-                        data-swiper-options={`{
-                        "spaceBetween": 40,
-                        "loop": true,
-                        "bindedContent": true,
-                        "autoHeight": true,
-                        "pagination": {
-                            "el": ".testimonials-count",
-                            "type": "fraction"
-                        },
-                        "navigation": {
-                            "prevEl": "#prev-testimonial",
-                            "nextEl": "#next-testimonial"
-                        }
-                    }`}
+            <!-- Each slide carries its own attribution, the same anatomy as the
+                 case study card, so nothing depends on a JS binding to a
+                 separate column. -->
+            <div class="testimonial-head d-flex align-items-start justify-content-between">
+                <span class="testimonial-quote-mark" aria-hidden="true">“</span>
+
+                <!-- Swiper controls (Prev / Next) -->
+                <div class="testimonial-nav d-flex align-items-center">
+                    <button
+                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle me-3"
+                        type="button"
+                        id="prev-testimonial"
+                        aria-label="Previous testimonial"
                     >
-                        <div class="swiper-wrapper">
-                            {
-                                testimonials.map((testimonial) => (
-                                    <div
-                                        class="swiper-slide"
-                                        data-swiper-binded={testimonial.number}
-                                    >
-                                        <div class="d-flex d-md-none pt-3 mb-3">
-                                            <i class="ai-quotes d-md-none text-primary display-3 mt-n2" />
-                                            <div class="ps-3">
-                                                <h3 class="text-body h5 mb-0">
-                                                    {testimonial.name}
-                                                </h3>
-                                                <p class="text-body-secondary mb-0">
-                                                    {testimonial.designation}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <h3 class="h4 mb-lg-3 text-body testimonial-title">
-                                            {testimonial.title}
-                                        </h3>
-                                        <p
-                                            class="mb-0 text-body-secondary z-1 testimonial-text"
-                                            style="font-size: 0.95rem; line-height: 1.6;"
-                                        >
-                                            {testimonial.desc}
+                        <i class="ai-arrow-left"></i>
+                    </button>
+                    <div
+                        class="testimonials-count fw-medium flex-shrink-0 text-center text-body"
+                        style="width: 2.5rem;"
+                    >
+                    </div>
+                    <button
+                        class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle ms-3"
+                        type="button"
+                        id="next-testimonial"
+                        aria-label="Next testimonial"
+                    >
+                        <i class="ai-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="custom-swiper"
+                data-swiper-options={`{
+                    "spaceBetween": 40,
+                    "loop": true,
+                    "autoHeight": true,
+                    "pagination": {
+                        "el": ".testimonials-count",
+                        "type": "fraction"
+                    },
+                    "navigation": {
+                        "prevEl": "#prev-testimonial",
+                        "nextEl": "#next-testimonial"
+                    }
+                }`}
+            >
+                <div class="swiper-wrapper">
+                    {
+                        testimonials.map((testimonial) => (
+                            <div class="swiper-slide">
+                                <h3 class="h4 mb-3 text-body testimonial-title">
+                                    {testimonial.title}
+                                </h3>
+                                <p class="text-body-secondary testimonial-text">
+                                    {testimonial.desc}
+                                </p>
+                                <div class="testimonial-author">
+                                    {testimonial.image && (
+                                        <img
+                                            class="testimonial-avatar"
+                                            src={testimonial.image}
+                                            alt={testimonial.image_alt || `${testimonial.name}, ${testimonial.designation}`}
+                                            width="112"
+                                            height="112"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    )}
+                                    <div>
+                                        <h4 class="h6 mb-0 text-body testimonial-name">
+                                            {testimonial.name}
+                                        </h4>
+                                        <p class="mb-0 testimonial-role">
+                                            {testimonial.designation}
                                         </p>
                                     </div>
-                                ))
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 offset-lg-1 order-md-1 mt-n3">
-                    <i
-                        class="ai-quotes d-none d-md-block testimonial-quotes-icon ms-n2 mb-1"
-                    ></i>
-
-                    <!-- Content binded to slider (on screens > 768px) -->
-                    <div class="binded-content h-auto d-none d-md-block">
-                        <div
-                            class="binded-item h-auto active"
-                            id="testimonial-1"
-                        >
-                            <h3 class="h5 mb-1 text-body">
-                                {testimonials[0].name}
-                            </h3>
-                            <p class="text-body-secondary mb-0">
-                                {testimonials[0].designation}
-                            </p>
-                        </div>
-                        <div class="binded-item h-auto" id="testimonial-2">
-                            <h3 class="h5 mb-1 text-body">
-                                {testimonials[1].name}
-                            </h3>
-                            <p class="text-body-secondary mb-0">
-                                {testimonials[1].designation}
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Swiper controls (Prev / Next) -->
-                    <div
-                        class="d-flex align-items-center pb-2 pb-md-0 pt-4 mt-3"
-                    >
-                        <button
-                            class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle me-3"
-                            type="button"
-                            id="prev-testimonial"
-                            aria-label="Prev"
-                        >
-                            <i class="ai-arrow-left"></i>
-                        </button>
-                        <div
-                            class="testimonials-count fw-medium flex-shrink-0 text-center text-body"
-                            style="width: 2.5rem;"
-                        >
-                        </div>
-                        <button
-                            class="btn btn-icon btn-sm btn-outline-primary btn-nav-testimonial rounded-circle ms-3"
-                            type="button"
-                            id="next-testimonial"
-                            aria-label="Next"
-                        >
-                            <i class="ai-arrow-right"></i>
-                        </button>
-                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

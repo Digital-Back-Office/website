@@ -25,21 +25,23 @@ import Button from '../ui/Button.astro';
   }
   
   .cta-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
     color: #fff;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
   }
 
   .cta-text {
-    font-size: clamp(1.1rem, 2vw, 1.375rem);
-    line-height: 1.6;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-body);
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 2.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: var(--fw-regular);
   }
 </style>
 

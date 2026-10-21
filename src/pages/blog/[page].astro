@@ -45,17 +45,20 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   }
 
   .hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: var(--fs-hero);
+    font-weight: var(--fw-extrabold);
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: var(--fs-lead);
     color: var(--text-secondary)  ;
     margin-bottom: 2rem;
     max-width: 700px;
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-body);
   }
 
   .blog-card {
@@ -106,7 +109,7 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-caption);
     color: var(--text-secondary);
   }
 
@@ -115,20 +118,21 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   }
 
   .blog-card-title {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: var(--fs-card);
+    font-weight: var(--fw-bold);
     margin-bottom: 1rem;
-    line-height: 1.5;
+    line-height: var(--lh-snug);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
+    letter-spacing: var(--ls-snug);
   }
 
   .blog-card-description {
-    font-size: 0.95rem;
+    font-size: var(--fs-body-sm);
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     flex-grow: 1;
@@ -137,7 +141,7 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 1.7;
+    line-height: var(--lh-body);
     word-wrap: break-word;
   }
 
@@ -165,7 +169,7 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
     padding: 0.4rem 0.8rem;
     background: rgba(82, 206, 199, 0.1);
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: var(--fs-caption);
     color: var(--brand-cyan);
   }
 
@@ -200,7 +204,7 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   .page-number.active {
     background: var(--brand-cyan);
     color: var(--text-inverse);
-    font-weight: 600;
+    font-weight: var(--fw-bold);
   }
 
   .search-results-grid {
@@ -234,9 +238,6 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
       position: relative !important;
       left: 3rem; top: 0rem !important;
     }
-    .hero-title {
-      font-size: 2.5rem;
-    }
     .search-results-grid {
       grid-template-columns: 1fr;
     }
@@ -245,9 +246,6 @@ const pages = Array.from({length:page['lastPage']}, (_, index)=>index+1);
   @media (max-width: 576px) {
     .hero-section {
       padding: 6rem 0 3rem;
-    }
-    .hero-title {
-      font-size: 2rem;
     }
     .blog-card-image {
       height: 200px;

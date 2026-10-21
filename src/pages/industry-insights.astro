@@ -161,38 +161,44 @@ const newArrivals = [
 
   .pub-publisher {
     color: var(--brand-cyan);
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: var(--fw-extrabold);
+    font-size: var(--fs-eyebrow);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: var(--ls-eyebrow);
+    line-height: 1.2;
   }
 
   .pub-date {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: var(--fs-caption);
   }
 
   .pub-title {
     color: var(--text-primary);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+    font-size: var(--fs-card);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
   }
 
   .pub-summary {
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: var(--lh-body);
     margin-bottom: 1.5rem;
+    font-size: var(--fs-body-sm);
   }
 
   .pub-link {
     text-decoration: none;
     color: var(--brand-cyan);
-    font-weight: 600;
+    font-weight: var(--fw-bold);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: color 0.2s ease;
+    font-size: var(--fs-body-sm);
   }
 
   .pub-link:hover {
@@ -206,17 +212,20 @@ const newArrivals = [
   }
 
   .hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: var(--fs-hero);
+    font-weight: var(--fw-extrabold);
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: var(--fs-lead);
     color: var(--text-secondary);
     margin-bottom: 2rem;
     max-width: 700px;
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-body);
   }
 </style>
 

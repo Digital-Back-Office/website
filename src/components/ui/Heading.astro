@@ -43,10 +43,13 @@ const classes = [
 </Tag>
 
 <style>
+  /* Sizes map onto the shared role tokens rather than a parallel raw scale,
+     so <Heading> and a hand-written <h2> are always the same heading. */
   .ui-heading {
     font-family: var(--font-sans);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-tight);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
     color: var(--text-primary);
     margin: 0;
   }
@@ -64,42 +67,49 @@ const classes = [
   }
 
   .ui-heading--xs {
-    font-size: var(--text-xs);
+    font-size: var(--fs-eyebrow);
+    font-weight: var(--fw-extrabold);
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
   }
 
   .ui-heading--sm {
-    font-size: var(--text-sm);
+    font-size: var(--fs-body-sm);
+    letter-spacing: var(--ls-normal);
   }
 
   .ui-heading--md {
-    font-size: var(--text-base);
+    font-size: var(--fs-body);
+    letter-spacing: var(--ls-normal);
   }
 
   .ui-heading--lg {
-    font-size: var(--text-lg);
+    font-size: var(--fs-title-sm);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
   }
 
-  .ui-heading--xl {
-    font-size: var(--text-xl);
-  }
-
+  .ui-heading--xl,
   .ui-heading--2xl {
-    font-size: var(--text-2xl);
+    font-size: var(--fs-card);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
   }
 
-  .ui-heading--3xl {
-    font-size: var(--text-3xl);
-  }
-
+  .ui-heading--3xl,
   .ui-heading--4xl {
-    font-size: var(--text-4xl);
+    font-size: var(--fs-subsection);
   }
 
   .ui-heading--5xl {
-    font-size: var(--text-5xl);
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
   }
 
   .ui-heading--6xl {
-    font-size: var(--text-6xl);
+    font-size: var(--fs-hero);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
   }
 </style>

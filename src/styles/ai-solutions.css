@@ -31,28 +31,28 @@
 }
 
 .expertise-badge-text {
-    font-size: var(--text-xs);
-    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    font-weight: var(--fw-extrabold);
     color: var(--brand-teal-deep);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
 }
 
 .solutions-title {
-    font-size: clamp(2.2rem, 4vw, 3.25rem);
-    font-weight: 800;
-    line-height: 1.15;
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-heading);
     color: var(--text-primary);
     margin-bottom: var(--space-5);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--ls-heading);
 }
 
 .solutions-subtitle {
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    font-size: var(--fs-lead);
     color: var(--text-secondary);
     max-width: 720px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: var(--lh-body);
 }
 
 /* Solutions Cards Grid */
@@ -175,12 +175,12 @@
 
 .card-index {
     font-family: var(--font-mono, monospace);
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: var(--fs-stat-sm);
+    font-weight: var(--fw-extrabold);
     line-height: 1;
     color: var(--text-primary);
     opacity: 0.12;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--ls-heading);
     transition: opacity var(--motion-base), color var(--motion-base);
 }
 
@@ -190,17 +190,17 @@
 }
 
 .card-heading {
-    font-size: 1.15rem;
-    font-weight: 800;
+    font-size: var(--fs-card);
+    font-weight: var(--fw-bold);
     margin-bottom: var(--space-3);
     color: var(--text-primary);
     text-align: left;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--ls-snug);
 }
 
 .card-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: var(--fs-body-sm);
+    line-height: var(--lh-body);
     margin-bottom: var(--space-6);
     color: var(--text-secondary);
     flex-grow: 1;
@@ -212,8 +212,8 @@
     align-items: center;
     gap: 0.4rem;
     color: var(--brand-teal-deep);
-    font-weight: 700;
-    font-size: 0.9rem;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-body-sm);
     transition: color var(--motion-fast), gap var(--motion-fast);
     margin-top: auto;
 }

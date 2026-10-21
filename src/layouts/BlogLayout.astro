@@ -86,8 +86,8 @@ const breadcrumbSchema = {
     color:rgba(255,255,255,90%)
   }
   .key{
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-bold);
   }
   .input{
     border: solid 1px var(--text-secondary);
@@ -98,8 +98,8 @@ const breadcrumbSchema = {
   /* Blog Content Styling */
   #content {
     color: var(--text-primary);
-    font-size: 1.125rem;
-    line-height: 1.8;
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-relaxed);
   }
 
   #content :global(p) {
@@ -110,14 +110,20 @@ const breadcrumbSchema = {
     color: var(--text-primary);
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    font-weight: 700;
+    font-size: var(--fs-subsection);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
   }
 
   #content :global(h3) {
     color: var(--text-primary);
     margin-top: 2.5rem;
     margin-bottom: 1.25rem;
-    font-weight: 600;
+    font-size: var(--fs-card);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
   }
 
   #content :global(ul), #content :global(ol) {
@@ -152,7 +158,7 @@ const breadcrumbSchema = {
       <div class="row justify-content-between">
         <div class="col-lg-8 col-xl-8 pe-lg-4 pe-xl-0 pb-5">
           <!-- Post title + post meta -->
-          <h1 class="pb-2 pb-lg-3 " style="font-size: 2.5rem;">
+          <h1 class="h2 pb-2 pb-lg-3">
             {frontmatter.title}
           </h1>
           <div
@@ -176,7 +182,7 @@ const breadcrumbSchema = {
           </div>
 
           <!-- Post content -->
-          <p class="fs-lg pt-2 pt-sm-3 " style="font-size: 1.125rem;">
+          <p class="lead pt-2 pt-sm-3">
             {frontmatter.description}
 
           </p>
@@ -189,11 +195,11 @@ const breadcrumbSchema = {
 
           <!-- Tags -->
           <div class="d-flex flex-wrap pb-5 pt-3 pt-md-4 pt-xl-5 mt-xl-n2">
-            <h3 class=" py-1 mb-0 me-4 " style="font-size: 1rem; font-weight:400">Relevant tags:</h3>
+            <h3 class="h6 py-1 mb-0 me-4">Relevant tags:</h3>
             {
               frontmatter.tags.map((tag:any)=>{
                 return (
-                <span class="nav-link fs-sm py-1 px-0 me-3 " style="font-size:0.875rem; font-weight:700;">
+                <span class="nav-link fs-sm fw-bold py-1 px-0 me-3">
                   <span class="">#</span>{tag}
                 </span>
                 )
@@ -212,8 +218,8 @@ const breadcrumbSchema = {
               />
               <div class="d-md-flex w-100 ps-4">
                 <div style="max-width: 26rem;">
-                  <h3 class="mb-2 " style="font-size:1.25rem; font-weight: 400;">{author_data.name}</h3>
-                  <p class="fs-sm mb-0 " style="font-size: 0.875rem; font-weight: 400;">
+                  <h3 class="h5 mb-2">{author_data.name}</h3>
+                  <p class="fs-sm mb-0">
                     {author_data.description}
                   </p>
                 </div>

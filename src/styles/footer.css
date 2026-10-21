@@ -24,9 +24,9 @@
 }
 
 .footer-brand-desc {
-  font-size: 0.875rem;
+  font-size: var(--fs-body-sm);
   color: #475569;
-  line-height: 1.6;
+  line-height: var(--lh-body);
   margin-bottom: 1.5rem;
   max-width: 280px;
 }
@@ -36,8 +36,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
   color: #059669;
   background-color: #ecfdf5;
   padding: 0.35rem 0.75rem;
@@ -106,17 +106,18 @@
 }
 
 .footer-social-link i {
-  font-size: 1.1rem;
+  font-size: var(--fs-icon);
 }
 
 /* Navigation Columns styling */
 .footer-title {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--ls-eyebrow);
   color: #0f172a;
   margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
 .footer-list {
@@ -129,10 +130,10 @@
 }
 
 .footer-link {
-  font-size: 0.875rem;
+  font-size: var(--fs-body-sm);
   color: #475569;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   display: inline-block;
   transition: color var(--motion-base);
 }
@@ -158,14 +159,14 @@
 }
 
 .footer-copyright {
-  font-size: 0.85rem;
+  font-size: var(--fs-caption);
   color: #64748b;
 }
 
 .footer-copyright a {
   color: #475569;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   transition: color var(--motion-base);
 }
 
@@ -174,8 +175,8 @@
 }
 
 .back-to-top-link {
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
   color: #64748b;
   text-decoration: none;
   display: inline-flex;

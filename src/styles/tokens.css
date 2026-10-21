@@ -4,6 +4,15 @@
   --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   
 
+  /* ------------------------------------------------------------------
+     TYPOGRAPHY
+     One scale for the whole site. Every heading, lead, body and label
+     resolves to one of the role tokens below, so the same kind of text
+     is the same size and weight no matter which page it lives on.
+
+     Raw step scale - prefer the role tokens further down. These stay
+     for non-semantic sizing (icons, SVG labels, decorative numbers).
+     ------------------------------------------------------------------ */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -15,13 +24,69 @@
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
+  /* Role tokens - fluid, so a heading never needs its own clamp().
+     fs-hero        page <h1> / hero headline (one per page)
+     fs-section     section headline <h2>
+     fs-subsection  sub-section headline <h3>
+     fs-card        card / list-item headline <h4>
+     fs-title-sm    compact card headline <h5>
+     fs-stat        display figure (price, step number, big metric)
+     fs-lead        hero + section standfirst paragraph
+     fs-body-lg     emphasised body copy
+     fs-body        default body copy
+     fs-body-sm     dense body copy inside cards
+     fs-caption     meta, captions, helper text
+     fs-eyebrow     uppercase kicker above a headline, pill labels
+     fs-micro       uppercase micro labels inside diagrams */
+  --fs-hero: clamp(2.5rem, 1.62rem + 3.5vw, 4rem);
+  --fs-section: clamp(2rem, 1.55rem + 1.85vw, 2.875rem);
+  --fs-subsection: clamp(1.5rem, 1.31rem + 0.75vw, 1.875rem);
+  --fs-card: clamp(1.2rem, 1.14rem + 0.28vw, 1.35rem);
+  --fs-title-sm: 1.0625rem;
+  --fs-stat: clamp(2.5rem, 1.9rem + 2.4vw, 3.5rem);
+  --fs-stat-sm: 1.5rem;
+  --fs-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-body-sm: 0.9375rem;
+  --fs-caption: 0.8125rem;
+  --fs-eyebrow: 0.75rem;
+  --fs-micro: 0.6875rem;
+  /* Decorative serif quote glyph - not part of the reading scale. */
+  --fs-quote-mark: 3.5rem;
+  /* Inline icon-font glyphs sitting on a line of body copy. */
+  --fs-icon: 1.125rem;
 
-  --line-height-tight: 1.2;
-  --line-height-base: 1.6;
-  --line-height-relaxed: 1.8;
+  /* Weights. Manrope is loaded at 200-800, so 800 is the heaviest real
+     face - anything above it is synthesised and looks muddy. */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Legacy aliases, kept so older rules keep resolving. */
+  --font-weight-regular: var(--fw-regular);
+  --font-weight-medium: var(--fw-medium);
+  --font-weight-bold: var(--fw-bold);
+
+  /* Line heights, paired with the role tokens above. */
+  --lh-hero: 1.08;
+  --lh-heading: 1.18;
+  --lh-snug: 1.35;
+  --lh-body: 1.65;
+  --lh-relaxed: 1.8;
+
+  --line-height-tight: var(--lh-heading);
+  --line-height-base: var(--lh-body);
+  --line-height-relaxed: var(--lh-relaxed);
+
+  /* Tracking. Large type gets tighter, small uppercase type wider. */
+  --ls-hero: -0.03em;
+  --ls-heading: -0.025em;
+  --ls-snug: -0.015em;
+  --ls-normal: 0;
+  --ls-eyebrow: 0.14em;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

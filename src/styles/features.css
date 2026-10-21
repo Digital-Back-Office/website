@@ -49,26 +49,26 @@
 }
 
 .features-badge-text {
-    font-size: 10px;
-    font-weight: 700;
+    font-size: var(--fs-eyebrow);
+    font-weight: var(--fw-extrabold);
     color: var(--brand-teal-alt);
-    letter-spacing: 0.08em;
+    letter-spacing: var(--ls-eyebrow);
     text-transform: uppercase;
 }
 
 .features-title {
-    font-size: clamp(2.2rem, 4vw, 3.25rem);
-    font-weight: 800;
-    line-height: 1.15;
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-heading);
     color: #ffffff;
     margin-bottom: var(--space-4);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--ls-heading);
 }
 
 .features-desc {
-    font-size: var(--text-base);
+    font-size: var(--fs-lead);
     color: rgba(255, 255, 255, 0.65);
-    line-height: 1.6;
+    line-height: var(--lh-body);
 }
 
 .features-title-box {
@@ -162,17 +162,17 @@
 }
 
 .card-title-text {
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: var(--fs-card);
+    font-weight: var(--fw-bold);
     color: #ffffff;
     margin-bottom: var(--space-3);
-    letter-spacing: -0.01em;
+    letter-spacing: var(--ls-snug);
 }
 
 .card-desc-text {
-    font-size: var(--text-sm);
+    font-size: var(--fs-body-sm);
     color: rgba(255, 255, 255, 0.6);
-    line-height: 1.6;
+    line-height: var(--lh-body);
     margin-bottom: 0;
 }
 
@@ -220,7 +220,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 8px;
+    font-size: var(--fs-micro);
     color: rgba(255, 255, 255, 0.4);
     font-family: monospace;
     transition: all var(--motion-base);

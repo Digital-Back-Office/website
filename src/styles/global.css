@@ -22,6 +22,128 @@ p, a, span {
     font-family: var(--font-sans);
 }
 
+/* ==========================================================================
+   TYPOGRAPHY BASE
+   The Bootstrap/Around theme (theme.min.css) ships its own heading scale at
+   weight 600 with a static size per level, and it loads before this file.
+   Anything that did not carry a bespoke class inherited that scale, which is
+   why the same kind of heading rendered differently from page to page.
+   These rules re-point every heading level - element AND the .h1-.h6 utility
+   classes the markup uses on off-level tags - at the shared role tokens.
+   ========================================================================== */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    color: var(--text-primary);
+    text-wrap: balance;
+}
+
+h1, .h1 {
+    font-size: var(--fs-hero);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
+}
+
+h2, .h2 {
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
+}
+
+h3, .h3 {
+    font-size: var(--fs-subsection);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
+}
+
+h4, .h4 {
+    font-size: var(--fs-card);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
+}
+
+h5, .h5 {
+    font-size: var(--fs-title-sm);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-snug);
+}
+
+h6, .h6 {
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--ls-normal);
+}
+
+/* The theme's display classes are used on a handful of heroes and section
+   titles. Fold them into the same two sizes rather than a parallel scale. */
+.display-1, .display-2, .display-3, .display-4 {
+    font-size: var(--fs-hero);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-hero);
+    letter-spacing: var(--ls-hero);
+}
+
+.display-5, .display-6 {
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
+}
+
+/* Body copy and the theme's size utilities, aligned to the same steps so a
+   .fs-sm label and a card paragraph are never a few pixels apart. */
+p {
+    line-height: var(--lh-body);
+}
+
+.lead {
+    font-size: var(--fs-lead) !important;
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-body);
+}
+
+.fs-xs { font-size: var(--fs-caption) !important; }
+.fs-sm { font-size: var(--fs-body-sm) !important; }
+.fs-base { font-size: var(--fs-body) !important; }
+.fs-lg { font-size: var(--fs-body-lg) !important; }
+
+/* ---- Shared type roles -------------------------------------------------
+   Reusable classes for the three patterns that repeat on every page, so new
+   sections do not have to invent their own sizes again. ------------------ */
+.eyebrow,
+.section-eyebrow {
+    font-size: var(--fs-eyebrow);
+    font-weight: var(--fw-extrabold);
+    line-height: 1.2;
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--brand-teal-deep);
+}
+
+.section-title {
+    font-size: var(--fs-section);
+    font-weight: var(--fw-extrabold);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-heading);
+    color: var(--text-primary);
+}
+
+.section-lead {
+    font-size: var(--fs-lead);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-body);
+    color: var(--text-secondary);
+}
+
 .cm__body{
     background-color: var(--bg-base) !important;
     width: 100%;
@@ -61,8 +183,8 @@ background-color: var(--bg-base);
 color: var(--text-primary);
 border-radius: var(--radius-xl);
 padding: 1rem 2.5rem;
-font-size: 1.2rem;
-font-weight: 500;
+font-size: var(--fs-body-lg);
+font-weight: var(--fw-semibold);
 border: solid 1px var(--brand-cyan);
 }
 
@@ -75,12 +197,6 @@ border: solid 1px var(--brand-cyan);
 }
 .nav-link {
     color: var(--text-primary);
-}
-
-#contact-button {
-    border-radius: 7px;
-    padding: 0.5rem 1.5rem !important;
-    font-size: 3.375rem !important;
 }
 
 .primary-button {
@@ -113,8 +229,8 @@ border: solid 1px var(--brand-cyan);
 }
 
 .nav-links {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-semibold);
 }
 
 .active-link{

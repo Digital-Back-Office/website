@@ -18,11 +18,11 @@
 }
 
 .contact-title {
-  font-size: clamp(2.5rem, 4.5vw, 3.25rem);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: var(--fs-section);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-heading);
   color: #0f172a;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--ls-heading);
   margin-bottom: 1rem;
 }
 
@@ -33,10 +33,11 @@
 }
 
 .contact-desc {
-  font-size: 1.125rem;
+  font-size: var(--fs-lead);
   color: #475569;
-  line-height: 1.6;
+  line-height: var(--lh-body);
   margin-bottom: 0;
+  font-weight: var(--fw-regular);
 }
 
 /* Form Container - Blends directly into background */
@@ -48,9 +49,10 @@
 }
 
 .contact-form-subtitle {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   color: #64748b;
   margin-bottom: 2rem;
+  line-height: var(--lh-body);
 }
 
 /* Form inputs styling */
@@ -59,13 +61,14 @@
 }
 
 .contact-form .form-label {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--ls-eyebrow);
   color: #475569;
   margin-bottom: 0.65rem;
   display: block;
+  line-height: 1.2;
 }
 
 .contact-form .form-control {
@@ -74,7 +77,7 @@
   border-radius: 12px;
   color: #0f172a;
   padding: 0.85rem 1.15rem;
-  font-size: 0.95rem;
+  font-size: var(--fs-body-sm);
   width: 100%;
   transition: 
     border-color var(--motion-base),
@@ -94,10 +97,10 @@
 }
 
 .contact-form .invalid-feedback {
-  font-size: 0.825rem;
+  font-size: var(--fs-caption);
   color: #dc2626;
   margin-top: 0.5rem;
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 
 /* Submit Button */
@@ -106,8 +109,8 @@
   border: none;
   border-radius: 12px;
   color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-bold);
   padding: 1rem 2rem;
   cursor: pointer;
   width: 100%;
@@ -161,8 +164,8 @@
   border: 1.5px solid #e2e8f0;
   border-radius: 10px;
   padding: 0.5rem 0.85rem;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
   color: #0f172a;
   display: flex;
   align-items: center;
@@ -229,11 +232,12 @@
 }
 
 .core-label {
-  font-size: 0.75rem;
-  font-weight: 800;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--ls-eyebrow);
   color: #475569;
+  line-height: 1.2;
 }
 
 /* Right Side Dashboard Widget Card */
@@ -260,18 +264,19 @@
 }
 
 .insights-badge {
-  font-size: 0.65rem;
-  font-weight: 800;
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-extrabold);
   color: var(--brand-cyan);
   background: rgba(48, 186, 186, 0.08);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
 }
 
 .insights-value {
-  font-size: 0.85rem;
-  font-weight: 800;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-extrabold);
   color: #0f172a;
 }
 
@@ -303,15 +308,15 @@
 }
 
 .insights-metric {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
   color: #0f172a;
 }
 
 .insights-trend {
-  font-size: 0.65rem;
+  font-size: var(--fs-micro);
   color: #10b981;
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
 }
 
 /* Animating pipeline line keyframes */
