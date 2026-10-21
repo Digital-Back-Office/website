@@ -1,0 +1,39 @@
+---
+/**
+ * Stand-in for project artwork until real screenshots are supplied. Drawn
+ * rather than loaded so it costs no request and never 404s: a soft brand
+ * gradient, a faint isometric grid, and the client's monogram.
+ *
+ * A project that sets `cover_image` never renders this.
+ */
+export interface Props {
+  label: string;
+  class?: string;
+}
+
+const { label, class: className = "" } = Astro.props;
+const monogram = label.trim().charAt(0).toUpperCase();
+// Unique per instance so two placeholders on one page cannot collide on the
+// gradient/pattern ids.
+const uid = `ph-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class={`work-placeholder ${className}`.trim()} role="img" aria-label={`${label} - artwork coming soon`}>
+  <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id={`${uid}-bg`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="var(--brand-teal-alt)" stop-opacity="0.28" />
+        <stop offset="100%" stop-color="var(--brand-cyan)" stop-opacity="0.08" />
+      </linearGradient>
+      <pattern id={`${uid}-grid`} width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0v40" fill="none" stroke="var(--brand-teal-deep)" stroke-opacity="0.12" stroke-width="1" />
+      </pattern>
+    </defs>
+    <rect width="800" height="500" fill={`url(#${uid}-bg)`} />
+    <rect width="800" height="500" fill={`url(#${uid}-grid)`} />
+    <circle cx="640" cy="120" r="150" fill="var(--brand-teal-alt)" fill-opacity="0.14" />
+    <circle cx="150" cy="420" r="110" fill="var(--brand-cyan)" fill-opacity="0.1" />
+  </svg>
+  <span class="work-placeholder-monogram" aria-hidden="true">{monogram}</span>
+  <span class="work-placeholder-note" aria-hidden="true">Image coming soon</span>
+</div>

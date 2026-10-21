@@ -1,0 +1,273 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Contact from "../../components/common/Contact.astro";
+import MediaPlaceholder from "../../components/work/MediaPlaceholder.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import "../../styles/work.css";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const data = project.data;
+const { Content } = await project.render();
+
+// The markdown body is optional; rendering an empty <Content /> would still
+// print the section chrome around nothing.
+const hasBody = project.body.trim().length > 0;
+
+// Industry always leads the strip; the rest only appear when the file sets them.
+const facts = [
+  { label: "Industry", value: data.industry },
+  { label: "Project duration", value: data.duration },
+  { label: "Location", value: data.location },
+  { label: "Engineering", value: data.team.join(", ") },
+  ...data.facts
+].filter((fact) => Boolean(fact.value));
+
+// The three numbered blocks are numbered by what is actually present, so a
+// case study without a process section still reads 01, 02 rather than 01, 03.
+const numbered = [
+  data.challenge?.points.length
+    ? { title: data.challenge.points_title, items: data.challenge.points }
+    : null,
+  data.approach?.phases.length
+    ? { title: data.approach.title, items: data.approach.phases }
+    : null,
+  data.solution?.points.length
+    ? { title: data.solution.points_title, items: data.solution.points }
+    : null
+].filter((block): block is { title: string; items: { title: string; description: string }[] } =>
+  block !== null
+);
+---
+
+<Layout
+  title={`${data.title} - Case Study | Digital Back Office`}
+  description={data.description}
+  keywords={[data.industry, ...data.services, ...data.tech].join(", ")}
+  canonical={`/work/${project.slug}/`}
+  type="article"
+>
+  <main class="page-wrapper work-detail">
+    <section class="work-detail-hero">
+      <div class="container">
+        <nav class="work-detail-breadcrumb" aria-label="Breadcrumb">
+          <a href="/work/">Work</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{data.client}</span>
+        </nav>
+        <h1 class="work-detail-title">{data.title}</h1>
+        <p class="work-detail-tagline">{data.tagline}</p>
+      </div>
+    </section>
+
+    <div class="work-detail-media-wrap">
+      <div class="container">
+        <figure class="work-detail-media">
+          {data.cover_image ? (
+            <img
+              src={data.cover_image}
+              alt={data.cover_alt || `${data.client} platform`}
+              width="1200"
+              height="675"
+              decoding="async"
+            />
+          ) : (
+            <MediaPlaceholder label={data.client} />
+          )}
+        </figure>
+      </div>
+    </div>
+
+    <section class="work-intro">
+      <div class="container">
+        <p class="work-intro-text">{data.summary}</p>
+
+        {/* Facts run vertically beside the quote, both at a quieter size than
+            the summary above them. */}
+        <div class="work-intro-grid">
+          {facts.length > 0 && (
+            <dl class="work-facts">
+              {facts.map((fact) => (
+                <div class="work-fact">
+                  <dt class="work-fact-label">{fact.label}</dt>
+                  <dd class="work-fact-value">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+
+          {data.testimonial && (
+            <figure class="work-quote">
+              <blockquote class="work-quote-text">{data.testimonial.quote}</blockquote>
+              <figcaption class="work-quote-author">
+                {data.testimonial.image && (
+                  <img
+                    class="work-quote-avatar"
+                    src={data.testimonial.image}
+                    alt={data.testimonial.image_alt || (data.testimonial.name ? `${data.testimonial.name}, ${data.testimonial.role}` : data.testimonial.role)}
+                    width="96"
+                    height="96"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
+                <span class="work-quote-author-text">
+                  {data.testimonial.name && (
+                    <span class="work-quote-name">{data.testimonial.name}</span>
+                  )}
+                  <span class="work-quote-role">{data.testimonial.role}</span>
+                </span>
+              </figcaption>
+            </figure>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {data.challenge && (
+      <section class="work-story">
+        <div class="container">
+          <div class="work-story-grid">
+            <p class="work-story-eyebrow">Problem</p>
+            <div class="work-story-body">
+              <h2 class="work-story-title">{data.challenge.title}</h2>
+              <p class="work-story-text">{data.challenge.description}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {data.solution && (
+      <section class="work-story work-story--surface">
+        <div class="container">
+          <div class="work-story-grid">
+            <p class="work-story-eyebrow">Solution</p>
+            <div class="work-story-body">
+              <h2 class="work-story-title">{data.solution.title}</h2>
+              <p class="work-story-text">{data.solution.description}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {data.results && (
+      <section class="work-story">
+        <div class="container">
+          <div class="work-story-grid">
+            <p class="work-story-eyebrow">Results</p>
+            <div class="work-story-body">
+              <h2 class="work-story-title">{data.results.title}</h2>
+              <p class="work-story-text">{data.results.description}</p>
+              {data.results.points.length > 0 && (
+                <ul class="work-result-list">
+                  {data.results.points.map((point) => <li>{point}</li>)}
+                </ul>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {data.tech.length > 0 && (
+      <section class="work-tech">
+        <div class="container">
+          <h2 class="work-tech-title">Tech used</h2>
+          <ul class="work-tech-list">
+            {data.tech.map((item) => <li class="work-tech-item">{item}</li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    {data.about_client && (
+      <section class="work-story work-story--surface">
+        <div class="container">
+          <div class="work-story-grid">
+            <p class="work-story-eyebrow">About the client</p>
+            <div class="work-story-body">
+              <h2 class="work-story-title">{data.about_client.heading}</h2>
+              {data.about_client.body.map((paragraph) => (
+                <p class="work-story-text">{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {numbered.map((block, index) => (
+      <section class={`work-block ${index % 2 === 1 ? "work-block--surface" : ""}`.trim()}>
+        <div class="container">
+          <div class="work-block-head">
+            <span class="work-block-number" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h2 class="work-block-title">{block.title}</h2>
+          </div>
+          <div class="work-block-grid">
+            {block.items.map((item) => (
+              <article class="work-block-item">
+                <h3 class="work-block-item-title">{item.title}</h3>
+                <p class="work-block-item-text">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    {data.gallery.length > 0 && (
+      <section class="work-gallery-section">
+        <div class="container">
+          <div class="work-gallery">
+            {data.gallery.map((item) => (
+              <figure class="work-gallery-item">
+                <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                {item.caption && <figcaption>{item.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {hasBody && (
+      <section class="work-prose-section">
+        <div class="container">
+          <div class="work-prose">
+            <Content />
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="work-detail-back">
+      <div class="container">
+        <a class="work-back-link" href="/work/">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          All case studies
+        </a>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+</Layout>

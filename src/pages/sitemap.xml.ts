@@ -18,6 +18,7 @@ import { getCollection } from "astro:content";
 const STATIC_ROUTES: Array<{ path: string; changefreq: string; priority: string }> = [
   { path: "/", changefreq: "daily", priority: "1.0" },
   { path: "/services/", changefreq: "monthly", priority: "0.8" },
+  { path: "/work/", changefreq: "monthly", priority: "0.8" },
   { path: "/blog/1/", changefreq: "weekly", priority: "0.8" },
   { path: "/industry-insights/", changefreq: "weekly", priority: "0.8" },
   { path: "/events/", changefreq: "weekly", priority: "0.8" },
@@ -90,7 +91,14 @@ export const GET: APIRoute = async ({ site }) => {
     priority: "0.7",
   }));
 
-  const xmlRows = [...STATIC_ROUTES, ...serviceRoutes, ...industryRoutes, ...postRoutes]
+  const projects = await getCollection("projects");
+  const projectRoutes = projects.map((project) => ({
+    path: `/work/${project.slug}/`,
+    changefreq: "monthly",
+    priority: "0.7",
+  }));
+
+  const xmlRows = [...STATIC_ROUTES, ...serviceRoutes, ...industryRoutes, ...projectRoutes, ...postRoutes]
     .map((route) => urlRow(origin, route))
     .join("");
 

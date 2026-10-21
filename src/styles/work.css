@@ -1,0 +1,750 @@
+/* ===========================================================================
+   Work / case studies
+   Shared by /work/ (listing) and /work/<slug>/ (case study).
+
+   Layout follows the reference: a stack of large alternating project rows on
+   the listing, and a case study that opens on a full-bleed brand band, drops
+   the product shot across the seam, then runs Problem / Solution / Results
+   followed by three numbered blocks.
+
+   Mobile-first - single column until 768px/992px. Hover changes colour and
+   border only, never transform.
+   =========================================================================== */
+
+.work-page,
+.work-detail {
+  /* Transparent so the site-wide background artwork painted on <body> shows
+     through here as it does on every other page. */
+  background-color: var(--bg-base);
+}
+
+/* --------------------------------------------------------------------------
+   Shared placeholder panel (components/work/MediaPlaceholder.astro)
+   -------------------------------------------------------------------------- */
+
+.work-placeholder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  overflow: hidden;
+  background-color: var(--bg-contrast);
+}
+
+.work-placeholder svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.work-placeholder-monogram {
+  position: relative;
+  font-size: var(--fs-stat);
+  font-weight: var(--fw-extrabold);
+  line-height: 1;
+  color: var(--brand-teal-deep);
+  opacity: 0.55;
+  letter-spacing: var(--ls-hero);
+}
+
+.work-placeholder-note {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-glass-hover);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+  font-weight: var(--fw-medium);
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   Listing hero
+   -------------------------------------------------------------------------- */
+
+.work-hero {
+  /* Clears the 80px fixed navbar before the headline starts. */
+  padding: 200px 0 var(--space-16);
+  height: 90vh;
+}
+
+.work-hero-title {
+  margin: 0;
+  max-width: 16ch;
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
+  color: var(--text-primary);
+}
+
+.work-hero-subtitle {
+  margin: var(--space-6) 0 0;
+  max-width: 52ch;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  font-weight: var(--fw-regular);
+}
+
+/* --------------------------------------------------------------------------
+   Listing rows
+   -------------------------------------------------------------------------- */
+
+.work-listing {
+  padding: 0 0 var(--space-24);
+}
+
+.work-rows {
+  display: grid;
+  gap: var(--space-16);
+}
+
+.work-row {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .work-rows {
+    gap: var(--space-24);
+  }
+
+  .work-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-16);
+  }
+
+  /* Alternate which side the artwork sits on, without reordering the DOM. */
+  .work-row--flipped .work-row-media {
+    order: 2;
+  }
+}
+
+.work-row-media {
+  display: block;
+  /* Matches the 16:9 artwork so the frame does not crop it, and matches the
+     case study hero so a project looks the same in both places. */
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background-color: var(--bg-contrast);
+  transition: border-color var(--motion-fast);
+}
+
+.work-row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-row:hover .work-row-media {
+  border-color: var(--border-brand);
+}
+
+.work-row-client {
+  margin: 0;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--brand-teal-deep);
+  line-height: 1.2;
+}
+
+.work-row-title {
+  margin: var(--space-4) 0 0;
+  font-size: var(--fs-subsection);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+.work-row-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* The title is the row's only link, stretched over the whole row so the
+   artwork and the "See case study" label are clickable too, while keyboard
+   users still get a single stop per project. */
+.work-row-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-2xl);
+}
+
+.work-row-title a:hover {
+  color: var(--brand-teal-deep);
+}
+
+.work-row-title a:focus-visible {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.work-row-text {
+  margin: var(--space-4) 0 0;
+  max-width: 56ch;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+
+.work-row-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-row-tag {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-caption);
+  color: var(--text-secondary);
+}
+
+.work-row-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--brand-teal-deep);
+  line-height: 1.2;
+}
+
+.work-row:hover .work-row-link {
+  color: var(--brand-cyan-hover);
+}
+
+.work-empty {
+  margin: 0;
+  padding: var(--space-12);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Case study hero
+   -------------------------------------------------------------------------- */
+
+.work-detail-hero {
+  /* Plain page background: the artwork carries the colour, not the header. */
+  padding: var(--space-32) 0 var(--space-12);
+  text-align: center;
+}
+
+.work-detail-breadcrumb {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+}
+
+.work-detail-breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.work-detail-breadcrumb a:hover {
+  color: var(--brand-teal-deep);
+  text-decoration: underline;
+}
+
+.work-detail-title {
+  margin: var(--space-8) 0 0;
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-extrabold);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
+  color: var(--text-primary);
+}
+
+.work-detail-tagline {
+  margin: var(--space-5) auto 0;
+  max-width: 42ch;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  font-weight: var(--fw-regular);
+}
+
+.work-detail-media-wrap {
+  margin-top: 0;
+}
+
+/* Narrower than the container so the artwork sits as a framed shot on the
+   page rather than filling the full width. */
+.work-detail-media {
+  max-width: 880px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background-color: var(--bg-contrast);
+  box-shadow: var(--shadow-md);
+}
+
+.work-detail-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Intro + fact strip
+   -------------------------------------------------------------------------- */
+
+.work-intro {
+  padding: var(--space-12) 0 var(--space-16);
+}
+
+.work-intro-text {
+  margin: 0 auto;
+  max-width: 68ch;
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: var(--fw-regular);
+}
+
+/* Facts sit vertically beside the quote card. */
+.work-intro-grid {
+  display: grid;
+  gap: var(--space-10);
+  margin-top: var(--space-16);
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--border-subtle);
+}
+
+@media (min-width: 992px) {
+  .work-intro-grid {
+    grid-template-columns: 3fr 7fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+}
+
+.work-facts {
+  display: grid;
+  gap: var(--space-6);
+  margin: 0;
+}
+
+.work-fact-label {
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.work-fact-value {
+  margin: var(--space-1) 0 0;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Problem / Solution / Results
+   -------------------------------------------------------------------------- */
+
+.work-story {
+  padding: var(--space-16) 0;
+}
+
+.work-story--surface {
+  /* Tinted rather than opaque, so the background artwork still reads under
+     the alternating band. */
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-block: 1px solid var(--border-subtle);
+}
+
+.work-story-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 992px) {
+  .work-story-grid {
+    grid-template-columns: minmax(0, 0.3fr) minmax(0, 0.7fr);
+    gap: var(--space-16);
+  }
+}
+
+.work-story-eyebrow {
+  margin: 0;
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--brand-teal-deep);
+  line-height: 1.2;
+}
+
+.work-story-title {
+  margin: 0;
+  max-width: 26ch;
+  font-size: var(--fs-subsection);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--text-primary);
+}
+
+.work-story-text {
+  margin: var(--space-6) 0 0;
+  max-width: 68ch;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+
+.work-result-list {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 68ch;
+}
+
+.work-result-list li {
+  position: relative;
+  padding-left: var(--space-8);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+
+.work-result-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.45em;
+  width: 14px;
+  height: 8px;
+  border: 2px solid var(--brand-cyan);
+  border-top: 0;
+  border-right: 0;
+  transform: rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Tech used
+   -------------------------------------------------------------------------- */
+
+.work-tech {
+  padding: var(--space-16) 0;
+}
+
+.work-tech-title {
+  margin: 0 0 var(--space-6);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--brand-teal-deep);
+  line-height: 1.2;
+}
+
+.work-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-tech-item {
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-glass-hover);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Numbered blocks: challenges / process / key features
+   -------------------------------------------------------------------------- */
+
+.work-block {
+  padding: var(--space-16) 0;
+}
+
+.work-block--surface {
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-block: 1px solid var(--border-subtle);
+}
+
+.work-block-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-5);
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.work-block-number {
+  font-size: var(--fs-stat);
+  font-weight: var(--fw-extrabold);
+  line-height: 1;
+  color: var(--brand-teal-alt);
+  letter-spacing: var(--ls-hero);
+}
+
+.work-block-title {
+  margin: 0;
+  font-size: var(--fs-subsection);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  color: var(--text-primary);
+  letter-spacing: var(--ls-heading);
+}
+
+.work-block-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .work-block-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .work-block-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.work-block-item {
+  padding: var(--space-8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background-color: var(--bg-glass-hover);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.work-block-item-title {
+  margin: 0;
+  font-size: var(--fs-card);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+}
+
+.work-block-item-text {
+  margin: var(--space-3) 0 0;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Gallery, quote, markdown body, footer link
+   -------------------------------------------------------------------------- */
+
+.work-gallery-section,
+.work-prose-section {
+  padding: var(--space-16) 0;
+}
+
+.work-gallery {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .work-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.work-gallery-item {
+  margin: 0;
+}
+
+.work-gallery-item img {
+  width: 100%;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.work-gallery-item figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+}
+
+.work-quote {
+  margin: 0;
+  padding: var(--space-8);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--brand-cyan);
+  /* Square except the top right, so the card reads as a cut corner. */
+  border-radius: 0 var(--radius-lg) 0 0;
+  background-color: var(--bg-glass-hover);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Hard offset to the bottom left - a lifted card, not a blurred glow.
+     Grey slab, so the brand cyan reads only on the left rule. */
+  box-shadow: -16px 16px 0 0 var(--border-strong);
+}
+
+.work-quote-text {
+  margin: 0;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+}
+
+/* Decorative opening quote. The empty alt keeps it out of the accessible
+   name, so screen readers get the quotation itself and nothing extra. */
+.work-quote-text::before {
+  content: "\201C" / "";
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--fs-quote-mark);
+  line-height: 0.7;
+  color: var(--brand-cyan);
+}
+
+.work-quote-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+/* Headshot is optional; the name/role column reads the same without it. */
+.work-quote-avatar {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-subtle);
+}
+
+.work-quote-author-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.work-quote-name {
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  font-size: var(--fs-body);
+}
+
+.work-quote-role {
+  font-size: var(--fs-caption);
+  color: var(--text-muted);
+}
+
+
+.work-prose {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-secondary);
+}
+
+.work-prose h2 {
+  margin: var(--space-10) 0 var(--space-4);
+  font-size: var(--fs-subsection);
+  color: var(--text-primary);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+.work-prose h3 {
+  margin: var(--space-8) 0 var(--space-3);
+  font-size: var(--fs-card);
+  color: var(--text-primary);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+}
+
+.work-prose p {
+  margin: 0 0 var(--space-4);
+}
+
+.work-prose a {
+  color: var(--brand-teal-deep);
+}
+
+.work-detail-back {
+  padding: 0 0 var(--space-16);
+}
+
+.work-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--brand-teal-deep);
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.work-back-link:hover {
+  color: var(--brand-cyan-hover);
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-row-media {
+    transition: none;
+  }
+}

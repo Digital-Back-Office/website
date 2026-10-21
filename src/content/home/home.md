@@ -4,6 +4,14 @@ hero:
     title_part_2: 'AI'
     pill_text: 'AI-Powered Solutions'
     info: Turn complex data into actionable insights with custom AI solutions that automate decisions, improve efficiency, and accelerate growth.
+    trust:
+      label: 'Specialized in Enterprise Cloud & AI:'
+      items:
+        - 'Snowflake'
+        - 'AWS'
+        - 'Azure'
+        - 'GCP'
+        - 'Databricks'
 
 partners  :
   title: 'Our Partners'
@@ -191,15 +199,25 @@ tech:
 
 testimonials:
     - number: '1'
-      name: Anil Jwalanna
-      designation:  Chief Executive Officer
-      title: Awesome experience with a professional team. Thank you :)
-      desc: The biggest reason we engaged Digital Back Office was their knowledge and their expertise Big Data Architecture and DevOps. We started with their team on Architecture advisory and now use them across our complete data system.  We are really excited about working with Digital Back Office. 
+      name: Petru Cotarcea
+      designation: Founder, MuseCool
+      image: "/assets/images/projects/musecool/founder.webp"
+      image_alt: "Petru Cotarcea, Founder of MuseCool"
+      title: "Their depth of expertise is what got us ready for our next round of funding."
+      desc: "From AI to DevOps, they understood exactly what we needed, and brought real cost optimization into both. I honestly can't believe anyone else could have done this for us. What stood out most was how well they understood startup mindset. Everything moved fast, and delivery was always quick."
 
     - number: '2'
-      name: Eric Davis
-      designation:  SVP, Technology
-      title: Thanks to your talented team for the exceptional work!
-      desc: Thanks to the Digital Back Office team led by Anurag, we now have a robust and scalable data infrastructure. Our system feeds models and has strengthen our decision making capabilities. The team at Digital Back Office is exceptionally capable and responsive, they display confidence and leadership in the in building complex systems. 
+      name: Corey Kenny
+      designation: Co-Founder, Retail Cache
+      image: "/assets/images/projects/Retailcache/cofounder.webp"
+      image_alt: "Corey Kenny, Co-Founder of Retail Cache"
+      title: "A strong engineer who took our platform from prototype to production."
+      desc: "Fraud detection, real APIs, cloud infrastructure, all handled end to end by one person. Working across UK and India was seamless, quick decisions, no overhead. What stood out was having someone who thought about the product, not just the code."
+
+    - number: '3'
+      name: Founder
+      designation: MedCare360
+      title: "They did not just build what we asked for, they built the product we actually needed."
+      desc: "Their team took a very broad idea and turned it into four working surfaces, and what impressed us most was the discipline around patient data: every access rule, every consent boundary, every AI answer was designed to be safe first and clever second. It has been a genuine partnership, not a hand-off."
 
 ---

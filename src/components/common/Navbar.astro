@@ -78,6 +78,9 @@ import Button from "../ui/Button.astro";
           </ul>
         </li>
 
+        <li class={path.includes("/work") ? "nav-item active" : "nav-item"}>
+          <a href="/work/" title="Work" class={path.includes("/work") ? "nav-link nav-links active-link" : "nav-link nav-links"}>Work</a>
+        </li>
         <li class={path.includes("/about-us") ? "nav-item active" : "nav-item"}>
           <a href="/about-us/" title="About Us" class="nav-link nav-links">About Us</a>
         </li>
@@ -198,8 +201,8 @@ import Button from "../ui/Button.astro";
   }
 
   .navbar-nav .nav-link.nav-links {
-      font-size: 0.925rem !important;
-      font-weight: 600 !important;
+      font-size: var(--fs-body-sm) !important;
+      font-weight: var(--fw-semibold) !important;
       color: var(--text-secondary) !important;
       padding: 0.5rem 1rem !important;
       transition: all var(--motion-base) !important;
@@ -244,8 +247,8 @@ import Button from "../ui/Button.astro";
   }
 
   .navbar-nav .dropdown-menu .dropdown-item {
-      font-size: 0.875rem !important;
-      font-weight: 500 !important;
+      font-size: var(--fs-body-sm) !important;
+      font-weight: var(--fw-medium) !important;
       color: var(--text-secondary) !important;
       padding: 0.5rem 0.85rem !important;
       border-radius: var(--radius-md) !important;
@@ -295,7 +298,7 @@ import Button from "../ui/Button.astro";
       }
 
       .navbar-nav .nav-link.nav-links {
-          font-size: 0.95rem !important;
+          font-size: var(--fs-body-sm) !important;
           padding: 0.75rem 0.5rem !important;
           border-bottom: 1px solid var(--border-subtle);
           border-radius: 0;

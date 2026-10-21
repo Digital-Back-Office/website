@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Contact from "../../components/common/Contact.astro";
+import ProjectRow from "../../components/work/ProjectRow.astro";
+import { getCollection, getEntry } from "astro:content";
+import "../../styles/work.css";
+
+const page = await getEntry("work", "work");
+const data = page.data;
+
+const projects = (await getCollection("projects")).sort((a, b) => {
+  // Featured work leads the list; everything else falls back to `order`, then
+  // alphabetically so two files sharing an order never swap between builds.
+  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+  if (a.data.order !== b.data.order) return a.data.order - b.data.order;
+  return a.data.client.localeCompare(b.data.client);
+});
+---
+
+<Layout
+  title={data.seo.title}
+  description={data.seo.description}
+  keywords={data.seo.keywords}
+  canonical="/work/"
+>
+  <main class="page-wrapper work-page">
+    <section class="work-hero">
+      <div class="container">
+        <h1 class="work-hero-title">{data.hero.title}</h1>
+        <p class="work-hero-subtitle">{data.hero.subtitle}</p>
+      </div>
+    </section>
+
+    <section class="work-listing">
+      <div class="container">
+        {projects.length > 0 ? (
+          <div class="work-rows">
+            {projects.map((project, index) => (
+              <ProjectRow project={project} linkLabel={data.listing.link_label} index={index} />
+            ))}
+          </div>
+        ) : (
+          <p class="work-empty">{data.listing.empty_message}</p>
+        )}
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+</Layout>
