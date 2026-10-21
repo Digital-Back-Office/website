@@ -3,7 +3,7 @@ backend:
   name: github
   repo: Digital-Back-Office/website
   branch: master
-  # base_url: https://YOUR-OAUTH-PROXY.example.workers.dev  # REQUIRED for production login, see CLAUDE.md "Content editing"
+  auth_endpoint: admin/auth.html
 local_backend: true
 publish_mode: editorial_workflow
 media_folder: public/assets/images

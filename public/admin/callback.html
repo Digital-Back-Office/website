@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Signing in…</title>
+  </head>
+  <body>
+    <p id="status">Signing in…</p>
+    <script>
+      var hash = new URLSearchParams(location.hash.slice(1));
+      var token = hash.get("token");
+      var error = hash.get("error");
+      history.replaceState(null, "", location.pathname);
+
+      var message = token
+        ? "authorization:github:success:" + JSON.stringify({ token: token, provider: "github" })
+        : "authorization:github:error:" + JSON.stringify({ message: error || "GitHub login failed." });
+
+      var status = document.getElementById("status");
+      if (!window.opener) {
+        status.textContent = "This page only works inside the CMS login popup.";
+      } else {
+        status.textContent = token ? "Login successful, closing…" : "Login failed.";
+        window.addEventListener("message", function handler(e) {
+          if (e.origin !== location.origin || e.data !== "authorizing:github") return;
+          window.removeEventListener("message", handler);
+          window.opener.postMessage(message, location.origin);
+        });
+        window.opener.postMessage("authorizing:github", location.origin);
+      }
+    </script>
+  </body>
+</html>

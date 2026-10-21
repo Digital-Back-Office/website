@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <script>
+      var N8N_AUTH_URL = "https://n8n.dataflow.zone/webhook/decap-oauth/auth";
+      var params = new URLSearchParams(location.search);
+      params.set("origin", location.origin);
+      location.replace(N8N_AUTH_URL + "?" + params.toString());
+    </script>
+  </body>
+</html>
