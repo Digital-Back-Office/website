@@ -9,6 +9,19 @@ const schema = {
     acceptedAnswer: { "@type": "Answer", text: a },
   })),
 };
+
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function renderInlineMarkdown(str: string) {
+  return escapeHtml(str)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+}
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -16,7 +29,7 @@ const schema = {
   {items.map(({ q, a }) => (
     <details>
       <summary>{q}</summary>
-      <p>{a}</p>
+      <p set:html={renderInlineMarkdown(a)} />
     </details>
   ))}
 </div>
