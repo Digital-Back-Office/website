@@ -12,6 +12,16 @@ tags:
 date: "2026-10-21"
 ---
 import Quote from "../../components/blog/Quote.astro"
+import Faq from "../../components/blog/Faq.astro"
+export const faqs = [
+  { q: "What is Founders & AI?", a: "Founders & AI is a monthly in-person event series in London that helps early-stage UK startup founders make better decisions about AI and technology." },
+  { q: "Who should attend?", a: "Pre-seed and seed founders in the UK who are building a product, especially those deciding how to use AI, what to build in-house and what to buy." },
+  { q: "Is it free?", a: "Yes. Founders & AI is free to attend, with food and drinks provided. Registration is by approval and places are limited." },
+  { q: "Where is it held?", a: "At The Brew, Eagle House, 163 City Road, London EC1V 1NR, near Old Street station in Shoreditch." },
+  { q: "When is the first session?", a: "Thursday 29 October 2026, from 5:30 PM to 8:00 PM." },
+  { q: "Who is speaking?", a: "Anurag Jain, Founder of Digital Back Office & Dataflow, and Richard Simon, CTO of T-Systems International." },
+  { q: "How do I register?", a: "Register on Luma at luma.com/v3blfyij." }
+];
 export const quote = "The hard part of AI is no longer access. It’s knowing where to spend it.";
 
 <img src="/assets/images/blogs/announcing-founders-and-ai-event-series-for-early-stage-founders-in-london.webp" alt="Founders & AI Session 1: What to Buy, What to Build, What to Ignore" style="margin: 2.56rem auto; width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px;"/>
@@ -68,17 +78,5 @@ Places are limited. If you're an early-stage founder who wants to spend smarter 
 Know a founder who should be in the room? Send this their way.
 
 ## Frequently asked questions
-**What is Founders & AI?** Founders & AI is a monthly in-person event series in London that helps early-stage UK startup founders make better decisions about AI and technology.
 
-**Who should attend?** Pre-seed and seed founders in the UK who are building a product, especially those deciding how to use AI, what to build in-house and what to buy.
-
-**Is it free?** Yes. Founders & AI is free to attend, with food and drinks provided. Registration is by approval and places are limited.
-
-**Where is it held?** At The Brew, Eagle House, 163 City Road, London EC1V 1NR, near Old Street station in Shoreditch.
-
-**When is the first session?** Thursday 29 October 2026, from 5:30 PM to 8:00 PM.
-
-**Who is speaking?** Anurag Jain, Founder of Digital Back Office & Dataflow, and Richard Simon, CTO of T-Systems International.
-
-**How do I register?** Register on Luma at [luma.com/v3blfyij](https://luma.com/v3blfyij).
-
+<Faq items={faqs} />

@@ -1,0 +1,38 @@
+---
+const { items } = Astro.props as { items: { q: string; a: string }[] };
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<div class="blog-faq">
+  {items.map(({ q, a }) => (
+    <details>
+      <summary>{q}</summary>
+      <p>{a}</p>
+    </details>
+  ))}
+</div>
+
+<style>
+  .blog-faq details {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .blog-faq summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .blog-faq p {
+    margin: 0.75rem 0 0;
+  }
+</style>
