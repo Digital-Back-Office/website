@@ -1,5 +1,22 @@
 ---
+import { getEntry } from "astro:content";
 
+const Data = await getEntry("startups", "startups");
+const industries = Data.data.industries;
+
+// Decorative, index-keyed icons - not CMS fields, kept as-is; order must
+// match startups.md's industries.cards order.
+const icons = [
+  `<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M12 2L2 7h20L12 2z"></path><path d="M6 11v7M10 11v7M14 11v7M18 11v7"></path>`,
+  `<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>`,
+  `<path d="M2 20h20M20 20V8l-6 4V8l-6 4V4H4v16"></path>`,
+  `<circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>`,
+  `<line x1="18" y1="10" x2="18" y2="10.01"></line><line x1="12" y1="10" x2="12" y2="10.01"></line><line x1="6" y1="10" x2="6" y2="10.01"></line><line x1="18" y1="14" x2="18" y2="14.01"></line><line x1="12" y1="14" x2="12" y2="14.01"></line><line x1="6" y1="14" x2="6" y2="14.01"></line><rect x="2" y="2" width="20" height="20" rx="4" ry="4"></rect>`,
+  `<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>`,
+  `<path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>`,
+  `<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2a4 4 0 0 1 4 4v7a4 4 0 0 1-4 4 4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z"></path>`,
+  `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>`,
+];
 ---
 
 <section class="industry-verticals-section" id="industries">
@@ -11,376 +28,52 @@
       >
         <span
           class="eyebrow"
-          >Enterprise Verticals</span
+          >{industries.badge}</span
         >
       </div>
-      <h2 class="text-dark">Industries We Build For</h2>
+      <h2 class="text-dark">{industries.title}</h2>
       <p class="text-dark opacity-70 max-width-700 mx-auto">
-        Our engineering pods build bespoke AI workflows, secure data
-        architectures, and compliant software for founders across these sectors:
+        {industries.subtitle}
       </p>
     </div>
 
     <div class="row g-4 justify-content-center">
-      <!-- Fintech & Insurtech -->
-      <div class="col-lg-4 col-md-6">
-        <a href="/industry/finance-and-insurance/" class="industry-card-link">
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M12 2L2 7h20L12 2z"></path>
-                <path d="M6 11v7M10 11v7M14 11v7M18 11v7"></path>
-              </svg>
+      {industries.cards.map((card: any, index: number) => (
+        <div class="col-lg-4 col-md-6">
+          <a href={card.href} class="industry-card-link">
+            <div class="industry-vertical-card">
+              <div class="card-icon-container">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#2E9691"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  set:html={icons[index]}
+                />
+              </div>
+              <h3 class="h6 card-title">{card.title}</h3>
+              <div class="arrow-wrap">
+                <svg
+                  class="arrow-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#2E9691"
+                  stroke-width="2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
             </div>
-            <h3 class="h6 card-title">Fintech & Insurtech</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Healthcare & Life Sciences -->
-      <div class="col-lg-4 col-md-6">
-        <a href="/industry/healthcare-life-sciences/" class="industry-card-link">
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">Healthcare & Life Sciences</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Manufacturing & Energy -->
-      <div class="col-lg-4 col-md-6">
-        <a
-          href="/industry/industrials-manufacturing-and-energy/"
-          class="industry-card-link"
-        >
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M2 20h20M20 20V8l-6 4V8l-6 4V4H4v16"></path>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">Manufacturing & Energy</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Retail & E-Commerce -->
-      <div class="col-lg-4 col-md-6">
-        <a href="/industry/retail-and-e-commerce/" class="industry-card-link">
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="9" cy="21" r="1"></circle>
-                <circle cx="20" cy="21" r="1"></circle>
-                <path
-                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">Retail & E-Commerce</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Technology & Telecom -->
-      <div class="col-lg-4 col-md-6">
-        <a
-          href="/industry/technology-media-and-telecom/"
-          class="industry-card-link"
-        >
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="18" y1="10" x2="18" y2="10.01"></line>
-                <line x1="12" y1="10" x2="12" y2="10.01"></line>
-                <line x1="6" y1="10" x2="6" y2="10.01"></line>
-                <line x1="18" y1="14" x2="18" y2="14.01"></line>
-                <line x1="12" y1="14" x2="12" y2="14.01"></line>
-                <line x1="6" y1="14" x2="6" y2="14.01"></line>
-                <rect x="2" y="2" width="20" height="20" rx="4" ry="4"></rect>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">Technology & Telecom</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Real Estate & PropTech -->
-      <div class="col-lg-4 col-md-6">
-        <a href="/industry/real-estate/" class="industry-card-link">
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">Real Estate & PropTech</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Travel & Logistics -->
-      <div class="col-lg-4 col-md-6">
-        <a href="/industry/travel-and-hospitality/" class="industry-card-link">
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">Travel & Logistics</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Sports & Entertainment -->
-      <div class="col-lg-4 col-md-6">
-        <a href="/industry/sports-and-entertainment/" class="industry-card-link">
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"
-                ></path>
-                <path
-                  d="M12 2a4 4 0 0 1 4 4v7a4 4 0 0 1-4 4 4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">Sports & Entertainment</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- HR & Talent Tech -->
-      <div class="col-lg-4 col-md-6">
-        <a href="/industry/hr-and-talent-tech/" class="industry-card-link">
-          <div class="industry-vertical-card">
-            <div class="card-icon-container">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="h6 card-title">HR & Talent Tech</h3>
-            <div class="arrow-wrap">
-              <svg
-                class="arrow-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#2E9691"
-                stroke-width="2"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      ))}
     </div>
   </div>
 </section>

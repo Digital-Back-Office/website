@@ -1,4 +1,8 @@
 ---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("startups", "startups");
+const applyForm = Data.data.apply_form;
 ---
 
 <style>
@@ -129,8 +133,8 @@
       
       <!-- Standard Form Header -->
       <div id="form-header-block" class="text-center mb-4">
-        <h2 class="h2 text-dark">Apply for the Startup Offer</h2>
-        <p class="text-dark opacity-70">Tell us about your startup idea. Our engineering pod can deploy as fast as 48 hours.</p>
+        <h2 class="h2 text-dark">{applyForm.title}</h2>
+        <p class="text-dark opacity-70">{applyForm.subtitle}</p>
       </div>
 
       <!-- Visually Stunning Success Acknowledgement (Initially Hidden) -->
@@ -141,12 +145,12 @@
             <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
           </svg>
         </div>
-        <h3 class="h3 text-dark mb-3">Application Received!</h3>
+        <h3 class="h3 text-dark mb-3">{applyForm.success_title}</h3>
         <p class="text-dark opacity-80 mb-4 fs-sm">
-          Thank you for applying. Our Tech Lead will review your challenge and reach out within 24 hours to schedule your scoping session.
+          {applyForm.success_text}
         </p>
         <button id="btn-submit-another" class="btn btn-outline-primary rounded-pill btn-sm px-4" style="border-color: rgba(82, 206, 199, 0.4); color: #2E9691;">
-          Submit Another Request
+          {applyForm.submit_another_text}
         </button>
       </div>
 
@@ -217,7 +221,7 @@
             type="submit"
             style="background: linear-gradient(135deg, #52CEC7 0%, #3BA9A3 100%); border: none; color: #fff;"
           >
-            Submit Startup Application
+            {applyForm.button_text}
           </button>
         </div>
       </form>

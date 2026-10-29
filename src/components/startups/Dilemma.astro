@@ -1,5 +1,8 @@
 ---
+import { getEntry } from "astro:content";
 
+const Data = await getEntry("startups", "startups");
+const dilemma = Data.data.dilemma;
 ---
 
 <section class="dilemma-section" id="dilemma">
@@ -11,15 +14,14 @@
       >
         <span
           class="eyebrow"
-          >In-House vs. DBO Engineering Team</span
+          >{dilemma.badge}</span
         >
       </div>
       <h2 class="text-dark">
-        Engineering Team vs. In-House Hiring: Full Comparison
+        {dilemma.title}
       </h2>
       <p class="text-dark opacity-70 max-width-700 mx-auto">
-        See how a dedicated engineering pod compares to an in-house team across
-        cost, speed, and flexibility.
+        {dilemma.subtitle}
       </p>
     </div>
 
@@ -35,121 +37,38 @@
           </div>
           <div class="comparison-cell cell-inhouse">
             <div class="header-subtitle text-dark opacity-40">
-              The Traditional Way
+              {dilemma.inhouse_subtitle}
             </div>
-            <div class="header-title text-dark">Hiring In-House</div>
+            <div class="header-title text-dark">{dilemma.inhouse_title}</div>
           </div>
           <div class="comparison-cell cell-pod">
             <div
               class="header-subtitle text-primary"
               style="color: #2E9691 !important;"
             >
-              The Agile Solution
+              {dilemma.pod_subtitle}
             </div>
-            <div class="header-title text-dark">DBO Engineering Team</div>
+            <div class="header-title text-dark">{dilemma.pod_title}</div>
           </div>
         </div>
 
-        <!-- Row 1: Monthly Cost -->
-        <div class="comparison-row">
-          <div class="comparison-row-content">
-            <div class="comparison-cell cell-feature">
-              <span>Monthly cost</span>
-            </div>
-            <div class="comparison-cell cell-inhouse">
-              <div class="value-highlight text-coral">£25k+/month</div>
-              <div class="value-sub">Salaries, tax, benefits & agency fees</div>
-            </div>
-            <div class="comparison-cell cell-pod">
-              <div class="value-highlight text-cyan">From £2,500/month</div>
-              <div class="value-sub">Flat fee, all-inclusive</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2: Time to start -->
-        <div class="comparison-row">
-          <div class="comparison-row-content">
-            <div class="comparison-cell cell-feature">
-              <span>Time to start</span>
-            </div>
-            <div class="comparison-cell cell-inhouse">
-              <div class="value-highlight text-coral">3-6 months</div>
-              <div class="value-sub">
-                Sourcing, interviewing, vetting, notice periods
+        {dilemma.rows.map((row: any) => (
+          <div class="comparison-row">
+            <div class="comparison-row-content">
+              <div class="comparison-cell cell-feature">
+                <span>{row.feature}</span>
               </div>
-            </div>
-            <div class="comparison-cell cell-pod">
-              <div class="value-highlight text-cyan">48 hours</div>
-              <div class="value-sub">Vetted pod ready to build immediately</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 3: What you manage -->
-        <div class="comparison-row">
-          <div class="comparison-row-content">
-            <div class="comparison-cell cell-feature">
-              <span>What you manage</span>
-            </div>
-            <div class="comparison-cell cell-inhouse">
-              <div class="value-highlight text-coral">
-                4+ specialists individually
+              <div class="comparison-cell cell-inhouse">
+                <div class="value-highlight text-coral">{row.inhouse_value}</div>
+                <div class="value-sub">{row.inhouse_sub}</div>
               </div>
-              <div class="value-sub">Developers, designers, DevOps</div>
-            </div>
-            <div class="comparison-cell cell-pod">
-              <div class="value-highlight text-cyan">
-                One team, one point of contact
-              </div>
-              <div class="value-sub">A dedicated Tech Lead</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 4: Risk -->
-        <div class="comparison-row">
-          <div class="comparison-row-content">
-            <div class="comparison-cell cell-feature">
-              <span>Risk</span>
-            </div>
-            <div class="comparison-cell cell-inhouse">
-              <div class="value-highlight text-coral">
-                Recruitment & churn risk
-              </div>
-              <div class="value-sub">
-                Recruitment risk, severance costs, bad hires, talent churn
-              </div>
-            </div>
-            <div class="comparison-cell cell-pod">
-              <div class="value-highlight text-cyan">
-                Cancel-anytime subscription
-              </div>
-              <div class="value-sub">Zero long-term commitment</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 5: Delivery -->
-        <div class="comparison-row">
-          <div class="comparison-row-content">
-            <div class="comparison-cell cell-feature">
-              <span>Delivery</span>
-            </div>
-            <div class="comparison-cell cell-inhouse">
-              <div class="value-highlight text-coral">You assign tasks</div>
-              <div class="value-sub">
-                You assign tasks, run QA, track timelines
-              </div>
-            </div>
-            <div class="comparison-cell cell-pod">
-              <div class="value-highlight text-cyan">We manage delivery</div>
-              <div class="value-sub">
-                Agile sprints, automated testing, continuous updates
+              <div class="comparison-cell cell-pod">
+                <div class="value-highlight text-cyan">{row.pod_value}</div>
+                <div class="value-sub">{row.pod_sub}</div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>

@@ -902,3 +902,144 @@ collections:
         modes:
           - raw
         hint: 'MDX: keep the import/export lines and JSX components exactly as they are.'
+  - name: startups_page
+    label: Startups page
+    description: Page copy for /startups/. Form field labels and the Google Form wiring in ApplyForm.astro are not editable here (business logic, not content).
+    files:
+      - label: Startups page
+        name: startups
+        file: src/content/startups/startups.md
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title part 1, name: title_part_1, widget: string}
+              - {label: Title part 2, name: title_part_2, widget: string}
+              - {label: Description, name: description, widget: text}
+              - {label: Email placeholder, name: email_placeholder, widget: string}
+              - {label: Button text, name: button_text, widget: string}
+              - {label: Link text, name: link_text, widget: string}
+          - label: Dilemma
+            name: dilemma
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - {label: In-house column subtitle, name: inhouse_subtitle, widget: string}
+              - {label: In-house column title, name: inhouse_title, widget: string}
+              - {label: Pod column subtitle, name: pod_subtitle, widget: string}
+              - {label: Pod column title, name: pod_title, widget: string}
+              - label: Rows
+                name: rows
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Feature, name: feature, widget: string}
+                  - {label: In-house value, name: inhouse_value, widget: string}
+                  - {label: In-house sub-text, name: inhouse_sub, widget: string}
+                  - {label: Pod value, name: pod_value, widget: string}
+                  - {label: Pod sub-text, name: pod_sub, widget: string}
+                summary: '{{fields.feature}}'
+          - label: Capabilities
+            name: capabilities
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: text}
+                summary: '{{fields.title}}'
+          - label: Industries
+            name: industries
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - label: Cards
+                name: cards
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Href, name: href, widget: string}
+                summary: '{{fields.title}}'
+          - label: How it works
+            name: how_it_works
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - label: Steps
+                name: steps
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Phase, name: phase, widget: string}
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: text}
+                summary: '{{fields.title}}'
+          - label: Pricing
+            name: pricing
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - {label: Package label, name: package_label, widget: string}
+              - {label: Plan title, name: plan_title, widget: string}
+              - {label: Currency, name: currency, widget: string}
+              - {label: Amount, name: amount, widget: string}
+              - {label: Period, name: period, widget: string}
+              - {label: Savings text, name: savings_text, widget: string}
+              - {label: Description, name: description, widget: text}
+              - {label: Features label, name: features_label, widget: string}
+              - label: Features
+                name: features
+                widget: list
+                collapsed: true
+                field: {label: Item, name: item, widget: string}
+              - {label: Cta text, name: cta_text, widget: string}
+              - {label: Footer text, name: footer_text, widget: text}
+          - label: Faq
+            name: faq
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Badge, name: badge, widget: string}
+              - {label: Title, name: title, widget: string}
+              - label: Items
+                name: items
+                widget: list
+                collapsed: true
+                fields:
+                  - {label: Question, name: question, widget: string}
+                  - {label: Answer, name: answer, widget: text}
+                summary: '{{fields.question}}'
+          - label: Apply form
+            name: apply_form
+            widget: object
+            collapsed: true
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Subtitle, name: subtitle, widget: text}
+              - {label: Success title, name: success_title, widget: string}
+              - {label: Success text, name: success_text, widget: text}
+              - {label: Submit another text, name: submit_another_text, widget: string}
+              - {label: Button text, name: button_text, widget: string}

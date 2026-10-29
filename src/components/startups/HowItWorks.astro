@@ -1,5 +1,15 @@
 ---
+import { getEntry } from "astro:content";
 
+const Data = await getEntry("startups", "startups");
+const howItWorks = Data.data.how_it_works;
+
+// Decorative, index-keyed icons - not CMS fields, kept as-is.
+const icons = [
+  `<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline>`,
+  `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>`,
+  `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>`,
+];
 ---
 
 <section class="how-it-works" id="how-it-works">
@@ -11,97 +21,41 @@
       >
         <span
           class="eyebrow"
-          >Our Process</span
+          >{howItWorks.badge}</span
         >
       </div>
-      <h2 class="text-dark">How We Work With Founders: 3-Phase Process</h2>
+      <h2 class="text-dark">{howItWorks.title}</h2>
       <p class="text-dark opacity-70 max-width-600 mx-auto">
-        Our structured process guarantees you launch an enterprise-grade product
-        rapidly.
+        {howItWorks.subtitle}
       </p>
     </div>
 
     <div class="row how-it-works-row g-4">
-      <div class="col-lg-4">
-        <div class="step-card">
-          <div class="step-large-num">01</div>
-          <div class="step-icon-container">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#2E9691"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-              <polyline points="2 17 12 22 22 17"></polyline>
-              <polyline points="2 12 12 17 22 12"></polyline>
-            </svg>
+      {howItWorks.steps.map((step: any, index: number) => (
+        <div class="col-lg-4">
+          <div class="step-card">
+            <div class="step-large-num">{String(index + 1).padStart(2, "0")}</div>
+            <div class="step-icon-container">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#2E9691"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                set:html={icons[index]}
+              />
+            </div>
+            <span class="step-badge">{step.phase}</span>
+            <h3 class="h4 text-dark mb-3">{step.title}</h3>
+            <p class="text-dark opacity-70 mb-0">
+              {step.description}
+            </p>
           </div>
-          <span class="step-badge">Phase 01</span>
-          <h3 class="h4 text-dark mb-3">Scoping & Architecture</h3>
-          <p class="text-dark opacity-70 mb-0">
-            We map features, choose your database structure, and outline cloud
-            server specs.
-          </p>
         </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="step-card">
-          <div class="step-large-num">02</div>
-          <div class="step-icon-container">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#2E9691"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-            </svg>
-          </div>
-          <span class="step-badge">Phase 02</span>
-          <h3 class="h4 text-dark mb-3">Team Onboarding & Sprints</h3>
-          <p class="text-dark opacity-70 mb-0">
-            Designers and developers deploy instantly; bi-weekly Agile sprints
-            with full visibility and daily updates.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="step-card">
-          <div class="step-large-num">03</div>
-          <div class="step-icon-container">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#2E9691"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-          </div>
-          <span class="step-badge">Phase 03</span>
-          <h3 class="h4 text-dark mb-3">Production & Handover</h3>
-          <p class="text-dark opacity-70 mb-0">
-            We build your automated pipeline, push the product to live servers
-            (AWS/Azure/GCP), and hand over complete technical documentation.
-          </p>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
