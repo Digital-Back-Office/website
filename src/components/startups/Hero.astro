@@ -1,4 +1,8 @@
 ---
+import { getEntry } from "astro:content";
+
+const Data = await getEntry("startups", "startups");
+const hero = Data.data.hero;
 ---
 
 <section class="startup-hero">
@@ -6,28 +10,26 @@
     <div class="container position-relative">
       <div class="row align-items-center g-5">
         <div class="col-lg-5 text-start">
-          <div class="hero-badge">AI-Native Engineering Pods</div>
+          <div class="hero-badge">{hero.badge}</div>
           <h1 class="text-dark mb-4">
-            Dedicated Engineering Team for <span class="gradient-text"
-              >Startups</span
+            {hero.title_part_1} <span class="gradient-text"
+              >{hero.title_part_2}</span
             >
           </h1>
           <p class="fs-lg text-dark opacity-90 mb-4">
-            A fully managed engineering team of developers, designers, and DevOps
-            engineers, led by a dedicated Tech Lead. Deploy in 48 hours with no
-            hiring overhead.
+            {hero.description}
           </p>
 
           <form id="hero-cta-form" class="hero-cta-form-container">
             <input
               type="email"
               id="hero-cta-email"
-              placeholder="Enter your work email"
+              placeholder={hero.email_placeholder}
               required
               class="form-control hero-cta-input px-4"
             />
             <button type="submit" class="hero-cta-button">
-              Apply Now
+              {hero.button_text}
               <svg
                 width="14"
                 height="14"
@@ -49,7 +51,7 @@
               class="text-dark opacity-70 hover-opacity-100 text-decoration-none fs-sm d-inline-flex align-items-center"
               style="transition: opacity 0.2s ease;"
             >
-              How It Works
+              {hero.link_text}
               <svg
                 class="ms-1"
                 width="14"

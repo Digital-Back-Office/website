@@ -1,5 +1,8 @@
 ---
+import { getEntry } from "astro:content";
 
+const Data = await getEntry("startups", "startups");
+const pricing = Data.data.pricing;
 ---
 
 <section class="pricing-section" id="offer">
@@ -11,16 +14,14 @@
       >
         <span
           class="eyebrow"
-          >Team Pricing</span
+          >{pricing.badge}</span
         >
       </div>
       <h2 class="text-dark">
-        Engineering Team Pricing: Flat Rate From £2,500/Month
+        {pricing.title}
       </h2>
       <p class="text-dark opacity-70 max-width-700 mx-auto">
-        Access an elite software product team for a fraction of the cost of
-        hiring in-house. All-inclusive flat-rate subscription, cancel or scale
-        anytime.
+        {pricing.subtitle}
       </p>
     </div>
 
@@ -32,14 +33,14 @@
             class="card-header-top d-flex flex-wrap justify-content-between align-items-center mb-4"
           >
             <div>
-              <div class="card-badge mb-2">Pre-Seed Package</div>
-              <h3 class="card-plan-title mb-0">Startup Team</h3>
+              <div class="card-badge mb-2">{pricing.package_label}</div>
+              <h3 class="card-plan-title mb-0">{pricing.plan_title}</h3>
             </div>
             <div class="price-block text-md-end mt-3 mt-md-0">
               <div class="price-container mb-0">
-                <span class="currency">£</span>
-                <span class="amount">2,500</span>
-                <span class="period">/ month</span>
+                <span class="currency">{pricing.currency}</span>
+                <span class="amount">{pricing.amount}</span>
+                <span class="period">{pricing.period}</span>
               </div>
               <div class="savings-capsule mt-2 mb-0">
                 <svg
@@ -55,17 +56,13 @@
                     d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
                   ></path>
                 </svg>
-                Save 85%+ vs. In-House
+                {pricing.savings_text}
               </div>
             </div>
           </div>
 
           <p class="card-plan-desc-single mb-4">
-            Digital Back Office's startup engineering Team starts at £2,500/month
-            on a flat-rate, cancel-anytime subscription, covering UX/UI design,
-            frontend and backend development, DevOps, and AI features, which is
-            over 85% less than recruiting and onboarding an equivalent in-house
-            team.
+            {pricing.description}
           </p>
 
           <hr class="card-divider" />
@@ -73,89 +70,31 @@
           <h4
             class="eyebrow text-dark mb-3" style="opacity: 0.6;"
           >
-            What is included:
+            {pricing.features_label}
           </h4>
 
           <ul class="card-features-list card-features-grid mb-4">
-            <li>
-              <div class="check-icon">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <span>Complete IP Ownership & Clean Handover</span>
-            </li>
-            <li>
-              <div class="check-icon">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <span>DevOps Setup (CI/CD, secure scaling config)</span>
-            </li>
-            <li>
-              <div class="check-icon">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <span>Advanced UI frontend and backend architecture</span>
-            </li>
-            <li>
-              <div class="check-icon">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <span>AI features (Agent workflows & model endpoints)</span>
-            </li>
-            <li>
-              <div class="check-icon">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                >
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <span>Flexible monthly terms, cancel or scale anytime</span>
-            </li>
+            {pricing.features.map((feature: string) => (
+              <li>
+                <div class="check-icon">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span>{feature}</span>
+              </li>
+            ))}
           </ul>
 
           <a href="#claim-offer" class="btn-pricing-cta primary-btn mt-2">
-            Apply For Pod
+            {pricing.cta_text}
             <svg
               width="16"
               height="16"
@@ -176,8 +115,7 @@
     <!-- Savings notice comparison -->
     <div class="pricing-comparison-footer text-center mt-5">
       <p class="text-dark opacity-60">
-        Flexible monthly rolling terms. Digital Back Office provides
-        all-inclusive, cancel-anytime software pods.
+        {pricing.footer_text}
       </p>
     </div>
   </div>
