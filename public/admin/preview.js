@@ -28,86 +28,278 @@ function list(entry, path) {
   return Array.isArray(value) ? value : [];
 }
 
-// Minimal, dependency-free markdown -> HTML. Covers what this repo's
-// blog bodies actually use: headings, bold/italic, inline code, links,
-// lists, paragraphs. Not CommonMark-complete, just readable.
+// Dependency-free MDX-body -> HTML for the blog preview. Mirrors what the
+// real pipeline (remark + the <Quote>/<Faq> components) produces for the
+// constructs this repo's posts actually use: headings, paragraphs (soft
+// line breaks merge into one <p>), tight/loose bullet and numbered lists
+// with indented continuation lines, bold/italic/code/links, <hr>, standalone
+// <img>, <Quote quote={...}/> and <Faq items={...}/>. Nothing is eval'd.
+
+function escapeHtml(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function safeHref(url) {
+  var u = String(url).trim();
+  if (/^\s*javascript:/i.test(u)) return '#';
+  return u.replace(/"/g, '%22');
+}
+
+// Astro's markdown pipeline runs smartypants on prose: curly quotes,
+// ellipses and dashes. Applied only to text nodes - never inside tags
+// (attributes/URLs) or <code>.
+function smartPunctuation(html) {
+  var parts = html.split(/(<[^>]*>)/);
+  var prev = ' ';
+  var inCode = false;
+  var openers = ' \t\n([{–—';
+  return parts.map(function (part) {
+    if (part.charAt(0) === '<' && part.charAt(part.length - 1) === '>') {
+      if (/^<code\b/i.test(part)) inCode = true;
+      else if (/^<\/code>/i.test(part)) inCode = false;
+      prev = part.charAt(1) === '/' ? 'x' : ' ';
+      return part;
+    }
+    if (inCode || !part) {
+      if (part) prev = part.charAt(part.length - 1);
+      return part;
+    }
+    var text = part.replace(/\.\.\./g, '…').replace(/---/g, '—').replace(/--/g, '–');
+    var out = '';
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      var before = i === 0 ? prev : text.charAt(i - 1);
+      var isOpening = openers.indexOf(before) !== -1;
+      if (ch === '"') out += isOpening ? '“' : '”';
+      else if (ch === "'") out += isOpening ? '‘' : '’';
+      else out += ch;
+    }
+    prev = text.charAt(text.length - 1);
+    return out;
+  }).join('');
+}
+
+// Trailing two spaces (or a backslash) is a markdown hard line break; keep a
+// marker through the trimming below and turn it into <br> in inlineMarkdown.
+function hardBreakMark(rawLine) {
+  var text = String(rawLine);
+  return /(?: {2,}|\\)$/.test(text) ? text.trim().replace(/\\$/, '') + '\u0001' : text.trim();
+}
+
+function inlineMarkdown(text) {
+  return smartPunctuation(String(text).replace(/\u0001\s*$/, '')
+    .split(/(`[^`\n]+`)/)
+    .map(function (part, idx) {
+      if (idx % 2 === 1) return '<code>' + escapeHtml(part.slice(1, -1)) + '</code>';
+      return escapeHtml(part)
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (m, label, url) {
+          return '<a href="' + safeHref(url) + '">' + label + '</a>';
+        })
+        .replace(/\*\*\*([\s\S]+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+        .replace(/\*\*([\s\S]+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    })
+    .join('')).replace(/\u0001\n?/g, '<br>\n');
+}
+
+// Faq.astro's renderInlineMarkdown: escape, then links, then bold only.
+function faqInlineMarkdown(text) {
+  return escapeHtml(text)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (m, label, url) {
+      return '<a href="' + safeHref(url) + '">' + label + '</a>';
+    })
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+
+function parseStringLiteral(raw) {
+  var s = String(raw).trim();
+  var q = s.charAt(0);
+  if (q !== '`' && q !== '"' && q !== "'") return s;
+  s = s.slice(1, -1);
+  if (q === '`') return s.replace(/\\`/g, '`');
+  return s.replace(/\\(["'\\])/g, '$1').replace(/\\n/g, '\n');
+}
+
+function exportStatementComplete(statement) {
+  var eq = statement.indexOf('=');
+  if (eq === -1) return false;
+  var rhs = statement.slice(eq + 1);
+  var depth = 0;
+  var str = null;
+  for (var i = 0; i < rhs.length; i++) {
+    var ch = rhs.charAt(i);
+    if (str) {
+      if (ch === '\\') i++;
+      else if (ch === str) str = null;
+    } else if (ch === '"' || ch === "'" || ch === '`') str = ch;
+    else if (ch === '[' || ch === '{' || ch === '(') depth++;
+    else if (ch === ']' || ch === '}' || ch === ')') depth--;
+  }
+  return !str && depth <= 0 && rhs.trim() !== '';
+}
+
+// Removes MDX import/export statements (including multi-line ones such as
+// `export const faqs = [ ... ];`) and returns the exported raw values.
+function splitMdxModule(src) {
+  var lines = String(src).replace(/\r\n/g, '\n').split('\n');
+  var body = [];
+  var exportsMap = {};
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+    if (/^\s*import\s/.test(line)) continue;
+    var m = line.match(/^export\s+(?:const|let|var)\s+(\w+)\s*=/);
+    if (m) {
+      var statement = line;
+      while (!exportStatementComplete(statement) && i + 1 < lines.length) {
+        i++;
+        statement += '\n' + lines[i];
+      }
+      exportsMap[m[1]] = statement
+        .replace(/^export\s+(?:const|let|var)\s+\w+\s*=\s*/, '')
+        .replace(/;\s*$/, '');
+      continue;
+    }
+    body.push(line);
+  }
+  return { body: body.join('\n'), exportsMap: exportsMap };
+}
+
+function parseFaqItems(raw) {
+  var items = [];
+  var lit = '("(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\'|`[^`]*`)';
+  var re = new RegExp('\\bq\\s*:\\s*' + lit + '\\s*,\\s*a\\s*:\\s*' + lit, 'g');
+  var m;
+  while ((m = re.exec(raw || ''))) {
+    items.push({ q: parseStringLiteral(m[1]), a: parseStringLiteral(m[2]) });
+  }
+  return items;
+}
+
+function renderQuoteCard(text) {
+  return '<div class="card border-0 bg-secondary " style="margin: 3rem auto">' +
+    '<div class="card-body"><figure><blockquote class="blockquote"><p>' +
+    escapeHtml(text) + '</p></blockquote></figure></div></div>';
+}
+
+function renderFaqBlock(items) {
+  return '<div class="blog-faq">' + items.map(function (it) {
+    return '<details><summary>' + escapeHtml(it.q) + '</summary><p>' + faqInlineMarkdown(it.a) + '</p></details>';
+  }).join('') + '</div>';
+}
+
+var BULLET_RE = /^ {0,3}([-*+])\s+(.*)$/;
+var ORDERED_RE = /^ {0,3}(\d+)[.)]\s+(.*)$/;
+
 function markdownToHtml(src) {
   if (!src) return '';
-
-  // Strip MDX import/export lines and JSX component tags - the preview
-  // can't execute them, so render what's left as plain markdown.
-  var lines = String(src)
-    .split('\n')
-    .filter(function (line) {
-      return !/^\s*(import|export)\s/.test(line);
-    });
-
+  var mod = splitMdxModule(src);
+  var lines = mod.body.split('\n');
+  var exportsMap = mod.exportsMap;
   var html = [];
-  var listBuffer = [];
-  var listType = null;
+  var para = [];
+  var i = 0;
 
-  function flushList() {
-    if (listBuffer.length) {
-      html.push('<' + listType + '>' + listBuffer.join('') + '</' + listType + '>');
-      listBuffer = [];
-      listType = null;
+  function flushPara() {
+    if (para.length) {
+      html.push('<p>' + inlineMarkdown(para.join('\n')) + '</p>');
+      para = [];
     }
   }
 
-  function inline(text) {
-    return text
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
-      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  function startsBlock(line) {
+    var t = line.trim();
+    return /^#{1,6}\s/.test(t) || /^<(?:[A-Z]|img\b)/i.test(t) || /^(-{3,}|\*{3,}|_{3,})$/.test(t);
   }
 
-  lines.forEach(function (rawLine) {
-    var line = rawLine.trim();
+  while (i < lines.length) {
+    var line = lines[i];
+    var trimmed = line.trim();
 
-    // Drop raw JSX/HTML component tags (<Quote .../>, <img ... />) and
-    // template-literal export lines that slipped past the filter above.
-    if (/^<[A-Za-z][^>]*\/?>(.*)/.test(line) && !/^<img/i.test(line)) {
-      if (/^<img/i.test(line) === false && /^<[a-z]/.test(line) === false) {
-        flushList();
-        return;
-      }
+    if (trimmed === '') { flushPara(); i++; continue; }
+
+    if (/^<Quote\b/.test(trimmed)) {
+      flushPara();
+      var qa = trimmed.match(/quote=\{(\w+)\}/);
+      var qs = trimmed.match(/quote=("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/);
+      var quoteText = qa ? parseStringLiteral(exportsMap[qa[1]] || '') : (qs ? parseStringLiteral(qs[1]) : '');
+      html.push(renderQuoteCard(quoteText));
+      i++; continue;
     }
+    if (/^<Faq\b/.test(trimmed)) {
+      flushPara();
+      var fa = trimmed.match(/items=\{(\w+)\}/);
+      html.push(renderFaqBlock(parseFaqItems(fa ? exportsMap[fa[1]] : '')));
+      i++; continue;
+    }
+    if (/^<img\s[^<>]*>$/i.test(trimmed)) {
+      flushPara();
+      html.push(trimmed.replace(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*')/gi, ''));
+      i++; continue;
+    }
+    if (/^<[A-Z]/.test(trimmed)) { flushPara(); i++; continue; }
 
-    var heading = line.match(/^(#{1,6})\s+(.*)/);
+    var heading = trimmed.match(/^(#{1,6})\s+(.*?)\s*#*\s*$/);
     if (heading) {
-      flushList();
-      var level = heading[1].length;
-      html.push('<h' + level + '>' + inline(heading[2]) + '</h' + level + '>');
-      return;
+      flushPara();
+      html.push('<h' + heading[1].length + '>' + inlineMarkdown(heading[2]) + '</h' + heading[1].length + '>');
+      i++; continue;
     }
 
-    var bullet = line.match(/^[-*]\s+(.*)/);
-    if (bullet) {
-      if (listType && listType !== 'ul') flushList();
-      listType = 'ul';
-      listBuffer.push('<li>' + inline(bullet[1]) + '</li>');
-      return;
+    if (/^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)) { flushPara(); html.push('<hr>'); i++; continue; }
+
+    var first = line.match(BULLET_RE) || line.match(ORDERED_RE);
+    if (first) {
+      flushPara();
+      var ordered = !BULLET_RE.test(line);
+      var markerRe = ordered ? ORDERED_RE : BULLET_RE;
+      var startNum = ordered ? parseInt(first[1], 10) : 1;
+      var items = [];
+      var loose = false;
+
+      while (i < lines.length) {
+        var mk = lines[i].match(markerRe);
+        if (!mk) break;
+        var item = [hardBreakMark(mk[2])];
+        i++;
+        while (i < lines.length && lines[i].trim() !== '' && !markerRe.test(lines[i]) &&
+               !BULLET_RE.test(lines[i]) && !ORDERED_RE.test(lines[i]) && !startsBlock(lines[i])) {
+          item.push(hardBreakMark(lines[i]));
+          i++;
+        }
+        var j = i;
+        while (j < lines.length && lines[j].trim() === '') j++;
+        var extraParas = [];
+        while (j > i && j < lines.length && /^( {2,}|\t)\S/.test(lines[j]) && !markerRe.test(lines[j])) {
+          var para2 = [];
+          while (j < lines.length && lines[j].trim() !== '' && !markerRe.test(lines[j])) { para2.push(hardBreakMark(lines[j])); j++; }
+          extraParas.push(para2);
+          loose = true;
+          i = j;
+          while (j < lines.length && lines[j].trim() === '') j++;
+        }
+        items.push({ lead: item, extra: extraParas });
+        if (j < lines.length && markerRe.test(lines[j])) {
+          if (j > i) loose = true;
+          i = j;
+          continue;
+        }
+        break;
+      }
+
+      var tag = ordered ? 'ol' : 'ul';
+      var open = '<' + tag + (ordered && startNum !== 1 ? ' start="' + startNum + '"' : '') + '>';
+      html.push(open + items.map(function (it) {
+        var parts = [it.lead.join('\n')].concat(it.extra.map(function (p) { return p.join('\n'); }));
+        if (loose) return '<li>' + parts.map(function (p) { return '<p>' + inlineMarkdown(p) + '</p>'; }).join('') + '</li>';
+        return '<li>' + inlineMarkdown(parts[0]) + '</li>';
+      }).join('') + '</' + tag + '>');
+      continue;
     }
 
-    var numbered = line.match(/^\d+\.\s+(.*)/);
-    if (numbered) {
-      if (listType && listType !== 'ol') flushList();
-      listType = 'ol';
-      listBuffer.push('<li>' + inline(numbered[1]) + '</li>');
-      return;
-    }
-
-    if (line === '') {
-      flushList();
-      return;
-    }
-
-    flushList();
-    html.push('<p>' + inline(line) + '</p>');
-  });
-
-  flushList();
+    para.push(hardBreakMark(line));
+    i++;
+  }
+  flushPara();
   return html.join('\n');
 }
 
@@ -123,91 +315,166 @@ CMS.registerPreviewStyle('/assets/icons/around-icons.min.css');
 CMS.registerPreviewStyle('/admin/preview.css');
 
 /* ---------------------------------------------------------------------
- * Blog posts (src/pages/posts/*.mdx) - rendered by src/layouts/BlogLayout.astro
- * Fields per public/admin/config.yml collection "blog": title, author
- * (relation -> authors collection slug), description, image, tags[],
- * date, body (markdown). BlogLayout also pulls the related author entry
- * (name, description, image) via getEntry("authors", frontmatter.author) -
- * the preview can't hit astro:content, so it looks up the author from
- * the sibling "authors" collection entries already loaded in the CMS.
+ * Blog posts (src/pages/posts/*.mdx) - rendered by src/layouts/BlogLayout.astro.
+ * The template reproduces BlogLayout's real markup/classes: title, "By:"
+ * byline, lead description, #content body, tags, author widget with share
+ * icons, the comments mount point and the sticky "Book a Discovery Call"
+ * sidebar (static facsimile of ConsultationForm.astro's front face - its
+ * flatpickr/booking script is not run). Like the real layout it does NOT
+ * show the frontmatter `image` (that only feeds og:image); the post's own
+ * inline <img> is what appears. The Navbar/Footer from Layout.astro are
+ * not reproduced. The body goes through markdownToHtml above, which also
+ * resolves <Quote quote={quote}/> and <Faq items={faqs}/> from the post's
+ * `export const` lines. Author name/description/image come from the
+ * relation widget's fieldsMetaData (searched by slug, since its nesting
+ * depends on the Decap version); if absent the slug is shown instead.
  * ------------------------------------------------------------------- */
+function assetUrl(getAsset, path) {
+  if (!path) return '';
+  try {
+    var resolved = getAsset ? getAsset(path) : null;
+    var url = resolved ? String(resolved) : '';
+    return url && url !== '[object Object]' ? url : path;
+  } catch (e) {
+    return path;
+  }
+}
+
+function findMetaByKey(node, key, depth) {
+  if (!node || typeof node !== 'object' || depth > 4) return null;
+  if (Object.prototype.hasOwnProperty.call(node, key) && node[key] && typeof node[key] === 'object') return node[key];
+  var keys = Object.keys(node);
+  for (var i = 0; i < keys.length; i++) {
+    var found = findMetaByKey(node[keys[i]], key, depth + 1);
+    if (found) return found;
+  }
+  return null;
+}
+
+function renderBlogConsultationForm() {
+  function inputGroup(label, props) {
+    return h('div', { className: 'mb-2' },
+      h('label', { className: 'form-label fs-base', htmlFor: props.id }, ' ' + label),
+      h('input', Object.assign({ className: 'form-control form-control-lg fs-sm', readOnly: true }, props))
+    );
+  }
+  return h('div', { className: 'flip-card' },
+    h('div', { className: 'flip-card-inner' },
+      h('div', { className: 'flip-card-front' },
+        h('form', { className: 'card-body', style: { backgroundColor: 'var(--bg-contrast)' }, onSubmit: function (e) { e.preventDefault(); } },
+          h('h2', { className: 'h3 card-title  text-center pb-2 pb-xxl-3' }, 'Book a Discovery Call'),
+          inputGroup('Your Name', { type: 'text', placeholder: 'Enter your name', id: 'preview-name' }),
+          inputGroup('Company Name', { type: 'text', placeholder: "Enter your company's name", id: 'preview-company' }),
+          inputGroup('Email address', { type: 'email', placeholder: 'Enter your email address', id: 'preview-email' }),
+          h('div', { className: 'mb-2' },
+            h('label', { className: 'form-label', htmlFor: 'preview-date' }, 'Date'),
+            h('div', { className: 'position-relative' },
+              h('input', { className: 'form-control form-control-lg date-picker pe-5 fs-sm', type: 'text', placeholder: 'Choose available date', id: 'preview-date', readOnly: true }),
+              h('i', { className: 'ai-calendar position-absolute top-50 end-0 translate-middle-y fs-lg  opacity-80 me-3' })
+            )
+          ),
+          h('div', { className: 'mb-2' },
+            h('label', { className: 'form-label', htmlFor: 'preview-time' }, 'Time'),
+            h('div', { className: 'position-relative' },
+              h('select', { className: 'form-control form-control-lg pe-5 fs-sm', id: 'preview-time', defaultValue: '' },
+                h('option', { value: '' }, 'Choose date first')
+              )
+            )
+          ),
+          h('div', { className: 'd-flex flex-column flex-sm-row flex-lg-column flex-xxl-row align-items-center justify-content-center justify-content-lg-start pt-3 pt-xxl-4' },
+            h('button', { className: 'btn btn-lg btn-outline-primary book-btn w-100 h-100 py book-now-btn', type: 'submit', disabled: true }, 'Book now')
+          )
+        )
+      )
+    )
+  );
+}
+
 var BlogPreview = createClass({
   render: function () {
     var entry = this.props.entry;
+    var getAsset = this.props.getAsset;
     var title = field(entry, ['title'], 'Untitled post');
     var description = field(entry, ['description'], '');
-    var image = field(entry, ['image'], '');
     var tags = list(entry, ['tags']);
     var authorSlug = field(entry, ['author'], '');
     var bodyHtml = markdownToHtml(field(entry, ['body'], ''));
 
-    // getAsset resolves the CMS media path to a renderable URL.
-    var imageUrl = image && this.props.getAsset ? this.props.getAsset(image) : image;
-
-    var authorEntries = this.props.fieldsMetaData && this.props.fieldsMetaData.get
-      ? this.props.fieldsMetaData.get('author')
-      : null;
-    var authorName = authorSlug;
-    var authorDesc = '';
-    var authorImage = '';
-    if (authorEntries) {
-      try {
-        var authorData = authorEntries.getIn([authorSlug]);
-        if (authorData) {
-          authorName = authorData.get('name') || authorSlug;
-          authorDesc = authorData.get('description') || '';
-          var authorImg = authorData.get('image');
-          authorImage = authorImg && this.props.getAsset ? this.props.getAsset(authorImg) : authorImg;
-        }
-      } catch (e) {
-        // fieldsMetaData shape not available in this Decap version - fall back to the slug.
-      }
-      // NOTE: the relation field (public/admin/config.yml, collection "blog",
-      // field "author") only declares display_fields: [name], so
-      // fieldsMetaData for "author" is only guaranteed to carry `name`.
-      // description/image above are a best-effort reach into the related
-      // entry's full data and may come back undefined - handled by the
-      // `authorImage ? ... : null` / `|| ''` fallbacks, but verify in a
-      // real browser rather than trusting this comment.
+    var authorData = {};
+    try {
+      var meta = this.props.fieldsMetaData;
+      var plainMeta = meta && typeof meta.toJS === 'function' ? meta.toJS() : meta;
+      var scope = plainMeta && plainMeta.author ? plainMeta.author : plainMeta;
+      authorData = findMetaByKey(scope, authorSlug, 0) || {};
+    } catch (e) {
+      authorData = {};
     }
+    var authorName = authorData.name || authorSlug || 'Digital Back Office';
+    var authorImage = assetUrl(getAsset, authorData.image);
 
-    return h('div', { className: 'page-wrapper', style: { paddingTop: '2rem' } },
+    var shareLinks = [
+      { icon: 'ai-linkedin', label: 'LinkedIn', cls: 'nav-link p-2 me-2 ' },
+      { icon: 'ai-facebook', label: 'Facebook', cls: 'nav-link p-2 me-2 ' },
+      { icon: 'ai-telegram fs-sm', label: 'Telegram', cls: 'nav-link p-2 me-2 ' },
+      { icon: 'ai-x', label: 'X', cls: 'nav-link p-2 ' },
+    ];
+
+    return h('div', { className: 'blog-preview' },
       h('section', { className: 'container pt-5 mt-5' },
         h('div', { className: 'row justify-content-between' },
           h('div', { className: 'col-lg-8 col-xl-8 pe-lg-4 pe-xl-0 pb-5' },
             h('h1', { className: 'h2 pb-2 pb-lg-3' }, title),
-            h('div', { className: 'd-flex flex-wrap align-items-center border-bottom mb-4' },
+            h('div', { className: 'd-flex flex-wrap align-items-center justify-content-between border-bottom mb-4 ' },
               h('div', { className: 'd-flex align-items-center mb-4 me-4' },
                 h('span', { className: 'fs-sm me-2' }, 'By:'),
-                h('span', { className: 'fw-semibold' }, authorName)
+                h('a', { className: 'nav-link position-relative fw-semibold p-0 blog-layout-a', href: '#author' },
+                  authorName,
+                  h('span', { className: 'd-block position-absolute start-0 bottom-0 w-100', style: { backgroundColor: 'currentColor', height: '1px' } })
+                )
               )
             ),
-            imageUrl ? h('img', {
-              src: imageUrl,
-              alt: title,
-              style: { margin: '0 0 2rem', width: '100%', maxHeight: '400px', objectFit: 'cover', borderRadius: '8px' },
-            }) : null,
             h('p', { className: 'lead pt-2 pt-sm-3' }, description),
             h('div', { id: 'content', dangerouslySetInnerHTML: { __html: bodyHtml } }),
-            h('div', { className: 'd-flex flex-wrap pb-5 pt-3' },
+            h('div', { className: 'd-flex flex-wrap pb-5 pt-3 pt-md-4 pt-xl-5 mt-xl-n2' },
               h('h3', { className: 'h6 py-1 mb-0 me-4' }, 'Relevant tags:'),
               tags.map(function (tag, i) {
-                return h('span', { key: i, className: 'fs-sm fw-bold py-1 px-0 me-3' }, '#' + tag);
+                return h('span', { key: i, className: 'nav-link fs-sm fw-bold py-1 px-0 me-3' }, h('span', {}, '#'), tag);
               })
             ),
-            h('div', { className: 'border-top border-bottom py-4' },
+            h('div', { className: 'border-top border-bottom py-4', id: 'author' },
               h('div', { className: 'd-flex align-items-start py-2' },
-                authorImage ? h('img', {
-                  className: 'd-block rounded-circle mb-3',
-                  src: authorImage,
-                  width: 56,
-                  height: 56,
-                  alt: 'Author image',
-                  style: { marginRight: '1rem' },
-                }) : null,
-                h('div', {},
-                  h('h3', { className: 'h5 mb-2' }, authorName),
-                  h('p', { className: 'fs-sm mb-0' }, authorDesc)
+                authorImage ? h('img', { className: 'd-block rounded-circle mb-3', src: authorImage, width: 56, height: 56, alt: 'Author image' }) : null,
+                h('div', { className: 'd-md-flex w-100 ps-4' },
+                  h('div', { style: { maxWidth: '26rem' } },
+                    h('h3', { className: 'h5 mb-2' }, authorName),
+                    h('p', { className: 'fs-sm mb-0' }, authorData.description || '')
+                  ),
+                  h('div', { className: 'pt-4 pt-md-0 ps-md-4 ms-md-auto ' },
+                    h('h3', { className: 'h5 ' }, 'Share post:'),
+                    h('div', { className: 'd-flex' },
+                      shareLinks.map(function (link) {
+                        return h('a', { key: link.label, className: link.cls, href: '#', title: link.label, 'aria-label': link.label, onClick: function (e) { e.preventDefault(); } },
+                          h('i', { className: link.icon })
+                        );
+                      })
+                    )
+                  )
+                )
+              )
+            ),
+            h('div', { className: 'giscus pt-5 pb-4 border-bottom', id: 'comments' })
+          ),
+          h('aside', { className: 'col-lg-3 col-xl-3 offset-xl-1' },
+            h('div', { className: 'offcanvas-lg offcanvas-end', id: 'sidebar', style: { height: '100%' } },
+              h('div', { className: 'offcanvas-header' },
+                h('h4', { className: 'offcanvas-title' }, 'Sidebar'),
+                h('button', { className: 'btn-close ms-auto', type: 'button', 'aria-label': 'Close' })
+              ),
+              h('div', { className: 'offcanvas-body', style: { height: '100%', paddingBottom: '1rem' } },
+                h('div', { className: 'offcanvas-body', style: { height: '100%' } },
+                  h('div', { className: 'col contact-div offset-xxl-1 pt-sm-3 sticky-top', style: { marginRight: '-50px', zIndex: 1, top: '6rem' } },
+                    h('div', { id: 'sticky-component', className: 'card contact-form border-0' }, renderBlogConsultationForm())
+                  )
                 )
               )
             )
