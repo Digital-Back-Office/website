@@ -882,7 +882,7 @@ collections:
     delete: false
     identifier_field: title
     slug: '{{slug}}'
-    media_folder: public/assets/images/blogs
+    media_folder: /public/assets/images/blogs
     public_folder: /assets/images/blogs
     fields:
       - {label: Layout, name: layout, widget: hidden, default: ../../layouts/BlogLayout.astro}
