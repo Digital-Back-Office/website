@@ -196,6 +196,12 @@ const eventsCollection = defineCollection({
             category_label: z.string(),
             format: z.string(),
             summary: z.string().optional(),
+            // Poster shown at the top of the card.
+            image: z.string().optional(),
+            // Featured-card extras: eyebrow line, long date and topic pills.
+            eyebrow: z.string().optional(),
+            date_label: z.string().optional(),
+            topics: z.array(z.string()).optional(),
             date: z.string(),
             day: z.string(),
             month: z.string(),

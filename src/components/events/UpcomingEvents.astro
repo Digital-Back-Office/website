@@ -6,7 +6,7 @@ export interface Props {
   subtitle: string;
   empty_message: string;
   host_cta: { label: string; href: string };
-  manual_events?: Record<string, string | undefined>[];
+  manual_events?: Record<string, unknown>[];
 }
 
 const { title, subtitle, empty_message, host_cta, manual_events = [] } = Astro.props;

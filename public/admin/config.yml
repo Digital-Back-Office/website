@@ -267,6 +267,10 @@ collections:
               - {label: Filter label, name: category_label, widget: string, hint: "e.g. Meetups"}
               - {label: Format tag, name: format, widget: string}
               - {label: Summary, name: summary, widget: text, required: false}
+              - {label: Poster image URL, name: image, widget: string, required: false}
+              - {label: Eyebrow (featured card), name: eyebrow, widget: string, required: false}
+              - {label: Long date label, name: date_label, widget: string, required: false}
+              - {label: Topic pills, name: topics, widget: list, required: false, field: {label: Topic, name: topic, widget: string}}
               - {label: Start (ISO 8601), name: date, widget: string, hint: "2026-11-26T17:30:00+00:00 - event hides a day after this"}
               - {label: Day, name: day, widget: string}
               - {label: Month, name: month, widget: string}
