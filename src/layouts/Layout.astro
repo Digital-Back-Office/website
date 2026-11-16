@@ -57,7 +57,9 @@ const imageURL = new URL(preview_image, Astro.site || 'https://digitalbackoffice
 
       gtag('config', 'G-0BZVVEWYEV');
     </script>
-    <script src="https://t.contentsquare.net/uxa/96d450d7e9094.js"></script>
+    <!-- is:inline async: without it Astro bundles this URL into the page's module
+         graph, so every script (incl. the events feed) waits for it to load. -->
+    <script is:inline async src="https://t.contentsquare.net/uxa/96d450d7e9094.js"></script>
     <script is:inline>
         (function (c, s, q, u, a, r, e) {
             c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};

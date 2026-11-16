@@ -21,7 +21,7 @@ manual_events:
     category: "meetup"
     category_label: "Meetups"
     format: "Meetup"
-    summary: "A fireside chat on the AI wrapper trap, where real moats come from, why verifiable AI wins in regulated industries, and when to fine-tune open-weight models versus pay for an API. Includes live founder demos."
+    summary: "Every AI founder's nightmare: OpenAI or Anthropic ships a feature that wipes out your product overnight. Join the second Founders & AI session for a fireside chat with Cien Solon (LaunchLemonade), Ajit Barik (HyphenOne and Wyzr) and Anurag Jain (Digital Back Office and Dataflow) on the AI wrapper trap, where real moats come from (proprietary data, workflows, industry integration and trust), why verifiable AI wins in regulated industries like fintech, when to fine-tune open-weight models versus pay for an API, and how investors judge whether an AI startup is defensible. Expect live founder demos with speaker feedback, open Q&A and curated networking, with food and drinks provided. Free to attend, with limited places and registration by approval."
     image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=1200,height=630/event-social/qh/bffe9d2b-3ec9-4536-957b-66d3127487f1.png"
     eyebrow: "Next up"
     date_label: "Thursday, 26 November 2026"
