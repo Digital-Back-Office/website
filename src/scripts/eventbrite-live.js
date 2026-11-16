@@ -105,7 +105,12 @@ function renderEventCard(event) {
     ? `<span class="event-seats-note">${escapeHtml(event.seats_note)}</span>`
     : "";
 
+  const posterHtml = event.image
+    ? `<div class="event-card-poster"><img src="${escapeHtml(event.image)}" alt="" loading="lazy" decoding="async" /></div>`
+    : "";
+
   return `<article class="event-card" data-event-category="${escapeHtml(event.category)}">
+    ${posterHtml}
     <div class="event-card-top">
       <div class="event-date-block" aria-hidden="true">
         <span class="event-date-day">${escapeHtml(event.day)}</span>
@@ -296,16 +301,58 @@ function applyFeatured(featured) {
   root.innerHTML = featured ? renderFeatured(featured) : "";
 }
 
-function applyUpcoming(upcoming) {
+const MANUAL_EVENT_GRACE_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * Real events hosted off Eventbrite (Luma etc.), authored in
+ * content/events/events.md and handed over as JSON on the grid. They are
+ * dropped a day after their start so a finished event never lingers.
+ */
+function readManualEvents() {
+  try {
+    const raw = document.getElementById("events-grid")?.dataset.manualEvents;
+    const events = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(events)) return [];
+    return events.filter((event) => {
+      const start = new Date(event.date).getTime();
+      return Number.isNaN(start) || start + MANUAL_EVENT_GRACE_MS > Date.now();
+    });
+  } catch (error) {
+    return [];
+  }
+}
+
+/**
+ * With no featured event in the feed, the first hand-authored event takes the
+ * large featured card and the rest go in the grid; otherwise they all go in
+ * the grid beside the feed's own events.
+ */
+function splitManual(feedFeatured) {
+  const manual = readManualEvents();
+  return feedFeatured
+    ? { featured: feedFeatured, grid: manual }
+    : { featured: manual[0] ?? null, grid: manual.slice(1) };
+}
+
+function applyUpcoming(upcoming, manual = [], hasFeatured = false) {
   const filtersRoot = document.getElementById("event-filters-root");
   const grid = document.getElementById("events-grid");
   if (!filtersRoot || !grid) return;
 
-  const events = Array.isArray(upcoming?.events) ? upcoming.events : [];
+  const events = [
+    ...manual,
+    ...(Array.isArray(upcoming?.events) ? upcoming.events : []),
+  ];
   const filters =
     Array.isArray(upcoming?.filters) && upcoming.filters.length
-      ? upcoming.filters
+      ? [...upcoming.filters]
       : [{ id: "all", label: "All events" }];
+
+  for (const event of manual) {
+    if (!filters.some((filter) => filter.id === event.category)) {
+      filters.push({ id: event.category, label: event.category_label ?? event.format });
+    }
+  }
 
   filtersRoot.innerHTML = filters.map(renderFilterButton).join("");
   filtersRoot.hidden = !(filters.length > 1 && events.length > 0);
@@ -314,7 +361,7 @@ function applyUpcoming(upcoming) {
 
   document
     .getElementById("events-empty")
-    ?.classList.toggle("is-visible", events.length === 0);
+    ?.classList.toggle("is-visible", events.length === 0 && !hasFeatured);
 }
 
 function applyPast(events) {
@@ -360,8 +407,9 @@ function applyFeed(data) {
   const signature = JSON.stringify(data);
   if (signature === renderedSignature) return;
 
-  applyFeatured(data.featured ?? null);
-  applyUpcoming(data.upcoming);
+  const { featured, grid } = splitManual(data.featured);
+  applyFeatured(featured);
+  applyUpcoming(data.upcoming, grid, Boolean(featured));
   applyPast(data.past?.events);
 
   renderedSignature = signature;
@@ -373,9 +421,11 @@ function applyFeed(data) {
  * points and let the "no events right now" state stand.
  */
 function showEmptyState() {
-  document.getElementById("featured-event-root")?.replaceChildren();
-  document.getElementById("events-grid")?.replaceChildren();
-  document.getElementById("events-empty")?.classList.add("is-visible");
+  // Hand-authored events still stand without the feed; only when there are
+  // none does the empty state show.
+  const { featured, grid } = splitManual(null);
+  applyFeatured(featured);
+  applyUpcoming(null, grid, Boolean(featured));
   setStatus("");
 }
 
@@ -389,6 +439,15 @@ async function hydrateLiveEvents() {
     } catch (error) {
       console.warn("[events] cached schedule was malformed, waiting for the live one", error);
     }
+  }
+
+  // Hand-authored events need no network, so with nothing cached they are
+  // painted now instead of leaving skeletons up for the webhook's round trip.
+  if (renderedSignature === null && readManualEvents().length > 0) {
+    const { featured, grid } = splitManual(null);
+    applyFeatured(featured);
+    applyUpcoming(null, grid, Boolean(featured));
+    setStatus("");
   }
 
   let data = null;
