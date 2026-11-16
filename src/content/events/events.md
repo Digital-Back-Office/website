@@ -16,6 +16,23 @@ upcoming:
   subtitle: "Pick a format that fits how you like to learn. Every session is free, recorded and capped so there is room for real questions."
   empty_message: "There's nothing on the calendar right now. Check back soon — or if you'd like us to run a session for your team, get in touch below."
 
+manual_events:
+  - title: "Founders & AI: How to Build an AI Startup That Big Tech Can’t Kill"
+    category: "meetup"
+    category_label: "Meetups"
+    format: "Meetup"
+    summary: "A fireside chat on the AI wrapper trap, where real moats come from, why verifiable AI wins in regulated industries, and when to fine-tune open-weight models versus pay for an API. Includes live founder demos."
+    date: "2026-11-26T17:30:00+00:00"
+    day: "26"
+    month: "Nov"
+    time_label: "17:30 – 20:00 GMT"
+    location: "The Brew, Eagle House, 163 City Road, London EC1V 1NR"
+    mode: "In person"
+    speaker: "Cien Solon, Ajit Barik & Anurag Jain"
+    cta_text: "Register on Luma"
+    cta_link: "https://luma.com/ydzsu4ke"
+    seats_note: "Free · Limited places"
+
 formats:
   badge: "How we run them"
   title: "Four formats, one standard"

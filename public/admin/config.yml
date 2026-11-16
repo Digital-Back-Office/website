@@ -255,6 +255,29 @@ collections:
               - {label: Title, name: title, widget: string}
               - {label: Subtitle, name: subtitle, widget: text}
               - {label: Empty message, name: empty_message, widget: text}
+          - label: Manual events (Luma etc.)
+            name: manual_events
+            widget: list
+            collapsed: true
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - {label: Title, name: title, widget: string}
+              - {label: Filter id, name: category, widget: string, hint: "e.g. meetup"}
+              - {label: Filter label, name: category_label, widget: string, hint: "e.g. Meetups"}
+              - {label: Format tag, name: format, widget: string}
+              - {label: Summary, name: summary, widget: text, required: false}
+              - {label: Start (ISO 8601), name: date, widget: string, hint: "2026-11-26T17:30:00+00:00 - event hides a day after this"}
+              - {label: Day, name: day, widget: string}
+              - {label: Month, name: month, widget: string}
+              - {label: Time label, name: time_label, widget: string}
+              - {label: Location, name: location, widget: string}
+              - {label: Mode, name: mode, widget: string}
+              - {label: Speaker(s), name: speaker, widget: string}
+              - {label: Speaker role, name: speaker_role, widget: string, required: false}
+              - {label: CTA text, name: cta_text, widget: string}
+              - {label: CTA link, name: cta_link, widget: string}
+              - {label: Seats note, name: seats_note, widget: string, required: false}
           - label: Formats
             name: formats
             widget: object

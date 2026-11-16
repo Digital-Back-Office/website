@@ -296,16 +296,47 @@ function applyFeatured(featured) {
   root.innerHTML = featured ? renderFeatured(featured) : "";
 }
 
+const MANUAL_EVENT_GRACE_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * Real events hosted off Eventbrite (Luma etc.), authored in
+ * content/events/events.md and handed over as JSON on the grid. They are
+ * dropped a day after their start so a finished event never lingers.
+ */
+function readManualEvents() {
+  try {
+    const raw = document.getElementById("events-grid")?.dataset.manualEvents;
+    const events = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(events)) return [];
+    return events.filter((event) => {
+      const start = new Date(event.date).getTime();
+      return Number.isNaN(start) || start + MANUAL_EVENT_GRACE_MS > Date.now();
+    });
+  } catch (error) {
+    return [];
+  }
+}
+
 function applyUpcoming(upcoming) {
   const filtersRoot = document.getElementById("event-filters-root");
   const grid = document.getElementById("events-grid");
   if (!filtersRoot || !grid) return;
 
-  const events = Array.isArray(upcoming?.events) ? upcoming.events : [];
+  const manual = readManualEvents();
+  const events = [
+    ...manual,
+    ...(Array.isArray(upcoming?.events) ? upcoming.events : []),
+  ];
   const filters =
     Array.isArray(upcoming?.filters) && upcoming.filters.length
-      ? upcoming.filters
+      ? [...upcoming.filters]
       : [{ id: "all", label: "All events" }];
+
+  for (const event of manual) {
+    if (!filters.some((filter) => filter.id === event.category)) {
+      filters.push({ id: event.category, label: event.category_label ?? event.format });
+    }
+  }
 
   filtersRoot.innerHTML = filters.map(renderFilterButton).join("");
   filtersRoot.hidden = !(filters.length > 1 && events.length > 0);
@@ -374,8 +405,9 @@ function applyFeed(data) {
  */
 function showEmptyState() {
   document.getElementById("featured-event-root")?.replaceChildren();
-  document.getElementById("events-grid")?.replaceChildren();
-  document.getElementById("events-empty")?.classList.add("is-visible");
+  // Hand-authored events still stand without the feed; only when there are
+  // none does the empty state show.
+  applyUpcoming(null);
   setStatus("");
 }
 

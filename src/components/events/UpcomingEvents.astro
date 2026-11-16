@@ -6,9 +6,10 @@ export interface Props {
   subtitle: string;
   empty_message: string;
   host_cta: { label: string; href: string };
+  manual_events?: Record<string, string | undefined>[];
 }
 
-const { title, subtitle, empty_message, host_cta } = Astro.props;
+const { title, subtitle, empty_message, host_cta, manual_events = [] } = Astro.props;
 
 // This renders the shell only. The filter chips and event cards are built at
 // runtime by src/scripts/eventbrite-live.js from the live Eventbrite feed, so
@@ -33,7 +34,7 @@ const { title, subtitle, empty_message, host_cta } = Astro.props;
     >
     </div>
 
-    <div class="events-grid" id="events-grid">
+    <div class="events-grid" id="events-grid" data-manual-events={JSON.stringify(manual_events)}>
       {
         [0, 1, 2].map(() => (
           <article class="event-card events-skeleton-stack" data-events-skeleton aria-hidden="true">

@@ -188,6 +188,26 @@ const eventsCollection = defineCollection({
             subtitle: z.string(),
             empty_message: z.string()
         }),
+        // Real events hosted off Eventbrite (e.g. Luma). Merged into the live
+        // grid client-side and dropped automatically once `date` has passed.
+        manual_events: z.array(z.object({
+            title: z.string(),
+            category: z.string(),
+            category_label: z.string(),
+            format: z.string(),
+            summary: z.string().optional(),
+            date: z.string(),
+            day: z.string(),
+            month: z.string(),
+            time_label: z.string(),
+            location: z.string(),
+            mode: z.string(),
+            speaker: z.string(),
+            speaker_role: z.string().optional(),
+            cta_text: z.string(),
+            cta_link: z.string(),
+            seats_note: z.string().optional()
+        })).default([]),
         formats: z.object({
             badge: z.string(),
             title: z.string(),
