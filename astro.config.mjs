@@ -15,5 +15,16 @@ export default defineConfig({
   },
   integrations: [
     mdx()
-  ]
+  ],
+  // Dev/preview only (no effect on the static build). Vite blocks requests
+  // whose Host header is not localhost; allow Vercel Sandbox URLs
+  // (sb-*.vercel.run, a new subdomain per sandbox) so Sitepins can load the site.
+  vite: {
+    server: {
+      allowedHosts: ['.vercel.run']
+    },
+    preview: {
+      allowedHosts: ['.vercel.run']
+    }
+  }
 });
