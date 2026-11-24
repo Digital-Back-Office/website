@@ -1,6 +1,5 @@
 {
   "file": "src/pages/posts/announcing-founders-and-ai-event-series-for-early-stage-founders-in-london.mdx",
-  "name": "posts",
   "fileType": "mdx",
   "fmType": "yaml",
   "template": [
@@ -8,9 +7,9 @@
       "name": "layout",
       "label": "Layout",
       "type": "string",
-      "value": "",
+      "value": "../../layouts/BlogLayout.astro",
       "isIgnored": false,
-      "defaultValue": ""
+      "defaultValue": "../../layouts/BlogLayout.astro"
     },
     {
       "name": "title",
